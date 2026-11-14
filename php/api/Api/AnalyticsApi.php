@@ -205,7 +205,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -231,7 +231,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AnalyticsAbilityMaxFirstStats[]
      */
-    public function abilityMaxFirstStats($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityMaxFirstStats'][0])
+    public function abilityMaxFirstStats($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityMaxFirstStats'][0])
     {
         list($response) = $this->abilityMaxFirstStatsWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
         return $response;
@@ -245,7 +245,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -271,7 +271,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AnalyticsAbilityMaxFirstStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function abilityMaxFirstStatsWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityMaxFirstStats'][0])
+    public function abilityMaxFirstStatsWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityMaxFirstStats'][0])
     {
         $request = $this->abilityMaxFirstStatsRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
@@ -353,7 +353,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -378,7 +378,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function abilityMaxFirstStatsAsync($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityMaxFirstStats'][0])
+    public function abilityMaxFirstStatsAsync($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityMaxFirstStats'][0])
     {
         return $this->abilityMaxFirstStatsAsyncWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
             ->then(
@@ -396,7 +396,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -421,7 +421,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function abilityMaxFirstStatsAsyncWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityMaxFirstStats'][0])
+    public function abilityMaxFirstStatsAsyncWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityMaxFirstStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AnalyticsAbilityMaxFirstStats[]';
         $request = $this->abilityMaxFirstStatsRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
@@ -476,7 +476,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -501,7 +501,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function abilityMaxFirstStatsRequest($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityMaxFirstStats'][0])
+    public function abilityMaxFirstStatsRequest($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityMaxFirstStats'][0])
     {
 
         // verify the required parameter 'hero_id' is set
@@ -883,7 +883,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -909,7 +909,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AnalyticsAbilityOrderStats[]
      */
-    public function abilityOrderStats($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStats($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
         list($response) = $this->abilityOrderStatsWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
         return $response;
@@ -923,7 +923,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -949,7 +949,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AnalyticsAbilityOrderStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function abilityOrderStatsWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
         $request = $this->abilityOrderStatsRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
@@ -1031,7 +1031,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1056,7 +1056,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function abilityOrderStatsAsync($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsAsync($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
         return $this->abilityOrderStatsAsyncWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
             ->then(
@@ -1074,7 +1074,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1099,7 +1099,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function abilityOrderStatsAsyncWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsAsyncWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AnalyticsAbilityOrderStats[]';
         $request = $this->abilityOrderStatsRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
@@ -1154,7 +1154,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1179,7 +1179,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function abilityOrderStatsRequest($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsRequest($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
 
         // verify the required parameter 'hero_id' is set
@@ -1561,7 +1561,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1587,7 +1587,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AnalyticsAbilityOrderTreeNode[]
      */
-    public function abilityOrderTree($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
+    public function abilityOrderTree($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
     {
         list($response) = $this->abilityOrderTreeWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
         return $response;
@@ -1601,7 +1601,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1627,7 +1627,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AnalyticsAbilityOrderTreeNode[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function abilityOrderTreeWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
+    public function abilityOrderTreeWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
     {
         $request = $this->abilityOrderTreeRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
@@ -1709,7 +1709,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1734,7 +1734,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function abilityOrderTreeAsync($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
+    public function abilityOrderTreeAsync($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
     {
         return $this->abilityOrderTreeAsyncWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
             ->then(
@@ -1752,7 +1752,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1777,7 +1777,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function abilityOrderTreeAsyncWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
+    public function abilityOrderTreeAsyncWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AnalyticsAbilityOrderTreeNode[]';
         $request = $this->abilityOrderTreeRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
@@ -1832,7 +1832,7 @@ class AnalyticsApi
      * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1857,7 +1857,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function abilityOrderTreeRequest($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
+    public function abilityOrderTreeRequest($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
     {
 
         // verify the required parameter 'hero_id' is set
@@ -2238,7 +2238,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2253,7 +2253,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BadgeDistribution[]
      */
-    public function badgeDistribution($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
+    public function badgeDistribution($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
     {
         list($response) = $this->badgeDistributionWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
         return $response;
@@ -2266,7 +2266,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2281,7 +2281,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BadgeDistribution[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function badgeDistributionWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
+    public function badgeDistributionWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
     {
         $request = $this->badgeDistributionRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
 
@@ -2362,7 +2362,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2376,7 +2376,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function badgeDistributionAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
+    public function badgeDistributionAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
     {
         return $this->badgeDistributionAsyncWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
             ->then(
@@ -2393,7 +2393,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2407,7 +2407,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function badgeDistributionAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
+    public function badgeDistributionAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BadgeDistribution[]';
         $request = $this->badgeDistributionRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
@@ -2461,7 +2461,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2475,7 +2475,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function badgeDistributionRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
+    public function badgeDistributionRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['badgeDistribution'][0])
     {
 
 
@@ -2682,7 +2682,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2700,7 +2700,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AnalyticsBuffStats[]
      */
-    public function buffStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $account_ids = null, string $contentType = self::contentTypes['buffStats'][0])
+    public function buffStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $account_ids = null, string $contentType = self::contentTypes['buffStats'][0])
     {
         list($response) = $this->buffStatsWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $account_ids, $contentType);
         return $response;
@@ -2713,7 +2713,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2731,7 +2731,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AnalyticsBuffStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function buffStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $account_ids = null, string $contentType = self::contentTypes['buffStats'][0])
+    public function buffStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $account_ids = null, string $contentType = self::contentTypes['buffStats'][0])
     {
         $request = $this->buffStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $account_ids, $contentType);
 
@@ -2812,7 +2812,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2829,7 +2829,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function buffStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $account_ids = null, string $contentType = self::contentTypes['buffStats'][0])
+    public function buffStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $account_ids = null, string $contentType = self::contentTypes['buffStats'][0])
     {
         return $this->buffStatsAsyncWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $account_ids, $contentType)
             ->then(
@@ -2846,7 +2846,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2863,7 +2863,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function buffStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $account_ids = null, string $contentType = self::contentTypes['buffStats'][0])
+    public function buffStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $account_ids = null, string $contentType = self::contentTypes['buffStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AnalyticsBuffStats[]';
         $request = $this->buffStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $account_ids, $contentType);
@@ -2917,7 +2917,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2934,7 +2934,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function buffStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $account_ids = null, string $contentType = self::contentTypes['buffStats'][0])
+    public function buffStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $account_ids = null, string $contentType = self::contentTypes['buffStats'][0])
     {
 
 
@@ -3194,7 +3194,7 @@ class AnalyticsApi
      * Build Item Stats
      *
      * @param  int|null $hero_id Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
-     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['buildItemStats'] to see the possible values for this operation
      *
@@ -3202,7 +3202,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\BuildItemStats[]
      */
-    public function buildItemStats($hero_id = null, $min_last_updated_unix_timestamp = 1791849600, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
+    public function buildItemStats($hero_id = null, $min_last_updated_unix_timestamp = 1791936000, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
     {
         list($response) = $this->buildItemStatsWithHttpInfo($hero_id, $min_last_updated_unix_timestamp, $max_last_updated_unix_timestamp, $contentType);
         return $response;
@@ -3214,7 +3214,7 @@ class AnalyticsApi
      * Build Item Stats
      *
      * @param  int|null $hero_id Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
-     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['buildItemStats'] to see the possible values for this operation
      *
@@ -3222,7 +3222,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\BuildItemStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function buildItemStatsWithHttpInfo($hero_id = null, $min_last_updated_unix_timestamp = 1791849600, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
+    public function buildItemStatsWithHttpInfo($hero_id = null, $min_last_updated_unix_timestamp = 1791936000, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
     {
         $request = $this->buildItemStatsRequest($hero_id, $min_last_updated_unix_timestamp, $max_last_updated_unix_timestamp, $contentType);
 
@@ -3302,14 +3302,14 @@ class AnalyticsApi
      * Build Item Stats
      *
      * @param  int|null $hero_id Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
-     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['buildItemStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function buildItemStatsAsync($hero_id = null, $min_last_updated_unix_timestamp = 1791849600, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
+    public function buildItemStatsAsync($hero_id = null, $min_last_updated_unix_timestamp = 1791936000, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
     {
         return $this->buildItemStatsAsyncWithHttpInfo($hero_id, $min_last_updated_unix_timestamp, $max_last_updated_unix_timestamp, $contentType)
             ->then(
@@ -3325,14 +3325,14 @@ class AnalyticsApi
      * Build Item Stats
      *
      * @param  int|null $hero_id Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
-     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['buildItemStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function buildItemStatsAsyncWithHttpInfo($hero_id = null, $min_last_updated_unix_timestamp = 1791849600, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
+    public function buildItemStatsAsyncWithHttpInfo($hero_id = null, $min_last_updated_unix_timestamp = 1791936000, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\BuildItemStats[]';
         $request = $this->buildItemStatsRequest($hero_id, $min_last_updated_unix_timestamp, $max_last_updated_unix_timestamp, $contentType);
@@ -3385,14 +3385,14 @@ class AnalyticsApi
      * Create request for operation 'buildItemStats'
      *
      * @param  int|null $hero_id Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
-     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_last_updated_unix_timestamp Filter builds based on their last updated time (Unix timestamp). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['buildItemStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function buildItemStatsRequest($hero_id = null, $min_last_updated_unix_timestamp = 1791849600, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
+    public function buildItemStatsRequest($hero_id = null, $min_last_updated_unix_timestamp = 1791936000, $max_last_updated_unix_timestamp = null, string $contentType = self::contentTypes['buildItemStats'][0])
     {
 
         if ($hero_id !== null && $hero_id < 0) {
@@ -3505,7 +3505,7 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3527,7 +3527,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AnalyticsGameStats[]
      */
-    public function gameStats($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['gameStats'][0])
+    public function gameStats($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['gameStats'][0])
     {
         list($response) = $this->gameStatsWithHttpInfo($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $contentType);
         return $response;
@@ -3541,7 +3541,7 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3563,7 +3563,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AnalyticsGameStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function gameStatsWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['gameStats'][0])
+    public function gameStatsWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['gameStats'][0])
     {
         $request = $this->gameStatsRequest($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $contentType);
 
@@ -3645,7 +3645,7 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3666,7 +3666,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gameStatsAsync($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['gameStats'][0])
+    public function gameStatsAsync($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['gameStats'][0])
     {
         return $this->gameStatsAsyncWithHttpInfo($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $contentType)
             ->then(
@@ -3684,7 +3684,7 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3705,7 +3705,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gameStatsAsyncWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['gameStats'][0])
+    public function gameStatsAsyncWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['gameStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AnalyticsGameStats[]';
         $request = $this->gameStatsRequest($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $contentType);
@@ -3760,7 +3760,7 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3781,7 +3781,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gameStatsRequest($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['gameStats'][0])
+    public function gameStatsRequest($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_networth = null, $max_networth = null, $hero_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['gameStats'][0])
     {
 
 
@@ -4092,7 +4092,7 @@ class AnalyticsApi
      *
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -4106,7 +4106,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroBanStats[]
      */
-    public function heroBanStats($match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
+    public function heroBanStats($match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
     {
         list($response) = $this->heroBanStatsWithHttpInfo($match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
         return $response;
@@ -4119,7 +4119,7 @@ class AnalyticsApi
      *
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -4133,7 +4133,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroBanStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroBanStatsWithHttpInfo($match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
+    public function heroBanStatsWithHttpInfo($match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
     {
         $request = $this->heroBanStatsRequest($match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
 
@@ -4214,7 +4214,7 @@ class AnalyticsApi
      *
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -4227,7 +4227,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroBanStatsAsync($match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
+    public function heroBanStatsAsync($match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
     {
         return $this->heroBanStatsAsyncWithHttpInfo($match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType)
             ->then(
@@ -4244,7 +4244,7 @@ class AnalyticsApi
      *
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -4257,7 +4257,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroBanStatsAsyncWithHttpInfo($match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
+    public function heroBanStatsAsyncWithHttpInfo($match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroBanStats[]';
         $request = $this->heroBanStatsRequest($match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
@@ -4311,7 +4311,7 @@ class AnalyticsApi
      *
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -4324,7 +4324,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroBanStatsRequest($match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
+    public function heroBanStatsRequest($match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroBanStats'][0])
     {
 
 
@@ -4534,7 +4534,7 @@ class AnalyticsApi
      * @param  int $hero_id The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -4556,7 +4556,7 @@ class AnalyticsApi
      * @return \OpenAPI\Client\Model\HeroBuildStats[]
      * @deprecated
      */
-    public function heroBuildStats($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStats($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
         list($response) = $this->heroBuildStatsWithHttpInfo($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
         return $response;
@@ -4570,7 +4570,7 @@ class AnalyticsApi
      * @param  int $hero_id The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -4592,7 +4592,7 @@ class AnalyticsApi
      * @return array of \OpenAPI\Client\Model\HeroBuildStats[], HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
-    public function heroBuildStatsWithHttpInfo($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsWithHttpInfo($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
         $request = $this->heroBuildStatsRequest($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
@@ -4674,7 +4674,7 @@ class AnalyticsApi
      * @param  int $hero_id The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -4695,7 +4695,7 @@ class AnalyticsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function heroBuildStatsAsync($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsAsync($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
         return $this->heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
             ->then(
@@ -4713,7 +4713,7 @@ class AnalyticsApi
      * @param  int $hero_id The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -4734,7 +4734,7 @@ class AnalyticsApi
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @deprecated
      */
-    public function heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroBuildStats[]';
         $request = $this->heroBuildStatsRequest($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
@@ -4789,7 +4789,7 @@ class AnalyticsApi
      * @param  int $hero_id The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -4810,7 +4810,7 @@ class AnalyticsApi
      * @return \GuzzleHttp\Psr7\Request
      * @deprecated
      */
-    public function heroBuildStatsRequest($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsRequest($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
 
         // verify the required parameter 'hero_id' is set
@@ -5123,7 +5123,7 @@ class AnalyticsApi
      * @param  string|null $hero_ids Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5144,7 +5144,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroBuildStats[]
      */
-    public function heroBuildStatsByHeroes($hero_ids = null, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStatsByHeroes'][0])
+    public function heroBuildStatsByHeroes($hero_ids = null, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStatsByHeroes'][0])
     {
         list($response) = $this->heroBuildStatsByHeroesWithHttpInfo($hero_ids, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
         return $response;
@@ -5158,7 +5158,7 @@ class AnalyticsApi
      * @param  string|null $hero_ids Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5179,7 +5179,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroBuildStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroBuildStatsByHeroesWithHttpInfo($hero_ids = null, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStatsByHeroes'][0])
+    public function heroBuildStatsByHeroesWithHttpInfo($hero_ids = null, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStatsByHeroes'][0])
     {
         $request = $this->heroBuildStatsByHeroesRequest($hero_ids, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
@@ -5261,7 +5261,7 @@ class AnalyticsApi
      * @param  string|null $hero_ids Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5281,7 +5281,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroBuildStatsByHeroesAsync($hero_ids = null, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStatsByHeroes'][0])
+    public function heroBuildStatsByHeroesAsync($hero_ids = null, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStatsByHeroes'][0])
     {
         return $this->heroBuildStatsByHeroesAsyncWithHttpInfo($hero_ids, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
             ->then(
@@ -5299,7 +5299,7 @@ class AnalyticsApi
      * @param  string|null $hero_ids Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5319,7 +5319,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroBuildStatsByHeroesAsyncWithHttpInfo($hero_ids = null, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStatsByHeroes'][0])
+    public function heroBuildStatsByHeroesAsyncWithHttpInfo($hero_ids = null, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStatsByHeroes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroBuildStats[]';
         $request = $this->heroBuildStatsByHeroesRequest($hero_ids, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
@@ -5374,7 +5374,7 @@ class AnalyticsApi
      * @param  string|null $hero_ids Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5394,7 +5394,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroBuildStatsByHeroesRequest($hero_ids = null, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStatsByHeroes'][0])
+    public function heroBuildStatsByHeroesRequest($hero_ids = null, $match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStatsByHeroes'][0])
     {
 
 
@@ -5698,7 +5698,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5723,7 +5723,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroCombStats[]
      */
-    public function heroCombStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $include_enemy_hero_ids = null, $exclude_enemy_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
+    public function heroCombStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $include_enemy_hero_ids = null, $exclude_enemy_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
     {
         list($response) = $this->heroCombStatsWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_hero_ids, $exclude_hero_ids, $include_enemy_hero_ids, $exclude_enemy_hero_ids, $min_matches, $max_matches, $comb_size, $account_id, $account_ids, $contentType);
         return $response;
@@ -5736,7 +5736,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5761,7 +5761,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroCombStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroCombStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $include_enemy_hero_ids = null, $exclude_enemy_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
+    public function heroCombStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $include_enemy_hero_ids = null, $exclude_enemy_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
     {
         $request = $this->heroCombStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_hero_ids, $exclude_hero_ids, $include_enemy_hero_ids, $exclude_enemy_hero_ids, $min_matches, $max_matches, $comb_size, $account_id, $account_ids, $contentType);
 
@@ -5842,7 +5842,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5866,7 +5866,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroCombStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $include_enemy_hero_ids = null, $exclude_enemy_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
+    public function heroCombStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $include_enemy_hero_ids = null, $exclude_enemy_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
     {
         return $this->heroCombStatsAsyncWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_hero_ids, $exclude_hero_ids, $include_enemy_hero_ids, $exclude_enemy_hero_ids, $min_matches, $max_matches, $comb_size, $account_id, $account_ids, $contentType)
             ->then(
@@ -5883,7 +5883,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5907,7 +5907,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroCombStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $include_enemy_hero_ids = null, $exclude_enemy_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
+    public function heroCombStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $include_enemy_hero_ids = null, $exclude_enemy_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroCombStats[]';
         $request = $this->heroCombStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_hero_ids, $exclude_hero_ids, $include_enemy_hero_ids, $exclude_enemy_hero_ids, $min_matches, $max_matches, $comb_size, $account_id, $account_ids, $contentType);
@@ -5961,7 +5961,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -5985,7 +5985,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroCombStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $include_enemy_hero_ids = null, $exclude_enemy_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
+    public function heroCombStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_hero_ids = null, $exclude_hero_ids = null, $include_enemy_hero_ids = null, $exclude_enemy_hero_ids = null, $min_matches = 20, $max_matches = null, $comb_size = 6, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCombStats'][0])
     {
 
 
@@ -6331,7 +6331,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -6355,7 +6355,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroCounterStats[]
      */
-    public function heroCountersStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
         list($response) = $this->heroCountersStatsWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $hero_build_id, $contentType);
         return $response;
@@ -6368,7 +6368,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -6392,7 +6392,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroCounterStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroCountersStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
         $request = $this->heroCountersStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $hero_build_id, $contentType);
 
@@ -6473,7 +6473,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -6496,7 +6496,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroCountersStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
         return $this->heroCountersStatsAsyncWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $hero_build_id, $contentType)
             ->then(
@@ -6513,7 +6513,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -6536,7 +6536,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroCountersStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroCounterStats[]';
         $request = $this->heroCountersStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $hero_build_id, $contentType);
@@ -6590,7 +6590,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -6613,7 +6613,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroCountersStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
 
 
@@ -6955,7 +6955,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  int|null $min_matches Filter by min number of matches played. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -6973,7 +6973,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroEntry[]
      */
-    public function heroScoreboard($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $min_matches = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
+    public function heroScoreboard($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $min_matches = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
     {
         list($response) = $this->heroScoreboardWithHttpInfo($sort_by, $sort_direction, $game_mode, $match_mode, $min_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType);
         return $response;
@@ -6989,7 +6989,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  int|null $min_matches Filter by min number of matches played. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -7007,7 +7007,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroEntry[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroScoreboardWithHttpInfo($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $min_matches = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
+    public function heroScoreboardWithHttpInfo($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $min_matches = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
     {
         $request = $this->heroScoreboardRequest($sort_by, $sort_direction, $game_mode, $match_mode, $min_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType);
 
@@ -7091,7 +7091,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  int|null $min_matches Filter by min number of matches played. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -7108,7 +7108,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroScoreboardAsync($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $min_matches = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
+    public function heroScoreboardAsync($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $min_matches = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
     {
         return $this->heroScoreboardAsyncWithHttpInfo($sort_by, $sort_direction, $game_mode, $match_mode, $min_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType)
             ->then(
@@ -7128,7 +7128,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  int|null $min_matches Filter by min number of matches played. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -7145,7 +7145,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroScoreboardAsyncWithHttpInfo($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $min_matches = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
+    public function heroScoreboardAsyncWithHttpInfo($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $min_matches = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroEntry[]';
         $request = $this->heroScoreboardRequest($sort_by, $sort_direction, $game_mode, $match_mode, $min_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $contentType);
@@ -7202,7 +7202,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  int|null $min_matches Filter by min number of matches played. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -7219,7 +7219,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroScoreboardRequest($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $min_matches = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
+    public function heroScoreboardRequest($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $min_matches = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroScoreboard'][0])
     {
 
         // verify the required parameter 'sort_by' is set
@@ -7523,7 +7523,7 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -7550,7 +7550,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AnalyticsHeroStats[]
      */
-    public function heroStats($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStats($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
         list($response) = $this->heroStatsWithHttpInfo($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $hero_matches_total_buckets, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType);
         return $response;
@@ -7564,7 +7564,7 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -7591,7 +7591,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AnalyticsHeroStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroStatsWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
         $request = $this->heroStatsRequest($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $hero_matches_total_buckets, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType);
 
@@ -7673,7 +7673,7 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -7699,7 +7699,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroStatsAsync($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsAsync($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
         return $this->heroStatsAsyncWithHttpInfo($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $hero_matches_total_buckets, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType)
             ->then(
@@ -7717,7 +7717,7 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -7743,7 +7743,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroStatsAsyncWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsAsyncWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AnalyticsHeroStats[]';
         $request = $this->heroStatsRequest($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $hero_matches_total_buckets, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType);
@@ -7798,7 +7798,7 @@ class AnalyticsApi
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -7824,7 +7824,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroStatsRequest($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsRequest($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
 
 
@@ -8200,7 +8200,7 @@ class AnalyticsApi
      *
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -8214,7 +8214,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroSwapStats[]
      */
-    public function heroSwapStats($match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroSwapStats'][0])
+    public function heroSwapStats($match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroSwapStats'][0])
     {
         list($response) = $this->heroSwapStatsWithHttpInfo($match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
         return $response;
@@ -8227,7 +8227,7 @@ class AnalyticsApi
      *
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -8241,7 +8241,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroSwapStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroSwapStatsWithHttpInfo($match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroSwapStats'][0])
+    public function heroSwapStatsWithHttpInfo($match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroSwapStats'][0])
     {
         $request = $this->heroSwapStatsRequest($match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
 
@@ -8322,7 +8322,7 @@ class AnalyticsApi
      *
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -8335,7 +8335,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroSwapStatsAsync($match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroSwapStats'][0])
+    public function heroSwapStatsAsync($match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroSwapStats'][0])
     {
         return $this->heroSwapStatsAsyncWithHttpInfo($match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType)
             ->then(
@@ -8352,7 +8352,7 @@ class AnalyticsApi
      *
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -8365,7 +8365,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroSwapStatsAsyncWithHttpInfo($match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroSwapStats'][0])
+    public function heroSwapStatsAsyncWithHttpInfo($match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroSwapStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroSwapStats[]';
         $request = $this->heroSwapStatsRequest($match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $contentType);
@@ -8419,7 +8419,7 @@ class AnalyticsApi
      *
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $bucket Bucket allows you to group the stats by a specific field. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -8432,7 +8432,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroSwapStatsRequest($match_mode = null, $bucket = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroSwapStats'][0])
+    public function heroSwapStatsRequest($match_mode = null, $bucket = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['heroSwapStats'][0])
     {
 
 
@@ -8641,7 +8641,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -8662,7 +8662,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroSynergyStats[]
      */
-    public function heroSynergiesStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
+    public function heroSynergiesStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
     {
         list($response) = $this->heroSynergiesStatsWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
         return $response;
@@ -8675,7 +8675,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -8696,7 +8696,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroSynergyStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroSynergiesStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
+    public function heroSynergiesStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
     {
         $request = $this->heroSynergiesStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
 
@@ -8777,7 +8777,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -8797,7 +8797,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroSynergiesStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
+    public function heroSynergiesStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
     {
         return $this->heroSynergiesStatsAsyncWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType)
             ->then(
@@ -8814,7 +8814,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -8834,7 +8834,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroSynergiesStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
+    public function heroSynergiesStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroSynergyStats[]';
         $request = $this->heroSynergiesStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
@@ -8888,7 +8888,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -8908,7 +8908,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroSynergiesStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
+    public function heroSynergiesStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroSynergiesStats'][0])
     {
 
 
@@ -9211,7 +9211,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -9235,7 +9235,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ItemFlowStats
      */
-    public function itemFlowStats($phase_interval_s = 600, $phase_count = 4, $game_mode = null, $match_mode = null, $hero_ids = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $locked_item_ids = null, $locked_columns = null, string $contentType = self::contentTypes['itemFlowStats'][0])
+    public function itemFlowStats($phase_interval_s = 600, $phase_count = 4, $game_mode = null, $match_mode = null, $hero_ids = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $locked_item_ids = null, $locked_columns = null, string $contentType = self::contentTypes['itemFlowStats'][0])
     {
         list($response) = $this->itemFlowStatsWithHttpInfo($phase_interval_s, $phase_count, $game_mode, $match_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $locked_item_ids, $locked_columns, $contentType);
         return $response;
@@ -9251,7 +9251,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -9275,7 +9275,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ItemFlowStats, HTTP status code, HTTP response headers (array of strings)
      */
-    public function itemFlowStatsWithHttpInfo($phase_interval_s = 600, $phase_count = 4, $game_mode = null, $match_mode = null, $hero_ids = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $locked_item_ids = null, $locked_columns = null, string $contentType = self::contentTypes['itemFlowStats'][0])
+    public function itemFlowStatsWithHttpInfo($phase_interval_s = 600, $phase_count = 4, $game_mode = null, $match_mode = null, $hero_ids = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $locked_item_ids = null, $locked_columns = null, string $contentType = self::contentTypes['itemFlowStats'][0])
     {
         $request = $this->itemFlowStatsRequest($phase_interval_s, $phase_count, $game_mode, $match_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $locked_item_ids, $locked_columns, $contentType);
 
@@ -9359,7 +9359,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -9382,7 +9382,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemFlowStatsAsync($phase_interval_s = 600, $phase_count = 4, $game_mode = null, $match_mode = null, $hero_ids = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $locked_item_ids = null, $locked_columns = null, string $contentType = self::contentTypes['itemFlowStats'][0])
+    public function itemFlowStatsAsync($phase_interval_s = 600, $phase_count = 4, $game_mode = null, $match_mode = null, $hero_ids = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $locked_item_ids = null, $locked_columns = null, string $contentType = self::contentTypes['itemFlowStats'][0])
     {
         return $this->itemFlowStatsAsyncWithHttpInfo($phase_interval_s, $phase_count, $game_mode, $match_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $locked_item_ids, $locked_columns, $contentType)
             ->then(
@@ -9402,7 +9402,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -9425,7 +9425,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemFlowStatsAsyncWithHttpInfo($phase_interval_s = 600, $phase_count = 4, $game_mode = null, $match_mode = null, $hero_ids = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $locked_item_ids = null, $locked_columns = null, string $contentType = self::contentTypes['itemFlowStats'][0])
+    public function itemFlowStatsAsyncWithHttpInfo($phase_interval_s = 600, $phase_count = 4, $game_mode = null, $match_mode = null, $hero_ids = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $locked_item_ids = null, $locked_columns = null, string $contentType = self::contentTypes['itemFlowStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemFlowStats';
         $request = $this->itemFlowStatsRequest($phase_interval_s, $phase_count, $game_mode, $match_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $locked_item_ids, $locked_columns, $contentType);
@@ -9482,7 +9482,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -9505,7 +9505,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function itemFlowStatsRequest($phase_interval_s = 600, $phase_count = 4, $game_mode = null, $match_mode = null, $hero_ids = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $locked_item_ids = null, $locked_columns = null, string $contentType = self::contentTypes['itemFlowStats'][0])
+    public function itemFlowStatsRequest($phase_interval_s = 600, $phase_count = 4, $game_mode = null, $match_mode = null, $hero_ids = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 20, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $locked_item_ids = null, $locked_columns = null, string $contentType = self::contentTypes['itemFlowStats'][0])
     {
 
         if ($phase_interval_s !== null && $phase_interval_s < 1) {
@@ -9874,7 +9874,7 @@ class AnalyticsApi
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -9895,7 +9895,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ItemPermutationStats[]
      */
-    public function itemPermutationStats($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStats($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
         list($response) = $this->itemPermutationStatsWithHttpInfo($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $include_corrupted_items, $contentType);
         return $response;
@@ -9914,7 +9914,7 @@ class AnalyticsApi
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -9935,7 +9935,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ItemPermutationStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function itemPermutationStatsWithHttpInfo($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsWithHttpInfo($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
         $request = $this->itemPermutationStatsRequest($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $include_corrupted_items, $contentType);
 
@@ -10022,7 +10022,7 @@ class AnalyticsApi
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -10042,7 +10042,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemPermutationStatsAsync($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsAsync($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
         return $this->itemPermutationStatsAsyncWithHttpInfo($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $include_corrupted_items, $contentType)
             ->then(
@@ -10065,7 +10065,7 @@ class AnalyticsApi
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -10085,7 +10085,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemPermutationStatsAsyncWithHttpInfo($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsAsyncWithHttpInfo($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemPermutationStats[]';
         $request = $this->itemPermutationStatsRequest($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $include_corrupted_items, $contentType);
@@ -10145,7 +10145,7 @@ class AnalyticsApi
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional) (deprecated)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -10165,7 +10165,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function itemPermutationStatsRequest($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsRequest($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
 
 
@@ -10542,7 +10542,7 @@ class AnalyticsApi
      * @param  int|null $min_enemy_networth Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)
      * @param  int|null $max_enemy_networth Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -10573,7 +10573,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ItemStats[]
      */
-    public function itemStats($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $corrupted_items = null, $include_corrupted_items = false, $enhanced_items = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStats($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $corrupted_items = null, $include_corrupted_items = false, $enhanced_items = null, string $contentType = self::contentTypes['itemStats'][0])
     {
         list($response) = $this->itemStatsWithHttpInfo($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $hero_build_id, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $corrupted_items, $include_corrupted_items, $enhanced_items, $contentType);
         return $response;
@@ -10594,7 +10594,7 @@ class AnalyticsApi
      * @param  int|null $min_enemy_networth Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)
      * @param  int|null $max_enemy_networth Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -10625,7 +10625,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ItemStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function itemStatsWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $corrupted_items = null, $include_corrupted_items = false, $enhanced_items = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $corrupted_items = null, $include_corrupted_items = false, $enhanced_items = null, string $contentType = self::contentTypes['itemStats'][0])
     {
         $request = $this->itemStatsRequest($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $hero_build_id, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $corrupted_items, $include_corrupted_items, $enhanced_items, $contentType);
 
@@ -10714,7 +10714,7 @@ class AnalyticsApi
      * @param  int|null $min_enemy_networth Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)
      * @param  int|null $max_enemy_networth Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -10744,7 +10744,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemStatsAsync($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $corrupted_items = null, $include_corrupted_items = false, $enhanced_items = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsAsync($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $corrupted_items = null, $include_corrupted_items = false, $enhanced_items = null, string $contentType = self::contentTypes['itemStats'][0])
     {
         return $this->itemStatsAsyncWithHttpInfo($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $hero_build_id, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $corrupted_items, $include_corrupted_items, $enhanced_items, $contentType)
             ->then(
@@ -10769,7 +10769,7 @@ class AnalyticsApi
      * @param  int|null $min_enemy_networth Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)
      * @param  int|null $max_enemy_networth Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -10799,7 +10799,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemStatsAsyncWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $corrupted_items = null, $include_corrupted_items = false, $enhanced_items = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsAsyncWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $corrupted_items = null, $include_corrupted_items = false, $enhanced_items = null, string $contentType = self::contentTypes['itemStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemStats[]';
         $request = $this->itemStatsRequest($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $hero_build_id, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $corrupted_items, $include_corrupted_items, $enhanced_items, $contentType);
@@ -10861,7 +10861,7 @@ class AnalyticsApi
      * @param  int|null $min_enemy_networth Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)
      * @param  int|null $max_enemy_networth Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. (optional)
      * @param  bool|null $same_lane_filter When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -10891,7 +10891,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function itemStatsRequest($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $corrupted_items = null, $include_corrupted_items = false, $enhanced_items = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsRequest($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $corrupted_items = null, $include_corrupted_items = false, $enhanced_items = null, string $contentType = self::contentTypes['itemStats'][0])
     {
 
 
@@ -11390,7 +11390,7 @@ class AnalyticsApi
      * @param  int|null $team Filter by team number. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -11417,7 +11417,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\KillDeathStats[]
      */
-    public function killDeathStats($team = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStats($team = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         list($response) = $this->killDeathStatsWithHttpInfo($team, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
         return $response;
@@ -11431,7 +11431,7 @@ class AnalyticsApi
      * @param  int|null $team Filter by team number. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -11458,7 +11458,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\KillDeathStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function killDeathStatsWithHttpInfo($team = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsWithHttpInfo($team = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         $request = $this->killDeathStatsRequest($team, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
 
@@ -11540,7 +11540,7 @@ class AnalyticsApi
      * @param  int|null $team Filter by team number. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -11566,7 +11566,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function killDeathStatsAsync($team = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsAsync($team = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         return $this->killDeathStatsAsyncWithHttpInfo($team, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType)
             ->then(
@@ -11584,7 +11584,7 @@ class AnalyticsApi
      * @param  int|null $team Filter by team number. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -11610,7 +11610,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function killDeathStatsAsyncWithHttpInfo($team = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsAsyncWithHttpInfo($team = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\KillDeathStats[]';
         $request = $this->killDeathStatsRequest($team, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $account_ids, $hero_ids, $min_networth, $max_networth, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $min_average_badge, $max_average_badge, $min_kills_per_raster, $max_kills_per_raster, $min_deaths_per_raster, $max_deaths_per_raster, $min_game_time_s, $max_game_time_s, $contentType);
@@ -11665,7 +11665,7 @@ class AnalyticsApi
      * @param  int|null $team Filter by team number. (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -11691,7 +11691,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function killDeathStatsRequest($team = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
+    public function killDeathStatsRequest($team = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $account_ids = null, $hero_ids = null, $min_networth = null, $max_networth = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, $min_average_badge = null, $max_average_badge = null, $min_kills_per_raster = null, $max_kills_per_raster = null, $min_deaths_per_raster = null, $max_deaths_per_raster = null, $min_game_time_s = null, $max_game_time_s = null, string $contentType = self::contentTypes['killDeathStats'][0])
     {
 
         if ($team !== null && $team > 1) {
@@ -12076,7 +12076,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -12099,7 +12099,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LaneMatchupStats[]
      */
-    public function laneMatchupStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $sample_time_s = 900, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneMatchupStats'][0])
+    public function laneMatchupStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $sample_time_s = 900, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneMatchupStats'][0])
     {
         list($response) = $this->laneMatchupStatsWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $sample_time_s, $assigned_lanes, $hero_ids, $enemy_hero_ids, $stats, $group_by, $min_matches, $max_matches, $account_ids, $contentType);
         return $response;
@@ -12112,7 +12112,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -12135,7 +12135,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LaneMatchupStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function laneMatchupStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $sample_time_s = 900, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneMatchupStats'][0])
+    public function laneMatchupStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $sample_time_s = 900, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneMatchupStats'][0])
     {
         $request = $this->laneMatchupStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $sample_time_s, $assigned_lanes, $hero_ids, $enemy_hero_ids, $stats, $group_by, $min_matches, $max_matches, $account_ids, $contentType);
 
@@ -12216,7 +12216,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -12238,7 +12238,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function laneMatchupStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $sample_time_s = 900, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneMatchupStats'][0])
+    public function laneMatchupStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $sample_time_s = 900, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneMatchupStats'][0])
     {
         return $this->laneMatchupStatsAsyncWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $sample_time_s, $assigned_lanes, $hero_ids, $enemy_hero_ids, $stats, $group_by, $min_matches, $max_matches, $account_ids, $contentType)
             ->then(
@@ -12255,7 +12255,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -12277,7 +12277,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function laneMatchupStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $sample_time_s = 900, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneMatchupStats'][0])
+    public function laneMatchupStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $sample_time_s = 900, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneMatchupStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LaneMatchupStats[]';
         $request = $this->laneMatchupStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $sample_time_s, $assigned_lanes, $hero_ids, $enemy_hero_ids, $stats, $group_by, $min_matches, $max_matches, $account_ids, $contentType);
@@ -12331,7 +12331,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -12353,7 +12353,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function laneMatchupStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $sample_time_s = 900, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneMatchupStats'][0])
+    public function laneMatchupStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $sample_time_s = 900, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneMatchupStats'][0])
     {
 
 
@@ -12667,7 +12667,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -12691,7 +12691,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\LaneSoulCurve[]
      */
-    public function laneSoulCurve($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_time_s = 180, $max_time_s = null, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
+    public function laneSoulCurve($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_time_s = 180, $max_time_s = null, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
     {
         list($response) = $this->laneSoulCurveWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_time_s, $max_time_s, $assigned_lanes, $hero_ids, $enemy_hero_ids, $stats, $group_by, $min_matches, $max_matches, $account_ids, $contentType);
         return $response;
@@ -12704,7 +12704,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -12728,7 +12728,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\LaneSoulCurve[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function laneSoulCurveWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_time_s = 180, $max_time_s = null, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
+    public function laneSoulCurveWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_time_s = 180, $max_time_s = null, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
     {
         $request = $this->laneSoulCurveRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_time_s, $max_time_s, $assigned_lanes, $hero_ids, $enemy_hero_ids, $stats, $group_by, $min_matches, $max_matches, $account_ids, $contentType);
 
@@ -12809,7 +12809,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -12832,7 +12832,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function laneSoulCurveAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_time_s = 180, $max_time_s = null, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
+    public function laneSoulCurveAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_time_s = 180, $max_time_s = null, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
     {
         return $this->laneSoulCurveAsyncWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_time_s, $max_time_s, $assigned_lanes, $hero_ids, $enemy_hero_ids, $stats, $group_by, $min_matches, $max_matches, $account_ids, $contentType)
             ->then(
@@ -12849,7 +12849,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -12872,7 +12872,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function laneSoulCurveAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_time_s = 180, $max_time_s = null, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
+    public function laneSoulCurveAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_time_s = 180, $max_time_s = null, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
     {
         $returnType = '\OpenAPI\Client\Model\LaneSoulCurve[]';
         $request = $this->laneSoulCurveRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_time_s, $max_time_s, $assigned_lanes, $hero_ids, $enemy_hero_ids, $stats, $group_by, $min_matches, $max_matches, $account_ids, $contentType);
@@ -12926,7 +12926,7 @@ class AnalyticsApi
      *
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -12949,7 +12949,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function laneSoulCurveRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_time_s = 180, $max_time_s = null, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
+    public function laneSoulCurveRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_time_s = 180, $max_time_s = null, $assigned_lanes = null, $hero_ids = null, $enemy_hero_ids = null, $stats = null, $group_by = null, $min_matches = 20, $max_matches = null, $account_ids = null, string $contentType = self::contentTypes['laneSoulCurve'][0])
     {
 
 
@@ -13277,7 +13277,7 @@ class AnalyticsApi
      * @param  int|null $resolution Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -13300,7 +13300,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PlayerPerformanceCurvePoint[]
      */
-    public function playerPerformanceCurve($resolution = 10, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['playerPerformanceCurve'][0])
+    public function playerPerformanceCurve($resolution = 10, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['playerPerformanceCurve'][0])
     {
         list($response) = $this->playerPerformanceCurveWithHttpInfo($resolution, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $contentType);
         return $response;
@@ -13314,7 +13314,7 @@ class AnalyticsApi
      * @param  int|null $resolution Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -13337,7 +13337,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PlayerPerformanceCurvePoint[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function playerPerformanceCurveWithHttpInfo($resolution = 10, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['playerPerformanceCurve'][0])
+    public function playerPerformanceCurveWithHttpInfo($resolution = 10, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['playerPerformanceCurve'][0])
     {
         $request = $this->playerPerformanceCurveRequest($resolution, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $contentType);
 
@@ -13419,7 +13419,7 @@ class AnalyticsApi
      * @param  int|null $resolution Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -13441,7 +13441,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerPerformanceCurveAsync($resolution = 10, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['playerPerformanceCurve'][0])
+    public function playerPerformanceCurveAsync($resolution = 10, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['playerPerformanceCurve'][0])
     {
         return $this->playerPerformanceCurveAsyncWithHttpInfo($resolution, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $contentType)
             ->then(
@@ -13459,7 +13459,7 @@ class AnalyticsApi
      * @param  int|null $resolution Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -13481,7 +13481,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerPerformanceCurveAsyncWithHttpInfo($resolution = 10, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['playerPerformanceCurve'][0])
+    public function playerPerformanceCurveAsyncWithHttpInfo($resolution = 10, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['playerPerformanceCurve'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PlayerPerformanceCurvePoint[]';
         $request = $this->playerPerformanceCurveRequest($resolution, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $contentType);
@@ -13536,7 +13536,7 @@ class AnalyticsApi
      * @param  int|null $resolution Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional, default to 10)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -13558,7 +13558,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function playerPerformanceCurveRequest($resolution = 10, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['playerPerformanceCurve'][0])
+    public function playerPerformanceCurveRequest($resolution = 10, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, string $contentType = self::contentTypes['playerPerformanceCurve'][0])
     {
 
         if ($resolution !== null && $resolution > 100) {
@@ -14535,7 +14535,7 @@ class AnalyticsApi
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -14558,7 +14558,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PlayerStatsMetricsResponse
      */
-    public function playerStatsMetrics($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetrics($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
         list($response) = $this->playerStatsMetricsWithHttpInfo($bucket, $hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType);
         return $response;
@@ -14573,7 +14573,7 @@ class AnalyticsApi
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -14596,7 +14596,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PlayerStatsMetricsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function playerStatsMetricsWithHttpInfo($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsWithHttpInfo($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
         $request = $this->playerStatsMetricsRequest($bucket, $hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType);
 
@@ -14679,7 +14679,7 @@ class AnalyticsApi
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -14701,7 +14701,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerStatsMetricsAsync($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsAsync($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
         return $this->playerStatsMetricsAsyncWithHttpInfo($bucket, $hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType)
             ->then(
@@ -14720,7 +14720,7 @@ class AnalyticsApi
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -14742,7 +14742,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerStatsMetricsAsyncWithHttpInfo($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsAsyncWithHttpInfo($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PlayerStatsMetricsResponse';
         $request = $this->playerStatsMetricsRequest($bucket, $hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType);
@@ -14798,7 +14798,7 @@ class AnalyticsApi
      * @param  string|null $hero_ids Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791849600)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791936000)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -14820,7 +14820,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function playerStatsMetricsRequest($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791849600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsRequest($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1791936000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
 
 
