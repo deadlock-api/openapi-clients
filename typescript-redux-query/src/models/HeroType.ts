@@ -20,7 +20,8 @@ export enum HeroType {
     Assassin = 'assassin',
     Brawler = 'brawler',
     Marksman = 'marksman',
-    Mystic = 'mystic'
+    Mystic = 'mystic',
+    Healer = 'healer'
 }
 
 export function HeroTypeFromJSON(json: any): HeroType {

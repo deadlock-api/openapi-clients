@@ -28,7 +28,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Values: assassin,brawler,marksman,mystic
+ * Values: assassin,brawler,marksman,mystic,healer
  */
 
 @JsonClass(generateAdapter = false)
@@ -44,7 +44,10 @@ enum class HeroType(val value: kotlin.String) {
     marksman("marksman"),
 
     @Json(name = "mystic")
-    mystic("mystic");
+    mystic("mystic"),
+
+    @Json(name = "healer")
+    healer("healer");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

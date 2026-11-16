@@ -22,6 +22,8 @@ pub enum HeroType {
     Marksman,
     #[serde(rename = "mystic")]
     Mystic,
+    #[serde(rename = "healer")]
+    Healer,
 
 }
 
@@ -32,6 +34,7 @@ impl std::fmt::Display for HeroType {
             Self::Brawler => write!(f, "brawler"),
             Self::Marksman => write!(f, "marksman"),
             Self::Mystic => write!(f, "mystic"),
+            Self::Healer => write!(f, "healer"),
         }
     }
 }

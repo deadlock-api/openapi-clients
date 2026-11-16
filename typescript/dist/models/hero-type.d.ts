@@ -14,6 +14,7 @@ export declare const HeroType: {
     readonly Brawler: "brawler";
     readonly Marksman: "marksman";
     readonly Mystic: "mystic";
+    readonly Healer: "healer";
 };
 export type HeroType = typeof HeroType[keyof typeof HeroType];
 //# sourceMappingURL=hero-type.d.ts.map

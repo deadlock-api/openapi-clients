@@ -50,6 +50,8 @@ class HeroType
 
     public const MYSTIC = 'mystic';
 
+    public const HEALER = 'healer';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -60,7 +62,8 @@ class HeroType
             self::ASSASSIN,
             self::BRAWLER,
             self::MARKSMAN,
-            self::MYSTIC
+            self::MYSTIC,
+            self::HEALER
         ];
     }
 }

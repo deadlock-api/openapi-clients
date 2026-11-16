@@ -283,7 +283,7 @@ export interface HeroStatsUIDisplay {
     __typename: 'HeroStatsUIDisplay'
 }
 
-export type HeroType = 'ASSASSIN' | 'BRAWLER' | 'MARKSMAN' | 'MYSTIC'
+export type HeroType = 'ASSASSIN' | 'BRAWLER' | 'MARKSMAN' | 'MYSTIC' | 'HEALER'
 
 export interface Item {
     game_time_s: (Scalars['Int'] | null)
@@ -2296,7 +2296,8 @@ export const enumHeroType = {
    ASSASSIN: 'ASSASSIN' as const,
    BRAWLER: 'BRAWLER' as const,
    MARKSMAN: 'MARKSMAN' as const,
-   MYSTIC: 'MYSTIC' as const
+   MYSTIC: 'MYSTIC' as const,
+   HEALER: 'HEALER' as const
 }
 
 export const enumItemSlotType = {

@@ -370,6 +370,9 @@ enum HeroType {
   BRAWLER
   MARKSMAN
   MYSTIC
+
+  """Since the 2026-10-30 update."""
+  HEALER
 }
 
 input I32Filter {

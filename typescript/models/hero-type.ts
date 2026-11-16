@@ -20,6 +20,7 @@ export const HeroType = {
     Brawler: 'brawler',
     Marksman: 'marksman',
     Mystic: 'mystic',
+    Healer: 'healer',
 } as const;
 
 export type HeroType = typeof HeroType[keyof typeof HeroType];

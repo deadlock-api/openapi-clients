@@ -16,5 +16,6 @@ export const HeroType = {
     Brawler: 'brawler',
     Marksman: 'marksman',
     Mystic: 'mystic',
+    Healer: 'healer',
 };
 //# sourceMappingURL=hero-type.js.map

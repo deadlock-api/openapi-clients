@@ -12,5 +12,7 @@
 
     * `mystic` (value: `"mystic"`)
 
+    * `healer` (value: `"healer"`)
+
 
 

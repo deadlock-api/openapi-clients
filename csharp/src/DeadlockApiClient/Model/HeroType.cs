@@ -48,7 +48,12 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Enum Mystic for value: mystic
         /// </summary>
-        Mystic = 4
+        Mystic = 4,
+
+        /// <summary>
+        /// Enum Healer for value: healer
+        /// </summary>
+        Healer = 5
     }
 
     /// <summary>
@@ -75,6 +80,9 @@ namespace DeadlockApiClient.Model
             if (value.Equals("mystic"))
                 return HeroType.Mystic;
 
+            if (value.Equals("healer"))
+                return HeroType.Healer;
+
             throw new NotImplementedException($"Could not convert value to type HeroType: '{value}'");
         }
 
@@ -96,6 +104,9 @@ namespace DeadlockApiClient.Model
 
             if (value.Equals("mystic"))
                 return HeroType.Mystic;
+
+            if (value.Equals("healer"))
+                return HeroType.Healer;
 
             return null;
         }
@@ -119,6 +130,9 @@ namespace DeadlockApiClient.Model
 
             if (value == HeroType.Mystic)
                 return "mystic";
+
+            if (value == HeroType.Healer)
+                return "healer";
 
             throw new NotImplementedException($"Value could not be handled: '{value}'");
         }

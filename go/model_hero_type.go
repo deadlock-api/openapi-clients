@@ -24,6 +24,7 @@ const (
 	HEROTYPE_BRAWLER HeroType = "brawler"
 	HEROTYPE_MARKSMAN HeroType = "marksman"
 	HEROTYPE_MYSTIC HeroType = "mystic"
+	HEROTYPE_HEALER HeroType = "healer"
 )
 
 // All allowed values of HeroType enum
@@ -32,6 +33,7 @@ var AllowedHeroTypeEnumValues = []HeroType{
 	"brawler",
 	"marksman",
 	"mystic",
+	"healer",
 }
 
 func (v *HeroType) UnmarshalJSON(src []byte) error {

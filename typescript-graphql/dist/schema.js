@@ -283,7 +283,8 @@ export const enumHeroType = {
     ASSASSIN: 'ASSASSIN',
     BRAWLER: 'BRAWLER',
     MARKSMAN: 'MARKSMAN',
-    MYSTIC: 'MYSTIC'
+    MYSTIC: 'MYSTIC',
+    HEALER: 'HEALER'
 };
 export const enumItemSlotType = {
     WEAPON: 'WEAPON',

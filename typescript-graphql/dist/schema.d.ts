@@ -255,7 +255,7 @@ export interface HeroStatsUIDisplay {
     stat_type: Scalars['String'];
     __typename: 'HeroStatsUIDisplay';
 }
-export type HeroType = 'ASSASSIN' | 'BRAWLER' | 'MARKSMAN' | 'MYSTIC';
+export type HeroType = 'ASSASSIN' | 'BRAWLER' | 'MARKSMAN' | 'MYSTIC' | 'HEALER';
 export interface Item {
     game_time_s: (Scalars['Int'] | null);
     item_id: (Scalars['Int'] | null);
@@ -2143,6 +2143,7 @@ export declare const enumHeroType: {
     BRAWLER: "BRAWLER";
     MARKSMAN: "MARKSMAN";
     MYSTIC: "MYSTIC";
+    HEALER: "HEALER";
 };
 export declare const enumItemSlotType: {
     WEAPON: "WEAPON";

@@ -30,6 +30,7 @@ class HeroType(str, Enum):
     BRAWLER = 'brawler'
     MARKSMAN = 'marksman'
     MYSTIC = 'mystic'
+    HEALER = 'healer'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
