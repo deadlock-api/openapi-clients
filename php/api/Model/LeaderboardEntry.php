@@ -394,7 +394,7 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets rank
      *
-     * @param int|null $rank The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * @param int|null $rank The player's place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.
      *
      * @return self
      */

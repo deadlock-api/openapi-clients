@@ -46,4 +46,15 @@ func Test_deadlock_api_client_InfoAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InfoAPIService LiveRequests", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		httpRes, err := apiClient.InfoAPI.LiveRequests(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

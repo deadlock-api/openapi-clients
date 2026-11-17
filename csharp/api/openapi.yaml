@@ -200,7 +200,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -530,7 +530,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -864,7 +864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -1192,7 +1192,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -1358,7 +1358,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -1548,7 +1548,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -1647,7 +1647,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -1924,7 +1924,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -2100,7 +2100,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -2369,7 +2369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -2621,7 +2621,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -2925,7 +2925,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -3218,7 +3218,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -3566,7 +3566,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -3724,7 +3724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -4025,7 +4025,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -4398,7 +4398,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -4752,7 +4752,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -5166,7 +5166,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -5474,7 +5474,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -5760,7 +5760,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -6061,7 +6061,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -6373,7 +6373,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -6748,7 +6748,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -10650,6 +10650,57 @@ paths:
       summary: Health Check
       tags:
       - Info
+  /v1/info/live-requests:
+    get:
+      description: |2
+
+        A live, sampled feed of the requests the API is serving, as drawn on the website's live map.
+
+        Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data
+        center it went through, its route template, status, duration and response size. No IP addresses,
+        query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).
+
+        Responses Cloudflare serves from its cache never reach the API and are not in the feed.
+
+        A client may hold 4 streams at once. A stream ends after 30 minutes.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | Opening a stream: 30req/10min |
+        | Key | Opening a stream: - |
+        | Global | Opening a stream: - |
+      operationId: live_requests
+      responses:
+        "200":
+          content:
+            text/event-stream: {}
+          description: "SSE stream with one `message` event every 500 ms. Its `data`\
+            \ is a JSON object: `t` the tick's start (unix ms), `d` its length (ms),\
+            \ `n` the requests served in it, `q` the requests in progress at its end\
+            \ and `qp` the most at once during it, `cr` / `cw` the `ClickHouse` queries\
+            \ running / waiting for a slot and `cl` the current slot limit, `cq` /\
+            \ `rr` / `rb` the `ClickHouse` queries the tick's requests ran and the\
+            \ rows / bytes they read, `r` the route templates of this batch, and `e`\
+            \ the sampled requests as `[offset_ms, lat, lon, country, colo, route_index,\
+            \ status, duration_ms, response_bytes, rows_read]`, where `colo` is the\
+            \ IATA code of the Cloudflare data center that handed the request to the\
+            \ API (the Ray id's, usually one near the API rather than the client's\
+            \ edge) and `lat`, `lon`, `country` and `colo` are null when unknown.\
+            \ `hm` carries a minute of the requests Cloudflare answered itself as\
+            \ `{m: unix_minute, g: [[kind, colo, country, count], ...], s: {tr, cr,\
+            \ tb, cb, at, ac, lr, lb}, d: {lr, lb}}`: kind 0-4 is API cache hits,\
+            \ website, assets, other subdomains, data lake; `s` holds the minute's\
+            \ requests (`tr`) and response bytes (`tb`) with the cached ones (`cr`,\
+            \ `cb`), the API's requests (`at`) with its cached ones (`ac`) and the\
+            \ data lake's requests and bytes (`lr`, `lb`); `d` the data lake's since\
+            \ midnight UTC (null if unavailable). It comes first on connect and then\
+            \ whenever a new minute is complete, a few minutes behind real time."
+        "429":
+          description: "Rate limit exceeded, or too many streams open"
+      summary: Live Requests (SSE)
+      tags:
+      - Info
   /v1/leaderboard/{region}:
     get:
       description: |2
@@ -12858,7 +12909,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792195200
+          default: 1792281600
           format: int64
           nullable: true
           type: integer
@@ -20078,8 +20129,9 @@ components:
           type: array
           default: null
         rank:
-          description: "The rank of the player (tier = first digits, subtier = last\
-            \ digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+          description: |-
+            The player's place on the leaderboard, starting at 1. Players can share a place, and the
+            following places are then skipped (1, 2, 2, 4). Not a rank badge.
           format: int32
           minimum: 0
           nullable: true

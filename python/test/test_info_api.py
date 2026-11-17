@@ -40,6 +40,13 @@ class TestInfoApi(unittest.TestCase):
         """
         pass
 
+    def test_live_requests(self) -> None:
+        """Test case for live_requests
+
+        Live Requests (SSE)
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

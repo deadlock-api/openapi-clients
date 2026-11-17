@@ -184,6 +184,7 @@ Class | Method | HTTP request | Description
 *HeroesApi* | [**list_heroes**](docs/HeroesApi.md#list_heroes) | **GET** /v1/assets/heroes | List Heroes
 *InfoApi* | [**health_check**](docs/InfoApi.md#health_check) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info
+*InfoApi* | [**live_requests**](docs/InfoApi.md#live_requests) | **GET** /v1/info/live-requests | Live Requests (SSE)
 *InternalApi* | [**add_steam_account**](docs/InternalApi.md#add_steam_account) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account
 *InternalApi* | [**bot_friend_status**](docs/InternalApi.md#bot_friend_status) | **GET** /v1/patron/steam-accounts/{account_id}/bot-friend | Prioritized Steam Account Bot Friend Status
 *InternalApi* | [**delete_steam_account**](docs/InternalApi.md#delete_steam_account) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account

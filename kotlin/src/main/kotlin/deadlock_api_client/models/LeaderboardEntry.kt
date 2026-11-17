@@ -32,7 +32,7 @@ import java.io.Serializable
  * @param possibleAccountIds The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
  * @param topHeroIds The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param accountName The account name of the player.
- * @param rank The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param rank The player's place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.
  */
 
 
@@ -50,7 +50,7 @@ data class LeaderboardEntry (
     @Json(name = "account_name")
     val accountName: kotlin.String? = null,
 
-    /* The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks> */
+    /* The player's place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge. */
     @Json(name = "rank")
     val rank: kotlin.Int? = null
 

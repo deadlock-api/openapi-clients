@@ -49,5 +49,11 @@ class InfoApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
+        // to test liveRequests
+        should("test liveRequests") {
+            // uncomment below to test liveRequests
+            //apiInstance.liveRequests()
+        }
+
     }
 }

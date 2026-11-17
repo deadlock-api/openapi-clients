@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_name** | **str** | The account name of the player. | [optional] 
 **possible_account_ids** | **List[int]** | The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.** | 
-**rank** | **int** | The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**rank** | **int** | The player&#39;s place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge. | [optional] 
 **top_hero_ids** | **List[int]** | The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ## Example

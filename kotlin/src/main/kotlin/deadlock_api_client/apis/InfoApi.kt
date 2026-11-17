@@ -194,6 +194,74 @@ open class InfoApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
         )
     }
 
+    /**
+     * GET /v1/info/live-requests
+     * Live Requests (SSE)
+     *  A live, sampled feed of the requests the API is serving, as drawn on the website&#39;s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; &#x60;n&#x60; counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - | 
+     * @return void
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun liveRequests() : Unit {
+        val localVarResponse = liveRequestsWithHttpInfo()
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/info/live-requests
+     * Live Requests (SSE)
+     *  A live, sampled feed of the requests the API is serving, as drawn on the website&#39;s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; &#x60;n&#x60; counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - | 
+     * @return ApiResponse<Unit?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Throws(IllegalStateException::class, IOException::class)
+    fun liveRequestsWithHttpInfo() : ApiResponse<Unit?> {
+        val localVariableConfig = liveRequestsRequestConfig()
+
+        return request<Unit, Unit>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation liveRequests
+     *
+     * @return RequestConfig
+     */
+    fun liveRequestsRequestConfig() : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/info/live-requests",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
 
     private fun encodeURIComponent(uriComponent: kotlin.String): kotlin.String =
         HttpUrl.Builder().scheme("http").host("localhost").addPathSegment(uriComponent).build().encodedPathSegments[0]

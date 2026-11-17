@@ -32,6 +32,13 @@ export declare const InfoApiAxiosParamCreator: (configuration?: Configuration) =
      * @throws {RequiredError}
      */
     info: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  A live, sampled feed of the requests the API is serving, as drawn on the website\'s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - |
+     * @summary Live Requests (SSE)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    liveRequests: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * InfoApi - functional programming interface
@@ -51,6 +58,13 @@ export declare const InfoApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     info(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<APIInfo>>;
+    /**
+     *  A live, sampled feed of the requests the API is serving, as drawn on the website\'s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - |
+     * @summary Live Requests (SSE)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    liveRequests(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * InfoApi - factory interface
@@ -70,6 +84,13 @@ export declare const InfoApiFactory: (configuration?: Configuration, basePath?: 
      * @throws {RequiredError}
      */
     info(options?: RawAxiosRequestConfig): AxiosPromise<APIInfo>;
+    /**
+     *  A live, sampled feed of the requests the API is serving, as drawn on the website\'s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - |
+     * @summary Live Requests (SSE)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    liveRequests(options?: RawAxiosRequestConfig): AxiosPromise<void>;
 };
 /**
  * InfoApi - object-oriented interface
@@ -89,5 +110,12 @@ export declare class InfoApi extends BaseAPI {
      * @throws {RequiredError}
      */
     info(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<APIInfo, any, {}, any>>;
+    /**
+     *  A live, sampled feed of the requests the API is serving, as drawn on the website\'s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - |
+     * @summary Live Requests (SSE)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    liveRequests(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
 }
 //# sourceMappingURL=info-api.d.ts.map

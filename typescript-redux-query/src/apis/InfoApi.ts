@@ -112,3 +112,46 @@ export function info<T>( requestConfig?: runtime.TypedQueryConfig<T, APIInfo>): 
     return infoRaw( requestConfig);
 }
 
+/**
+ *  A live, sampled feed of the requests the API is serving, as drawn on the website\'s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - | 
+ * Live Requests (SSE)
+ */
+function liveRequestsRaw<T>( requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/info/live-requests`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+    }
+
+    return config;
+}
+
+/**
+*  A live, sampled feed of the requests the API is serving, as drawn on the website\'s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - | 
+* Live Requests (SSE)
+*/
+export function liveRequests<T>( requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
+    return liveRequestsRaw( requestConfig);
+}
+

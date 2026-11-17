@@ -36,7 +36,7 @@ namespace DeadlockApiClient.Model
         /// <param name="possibleAccountIds">The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**</param>
         /// <param name="topHeroIds">The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="accountName">The account name of the player.</param>
-        /// <param name="rank">The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="rank">The player&#39;s place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.</param>
         [JsonConstructor]
         public LeaderboardEntry(List<int> possibleAccountIds, List<int> topHeroIds, Option<string?> accountName = default, Option<int?> rank = default)
         {
@@ -85,9 +85,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> RankOption { get; private set; }
 
         /// <summary>
-        /// The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+        /// The player&#39;s place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.
         /// </summary>
-        /// <value>The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
+        /// <value>The player&#39;s place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.</value>
         [JsonPropertyName("rank")]
         public int? Rank { get { return this.RankOption.Value; } set { this.RankOption = new(value); } }
 

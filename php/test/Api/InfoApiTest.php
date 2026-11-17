@@ -94,4 +94,16 @@ class InfoApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for liveRequests
+     *
+     * Live Requests (SSE).
+     *
+     */
+    public function testLiveRequests()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

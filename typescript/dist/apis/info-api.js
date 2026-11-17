@@ -74,6 +74,32 @@ export const InfoApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         },
+        /**
+         *  A live, sampled feed of the requests the API is serving, as drawn on the website\'s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - |
+         * @summary Live Requests (SSE)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        liveRequests: async (options = {}) => {
+            const localVarPath = `/v1/info/live-requests`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Accept'] = 'text/event-stream';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     };
 };
 /**
@@ -106,6 +132,18 @@ export const InfoApiFp = function (configuration) {
             const localVarOperationServerBasePath = operationServerMap['InfoApi.info']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         *  A live, sampled feed of the requests the API is serving, as drawn on the website\'s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - |
+         * @summary Live Requests (SSE)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async liveRequests(options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.liveRequests(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InfoApi.liveRequests']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     };
 };
 /**
@@ -132,6 +170,15 @@ export const InfoApiFactory = function (configuration, basePath, axios) {
         info(options) {
             return localVarFp.info(options).then((request) => request(axios, basePath));
         },
+        /**
+         *  A live, sampled feed of the requests the API is serving, as drawn on the website\'s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - |
+         * @summary Live Requests (SSE)
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        liveRequests(options) {
+            return localVarFp.liveRequests(options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -155,6 +202,15 @@ export class InfoApi extends BaseAPI {
      */
     info(options) {
         return InfoApiFp(this.configuration).info(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  A live, sampled feed of the requests the API is serving, as drawn on the website\'s live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - |
+     * @summary Live Requests (SSE)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    liveRequests(options) {
+        return InfoApiFp(this.configuration).liveRequests(options).then((request) => request(this.axios, this.basePath));
     }
 }
 //# sourceMappingURL=info-api.js.map

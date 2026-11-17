@@ -30,6 +30,14 @@ pub enum InfoError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`live_requests`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum LiveRequestsError {
+    Status429(),
+    UnknownValue(serde_json::Value),
+}
+
 
 ///  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn health_check(configuration: &configuration::Configuration) -> Result<models::Status, Error<HealthCheckError>> {
@@ -97,6 +105,30 @@ pub async fn info(configuration: &configuration::Configuration) -> Result<models
     } else {
         let content = resp.text().await?;
         let entity: Option<InfoError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  A live, sampled feed of the requests the API is serving, as drawn on the website's live map.  Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data center it went through, its route template, status, duration and response size. No IP addresses, query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).  Responses Cloudflare serves from its cache never reach the API and are not in the feed.  A client may hold 4 streams at once. A stream ends after 30 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Opening a stream: 30req/10min | | Key | Opening a stream: - | | Global | Opening a stream: - | 
+pub async fn live_requests(configuration: &configuration::Configuration) -> Result<(), Error<LiveRequestsError>> {
+
+    let uri_str = format!("{}/v1/info/live-requests", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        Ok(())
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<LiveRequestsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

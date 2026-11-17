@@ -71,5 +71,14 @@ namespace DeadlockApiClient.Test.Api
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.APIInfo>(model);
         }
+
+        /// <summary>
+        /// Test LiveRequests
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task LiveRequestsAsyncTest()
+        {
+            await _instance.LiveRequestsAsync();
+        }
     }
 }

@@ -247,3 +247,108 @@ func (a *InfoAPIService) InfoExecute(r ApiInfoRequest) (*APIInfo, *http.Response
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
+type ApiLiveRequestsRequest struct {
+	ctx context.Context
+	ApiService *InfoAPIService
+}
+
+func (r ApiLiveRequestsRequest) Execute() (*http.Response, error) {
+	return r.ApiService.LiveRequestsExecute(r)
+}
+
+/*
+LiveRequests Live Requests (SSE)
+
+
+A live, sampled feed of the requests the API is serving, as drawn on the website's live map.
+
+Each request carries only its approximate location (rounded to 0.1°), country, the Cloudflare data
+center it went through, its route template, status, duration and response size. No IP addresses,
+query strings or API keys. Every request is in the feed, up to 512 a batch (sampled beyond that; `n` counts all of them).
+
+Responses Cloudflare serves from its cache never reach the API and are not in the feed.
+
+A client may hold 4 streams at once. A stream ends after 30 minutes.
+
+### Rate Limits:
+| Type | Limit |
+| ---- | ----- |
+| IP | Opening a stream: 30req/10min |
+| Key | Opening a stream: - |
+| Global | Opening a stream: - |
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiLiveRequestsRequest
+*/
+func (a *InfoAPIService) LiveRequests(ctx context.Context) ApiLiveRequestsRequest {
+	return ApiLiveRequestsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+func (a *InfoAPIService) LiveRequestsExecute(r ApiLiveRequestsRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InfoAPIService.LiveRequests")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/info/live-requests"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"text/event-stream"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
