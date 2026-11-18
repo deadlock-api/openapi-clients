@@ -10695,7 +10695,14 @@ paths:
             \ `cb`), the API's requests (`at`) with its cached ones (`ac`) and the\
             \ data lake's requests and bytes (`lr`, `lb`); `d` the data lake's since\
             \ midnight UTC (null if unavailable). It comes first on connect and then\
-            \ whenever a new minute is complete, a few minutes behind real time."
+            \ whenever a new minute is complete, a few minutes behind real time. `im`\
+            \ carries the matches the ingest worker just wrote to the database, one\
+            \ entry per flush (about one a minute): `{t: unix_ms, n: matches_written,\
+            \ m: [[match_id, start_time, duration_s, game_mode, match_mode, average_badge,\
+            \ winning_team, region, team0_hero_ids, team1_hero_ids], ...]}`, `m` a\
+            \ random sample of at most 300 of them and `region` the server region\
+            \ (null if unknown). The newest entry comes first on connect, with `ih`:\
+            \ `[t, n]` of the last 30 flushes."
         "429":
           description: "Rate limit exceeded, or too many streams open"
       summary: Live Requests (SSE)
