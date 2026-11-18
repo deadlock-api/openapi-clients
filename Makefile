@@ -55,16 +55,7 @@ kotlin:
 	@echo "--> Creating directory for the API client..."
 	@mkdir -p kotlin
 	@echo "--> Generating Kotlin client for the API..."
-	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i $(OPENAPI_SPEC) -g kotlin -o kotlin/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client,idea=true,artifactId=deadlock_api_client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients,omitGradleWrapper=true,serializableModel=true
-	@echo "--> Adding publishing configuration..."
-	@echo "" >> kotlin/build.gradle
-	@echo "publishing {" >> kotlin/build.gradle
-	@echo "    publications {" >> kotlin/build.gradle
-	@echo "        maven(MavenPublication) {" >> kotlin/build.gradle
-	@echo "            from components.java" >> kotlin/build.gradle
-	@echo "        }" >> kotlin/build.gradle
-	@echo "    }" >> kotlin/build.gradle
-	@echo "}" >> kotlin/build.gradle
+	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i $(OPENAPI_SPEC) -g kotlin -o kotlin/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client,artifactId=deadlock_api_client,groupId=com.deadlock-api,artifactUrl=https://github.com/deadlock-api/openapi-clients,omitGradleWrapper=true,serializableModel=true
 	@echo "--> API client generated successfully in kotlin/"
 
 go:
