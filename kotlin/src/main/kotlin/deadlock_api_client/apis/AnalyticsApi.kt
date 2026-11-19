@@ -3768,7 +3768,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
          @Json(name = "net_worth_by_2000") net_worth_by_2000("net_worth_by_2000"),
          @Json(name = "net_worth_by_3000") net_worth_by_3000("net_worth_by_3000"),
          @Json(name = "net_worth_by_5000") net_worth_by_5000("net_worth_by_5000"),
-         @Json(name = "net_worth_by_10000") net_worth_by_10000("net_worth_by_10000");
+         @Json(name = "net_worth_by_10000") net_worth_by_10000("net_worth_by_10000"),
+         @Json(name = "imbued_ability") imbued_ability("imbued_ability");
 
         /**
          * Override [toString()] to avoid using the enum variable name as the value, and instead use

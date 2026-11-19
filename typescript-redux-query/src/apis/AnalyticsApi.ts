@@ -4484,7 +4484,8 @@ export enum ItemStatsBucketEnum {
     NetWorthBy2000 = 'net_worth_by_2000',
     NetWorthBy3000 = 'net_worth_by_3000',
     NetWorthBy5000 = 'net_worth_by_5000',
-    NetWorthBy10000 = 'net_worth_by_10000'
+    NetWorthBy10000 = 'net_worth_by_10000',
+    ImbuedAbility = 'imbued_ability'
 }
 /**
     * @export

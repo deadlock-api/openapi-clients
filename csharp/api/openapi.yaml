@@ -4637,6 +4637,7 @@ paths:
           - net_worth_by_3000
           - net_worth_by_5000
           - net_worth_by_10000
+          - imbued_ability
           type: string
         style: form
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -10582,13 +10583,13 @@ paths:
         Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ "query": "...", "variables": {...} }`.
 
         ### Rate Limits:
-        > They apply to `POST /v1/graphql`.
+        > They apply to `POST /v1/graphql`. Each request counts once against the request limits and is charged the megabytes ClickHouse reads to answer it (see the `X-CH-Read-Bytes` response header), once it has run, against a budget shared with `GET /v1/matches/metadata`. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Select fewer fields, narrow `where` filters or lower `limit` to read less. At most 16 of your requests to these two endpoints run at once on each server; more get a 429 with `Retry-After: 1`. A single query above the complexity limit is rejected before it runs.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 300req/min |
-        | Key | 500req/10s |
-        | Global | 5000req/min |
+        | IP | Requests: 300req/min<br>ClickHouse reads: 1000 MB/min, 10000 MB/h |
+        | Key | Requests: 500req/10s<br>ClickHouse reads: 15000 MB/min, 150000 MB/h |
+        | Global | Requests: 5000req/min<br>ClickHouse reads: - |
       operationId: playground
       responses:
         "200":
@@ -11616,11 +11617,13 @@ paths:
         > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.
 
         ### Rate Limits:
+        > Requests are charged the megabytes ClickHouse reads to answer them (see the `X-CH-Read-Bytes` response header), once they have run, against a budget shared by `GET /v1/matches/metadata` and `POST /v1/graphql`. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow the time range or match id range, request fewer matches, or include fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
+
         | Type | Limit |
         | ---- | ----- |
-        | IP | 30req/min |
-        | Key | 30req/10s, 2000req/h |
-        | Global | 600req/min |
+        | IP | 1000 MB/min, 10000 MB/h |
+        | Key | 15000 MB/min, 150000 MB/h |
+        | Global | - |
       operationId: bulk_metadata
       parameters:
       - description: Include match info in the response.

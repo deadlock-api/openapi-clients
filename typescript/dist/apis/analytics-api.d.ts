@@ -4043,6 +4043,7 @@ export declare const ItemStatsBucketEnum: {
     readonly NetWorthBy3000: "net_worth_by_3000";
     readonly NetWorthBy5000: "net_worth_by_5000";
     readonly NetWorthBy10000: "net_worth_by_10000";
+    readonly ImbuedAbility: "imbued_ability";
 };
 export type ItemStatsBucketEnum = typeof ItemStatsBucketEnum[keyof typeof ItemStatsBucketEnum];
 export declare const ItemStatsGameModeEnum: {

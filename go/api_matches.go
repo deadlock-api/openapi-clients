@@ -554,11 +554,13 @@ When player info is included, each player object contains `hero_build_id` and `p
 > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.
 
 ### Rate Limits:
+> Requests are charged the megabytes ClickHouse reads to answer them (see the `X-CH-Read-Bytes` response header), once they have run, against a budget shared by `GET /v1/matches/metadata` and `POST /v1/graphql`. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow the time range or match id range, request fewer matches, or include fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 30req/min |
-| Key | 30req/10s, 2000req/h |
-| Global | 600req/min |
+| IP | 1000 MB/min, 10000 MB/h |
+| Key | 15000 MB/min, 150000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

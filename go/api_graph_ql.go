@@ -40,13 +40,13 @@ Interactive GraphiQL playground for exploring the GraphQL API.
 Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ "query": "...", "variables": {...} }`.
 
 ### Rate Limits:
-> They apply to `POST /v1/graphql`.
+> They apply to `POST /v1/graphql`. Each request counts once against the request limits and is charged the megabytes ClickHouse reads to answer it (see the `X-CH-Read-Bytes` response header), once it has run, against a budget shared with `GET /v1/matches/metadata`. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Select fewer fields, narrow `where` filters or lower `limit` to read less. At most 16 of your requests to these two endpoints run at once on each server; more get a 429 with `Retry-After: 1`. A single query above the complexity limit is rejected before it runs.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 300req/min |
-| Key | 500req/10s |
-| Global | 5000req/min |
+| IP | Requests: 300req/min<br>ClickHouse reads: 1000 MB/min, 10000 MB/h |
+| Key | Requests: 500req/10s<br>ClickHouse reads: 15000 MB/min, 150000 MB/h |
+| Global | Requests: 5000req/min<br>ClickHouse reads: - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
