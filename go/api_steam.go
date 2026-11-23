@@ -62,11 +62,13 @@ shared Steam Web API key budget.
 See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)
 
 ### Rate Limits:
+> Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | Read: 100req/s<br>Refresh: 3req/min, 15req/h |
-| Key | Read: -<br>Refresh: 10req/min, 60req/h |
-| Global | Read: -<br>Refresh: 30req/min, 200req/h |
+| IP | Read: 60000 accounts/min, 400000 accounts/h<br>Refresh: 3req/min, 15req/h |
+| Key | Read: 100000 accounts/min, 1000000 accounts/h<br>Refresh: 10req/min, 60req/h |
+| Global | Read: 150000 accounts/min<br>Refresh: 30req/min, 200req/h |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

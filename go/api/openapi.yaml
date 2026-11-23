@@ -200,7 +200,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -530,7 +530,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -864,7 +864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -1192,7 +1192,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -1358,7 +1358,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -1548,7 +1548,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -1647,7 +1647,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -1924,7 +1924,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -2100,7 +2100,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -2369,7 +2369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -2621,7 +2621,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -2925,7 +2925,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -3218,7 +3218,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -3566,7 +3566,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -3724,7 +3724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -4025,7 +4025,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -4398,7 +4398,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -4753,7 +4753,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -5167,7 +5167,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -5475,7 +5475,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -5761,7 +5761,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -6062,7 +6062,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -6374,7 +6374,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -6749,7 +6749,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -9691,6 +9691,10 @@ paths:
         Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to
         look up builds that have not been crawled yet. Every fetched build is upserted into the database.
 
+        Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an
+        hour on the single-build endpoint, are banned from Game Coordinator lookups for 24 hours: those get a 403 with
+        Retry-After.
+
         Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
 
         Relevant Protobuf Messages:
@@ -9727,6 +9731,8 @@ paths:
           description: OK
         "400":
           description: Provided parameters are invalid.
+        "403":
+          description: Banned from Game Coordinator lookups for crawling
         "429":
           description: Rate limit exceeded
         "500":
@@ -9745,7 +9751,15 @@ paths:
         pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that
         fetch instead.
 
+        A lookup that finds no build is remembered: for 6 hours if the build is in our database (it was deleted or hidden in
+        the game), otherwise for 10 minutes. Until then the build gets a 404 without asking the Game Coordinator, also with
+        `force_refetch=true`.
+
         Rate limits only apply when the build is fetched from the Game Coordinator.
+
+        Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an
+        hour, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After. Builds already in our
+        database are still served. To find builds, search them with `/v1/builds`.
 
         Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
 
@@ -9799,6 +9813,8 @@ paths:
           description: OK
         "400":
           description: Provided parameters are invalid.
+        "403":
+          description: Banned from Game Coordinator lookups for crawling
         "404":
           description: Build not found
         "429":
@@ -12919,7 +12935,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792627200
+          default: 1792713600
           format: int64
           nullable: true
           type: integer
@@ -13164,11 +13180,13 @@ paths:
         See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)
 
         ### Rate Limits:
+        > Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
         | Type | Limit |
         | ---- | ----- |
-        | IP | Read: 100req/s<br>Refresh: 3req/min, 15req/h |
-        | Key | Read: -<br>Refresh: 10req/min, 60req/h |
-        | Global | Read: -<br>Refresh: 30req/min, 200req/h |
+        | IP | Read: 60000 accounts/min, 400000 accounts/h<br>Refresh: 3req/min, 15req/h |
+        | Key | Read: 100000 accounts/min, 1000000 accounts/h<br>Refresh: 10req/min, 60req/h |
+        | Global | Read: 150000 accounts/min<br>Refresh: 30req/min, 200req/h |
       operationId: steam
       parameters:
       - description: "Comma separated list of account ids, in `SteamID3` or `SteamID64`\
@@ -13210,7 +13228,7 @@ paths:
         "404":
           description: No Steam profile found.
         "429":
-          description: Rate limit exceeded (only enforced when refresh=true).
+          description: Rate limit exceeded.
         "500":
           description: Failed to fetch steam profiles.
         "502":

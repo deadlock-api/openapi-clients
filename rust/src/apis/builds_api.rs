@@ -81,6 +81,7 @@ pub struct SearchBuildsParams {
 #[serde(untagged)]
 pub enum FetchBuildLiveError {
     Status400(),
+    Status403(),
     Status404(),
     Status429(),
     Status500(),
@@ -92,6 +93,7 @@ pub enum FetchBuildLiveError {
 #[serde(untagged)]
 pub enum FetchBuildsByAuthorLiveError {
     Status400(),
+    Status403(),
     Status429(),
     Status500(),
     UnknownValue(serde_json::Value),
@@ -108,7 +110,7 @@ pub enum SearchBuildsError {
 }
 
 
-///  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to fetch from the Game Coordinator even if the build is in our database, e.g. to pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that fetch instead.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
+///  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to fetch from the Game Coordinator even if the build is in our database, e.g. to pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that fetch instead.  A lookup that finds no build is remembered: for 6 hours if the build is in our database (it was deleted or hidden in the game), otherwise for 10 minutes. Until then the build gets a 404 without asking the Game Coordinator, also with `force_refetch=true`.  Rate limits only apply when the build is fetched from the Game Coordinator.  Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an hour, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After. Builds already in our database are still served. To find builds, search them with `/v1/builds`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 pub async fn fetch_build_live(configuration: &configuration::Configuration, params: FetchBuildLiveParams) -> Result<models::Build, Error<FetchBuildLiveError>> {
 
     let uri_str = format!("{}/v1/builds/{hero_id}/{build_id}", configuration.base_path, hero_id=params.hero_id, build_id=params.build_id);
@@ -146,7 +148,7 @@ pub async fn fetch_build_live(configuration: &configuration::Configuration, para
     }
 }
 
-///  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
+///  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an hour on the single-build endpoint, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 pub async fn fetch_builds_by_author_live(configuration: &configuration::Configuration, params: FetchBuildsByAuthorLiveParams) -> Result<Vec<models::Build>, Error<FetchBuildsByAuthorLiveError>> {
 
     let uri_str = format!("{}/v1/builds/by-author/{account_id}", configuration.base_path, account_id=params.account_id);

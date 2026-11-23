@@ -59,7 +59,7 @@ class BuildsApi:
     ) -> Build:
         """Fetch Live
 
-         Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to fetch from the Game Coordinator even if the build is in our database, e.g. to pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that fetch instead.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
+         Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to fetch from the Game Coordinator even if the build is in our database, e.g. to pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that fetch instead.  A lookup that finds no build is remembered: for 6 hours if the build is in our database (it was deleted or hidden in the game), otherwise for 10 minutes. Until then the build gets a 404 without asking the Game Coordinator, also with `force_refetch=true`.  Rate limits only apply when the build is fetched from the Game Coordinator.  Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an hour, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After. Builds already in our database are still served. To find builds, search them with `/v1/builds`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 
         :param hero_id: The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -102,6 +102,7 @@ class BuildsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Build",
             '400': None,
+            '403': None,
             '404': None,
             '429': None,
             '500': None,
@@ -138,7 +139,7 @@ class BuildsApi:
     ) -> ApiResponse[Build]:
         """Fetch Live
 
-         Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to fetch from the Game Coordinator even if the build is in our database, e.g. to pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that fetch instead.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
+         Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to fetch from the Game Coordinator even if the build is in our database, e.g. to pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that fetch instead.  A lookup that finds no build is remembered: for 6 hours if the build is in our database (it was deleted or hidden in the game), otherwise for 10 minutes. Until then the build gets a 404 without asking the Game Coordinator, also with `force_refetch=true`.  Rate limits only apply when the build is fetched from the Game Coordinator.  Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an hour, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After. Builds already in our database are still served. To find builds, search them with `/v1/builds`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 
         :param hero_id: The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -181,6 +182,7 @@ class BuildsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Build",
             '400': None,
+            '403': None,
             '404': None,
             '429': None,
             '500': None,
@@ -217,7 +219,7 @@ class BuildsApi:
     ) -> RESTResponseType:
         """Fetch Live
 
-         Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to fetch from the Game Coordinator even if the build is in our database, e.g. to pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that fetch instead.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
+         Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to fetch from the Game Coordinator even if the build is in our database, e.g. to pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that fetch instead.  A lookup that finds no build is remembered: for 6 hours if the build is in our database (it was deleted or hidden in the game), otherwise for 10 minutes. Until then the build gets a 404 without asking the Game Coordinator, also with `force_refetch=true`.  Rate limits only apply when the build is fetched from the Game Coordinator.  Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an hour, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After. Builds already in our database are still served. To find builds, search them with `/v1/builds`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 
         :param hero_id: The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -260,6 +262,7 @@ class BuildsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Build",
             '400': None,
+            '403': None,
             '404': None,
             '429': None,
             '500': None,
@@ -361,7 +364,7 @@ class BuildsApi:
     ) -> List[Build]:
         """Fetch Live by Author
 
-         Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
+         Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an hour on the single-build endpoint, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -398,6 +401,7 @@ class BuildsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Build]",
             '400': None,
+            '403': None,
             '429': None,
             '500': None,
         }
@@ -431,7 +435,7 @@ class BuildsApi:
     ) -> ApiResponse[List[Build]]:
         """Fetch Live by Author
 
-         Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
+         Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an hour on the single-build endpoint, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -468,6 +472,7 @@ class BuildsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Build]",
             '400': None,
+            '403': None,
             '429': None,
             '500': None,
         }
@@ -501,7 +506,7 @@ class BuildsApi:
     ) -> RESTResponseType:
         """Fetch Live by Author
 
-         Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
+         Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an hour on the single-build endpoint, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -538,6 +543,7 @@ class BuildsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[Build]",
             '400': None,
+            '403': None,
             '429': None,
             '500': None,
         }

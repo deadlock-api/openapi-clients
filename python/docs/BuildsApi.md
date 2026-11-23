@@ -22,7 +22,15 @@ Set `force_refetch=true` to fetch from the Game Coordinator even if the build is
 pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that
 fetch instead.
 
+A lookup that finds no build is remembered: for 6 hours if the build is in our database (it was deleted or hidden in
+the game), otherwise for 10 minutes. Until then the build gets a 404 without asking the Game Coordinator, also with
+`force_refetch=true`.
+
 Rate limits only apply when the build is fetched from the Game Coordinator.
+
+Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an
+hour, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After. Builds already in our
+database are still served. To find builds, search them with `/v1/builds`.
 
 Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
 
@@ -101,6 +109,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
+**403** | Banned from Game Coordinator lookups for crawling |  -  |
 **404** | Build not found |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Fetching build failed |  -  |
@@ -117,6 +126,10 @@ Fetches all builds of an author directly from the Deadlock Game Coordinator and 
 
 Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to
 look up builds that have not been crawled yet. Every fetched build is upserted into the database.
+
+Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don't exist within an
+hour on the single-build endpoint, are banned from Game Coordinator lookups for 24 hours: those get a 403 with
+Retry-After.
 
 Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
 
@@ -191,6 +204,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
+**403** | Banned from Game Coordinator lookups for crawling |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Fetching builds failed |  -  |
 
