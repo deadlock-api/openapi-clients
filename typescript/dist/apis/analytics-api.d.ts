@@ -360,8 +360,8 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
      * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
      * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
-     * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
-     * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute.
+     * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute (a value ending in 59 seconds, e.g. &#x60;1799&#x60;, is kept).
      * @param {number | null} [minNetworth] Filter players based on their final net worth.
      * @param {number | null} [maxNetworth] Filter players based on their final net worth.
      * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
@@ -1018,8 +1018,8 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
      * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
      * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
-     * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
-     * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute.
+     * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute (a value ending in 59 seconds, e.g. &#x60;1799&#x60;, is kept).
      * @param {number | null} [minNetworth] Filter players based on their final net worth.
      * @param {number | null} [maxNetworth] Filter players based on their final net worth.
      * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
@@ -2528,11 +2528,11 @@ export interface AnalyticsApiHeroStatsRequest {
      */
     readonly maxUnixTimestamp?: number | null;
     /**
-     * Filter matches based on their duration in seconds (up to 7000s).
+     * Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute.
      */
     readonly minDurationS?: number | null;
     /**
-     * Filter matches based on their duration in seconds (up to 7000s).
+     * Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute (a value ending in 59 seconds, e.g. &#x60;1799&#x60;, is kept).
      */
     readonly maxDurationS?: number | null;
     /**

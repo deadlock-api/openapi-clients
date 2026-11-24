@@ -7109,8 +7109,8 @@ class AnalyticsApi:
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
-        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute.")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
@@ -7155,9 +7155,9 @@ class AnalyticsApi:
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
         :type max_unix_timestamp: int
-        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute.
         :type min_duration_s: int
-        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept).
         :type max_duration_s: int
         :param min_networth: Filter players based on their final net worth.
         :type min_networth: int
@@ -7270,8 +7270,8 @@ class AnalyticsApi:
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
-        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute.")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
@@ -7316,9 +7316,9 @@ class AnalyticsApi:
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
         :type max_unix_timestamp: int
-        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute.
         :type min_duration_s: int
-        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept).
         :type max_duration_s: int
         :param min_networth: Filter players based on their final net worth.
         :type min_networth: int
@@ -7431,8 +7431,8 @@ class AnalyticsApi:
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
-        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
-        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute.")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept).")] = None,
         min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
         min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
@@ -7477,9 +7477,9 @@ class AnalyticsApi:
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
         :type max_unix_timestamp: int
-        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute.
         :type min_duration_s: int
-        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept).
         :type max_duration_s: int
         :param min_networth: Filter players based on their final net worth.
         :type min_networth: int

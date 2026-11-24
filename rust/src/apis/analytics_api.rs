@@ -532,9 +532,9 @@ pub struct HeroStatsParams {
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
-    /// Filter matches based on their duration in seconds (up to 7000s).
+    /// Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute.
     pub min_duration_s: Option<u64>,
-    /// Filter matches based on their duration in seconds (up to 7000s).
+    /// Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept).
     pub max_duration_s: Option<u64>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
