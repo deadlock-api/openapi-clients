@@ -207,13 +207,13 @@ the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `
 In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -263,7 +263,7 @@ func (a *AnalyticsAPIService) AbilityMaxFirstStatsExecute(r ApiAbilityMaxFirstSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -584,13 +584,13 @@ AbilityOrderStats Ability Order Stats
 Retrieves statistics for the ability order of a hero.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -640,7 +640,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -965,13 +965,13 @@ orders are rare (which `/ability-order-stats`, grouping by full order, leaves ou
 In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1021,7 +1021,7 @@ func (a *AnalyticsAPIService) AbilityOrderTreeExecute(r ApiAbilityOrderTreeReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1264,13 +1264,13 @@ ranked matches.
 Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1313,7 +1313,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1519,13 +1519,13 @@ Buff display names, value units and graph colors: <https://api.deadlock-api.com/
 Results are cached for **1 hour** based on the unique combination of query parameters provided.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1568,7 +1568,7 @@ func (a *AnalyticsAPIService) BuffStatsExecute(r ApiBuffStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1712,13 +1712,13 @@ BuildItemStats Build Item Stats
 Retrieves item statistics from hero builds.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1758,7 +1758,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
 		r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -1968,13 +1968,13 @@ GameStats Game Stats
 Retrieves aggregate game-level statistics.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2020,7 +2020,7 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2246,13 +2246,13 @@ is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids
 Results are cached for **1 hour** based on the combination of query parameters provided.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2295,7 +2295,7 @@ func (a *AnalyticsAPIService) HeroBanStatsExecute(r ApiHeroBanStatsRequest) ([]H
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2520,13 +2520,13 @@ The `hero_build_id` is the first build the player had selected when the game sta
 Results are cached for **1 hour** based on the combination of query parameters provided.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2578,7 +2578,7 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2846,13 +2846,13 @@ repeated requests are answered from the edge cache, without counting against you
 Results are cached for **1 hour** based on the combination of query parameters provided.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -2898,7 +2898,7 @@ func (a *AnalyticsAPIService) HeroBuildStatsByHeroesExecute(r ApiHeroBuildStatsB
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3176,13 +3176,13 @@ Retrieves overall statistics for each hero combination.
 Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3225,7 +3225,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3546,13 +3546,13 @@ This endpoint analyzes completed matches to calculate how often a specific hero 
 Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3595,7 +3595,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3856,13 +3856,13 @@ HeroScoreboard Hero Scoreboard
 This endpoint returns the hero scoreboard.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -3915,7 +3915,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4199,13 +4199,13 @@ HeroStats Hero Stats
 Retrieves performance statistics for each hero based on historical match data.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4251,7 +4251,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4495,13 +4495,13 @@ A player swapped when the hero they had locked before the pre-game swap window (
 Results are cached for **1 hour** based on the combination of query parameters provided.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4544,7 +4544,7 @@ func (a *AnalyticsAPIService) HeroSwapStatsExecute(r ApiHeroSwapStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4763,13 +4763,13 @@ This endpoint analyzes completed matches to calculate how often a specific pair 
 Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -4812,7 +4812,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5127,13 +5127,13 @@ normal item they replaced still is.
 Results are cached for **1 hour** based on the unique combination of query parameters provided.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -5193,7 +5193,7 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5511,13 +5511,13 @@ Retrieves item permutation statistics based on historical match data.
 Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -5594,7 +5594,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5972,13 +5972,13 @@ Retrieves item statistics based on historical match data.
 Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -6045,7 +6045,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6399,13 +6399,13 @@ KillDeathStats Kill Death Stats
 This endpoint returns the kill-death statistics across a 128x128 pixel raster.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -6451,7 +6451,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6738,13 +6738,13 @@ Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care 
 Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -6787,7 +6787,7 @@ func (a *AnalyticsAPIService) LaneMatchupStatsExecute(r ApiLaneMatchupStatsReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -7095,13 +7095,13 @@ Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care 
 Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -7144,7 +7144,7 @@ func (a *AnalyticsAPIService) LaneSoulCurveExecute(r ApiLaneSoulCurveRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -7443,13 +7443,13 @@ Retrieves player performance statistics (net worth, kills, deaths, assists, soul
 Results are cached for **1 hour** based on the unique combination of query parameters provided.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -7499,7 +7499,7 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -7792,13 +7792,13 @@ PlayerScoreboard Player Scoreboard
 This endpoint returns the player scoreboard.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -8143,13 +8143,13 @@ Results are cached for **1 hour** based on the unique combination of query param
 > Note: Quantiles are estimated from a [bfloat16](https://clickhouse.com/docs/sql-reference/aggregate-functions/reference/quantilebfloat16) histogram, which rounds each value down to 8 significant bits, so they are not exact but have a relative error below 0.01.
 
 ### Rate Limits:
-> The rate limits below are **shared across all analytics endpoints**.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 200req/min |
-| Key | 400req/min, 2500req/h |
-| Global | 2000req/min |
+| IP | 34000 MB/min, 85000 MB/h |
+| Key | 136000 MB/min, 680000 MB/h |
+| Global | - |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -8198,7 +8198,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792800000
+		var defaultValue int64 = 1792972800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

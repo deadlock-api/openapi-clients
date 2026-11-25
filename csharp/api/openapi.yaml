@@ -147,13 +147,13 @@ paths:
         In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: ability_max_first_stats
       parameters:
       - description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -200,7 +200,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -477,13 +477,13 @@ paths:
         Retrieves statistics for the ability order of a hero.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: ability_order_stats
       parameters:
       - description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -530,7 +530,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -811,13 +811,13 @@ paths:
         In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: ability_order_tree
       parameters:
       - description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -864,7 +864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -1148,13 +1148,13 @@ paths:
         Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: badge_distribution
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -1192,7 +1192,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -1315,13 +1315,13 @@ paths:
         Results are cached for **1 hour** based on the unique combination of query parameters provided.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: buff_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -1358,7 +1358,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -1521,13 +1521,13 @@ paths:
         Retrieves item statistics from hero builds.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: build_item_stats
       parameters:
       - description: "Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -1548,7 +1548,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -1587,13 +1587,13 @@ paths:
         Retrieves aggregate game-level statistics.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: game_stats
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -1647,7 +1647,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -1880,13 +1880,13 @@ paths:
         Results are cached for **1 hour** based on the combination of query parameters provided.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: hero_ban_stats
       parameters:
       - description: "Filter matches based on the match mode. Valid values: `unranked`,\
@@ -1924,7 +1924,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -2048,13 +2048,13 @@ paths:
         Results are cached for **1 hour** based on the combination of query parameters provided.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: hero_build_stats_by_heroes
       parameters:
       - description: "Comma separated list of hero IDs to fetch build stats for. **Default:**\
@@ -2100,7 +2100,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -2317,13 +2317,13 @@ paths:
         Results are cached for **1 hour** based on the combination of query parameters provided.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: hero_build_stats
       parameters:
       - description: "The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -2369,7 +2369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -2578,13 +2578,13 @@ paths:
         Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: hero_comb_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -2621,7 +2621,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -2882,13 +2882,13 @@ paths:
         Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: hero_counters_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -2925,7 +2925,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -3158,13 +3158,13 @@ paths:
         Retrieves performance statistics for each hero based on historical match data.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: hero_stats
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -3173,8 +3173,9 @@ paths:
         name: bucket
         required: false
         schema:
-          description: "How the match-level analytics group their rows: by the match's\
-            \ start time or badge."
+          description: |-
+            How hero stats group their rows: [`BucketQuery`]'s match-level buckets, or the player's final
+            net worth.
           enum:
           - no_bucket
           - avg_badge
@@ -3182,6 +3183,11 @@ paths:
           - start_time_day
           - start_time_week
           - start_time_month
+          - net_worth_by_1000
+          - net_worth_by_2000
+          - net_worth_by_3000
+          - net_worth_by_5000
+          - net_worth_by_10000
           type: string
         style: form
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -3218,7 +3224,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -3526,13 +3532,13 @@ paths:
         Results are cached for **1 hour** based on the combination of query parameters provided.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: hero_swap_stats
       parameters:
       - description: "Filter matches based on the match mode. Valid values: `unranked`,\
@@ -3570,7 +3576,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -3685,13 +3691,13 @@ paths:
         Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: hero_synergies_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -3728,7 +3734,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -3948,13 +3954,13 @@ paths:
         Results are cached for **1 hour** based on the unique combination of query parameters provided.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: item_flow_stats
       parameters:
       - description: |-
@@ -4029,7 +4035,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -4286,13 +4292,13 @@ paths:
         Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: item_permutation_stats
       parameters:
       - description: "Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>"
@@ -4402,7 +4408,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -4610,13 +4616,13 @@ paths:
         Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: item_stats
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -4641,6 +4647,11 @@ paths:
           - net_worth_by_3000
           - net_worth_by_5000
           - net_worth_by_10000
+          - final_net_worth_by_1000
+          - final_net_worth_by_2000
+          - final_net_worth_by_3000
+          - final_net_worth_by_5000
+          - final_net_worth_by_10000
           - imbued_ability
           type: string
         style: form
@@ -4757,7 +4768,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -5116,13 +5127,13 @@ paths:
         This endpoint returns the kill-death statistics across a 128x128 pixel raster.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: kill_death_stats
       parameters:
       - description: Filter by team number.
@@ -5171,7 +5182,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -5436,13 +5447,13 @@ paths:
         Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: lane_matchup_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -5479,7 +5490,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -5722,13 +5733,13 @@ paths:
         Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: lane_soul_curve
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -5765,7 +5776,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -6007,13 +6018,13 @@ paths:
         Results are cached for **1 hour** based on the unique combination of query parameters provided.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: player_performance_curve
       parameters:
       - description: |-
@@ -6066,7 +6077,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -6314,13 +6325,13 @@ paths:
         > Note: Quantiles are estimated from a [bfloat16](https://clickhouse.com/docs/sql-reference/aggregate-functions/reference/quantilebfloat16) histogram, which rounds each value down to 8 significant bits, so they are not exact but have a relative error below 0.01.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: player_stats_metrics
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -6378,7 +6389,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -6613,13 +6624,13 @@ paths:
         This endpoint returns the hero scoreboard.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: hero_scoreboard
       parameters:
       - description: The field to sort by.
@@ -6753,7 +6764,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
@@ -6914,13 +6925,13 @@ paths:
         This endpoint returns the player scoreboard.
 
         ### Rate Limits:
-        > The rate limits below are **shared across all analytics endpoints**.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 200req/min |
-        | Key | 400req/min, 2500req/h |
-        | Global | 2000req/min |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
+        | Global | - |
       operationId: player_scoreboard
       parameters:
       - description: The field to sort by.
@@ -10603,12 +10614,12 @@ paths:
         Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ "query": "...", "variables": {...} }`.
 
         ### Rate Limits:
-        > They apply to `POST /v1/graphql`. Each request counts once against the request limits and is charged the megabytes ClickHouse reads to answer it (see the `X-CH-Read-Bytes` response header), once it has run, against a budget shared with `GET /v1/matches/metadata`. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Select fewer fields, narrow `where` filters or lower `limit` to read less. At most 16 of your requests to these two endpoints run at once on each server; more get a 429 with `Retry-After: 1`. A single query above the complexity limit is rejected before it runs.
+        > They apply to `POST /v1/graphql`. Each request counts once against the request limits, and against the ClickHouse read budget shared with all analytics endpoints and `GET /v1/matches/metadata`. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`. A single query above the complexity limit is rejected before it runs.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | Requests: 300req/min<br>ClickHouse reads: 1000 MB/min, 10000 MB/h |
-        | Key | Requests: 500req/10s<br>ClickHouse reads: 15000 MB/min, 150000 MB/h |
+        | IP | Requests: 300req/min<br>ClickHouse reads: 34000 MB/min, 85000 MB/h |
+        | Key | Requests: 500req/10s<br>ClickHouse reads: 136000 MB/min, 680000 MB/h |
         | Global | Requests: 5000req/min<br>ClickHouse reads: - |
       operationId: playground
       responses:
@@ -11637,12 +11648,12 @@ paths:
         > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.
 
         ### Rate Limits:
-        > Requests are charged the megabytes ClickHouse reads to answer them (see the `X-CH-Read-Bytes` response header), once they have run, against a budget shared by `GET /v1/matches/metadata` and `POST /v1/graphql`. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow the time range or match id range, request fewer matches, or include fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
+        > These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
         | Type | Limit |
         | ---- | ----- |
-        | IP | 1000 MB/min, 10000 MB/h |
-        | Key | 15000 MB/min, 150000 MB/h |
+        | IP | 34000 MB/min, 85000 MB/h |
+        | Key | 136000 MB/min, 680000 MB/h |
         | Global | - |
       operationId: bulk_metadata
       parameters:
@@ -12939,7 +12950,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792800000
+          default: 1792972800
           format: int64
           nullable: true
           type: integer
