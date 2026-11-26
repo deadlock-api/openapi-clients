@@ -196,12 +196,12 @@ When player info is included, each player object contains `hero_build_id` and `p
 > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.
 
 ### Rate Limits:
-> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.2 times on `GET /v1/matches/metadata` and 1.3 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
+> These limits are **shared by all analytics endpoints, `GET /v1/matches/metadata` and `POST /v1/graphql`**. Requests are charged the megabytes of compressed data ClickHouse reads to answer them (see the `X-CH-Read-Compressed-Bytes` response header), once they have run. A megabyte counts once on the analytics endpoints, 2.7 times on `GET /v1/matches/metadata` and 1.5 times on `POST /v1/graphql`, as much as it costs the database there. Responses served from a cache cost next to nothing. A request is admitted while any budget is left, so an expensive one can take you past the limit until its cost leaves the window. Narrow time ranges and filters, request fewer matches or select fewer fields to read less. At most 16 of your requests to these endpoints run at once on each server; more get a 429 with `Retry-After: 1`.
 
 | Type | Limit |
 | ---- | ----- |
-| IP | 34000 MB/min, 85000 MB/h |
-| Key | 136000 MB/min, 680000 MB/h |
+| IP | 26000 MB/min, 65000 MB/h |
+| Key | 104000 MB/min, 520000 MB/h |
 | Global | - |
 
 
