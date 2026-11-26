@@ -1,6 +1,7 @@
 .PHONY: all python typescript typescript-redux-query typescript-graphql rust kotlin go php jetbrains-client csharp clean
 
 OPENAPI_SPEC = openapi.json
+RUST_SPEC = openapi.rust.json
 OPENAPI_URL = https://api.deadlock-api.com/openapi.json
 GRAPHQL_URL = https://api.deadlock-api.com/v1/graphql
 
@@ -39,7 +40,7 @@ typescript-redux-query:
 
 typescript-graphql:
 	@echo "--> Generating Typescript GraphQL client for the API..."
-	pnpx @genql/cli --endpoint $(GRAPHQL_URL) --output typescript-graphql/src
+	pnpx @genql/cli --endpoint $(GRAPHQL_URL) --output typescript-graphql/src -S UInt32:number
 	@echo "--> Building Typescript GraphQL client..."
 	@cd typescript-graphql && npm install --ignore-scripts && npm run build
 	@echo "--> GraphQL client generated successfully in typescript-graphql/"
@@ -48,7 +49,8 @@ rust:
 	@echo "--> Creating directory for the API client..."
 	@mkdir -p rust
 	@echo "--> Generating Rust client for the API..."
-	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i $(OPENAPI_SPEC) -g rust -o rust/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client,useSingleRequestParameter=true,preferUnsignedInt=true,bestFitInt=true
+	@node rust-spec.mjs $(OPENAPI_SPEC) $(RUST_SPEC)
+	pnpx @openapitools/openapi-generator-cli generate --git-user-id deadlock-api --git-repo-id openapi-clients -i $(RUST_SPEC) -g rust -o rust/ --skip-validate-spec --additional-properties=packageName=deadlock_api_client,useSingleRequestParameter=true,preferUnsignedInt=true,bestFitInt=true
 	@echo "--> API client generated successfully in rust/"
 
 kotlin:
@@ -99,5 +101,5 @@ csharp:
 # Target to clean up all generated directories.
 clean:
 	@echo "--> Removing generated client directories..."
-	@rm -rf openapitools.json $(OPENAPI_SPEC) python typescript typescript-redux-query typescript-graphql/src typescript-graphql/dist typescript-graphql/node_modules rust kotlin go php jetbrains-client csharp
+	@rm -rf openapitools.json $(OPENAPI_SPEC) $(RUST_SPEC) python typescript typescript-redux-query typescript-graphql/src typescript-graphql/dist typescript-graphql/node_modules rust kotlin go php jetbrains-client csharp
 	@echo "--> Cleanup complete."
