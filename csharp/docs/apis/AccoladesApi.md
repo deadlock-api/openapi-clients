@@ -10,7 +10,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getaccolade"></a>
 # **GetAccolade**
-> Accolade GetAccolade (int accoladeId, string language = null, int clientVersion = null)
+> Accolade GetAccolade (long accoladeId, string language = null, long clientVersion = null)
 
 Get Accolade
 
@@ -21,9 +21,9 @@ Returns a single accolade by id.
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accoladeId** | **int** | Accolade id (&#x60;m_unAccoladeID&#x60;) |  |
+| **accoladeId** | **long** | Accolade id (&#x60;m_unAccoladeID&#x60;) |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -50,7 +50,7 @@ No authorization required
 
 <a id="getaccoladebyname"></a>
 # **GetAccoladeByName**
-> Accolade GetAccoladeByName (string name, string language = null, int clientVersion = null)
+> Accolade GetAccoladeByName (string name, string language = null, long clientVersion = null)
 
 Get Accolade By Name
 
@@ -63,7 +63,7 @@ Returns a single accolade by `class_name` or `tracked_stat_name` (case-insensiti
 |------|------|-------------|-------|
 | **name** | **string** | Accolade &#x60;class_name&#x60; (e.g. &#x60;kills&#x60;) or &#x60;tracked_stat_name&#x60; |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -90,7 +90,7 @@ No authorization required
 
 <a id="listaccolades"></a>
 # **ListAccolades**
-> List&lt;Accolade&gt; ListAccolades (string language = null, int clientVersion = null)
+> List&lt;Accolade&gt; ListAccolades (string language = null, long clientVersion = null)
 
 List Accolades
 
@@ -102,7 +102,7 @@ Returns the per-accolade metadata used by the game client, parsed from the patch
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

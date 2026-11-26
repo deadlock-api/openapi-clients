@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **className** | **kotlin.String** |  |  |
-| **id** | **kotlin.Int** |  |  |
+| **id** | **kotlin.Long** |  |  |
 | **acceleration** | **kotlin.Double** |  |  [optional] |
 | **attackT1BossMaxRange** | **kotlin.Double** |  |  [optional] |
 | **attackT3BossMaxRange** | **kotlin.Double** |  |  [optional] |

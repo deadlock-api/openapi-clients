@@ -32,7 +32,7 @@ class Rank(BaseModel):
     color: StrictStr
     images: RankImages
     name: StrictStr
-    tier: Annotated[int, Field(strict=True, ge=0)]
+    tier: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     __properties: ClassVar[List[str]] = ["color", "images", "name", "tier"]
 
     model_config = ConfigDict(

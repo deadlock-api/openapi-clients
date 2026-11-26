@@ -57,7 +57,7 @@ namespace DeadlockApiClient.Test.Api
         {
             var response = await _instance.ListClientVersionsAsync();
             var model = response.Ok();
-            Assert.IsType<List<int>>(model);
+            Assert.IsType<List<long>>(model);
         }
     }
 }

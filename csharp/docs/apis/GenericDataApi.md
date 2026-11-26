@@ -8,7 +8,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getgenericdata"></a>
 # **GetGenericData**
-> GenericData GetGenericData (string language = null, int clientVersion = null)
+> GenericData GetGenericData (string language = null, long clientVersion = null)
 
 Get Generic Data
 
@@ -20,7 +20,7 @@ Returns the game-wide generic configuration (street brawl, lane info, glitch set
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

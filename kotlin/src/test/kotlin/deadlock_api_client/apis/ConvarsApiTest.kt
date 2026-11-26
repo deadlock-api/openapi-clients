@@ -38,7 +38,7 @@ class ConvarsApiTest : ShouldSpec() {
         should("test getConvar") {
             // uncomment below to test getConvar
             //val name : kotlin.String = name_example // kotlin.String | Convar name, e.g. `citadel_corrupted_item_shop_restock_interval`
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : Convar = apiInstance.getConvar(name, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -46,7 +46,7 @@ class ConvarsApiTest : ShouldSpec() {
         // to test listConvars
         should("test listConvars") {
             // uncomment below to test listConvars
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.Map<kotlin.String, Convar> = apiInstance.listConvars(clientVersion)
             //result shouldBe ("TODO")
         }

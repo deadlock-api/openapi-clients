@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="matches">matches</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public ItemPermutationStats(List<int> itemIds, long losses, long matches, long wins)
+        public ItemPermutationStats(List<long> itemIds, long losses, long matches, long wins)
         {
             ItemIds = itemIds;
             Losses = losses;
@@ -54,7 +54,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;</value>
         [JsonPropertyName("item_ids")]
-        public List<int> ItemIds { get; set; }
+        public List<long> ItemIds { get; set; }
 
         /// <summary>
         /// Gets or Sets Losses
@@ -151,7 +151,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<List<int>?> itemIds = default;
+            Option<List<long>?> itemIds = default;
             Option<long?> losses = default;
             Option<long?> matches = default;
             Option<long?> wins = default;
@@ -172,7 +172,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "item_ids":
-                            itemIds = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            itemIds = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "losses":
                             losses = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());

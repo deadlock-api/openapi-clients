@@ -72,7 +72,7 @@ class HeroPopularItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'class_name' => null,
-        'item_id' => 'int32',
+        'item_id' => 'int64',
         'pick_pct' => 'double',
         'winrate_pct' => 'double'
     ];
@@ -301,6 +301,10 @@ class HeroPopularItem implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['item_id'] === null) {
             $invalidProperties[] = "'item_id' can't be null";
         }
+        if (($this->container['item_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'item_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['item_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'item_id', must be bigger than or equal to 0.";
         }
@@ -374,6 +378,9 @@ class HeroPopularItem implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($item_id)) {
             throw new \InvalidArgumentException('non-nullable item_id cannot be null');
+        }
+        if (($item_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $item_id when calling HeroPopularItem., must be smaller than or equal to 4294967295.');
         }
         if (($item_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $item_id when calling HeroPopularItem., must be bigger than or equal to 0.');

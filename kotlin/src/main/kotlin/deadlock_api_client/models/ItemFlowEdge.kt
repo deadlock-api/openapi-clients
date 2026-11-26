@@ -47,7 +47,7 @@ data class ItemFlowEdge (
     val fromColumn: kotlin.Int,
 
     @Json(name = "from_item_id")
-    val fromItemId: kotlin.Int,
+    val fromItemId: kotlin.Long,
 
     @Json(name = "losses")
     val losses: kotlin.Long,
@@ -56,7 +56,7 @@ data class ItemFlowEdge (
     val matches: kotlin.Long,
 
     @Json(name = "to_item_id")
-    val toItemId: kotlin.Int,
+    val toItemId: kotlin.Long,
 
     @Json(name = "wins")
     val wins: kotlin.Long

@@ -48,7 +48,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListColorsApiResponse"/>&gt;</returns>
-        Task<IListColorsApiResponse> ListColorsAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListColorsApiResponse> ListColorsAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Colors
@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListColorsApiResponse"/>?&gt;</returns>
-        Task<IListColorsApiResponse?> ListColorsOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListColorsApiResponse?> ListColorsOrDefaultAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -153,14 +153,14 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatListColors(ref Option<int?> clientVersion);
+        partial void FormatListColors(ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="clientVersion"></param>
-        private void AfterListColorsDefaultImplementation(IListColorsApiResponse apiResponseLocalVar, Option<int?> clientVersion)
+        private void AfterListColorsDefaultImplementation(IListColorsApiResponse apiResponseLocalVar, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterListColors(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
@@ -174,7 +174,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterListColors(ref bool suppressDefaultLog, IListColorsApiResponse apiResponseLocalVar, Option<int?> clientVersion);
+        partial void AfterListColors(ref bool suppressDefaultLog, IListColorsApiResponse apiResponseLocalVar, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -183,7 +183,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorListColorsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion)
+        private void OnErrorListColorsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorListColors(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
@@ -199,7 +199,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorListColors(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion);
+        partial void OnErrorListColors(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> clientVersion);
 
         /// <summary>
         /// List Colors Panorama color palette (&#x60;@define &lt;name&gt;: #RRGGBB[AA];&#x60; declarations from &#x60;citadel_base_styles.css&#x60;), keyed by &#x60;snake_case&#x60; name.
@@ -207,7 +207,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListColorsApiResponse"/>&gt;</returns>
-        public async Task<IListColorsApiResponse?> ListColorsOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListColorsApiResponse?> ListColorsOrDefaultAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -226,7 +226,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListColorsApiResponse"/>&gt;</returns>
-        public async Task<IListColorsApiResponse> ListColorsAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListColorsApiResponse> ListColorsAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

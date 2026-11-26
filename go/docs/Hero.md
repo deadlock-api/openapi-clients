@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **HeroStatsUi** | [**HeroStatsUI**](HeroStatsUI.md) |  | 
 **HeroType** | Pointer to [**NullableHeroType**](HeroType.md) |  | [optional] 
 **HideoutRichPresence** | Pointer to **NullableString** |  | [optional] 
-**Id** | **int32** |  | 
+**Id** | **int64** |  | 
 **Images** | [**HeroImages**](HeroImages.md) |  | 
 **InDevelopment** | **bool** |  | 
 **ItemDraftBucketing** | Pointer to [**map[string]HashMapStringOptionDraftBucketingValue**](HashMapStringOptionDraftBucketingValue.md) |  | [optional] 
@@ -47,7 +47,7 @@ Name | Type | Description | Notes
 
 ### NewHero
 
-`func NewHero(assignedPlayersOnly bool, className string, colors HeroColors, complexity int64, description HeroDescription, disabled bool, heroStatsUi HeroStatsUI, id int32, images HeroImages, inDevelopment bool, itemSlotInfo map[string]HashMapItemSlotTypeItemSlotInfoValue, items map[string]string, levelInfo map[string]HashMapStringLevelInfoValue, limitedTesting bool, models map[string]string, name string, needsTesting bool, physics HeroPhysics, playerSelectable bool, purchaseBonuses map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner, scalingStats map[string]HashMapStringScalingStatValue, shopStatDisplay ShopStatDisplay, skin int64, standardLevelUpUpgrades map[string]float64, startingStats StartingStats, statsDisplay StatsDisplay, tags []string, ) *Hero`
+`func NewHero(assignedPlayersOnly bool, className string, colors HeroColors, complexity int64, description HeroDescription, disabled bool, heroStatsUi HeroStatsUI, id int64, images HeroImages, inDevelopment bool, itemSlotInfo map[string]HashMapItemSlotTypeItemSlotInfoValue, items map[string]string, levelInfo map[string]HashMapStringLevelInfoValue, limitedTesting bool, models map[string]string, name string, needsTesting bool, physics HeroPhysics, playerSelectable bool, purchaseBonuses map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner, scalingStats map[string]HashMapStringScalingStatValue, shopStatDisplay ShopStatDisplay, skin int64, standardLevelUpUpgrades map[string]float64, startingStats StartingStats, statsDisplay StatsDisplay, tags []string, ) *Hero`
 
 NewHero instantiates a new Hero object
 This constructor will assign default values to properties that have it defined,
@@ -414,20 +414,20 @@ HasHideoutRichPresence returns a boolean if a field has been set.
 UnsetHideoutRichPresence ensures that no value is present for HideoutRichPresence, not even an explicit nil
 ### GetId
 
-`func (o *Hero) GetId() int32`
+`func (o *Hero) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *Hero) GetIdOk() (*int32, bool)`
+`func (o *Hero) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *Hero) SetId(v int32)`
+`func (o *Hero) SetId(v int64)`
 
 SetId sets Id field to given value.
 

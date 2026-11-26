@@ -344,11 +344,17 @@ class BuildTagsApi
                 'Missing the required parameter $build_tag_id when calling getBuildTag'
             );
         }
+        if ($build_tag_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$build_tag_id" when calling BuildTagsApi.getBuildTag, must be smaller than or equal to 4294967295.');
+        }
         if ($build_tag_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$build_tag_id" when calling BuildTagsApi.getBuildTag, must be bigger than or equal to 0.');
         }
         
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling BuildTagsApi.getBuildTag, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling BuildTagsApi.getBuildTag, must be bigger than or equal to 0.');
         }
@@ -663,6 +669,9 @@ class BuildTagsApi
         }
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling BuildTagsApi.getBuildTagByName, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling BuildTagsApi.getBuildTagByName, must be bigger than or equal to 0.');
         }
@@ -965,6 +974,9 @@ class BuildTagsApi
     {
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling BuildTagsApi.listBuildTags, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling BuildTagsApi.listBuildTags, must be bigger than or equal to 0.');
         }

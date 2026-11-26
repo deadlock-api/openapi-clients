@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="matchesPlayed">matchesPlayed</param>
         /// <param name="wins">The amount of matches won against the enemy.</param>
         [JsonConstructor]
-        public EnemyStats(int enemyId, List<long> matches, long matchesPlayed, long wins)
+        public EnemyStats(long enemyId, List<long> matches, long matchesPlayed, long wins)
         {
             EnemyId = enemyId;
             Matches = matches;
@@ -53,7 +53,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets EnemyId
         /// </summary>
         [JsonPropertyName("enemy_id")]
-        public int EnemyId { get; set; }
+        public long EnemyId { get; set; }
 
         /// <summary>
         /// Gets or Sets Matches
@@ -97,8 +97,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // EnemyId (int) minimum
-            if (this.EnemyId < (int)0)
+            // EnemyId (long) maximum
+            if (this.EnemyId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EnemyId, must be a value less than or equal to 4294967295.", new [] { "EnemyId" });
+            }
+
+            // EnemyId (long) minimum
+            if (this.EnemyId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EnemyId, must be a value greater than or equal to 0.", new [] { "EnemyId" });
             }
@@ -151,7 +157,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> enemyId = default;
+            Option<long?> enemyId = default;
             Option<List<long>?> matches = default;
             Option<long?> matchesPlayed = default;
             Option<long?> wins = default;
@@ -172,7 +178,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "enemy_id":
-                            enemyId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            enemyId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "matches":
                             matches = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);

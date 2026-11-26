@@ -72,7 +72,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroName">Hero name to check for hero specific stats (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICommandResolveApiResponse"/>&gt;</returns>
-        Task<ICommandResolveApiResponse> CommandResolveAsync(int accountId, Option<string> region = default, Option<string> template = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICommandResolveApiResponse> CommandResolveAsync(long accountId, Option<string> region = default, Option<string> template = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Resolve Command
@@ -86,7 +86,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroName">Hero name to check for hero specific stats (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICommandResolveApiResponse"/>?&gt;</returns>
-        Task<ICommandResolveApiResponse?> CommandResolveOrDefaultAsync(int accountId, Option<string> region = default, Option<string> template = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICommandResolveApiResponse?> CommandResolveOrDefaultAsync(long accountId, Option<string> region = default, Option<string> template = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Resolve Variables
@@ -101,7 +101,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroName">Hero name to check for hero specific stats (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IVariablesResolveApiResponse"/>&gt;</returns>
-        Task<IVariablesResolveApiResponse> VariablesResolveAsync(int accountId, Option<string> region = default, Option<string> variables = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IVariablesResolveApiResponse> VariablesResolveAsync(long accountId, Option<string> region = default, Option<string> variables = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Resolve Variables
@@ -115,7 +115,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroName">Hero name to check for hero specific stats (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IVariablesResolveApiResponse"/>?&gt;</returns>
-        Task<IVariablesResolveApiResponse?> VariablesResolveOrDefaultAsync(int accountId, Option<string> region = default, Option<string> variables = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IVariablesResolveApiResponse?> VariablesResolveOrDefaultAsync(long accountId, Option<string> region = default, Option<string> variables = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Widget Versions
@@ -573,7 +573,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCommandResolve(ref int accountId, ref Option<string> region, ref Option<string> template, ref Option<string?> heroName);
+        partial void FormatCommandResolve(ref long accountId, ref Option<string> region, ref Option<string> template, ref Option<string?> heroName);
 
         /// <summary>
         /// Validates the request parameters
@@ -598,7 +598,7 @@ namespace DeadlockApiClient.Api
         /// <param name="region"></param>
         /// <param name="template"></param>
         /// <param name="heroName"></param>
-        private void AfterCommandResolveDefaultImplementation(ICommandResolveApiResponse apiResponseLocalVar, int accountId, Option<string> region, Option<string> template, Option<string?> heroName)
+        private void AfterCommandResolveDefaultImplementation(ICommandResolveApiResponse apiResponseLocalVar, long accountId, Option<string> region, Option<string> template, Option<string?> heroName)
         {
             bool suppressDefaultLog = false;
             AfterCommandResolve(ref suppressDefaultLog, apiResponseLocalVar, accountId, region, template, heroName);
@@ -615,7 +615,7 @@ namespace DeadlockApiClient.Api
         /// <param name="region"></param>
         /// <param name="template"></param>
         /// <param name="heroName"></param>
-        partial void AfterCommandResolve(ref bool suppressDefaultLog, ICommandResolveApiResponse apiResponseLocalVar, int accountId, Option<string> region, Option<string> template, Option<string?> heroName);
+        partial void AfterCommandResolve(ref bool suppressDefaultLog, ICommandResolveApiResponse apiResponseLocalVar, long accountId, Option<string> region, Option<string> template, Option<string?> heroName);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -627,7 +627,7 @@ namespace DeadlockApiClient.Api
         /// <param name="region"></param>
         /// <param name="template"></param>
         /// <param name="heroName"></param>
-        private void OnErrorCommandResolveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> region, Option<string> template, Option<string?> heroName)
+        private void OnErrorCommandResolveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> region, Option<string> template, Option<string?> heroName)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorCommandResolve(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, region, template, heroName);
@@ -646,7 +646,7 @@ namespace DeadlockApiClient.Api
         /// <param name="region"></param>
         /// <param name="template"></param>
         /// <param name="heroName"></param>
-        partial void OnErrorCommandResolve(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> region, Option<string> template, Option<string?> heroName);
+        partial void OnErrorCommandResolve(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> region, Option<string> template, Option<string?> heroName);
 
         /// <summary>
         /// Resolve Command      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
@@ -657,7 +657,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroName">Hero name to check for hero specific stats (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICommandResolveApiResponse"/>&gt;</returns>
-        public async Task<ICommandResolveApiResponse?> CommandResolveOrDefaultAsync(int accountId, Option<string> region = default, Option<string> template = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICommandResolveApiResponse?> CommandResolveOrDefaultAsync(long accountId, Option<string> region = default, Option<string> template = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -679,7 +679,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroName">Hero name to check for hero specific stats (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICommandResolveApiResponse"/>&gt;</returns>
-        public async Task<ICommandResolveApiResponse> CommandResolveAsync(int accountId, Option<string> region = default, Option<string> template = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICommandResolveApiResponse> CommandResolveAsync(long accountId, Option<string> region = default, Option<string> template = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -868,7 +868,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatVariablesResolve(ref int accountId, ref Option<string> region, ref Option<string> variables, ref Option<string?> heroName);
+        partial void FormatVariablesResolve(ref long accountId, ref Option<string> region, ref Option<string> variables, ref Option<string?> heroName);
 
         /// <summary>
         /// Validates the request parameters
@@ -893,7 +893,7 @@ namespace DeadlockApiClient.Api
         /// <param name="region"></param>
         /// <param name="variables"></param>
         /// <param name="heroName"></param>
-        private void AfterVariablesResolveDefaultImplementation(IVariablesResolveApiResponse apiResponseLocalVar, int accountId, Option<string> region, Option<string> variables, Option<string?> heroName)
+        private void AfterVariablesResolveDefaultImplementation(IVariablesResolveApiResponse apiResponseLocalVar, long accountId, Option<string> region, Option<string> variables, Option<string?> heroName)
         {
             bool suppressDefaultLog = false;
             AfterVariablesResolve(ref suppressDefaultLog, apiResponseLocalVar, accountId, region, variables, heroName);
@@ -910,7 +910,7 @@ namespace DeadlockApiClient.Api
         /// <param name="region"></param>
         /// <param name="variables"></param>
         /// <param name="heroName"></param>
-        partial void AfterVariablesResolve(ref bool suppressDefaultLog, IVariablesResolveApiResponse apiResponseLocalVar, int accountId, Option<string> region, Option<string> variables, Option<string?> heroName);
+        partial void AfterVariablesResolve(ref bool suppressDefaultLog, IVariablesResolveApiResponse apiResponseLocalVar, long accountId, Option<string> region, Option<string> variables, Option<string?> heroName);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -922,7 +922,7 @@ namespace DeadlockApiClient.Api
         /// <param name="region"></param>
         /// <param name="variables"></param>
         /// <param name="heroName"></param>
-        private void OnErrorVariablesResolveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> region, Option<string> variables, Option<string?> heroName)
+        private void OnErrorVariablesResolveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> region, Option<string> variables, Option<string?> heroName)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorVariablesResolve(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, region, variables, heroName);
@@ -941,7 +941,7 @@ namespace DeadlockApiClient.Api
         /// <param name="region"></param>
         /// <param name="variables"></param>
         /// <param name="heroName"></param>
-        partial void OnErrorVariablesResolve(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> region, Option<string> variables, Option<string?> heroName);
+        partial void OnErrorVariablesResolve(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> region, Option<string> variables, Option<string?> heroName);
 
         /// <summary>
         /// Resolve Variables  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
@@ -952,7 +952,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroName">Hero name to check for hero specific stats (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IVariablesResolveApiResponse"/>&gt;</returns>
-        public async Task<IVariablesResolveApiResponse?> VariablesResolveOrDefaultAsync(int accountId, Option<string> region = default, Option<string> variables = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IVariablesResolveApiResponse?> VariablesResolveOrDefaultAsync(long accountId, Option<string> region = default, Option<string> variables = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -974,7 +974,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroName">Hero name to check for hero specific stats (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IVariablesResolveApiResponse"/>&gt;</returns>
-        public async Task<IVariablesResolveApiResponse> VariablesResolveAsync(int accountId, Option<string> region = default, Option<string> variables = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IVariablesResolveApiResponse> VariablesResolveAsync(long accountId, Option<string> region = default, Option<string> variables = default, Option<string?> heroName = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

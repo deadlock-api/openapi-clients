@@ -28,10 +28,10 @@ class ClickhouseSalts(BaseModel):
     """
     ClickhouseSalts
     """ # noqa: E501
-    cluster_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    cluster_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     match_id: Annotated[int, Field(strict=True, ge=0)]
-    metadata_salt: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    replay_salt: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    metadata_salt: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    replay_salt: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     username: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["cluster_id", "match_id", "metadata_salt", "replay_salt", "username"]
 

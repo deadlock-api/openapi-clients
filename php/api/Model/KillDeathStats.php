@@ -312,6 +312,10 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['killer_team'] === null) {
             $invalidProperties[] = "'killer_team' can't be null";
         }
+        if (($this->container['killer_team'] > 255)) {
+            $invalidProperties[] = "invalid value for 'killer_team', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['killer_team'] < 0)) {
             $invalidProperties[] = "invalid value for 'killer_team', must be bigger than or equal to 0.";
         }
@@ -396,6 +400,9 @@ class KillDeathStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($killer_team)) {
             throw new \InvalidArgumentException('non-nullable killer_team cannot be null');
+        }
+        if (($killer_team > 255)) {
+            throw new \InvalidArgumentException('invalid value for $killer_team when calling KillDeathStats., must be smaller than or equal to 255.');
         }
         if (($killer_team < 0)) {
             throw new \InvalidArgumentException('invalid value for $killer_team when calling KillDeathStats., must be bigger than or equal to 0.');

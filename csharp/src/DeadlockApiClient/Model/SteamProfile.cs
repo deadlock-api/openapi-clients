@@ -46,7 +46,7 @@ namespace DeadlockApiClient.Model
         /// <param name="lastTeamAvgBadge">lastTeamAvgBadge</param>
         /// <param name="realname">realname</param>
         [JsonConstructor]
-        public SteamProfile(int accountId, string avatar, string avatarfull, string avatarmedium, List<SteamFriend> friends, DateTime lastUpdated, long matchesPlayedLast30d, string personaname, string profileurl, Option<string?> countrycode = default, Option<int?> lastTeamAvgBadge = default, Option<string?> realname = default)
+        public SteamProfile(long accountId, string avatar, string avatarfull, string avatarmedium, List<SteamFriend> friends, DateTime lastUpdated, long matchesPlayedLast30d, string personaname, string profileurl, Option<string?> countrycode = default, Option<long?> lastTeamAvgBadge = default, Option<string?> realname = default)
         {
             AccountId = accountId;
             Avatar = avatar;
@@ -69,7 +69,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AccountId
         /// </summary>
         [JsonPropertyName("account_id")]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets Avatar
@@ -137,13 +137,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> LastTeamAvgBadgeOption { get; private set; }
+        public Option<long?> LastTeamAvgBadgeOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets LastTeamAvgBadge
         /// </summary>
         [JsonPropertyName("last_team_avg_badge")]
-        public int? LastTeamAvgBadge { get { return this.LastTeamAvgBadgeOption.Value; } set { this.LastTeamAvgBadgeOption = new(value); } }
+        public long? LastTeamAvgBadge { get { return this.LastTeamAvgBadgeOption.Value; } set { this.LastTeamAvgBadgeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Realname
@@ -189,8 +189,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AccountId (int) minimum
-            if (this.AccountId < (int)0)
+            // AccountId (long) maximum
+            if (this.AccountId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value less than or equal to 4294967295.", new [] { "AccountId" });
+            }
+
+            // AccountId (long) minimum
+            if (this.AccountId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
@@ -201,8 +207,14 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchesPlayedLast30d, must be a value greater than or equal to 0.", new [] { "MatchesPlayedLast30d" });
             }
 
-            // LastTeamAvgBadge (int) minimum
-            if (this.LastTeamAvgBadgeOption.IsSet && this.LastTeamAvgBadgeOption.Value < (int)0)
+            // LastTeamAvgBadge (long) maximum
+            if (this.LastTeamAvgBadgeOption.IsSet && this.LastTeamAvgBadgeOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastTeamAvgBadge, must be a value less than or equal to 4294967295.", new [] { "LastTeamAvgBadge" });
+            }
+
+            // LastTeamAvgBadge (long) minimum
+            if (this.LastTeamAvgBadgeOption.IsSet && this.LastTeamAvgBadgeOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastTeamAvgBadge, must be a value greater than or equal to 0.", new [] { "LastTeamAvgBadge" });
             }
@@ -243,7 +255,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> accountId = default;
+            Option<long?> accountId = default;
             Option<string?> avatar = default;
             Option<string?> avatarfull = default;
             Option<string?> avatarmedium = default;
@@ -253,7 +265,7 @@ namespace DeadlockApiClient.Model
             Option<string?> personaname = default;
             Option<string?> profileurl = default;
             Option<string?> countrycode = default;
-            Option<int?> lastTeamAvgBadge = default;
+            Option<long?> lastTeamAvgBadge = default;
             Option<string?> realname = default;
 
             while (utf8JsonReader.Read())
@@ -272,7 +284,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "account_id":
-                            accountId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            accountId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "avatar":
                             avatar = new Option<string?>(utf8JsonReader.GetString()!);
@@ -302,7 +314,7 @@ namespace DeadlockApiClient.Model
                             countrycode = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "last_team_avg_badge":
-                            lastTeamAvgBadge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            lastTeamAvgBadge = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "realname":
                             realname = new Option<string?>(utf8JsonReader.GetString());

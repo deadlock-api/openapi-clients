@@ -39,7 +39,7 @@ namespace DeadlockApiClient.Model
         /// <param name="team">team</param>
         /// <param name="teamParsed">teamParsed</param>
         [JsonConstructor]
-        public ActiveMatchTeamStats(Option<int?> brawlScore = default, Option<int?> netWorth = default, Option<long?> objectivesMask = default, Option<int?> team = default, Option<ActiveMatchTeam?> teamParsed = default)
+        public ActiveMatchTeamStats(Option<long?> brawlScore = default, Option<long?> netWorth = default, Option<long?> objectivesMask = default, Option<int?> team = default, Option<ActiveMatchTeam?> teamParsed = default)
         {
             BrawlScoreOption = brawlScore;
             NetWorthOption = netWorth;
@@ -69,26 +69,26 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BrawlScoreOption { get; private set; }
+        public Option<long?> BrawlScoreOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets BrawlScore
         /// </summary>
         [JsonPropertyName("brawl_score")]
-        public int? BrawlScore { get { return this.BrawlScoreOption.Value; } set { this.BrawlScoreOption = new(value); } }
+        public long? BrawlScore { get { return this.BrawlScoreOption.Value; } set { this.BrawlScoreOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NetWorth
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> NetWorthOption { get; private set; }
+        public Option<long?> NetWorthOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets NetWorth
         /// </summary>
         [JsonPropertyName("net_worth")]
-        public int? NetWorth { get { return this.NetWorthOption.Value; } set { this.NetWorthOption = new(value); } }
+        public long? NetWorth { get { return this.NetWorthOption.Value; } set { this.NetWorthOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ObjectivesMask
@@ -140,14 +140,26 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // BrawlScore (int) minimum
-            if (this.BrawlScoreOption.IsSet && this.BrawlScoreOption.Value < (int)0)
+            // BrawlScore (long) maximum
+            if (this.BrawlScoreOption.IsSet && this.BrawlScoreOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BrawlScore, must be a value less than or equal to 4294967295.", new [] { "BrawlScore" });
+            }
+
+            // BrawlScore (long) minimum
+            if (this.BrawlScoreOption.IsSet && this.BrawlScoreOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BrawlScore, must be a value greater than or equal to 0.", new [] { "BrawlScore" });
             }
 
-            // NetWorth (int) minimum
-            if (this.NetWorthOption.IsSet && this.NetWorthOption.Value < (int)0)
+            // NetWorth (long) maximum
+            if (this.NetWorthOption.IsSet && this.NetWorthOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorth, must be a value less than or equal to 4294967295.", new [] { "NetWorth" });
+            }
+
+            // NetWorth (long) minimum
+            if (this.NetWorthOption.IsSet && this.NetWorthOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorth, must be a value greater than or equal to 0.", new [] { "NetWorth" });
             }
@@ -194,8 +206,8 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> brawlScore = default;
-            Option<int?> netWorth = default;
+            Option<long?> brawlScore = default;
+            Option<long?> netWorth = default;
             Option<long?> objectivesMask = default;
             Option<int?> team = default;
             Option<ActiveMatchTeam?> teamParsed = default;
@@ -216,10 +228,10 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "brawl_score":
-                            brawlScore = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            brawlScore = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "net_worth":
-                            netWorth = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            netWorth = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "objectives_mask":
                             objectivesMask = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());

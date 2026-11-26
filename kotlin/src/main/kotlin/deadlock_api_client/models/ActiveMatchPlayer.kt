@@ -44,11 +44,11 @@ data class ActiveMatchPlayer (
     val abandoned: kotlin.Boolean? = null,
 
     @Json(name = "account_id")
-    val accountId: kotlin.Int? = null,
+    val accountId: kotlin.Long? = null,
 
     /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_id")
-    val heroId: kotlin.Int? = null,
+    val heroId: kotlin.Long? = null,
 
     @Json(name = "team")
     val team: kotlin.Int? = null,

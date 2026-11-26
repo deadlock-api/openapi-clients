@@ -50,7 +50,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMiscEntityApiResponse"/>&gt;</returns>
-        Task<IGetMiscEntityApiResponse> GetMiscEntityAsync(string idOrClassname, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMiscEntityApiResponse> GetMiscEntityAsync(string idOrClassname, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Misc Entity
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMiscEntityApiResponse"/>?&gt;</returns>
-        Task<IGetMiscEntityApiResponse?> GetMiscEntityOrDefaultAsync(string idOrClassname, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMiscEntityApiResponse?> GetMiscEntityOrDefaultAsync(string idOrClassname, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Misc Entities
@@ -76,7 +76,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListMiscEntitiesApiResponse"/>&gt;</returns>
-        Task<IListMiscEntitiesApiResponse> ListMiscEntitiesAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListMiscEntitiesApiResponse> ListMiscEntitiesAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Misc Entities
@@ -88,7 +88,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListMiscEntitiesApiResponse"/>?&gt;</returns>
-        Task<IListMiscEntitiesApiResponse?> ListMiscEntitiesOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListMiscEntitiesApiResponse?> ListMiscEntitiesOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -226,7 +226,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetMiscEntity(ref string idOrClassname, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetMiscEntity(ref string idOrClassname, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -246,7 +246,7 @@ namespace DeadlockApiClient.Api
         /// <param name="idOrClassname"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetMiscEntityDefaultImplementation(IGetMiscEntityApiResponse apiResponseLocalVar, string idOrClassname, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetMiscEntityDefaultImplementation(IGetMiscEntityApiResponse apiResponseLocalVar, string idOrClassname, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetMiscEntity(ref suppressDefaultLog, apiResponseLocalVar, idOrClassname, language, clientVersion);
@@ -262,7 +262,7 @@ namespace DeadlockApiClient.Api
         /// <param name="idOrClassname"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetMiscEntity(ref bool suppressDefaultLog, IGetMiscEntityApiResponse apiResponseLocalVar, string idOrClassname, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetMiscEntity(ref bool suppressDefaultLog, IGetMiscEntityApiResponse apiResponseLocalVar, string idOrClassname, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -273,7 +273,7 @@ namespace DeadlockApiClient.Api
         /// <param name="idOrClassname"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetMiscEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetMiscEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetMiscEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, idOrClassname, language, clientVersion);
@@ -291,7 +291,7 @@ namespace DeadlockApiClient.Api
         /// <param name="idOrClassname"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetMiscEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetMiscEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Misc Entity Returns a single misc entity by numeric id or by &#x60;class_name&#x60; (case-insensitive).
@@ -301,7 +301,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMiscEntityApiResponse"/>&gt;</returns>
-        public async Task<IGetMiscEntityApiResponse?> GetMiscEntityOrDefaultAsync(string idOrClassname, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMiscEntityApiResponse?> GetMiscEntityOrDefaultAsync(string idOrClassname, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -322,7 +322,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMiscEntityApiResponse"/>&gt;</returns>
-        public async Task<IGetMiscEntityApiResponse> GetMiscEntityAsync(string idOrClassname, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMiscEntityApiResponse> GetMiscEntityAsync(string idOrClassname, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -513,7 +513,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListMiscEntities(ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatListMiscEntities(ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -521,7 +521,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterListMiscEntitiesDefaultImplementation(IListMiscEntitiesApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void AfterListMiscEntitiesDefaultImplementation(IListMiscEntitiesApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterListMiscEntities(ref suppressDefaultLog, apiResponseLocalVar, language, clientVersion);
@@ -536,7 +536,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterListMiscEntities(ref bool suppressDefaultLog, IListMiscEntitiesApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterListMiscEntities(ref bool suppressDefaultLog, IListMiscEntitiesApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -546,7 +546,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorListMiscEntitiesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorListMiscEntitiesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorListMiscEntities(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, language, clientVersion);
@@ -563,7 +563,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorListMiscEntities(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorListMiscEntities(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// List Misc Entities Returns the per-misc-entity metadata used by the game client, parsed from the patch&#39;s KV3 source files. Pickup labels (&#x60;name&#x60;) and permanent buff stat names (&#x60;buff_type_name&#x60;) are localized into the requested &#x60;language&#x60;; the raw tokens stay in &#x60;name_loc_string&#x60; / &#x60;buff_type_loc_string&#x60;.
@@ -572,7 +572,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListMiscEntitiesApiResponse"/>&gt;</returns>
-        public async Task<IListMiscEntitiesApiResponse?> ListMiscEntitiesOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListMiscEntitiesApiResponse?> ListMiscEntitiesOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -592,7 +592,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListMiscEntitiesApiResponse"/>&gt;</returns>
-        public async Task<IListMiscEntitiesApiResponse> ListMiscEntitiesAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListMiscEntitiesApiResponse> ListMiscEntitiesAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

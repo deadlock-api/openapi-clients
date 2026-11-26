@@ -27,7 +27,7 @@ type ApiListClientVersionsRequest struct {
 	ApiService *ClientVersionsAPIService
 }
 
-func (r ApiListClientVersionsRequest) Execute() ([]int32, *http.Response, error) {
+func (r ApiListClientVersionsRequest) Execute() ([]int64, *http.Response, error) {
 	return r.ApiService.ListClientVersionsExecute(r)
 }
 
@@ -47,13 +47,13 @@ func (a *ClientVersionsAPIService) ListClientVersions(ctx context.Context) ApiLi
 }
 
 // Execute executes the request
-//  @return []int32
-func (a *ClientVersionsAPIService) ListClientVersionsExecute(r ApiListClientVersionsRequest) ([]int32, *http.Response, error) {
+//  @return []int64
+func (a *ClientVersionsAPIService) ListClientVersionsExecute(r ApiListClientVersionsRequest) ([]int64, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []int32
+		localVarReturnValue  []int64
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ClientVersionsAPIService.ListClientVersions")

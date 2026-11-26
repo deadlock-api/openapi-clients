@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="heroId">The ID of the banned hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="matches">The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 4 bans (3 before Beta Season 2) and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.</param>
         [JsonConstructor]
-        public HeroBanStats(long bans, int bucket, int heroId, long matches)
+        public HeroBanStats(long bans, long bucket, int heroId, long matches)
         {
             Bans = bans;
             Bucket = bucket;
@@ -61,7 +61,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The bucket value (depends on the bucket query parameter).</value>
         [JsonPropertyName("bucket")]
-        public int Bucket { get; set; }
+        public long Bucket { get; set; }
 
         /// <summary>
         /// The ID of the banned hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -106,10 +106,22 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bans, must be a value greater than or equal to 0.", new [] { "Bans" });
             }
 
-            // Bucket (int) minimum
-            if (this.Bucket < (int)0)
+            // Bucket (long) maximum
+            if (this.Bucket > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value less than or equal to 4294967295.", new [] { "Bucket" });
+            }
+
+            // Bucket (long) minimum
+            if (this.Bucket < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
+            }
+
+            // HeroId (int) maximum
+            if (this.HeroId > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value less than or equal to 255.", new [] { "HeroId" });
             }
 
             // HeroId (int) minimum
@@ -161,7 +173,7 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<long?> bans = default;
-            Option<int?> bucket = default;
+            Option<long?> bucket = default;
             Option<int?> heroId = default;
             Option<long?> matches = default;
 
@@ -184,7 +196,7 @@ namespace DeadlockApiClient.Model
                             bans = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "bucket":
-                            bucket = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            bucket = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "hero_id":
                             heroId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());

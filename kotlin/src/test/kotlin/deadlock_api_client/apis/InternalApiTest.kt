@@ -76,7 +76,7 @@ class InternalApiTest : ShouldSpec() {
         // to test ingestStatus
         should("test ingestStatus") {
             // uncomment below to test ingestStatus
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
             //val result : IngestStatusResponse = apiInstance.ingestStatus(accountId)
             //result shouldBe ("TODO")
         }

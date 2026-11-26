@@ -37,7 +37,7 @@ class MapApiTest : ShouldSpec() {
         // to test getMap
         should("test getMap") {
             // uncomment below to test getMap
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : MapData = apiInstance.getMap(clientVersion)
             //result shouldBe ("TODO")
         }

@@ -8,7 +8,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="listcolors"></a>
 # **ListColors**
-> Dictionary&lt;string, Color&gt; ListColors (int clientVersion = null)
+> Dictionary&lt;string, Color&gt; ListColors (long clientVersion = null)
 
 List Colors
 
@@ -19,7 +19,7 @@ Panorama color palette (`@define <name>: #RRGGBB[AA];` declarations from `citade
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

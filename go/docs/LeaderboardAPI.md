@@ -33,7 +33,7 @@ import (
 
 func main() {
 	region := "region_example" // string | The region to fetch the leaderboard for.
-	leaderboardId := int32(56) // int32 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
+	leaderboardId := int64(789) // int64 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -63,7 +63,7 @@ Other parameters are passed through a pointer to a apiLeaderboardRequest struct 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **leaderboardId** | **int32** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
+ **leaderboardId** | **int64** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
 
 ### Return type
 
@@ -105,8 +105,8 @@ import (
 
 func main() {
 	region := "region_example" // string | The region to fetch the leaderboard for.
-	heroId := int32(56) // int32 | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	leaderboardId := int32(56) // int32 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
+	heroId := int64(789) // int64 | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	leaderboardId := int64(789) // int64 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **region** | **string** | The region to fetch the leaderboard for. | 
-**heroId** | **int32** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**heroId** | **int64** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Other Parameters
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **leaderboardId** | **int32** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
+ **leaderboardId** | **int64** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
 
 ### Return type
 
@@ -180,8 +180,8 @@ import (
 
 func main() {
 	region := "region_example" // string | The region to fetch the leaderboard for.
-	heroId := int32(56) // int32 | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	leaderboardId := int32(56) // int32 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
+	heroId := int64(789) // int64 | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	leaderboardId := int64(789) // int64 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **region** | **string** | The region to fetch the leaderboard for. | 
-**heroId** | **int32** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**heroId** | **int64** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Other Parameters
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **leaderboardId** | **int32** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
+ **leaderboardId** | **int64** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
 
 ### Return type
 
@@ -255,7 +255,7 @@ import (
 
 func main() {
 	region := "region_example" // string | The region to fetch the leaderboard for.
-	leaderboardId := int32(56) // int32 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
+	leaderboardId := int64(789) // int64 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -285,7 +285,7 @@ Other parameters are passed through a pointer to a apiLeaderboardRawRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **leaderboardId** | **int32** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
+ **leaderboardId** | **int64** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
 
 ### Return type
 

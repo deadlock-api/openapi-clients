@@ -73,8 +73,8 @@ class ActiveMatchPlayer implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $openAPIFormats = [
         'abandoned' => null,
-        'account_id' => 'int32',
-        'hero_id' => 'int32',
+        'account_id' => 'int64',
+        'hero_id' => 'int64',
         'team' => 'int32',
         'team_parsed' => null
     ];
@@ -302,8 +302,16 @@ class ActiveMatchPlayer implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['account_id']) && ($this->container['account_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'account_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['account_id']) && ($this->container['account_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'account_id', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['hero_id']) && ($this->container['hero_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'hero_id', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['hero_id']) && ($this->container['hero_id'] < 0)) {
@@ -388,6 +396,9 @@ class ActiveMatchPlayer implements ModelInterface, ArrayAccess, \JsonSerializabl
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($account_id) && ($account_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $account_id when calling ActiveMatchPlayer., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($account_id) && ($account_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $account_id when calling ActiveMatchPlayer., must be bigger than or equal to 0.');
         }
@@ -425,6 +436,9 @@ class ActiveMatchPlayer implements ModelInterface, ArrayAccess, \JsonSerializabl
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($hero_id) && ($hero_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $hero_id when calling ActiveMatchPlayer., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($hero_id) && ($hero_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero_id when calling ActiveMatchPlayer., must be bigger than or equal to 0.');

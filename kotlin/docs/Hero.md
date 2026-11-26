@@ -11,7 +11,7 @@
 | **description** | [**HeroDescription**](HeroDescription.md) |  |  |
 | **disabled** | **kotlin.Boolean** |  |  |
 | **heroStatsUi** | [**HeroStatsUI**](HeroStatsUI.md) |  |  |
-| **id** | **kotlin.Int** |  |  |
+| **id** | **kotlin.Long** |  |  |
 | **images** | [**HeroImages**](HeroImages.md) |  |  |
 | **inDevelopment** | **kotlin.Boolean** |  |  |
 | **itemSlotInfo** | [**kotlin.collections.Map&lt;kotlin.String, HashMapItemSlotTypeItemSlotInfoValue&gt;**](HashMapItemSlotTypeItemSlotInfoValue.md) |  |  |

@@ -18,13 +18,13 @@ Name | Type | Description | Notes
 **BulletSpeed** | Pointer to **NullableFloat64** |  | [optional] 
 **BulletSpeedCurve** | Pointer to [**NullableRawItemWeaponInfoBulletSpeedCurve**](RawItemWeaponInfoBulletSpeedCurve.md) |  | [optional] 
 **BulletWhizDistance** | Pointer to **NullableFloat64** |  | [optional] 
-**Bullets** | Pointer to **NullableInt32** |  | [optional] 
+**Bullets** | Pointer to **NullableInt64** |  | [optional] 
 **BulletsPerSecond** | Pointer to **NullableFloat64** |  | [optional] 
 **BulletsPerSecondWithReload** | Pointer to **NullableFloat64** |  | [optional] 
 **BurstShotCooldown** | Pointer to **NullableFloat64** |  | [optional] 
-**BurstShotCount** | Pointer to **NullableInt32** |  | [optional] 
+**BurstShotCount** | Pointer to **NullableInt64** |  | [optional] 
 **CanZoom** | Pointer to **NullableBool** |  | [optional] 
-**ClipSize** | Pointer to **NullableInt32** |  | [optional] 
+**ClipSize** | Pointer to **NullableInt64** |  | [optional] 
 **CritBonusAgainstNpcs** | Pointer to **NullableFloat64** |  | [optional] 
 **CritBonusEnd** | Pointer to **NullableFloat64** |  | [optional] 
 **CritBonusEndRange** | Pointer to **NullableFloat64** |  | [optional] 
@@ -589,20 +589,20 @@ HasBulletWhizDistance returns a boolean if a field has been set.
 UnsetBulletWhizDistance ensures that no value is present for BulletWhizDistance, not even an explicit nil
 ### GetBullets
 
-`func (o *WeaponInfo) GetBullets() int32`
+`func (o *WeaponInfo) GetBullets() int64`
 
 GetBullets returns the Bullets field if non-nil, zero value otherwise.
 
 ### GetBulletsOk
 
-`func (o *WeaponInfo) GetBulletsOk() (*int32, bool)`
+`func (o *WeaponInfo) GetBulletsOk() (*int64, bool)`
 
 GetBulletsOk returns a tuple with the Bullets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBullets
 
-`func (o *WeaponInfo) SetBullets(v int32)`
+`func (o *WeaponInfo) SetBullets(v int64)`
 
 SetBullets sets Bullets field to given value.
 
@@ -729,20 +729,20 @@ HasBurstShotCooldown returns a boolean if a field has been set.
 UnsetBurstShotCooldown ensures that no value is present for BurstShotCooldown, not even an explicit nil
 ### GetBurstShotCount
 
-`func (o *WeaponInfo) GetBurstShotCount() int32`
+`func (o *WeaponInfo) GetBurstShotCount() int64`
 
 GetBurstShotCount returns the BurstShotCount field if non-nil, zero value otherwise.
 
 ### GetBurstShotCountOk
 
-`func (o *WeaponInfo) GetBurstShotCountOk() (*int32, bool)`
+`func (o *WeaponInfo) GetBurstShotCountOk() (*int64, bool)`
 
 GetBurstShotCountOk returns a tuple with the BurstShotCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBurstShotCount
 
-`func (o *WeaponInfo) SetBurstShotCount(v int32)`
+`func (o *WeaponInfo) SetBurstShotCount(v int64)`
 
 SetBurstShotCount sets BurstShotCount field to given value.
 
@@ -799,20 +799,20 @@ HasCanZoom returns a boolean if a field has been set.
 UnsetCanZoom ensures that no value is present for CanZoom, not even an explicit nil
 ### GetClipSize
 
-`func (o *WeaponInfo) GetClipSize() int32`
+`func (o *WeaponInfo) GetClipSize() int64`
 
 GetClipSize returns the ClipSize field if non-nil, zero value otherwise.
 
 ### GetClipSizeOk
 
-`func (o *WeaponInfo) GetClipSizeOk() (*int32, bool)`
+`func (o *WeaponInfo) GetClipSizeOk() (*int64, bool)`
 
 GetClipSizeOk returns a tuple with the ClipSize field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetClipSize
 
-`func (o *WeaponInfo) SetClipSize(v int32)`
+`func (o *WeaponInfo) SetClipSize(v int64)`
 
 SetClipSize sets ClipSize field to given value.
 

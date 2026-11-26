@@ -91,27 +91,27 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'compat_version' => 'int32',
-        'duration_s' => 'int32',
+        'compat_version' => 'int64',
+        'duration_s' => 'int64',
         'game_mode' => 'int32',
         'game_mode_parsed' => null,
-        'game_mode_version' => 'int32',
+        'game_mode_version' => 'int64',
         'lobby_id' => 'int64',
         'low_pri_pool' => null,
         'match_id' => 'int64',
         'match_mode' => 'int32',
         'match_mode_parsed' => null,
-        'match_score' => 'int32',
-        'net_worth_team_0' => 'int32',
-        'net_worth_team_1' => 'int32',
+        'match_score' => 'int64',
+        'net_worth_team_0' => 'int64',
+        'net_worth_team_1' => 'int64',
         'objectives_mask_team0' => 'int64',
         'objectives_mask_team1' => 'int64',
-        'open_spectator_slots' => 'int32',
+        'open_spectator_slots' => 'int64',
         'players' => null,
         'region_mode' => 'int32',
         'region_mode_parsed' => null,
-        'spectators' => 'int32',
-        'start_time' => 'int32',
+        'spectators' => 'int64',
+        'start_time' => 'int64',
         'team_stats' => null,
         'winning_team' => 'int32',
         'winning_team_parsed' => null
@@ -435,12 +435,24 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['compat_version']) && ($this->container['compat_version'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'compat_version', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['compat_version']) && ($this->container['compat_version'] < 0)) {
             $invalidProperties[] = "invalid value for 'compat_version', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['duration_s']) && ($this->container['duration_s'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'duration_s', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['duration_s']) && ($this->container['duration_s'] < 0)) {
             $invalidProperties[] = "invalid value for 'duration_s', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['game_mode_version']) && ($this->container['game_mode_version'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'game_mode_version', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['game_mode_version']) && ($this->container['game_mode_version'] < 0)) {
@@ -455,12 +467,24 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'match_id', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['match_score']) && ($this->container['match_score'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'match_score', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['match_score']) && ($this->container['match_score'] < 0)) {
             $invalidProperties[] = "invalid value for 'match_score', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['net_worth_team_0']) && ($this->container['net_worth_team_0'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'net_worth_team_0', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['net_worth_team_0']) && ($this->container['net_worth_team_0'] < 0)) {
             $invalidProperties[] = "invalid value for 'net_worth_team_0', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['net_worth_team_1']) && ($this->container['net_worth_team_1'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'net_worth_team_1', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['net_worth_team_1']) && ($this->container['net_worth_team_1'] < 0)) {
@@ -475,6 +499,10 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'objectives_mask_team1', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['open_spectator_slots']) && ($this->container['open_spectator_slots'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'open_spectator_slots', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['open_spectator_slots']) && ($this->container['open_spectator_slots'] < 0)) {
             $invalidProperties[] = "invalid value for 'open_spectator_slots', must be bigger than or equal to 0.";
         }
@@ -482,8 +510,16 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['players'] === null) {
             $invalidProperties[] = "'players' can't be null";
         }
+        if (!is_null($this->container['spectators']) && ($this->container['spectators'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'spectators', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['spectators']) && ($this->container['spectators'] < 0)) {
             $invalidProperties[] = "invalid value for 'spectators', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['start_time']) && ($this->container['start_time'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'start_time', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['start_time']) && ($this->container['start_time'] < 0)) {
@@ -537,6 +573,9 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($compat_version) && ($compat_version > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $compat_version when calling ActiveMatch., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($compat_version) && ($compat_version < 0)) {
             throw new \InvalidArgumentException('invalid value for $compat_version when calling ActiveMatch., must be bigger than or equal to 0.');
         }
@@ -574,6 +613,9 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($duration_s) && ($duration_s > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $duration_s when calling ActiveMatch., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($duration_s) && ($duration_s < 0)) {
             throw new \InvalidArgumentException('invalid value for $duration_s when calling ActiveMatch., must be bigger than or equal to 0.');
@@ -680,6 +722,9 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($game_mode_version) && ($game_mode_version > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $game_mode_version when calling ActiveMatch., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($game_mode_version) && ($game_mode_version < 0)) {
             throw new \InvalidArgumentException('invalid value for $game_mode_version when calling ActiveMatch., must be bigger than or equal to 0.');
@@ -897,6 +942,9 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($match_score) && ($match_score > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $match_score when calling ActiveMatch., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($match_score) && ($match_score < 0)) {
             throw new \InvalidArgumentException('invalid value for $match_score when calling ActiveMatch., must be bigger than or equal to 0.');
         }
@@ -935,6 +983,9 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($net_worth_team_0) && ($net_worth_team_0 > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $net_worth_team_0 when calling ActiveMatch., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($net_worth_team_0) && ($net_worth_team_0 < 0)) {
             throw new \InvalidArgumentException('invalid value for $net_worth_team_0 when calling ActiveMatch., must be bigger than or equal to 0.');
         }
@@ -972,6 +1023,9 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($net_worth_team_1) && ($net_worth_team_1 > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $net_worth_team_1 when calling ActiveMatch., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($net_worth_team_1) && ($net_worth_team_1 < 0)) {
             throw new \InvalidArgumentException('invalid value for $net_worth_team_1 when calling ActiveMatch., must be bigger than or equal to 0.');
@@ -1086,6 +1140,9 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($open_spectator_slots) && ($open_spectator_slots > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $open_spectator_slots when calling ActiveMatch., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($open_spectator_slots) && ($open_spectator_slots < 0)) {
             throw new \InvalidArgumentException('invalid value for $open_spectator_slots when calling ActiveMatch., must be bigger than or equal to 0.');
@@ -1220,6 +1277,9 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($spectators) && ($spectators > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $spectators when calling ActiveMatch., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($spectators) && ($spectators < 0)) {
             throw new \InvalidArgumentException('invalid value for $spectators when calling ActiveMatch., must be bigger than or equal to 0.');
         }
@@ -1257,6 +1317,9 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($start_time) && ($start_time > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $start_time when calling ActiveMatch., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($start_time) && ($start_time < 0)) {
             throw new \InvalidArgumentException('invalid value for $start_time when calling ActiveMatch., must be bigger than or equal to 0.');

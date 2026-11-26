@@ -56,12 +56,12 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task EnemyStatsAsyncTest()
         {
-            int accountId = default!;
+            long accountId = default!;
             Client.Option<string?> gameMode = default!;
             Client.Option<long?> minUnixTimestamp = default!;
             Client.Option<long?> maxUnixTimestamp = default!;
-            Client.Option<long?> minDurationS = default!;
-            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minDurationS = default!;
+            Client.Option<int?> maxDurationS = default!;
             Client.Option<long?> minMatchId = default!;
             Client.Option<long?> maxMatchId = default!;
             Client.Option<long?> minMatchesPlayed = default!;
@@ -77,7 +77,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task MatchHistoryAsyncTest()
         {
-            int accountId = default!;
+            long accountId = default!;
             Client.Option<bool> forceRefetch = default!;
             var response = await _instance.MatchHistoryAsync(accountId, forceRefetch);
             var model = response.Ok();
@@ -90,12 +90,12 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task MateStatsAsyncTest()
         {
-            int accountId = default!;
+            long accountId = default!;
             Client.Option<string?> gameMode = default!;
             Client.Option<long?> minUnixTimestamp = default!;
             Client.Option<long?> maxUnixTimestamp = default!;
-            Client.Option<long?> minDurationS = default!;
-            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minDurationS = default!;
+            Client.Option<int?> maxDurationS = default!;
             Client.Option<long?> minMatchId = default!;
             Client.Option<long?> maxMatchId = default!;
             Client.Option<long?> minMatchesPlayed = default!;
@@ -112,14 +112,14 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task PlayerHeroStatsAsyncTest()
         {
-            List<int> accountIds = default!;
+            List<long> accountIds = default!;
             Client.Option<string?> gameMode = default!;
             Client.Option<string?> matchMode = default!;
             Client.Option<string?> heroIds = default!;
             Client.Option<long?> minUnixTimestamp = default!;
             Client.Option<long?> maxUnixTimestamp = default!;
-            Client.Option<long?> minDurationS = default!;
-            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minDurationS = default!;
+            Client.Option<int?> maxDurationS = default!;
             Client.Option<long?> minNetworth = default!;
             Client.Option<long?> maxNetworth = default!;
             Client.Option<int?> minAverageBadge = default!;
@@ -137,7 +137,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task RankAsyncTest()
         {
-            int accountId = default!;
+            long accountId = default!;
             var response = await _instance.RankAsync(accountId);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.RankResponse>(model);
@@ -149,7 +149,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task RankAvgImageAsyncTest()
         {
-            List<int> accountIds = default!;
+            List<long> accountIds = default!;
             Client.Option<string> format = default!;
             var response = await _instance.RankAvgImageAsync(accountIds, format);
             var model = response.Ok();
@@ -162,7 +162,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task RankBatchAsyncTest()
         {
-            List<int> accountIds = default!;
+            List<long> accountIds = default!;
             var response = await _instance.RankBatchAsync(accountIds);
             var model = response.Ok();
             Assert.IsType<List<AccountRank>>(model);
@@ -176,8 +176,8 @@ namespace DeadlockApiClient.Test.Api
         {
             Client.Option<long?> minUnixTimestamp = default!;
             Client.Option<long?> maxUnixTimestamp = default!;
-            Client.Option<long?> minDurationS = default!;
-            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minDurationS = default!;
+            Client.Option<int?> maxDurationS = default!;
             Client.Option<bool?> isHighSkillRangeParties = default!;
             Client.Option<bool?> isLowPriPool = default!;
             Client.Option<bool?> isNewPlayerPool = default!;
@@ -194,7 +194,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task RankImageAsyncTest()
         {
-            int accountId = default!;
+            long accountId = default!;
             Client.Option<string> format = default!;
             var response = await _instance.RankImageAsync(accountId, format);
             var model = response.Ok();
@@ -207,7 +207,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task RegionAsyncTest()
         {
-            int accountId = default!;
+            long accountId = default!;
             var response = await _instance.RegionAsync(accountId);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.PlayerRegionResponse>(model);
@@ -219,7 +219,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task RegionBatchAsyncTest()
         {
-            List<int> accountIds = default!;
+            List<long> accountIds = default!;
             var response = await _instance.RegionBatchAsync(accountIds);
             var model = response.Ok();
             Assert.IsType<List<PlayerRegionResponse>>(model);

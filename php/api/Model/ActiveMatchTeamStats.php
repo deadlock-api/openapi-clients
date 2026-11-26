@@ -72,8 +72,8 @@ class ActiveMatchTeamStats implements ModelInterface, ArrayAccess, \JsonSerializ
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'brawl_score' => 'int32',
-        'net_worth' => 'int32',
+        'brawl_score' => 'int64',
+        'net_worth' => 'int64',
         'objectives_mask' => 'int64',
         'team' => 'int32',
         'team_parsed' => null
@@ -302,8 +302,16 @@ class ActiveMatchTeamStats implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['brawl_score']) && ($this->container['brawl_score'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'brawl_score', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['brawl_score']) && ($this->container['brawl_score'] < 0)) {
             $invalidProperties[] = "invalid value for 'brawl_score', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['net_worth']) && ($this->container['net_worth'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'net_worth', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['net_worth']) && ($this->container['net_worth'] < 0)) {
@@ -358,6 +366,9 @@ class ActiveMatchTeamStats implements ModelInterface, ArrayAccess, \JsonSerializ
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($brawl_score) && ($brawl_score > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $brawl_score when calling ActiveMatchTeamStats., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($brawl_score) && ($brawl_score < 0)) {
             throw new \InvalidArgumentException('invalid value for $brawl_score when calling ActiveMatchTeamStats., must be bigger than or equal to 0.');
         }
@@ -395,6 +406,9 @@ class ActiveMatchTeamStats implements ModelInterface, ArrayAccess, \JsonSerializ
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($net_worth) && ($net_worth > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $net_worth when calling ActiveMatchTeamStats., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($net_worth) && ($net_worth < 0)) {
             throw new \InvalidArgumentException('invalid value for $net_worth when calling ActiveMatchTeamStats., must be bigger than or equal to 0.');

@@ -29,8 +29,8 @@ class SeasonInterval(BaseModel):
     SeasonInterval
     """ # noqa: E501
     end_timestamp: StrictInt = Field(description="Unix timestamp (seconds) at which the interval ends.")
-    interval: Annotated[int, Field(strict=True, ge=0)]
-    leaderboard_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Leaderboard backing this interval (build 6701+).")
+    interval: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
+    leaderboard_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Leaderboard backing this interval (build 6701+).")
     start_timestamp: StrictInt = Field(description="Unix timestamp (seconds) at which the interval starts.")
     __properties: ClassVar[List[str]] = ["end_timestamp", "interval", "leaderboard_id", "start_timestamp"]
 

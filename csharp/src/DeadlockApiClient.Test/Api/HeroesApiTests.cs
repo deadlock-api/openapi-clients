@@ -56,9 +56,9 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetHeroAsyncTest()
         {
-            int heroId = default!;
+            long heroId = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetHeroAsync(heroId, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Hero>(model);
@@ -72,7 +72,7 @@ namespace DeadlockApiClient.Test.Api
         {
             string name = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetHeroByNameAsync(name, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Hero>(model);
@@ -85,7 +85,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task ListHeroesAsyncTest()
         {
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             Client.Option<bool?> onlyActive = default!;
             var response = await _instance.ListHeroesAsync(language, clientVersion, onlyActive);
             var model = response.Ok();

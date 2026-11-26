@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppId** | **int32** |  | 
-**ClientVersion** | **int32** |  | 
+**AppId** | **int64** |  | 
+**ClientVersion** | **int64** |  | 
 **ProductName** | **string** |  | 
-**ServerAppId** | **int32** |  | 
-**ServerVersion** | **int32** |  | 
+**ServerAppId** | **int64** |  | 
+**ServerVersion** | **int64** |  | 
 **SourceRevision** | **int64** |  | 
-**ToolsAppId** | **int32** |  | 
+**ToolsAppId** | **int64** |  | 
 **VersionDate** | **string** |  | 
 **VersionDatetime** | **string** | &#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone). | 
 **VersionTime** | **string** |  | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewSteamInfo
 
-`func NewSteamInfo(appId int32, clientVersion int32, productName string, serverAppId int32, serverVersion int32, sourceRevision int64, toolsAppId int32, versionDate string, versionDatetime string, versionTime string, ) *SteamInfo`
+`func NewSteamInfo(appId int64, clientVersion int64, productName string, serverAppId int64, serverVersion int64, sourceRevision int64, toolsAppId int64, versionDate string, versionDatetime string, versionTime string, ) *SteamInfo`
 
 NewSteamInfo instantiates a new SteamInfo object
 This constructor will assign default values to properties that have it defined,
@@ -36,40 +36,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAppId
 
-`func (o *SteamInfo) GetAppId() int32`
+`func (o *SteamInfo) GetAppId() int64`
 
 GetAppId returns the AppId field if non-nil, zero value otherwise.
 
 ### GetAppIdOk
 
-`func (o *SteamInfo) GetAppIdOk() (*int32, bool)`
+`func (o *SteamInfo) GetAppIdOk() (*int64, bool)`
 
 GetAppIdOk returns a tuple with the AppId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppId
 
-`func (o *SteamInfo) SetAppId(v int32)`
+`func (o *SteamInfo) SetAppId(v int64)`
 
 SetAppId sets AppId field to given value.
 
 
 ### GetClientVersion
 
-`func (o *SteamInfo) GetClientVersion() int32`
+`func (o *SteamInfo) GetClientVersion() int64`
 
 GetClientVersion returns the ClientVersion field if non-nil, zero value otherwise.
 
 ### GetClientVersionOk
 
-`func (o *SteamInfo) GetClientVersionOk() (*int32, bool)`
+`func (o *SteamInfo) GetClientVersionOk() (*int64, bool)`
 
 GetClientVersionOk returns a tuple with the ClientVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetClientVersion
 
-`func (o *SteamInfo) SetClientVersion(v int32)`
+`func (o *SteamInfo) SetClientVersion(v int64)`
 
 SetClientVersion sets ClientVersion field to given value.
 
@@ -96,40 +96,40 @@ SetProductName sets ProductName field to given value.
 
 ### GetServerAppId
 
-`func (o *SteamInfo) GetServerAppId() int32`
+`func (o *SteamInfo) GetServerAppId() int64`
 
 GetServerAppId returns the ServerAppId field if non-nil, zero value otherwise.
 
 ### GetServerAppIdOk
 
-`func (o *SteamInfo) GetServerAppIdOk() (*int32, bool)`
+`func (o *SteamInfo) GetServerAppIdOk() (*int64, bool)`
 
 GetServerAppIdOk returns a tuple with the ServerAppId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetServerAppId
 
-`func (o *SteamInfo) SetServerAppId(v int32)`
+`func (o *SteamInfo) SetServerAppId(v int64)`
 
 SetServerAppId sets ServerAppId field to given value.
 
 
 ### GetServerVersion
 
-`func (o *SteamInfo) GetServerVersion() int32`
+`func (o *SteamInfo) GetServerVersion() int64`
 
 GetServerVersion returns the ServerVersion field if non-nil, zero value otherwise.
 
 ### GetServerVersionOk
 
-`func (o *SteamInfo) GetServerVersionOk() (*int32, bool)`
+`func (o *SteamInfo) GetServerVersionOk() (*int64, bool)`
 
 GetServerVersionOk returns a tuple with the ServerVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetServerVersion
 
-`func (o *SteamInfo) SetServerVersion(v int32)`
+`func (o *SteamInfo) SetServerVersion(v int64)`
 
 SetServerVersion sets ServerVersion field to given value.
 
@@ -156,20 +156,20 @@ SetSourceRevision sets SourceRevision field to given value.
 
 ### GetToolsAppId
 
-`func (o *SteamInfo) GetToolsAppId() int32`
+`func (o *SteamInfo) GetToolsAppId() int64`
 
 GetToolsAppId returns the ToolsAppId field if non-nil, zero value otherwise.
 
 ### GetToolsAppIdOk
 
-`func (o *SteamInfo) GetToolsAppIdOk() (*int32, bool)`
+`func (o *SteamInfo) GetToolsAppIdOk() (*int64, bool)`
 
 GetToolsAppIdOk returns a tuple with the ToolsAppId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToolsAppId
 
-`func (o *SteamInfo) SetToolsAppId(v int32)`
+`func (o *SteamInfo) SetToolsAppId(v int64)`
 
 SetToolsAppId sets ToolsAppId field to given value.
 

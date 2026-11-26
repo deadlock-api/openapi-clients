@@ -41,15 +41,15 @@ data class RankResponse (
 
     /* Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. Eternus subranks are percentile-based and refreshed daily by Valve, so within Eternus this is the badge the player entered their latest ranked match with. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "badge")
-    val badge: kotlin.Int,
+    val badge: kotlin.Long,
 
     /* Rank tier, `0` when unknown. */
     @Json(name = "rank")
-    val rank: kotlin.Int,
+    val rank: kotlin.Long,
 
     /* Sub-rank within the tier, `0` when unknown. */
     @Json(name = "subrank")
-    val subrank: kotlin.Int,
+    val subrank: kotlin.Long,
 
     /* Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank. */
     @Json(name = "last_match")

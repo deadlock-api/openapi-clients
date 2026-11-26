@@ -48,7 +48,7 @@ class PlayersApi:
     @validate_call
     def enemy_stats(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -153,7 +153,7 @@ class PlayersApi:
     @validate_call
     def enemy_stats_with_http_info(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -258,7 +258,7 @@ class PlayersApi:
     @validate_call
     def enemy_stats_without_preload_content(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -467,7 +467,7 @@ class PlayersApi:
     @validate_call
     def match_history(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         force_refetch: Annotated[Optional[StrictBool], Field(description="Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.")] = None,
         _request_timeout: Union[
             None,
@@ -541,7 +541,7 @@ class PlayersApi:
     @validate_call
     def match_history_with_http_info(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         force_refetch: Annotated[Optional[StrictBool], Field(description="Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.")] = None,
         _request_timeout: Union[
             None,
@@ -615,7 +615,7 @@ class PlayersApi:
     @validate_call
     def match_history_without_preload_content(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         force_refetch: Annotated[Optional[StrictBool], Field(description="Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.")] = None,
         _request_timeout: Union[
             None,
@@ -753,7 +753,7 @@ class PlayersApi:
     @validate_call
     def mate_stats(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -862,7 +862,7 @@ class PlayersApi:
     @validate_call
     def mate_stats_with_http_info(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -971,7 +971,7 @@ class PlayersApi:
     @validate_call
     def mate_stats_without_preload_content(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -1189,7 +1189,7 @@ class PlayersApi:
     @validate_call
     def player_hero_stats(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
@@ -1310,7 +1310,7 @@ class PlayersApi:
     @validate_call
     def player_hero_stats_with_http_info(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
@@ -1431,7 +1431,7 @@ class PlayersApi:
     @validate_call
     def player_hero_stats_without_preload_content(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
@@ -1679,7 +1679,7 @@ class PlayersApi:
     @validate_call
     def rank(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1749,7 +1749,7 @@ class PlayersApi:
     @validate_call
     def rank_with_http_info(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1819,7 +1819,7 @@ class PlayersApi:
     @validate_call
     def rank_without_preload_content(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1948,7 +1948,7 @@ class PlayersApi:
     @validate_call
     def rank_avg_image(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(description="Comma-separated list of account IDs (max 12).")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Comma-separated list of account IDs (max 12).")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
@@ -2023,7 +2023,7 @@ class PlayersApi:
     @validate_call
     def rank_avg_image_with_http_info(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(description="Comma-separated list of account IDs (max 12).")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Comma-separated list of account IDs (max 12).")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
@@ -2098,7 +2098,7 @@ class PlayersApi:
     @validate_call
     def rank_avg_image_without_preload_content(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(description="Comma-separated list of account IDs (max 12).")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Comma-separated list of account IDs (max 12).")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
@@ -2241,7 +2241,7 @@ class PlayersApi:
     @validate_call
     def rank_batch(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2310,7 +2310,7 @@ class PlayersApi:
     @validate_call
     def rank_batch_with_http_info(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2379,7 +2379,7 @@ class PlayersApi:
     @validate_call
     def rank_batch_without_preload_content(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2914,7 +2914,7 @@ class PlayersApi:
     @validate_call
     def rank_image(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
@@ -2989,7 +2989,7 @@ class PlayersApi:
     @validate_call
     def rank_image_with_http_info(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
@@ -3064,7 +3064,7 @@ class PlayersApi:
     @validate_call
     def rank_image_without_preload_content(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
@@ -3204,7 +3204,7 @@ class PlayersApi:
     @validate_call
     def region(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3274,7 +3274,7 @@ class PlayersApi:
     @validate_call
     def region_with_http_info(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3344,7 +3344,7 @@ class PlayersApi:
     @validate_call
     def region_without_preload_content(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3473,7 +3473,7 @@ class PlayersApi:
     @validate_call
     def region_batch(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3542,7 +3542,7 @@ class PlayersApi:
     @validate_call
     def region_batch_with_http_info(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3611,7 +3611,7 @@ class PlayersApi:
     @validate_call
     def region_batch_without_preload_content(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

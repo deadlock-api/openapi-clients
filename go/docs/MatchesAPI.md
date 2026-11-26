@@ -38,8 +38,8 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | The account ID to filter active matches by (`SteamID3`) (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	accountId := int64(789) // int64 | The account ID to filter active matches by (`SteamID3`) (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -64,8 +64,8 @@ Other parameters are passed through a pointer to a apiActiveMatchesRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **int32** | The account ID to filter active matches by (&#x60;SteamID3&#x60;) | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **accountId** | **int64** | The account ID to filter active matches by (&#x60;SteamID3&#x60;) | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -182,8 +182,8 @@ func main() {
 	matchIds := []int64{int64(123)} // []int64 | Comma separated list of match ids, limited by `limit` (optional)
 	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
@@ -191,10 +191,10 @@ func main() {
 	isHighSkillRangeParties := true // bool | Filter matches based on whether they are in the high skill range. (optional)
 	isLowPriPool := true // bool | Filter matches based on whether they are in the low priority pool. (optional)
 	isNewPlayerPool := true // bool | Filter matches based on whether they are in the new player pool. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Filter matches by account IDs of players that participated in the match. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Filter matches by account IDs of players that participated in the match. (optional)
 	onlyFilteredPlayers := true // bool | Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	itemFilterHeroId := int32(56) // int32 | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`. (optional)
+	itemFilterHeroId := int64(789) // int64 | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`. (optional)
 	includeItemIds := "includeItemIds_example" // string | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items. (optional)
 	excludeItemIds := "excludeItemIds_example" // string | Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items. (optional)
 	extraMatchColumns := "extraMatchColumns_example" // string | Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`. (optional)
@@ -242,8 +242,8 @@ Name | Type | Description  | Notes
  **matchIds** | **[]int64** | Comma separated list of match ids, limited by &#x60;limit&#x60; | 
  **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
@@ -251,10 +251,10 @@ Name | Type | Description  | Notes
  **isHighSkillRangeParties** | **bool** | Filter matches based on whether they are in the high skill range. | 
  **isLowPriPool** | **bool** | Filter matches based on whether they are in the low priority pool. | 
  **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | 
- **accountIds** | **[]int32** | Filter matches by account IDs of players that participated in the match. | 
+ **accountIds** | **[]int64** | Filter matches by account IDs of players that participated in the match. | 
  **onlyFilteredPlayers** | **bool** | Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **itemFilterHeroId** | **int32** | Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | 
+ **itemFilterHeroId** | **int64** | Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | 
  **includeItemIds** | **string** | Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | 
  **excludeItemIds** | **string** | Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. | 
  **extraMatchColumns** | **string** | Comma separated list of extra match-level columns to include in the response. Each column is aggregated with &#x60;any(...)&#x60;. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: &#x60;objectives_mask_team0,team_score&#x60;. | 

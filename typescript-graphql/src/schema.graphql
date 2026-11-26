@@ -3,7 +3,6 @@ schema {
 }
 
 type Ability {
-  id: Int!
   class_name: String!
   name: String!
   start_trained: Boolean
@@ -19,6 +18,7 @@ type Ability {
   boss_damage_scale: Float
   dependant_abilities: [String!]
   videos: AbilityVideos
+  id: UInt32!
   type: ItemType!
   properties: JSON!
   weapon_info: JSON!
@@ -123,10 +123,10 @@ type BuildHeroDetailsAbilityOrder {
 }
 
 type BuildHeroDetailsAbilityOrderCurrencyChange {
-  ability_id: Int!
   currency_type: Int!
   delta: Int!
   annotation: String
+  ability_id: UInt32!
 
   """Catalog asset for this currency change's `ability_id`."""
   asset: AssetItem
@@ -142,11 +142,11 @@ type BuildHeroDetailsCategory {
 }
 
 type BuildHeroDetailsCategoryAbility {
-  ability_id: Int!
   annotation: String
   required_flex_slots: Int
   sell_priority: Int
-  imbue_target_ability_id: Int
+  ability_id: UInt32!
+  imbue_target_ability_id: UInt32
 
   """Catalog asset for this build slot's `ability_id`."""
   asset: AssetItem
@@ -336,8 +336,6 @@ type HeroPhysics {
 }
 
 type HeroPopularItem {
-  """Item id, derived from `class_name` like `/v2/items` ids."""
-  item_id: Int!
   class_name: String!
 
   """Pick rate in percent (0-100)."""
@@ -345,6 +343,9 @@ type HeroPopularItem {
 
   """Win rate in percent (0-100)."""
   winrate_pct: Float!
+
+  """Item id, derived from `class_name` like `/v2/items` ids."""
+  item_id: UInt32!
 }
 
 type HeroPopularItems {
@@ -397,17 +398,17 @@ input I64Filter {
 
 type Item {
   game_time_s: Int
-  item_id: Int
-  upgrade_id: Int
   sold_time_s: Int
   flags: Int
-  imbued_ability_id: Int
   upgrade_info: Int
 
   """
   The player's net worth in the last `stats` snapshot before the purchase.
   """
   net_worth_at_buy: Int
+  item_id: UInt32
+  upgrade_id: UInt32
+  imbued_ability_id: UInt32
 
   """
   Catalog asset for this purchased item, matched by `item_id` then `upgrade_id`.
@@ -647,9 +648,6 @@ type MatchPlayer {
   hero_xp: Int
   hero_equips: [Int!]
 
-  """The `items.item_id` entries that are abilities."""
-  abilities: [Int!]
-
   """When the row was ingested, as a unix timestamp."""
   created_at: Int
   max_level: Int
@@ -731,6 +729,9 @@ type MatchPlayer {
   stats_type_stat: JsonScalar
   hero_xp_rewards: JsonScalar
   hero_release_votes: JsonScalar
+
+  """The `items.item_id` entries that are abilities."""
+  abilities: [UInt32!]
 
   """
   Hero asset metadata for this player's `hero_id` (latest version, English).
@@ -1174,8 +1175,9 @@ input U64Filter {
   is_null: Boolean
 }
 
+scalar UInt32
+
 type Upgrade {
-  id: Int!
   class_name: String!
   name: String!
   start_trained: Boolean
@@ -1212,6 +1214,7 @@ type Upgrade {
   disabled_shop_filters: [String!]
   shop_version: Int
   disable_item_target: String
+  id: UInt32!
   type: ItemType!
   weapon_info: JSON!
   properties: JSON!
@@ -1228,14 +1231,13 @@ type UpgradeDescription {
 }
 
 type UpgradePurchase {
-  item_id: Int
   game_time_s: Int
   sold_time_s: Int
   net_worth_at_buy: Int
+  item_id: UInt32
 }
 
 type Weapon {
-  id: Int!
   class_name: String!
   name: String!
   start_trained: Boolean
@@ -1246,6 +1248,7 @@ type Weapon {
   update_time: Int
   crosshair_css_class: String
   use_custom_crosshair_settings: Boolean
+  id: UInt32!
   type: ItemType!
   properties: JSON!
   weapon_info: JSON!

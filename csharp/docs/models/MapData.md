@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Images** | [**MapImages**](MapImages.md) |  | 
 **ObjectivePositions** | [**Dictionary&lt;string, ObjectivePosition&gt;**](ObjectivePosition.md) |  | 
-**Radius** | **int** |  | 
+**Radius** | **long** |  | 
 **ZiplinePaths** | [**List&lt;ZiplanePath&gt;**](ZiplanePath.md) |  | 
 **Entities** | [**MapEntities**](MapEntities.md) | Interactable map entities; only for builds whose assets were built with the map entity extraction. | [optional] 
 **NeutralCamps** | [**List&lt;NeutralCamp&gt;**](NeutralCamp.md) | Neutral camps (build 6711+). | [optional] 

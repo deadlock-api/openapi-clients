@@ -32,7 +32,7 @@ class MapEntity(BaseModel):
     left_relative: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Position on the minimap, as fractions of its width/height.")
     position: List[Union[StrictFloat, StrictInt]] = Field(description="World position `[x, y, z]`, same space as the zip-line splines. Brush triggers (ropes, pads, veils, ...) are placed at their entity origin.")
     target: Optional[List[Union[StrictFloat, StrictInt]]] = Field(default=None, description="World position `[x, y, z]` the entity sends you to: the teleporter exit or the bounce pad landing spot.")
-    team: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Owning team (0 or 1); absent for neutral entities.")
+    team: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="Owning team (0 or 1); absent for neutral entities.")
     top_relative: Optional[Union[StrictFloat, StrictInt]] = None
     __properties: ClassVar[List[str]] = ["kind", "left_relative", "position", "target", "team", "top_relative"]
 

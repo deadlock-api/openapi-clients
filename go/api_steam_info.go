@@ -124,11 +124,11 @@ func (a *SteamInfoAPIService) GetAllSteamInfoExecute(r ApiGetAllSteamInfoRequest
 type ApiGetSteamInfoRequest struct {
 	ctx context.Context
 	ApiService *SteamInfoAPIService
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetSteamInfoRequest) ClientVersion(clientVersion int32) ApiGetSteamInfoRequest {
+func (r ApiGetSteamInfoRequest) ClientVersion(clientVersion int64) ApiGetSteamInfoRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

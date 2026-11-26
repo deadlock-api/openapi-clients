@@ -28,11 +28,11 @@ class BuildHeroDetailsCategoryAbility(BaseModel):
     """
     BuildHeroDetailsCategoryAbility
     """ # noqa: E501
-    ability_id: Annotated[int, Field(strict=True, ge=0)]
+    ability_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     annotation: Optional[StrictStr] = None
-    imbue_target_ability_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    required_flex_slots: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    sell_priority: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    imbue_target_ability_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    required_flex_slots: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    sell_priority: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     __properties: ClassVar[List[str]] = ["ability_id", "annotation", "imbue_target_ability_id", "required_flex_slots", "sell_priority"]
 
     model_config = ConfigDict(

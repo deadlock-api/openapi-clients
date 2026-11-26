@@ -24,9 +24,9 @@ type Weapon struct {
 	ClassName string `json:"class_name"`
 	CrosshairCssClass NullableString `json:"crosshair_css_class,omitempty"`
 	CustomCrosshairSettings NullableRawCustomCrosshairSettings `json:"custom_crosshair_settings,omitempty"`
-	Hero NullableInt32 `json:"hero,omitempty"`
-	Heroes []int32 `json:"heroes,omitempty"`
-	Id int32 `json:"id"`
+	Hero NullableInt64 `json:"hero,omitempty"`
+	Heroes []int64 `json:"heroes,omitempty"`
+	Id int64 `json:"id"`
 	Image NullableString `json:"image,omitempty"`
 	ImageWebp NullableString `json:"image_webp,omitempty"`
 	Name string `json:"name"`
@@ -43,7 +43,7 @@ type _Weapon Weapon
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWeapon(className string, id int32, name string) *Weapon {
+func NewWeapon(className string, id int64, name string) *Weapon {
 	this := Weapon{}
 	this.ClassName = className
 	this.Id = id
@@ -168,9 +168,9 @@ func (o *Weapon) UnsetCustomCrosshairSettings() {
 }
 
 // GetHero returns the Hero field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Weapon) GetHero() int32 {
+func (o *Weapon) GetHero() int64 {
 	if o == nil || IsNil(o.Hero.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Hero.Get()
@@ -179,7 +179,7 @@ func (o *Weapon) GetHero() int32 {
 // GetHeroOk returns a tuple with the Hero field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Weapon) GetHeroOk() (*int32, bool) {
+func (o *Weapon) GetHeroOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -195,8 +195,8 @@ func (o *Weapon) HasHero() bool {
 	return false
 }
 
-// SetHero gets a reference to the given NullableInt32 and assigns it to the Hero field.
-func (o *Weapon) SetHero(v int32) {
+// SetHero gets a reference to the given NullableInt64 and assigns it to the Hero field.
+func (o *Weapon) SetHero(v int64) {
 	o.Hero.Set(&v)
 }
 // SetHeroNil sets the value for Hero to be an explicit nil
@@ -210,9 +210,9 @@ func (o *Weapon) UnsetHero() {
 }
 
 // GetHeroes returns the Heroes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Weapon) GetHeroes() []int32 {
+func (o *Weapon) GetHeroes() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Heroes
@@ -221,7 +221,7 @@ func (o *Weapon) GetHeroes() []int32 {
 // GetHeroesOk returns a tuple with the Heroes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Weapon) GetHeroesOk() ([]int32, bool) {
+func (o *Weapon) GetHeroesOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Heroes) {
 		return nil, false
 	}
@@ -237,15 +237,15 @@ func (o *Weapon) HasHeroes() bool {
 	return false
 }
 
-// SetHeroes gets a reference to the given []int32 and assigns it to the Heroes field.
-func (o *Weapon) SetHeroes(v []int32) {
+// SetHeroes gets a reference to the given []int64 and assigns it to the Heroes field.
+func (o *Weapon) SetHeroes(v []int64) {
 	o.Heroes = v
 }
 
 // GetId returns the Id field value
-func (o *Weapon) GetId() int32 {
+func (o *Weapon) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -254,7 +254,7 @@ func (o *Weapon) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *Weapon) GetIdOk() (*int32, bool) {
+func (o *Weapon) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -262,7 +262,7 @@ func (o *Weapon) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *Weapon) SetId(v int32) {
+func (o *Weapon) SetId(v int64) {
 	o.Id = v
 }
 

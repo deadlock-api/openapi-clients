@@ -78,10 +78,22 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // NormalModTier (int) maximum
+            if (this.NormalModTier > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NormalModTier, must be a value less than or equal to 255.", new [] { "NormalModTier" });
+            }
+
             // NormalModTier (int) minimum
             if (this.NormalModTier < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NormalModTier, must be a value greater than or equal to 0.", new [] { "NormalModTier" });
+            }
+
+            // RareModTier (int) maximum
+            if (this.RareModTier > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RareModTier, must be a value less than or equal to 255.", new [] { "RareModTier" });
             }
 
             // RareModTier (int) minimum

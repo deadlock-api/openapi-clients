@@ -12,7 +12,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getitem"></a>
 # **GetItem**
-> Item GetItem (string idOrClassName, string language = null, int clientVersion = null)
+> Item GetItem (string idOrClassName, string language = null, long clientVersion = null)
 
 Get Item
 
@@ -23,7 +23,7 @@ Get Item
 |------|------|-------------|-------|
 | **idOrClassName** | **string** | Numeric &#x60;id&#x60; or string &#x60;class_name&#x60;. |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -49,7 +49,7 @@ No authorization required
 
 <a id="getitemsbyheroid"></a>
 # **GetItemsByHeroId**
-> List&lt;Item&gt; GetItemsByHeroId (int id, string language = null, int clientVersion = null)
+> List&lt;Item&gt; GetItemsByHeroId (long id, string language = null, long clientVersion = null)
 
 List Items By Hero
 
@@ -60,9 +60,9 @@ Hero-bound abilities, excluding the generic movement abilities.
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | Hero id (&#x60;m_HeroID&#x60;). |  |
+| **id** | **long** | Hero id (&#x60;m_HeroID&#x60;). |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -87,7 +87,7 @@ No authorization required
 
 <a id="getitemsbyslottype"></a>
 # **GetItemsBySlotType**
-> List&lt;Item&gt; GetItemsBySlotType (ItemSlotType slotType, string language = null, int clientVersion = null)
+> List&lt;Item&gt; GetItemsBySlotType (ItemSlotType slotType, string language = null, long clientVersion = null)
 
 List Items By Slot Type
 
@@ -98,7 +98,7 @@ List Items By Slot Type
 |------|------|-------------|-------|
 | **slotType** | **ItemSlotType** | Slot type: &#x60;weapon&#x60;, &#x60;spirit&#x60;, or &#x60;vitality&#x60;. |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -123,7 +123,7 @@ No authorization required
 
 <a id="getitemsbytype"></a>
 # **GetItemsByType**
-> List&lt;Item&gt; GetItemsByType (ItemType type, string language = null, int clientVersion = null)
+> List&lt;Item&gt; GetItemsByType (ItemType type, string language = null, long clientVersion = null)
 
 List Items By Type
 
@@ -134,7 +134,7 @@ List Items By Type
 |------|------|-------------|-------|
 | **type** | **ItemType** | Item type: &#x60;ability&#x60;, &#x60;weapon&#x60;, or &#x60;upgrade&#x60;. |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -159,7 +159,7 @@ No authorization required
 
 <a id="listitems"></a>
 # **ListItems**
-> List&lt;Item&gt; ListItems (string language = null, int clientVersion = null)
+> List&lt;Item&gt; ListItems (string language = null, long clientVersion = null)
 
 List Items
 
@@ -171,7 +171,7 @@ Returns the full per-patch item list — abilities, weapons, and upgrades.
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

@@ -662,10 +662,16 @@ class SteamApi
             throw new \InvalidArgumentException('invalid value for "$limit" when calling SteamApi.steamSearch, must be bigger than or equal to 1.');
         }
         
+        if ($min_matches_played_last_30d !== null && $min_matches_played_last_30d > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$min_matches_played_last_30d" when calling SteamApi.steamSearch, must be smaller than or equal to 4294967295.');
+        }
         if ($min_matches_played_last_30d !== null && $min_matches_played_last_30d < 0) {
             throw new \InvalidArgumentException('invalid value for "$min_matches_played_last_30d" when calling SteamApi.steamSearch, must be bigger than or equal to 0.');
         }
         
+        if ($min_last_team_avg_badge !== null && $min_last_team_avg_badge > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$min_last_team_avg_badge" when calling SteamApi.steamSearch, must be smaller than or equal to 4294967295.');
+        }
         if ($min_last_team_avg_badge !== null && $min_last_team_avg_badge < 0) {
             throw new \InvalidArgumentException('invalid value for "$min_last_team_avg_badge" when calling SteamApi.steamSearch, must be bigger than or equal to 0.');
         }

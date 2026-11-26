@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **Class** | Pointer to **NullableString** | Engine class (&#x60;_class&#x60;), e.g. &#x60;citadel_neutral_laser_beam&#x60;. | [optional] 
 **ClassName** | **string** |  | 
 **Folder** | Pointer to **NullableString** | Editor folder (&#x60;_editor.folder_name&#x60;), e.g. &#x60;Neutral Ability&#x60;. | [optional] 
-**Id** | **int32** |  | 
+**Id** | **int64** |  | 
 **Properties** | **map[string]float64** | Numeric properties keyed by their source name. Nested properties use a dotted path (&#x60;m_GroundAuraModifier.m_modifierProvidedByAura.m_flDPS&#x60;, &#x60;subclass:&#x60; wrappers are skipped); &#x60;m_vecScriptValues&#x60; entries are keyed by their &#x60;m_eModifierValue&#x60; (&#x60;MODIFIER_VALUE_GRAVITY_SCALE&#x60;). | 
 
 ## Methods
 
 ### NewModifier
 
-`func NewModifier(className string, id int32, properties map[string]float64, ) *Modifier`
+`func NewModifier(className string, id int64, properties map[string]float64, ) *Modifier`
 
 NewModifier instantiates a new Modifier object
 This constructor will assign default values to properties that have it defined,
@@ -157,20 +157,20 @@ HasFolder returns a boolean if a field has been set.
 UnsetFolder ensures that no value is present for Folder, not even an explicit nil
 ### GetId
 
-`func (o *Modifier) GetId() int32`
+`func (o *Modifier) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *Modifier) GetIdOk() (*int32, bool)`
+`func (o *Modifier) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *Modifier) SetId(v int32)`
+`func (o *Modifier) SetId(v int64)`
 
 SetId sets Id field to given value.
 

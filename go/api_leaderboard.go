@@ -27,11 +27,11 @@ type ApiLeaderboardRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
 	region string
-	leaderboardId *int32
+	leaderboardId *int64
 }
 
 // Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
-func (r ApiLeaderboardRequest) LeaderboardId(leaderboardId int32) ApiLeaderboardRequest {
+func (r ApiLeaderboardRequest) LeaderboardId(leaderboardId int64) ApiLeaderboardRequest {
 	r.leaderboardId = &leaderboardId
 	return r
 }
@@ -153,12 +153,12 @@ type ApiLeaderboardHeroRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
 	region string
-	heroId int32
-	leaderboardId *int32
+	heroId int64
+	leaderboardId *int64
 }
 
 // Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
-func (r ApiLeaderboardHeroRequest) LeaderboardId(leaderboardId int32) ApiLeaderboardHeroRequest {
+func (r ApiLeaderboardHeroRequest) LeaderboardId(leaderboardId int64) ApiLeaderboardHeroRequest {
 	r.leaderboardId = &leaderboardId
 	return r
 }
@@ -190,7 +190,7 @@ Valve updates the leaderboard once per hour.
  @param heroId The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiLeaderboardHeroRequest
 */
-func (a *LeaderboardAPIService) LeaderboardHero(ctx context.Context, region string, heroId int32) ApiLeaderboardHeroRequest {
+func (a *LeaderboardAPIService) LeaderboardHero(ctx context.Context, region string, heroId int64) ApiLeaderboardHeroRequest {
 	return ApiLeaderboardHeroRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -223,6 +223,9 @@ func (a *LeaderboardAPIService) LeaderboardHeroExecute(r ApiLeaderboardHeroReque
 	localVarFormParams := url.Values{}
 	if r.heroId < 0 {
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
+	}
+	if r.heroId > 4294967295 {
+		return localVarReturnValue, nil, reportError("heroId must be less than 4294967295")
 	}
 
 	if r.leaderboardId != nil {
@@ -286,12 +289,12 @@ type ApiLeaderboardHeroRawRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
 	region string
-	heroId int32
-	leaderboardId *int32
+	heroId int64
+	leaderboardId *int64
 }
 
 // Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
-func (r ApiLeaderboardHeroRawRequest) LeaderboardId(leaderboardId int32) ApiLeaderboardHeroRawRequest {
+func (r ApiLeaderboardHeroRawRequest) LeaderboardId(leaderboardId int64) ApiLeaderboardHeroRawRequest {
 	r.leaderboardId = &leaderboardId
 	return r
 }
@@ -330,7 +333,7 @@ Valve updates the leaderboard once per hour.
  @param heroId The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  @return ApiLeaderboardHeroRawRequest
 */
-func (a *LeaderboardAPIService) LeaderboardHeroRaw(ctx context.Context, region string, heroId int32) ApiLeaderboardHeroRawRequest {
+func (a *LeaderboardAPIService) LeaderboardHeroRaw(ctx context.Context, region string, heroId int64) ApiLeaderboardHeroRawRequest {
 	return ApiLeaderboardHeroRawRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -363,6 +366,9 @@ func (a *LeaderboardAPIService) LeaderboardHeroRawExecute(r ApiLeaderboardHeroRa
 	localVarFormParams := url.Values{}
 	if r.heroId < 0 {
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
+	}
+	if r.heroId > 4294967295 {
+		return localVarReturnValue, nil, reportError("heroId must be less than 4294967295")
 	}
 
 	if r.leaderboardId != nil {
@@ -426,11 +432,11 @@ type ApiLeaderboardRawRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
 	region string
-	leaderboardId *int32
+	leaderboardId *int64
 }
 
 // Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
-func (r ApiLeaderboardRawRequest) LeaderboardId(leaderboardId int32) ApiLeaderboardRawRequest {
+func (r ApiLeaderboardRawRequest) LeaderboardId(leaderboardId int64) ApiLeaderboardRawRequest {
 	r.leaderboardId = &leaderboardId
 	return r
 }

@@ -26,7 +26,7 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var accountId int32
+		var accountId int64
 
 		resp, httpRes, err := apiClient.PlayersAPI.EnemyStats(context.Background(), accountId).Execute()
 
@@ -40,7 +40,7 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var accountId int32
+		var accountId int64
 
 		resp, httpRes, err := apiClient.PlayersAPI.MatchHistory(context.Background(), accountId).Execute()
 
@@ -54,7 +54,7 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var accountId int32
+		var accountId int64
 
 		resp, httpRes, err := apiClient.PlayersAPI.MateStats(context.Background(), accountId).Execute()
 
@@ -80,7 +80,7 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var accountId int32
+		var accountId int64
 
 		resp, httpRes, err := apiClient.PlayersAPI.Rank(context.Background(), accountId).Execute()
 
@@ -130,7 +130,7 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var accountId int32
+		var accountId int64
 
 		resp, httpRes, err := apiClient.PlayersAPI.RankImage(context.Background(), accountId).Execute()
 
@@ -144,7 +144,7 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var accountId int32
+		var accountId int64
 
 		resp, httpRes, err := apiClient.PlayersAPI.Region(context.Background(), accountId).Execute()
 

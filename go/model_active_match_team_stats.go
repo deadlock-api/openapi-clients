@@ -19,8 +19,8 @@ var _ MappedNullable = &ActiveMatchTeamStats{}
 
 // ActiveMatchTeamStats struct for ActiveMatchTeamStats
 type ActiveMatchTeamStats struct {
-	BrawlScore NullableInt32 `json:"brawl_score,omitempty"`
-	NetWorth NullableInt32 `json:"net_worth,omitempty"`
+	BrawlScore NullableInt64 `json:"brawl_score,omitempty"`
+	NetWorth NullableInt64 `json:"net_worth,omitempty"`
 	ObjectivesMask NullableInt64 `json:"objectives_mask,omitempty"`
 	Team NullableInt32 `json:"team,omitempty"`
 	TeamParsed NullableActiveMatchTeam `json:"team_parsed,omitempty"`
@@ -44,9 +44,9 @@ func NewActiveMatchTeamStatsWithDefaults() *ActiveMatchTeamStats {
 }
 
 // GetBrawlScore returns the BrawlScore field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatchTeamStats) GetBrawlScore() int32 {
+func (o *ActiveMatchTeamStats) GetBrawlScore() int64 {
 	if o == nil || IsNil(o.BrawlScore.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BrawlScore.Get()
@@ -55,7 +55,7 @@ func (o *ActiveMatchTeamStats) GetBrawlScore() int32 {
 // GetBrawlScoreOk returns a tuple with the BrawlScore field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatchTeamStats) GetBrawlScoreOk() (*int32, bool) {
+func (o *ActiveMatchTeamStats) GetBrawlScoreOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,8 +71,8 @@ func (o *ActiveMatchTeamStats) HasBrawlScore() bool {
 	return false
 }
 
-// SetBrawlScore gets a reference to the given NullableInt32 and assigns it to the BrawlScore field.
-func (o *ActiveMatchTeamStats) SetBrawlScore(v int32) {
+// SetBrawlScore gets a reference to the given NullableInt64 and assigns it to the BrawlScore field.
+func (o *ActiveMatchTeamStats) SetBrawlScore(v int64) {
 	o.BrawlScore.Set(&v)
 }
 // SetBrawlScoreNil sets the value for BrawlScore to be an explicit nil
@@ -86,9 +86,9 @@ func (o *ActiveMatchTeamStats) UnsetBrawlScore() {
 }
 
 // GetNetWorth returns the NetWorth field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatchTeamStats) GetNetWorth() int32 {
+func (o *ActiveMatchTeamStats) GetNetWorth() int64 {
 	if o == nil || IsNil(o.NetWorth.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NetWorth.Get()
@@ -97,7 +97,7 @@ func (o *ActiveMatchTeamStats) GetNetWorth() int32 {
 // GetNetWorthOk returns a tuple with the NetWorth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatchTeamStats) GetNetWorthOk() (*int32, bool) {
+func (o *ActiveMatchTeamStats) GetNetWorthOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -113,8 +113,8 @@ func (o *ActiveMatchTeamStats) HasNetWorth() bool {
 	return false
 }
 
-// SetNetWorth gets a reference to the given NullableInt32 and assigns it to the NetWorth field.
-func (o *ActiveMatchTeamStats) SetNetWorth(v int32) {
+// SetNetWorth gets a reference to the given NullableInt64 and assigns it to the NetWorth field.
+func (o *ActiveMatchTeamStats) SetNetWorth(v int64) {
 	o.NetWorth.Set(&v)
 }
 // SetNetWorthNil sets the value for NetWorth to be an explicit nil

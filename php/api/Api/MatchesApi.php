@@ -354,6 +354,9 @@ class MatchesApi
     public function activeMatchesRequest($account_id = null, $account_ids = null, string $contentType = self::contentTypes['activeMatches'][0])
     {
 
+        if ($account_id !== null && $account_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling MatchesApi.activeMatches, must be smaller than or equal to 4294967295.');
+        }
         if ($account_id !== null && $account_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$account_id" when calling MatchesApi.activeMatches, must be bigger than or equal to 0.');
         }
@@ -1148,6 +1151,9 @@ class MatchesApi
 
 
 
+        if ($item_filter_hero_id !== null && $item_filter_hero_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$item_filter_hero_id" when calling MatchesApi.bulkMetadata, must be smaller than or equal to 4294967295.');
+        }
         if ($item_filter_hero_id !== null && $item_filter_hero_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$item_filter_hero_id" when calling MatchesApi.bulkMetadata, must be bigger than or equal to 0.');
         }

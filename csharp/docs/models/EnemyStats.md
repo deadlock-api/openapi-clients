@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnemyId** | **int** |  | 
+**EnemyId** | **long** |  | 
 **Matches** | **List&lt;long&gt;** |  | 
 **MatchesPlayed** | **long** |  | 
 **Wins** | **long** | The amount of matches won against the enemy. | 

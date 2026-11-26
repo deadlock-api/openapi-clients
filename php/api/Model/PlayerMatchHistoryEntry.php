@@ -95,34 +95,34 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'abandoned_time_s' => 'int32',
-        'account_id' => 'int32',
-        'brawl_avg_round_time_s' => 'int32',
-        'brawl_score_team0' => 'int32',
-        'brawl_score_team1' => 'int32',
-        'denies' => 'int32',
+        'abandoned_time_s' => 'int64',
+        'account_id' => 'int64',
+        'brawl_avg_round_time_s' => 'int64',
+        'brawl_score_team0' => 'int64',
+        'brawl_score_team1' => 'int64',
+        'denies' => 'int64',
         'game_mode' => 'int32',
         'hero_id' => 'int32',
-        'hero_level' => 'int32',
-        'last_hits' => 'int32',
+        'hero_level' => 'int64',
+        'last_hits' => 'int64',
         'low_pri_pool' => null,
-        'match_duration_s' => 'int32',
+        'match_duration_s' => 'int64',
         'match_id' => 'int64',
         'match_mode' => 'int32',
-        'match_result' => 'int32',
-        'net_worth' => 'int32',
-        'objectives_mask_team0' => 'int32',
-        'objectives_mask_team1' => 'int32',
-        'player_assists' => 'int32',
-        'player_deaths' => 'int32',
-        'player_kills' => 'int32',
+        'match_result' => 'int64',
+        'net_worth' => 'int64',
+        'objectives_mask_team0' => 'int64',
+        'objectives_mask_team1' => 'int64',
+        'player_assists' => 'int64',
+        'player_deaths' => 'int64',
+        'player_kills' => 'int64',
         'player_match_outcome' => 'int32',
         'player_team' => 'int32',
-        'ranked_calibration_match' => 'int32',
+        'ranked_calibration_match' => 'int64',
         'ranked_delta' => 'int32',
-        'ranked_display_badge' => 'int32',
+        'ranked_display_badge' => 'int64',
         'ranked_used_demotion_protection' => null,
-        'start_time' => 'int32'
+        'start_time' => 'int64'
     ];
 
     /**
@@ -463,6 +463,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['abandoned_time_s']) && ($this->container['abandoned_time_s'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'abandoned_time_s', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['abandoned_time_s']) && ($this->container['abandoned_time_s'] < 0)) {
             $invalidProperties[] = "invalid value for 'abandoned_time_s', must be bigger than or equal to 0.";
         }
@@ -470,16 +474,32 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
         }
+        if (($this->container['account_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'account_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['account_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'account_id', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['brawl_avg_round_time_s']) && ($this->container['brawl_avg_round_time_s'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'brawl_avg_round_time_s', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['brawl_avg_round_time_s']) && ($this->container['brawl_avg_round_time_s'] < 0)) {
             $invalidProperties[] = "invalid value for 'brawl_avg_round_time_s', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['brawl_score_team0']) && ($this->container['brawl_score_team0'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'brawl_score_team0', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['brawl_score_team0']) && ($this->container['brawl_score_team0'] < 0)) {
             $invalidProperties[] = "invalid value for 'brawl_score_team0', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['brawl_score_team1']) && ($this->container['brawl_score_team1'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'brawl_score_team1', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['brawl_score_team1']) && ($this->container['brawl_score_team1'] < 0)) {
@@ -489,6 +509,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['denies'] === null) {
             $invalidProperties[] = "'denies' can't be null";
         }
+        if (($this->container['denies'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'denies', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['denies'] < 0)) {
             $invalidProperties[] = "invalid value for 'denies', must be bigger than or equal to 0.";
         }
@@ -496,9 +520,21 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['game_mode'] === null) {
             $invalidProperties[] = "'game_mode' can't be null";
         }
+        if (($this->container['game_mode'] > 127)) {
+            $invalidProperties[] = "invalid value for 'game_mode', must be smaller than or equal to 127.";
+        }
+
+        if (($this->container['game_mode'] < -128)) {
+            $invalidProperties[] = "invalid value for 'game_mode', must be bigger than or equal to -128.";
+        }
+
         if ($this->container['hero_id'] === null) {
             $invalidProperties[] = "'hero_id' can't be null";
         }
+        if (($this->container['hero_id'] > 255)) {
+            $invalidProperties[] = "invalid value for 'hero_id', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['hero_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero_id', must be bigger than or equal to 0.";
         }
@@ -506,6 +542,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['hero_level'] === null) {
             $invalidProperties[] = "'hero_level' can't be null";
         }
+        if (($this->container['hero_level'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'hero_level', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['hero_level'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero_level', must be bigger than or equal to 0.";
         }
@@ -513,6 +553,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['last_hits'] === null) {
             $invalidProperties[] = "'last_hits' can't be null";
         }
+        if (($this->container['last_hits'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'last_hits', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['last_hits'] < 0)) {
             $invalidProperties[] = "invalid value for 'last_hits', must be bigger than or equal to 0.";
         }
@@ -520,6 +564,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['match_duration_s'] === null) {
             $invalidProperties[] = "'match_duration_s' can't be null";
         }
+        if (($this->container['match_duration_s'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'match_duration_s', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['match_duration_s'] < 0)) {
             $invalidProperties[] = "invalid value for 'match_duration_s', must be bigger than or equal to 0.";
         }
@@ -534,9 +582,21 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['match_mode'] === null) {
             $invalidProperties[] = "'match_mode' can't be null";
         }
+        if (($this->container['match_mode'] > 127)) {
+            $invalidProperties[] = "invalid value for 'match_mode', must be smaller than or equal to 127.";
+        }
+
+        if (($this->container['match_mode'] < -128)) {
+            $invalidProperties[] = "invalid value for 'match_mode', must be bigger than or equal to -128.";
+        }
+
         if ($this->container['match_result'] === null) {
             $invalidProperties[] = "'match_result' can't be null";
         }
+        if (($this->container['match_result'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'match_result', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['match_result'] < 0)) {
             $invalidProperties[] = "invalid value for 'match_result', must be bigger than or equal to 0.";
         }
@@ -544,6 +604,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['net_worth'] === null) {
             $invalidProperties[] = "'net_worth' can't be null";
         }
+        if (($this->container['net_worth'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'net_worth', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['net_worth'] < 0)) {
             $invalidProperties[] = "invalid value for 'net_worth', must be bigger than or equal to 0.";
         }
@@ -551,6 +615,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['objectives_mask_team0'] === null) {
             $invalidProperties[] = "'objectives_mask_team0' can't be null";
         }
+        if (($this->container['objectives_mask_team0'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'objectives_mask_team0', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['objectives_mask_team0'] < 0)) {
             $invalidProperties[] = "invalid value for 'objectives_mask_team0', must be bigger than or equal to 0.";
         }
@@ -558,6 +626,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['objectives_mask_team1'] === null) {
             $invalidProperties[] = "'objectives_mask_team1' can't be null";
         }
+        if (($this->container['objectives_mask_team1'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'objectives_mask_team1', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['objectives_mask_team1'] < 0)) {
             $invalidProperties[] = "invalid value for 'objectives_mask_team1', must be bigger than or equal to 0.";
         }
@@ -565,6 +637,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['player_assists'] === null) {
             $invalidProperties[] = "'player_assists' can't be null";
         }
+        if (($this->container['player_assists'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'player_assists', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['player_assists'] < 0)) {
             $invalidProperties[] = "invalid value for 'player_assists', must be bigger than or equal to 0.";
         }
@@ -572,6 +648,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['player_deaths'] === null) {
             $invalidProperties[] = "'player_deaths' can't be null";
         }
+        if (($this->container['player_deaths'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'player_deaths', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['player_deaths'] < 0)) {
             $invalidProperties[] = "invalid value for 'player_deaths', must be bigger than or equal to 0.";
         }
@@ -579,6 +659,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['player_kills'] === null) {
             $invalidProperties[] = "'player_kills' can't be null";
         }
+        if (($this->container['player_kills'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'player_kills', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['player_kills'] < 0)) {
             $invalidProperties[] = "invalid value for 'player_kills', must be bigger than or equal to 0.";
         }
@@ -586,11 +670,35 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['player_match_outcome'] === null) {
             $invalidProperties[] = "'player_match_outcome' can't be null";
         }
+        if (($this->container['player_match_outcome'] > 127)) {
+            $invalidProperties[] = "invalid value for 'player_match_outcome', must be smaller than or equal to 127.";
+        }
+
+        if (($this->container['player_match_outcome'] < -128)) {
+            $invalidProperties[] = "invalid value for 'player_match_outcome', must be bigger than or equal to -128.";
+        }
+
         if ($this->container['player_team'] === null) {
             $invalidProperties[] = "'player_team' can't be null";
         }
+        if (($this->container['player_team'] > 127)) {
+            $invalidProperties[] = "invalid value for 'player_team', must be smaller than or equal to 127.";
+        }
+
+        if (($this->container['player_team'] < -128)) {
+            $invalidProperties[] = "invalid value for 'player_team', must be bigger than or equal to -128.";
+        }
+
+        if (!is_null($this->container['ranked_calibration_match']) && ($this->container['ranked_calibration_match'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'ranked_calibration_match', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['ranked_calibration_match']) && ($this->container['ranked_calibration_match'] < 0)) {
             $invalidProperties[] = "invalid value for 'ranked_calibration_match', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['ranked_display_badge']) && ($this->container['ranked_display_badge'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'ranked_display_badge', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['ranked_display_badge']) && ($this->container['ranked_display_badge'] < 0)) {
@@ -600,6 +708,10 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['start_time'] === null) {
             $invalidProperties[] = "'start_time' can't be null";
         }
+        if (($this->container['start_time'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'start_time', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['start_time'] < 0)) {
             $invalidProperties[] = "invalid value for 'start_time', must be bigger than or equal to 0.";
         }
@@ -648,6 +760,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($abandoned_time_s) && ($abandoned_time_s > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $abandoned_time_s when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($abandoned_time_s) && ($abandoned_time_s < 0)) {
             throw new \InvalidArgumentException('invalid value for $abandoned_time_s when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
         }
@@ -678,6 +793,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($account_id)) {
             throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+        }
+        if (($account_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $account_id when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
         }
         if (($account_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $account_id when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
@@ -717,6 +835,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($brawl_avg_round_time_s) && ($brawl_avg_round_time_s > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $brawl_avg_round_time_s when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($brawl_avg_round_time_s) && ($brawl_avg_round_time_s < 0)) {
             throw new \InvalidArgumentException('invalid value for $brawl_avg_round_time_s when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
         }
@@ -754,6 +875,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($brawl_score_team0) && ($brawl_score_team0 > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $brawl_score_team0 when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($brawl_score_team0) && ($brawl_score_team0 < 0)) {
             throw new \InvalidArgumentException('invalid value for $brawl_score_team0 when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
@@ -793,6 +917,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($brawl_score_team1) && ($brawl_score_team1 > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $brawl_score_team1 when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($brawl_score_team1) && ($brawl_score_team1 < 0)) {
             throw new \InvalidArgumentException('invalid value for $brawl_score_team1 when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
         }
@@ -823,6 +950,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($denies)) {
             throw new \InvalidArgumentException('non-nullable denies cannot be null');
+        }
+        if (($denies > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $denies when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
         }
         if (($denies < 0)) {
             throw new \InvalidArgumentException('invalid value for $denies when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
@@ -855,6 +985,13 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($game_mode)) {
             throw new \InvalidArgumentException('non-nullable game_mode cannot be null');
         }
+        if (($game_mode > 127)) {
+            throw new \InvalidArgumentException('invalid value for $game_mode when calling PlayerMatchHistoryEntry., must be smaller than or equal to 127.');
+        }
+        if (($game_mode < -128)) {
+            throw new \InvalidArgumentException('invalid value for $game_mode when calling PlayerMatchHistoryEntry., must be bigger than or equal to -128.');
+        }
+
         $this->container['game_mode'] = $game_mode;
 
         return $this;
@@ -881,6 +1018,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($hero_id)) {
             throw new \InvalidArgumentException('non-nullable hero_id cannot be null');
+        }
+        if (($hero_id > 255)) {
+            throw new \InvalidArgumentException('invalid value for $hero_id when calling PlayerMatchHistoryEntry., must be smaller than or equal to 255.');
         }
         if (($hero_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero_id when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
@@ -913,6 +1053,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($hero_level)) {
             throw new \InvalidArgumentException('non-nullable hero_level cannot be null');
         }
+        if (($hero_level > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $hero_level when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
+        }
         if (($hero_level < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero_level when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
         }
@@ -943,6 +1086,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($last_hits)) {
             throw new \InvalidArgumentException('non-nullable last_hits cannot be null');
+        }
+        if (($last_hits > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $last_hits when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
         }
         if (($last_hits < 0)) {
             throw new \InvalidArgumentException('invalid value for $last_hits when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
@@ -1009,6 +1155,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($match_duration_s)) {
             throw new \InvalidArgumentException('non-nullable match_duration_s cannot be null');
         }
+        if (($match_duration_s > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $match_duration_s when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
+        }
         if (($match_duration_s < 0)) {
             throw new \InvalidArgumentException('invalid value for $match_duration_s when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
         }
@@ -1071,6 +1220,13 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($match_mode)) {
             throw new \InvalidArgumentException('non-nullable match_mode cannot be null');
         }
+        if (($match_mode > 127)) {
+            throw new \InvalidArgumentException('invalid value for $match_mode when calling PlayerMatchHistoryEntry., must be smaller than or equal to 127.');
+        }
+        if (($match_mode < -128)) {
+            throw new \InvalidArgumentException('invalid value for $match_mode when calling PlayerMatchHistoryEntry., must be bigger than or equal to -128.');
+        }
+
         $this->container['match_mode'] = $match_mode;
 
         return $this;
@@ -1097,6 +1253,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($match_result)) {
             throw new \InvalidArgumentException('non-nullable match_result cannot be null');
+        }
+        if (($match_result > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $match_result when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
         }
         if (($match_result < 0)) {
             throw new \InvalidArgumentException('invalid value for $match_result when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
@@ -1129,6 +1288,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($net_worth)) {
             throw new \InvalidArgumentException('non-nullable net_worth cannot be null');
         }
+        if (($net_worth > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $net_worth when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
+        }
         if (($net_worth < 0)) {
             throw new \InvalidArgumentException('invalid value for $net_worth when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
         }
@@ -1159,6 +1321,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($objectives_mask_team0)) {
             throw new \InvalidArgumentException('non-nullable objectives_mask_team0 cannot be null');
+        }
+        if (($objectives_mask_team0 > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $objectives_mask_team0 when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
         }
         if (($objectives_mask_team0 < 0)) {
             throw new \InvalidArgumentException('invalid value for $objectives_mask_team0 when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
@@ -1191,6 +1356,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($objectives_mask_team1)) {
             throw new \InvalidArgumentException('non-nullable objectives_mask_team1 cannot be null');
         }
+        if (($objectives_mask_team1 > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $objectives_mask_team1 when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
+        }
         if (($objectives_mask_team1 < 0)) {
             throw new \InvalidArgumentException('invalid value for $objectives_mask_team1 when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
         }
@@ -1221,6 +1389,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($player_assists)) {
             throw new \InvalidArgumentException('non-nullable player_assists cannot be null');
+        }
+        if (($player_assists > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $player_assists when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
         }
         if (($player_assists < 0)) {
             throw new \InvalidArgumentException('invalid value for $player_assists when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
@@ -1253,6 +1424,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($player_deaths)) {
             throw new \InvalidArgumentException('non-nullable player_deaths cannot be null');
         }
+        if (($player_deaths > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $player_deaths when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
+        }
         if (($player_deaths < 0)) {
             throw new \InvalidArgumentException('invalid value for $player_deaths when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
         }
@@ -1283,6 +1457,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($player_kills)) {
             throw new \InvalidArgumentException('non-nullable player_kills cannot be null');
+        }
+        if (($player_kills > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $player_kills when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
         }
         if (($player_kills < 0)) {
             throw new \InvalidArgumentException('invalid value for $player_kills when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
@@ -1315,6 +1492,13 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($player_match_outcome)) {
             throw new \InvalidArgumentException('non-nullable player_match_outcome cannot be null');
         }
+        if (($player_match_outcome > 127)) {
+            throw new \InvalidArgumentException('invalid value for $player_match_outcome when calling PlayerMatchHistoryEntry., must be smaller than or equal to 127.');
+        }
+        if (($player_match_outcome < -128)) {
+            throw new \InvalidArgumentException('invalid value for $player_match_outcome when calling PlayerMatchHistoryEntry., must be bigger than or equal to -128.');
+        }
+
         $this->container['player_match_outcome'] = $player_match_outcome;
 
         return $this;
@@ -1342,6 +1526,13 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($player_team)) {
             throw new \InvalidArgumentException('non-nullable player_team cannot be null');
         }
+        if (($player_team > 127)) {
+            throw new \InvalidArgumentException('invalid value for $player_team when calling PlayerMatchHistoryEntry., must be smaller than or equal to 127.');
+        }
+        if (($player_team < -128)) {
+            throw new \InvalidArgumentException('invalid value for $player_team when calling PlayerMatchHistoryEntry., must be bigger than or equal to -128.');
+        }
+
         $this->container['player_team'] = $player_team;
 
         return $this;
@@ -1375,6 +1566,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($ranked_calibration_match) && ($ranked_calibration_match > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $ranked_calibration_match when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($ranked_calibration_match) && ($ranked_calibration_match < 0)) {
             throw new \InvalidArgumentException('invalid value for $ranked_calibration_match when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
@@ -1448,6 +1642,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($ranked_display_badge) && ($ranked_display_badge > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $ranked_display_badge when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($ranked_display_badge) && ($ranked_display_badge < 0)) {
             throw new \InvalidArgumentException('invalid value for $ranked_display_badge when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');
         }
@@ -1512,6 +1709,9 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($start_time)) {
             throw new \InvalidArgumentException('non-nullable start_time cannot be null');
+        }
+        if (($start_time > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $start_time when calling PlayerMatchHistoryEntry., must be smaller than or equal to 4294967295.');
         }
         if (($start_time < 0)) {
             throw new \InvalidArgumentException('invalid value for $start_time when calling PlayerMatchHistoryEntry., must be bigger than or equal to 0.');

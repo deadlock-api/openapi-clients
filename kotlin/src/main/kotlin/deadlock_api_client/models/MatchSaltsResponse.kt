@@ -44,19 +44,19 @@ data class MatchSaltsResponse (
     val matchId: kotlin.Long,
 
     @Json(name = "cluster_id")
-    val clusterId: kotlin.Int? = null,
+    val clusterId: kotlin.Long? = null,
 
     @Json(name = "demo_url")
     val demoUrl: kotlin.String? = null,
 
     @Json(name = "metadata_salt")
-    val metadataSalt: kotlin.Int? = null,
+    val metadataSalt: kotlin.Long? = null,
 
     @Json(name = "metadata_url")
     val metadataUrl: kotlin.String? = null,
 
     @Json(name = "replay_salt")
-    val replaySalt: kotlin.Int? = null
+    val replaySalt: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

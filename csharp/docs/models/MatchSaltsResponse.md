@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MatchId** | **long** |  | 
-**ClusterId** | **int** |  | [optional] 
+**ClusterId** | **long** |  | [optional] 
 **DemoUrl** | **string** |  | [optional] 
-**MetadataSalt** | **int** |  | [optional] 
+**MetadataSalt** | **long** |  | [optional] 
 **MetadataUrl** | **string** |  | [optional] 
-**ReplaySalt** | **int** |  | [optional] 
+**ReplaySalt** | **long** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

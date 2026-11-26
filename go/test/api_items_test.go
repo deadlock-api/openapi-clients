@@ -40,7 +40,7 @@ func Test_deadlock_api_client_ItemsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id int32
+		var id int64
 
 		resp, httpRes, err := apiClient.ItemsAPI.GetItemsByHeroId(context.Background(), id).Execute()
 

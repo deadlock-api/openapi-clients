@@ -103,7 +103,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun enemyStats(accountId: kotlin.Int, gameMode: GameModeEnemyStats? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatchesPlayed: kotlin.Long? = null, maxMatchesPlayed: kotlin.Long? = null) : kotlin.collections.List<EnemyStats> {
+    fun enemyStats(accountId: kotlin.Long, gameMode: GameModeEnemyStats? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Int? = null, maxDurationS: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatchesPlayed: kotlin.Long? = null, maxMatchesPlayed: kotlin.Long? = null) : kotlin.collections.List<EnemyStats> {
         val localVarResponse = enemyStatsWithHttpInfo(accountId = accountId, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed)
 
         return when (localVarResponse.responseType) {
@@ -141,7 +141,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun enemyStatsWithHttpInfo(accountId: kotlin.Int, gameMode: GameModeEnemyStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?) : ApiResponse<kotlin.collections.List<EnemyStats>?> {
+    fun enemyStatsWithHttpInfo(accountId: kotlin.Long, gameMode: GameModeEnemyStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Int?, maxDurationS: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?) : ApiResponse<kotlin.collections.List<EnemyStats>?> {
         val localVariableConfig = enemyStatsRequestConfig(accountId = accountId, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed)
 
         return request<Unit, kotlin.collections.List<EnemyStats>>(
@@ -164,7 +164,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param maxMatchesPlayed Filter based on the number of matches played. (optional)
      * @return RequestConfig
      */
-    fun enemyStatsRequestConfig(accountId: kotlin.Int, gameMode: GameModeEnemyStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?) : RequestConfig<Unit> {
+    fun enemyStatsRequestConfig(accountId: kotlin.Long, gameMode: GameModeEnemyStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Int?, maxDurationS: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -224,7 +224,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun matchHistory(accountId: kotlin.Int, forceRefetch: kotlin.Boolean? = null) : kotlin.collections.List<PlayerMatchHistoryEntry> {
+    fun matchHistory(accountId: kotlin.Long, forceRefetch: kotlin.Boolean? = null) : kotlin.collections.List<PlayerMatchHistoryEntry> {
         val localVarResponse = matchHistoryWithHttpInfo(accountId = accountId, forceRefetch = forceRefetch)
 
         return when (localVarResponse.responseType) {
@@ -254,7 +254,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun matchHistoryWithHttpInfo(accountId: kotlin.Int, forceRefetch: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<PlayerMatchHistoryEntry>?> {
+    fun matchHistoryWithHttpInfo(accountId: kotlin.Long, forceRefetch: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<PlayerMatchHistoryEntry>?> {
         val localVariableConfig = matchHistoryRequestConfig(accountId = accountId, forceRefetch = forceRefetch)
 
         return request<Unit, kotlin.collections.List<PlayerMatchHistoryEntry>>(
@@ -269,7 +269,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param forceRefetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
      * @return RequestConfig
      */
-    fun matchHistoryRequestConfig(accountId: kotlin.Int, forceRefetch: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun matchHistoryRequestConfig(accountId: kotlin.Long, forceRefetch: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -334,7 +334,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun mateStats(accountId: kotlin.Int, gameMode: GameModeMateStats? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatchesPlayed: kotlin.Long? = null, maxMatchesPlayed: kotlin.Long? = null, sameParty: kotlin.Boolean? = false) : kotlin.collections.List<MateStats> {
+    fun mateStats(accountId: kotlin.Long, gameMode: GameModeMateStats? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Int? = null, maxDurationS: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatchesPlayed: kotlin.Long? = null, maxMatchesPlayed: kotlin.Long? = null, sameParty: kotlin.Boolean? = false) : kotlin.collections.List<MateStats> {
         val localVarResponse = mateStatsWithHttpInfo(accountId = accountId, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed, sameParty = sameParty)
 
         return when (localVarResponse.responseType) {
@@ -373,7 +373,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun mateStatsWithHttpInfo(accountId: kotlin.Int, gameMode: GameModeMateStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MateStats>?> {
+    fun mateStatsWithHttpInfo(accountId: kotlin.Long, gameMode: GameModeMateStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Int?, maxDurationS: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<MateStats>?> {
         val localVariableConfig = mateStatsRequestConfig(accountId = accountId, gameMode = gameMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatchesPlayed = minMatchesPlayed, maxMatchesPlayed = maxMatchesPlayed, sameParty = sameParty)
 
         return request<Unit, kotlin.collections.List<MateStats>>(
@@ -397,7 +397,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param sameParty Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)
      * @return RequestConfig
      */
-    fun mateStatsRequestConfig(accountId: kotlin.Int, gameMode: GameModeMateStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun mateStatsRequestConfig(accountId: kotlin.Long, gameMode: GameModeMateStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Int?, maxDurationS: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatchesPlayed: kotlin.Long?, maxMatchesPlayed: kotlin.Long?, sameParty: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -492,7 +492,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun playerHeroStats(accountIds: kotlin.collections.List<kotlin.Int>, gameMode: GameModePlayerHeroStats? = null, matchMode: kotlin.String? = null, heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<HeroStats> {
+    fun playerHeroStats(accountIds: kotlin.collections.List<kotlin.Long>, gameMode: GameModePlayerHeroStats? = null, matchMode: kotlin.String? = null, heroIds: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Int? = null, maxDurationS: kotlin.Int? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<HeroStats> {
         val localVarResponse = playerHeroStatsWithHttpInfo(accountIds = accountIds, gameMode = gameMode, matchMode = matchMode, heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -534,7 +534,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun playerHeroStatsWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, gameMode: GameModePlayerHeroStats?, matchMode: kotlin.String?, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<HeroStats>?> {
+    fun playerHeroStatsWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Long>, gameMode: GameModePlayerHeroStats?, matchMode: kotlin.String?, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Int?, maxDurationS: kotlin.Int?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<HeroStats>?> {
         val localVariableConfig = playerHeroStatsRequestConfig(accountIds = accountIds, gameMode = gameMode, matchMode = matchMode, heroIds = heroIds, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return request<Unit, kotlin.collections.List<HeroStats>>(
@@ -561,7 +561,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig
      */
-    fun playerHeroStatsRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, gameMode: GameModePlayerHeroStats?, matchMode: kotlin.String?, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+    fun playerHeroStatsRequestConfig(accountIds: kotlin.collections.List<kotlin.Long>, gameMode: GameModePlayerHeroStats?, matchMode: kotlin.String?, heroIds: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Int?, maxDurationS: kotlin.Int?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -633,7 +633,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rank(accountId: kotlin.Int) : RankResponse {
+    fun rank(accountId: kotlin.Long) : RankResponse {
         val localVarResponse = rankWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
@@ -662,7 +662,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun rankWithHttpInfo(accountId: kotlin.Int) : ApiResponse<RankResponse?> {
+    fun rankWithHttpInfo(accountId: kotlin.Long) : ApiResponse<RankResponse?> {
         val localVariableConfig = rankRequestConfig(accountId = accountId)
 
         return request<Unit, RankResponse>(
@@ -676,7 +676,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return RequestConfig
      */
-    fun rankRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
+    fun rankRequestConfig(accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -724,7 +724,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rankAvgImage(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankAvgImage? = null) : kotlin.collections.List<kotlin.Int> {
+    fun rankAvgImage(accountIds: kotlin.collections.List<kotlin.Long>, format: FormatRankAvgImage? = null) : kotlin.collections.List<kotlin.Int> {
         val localVarResponse = rankAvgImageWithHttpInfo(accountIds = accountIds, format = format)
 
         return when (localVarResponse.responseType) {
@@ -754,7 +754,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun rankAvgImageWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankAvgImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+    fun rankAvgImageWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Long>, format: FormatRankAvgImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
         val localVariableConfig = rankAvgImageRequestConfig(accountIds = accountIds, format = format)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
@@ -769,7 +769,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return RequestConfig
      */
-    fun rankAvgImageRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>, format: FormatRankAvgImage?) : RequestConfig<Unit> {
+    fun rankAvgImageRequestConfig(accountIds: kotlin.collections.List<kotlin.Long>, format: FormatRankAvgImage?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -805,7 +805,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rankBatch(accountIds: kotlin.collections.List<kotlin.Int>) : kotlin.collections.List<AccountRank> {
+    fun rankBatch(accountIds: kotlin.collections.List<kotlin.Long>) : kotlin.collections.List<AccountRank> {
         val localVarResponse = rankBatchWithHttpInfo(accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -834,7 +834,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun rankBatchWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>) : ApiResponse<kotlin.collections.List<AccountRank>?> {
+    fun rankBatchWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Long>) : ApiResponse<kotlin.collections.List<AccountRank>?> {
         val localVariableConfig = rankBatchRequestConfig(accountIds = accountIds)
 
         return request<Unit, kotlin.collections.List<AccountRank>>(
@@ -848,7 +848,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      * @return RequestConfig
      */
-    fun rankBatchRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>) : RequestConfig<Unit> {
+    fun rankBatchRequestConfig(accountIds: kotlin.collections.List<kotlin.Long>) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -871,7 +871,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/players/rank/distribution
      * Rank Distribution
      *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1792972800L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1793059200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -889,7 +889,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rankDistribution(minUnixTimestamp: kotlin.Long? = 1792972800L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<RankDistributionEntry> {
+    fun rankDistribution(minUnixTimestamp: kotlin.Long? = 1793059200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Int? = null, maxDurationS: kotlin.Int? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<RankDistributionEntry> {
         val localVarResponse = rankDistributionWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -911,7 +911,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/players/rank/distribution
      * Rank Distribution
      *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1792972800L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1793059200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -926,7 +926,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun rankDistributionWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<RankDistributionEntry>?> {
+    fun rankDistributionWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Int?, maxDurationS: kotlin.Int?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : ApiResponse<kotlin.collections.List<RankDistributionEntry>?> {
         val localVariableConfig = rankDistributionRequestConfig(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return request<Unit, kotlin.collections.List<RankDistributionEntry>>(
@@ -937,7 +937,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation rankDistribution
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1792972800L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1793059200L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -948,7 +948,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @return RequestConfig
      */
-    fun rankDistributionRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
+    fun rankDistributionRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Int?, maxDurationS: kotlin.Int?, isHighSkillRangeParties: kotlin.Boolean?, isLowPriPool: kotlin.Boolean?, isNewPlayerPool: kotlin.Boolean?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1025,7 +1025,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rankImage(accountId: kotlin.Int, format: FormatRankImage? = null) : kotlin.collections.List<kotlin.Int> {
+    fun rankImage(accountId: kotlin.Long, format: FormatRankImage? = null) : kotlin.collections.List<kotlin.Int> {
         val localVarResponse = rankImageWithHttpInfo(accountId = accountId, format = format)
 
         return when (localVarResponse.responseType) {
@@ -1055,7 +1055,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun rankImageWithHttpInfo(accountId: kotlin.Int, format: FormatRankImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+    fun rankImageWithHttpInfo(accountId: kotlin.Long, format: FormatRankImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
         val localVariableConfig = rankImageRequestConfig(accountId = accountId, format = format)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
@@ -1070,7 +1070,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return RequestConfig
      */
-    fun rankImageRequestConfig(accountId: kotlin.Int, format: FormatRankImage?) : RequestConfig<Unit> {
+    fun rankImageRequestConfig(accountId: kotlin.Long, format: FormatRankImage?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1105,7 +1105,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun region(accountId: kotlin.Int) : PlayerRegionResponse {
+    fun region(accountId: kotlin.Long) : PlayerRegionResponse {
         val localVarResponse = regionWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
@@ -1134,7 +1134,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun regionWithHttpInfo(accountId: kotlin.Int) : ApiResponse<PlayerRegionResponse?> {
+    fun regionWithHttpInfo(accountId: kotlin.Long) : ApiResponse<PlayerRegionResponse?> {
         val localVariableConfig = regionRequestConfig(accountId = accountId)
 
         return request<Unit, PlayerRegionResponse>(
@@ -1148,7 +1148,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return RequestConfig
      */
-    fun regionRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
+    fun regionRequestConfig(accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -1178,7 +1178,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun regionBatch(accountIds: kotlin.collections.List<kotlin.Int>) : kotlin.collections.List<PlayerRegionResponse> {
+    fun regionBatch(accountIds: kotlin.collections.List<kotlin.Long>) : kotlin.collections.List<PlayerRegionResponse> {
         val localVarResponse = regionBatchWithHttpInfo(accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
@@ -1207,7 +1207,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun regionBatchWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>) : ApiResponse<kotlin.collections.List<PlayerRegionResponse>?> {
+    fun regionBatchWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Long>) : ApiResponse<kotlin.collections.List<PlayerRegionResponse>?> {
         val localVariableConfig = regionBatchRequestConfig(accountIds = accountIds)
 
         return request<Unit, kotlin.collections.List<PlayerRegionResponse>>(
@@ -1221,7 +1221,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      * @return RequestConfig
      */
-    fun regionBatchRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>) : RequestConfig<Unit> {
+    fun regionBatchRequestConfig(accountIds: kotlin.collections.List<kotlin.Long>) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

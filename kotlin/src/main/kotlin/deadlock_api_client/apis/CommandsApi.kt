@@ -160,7 +160,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun commandResolve(accountId: kotlin.Int, region: RegionCommandResolve? = null, template: kotlin.String? = null, heroName: kotlin.String? = null) : kotlin.String {
+    fun commandResolve(accountId: kotlin.Long, region: RegionCommandResolve? = null, template: kotlin.String? = null, heroName: kotlin.String? = null) : kotlin.String {
         val localVarResponse = commandResolveWithHttpInfo(accountId = accountId, region = region, template = template, heroName = heroName)
 
         return when (localVarResponse.responseType) {
@@ -192,7 +192,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun commandResolveWithHttpInfo(accountId: kotlin.Int, region: RegionCommandResolve?, template: kotlin.String?, heroName: kotlin.String?) : ApiResponse<kotlin.String?> {
+    fun commandResolveWithHttpInfo(accountId: kotlin.Long, region: RegionCommandResolve?, template: kotlin.String?, heroName: kotlin.String?) : ApiResponse<kotlin.String?> {
         val localVariableConfig = commandResolveRequestConfig(accountId = accountId, region = region, template = template, heroName = heroName)
 
         return request<Unit, kotlin.String>(
@@ -209,7 +209,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param heroName Hero name to check for hero specific stats (optional)
      * @return RequestConfig
      */
-    fun commandResolveRequestConfig(accountId: kotlin.Int, region: RegionCommandResolve?, template: kotlin.String?, heroName: kotlin.String?) : RequestConfig<Unit> {
+    fun commandResolveRequestConfig(accountId: kotlin.Long, region: RegionCommandResolve?, template: kotlin.String?, heroName: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -274,7 +274,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun variablesResolve(accountId: kotlin.Int, region: RegionVariablesResolve? = null, variables: kotlin.String? = null, heroName: kotlin.String? = null) : kotlin.collections.Map<kotlin.String, kotlin.String> {
+    fun variablesResolve(accountId: kotlin.Long, region: RegionVariablesResolve? = null, variables: kotlin.String? = null, heroName: kotlin.String? = null) : kotlin.collections.Map<kotlin.String, kotlin.String> {
         val localVarResponse = variablesResolveWithHttpInfo(accountId = accountId, region = region, variables = variables, heroName = heroName)
 
         return when (localVarResponse.responseType) {
@@ -306,7 +306,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun variablesResolveWithHttpInfo(accountId: kotlin.Int, region: RegionVariablesResolve?, variables: kotlin.String?, heroName: kotlin.String?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
+    fun variablesResolveWithHttpInfo(accountId: kotlin.Long, region: RegionVariablesResolve?, variables: kotlin.String?, heroName: kotlin.String?) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
         val localVariableConfig = variablesResolveRequestConfig(accountId = accountId, region = region, variables = variables, heroName = heroName)
 
         return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.String>>(
@@ -323,7 +323,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param heroName Hero name to check for hero specific stats (optional)
      * @return RequestConfig
      */
-    fun variablesResolveRequestConfig(accountId: kotlin.Int, region: RegionVariablesResolve?, variables: kotlin.String?, heroName: kotlin.String?) : RequestConfig<Unit> {
+    fun variablesResolveRequestConfig(accountId: kotlin.Long, region: RegionVariablesResolve?, variables: kotlin.String?, heroName: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

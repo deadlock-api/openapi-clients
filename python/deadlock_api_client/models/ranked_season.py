@@ -30,19 +30,19 @@ class RankedSeason(BaseModel):
     """
     RankedSeason
     """ # noqa: E501
-    base_win_loss_point_grant: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Base rank points granted per win / taken per loss (build 6701+).")
-    calibration_matches: Annotated[int, Field(strict=True, ge=0)]
-    calibration_max_rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.")
+    base_win_loss_point_grant: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Base rank points granted per win / taken per loss (build 6701+).")
+    calibration_matches: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
+    calibration_max_rank: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.")
     class_name: StrictStr
     intervals: List[SeasonInterval]
-    min_hero_unlock_points: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+).")
-    min_hero_unlocks: Annotated[int, Field(strict=True, ge=0)]
-    min_hero_wins: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`.")
-    min_wins: Annotated[int, Field(strict=True, ge=0)]
+    min_hero_unlock_points: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+).")
+    min_hero_unlocks: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
+    min_hero_wins: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`.")
+    min_wins: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     name: StrictStr
     rank_info: Optional[List[RankInfo]] = Field(default=None, description="Rank progression settings (build 6857+).")
     ranked_type: StrictStr
-    valid_party_sizes: List[Annotated[int, Field(strict=True, ge=0)]]
+    valid_party_sizes: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]
     __properties: ClassVar[List[str]] = ["base_win_loss_point_grant", "calibration_matches", "calibration_max_rank", "class_name", "intervals", "min_hero_unlock_points", "min_hero_unlocks", "min_hero_wins", "min_wins", "name", "rank_info", "ranked_type", "valid_party_sizes"]
 
     model_config = ConfigDict(

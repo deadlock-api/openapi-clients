@@ -32,7 +32,7 @@ class CreateCustomRequest(BaseModel):
     """ # noqa: E501
     callback_url: Optional[StrictStr] = Field(default=None, description="If a callback url is provided, we will send a POST request to this url when the match starts.")
     cheats_enabled: Optional[StrictBool] = None
-    corrupted_item_shop_spawn_minutes: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Minute of the match at which the Broker's corrupted item shop first spawns.")
+    corrupted_item_shop_spawn_minutes: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Minute of the match at which the Broker's corrupted item shop first spawns.")
     disable_auto_ready: Optional[StrictBool] = Field(default=None, description="If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.")
     duplicate_heroes_enabled: Optional[StrictBool] = None
     game_mode: Optional[GameMode] = None

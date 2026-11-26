@@ -73,7 +73,7 @@ class AnalyticsAbilityMaxFirstStats implements ModelInterface, ArrayAccess, \Jso
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'ability_id' => 'int32',
+        'ability_id' => 'int64',
         'losses' => 'int64',
         'matches' => 'int64',
         'players' => 'int64',
@@ -303,6 +303,10 @@ class AnalyticsAbilityMaxFirstStats implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['ability_id']) && ($this->container['ability_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'ability_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['ability_id']) && ($this->container['ability_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'ability_id', must be bigger than or equal to 0.";
         }
@@ -378,6 +382,9 @@ class AnalyticsAbilityMaxFirstStats implements ModelInterface, ArrayAccess, \Jso
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($ability_id) && ($ability_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $ability_id when calling AnalyticsAbilityMaxFirstStats., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($ability_id) && ($ability_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $ability_id when calling AnalyticsAbilityMaxFirstStats., must be bigger than or equal to 0.');

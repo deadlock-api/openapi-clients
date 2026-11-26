@@ -45,13 +45,13 @@ class WeaponInfo(BaseModel):
     bullet_speed: Optional[Union[StrictFloat, StrictInt]] = None
     bullet_speed_curve: Optional[RawItemWeaponInfoBulletSpeedCurve] = None
     bullet_whiz_distance: Optional[Union[StrictFloat, StrictInt]] = None
-    bullets: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    bullets: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     bullets_per_second: Optional[Union[StrictFloat, StrictInt]] = None
     bullets_per_second_with_reload: Optional[Union[StrictFloat, StrictInt]] = None
     burst_shot_cooldown: Optional[Union[StrictFloat, StrictInt]] = None
-    burst_shot_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    burst_shot_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     can_zoom: Optional[StrictBool] = None
-    clip_size: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    clip_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     crit_bonus_against_npcs: Optional[Union[StrictFloat, StrictInt]] = None
     crit_bonus_end: Optional[Union[StrictFloat, StrictInt]] = None
     crit_bonus_end_range: Optional[Union[StrictFloat, StrictInt]] = None

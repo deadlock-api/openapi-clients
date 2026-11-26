@@ -26,8 +26,8 @@ func Test_deadlock_api_client_BuildsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var heroId int32
-		var buildId int32
+		var heroId int64
+		var buildId int64
 
 		resp, httpRes, err := apiClient.BuildsAPI.FetchBuildLive(context.Background(), heroId, buildId).Execute()
 
@@ -41,7 +41,7 @@ func Test_deadlock_api_client_BuildsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var accountId int32
+		var accountId int64
 
 		resp, httpRes, err := apiClient.BuildsAPI.FetchBuildsByAuthorLive(context.Background(), accountId).Execute()
 

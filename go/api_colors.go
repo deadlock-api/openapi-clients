@@ -25,11 +25,11 @@ type ColorsAPIService service
 type ApiListColorsRequest struct {
 	ctx context.Context
 	ApiService *ColorsAPIService
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiListColorsRequest) ClientVersion(clientVersion int32) ApiListColorsRequest {
+func (r ApiListColorsRequest) ClientVersion(clientVersion int64) ApiListColorsRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **AdjustedWinRate** | **float64** | Win rate standardized to the stage&#39;s net-worth-at-buy distribution, removing the \&quot;richer buyers win more\&quot; confound. See the endpoint description. | 
 **AvgNetWorthAtBuy** | **float64** | Average net worth of buyers at the moment they bought this item (confound visibility). | 
 **Column** | **int32** | The phase column (0-based) the item was bought in. | 
-**ItemId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+**ItemId** | **int64** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **Players** | **int64** |  | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewItemFlowNode
 
-`func NewItemFlowNode(adjustedWinRate float64, avgNetWorthAtBuy float64, column int32, itemId int32, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64, ) *ItemFlowNode`
+`func NewItemFlowNode(adjustedWinRate float64, avgNetWorthAtBuy float64, column int32, itemId int64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64, ) *ItemFlowNode`
 
 NewItemFlowNode instantiates a new ItemFlowNode object
 This constructor will assign default values to properties that have it defined,
@@ -97,20 +97,20 @@ SetColumn sets Column field to given value.
 
 ### GetItemId
 
-`func (o *ItemFlowNode) GetItemId() int32`
+`func (o *ItemFlowNode) GetItemId() int64`
 
 GetItemId returns the ItemId field if non-nil, zero value otherwise.
 
 ### GetItemIdOk
 
-`func (o *ItemFlowNode) GetItemIdOk() (*int32, bool)`
+`func (o *ItemFlowNode) GetItemIdOk() (*int64, bool)`
 
 GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemId
 
-`func (o *ItemFlowNode) SetItemId(v int32)`
+`func (o *ItemFlowNode) SetItemId(v int64)`
 
 SetItemId sets ItemId field to given value.
 

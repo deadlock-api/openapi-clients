@@ -18,13 +18,13 @@
 | **bulletSpeed** | **kotlin.Double** |  |  [optional] |
 | **bulletSpeedCurve** | [**RawItemWeaponInfoBulletSpeedCurve**](RawItemWeaponInfoBulletSpeedCurve.md) |  |  [optional] |
 | **bulletWhizDistance** | **kotlin.Double** |  |  [optional] |
-| **bullets** | **kotlin.Int** |  |  [optional] |
+| **bullets** | **kotlin.Long** |  |  [optional] |
 | **bulletsPerSecond** | **kotlin.Double** |  |  [optional] |
 | **bulletsPerSecondWithReload** | **kotlin.Double** |  |  [optional] |
 | **burstShotCooldown** | **kotlin.Double** |  |  [optional] |
-| **burstShotCount** | **kotlin.Int** |  |  [optional] |
+| **burstShotCount** | **kotlin.Long** |  |  [optional] |
 | **canZoom** | **kotlin.Boolean** |  |  [optional] |
-| **clipSize** | **kotlin.Int** |  |  [optional] |
+| **clipSize** | **kotlin.Long** |  |  [optional] |
 | **critBonusAgainstNpcs** | **kotlin.Double** |  |  [optional] |
 | **critBonusEnd** | **kotlin.Double** |  |  [optional] |
 | **critBonusEndRange** | **kotlin.Double** |  |  [optional] |

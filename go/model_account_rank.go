@@ -22,15 +22,15 @@ var _ MappedNullable = &AccountRank{}
 // AccountRank struct for AccountRank
 type AccountRank struct {
 	// Rank badge, `tier * 10 + subrank`, including the progress the last ranked match awarded. Eternus subranks are percentile-based and refreshed daily by Valve, so within Eternus this is the badge the player entered their latest ranked match with. `0` when no recent ranked match reports a rank. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	Badge int32 `json:"badge"`
+	Badge int64 `json:"badge"`
 	// Rank metadata of the ranked match the badge was read from. `null` when none of the player's recent ranked matches reports a rank.
 	LastMatch NullableLastRankedMatch `json:"last_match,omitempty"`
 	// Rank tier, `0` when unknown.
-	Rank int32 `json:"rank"`
+	Rank int64 `json:"rank"`
 	// Sub-rank within the tier, `0` when unknown.
-	Subrank int32 `json:"subrank"`
+	Subrank int64 `json:"subrank"`
 	// The players `SteamID3`
-	AccountId int32 `json:"account_id"`
+	AccountId int64 `json:"account_id"`
 }
 
 type _AccountRank AccountRank
@@ -39,7 +39,7 @@ type _AccountRank AccountRank
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAccountRank(badge int32, rank int32, subrank int32, accountId int32) *AccountRank {
+func NewAccountRank(badge int64, rank int64, subrank int64, accountId int64) *AccountRank {
 	this := AccountRank{}
 	this.Badge = badge
 	this.Rank = rank
@@ -57,9 +57,9 @@ func NewAccountRankWithDefaults() *AccountRank {
 }
 
 // GetBadge returns the Badge field value
-func (o *AccountRank) GetBadge() int32 {
+func (o *AccountRank) GetBadge() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -68,7 +68,7 @@ func (o *AccountRank) GetBadge() int32 {
 
 // GetBadgeOk returns a tuple with the Badge field value
 // and a boolean to check if the value has been set.
-func (o *AccountRank) GetBadgeOk() (*int32, bool) {
+func (o *AccountRank) GetBadgeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -76,7 +76,7 @@ func (o *AccountRank) GetBadgeOk() (*int32, bool) {
 }
 
 // SetBadge sets field value
-func (o *AccountRank) SetBadge(v int32) {
+func (o *AccountRank) SetBadge(v int64) {
 	o.Badge = v
 }
 
@@ -123,9 +123,9 @@ func (o *AccountRank) UnsetLastMatch() {
 }
 
 // GetRank returns the Rank field value
-func (o *AccountRank) GetRank() int32 {
+func (o *AccountRank) GetRank() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -134,7 +134,7 @@ func (o *AccountRank) GetRank() int32 {
 
 // GetRankOk returns a tuple with the Rank field value
 // and a boolean to check if the value has been set.
-func (o *AccountRank) GetRankOk() (*int32, bool) {
+func (o *AccountRank) GetRankOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -142,14 +142,14 @@ func (o *AccountRank) GetRankOk() (*int32, bool) {
 }
 
 // SetRank sets field value
-func (o *AccountRank) SetRank(v int32) {
+func (o *AccountRank) SetRank(v int64) {
 	o.Rank = v
 }
 
 // GetSubrank returns the Subrank field value
-func (o *AccountRank) GetSubrank() int32 {
+func (o *AccountRank) GetSubrank() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -158,7 +158,7 @@ func (o *AccountRank) GetSubrank() int32 {
 
 // GetSubrankOk returns a tuple with the Subrank field value
 // and a boolean to check if the value has been set.
-func (o *AccountRank) GetSubrankOk() (*int32, bool) {
+func (o *AccountRank) GetSubrankOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -166,14 +166,14 @@ func (o *AccountRank) GetSubrankOk() (*int32, bool) {
 }
 
 // SetSubrank sets field value
-func (o *AccountRank) SetSubrank(v int32) {
+func (o *AccountRank) SetSubrank(v int64) {
 	o.Subrank = v
 }
 
 // GetAccountId returns the AccountId field value
-func (o *AccountRank) GetAccountId() int32 {
+func (o *AccountRank) GetAccountId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -182,7 +182,7 @@ func (o *AccountRank) GetAccountId() int32 {
 
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
-func (o *AccountRank) GetAccountIdOk() (*int32, bool) {
+func (o *AccountRank) GetAccountIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -190,7 +190,7 @@ func (o *AccountRank) GetAccountIdOk() (*int32, bool) {
 }
 
 // SetAccountId sets field value
-func (o *AccountRank) SetAccountId(v int32) {
+func (o *AccountRank) SetAccountId(v int64) {
 	o.AccountId = v
 }
 

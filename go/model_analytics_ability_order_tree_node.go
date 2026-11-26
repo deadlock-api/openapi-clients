@@ -22,7 +22,7 @@ var _ MappedNullable = &AnalyticsAbilityOrderTreeNode{}
 // AnalyticsAbilityOrderTreeNode One node of the ability order tree: the players whose upgrade order starts with `abilities`.
 type AnalyticsAbilityOrderTreeNode struct {
 	// The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one entry shorter. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	Abilities []int32 `json:"abilities"`
+	Abilities []int64 `json:"abilities"`
 	// Average game time (in seconds) at which the last upgrade in `abilities` was bought.
 	AvgUpgradeTimeS float64 `json:"avg_upgrade_time_s"`
 	Losses int64 `json:"losses"`
@@ -41,7 +41,7 @@ type _AnalyticsAbilityOrderTreeNode AnalyticsAbilityOrderTreeNode
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyticsAbilityOrderTreeNode(abilities []int32, avgUpgradeTimeS float64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64) *AnalyticsAbilityOrderTreeNode {
+func NewAnalyticsAbilityOrderTreeNode(abilities []int64, avgUpgradeTimeS float64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64) *AnalyticsAbilityOrderTreeNode {
 	this := AnalyticsAbilityOrderTreeNode{}
 	this.Abilities = abilities
 	this.AvgUpgradeTimeS = avgUpgradeTimeS
@@ -64,9 +64,9 @@ func NewAnalyticsAbilityOrderTreeNodeWithDefaults() *AnalyticsAbilityOrderTreeNo
 }
 
 // GetAbilities returns the Abilities field value
-func (o *AnalyticsAbilityOrderTreeNode) GetAbilities() []int32 {
+func (o *AnalyticsAbilityOrderTreeNode) GetAbilities() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -75,7 +75,7 @@ func (o *AnalyticsAbilityOrderTreeNode) GetAbilities() []int32 {
 
 // GetAbilitiesOk returns a tuple with the Abilities field value
 // and a boolean to check if the value has been set.
-func (o *AnalyticsAbilityOrderTreeNode) GetAbilitiesOk() ([]int32, bool) {
+func (o *AnalyticsAbilityOrderTreeNode) GetAbilitiesOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -83,7 +83,7 @@ func (o *AnalyticsAbilityOrderTreeNode) GetAbilitiesOk() ([]int32, bool) {
 }
 
 // SetAbilities sets field value
-func (o *AnalyticsAbilityOrderTreeNode) SetAbilities(v []int32) {
+func (o *AnalyticsAbilityOrderTreeNode) SetAbilities(v []int64) {
 	o.Abilities = v
 }
 

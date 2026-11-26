@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **AvgBuyTimeS** | **float64** | Average buy time in seconds (absolute) | 
 **AvgSellTimeRelative** | **float64** | Average sell time as percentage of match duration (for items that were sold) | 
 **AvgSellTimeS** | **float64** | Average sell time in seconds (absolute, for items that were sold) | 
-**Bucket** | **int32** |  | 
-**ItemId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+**Bucket** | **int64** |  | 
+**ItemId** | **int64** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **Players** | **int64** |  | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewItemStats
 
-`func NewItemStats(avgBuyTimeRelative float64, avgBuyTimeS float64, avgSellTimeRelative float64, avgSellTimeS float64, bucket int32, itemId int32, losses int64, matches int64, players int64, wins int64, ) *ItemStats`
+`func NewItemStats(avgBuyTimeRelative float64, avgBuyTimeS float64, avgSellTimeRelative float64, avgSellTimeS float64, bucket int64, itemId int64, losses int64, matches int64, players int64, wins int64, ) *ItemStats`
 
 NewItemStats instantiates a new ItemStats object
 This constructor will assign default values to properties that have it defined,
@@ -117,40 +117,40 @@ SetAvgSellTimeS sets AvgSellTimeS field to given value.
 
 ### GetBucket
 
-`func (o *ItemStats) GetBucket() int32`
+`func (o *ItemStats) GetBucket() int64`
 
 GetBucket returns the Bucket field if non-nil, zero value otherwise.
 
 ### GetBucketOk
 
-`func (o *ItemStats) GetBucketOk() (*int32, bool)`
+`func (o *ItemStats) GetBucketOk() (*int64, bool)`
 
 GetBucketOk returns a tuple with the Bucket field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBucket
 
-`func (o *ItemStats) SetBucket(v int32)`
+`func (o *ItemStats) SetBucket(v int64)`
 
 SetBucket sets Bucket field to given value.
 
 
 ### GetItemId
 
-`func (o *ItemStats) GetItemId() int32`
+`func (o *ItemStats) GetItemId() int64`
 
 GetItemId returns the ItemId field if non-nil, zero value otherwise.
 
 ### GetItemIdOk
 
-`func (o *ItemStats) GetItemIdOk() (*int32, bool)`
+`func (o *ItemStats) GetItemIdOk() (*int64, bool)`
 
 GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemId
 
-`func (o *ItemStats) SetItemId(v int32)`
+`func (o *ItemStats) SetItemId(v int64)`
 
 SetItemId sets ItemId field to given value.
 

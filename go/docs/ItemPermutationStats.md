@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ItemIds** | **[]int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+**ItemIds** | **[]int64** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **Wins** | **int64** |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewItemPermutationStats
 
-`func NewItemPermutationStats(itemIds []int32, losses int64, matches int64, wins int64, ) *ItemPermutationStats`
+`func NewItemPermutationStats(itemIds []int64, losses int64, matches int64, wins int64, ) *ItemPermutationStats`
 
 NewItemPermutationStats instantiates a new ItemPermutationStats object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetItemIds
 
-`func (o *ItemPermutationStats) GetItemIds() []int32`
+`func (o *ItemPermutationStats) GetItemIds() []int64`
 
 GetItemIds returns the ItemIds field if non-nil, zero value otherwise.
 
 ### GetItemIdsOk
 
-`func (o *ItemPermutationStats) GetItemIdsOk() (*[]int32, bool)`
+`func (o *ItemPermutationStats) GetItemIdsOk() (*[]int64, bool)`
 
 GetItemIdsOk returns a tuple with the ItemIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemIds
 
-`func (o *ItemPermutationStats) SetItemIds(v []int32)`
+`func (o *ItemPermutationStats) SetItemIds(v []int64)`
 
 SetItemIds sets ItemIds field to given value.
 

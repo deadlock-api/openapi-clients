@@ -26,8 +26,8 @@ type BuildsAPIService service
 type ApiFetchBuildLiveRequest struct {
 	ctx context.Context
 	ApiService *BuildsAPIService
-	heroId int32
-	buildId int32
+	heroId int64
+	buildId int64
 	forceRefetch *bool
 }
 
@@ -81,7 +81,7 @@ Relevant Protobuf Messages:
  @param buildId The build ID to fetch.
  @return ApiFetchBuildLiveRequest
 */
-func (a *BuildsAPIService) FetchBuildLive(ctx context.Context, heroId int32, buildId int32) ApiFetchBuildLiveRequest {
+func (a *BuildsAPIService) FetchBuildLive(ctx context.Context, heroId int64, buildId int64) ApiFetchBuildLiveRequest {
 	return ApiFetchBuildLiveRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -115,8 +115,14 @@ func (a *BuildsAPIService) FetchBuildLiveExecute(r ApiFetchBuildLiveRequest) (*B
 	if r.heroId < 0 {
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
 	}
+	if r.heroId > 4294967295 {
+		return localVarReturnValue, nil, reportError("heroId must be less than 4294967295")
+	}
 	if r.buildId < 0 {
 		return localVarReturnValue, nil, reportError("buildId must be greater than 0")
+	}
+	if r.buildId > 4294967295 {
+		return localVarReturnValue, nil, reportError("buildId must be less than 4294967295")
 	}
 
 	if r.forceRefetch != nil {
@@ -179,7 +185,7 @@ func (a *BuildsAPIService) FetchBuildLiveExecute(r ApiFetchBuildLiveRequest) (*B
 type ApiFetchBuildsByAuthorLiveRequest struct {
 	ctx context.Context
 	ApiService *BuildsAPIService
-	accountId int32
+	accountId int64
 }
 
 func (r ApiFetchBuildsByAuthorLiveRequest) Execute() ([]Build, *http.Response, error) {
@@ -217,7 +223,7 @@ Relevant Protobuf Messages:
  @param accountId The players `SteamID3`
  @return ApiFetchBuildsByAuthorLiveRequest
 */
-func (a *BuildsAPIService) FetchBuildsByAuthorLive(ctx context.Context, accountId int32) ApiFetchBuildsByAuthorLiveRequest {
+func (a *BuildsAPIService) FetchBuildsByAuthorLive(ctx context.Context, accountId int64) ApiFetchBuildsByAuthorLiveRequest {
 	return ApiFetchBuildsByAuthorLiveRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -248,6 +254,9 @@ func (a *BuildsAPIService) FetchBuildsByAuthorLiveExecute(r ApiFetchBuildsByAuth
 	localVarFormParams := url.Values{}
 	if r.accountId < 0 {
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+	if r.accountId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accountId must be less than 4294967295")
 	}
 
 	// to determine the Content-Type header
@@ -312,20 +321,20 @@ type ApiSearchBuildsRequest struct {
 	minPublishedUnixTimestamp *int64
 	maxPublishedUnixTimestamp *int64
 	sortBy *string
-	start *int32
-	limit *int32
+	start *int64
+	limit *int64
 	sortDirection *string
 	searchName *string
 	searchDescription *string
 	onlyLatest *bool
-	language *int32
+	language *int64
 	buildLanguage *string
-	buildId *int32
-	version *int32
-	heroId *int32
-	tag *int32
-	rollupCategory *int32
-	authorId *int32
+	buildId *int64
+	version *int64
+	heroId *int64
+	tag *int64
+	rollupCategory *int64
+	authorId *int64
 }
 
 // Filter builds based on their &#x60;last_updated&#x60; time (Unix timestamp).
@@ -359,13 +368,13 @@ func (r ApiSearchBuildsRequest) SortBy(sortBy string) ApiSearchBuildsRequest {
 }
 
 // The index of the first build to return.
-func (r ApiSearchBuildsRequest) Start(start int32) ApiSearchBuildsRequest {
+func (r ApiSearchBuildsRequest) Start(start int64) ApiSearchBuildsRequest {
 	r.start = &start
 	return r
 }
 
 // The maximum number of builds to return.
-func (r ApiSearchBuildsRequest) Limit(limit int32) ApiSearchBuildsRequest {
+func (r ApiSearchBuildsRequest) Limit(limit int64) ApiSearchBuildsRequest {
 	r.limit = &limit
 	return r
 }
@@ -396,7 +405,7 @@ func (r ApiSearchBuildsRequest) OnlyLatest(onlyLatest bool) ApiSearchBuildsReque
 
 // Filter builds by language.
 // Deprecated
-func (r ApiSearchBuildsRequest) Language(language int32) ApiSearchBuildsRequest {
+func (r ApiSearchBuildsRequest) Language(language int64) ApiSearchBuildsRequest {
 	r.language = &language
 	return r
 }
@@ -408,37 +417,37 @@ func (r ApiSearchBuildsRequest) BuildLanguage(buildLanguage string) ApiSearchBui
 }
 
 // Filter builds by ID.
-func (r ApiSearchBuildsRequest) BuildId(buildId int32) ApiSearchBuildsRequest {
+func (r ApiSearchBuildsRequest) BuildId(buildId int64) ApiSearchBuildsRequest {
 	r.buildId = &buildId
 	return r
 }
 
 // Filter builds by version.
-func (r ApiSearchBuildsRequest) Version(version int32) ApiSearchBuildsRequest {
+func (r ApiSearchBuildsRequest) Version(version int64) ApiSearchBuildsRequest {
 	r.version = &version
 	return r
 }
 
 // Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiSearchBuildsRequest) HeroId(heroId int32) ApiSearchBuildsRequest {
+func (r ApiSearchBuildsRequest) HeroId(heroId int64) ApiSearchBuildsRequest {
 	r.heroId = &heroId
 	return r
 }
 
 // Filter builds by tag.
-func (r ApiSearchBuildsRequest) Tag(tag int32) ApiSearchBuildsRequest {
+func (r ApiSearchBuildsRequest) Tag(tag int64) ApiSearchBuildsRequest {
 	r.tag = &tag
 	return r
 }
 
 // Filter builds by rollup category.
-func (r ApiSearchBuildsRequest) RollupCategory(rollupCategory int32) ApiSearchBuildsRequest {
+func (r ApiSearchBuildsRequest) RollupCategory(rollupCategory int64) ApiSearchBuildsRequest {
 	r.rollupCategory = &rollupCategory
 	return r
 }
 
 // The author&#39;s &#x60;SteamID3&#x60;
-func (r ApiSearchBuildsRequest) AuthorId(authorId int32) ApiSearchBuildsRequest {
+func (r ApiSearchBuildsRequest) AuthorId(authorId int64) ApiSearchBuildsRequest {
 	r.authorId = &authorId
 	return r
 }
@@ -513,7 +522,7 @@ func (a *BuildsAPIService) SearchBuildsExecute(r ApiSearchBuildsRequest) ([]Buil
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	} else {
-		var defaultValue int32 = 100
+		var defaultValue int64 = 100
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
 		r.limit = &defaultValue
 	}

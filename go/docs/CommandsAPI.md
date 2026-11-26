@@ -93,7 +93,7 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
+	accountId := int64(789) // int64 | The players `SteamID3`
 	region := "region_example" // string | The players region (optional)
 	template := "template_example" // string | The command template to resolve (optional)
 	heroName := "heroName_example" // string | Hero name to check for hero specific stats (optional)
@@ -121,7 +121,7 @@ Other parameters are passed through a pointer to a apiCommandResolveRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+ **accountId** | **int64** | The players &#x60;SteamID3&#x60; | 
  **region** | **string** | The players region | 
  **template** | **string** | The command template to resolve | 
  **heroName** | **string** | Hero name to check for hero specific stats | 
@@ -165,7 +165,7 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | 
+	accountId := int64(789) // int64 | 
 	region := "region_example" // string |  (optional)
 	variables := "variables_example" // string | Variables to resolve, separated by commas. (optional)
 	heroName := "heroName_example" // string | Hero name to check for hero specific stats (optional)
@@ -193,7 +193,7 @@ Other parameters are passed through a pointer to a apiVariablesResolveRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **int32** |  | 
+ **accountId** | **int64** |  | 
  **region** | **string** |  | 
  **variables** | **string** | Variables to resolve, separated by commas. | 
  **heroName** | **string** | Hero name to check for hero specific stats | 

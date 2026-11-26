@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Model
         /// <param name="totalShotsMissed">totalShotsMissed</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public AnalyticsHeroStats(int bucket, long bucketMatchesSinceFirstDay, int heroId, long losses, long matches, long matchesPerBucket, long permanentBuffMatches, long permanentBuffTimingMatches, long totalAssists, long totalBossDamage, long totalCreepDamage, long totalDeaths, long totalDenies, long totalFirstPermanentBuffTimeS, long totalKills, long totalLastHits, long totalMaxHealth, long totalNetWorth, long totalNeutralDamage, long totalPermanentBuffs, long totalPlayerDamage, long totalPlayerDamageTaken, long totalShotsHit, long totalShotsMissed, long wins)
+        public AnalyticsHeroStats(long bucket, long bucketMatchesSinceFirstDay, int heroId, long losses, long matches, long matchesPerBucket, long permanentBuffMatches, long permanentBuffTimingMatches, long totalAssists, long totalBossDamage, long totalCreepDamage, long totalDeaths, long totalDenies, long totalFirstPermanentBuffTimeS, long totalKills, long totalLastHits, long totalMaxHealth, long totalNetWorth, long totalNeutralDamage, long totalPermanentBuffs, long totalPlayerDamage, long totalPlayerDamageTaken, long totalShotsHit, long totalShotsMissed, long wins)
         {
             Bucket = bucket;
             BucketMatchesSinceFirstDay = bucketMatchesSinceFirstDay;
@@ -95,7 +95,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Bucket
         /// </summary>
         [JsonPropertyName("bucket")]
-        public int Bucket { get; set; }
+        public long Bucket { get; set; }
 
         /// <summary>
         /// Sum of &#x60;matches&#x60; over all heroes in this bucket, counting only the UTC days from this hero&#39;s first match in the response on. A pick rate that leaves out the part of the range before the hero&#39;s release: &#x60;matches / bucket_matches_since_first_day&#x60; times the players per match. The hero&#39;s first day counts whole, so it still includes the hours before its first match.
@@ -291,8 +291,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Bucket (int) minimum
-            if (this.Bucket < (int)0)
+            // Bucket (long) maximum
+            if (this.Bucket > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value less than or equal to 4294967295.", new [] { "Bucket" });
+            }
+
+            // Bucket (long) minimum
+            if (this.Bucket < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
             }
@@ -301,6 +307,12 @@ namespace DeadlockApiClient.Model
             if (this.BucketMatchesSinceFirstDay < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BucketMatchesSinceFirstDay, must be a value greater than or equal to 0.", new [] { "BucketMatchesSinceFirstDay" });
+            }
+
+            // HeroId (int) maximum
+            if (this.HeroId > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value less than or equal to 255.", new [] { "HeroId" });
             }
 
             // HeroId (int) minimum
@@ -477,7 +489,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> bucket = default;
+            Option<long?> bucket = default;
             Option<long?> bucketMatchesSinceFirstDay = default;
             Option<int?> heroId = default;
             Option<long?> losses = default;
@@ -519,7 +531,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "bucket":
-                            bucket = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            bucket = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "bucket_matches_since_first_day":
                             bucketMatchesSinceFirstDay = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());

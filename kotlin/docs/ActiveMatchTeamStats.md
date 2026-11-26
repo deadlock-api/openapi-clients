@@ -4,8 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **brawlScore** | **kotlin.Int** |  |  [optional] |
-| **netWorth** | **kotlin.Int** |  |  [optional] |
+| **brawlScore** | **kotlin.Long** |  |  [optional] |
+| **netWorth** | **kotlin.Long** |  |  [optional] |
 | **objectivesMask** | **kotlin.Long** |  |  [optional] |
 | **team** | **kotlin.Int** |  |  [optional] |
 | **teamParsed** | [**ActiveMatchTeam**](ActiveMatchTeam.md) |  |  [optional] |

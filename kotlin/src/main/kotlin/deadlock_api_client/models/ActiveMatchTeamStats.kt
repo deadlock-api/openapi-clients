@@ -41,10 +41,10 @@ import java.io.Serializable
 data class ActiveMatchTeamStats (
 
     @Json(name = "brawl_score")
-    val brawlScore: kotlin.Int? = null,
+    val brawlScore: kotlin.Long? = null,
 
     @Json(name = "net_worth")
-    val netWorth: kotlin.Int? = null,
+    val netWorth: kotlin.Long? = null,
 
     @Json(name = "objectives_mask")
     val objectivesMask: kotlin.Long? = null,

@@ -39,7 +39,7 @@ import java.io.Serializable
 data class BuildHeroDetailsAbilityOrderCurrencyChange (
 
     @Json(name = "ability_id")
-    val abilityId: kotlin.Int,
+    val abilityId: kotlin.Long,
 
     @Json(name = "currency_type")
     val currencyType: kotlin.Int,

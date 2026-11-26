@@ -37,7 +37,7 @@ class MapData(BaseModel):
     images: MapImages
     neutral_camps: Optional[List[NeutralCamp]] = Field(default=None, description="Neutral camps (build 6711+).")
     objective_positions: Dict[str, ObjectivePosition]
-    radius: Annotated[int, Field(strict=True, ge=0)]
+    radius: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     zipline_paths: List[ZiplanePath]
     __properties: ClassVar[List[str]] = ["entities", "images", "neutral_camps", "objective_positions", "radius", "zipline_paths"]
 

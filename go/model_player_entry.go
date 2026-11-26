@@ -21,13 +21,13 @@ var _ MappedNullable = &PlayerEntry{}
 
 // PlayerEntry struct for PlayerEntry
 type PlayerEntry struct {
-	AccountId int32 `json:"account_id"`
+	AccountId int64 `json:"account_id"`
 	// `rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0` when the player has no ranked match in range. Omitted for every other sort. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	Badge NullableInt32 `json:"badge,omitempty"`
+	Badge NullableInt64 `json:"badge,omitempty"`
 	// `rank` and `peak_rank` sorts only: progress points into `badge`, out of `badge_progress_max`. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. `null` when the player has no ranked match in range.
-	BadgeProgress NullableInt32 `json:"badge_progress,omitempty"`
+	BadgeProgress NullableInt64 `json:"badge_progress,omitempty"`
 	// `rank` and `peak_rank` sorts only: the points the subrank of `badge` spans in that match's season (`sub_rank_xp` in <https://api.deadlock-api.com/v1/assets/ranked-seasons>). `null` in Eternus and when the player has no ranked match in range.
-	BadgeProgressMax NullableInt32 `json:"badge_progress_max,omitempty"`
+	BadgeProgressMax NullableInt64 `json:"badge_progress_max,omitempty"`
 	Matches int64 `json:"matches"`
 	Rank int64 `json:"rank"`
 	Value float64 `json:"value"`
@@ -39,7 +39,7 @@ type _PlayerEntry PlayerEntry
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlayerEntry(accountId int32, matches int64, rank int64, value float64) *PlayerEntry {
+func NewPlayerEntry(accountId int64, matches int64, rank int64, value float64) *PlayerEntry {
 	this := PlayerEntry{}
 	this.AccountId = accountId
 	this.Matches = matches
@@ -57,9 +57,9 @@ func NewPlayerEntryWithDefaults() *PlayerEntry {
 }
 
 // GetAccountId returns the AccountId field value
-func (o *PlayerEntry) GetAccountId() int32 {
+func (o *PlayerEntry) GetAccountId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -68,7 +68,7 @@ func (o *PlayerEntry) GetAccountId() int32 {
 
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
-func (o *PlayerEntry) GetAccountIdOk() (*int32, bool) {
+func (o *PlayerEntry) GetAccountIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -76,14 +76,14 @@ func (o *PlayerEntry) GetAccountIdOk() (*int32, bool) {
 }
 
 // SetAccountId sets field value
-func (o *PlayerEntry) SetAccountId(v int32) {
+func (o *PlayerEntry) SetAccountId(v int64) {
 	o.AccountId = v
 }
 
 // GetBadge returns the Badge field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerEntry) GetBadge() int32 {
+func (o *PlayerEntry) GetBadge() int64 {
 	if o == nil || IsNil(o.Badge.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Badge.Get()
@@ -92,7 +92,7 @@ func (o *PlayerEntry) GetBadge() int32 {
 // GetBadgeOk returns a tuple with the Badge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerEntry) GetBadgeOk() (*int32, bool) {
+func (o *PlayerEntry) GetBadgeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -108,8 +108,8 @@ func (o *PlayerEntry) HasBadge() bool {
 	return false
 }
 
-// SetBadge gets a reference to the given NullableInt32 and assigns it to the Badge field.
-func (o *PlayerEntry) SetBadge(v int32) {
+// SetBadge gets a reference to the given NullableInt64 and assigns it to the Badge field.
+func (o *PlayerEntry) SetBadge(v int64) {
 	o.Badge.Set(&v)
 }
 // SetBadgeNil sets the value for Badge to be an explicit nil
@@ -123,9 +123,9 @@ func (o *PlayerEntry) UnsetBadge() {
 }
 
 // GetBadgeProgress returns the BadgeProgress field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerEntry) GetBadgeProgress() int32 {
+func (o *PlayerEntry) GetBadgeProgress() int64 {
 	if o == nil || IsNil(o.BadgeProgress.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BadgeProgress.Get()
@@ -134,7 +134,7 @@ func (o *PlayerEntry) GetBadgeProgress() int32 {
 // GetBadgeProgressOk returns a tuple with the BadgeProgress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerEntry) GetBadgeProgressOk() (*int32, bool) {
+func (o *PlayerEntry) GetBadgeProgressOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -150,8 +150,8 @@ func (o *PlayerEntry) HasBadgeProgress() bool {
 	return false
 }
 
-// SetBadgeProgress gets a reference to the given NullableInt32 and assigns it to the BadgeProgress field.
-func (o *PlayerEntry) SetBadgeProgress(v int32) {
+// SetBadgeProgress gets a reference to the given NullableInt64 and assigns it to the BadgeProgress field.
+func (o *PlayerEntry) SetBadgeProgress(v int64) {
 	o.BadgeProgress.Set(&v)
 }
 // SetBadgeProgressNil sets the value for BadgeProgress to be an explicit nil
@@ -165,9 +165,9 @@ func (o *PlayerEntry) UnsetBadgeProgress() {
 }
 
 // GetBadgeProgressMax returns the BadgeProgressMax field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerEntry) GetBadgeProgressMax() int32 {
+func (o *PlayerEntry) GetBadgeProgressMax() int64 {
 	if o == nil || IsNil(o.BadgeProgressMax.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BadgeProgressMax.Get()
@@ -176,7 +176,7 @@ func (o *PlayerEntry) GetBadgeProgressMax() int32 {
 // GetBadgeProgressMaxOk returns a tuple with the BadgeProgressMax field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerEntry) GetBadgeProgressMaxOk() (*int32, bool) {
+func (o *PlayerEntry) GetBadgeProgressMaxOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -192,8 +192,8 @@ func (o *PlayerEntry) HasBadgeProgressMax() bool {
 	return false
 }
 
-// SetBadgeProgressMax gets a reference to the given NullableInt32 and assigns it to the BadgeProgressMax field.
-func (o *PlayerEntry) SetBadgeProgressMax(v int32) {
+// SetBadgeProgressMax gets a reference to the given NullableInt64 and assigns it to the BadgeProgressMax field.
+func (o *PlayerEntry) SetBadgeProgressMax(v int64) {
 	o.BadgeProgressMax.Set(&v)
 }
 // SetBadgeProgressMaxNil sets the value for BadgeProgressMax to be an explicit nil

@@ -39,7 +39,7 @@ class MiscEntitiesApiTest : ShouldSpec() {
             // uncomment below to test getMiscEntity
             //val idOrClassname : kotlin.String = idOrClassname_example // kotlin.String | Misc entity id (`murmurhash2(class_name)`) or `class_name`
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : MiscEntity = apiInstance.getMiscEntity(idOrClassname, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -48,7 +48,7 @@ class MiscEntitiesApiTest : ShouldSpec() {
         should("test listMiscEntities") {
             // uncomment below to test listMiscEntities
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.List<MiscEntity> = apiInstance.listMiscEntities(language, clientVersion)
             //result shouldBe ("TODO")
         }

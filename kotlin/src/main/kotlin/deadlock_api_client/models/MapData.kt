@@ -54,7 +54,7 @@ data class MapData (
     val objectivePositions: kotlin.collections.Map<kotlin.String, ObjectivePosition>,
 
     @Json(name = "radius")
-    val radius: kotlin.Int,
+    val radius: kotlin.Long,
 
     @Json(name = "zipline_paths")
     val ziplinePaths: kotlin.collections.List<ZiplanePath>,

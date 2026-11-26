@@ -27,7 +27,7 @@ type MapData struct {
 	// Neutral camps (build 6711+).
 	NeutralCamps []NeutralCamp `json:"neutral_camps,omitempty"`
 	ObjectivePositions map[string]ObjectivePosition `json:"objective_positions"`
-	Radius int32 `json:"radius"`
+	Radius int64 `json:"radius"`
 	ZiplinePaths []ZiplanePath `json:"zipline_paths"`
 }
 
@@ -37,7 +37,7 @@ type _MapData MapData
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMapData(images MapImages, objectivePositions map[string]ObjectivePosition, radius int32, ziplinePaths []ZiplanePath) *MapData {
+func NewMapData(images MapImages, objectivePositions map[string]ObjectivePosition, radius int64, ziplinePaths []ZiplanePath) *MapData {
 	this := MapData{}
 	this.Images = images
 	this.ObjectivePositions = objectivePositions
@@ -178,9 +178,9 @@ func (o *MapData) SetObjectivePositions(v map[string]ObjectivePosition) {
 }
 
 // GetRadius returns the Radius field value
-func (o *MapData) GetRadius() int32 {
+func (o *MapData) GetRadius() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -189,7 +189,7 @@ func (o *MapData) GetRadius() int32 {
 
 // GetRadiusOk returns a tuple with the Radius field value
 // and a boolean to check if the value has been set.
-func (o *MapData) GetRadiusOk() (*int32, bool) {
+func (o *MapData) GetRadiusOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -197,7 +197,7 @@ func (o *MapData) GetRadiusOk() (*int32, bool) {
 }
 
 // SetRadius sets field value
-func (o *MapData) SetRadius(v int32) {
+func (o *MapData) SetRadius(v int64) {
 	o.Radius = v
 }
 

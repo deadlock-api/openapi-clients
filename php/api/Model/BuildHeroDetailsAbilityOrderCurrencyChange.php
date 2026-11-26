@@ -71,7 +71,7 @@ class BuildHeroDetailsAbilityOrderCurrencyChange implements ModelInterface, Arra
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'ability_id' => 'int32',
+        'ability_id' => 'int64',
         'annotation' => null,
         'currency_type' => 'int32',
         'delta' => 'int32'
@@ -298,6 +298,10 @@ class BuildHeroDetailsAbilityOrderCurrencyChange implements ModelInterface, Arra
         if ($this->container['ability_id'] === null) {
             $invalidProperties[] = "'ability_id' can't be null";
         }
+        if (($this->container['ability_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'ability_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['ability_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'ability_id', must be bigger than or equal to 0.";
         }
@@ -344,6 +348,9 @@ class BuildHeroDetailsAbilityOrderCurrencyChange implements ModelInterface, Arra
     {
         if (is_null($ability_id)) {
             throw new \InvalidArgumentException('non-nullable ability_id cannot be null');
+        }
+        if (($ability_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $ability_id when calling BuildHeroDetailsAbilityOrderCurrencyChange., must be smaller than or equal to 4294967295.');
         }
         if (($ability_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $ability_id when calling BuildHeroDetailsAbilityOrderCurrencyChange., must be bigger than or equal to 0.');

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | **int** |  | 
+**AccountId** | **long** |  | 
 **Accuracy** | **double** |  | 
 **Assists** | **long** |  | 
 **AssistsPerMin** | **double** |  | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **Kills** | **long** |  | 
 **KillsPerMin** | **double** |  | 
 **LastHitsPerMin** | **double** |  | 
-**LastPlayed** | **int** |  | 
+**LastPlayed** | **long** |  | 
 **Matches** | **List&lt;long&gt;** |  | 
 **MatchesPlayed** | **long** |  | 
 **MvpRankCounts** | **List&lt;long&gt;** | Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank. | 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BrawlScore** | Pointer to **NullableInt32** |  | [optional] 
-**NetWorth** | Pointer to **NullableInt32** |  | [optional] 
+**BrawlScore** | Pointer to **NullableInt64** |  | [optional] 
+**NetWorth** | Pointer to **NullableInt64** |  | [optional] 
 **ObjectivesMask** | Pointer to **NullableInt64** |  | [optional] 
 **Team** | Pointer to **NullableInt32** |  | [optional] 
 **TeamParsed** | Pointer to [**NullableActiveMatchTeam**](ActiveMatchTeam.md) |  | [optional] 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetBrawlScore
 
-`func (o *ActiveMatchTeamStats) GetBrawlScore() int32`
+`func (o *ActiveMatchTeamStats) GetBrawlScore() int64`
 
 GetBrawlScore returns the BrawlScore field if non-nil, zero value otherwise.
 
 ### GetBrawlScoreOk
 
-`func (o *ActiveMatchTeamStats) GetBrawlScoreOk() (*int32, bool)`
+`func (o *ActiveMatchTeamStats) GetBrawlScoreOk() (*int64, bool)`
 
 GetBrawlScoreOk returns a tuple with the BrawlScore field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBrawlScore
 
-`func (o *ActiveMatchTeamStats) SetBrawlScore(v int32)`
+`func (o *ActiveMatchTeamStats) SetBrawlScore(v int64)`
 
 SetBrawlScore sets BrawlScore field to given value.
 
@@ -66,20 +66,20 @@ HasBrawlScore returns a boolean if a field has been set.
 UnsetBrawlScore ensures that no value is present for BrawlScore, not even an explicit nil
 ### GetNetWorth
 
-`func (o *ActiveMatchTeamStats) GetNetWorth() int32`
+`func (o *ActiveMatchTeamStats) GetNetWorth() int64`
 
 GetNetWorth returns the NetWorth field if non-nil, zero value otherwise.
 
 ### GetNetWorthOk
 
-`func (o *ActiveMatchTeamStats) GetNetWorthOk() (*int32, bool)`
+`func (o *ActiveMatchTeamStats) GetNetWorthOk() (*int64, bool)`
 
 GetNetWorthOk returns a tuple with the NetWorth field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetWorth
 
-`func (o *ActiveMatchTeamStats) SetNetWorth(v int32)`
+`func (o *ActiveMatchTeamStats) SetNetWorth(v int64)`
 
 SetNetWorth sets NetWorth field to given value.
 

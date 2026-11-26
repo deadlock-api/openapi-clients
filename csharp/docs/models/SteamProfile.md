@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | **int** |  | 
+**AccountId** | **long** |  | 
 **Avatar** | **string** |  | 
 **Avatarfull** | **string** |  | 
 **Avatarmedium** | **string** |  | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Personaname** | **string** |  | 
 **Profileurl** | **string** |  | 
 **Countrycode** | **string** |  | [optional] 
-**LastTeamAvgBadge** | **int** |  | [optional] 
+**LastTeamAvgBadge** | **long** |  | [optional] 
 **Realname** | **string** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

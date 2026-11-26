@@ -49,7 +49,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListRankedSeasonsApiResponse"/>&gt;</returns>
-        Task<IListRankedSeasonsApiResponse> ListRankedSeasonsAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListRankedSeasonsApiResponse> ListRankedSeasonsAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Ranked Seasons
@@ -61,7 +61,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListRankedSeasonsApiResponse"/>?&gt;</returns>
-        Task<IListRankedSeasonsApiResponse?> ListRankedSeasonsOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListRankedSeasonsApiResponse?> ListRankedSeasonsOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -155,7 +155,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatListRankedSeasons(ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatListRankedSeasons(ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -163,7 +163,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterListRankedSeasonsDefaultImplementation(IListRankedSeasonsApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void AfterListRankedSeasonsDefaultImplementation(IListRankedSeasonsApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterListRankedSeasons(ref suppressDefaultLog, apiResponseLocalVar, language, clientVersion);
@@ -178,7 +178,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterListRankedSeasons(ref bool suppressDefaultLog, IListRankedSeasonsApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterListRankedSeasons(ref bool suppressDefaultLog, IListRankedSeasonsApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -188,7 +188,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorListRankedSeasonsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorListRankedSeasonsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorListRankedSeasons(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, language, clientVersion);
@@ -205,7 +205,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorListRankedSeasons(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorListRankedSeasons(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// List Ranked Seasons Returns the ranked season definitions used by the game client, parsed from the patch&#39;s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval&#39;s leaderboard ID.
@@ -214,7 +214,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListRankedSeasonsApiResponse"/>&gt;</returns>
-        public async Task<IListRankedSeasonsApiResponse?> ListRankedSeasonsOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListRankedSeasonsApiResponse?> ListRankedSeasonsOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -234,7 +234,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListRankedSeasonsApiResponse"/>&gt;</returns>
-        public async Task<IListRankedSeasonsApiResponse> ListRankedSeasonsAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListRankedSeasonsApiResponse> ListRankedSeasonsAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

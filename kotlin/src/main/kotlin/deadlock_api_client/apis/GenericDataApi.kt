@@ -112,7 +112,7 @@ open class GenericDataApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getGenericData(language: LanguageGetGenericData? = null, clientVersion: kotlin.Int? = null) : GenericData {
+    fun getGenericData(language: LanguageGetGenericData? = null, clientVersion: kotlin.Long? = null) : GenericData {
         val localVarResponse = getGenericDataWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -142,7 +142,7 @@ open class GenericDataApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getGenericDataWithHttpInfo(language: LanguageGetGenericData?, clientVersion: kotlin.Int?) : ApiResponse<GenericData?> {
+    fun getGenericDataWithHttpInfo(language: LanguageGetGenericData?, clientVersion: kotlin.Long?) : ApiResponse<GenericData?> {
         val localVariableConfig = getGenericDataRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, GenericData>(
@@ -157,7 +157,7 @@ open class GenericDataApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getGenericDataRequestConfig(language: LanguageGetGenericData?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getGenericDataRequestConfig(language: LanguageGetGenericData?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

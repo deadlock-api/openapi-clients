@@ -39,7 +39,7 @@ import java.io.Serializable
 data class EnemyStats (
 
     @Json(name = "enemy_id")
-    val enemyId: kotlin.Int,
+    val enemyId: kotlin.Long,
 
     @Json(name = "matches")
     val matches: kotlin.collections.List<kotlin.Long>,

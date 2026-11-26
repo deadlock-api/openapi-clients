@@ -91,7 +91,7 @@ namespace DeadlockApiClient.Model
         /// <param name="totalPlayers">totalPlayers</param>
         /// <param name="avgFirstPermanentBuffTimeS">Average game time (seconds) of a player&#39;s first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; &#x60;null&#x60; when the bucket has none.</param>
         [JsonConstructor]
-        public AnalyticsGameStats(double abandonRate, double avgAccuracy, double avgAssists, double avgBossDamage, double avgCreepDamage, double avgCreepKills, double avgCritRate, double avgDamageAbsorbed, double avgDamageMitigated, double avgDeaths, double avgDenies, double avgDurationS, double avgEndingLevel, double avgFirstMidBossTimeS, double avgFirstObjectiveDestroyedTimeS, double avgGoldAbilityAssassinate, double avgGoldAssists, double avgGoldBoss, double avgGoldBossOrb, double avgGoldBreakable, double avgGoldDeathLoss, double avgGoldDenied, double avgGoldItemCultistSacrifice, double avgGoldItemGooseEgg, double avgGoldItemTrophyCollector, double avgGoldLaneCreep, double avgGoldLaneCreepOrbs, double avgGoldNeutralCreep, double avgGoldNeutralCreepOrbs, double avgGoldPlayer, double avgGoldPlayerOrbs, double avgGoldTeamBonus, double avgGoldTreasure, double avgHealPrevented, double avgKdRatio, double avgKills, double avgLastHits, double avgMaxHealth, double avgNetWorth, double avgNeutralDamage, double avgNeutralKills, double avgPermanentBuffs, double avgPermanentBuffsPerMin, double avgPlayerDamage, double avgPlayerDamageTaken, double avgPlayerHealing, double avgPossibleCreeps, double avgSelfHealing, double avgTechPower, double avgWeaponPower, int bucket, double midBossKillRate, long team0Wins, long team1Wins, long totalMatches, long totalPlayers, Option<double?> avgFirstPermanentBuffTimeS = default)
+        public AnalyticsGameStats(double abandonRate, double avgAccuracy, double avgAssists, double avgBossDamage, double avgCreepDamage, double avgCreepKills, double avgCritRate, double avgDamageAbsorbed, double avgDamageMitigated, double avgDeaths, double avgDenies, double avgDurationS, double avgEndingLevel, double avgFirstMidBossTimeS, double avgFirstObjectiveDestroyedTimeS, double avgGoldAbilityAssassinate, double avgGoldAssists, double avgGoldBoss, double avgGoldBossOrb, double avgGoldBreakable, double avgGoldDeathLoss, double avgGoldDenied, double avgGoldItemCultistSacrifice, double avgGoldItemGooseEgg, double avgGoldItemTrophyCollector, double avgGoldLaneCreep, double avgGoldLaneCreepOrbs, double avgGoldNeutralCreep, double avgGoldNeutralCreepOrbs, double avgGoldPlayer, double avgGoldPlayerOrbs, double avgGoldTeamBonus, double avgGoldTreasure, double avgHealPrevented, double avgKdRatio, double avgKills, double avgLastHits, double avgMaxHealth, double avgNetWorth, double avgNeutralDamage, double avgNeutralKills, double avgPermanentBuffs, double avgPermanentBuffsPerMin, double avgPlayerDamage, double avgPlayerDamageTaken, double avgPlayerHealing, double avgPossibleCreeps, double avgSelfHealing, double avgTechPower, double avgWeaponPower, long bucket, double midBossKillRate, long team0Wins, long team1Wins, long totalMatches, long totalPlayers, Option<double?> avgFirstPermanentBuffTimeS = default)
         {
             AbandonRate = abandonRate;
             AvgAccuracy = avgAccuracy;
@@ -468,7 +468,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Bucket
         /// </summary>
         [JsonPropertyName("bucket")]
-        public int Bucket { get; set; }
+        public long Bucket { get; set; }
 
         /// <summary>
         /// Gets or Sets MidBossKillRate
@@ -590,8 +590,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Bucket (int) minimum
-            if (this.Bucket < (int)0)
+            // Bucket (long) maximum
+            if (this.Bucket > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value less than or equal to 4294967295.", new [] { "Bucket" });
+            }
+
+            // Bucket (long) minimum
+            if (this.Bucket < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
             }
@@ -706,7 +712,7 @@ namespace DeadlockApiClient.Model
             Option<double?> avgSelfHealing = default;
             Option<double?> avgTechPower = default;
             Option<double?> avgWeaponPower = default;
-            Option<int?> bucket = default;
+            Option<long?> bucket = default;
             Option<double?> midBossKillRate = default;
             Option<long?> team0Wins = default;
             Option<long?> team1Wins = default;
@@ -880,7 +886,7 @@ namespace DeadlockApiClient.Model
                             avgWeaponPower = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "bucket":
-                            bucket = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            bucket = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "mid_boss_kill_rate":
                             midBossKillRate = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());

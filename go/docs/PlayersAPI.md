@@ -39,12 +39,12 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
+	accountId := int64(789) // int64 | The players `SteamID3`
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minMatchesPlayed := int64(789) // int64 | Filter based on the number of matches played. (optional)
@@ -68,7 +68,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+**accountId** | **int64** | The players &#x60;SteamID3&#x60; | 
 
 ### Other Parameters
 
@@ -81,8 +81,8 @@ Name | Type | Description  | Notes
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minMatchesPlayed** | **int64** | Filter based on the number of matches played. | 
@@ -127,7 +127,7 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
+	accountId := int64(789) // int64 | The players `SteamID3`
 	forceRefetch := true // bool | Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -148,7 +148,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+**accountId** | **int64** | The players &#x60;SteamID3&#x60; | 
 
 ### Other Parameters
 
@@ -199,12 +199,12 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
+	accountId := int64(789) // int64 | The players `SteamID3`
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minMatchesPlayed := int64(789) // int64 | Filter based on the number of matches played. (optional)
@@ -229,7 +229,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+**accountId** | **int64** | The players &#x60;SteamID3&#x60; | 
 
 ### Other Parameters
 
@@ -242,8 +242,8 @@ Name | Type | Description  | Notes
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minMatchesPlayed** | **int64** | Filter based on the number of matches played. | 
@@ -289,14 +289,14 @@ import (
 )
 
 func main() {
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
@@ -327,14 +327,14 @@ Other parameters are passed through a pointer to a apiPlayerHeroStatsRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountIds** | **[]int32** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
@@ -381,7 +381,7 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
+	accountId := int64(789) // int64 | The players `SteamID3`
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -401,7 +401,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+**accountId** | **int64** | The players &#x60;SteamID3&#x60; | 
 
 ### Other Parameters
 
@@ -451,7 +451,7 @@ import (
 )
 
 func main() {
-	accountIds := []int32{int32(123)} // []int32 | Comma-separated list of account IDs (max 12).
+	accountIds := []int64{int64(123)} // []int64 | Comma-separated list of account IDs (max 12).
 	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -477,7 +477,7 @@ Other parameters are passed through a pointer to a apiRankAvgImageRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountIds** | **[]int32** | Comma-separated list of account IDs (max 12). | 
+ **accountIds** | **[]int64** | Comma-separated list of account IDs (max 12). | 
  **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
 
 ### Return type
@@ -519,7 +519,7 @@ import (
 )
 
 func main() {
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -544,7 +544,7 @@ Other parameters are passed through a pointer to a apiRankBatchRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountIds** | **[]int32** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
 
 ### Return type
 
@@ -585,10 +585,10 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	isHighSkillRangeParties := true // bool | Filter matches based on whether they are in the high skill range. (optional)
 	isLowPriPool := true // bool | Filter matches based on whether they are in the low priority pool. (optional)
 	isNewPlayerPool := true // bool | Filter matches based on whether they are in the new player pool. (optional)
@@ -618,10 +618,10 @@ Other parameters are passed through a pointer to a apiRankDistributionRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **isHighSkillRangeParties** | **bool** | Filter matches based on whether they are in the high skill range. | 
  **isLowPriPool** | **bool** | Filter matches based on whether they are in the low priority pool. | 
  **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | 
@@ -667,7 +667,7 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
+	accountId := int64(789) // int64 | The players `SteamID3`
 	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -688,7 +688,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+**accountId** | **int64** | The players &#x60;SteamID3&#x60; | 
 
 ### Other Parameters
 
@@ -739,7 +739,7 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
+	accountId := int64(789) // int64 | The players `SteamID3`
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -759,7 +759,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+**accountId** | **int64** | The players &#x60;SteamID3&#x60; | 
 
 ### Other Parameters
 
@@ -809,7 +809,7 @@ import (
 )
 
 func main() {
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -834,7 +834,7 @@ Other parameters are passed through a pointer to a apiRegionBatchRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountIds** | **[]int32** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
 
 ### Return type
 

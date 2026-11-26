@@ -67,7 +67,7 @@ open class MapApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMap(clientVersion: kotlin.Int? = null) : MapData {
+    fun getMap(clientVersion: kotlin.Long? = null) : MapData {
         val localVarResponse = getMapWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -96,7 +96,7 @@ open class MapApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMapWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<MapData?> {
+    fun getMapWithHttpInfo(clientVersion: kotlin.Long?) : ApiResponse<MapData?> {
         val localVariableConfig = getMapRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, MapData>(
@@ -110,7 +110,7 @@ open class MapApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getMapRequestConfig(clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getMapRequestConfig(clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

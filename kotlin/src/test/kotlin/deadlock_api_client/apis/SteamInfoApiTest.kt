@@ -44,7 +44,7 @@ class SteamInfoApiTest : ShouldSpec() {
         // to test getSteamInfo
         should("test getSteamInfo") {
             // uncomment below to test getSteamInfo
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : SteamInfo = apiInstance.getSteamInfo(clientVersion)
             //result shouldBe ("TODO")
         }

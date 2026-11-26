@@ -23,7 +23,7 @@ var _ MappedNullable = &BuildTag{}
 type BuildTag struct {
 	ClassName string `json:"class_name"`
 	Icon string `json:"icon"`
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 	Label string `json:"label"`
 }
 
@@ -33,7 +33,7 @@ type _BuildTag BuildTag
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBuildTag(className string, icon string, id int32, label string) *BuildTag {
+func NewBuildTag(className string, icon string, id int64, label string) *BuildTag {
 	this := BuildTag{}
 	this.ClassName = className
 	this.Icon = icon
@@ -99,9 +99,9 @@ func (o *BuildTag) SetIcon(v string) {
 }
 
 // GetId returns the Id field value
-func (o *BuildTag) GetId() int32 {
+func (o *BuildTag) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -110,7 +110,7 @@ func (o *BuildTag) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *BuildTag) GetIdOk() (*int32, bool) {
+func (o *BuildTag) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -118,7 +118,7 @@ func (o *BuildTag) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *BuildTag) SetId(v int32) {
+func (o *BuildTag) SetId(v int64) {
 	o.Id = v
 }
 

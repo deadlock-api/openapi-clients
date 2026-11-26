@@ -44,9 +44,9 @@ class ItemOneOf(BaseModel):
     dependent_abilities: Optional[Dict[str, DependantAbilities]] = Field(default=None, description="Abilities this one depends on. Entries whose ability has no data are left out.")
     description: AbilityDescription
     grant_ammo_on_cast: Optional[StrictBool] = None
-    hero: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    heroes: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = None
-    id: Annotated[int, Field(strict=True, ge=0)]
+    hero: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    heroes: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = None
+    id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     image: Optional[StrictStr] = None
     image_webp: Optional[StrictStr] = None
     name: StrictStr

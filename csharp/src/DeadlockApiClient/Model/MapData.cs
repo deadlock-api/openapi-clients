@@ -40,7 +40,7 @@ namespace DeadlockApiClient.Model
         /// <param name="entities">Interactable map entities; only for builds whose assets were built with the map entity extraction.</param>
         /// <param name="neutralCamps">Neutral camps (build 6711+).</param>
         [JsonConstructor]
-        public MapData(MapImages images, Dictionary<string, ObjectivePosition> objectivePositions, int radius, List<ZiplanePath> ziplinePaths, Option<MapEntities?> entities = default, Option<List<NeutralCamp>?> neutralCamps = default)
+        public MapData(MapImages images, Dictionary<string, ObjectivePosition> objectivePositions, long radius, List<ZiplanePath> ziplinePaths, Option<MapEntities?> entities = default, Option<List<NeutralCamp>?> neutralCamps = default)
         {
             Images = images;
             ObjectivePositions = objectivePositions;
@@ -69,7 +69,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Radius
         /// </summary>
         [JsonPropertyName("radius")]
-        public int Radius { get; set; }
+        public long Radius { get; set; }
 
         /// <summary>
         /// Gets or Sets ZiplinePaths
@@ -130,8 +130,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Radius (int) minimum
-            if (this.Radius < (int)0)
+            // Radius (long) maximum
+            if (this.Radius > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Radius, must be a value less than or equal to 4294967295.", new [] { "Radius" });
+            }
+
+            // Radius (long) minimum
+            if (this.Radius < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Radius, must be a value greater than or equal to 0.", new [] { "Radius" });
             }
@@ -174,7 +180,7 @@ namespace DeadlockApiClient.Model
 
             Option<MapImages?> images = default;
             Option<Dictionary<string, ObjectivePosition>?> objectivePositions = default;
-            Option<int?> radius = default;
+            Option<long?> radius = default;
             Option<List<ZiplanePath>?> ziplinePaths = default;
             Option<MapEntities?> entities = default;
             Option<List<NeutralCamp>?> neutralCamps = default;
@@ -201,7 +207,7 @@ namespace DeadlockApiClient.Model
                             objectivePositions = new Option<Dictionary<string, ObjectivePosition>?>(JsonSerializer.Deserialize<Dictionary<string, ObjectivePosition>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "radius":
-                            radius = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            radius = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "zipline_paths":
                             ziplinePaths = new Option<List<ZiplanePath>?>(JsonSerializer.Deserialize<List<ZiplanePath>>(ref utf8JsonReader, jsonSerializerOptions)!);

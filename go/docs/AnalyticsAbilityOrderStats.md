@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Abilities** | **[]int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**Abilities** | **[]int64** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **AvgUpgradeTimesS** | **[]float64** | Average game time (in seconds) at which each upgrade in &#x60;abilities&#x60; was bought, index-aligned with &#x60;abilities&#x60;. | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsAbilityOrderStats
 
-`func NewAnalyticsAbilityOrderStats(abilities []int32, avgUpgradeTimesS []float64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64, ) *AnalyticsAbilityOrderStats`
+`func NewAnalyticsAbilityOrderStats(abilities []int64, avgUpgradeTimesS []float64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64, ) *AnalyticsAbilityOrderStats`
 
 NewAnalyticsAbilityOrderStats instantiates a new AnalyticsAbilityOrderStats object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAbilities
 
-`func (o *AnalyticsAbilityOrderStats) GetAbilities() []int32`
+`func (o *AnalyticsAbilityOrderStats) GetAbilities() []int64`
 
 GetAbilities returns the Abilities field if non-nil, zero value otherwise.
 
 ### GetAbilitiesOk
 
-`func (o *AnalyticsAbilityOrderStats) GetAbilitiesOk() (*[]int32, bool)`
+`func (o *AnalyticsAbilityOrderStats) GetAbilitiesOk() (*[]int64, bool)`
 
 GetAbilitiesOk returns a tuple with the Abilities field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAbilities
 
-`func (o *AnalyticsAbilityOrderStats) SetAbilities(v []int32)`
+`func (o *AnalyticsAbilityOrderStats) SetAbilities(v []int64)`
 
 SetAbilities sets Abilities field to given value.
 

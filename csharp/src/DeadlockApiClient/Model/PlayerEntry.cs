@@ -41,7 +41,7 @@ namespace DeadlockApiClient.Model
         /// <param name="badgeProgress">&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;, out of &#x60;badge_progress_max&#x60;. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. &#x60;null&#x60; when the player has no ranked match in range.</param>
         /// <param name="badgeProgressMax">&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the points the subrank of &#x60;badge&#x60; spans in that match&#39;s season (&#x60;sub_rank_xp&#x60; in &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;). &#x60;null&#x60; in Eternus and when the player has no ranked match in range.</param>
         [JsonConstructor]
-        public PlayerEntry(int accountId, long matches, long rank, double value, Option<int?> badge = default, Option<int?> badgeProgress = default, Option<int?> badgeProgressMax = default)
+        public PlayerEntry(long accountId, long matches, long rank, double value, Option<long?> badge = default, Option<long?> badgeProgress = default, Option<long?> badgeProgressMax = default)
         {
             AccountId = accountId;
             Matches = matches;
@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AccountId
         /// </summary>
         [JsonPropertyName("account_id")]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets Matches
@@ -84,42 +84,42 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BadgeOption { get; private set; }
+        public Option<long?> BadgeOption { get; private set; }
 
         /// <summary>
         /// &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the rank badge the progress in &#x60;value&#x60; falls in, &#x60;0&#x60; when the player has no ranked match in range. Omitted for every other sort. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
         /// <value>&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the rank badge the progress in &#x60;value&#x60; falls in, &#x60;0&#x60; when the player has no ranked match in range. Omitted for every other sort. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("badge")]
-        public int? Badge { get { return this.BadgeOption.Value; } set { this.BadgeOption = new(value); } }
+        public long? Badge { get { return this.BadgeOption.Value; } set { this.BadgeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BadgeProgress
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BadgeProgressOption { get; private set; }
+        public Option<long?> BadgeProgressOption { get; private set; }
 
         /// <summary>
         /// &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;, out of &#x60;badge_progress_max&#x60;. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. &#x60;null&#x60; when the player has no ranked match in range.
         /// </summary>
         /// <value>&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;, out of &#x60;badge_progress_max&#x60;. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. &#x60;null&#x60; when the player has no ranked match in range.</value>
         [JsonPropertyName("badge_progress")]
-        public int? BadgeProgress { get { return this.BadgeProgressOption.Value; } set { this.BadgeProgressOption = new(value); } }
+        public long? BadgeProgress { get { return this.BadgeProgressOption.Value; } set { this.BadgeProgressOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BadgeProgressMax
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BadgeProgressMaxOption { get; private set; }
+        public Option<long?> BadgeProgressMaxOption { get; private set; }
 
         /// <summary>
         /// &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the points the subrank of &#x60;badge&#x60; spans in that match&#39;s season (&#x60;sub_rank_xp&#x60; in &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;). &#x60;null&#x60; in Eternus and when the player has no ranked match in range.
         /// </summary>
         /// <value>&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the points the subrank of &#x60;badge&#x60; spans in that match&#39;s season (&#x60;sub_rank_xp&#x60; in &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;). &#x60;null&#x60; in Eternus and when the player has no ranked match in range.</value>
         [JsonPropertyName("badge_progress_max")]
-        public int? BadgeProgressMax { get { return this.BadgeProgressMaxOption.Value; } set { this.BadgeProgressMaxOption = new(value); } }
+        public long? BadgeProgressMax { get { return this.BadgeProgressMaxOption.Value; } set { this.BadgeProgressMaxOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -147,8 +147,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AccountId (int) minimum
-            if (this.AccountId < (int)0)
+            // AccountId (long) maximum
+            if (this.AccountId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value less than or equal to 4294967295.", new [] { "AccountId" });
+            }
+
+            // AccountId (long) minimum
+            if (this.AccountId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
@@ -165,20 +171,38 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
             }
 
-            // Badge (int) minimum
-            if (this.BadgeOption.IsSet && this.BadgeOption.Value < (int)0)
+            // Badge (long) maximum
+            if (this.BadgeOption.IsSet && this.BadgeOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Badge, must be a value less than or equal to 4294967295.", new [] { "Badge" });
+            }
+
+            // Badge (long) minimum
+            if (this.BadgeOption.IsSet && this.BadgeOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Badge, must be a value greater than or equal to 0.", new [] { "Badge" });
             }
 
-            // BadgeProgress (int) minimum
-            if (this.BadgeProgressOption.IsSet && this.BadgeProgressOption.Value < (int)0)
+            // BadgeProgress (long) maximum
+            if (this.BadgeProgressOption.IsSet && this.BadgeProgressOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BadgeProgress, must be a value less than or equal to 4294967295.", new [] { "BadgeProgress" });
+            }
+
+            // BadgeProgress (long) minimum
+            if (this.BadgeProgressOption.IsSet && this.BadgeProgressOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BadgeProgress, must be a value greater than or equal to 0.", new [] { "BadgeProgress" });
             }
 
-            // BadgeProgressMax (int) minimum
-            if (this.BadgeProgressMaxOption.IsSet && this.BadgeProgressMaxOption.Value < (int)0)
+            // BadgeProgressMax (long) maximum
+            if (this.BadgeProgressMaxOption.IsSet && this.BadgeProgressMaxOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BadgeProgressMax, must be a value less than or equal to 4294967295.", new [] { "BadgeProgressMax" });
+            }
+
+            // BadgeProgressMax (long) minimum
+            if (this.BadgeProgressMaxOption.IsSet && this.BadgeProgressMaxOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BadgeProgressMax, must be a value greater than or equal to 0.", new [] { "BadgeProgressMax" });
             }
@@ -219,13 +243,13 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> accountId = default;
+            Option<long?> accountId = default;
             Option<long?> matches = default;
             Option<long?> rank = default;
             Option<double?> value = default;
-            Option<int?> badge = default;
-            Option<int?> badgeProgress = default;
-            Option<int?> badgeProgressMax = default;
+            Option<long?> badge = default;
+            Option<long?> badgeProgress = default;
+            Option<long?> badgeProgressMax = default;
 
             while (utf8JsonReader.Read())
             {
@@ -243,7 +267,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "account_id":
-                            accountId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            accountId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "matches":
                             matches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -255,13 +279,13 @@ namespace DeadlockApiClient.Model
                             value = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "badge":
-                            badge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            badge = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "badge_progress":
-                            badgeProgress = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            badgeProgress = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "badge_progress_max":
-                            badgeProgressMax = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            badgeProgressMax = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

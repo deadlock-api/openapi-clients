@@ -9,7 +9,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getconvar"></a>
 # **GetConvar**
-> Convar GetConvar (string name, int clientVersion = null)
+> Convar GetConvar (string name, long clientVersion = null)
 
 Get Convar
 
@@ -21,7 +21,7 @@ Returns a single console variable by name (case-insensitive).
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **name** | **string** | Convar name, e.g. &#x60;citadel_corrupted_item_shop_restock_interval&#x60; |  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -48,7 +48,7 @@ No authorization required
 
 <a id="listconvars"></a>
 # **ListConvars**
-> Dictionary&lt;string, Convar&gt; ListConvars (int clientVersion = null)
+> Dictionary&lt;string, Convar&gt; ListConvars (long clientVersion = null)
 
 List Convars
 
@@ -59,7 +59,7 @@ Returns every console variable registered by the patch's `client.dll` and `serve
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

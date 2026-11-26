@@ -152,7 +152,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_std' => 'double',
         'denies_avg' => 'double',
         'denies_std' => 'double',
-        'game_time' => 'int32',
+        'game_time' => 'int64',
         'game_time_avg' => 'double',
         'gold_ability_assassinate_avg' => 'double',
         'gold_ability_assassinate_std' => 'double',
@@ -809,6 +809,10 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['game_time'] === null) {
             $invalidProperties[] = "'game_time' can't be null";
         }
+        if (($this->container['game_time'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'game_time', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['game_time'] < 0)) {
             $invalidProperties[] = "invalid value for 'game_time', must be bigger than or equal to 0.";
         }
@@ -1393,6 +1397,9 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     {
         if (is_null($game_time)) {
             throw new \InvalidArgumentException('non-nullable game_time cannot be null');
+        }
+        if (($game_time > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $game_time when calling PlayerPerformanceCurvePoint., must be smaller than or equal to 4294967295.');
         }
         if (($game_time < 0)) {
             throw new \InvalidArgumentException('invalid value for $game_time when calling PlayerPerformanceCurvePoint., must be bigger than or equal to 0.');

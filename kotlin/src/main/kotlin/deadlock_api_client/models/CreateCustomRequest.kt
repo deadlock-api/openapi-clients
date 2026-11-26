@@ -55,7 +55,7 @@ data class CreateCustomRequest (
 
     /* Minute of the match at which the Broker's corrupted item shop first spawns. */
     @Json(name = "corrupted_item_shop_spawn_minutes")
-    val corruptedItemShopSpawnMinutes: kotlin.Int? = null,
+    val corruptedItemShopSpawnMinutes: kotlin.Long? = null,
 
     /* If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up. */
     @Json(name = "disable_auto_ready")

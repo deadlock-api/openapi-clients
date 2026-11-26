@@ -29,7 +29,7 @@ class HeroPopularItem(BaseModel):
     HeroPopularItem
     """ # noqa: E501
     class_name: StrictStr
-    item_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="Item id, derived from `class_name` like `/v2/items` ids.")
+    item_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="Item id, derived from `class_name` like `/v2/items` ids.")
     pick_pct: Union[StrictFloat, StrictInt] = Field(description="Pick rate in percent (0-100).")
     winrate_pct: Union[StrictFloat, StrictInt] = Field(description="Win rate in percent (0-100).")
     __properties: ClassVar[List[str]] = ["class_name", "item_id", "pick_pct", "winrate_pct"]

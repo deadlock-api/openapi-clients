@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Activation** | **AbilityActivation** |  | 
 **ClassName** | **string** |  | 
-**Id** | **int** |  | 
+**Id** | **long** |  | 
 **IsActiveItem** | **bool** |  | 
 **ItemSlotType** | **ItemSlotType** |  | 
 **ItemTier** | **int** |  | 
@@ -15,13 +15,13 @@ Name | Type | Description | Notes
 **Type** | **string** |  | 
 **ComponentItems** | **List&lt;string&gt;** |  | [optional] 
 **CorruptedInfo** | [**CorruptedItemInfo**](CorruptedItemInfo.md) | Present on upgrades the Broker can corrupt (build 6711+). | [optional] 
-**Cost** | **int** |  | [optional] 
+**Cost** | **long** |  | [optional] 
 **Description** | [**UpgradeDescription**](UpgradeDescription.md) |  | [optional] 
 **DisableItemTarget** | **string** |  | [optional] 
 **Disabled** | **bool** |  | [optional] 
 **DisabledShopFilters** | **List&lt;string&gt;** | Shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names) this item is hidden from even though its stats would match them. | [optional] 
-**Hero** | **int** |  | [optional] 
-**Heroes** | **List&lt;int&gt;** |  | [optional] 
+**Hero** | **long** |  | [optional] 
+**Heroes** | **List&lt;long&gt;** |  | [optional] 
 **Image** | **string** |  | [optional] 
 **ImageWebp** | **string** |  | [optional] 
 **Imbue** | **AbilityImbue** |  | [optional] 

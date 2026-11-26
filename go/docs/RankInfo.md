@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BadgeShields** | Pointer to **NullableInt32** | Losses a player at a badge&#39;s first subrank with 0 rank points can take before dropping a badge (rank loss protection shields). | [optional] 
-**RankEnd** | Pointer to **NullableInt32** | Rank badge (tier * 10 + subrank) the entry stops at: it covers the ranks below it. In Beta Season 2, 91 (Phantom I) gives every rank below Phantom shields and Phantom and up none. | [optional] 
+**RankEnd** | Pointer to **NullableInt64** | Rank badge (tier * 10 + subrank) the entry stops at: it covers the ranks below it. In Beta Season 2, 91 (Phantom I) gives every rank below Phantom shields and Phantom and up none. | [optional] 
 **SubRankShields** | Pointer to **NullableInt32** | Losses a player can take before dropping a subrank (rank loss protection shields). | [optional] 
-**SubRankXp** | Pointer to **[]int32** | Rank points needed per subrank step, the last one being the step to the next badge (Beta Season 2: 1000 between subranks, 1500 from the final subrank). | [optional] 
+**SubRankXp** | Pointer to **[]int64** | Rank points needed per subrank step, the last one being the step to the next badge (Beta Season 2: 1000 between subranks, 1500 from the final subrank). | [optional] 
 
 ## Methods
 
@@ -65,20 +65,20 @@ HasBadgeShields returns a boolean if a field has been set.
 UnsetBadgeShields ensures that no value is present for BadgeShields, not even an explicit nil
 ### GetRankEnd
 
-`func (o *RankInfo) GetRankEnd() int32`
+`func (o *RankInfo) GetRankEnd() int64`
 
 GetRankEnd returns the RankEnd field if non-nil, zero value otherwise.
 
 ### GetRankEndOk
 
-`func (o *RankInfo) GetRankEndOk() (*int32, bool)`
+`func (o *RankInfo) GetRankEndOk() (*int64, bool)`
 
 GetRankEndOk returns a tuple with the RankEnd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRankEnd
 
-`func (o *RankInfo) SetRankEnd(v int32)`
+`func (o *RankInfo) SetRankEnd(v int64)`
 
 SetRankEnd sets RankEnd field to given value.
 
@@ -135,20 +135,20 @@ HasSubRankShields returns a boolean if a field has been set.
 UnsetSubRankShields ensures that no value is present for SubRankShields, not even an explicit nil
 ### GetSubRankXp
 
-`func (o *RankInfo) GetSubRankXp() []int32`
+`func (o *RankInfo) GetSubRankXp() []int64`
 
 GetSubRankXp returns the SubRankXp field if non-nil, zero value otherwise.
 
 ### GetSubRankXpOk
 
-`func (o *RankInfo) GetSubRankXpOk() (*[]int32, bool)`
+`func (o *RankInfo) GetSubRankXpOk() (*[]int64, bool)`
 
 GetSubRankXpOk returns a tuple with the SubRankXp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSubRankXp
 
-`func (o *RankInfo) SetSubRankXp(v []int32)`
+`func (o *RankInfo) SetSubRankXp(v []int64)`
 
 SetSubRankXp sets SubRankXp field to given value.
 

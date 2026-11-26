@@ -112,7 +112,7 @@ open class RankedSeasonsApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listRankedSeasons(language: LanguageListRankedSeasons? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<RankedSeason> {
+    fun listRankedSeasons(language: LanguageListRankedSeasons? = null, clientVersion: kotlin.Long? = null) : kotlin.collections.List<RankedSeason> {
         val localVarResponse = listRankedSeasonsWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -142,7 +142,7 @@ open class RankedSeasonsApi(basePath: kotlin.String = defaultBasePath, client: C
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listRankedSeasonsWithHttpInfo(language: LanguageListRankedSeasons?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<RankedSeason>?> {
+    fun listRankedSeasonsWithHttpInfo(language: LanguageListRankedSeasons?, clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<RankedSeason>?> {
         val localVariableConfig = listRankedSeasonsRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<RankedSeason>>(
@@ -157,7 +157,7 @@ open class RankedSeasonsApi(basePath: kotlin.String = defaultBasePath, client: C
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listRankedSeasonsRequestConfig(language: LanguageListRankedSeasons?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listRankedSeasonsRequestConfig(language: LanguageListRankedSeasons?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AvgAverageBadge** | Pointer to **NullableFloat64** | Average badge (tier &#x3D; first digits, subtier &#x3D; last digit) of the matches with this build that have one; 0 without any. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
-**Bucket** | **int32** | The bucket value (depends on the bucket query parameter, 0 without one). | 
+**Bucket** | **int64** | The bucket value (depends on the bucket query parameter, 0 without one). | 
 **HeroBuildId** | **int64** | The ID of the hero build. The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started. | 
 **HeroId** | **int32** | The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Losses** | **int64** | The number of losses with this build. | 
@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 
 ### NewHeroBuildStats
 
-`func NewHeroBuildStats(bucket int32, heroBuildId int64, heroId int32, losses int64, matches int64, players int64, wins int64, ) *HeroBuildStats`
+`func NewHeroBuildStats(bucket int64, heroBuildId int64, heroId int32, losses int64, matches int64, players int64, wins int64, ) *HeroBuildStats`
 
 NewHeroBuildStats instantiates a new HeroBuildStats object
 This constructor will assign default values to properties that have it defined,
@@ -93,20 +93,20 @@ HasAvgAverageBadge returns a boolean if a field has been set.
 UnsetAvgAverageBadge ensures that no value is present for AvgAverageBadge, not even an explicit nil
 ### GetBucket
 
-`func (o *HeroBuildStats) GetBucket() int32`
+`func (o *HeroBuildStats) GetBucket() int64`
 
 GetBucket returns the Bucket field if non-nil, zero value otherwise.
 
 ### GetBucketOk
 
-`func (o *HeroBuildStats) GetBucketOk() (*int32, bool)`
+`func (o *HeroBuildStats) GetBucketOk() (*int64, bool)`
 
 GetBucketOk returns a tuple with the Bucket field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBucket
 
-`func (o *HeroBuildStats) SetBucket(v int32)`
+`func (o *HeroBuildStats) SetBucket(v int64)`
 
 SetBucket sets Bucket field to given value.
 

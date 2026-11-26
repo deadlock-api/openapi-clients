@@ -37,9 +37,9 @@ class HeroesApiTest : ShouldSpec() {
         // to test getHero
         should("test getHero") {
             // uncomment below to test getHero
-            //val heroId : kotlin.Int = 56 // kotlin.Int | Hero id (`m_HeroID`)
+            //val heroId : kotlin.Long = 789 // kotlin.Long | Hero id (`m_HeroID`)
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : Hero = apiInstance.getHero(heroId, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -49,7 +49,7 @@ class HeroesApiTest : ShouldSpec() {
             // uncomment below to test getHeroByName
             //val name : kotlin.String = name_example // kotlin.String | Hero class name (e.g. `hero_atlas`) or short name (e.g. `atlas`)
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : Hero = apiInstance.getHeroByName(name, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -58,7 +58,7 @@ class HeroesApiTest : ShouldSpec() {
         should("test listHeroes") {
             // uncomment below to test listHeroes
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val onlyActive : kotlin.Boolean = true // kotlin.Boolean | When true, hides heroes that aren't player-selectable or are disabled / in-development.
             //val result : kotlin.collections.List<Hero> = apiInstance.listHeroes(language, clientVersion, onlyActive)
             //result shouldBe ("TODO")

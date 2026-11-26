@@ -33,13 +33,13 @@ type WeaponInfo struct {
 	BulletSpeed NullableFloat64 `json:"bullet_speed,omitempty"`
 	BulletSpeedCurve NullableRawItemWeaponInfoBulletSpeedCurve `json:"bullet_speed_curve,omitempty"`
 	BulletWhizDistance NullableFloat64 `json:"bullet_whiz_distance,omitempty"`
-	Bullets NullableInt32 `json:"bullets,omitempty"`
+	Bullets NullableInt64 `json:"bullets,omitempty"`
 	BulletsPerSecond NullableFloat64 `json:"bullets_per_second,omitempty"`
 	BulletsPerSecondWithReload NullableFloat64 `json:"bullets_per_second_with_reload,omitempty"`
 	BurstShotCooldown NullableFloat64 `json:"burst_shot_cooldown,omitempty"`
-	BurstShotCount NullableInt32 `json:"burst_shot_count,omitempty"`
+	BurstShotCount NullableInt64 `json:"burst_shot_count,omitempty"`
 	CanZoom NullableBool `json:"can_zoom,omitempty"`
-	ClipSize NullableInt32 `json:"clip_size,omitempty"`
+	ClipSize NullableInt64 `json:"clip_size,omitempty"`
 	CritBonusAgainstNpcs NullableFloat64 `json:"crit_bonus_against_npcs,omitempty"`
 	CritBonusEnd NullableFloat64 `json:"crit_bonus_end,omitempty"`
 	CritBonusEndRange NullableFloat64 `json:"crit_bonus_end_range,omitempty"`
@@ -691,9 +691,9 @@ func (o *WeaponInfo) UnsetBulletWhizDistance() {
 }
 
 // GetBullets returns the Bullets field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WeaponInfo) GetBullets() int32 {
+func (o *WeaponInfo) GetBullets() int64 {
 	if o == nil || IsNil(o.Bullets.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Bullets.Get()
@@ -702,7 +702,7 @@ func (o *WeaponInfo) GetBullets() int32 {
 // GetBulletsOk returns a tuple with the Bullets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WeaponInfo) GetBulletsOk() (*int32, bool) {
+func (o *WeaponInfo) GetBulletsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -718,8 +718,8 @@ func (o *WeaponInfo) HasBullets() bool {
 	return false
 }
 
-// SetBullets gets a reference to the given NullableInt32 and assigns it to the Bullets field.
-func (o *WeaponInfo) SetBullets(v int32) {
+// SetBullets gets a reference to the given NullableInt64 and assigns it to the Bullets field.
+func (o *WeaponInfo) SetBullets(v int64) {
 	o.Bullets.Set(&v)
 }
 // SetBulletsNil sets the value for Bullets to be an explicit nil
@@ -859,9 +859,9 @@ func (o *WeaponInfo) UnsetBurstShotCooldown() {
 }
 
 // GetBurstShotCount returns the BurstShotCount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WeaponInfo) GetBurstShotCount() int32 {
+func (o *WeaponInfo) GetBurstShotCount() int64 {
 	if o == nil || IsNil(o.BurstShotCount.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BurstShotCount.Get()
@@ -870,7 +870,7 @@ func (o *WeaponInfo) GetBurstShotCount() int32 {
 // GetBurstShotCountOk returns a tuple with the BurstShotCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WeaponInfo) GetBurstShotCountOk() (*int32, bool) {
+func (o *WeaponInfo) GetBurstShotCountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -886,8 +886,8 @@ func (o *WeaponInfo) HasBurstShotCount() bool {
 	return false
 }
 
-// SetBurstShotCount gets a reference to the given NullableInt32 and assigns it to the BurstShotCount field.
-func (o *WeaponInfo) SetBurstShotCount(v int32) {
+// SetBurstShotCount gets a reference to the given NullableInt64 and assigns it to the BurstShotCount field.
+func (o *WeaponInfo) SetBurstShotCount(v int64) {
 	o.BurstShotCount.Set(&v)
 }
 // SetBurstShotCountNil sets the value for BurstShotCount to be an explicit nil
@@ -943,9 +943,9 @@ func (o *WeaponInfo) UnsetCanZoom() {
 }
 
 // GetClipSize returns the ClipSize field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WeaponInfo) GetClipSize() int32 {
+func (o *WeaponInfo) GetClipSize() int64 {
 	if o == nil || IsNil(o.ClipSize.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ClipSize.Get()
@@ -954,7 +954,7 @@ func (o *WeaponInfo) GetClipSize() int32 {
 // GetClipSizeOk returns a tuple with the ClipSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WeaponInfo) GetClipSizeOk() (*int32, bool) {
+func (o *WeaponInfo) GetClipSizeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -970,8 +970,8 @@ func (o *WeaponInfo) HasClipSize() bool {
 	return false
 }
 
-// SetClipSize gets a reference to the given NullableInt32 and assigns it to the ClipSize field.
-func (o *WeaponInfo) SetClipSize(v int32) {
+// SetClipSize gets a reference to the given NullableInt64 and assigns it to the ClipSize field.
+func (o *WeaponInfo) SetClipSize(v int64) {
 	o.ClipSize.Set(&v)
 }
 // SetClipSizeNil sets the value for ClipSize to be an explicit nil

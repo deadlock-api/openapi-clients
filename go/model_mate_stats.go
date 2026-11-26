@@ -23,7 +23,7 @@ var _ MappedNullable = &MateStats{}
 type MateStats struct {
 	Matches []int64 `json:"matches"`
 	MatchesPlayed int64 `json:"matches_played"`
-	MateId int32 `json:"mate_id"`
+	MateId int64 `json:"mate_id"`
 	Wins int64 `json:"wins"`
 }
 
@@ -33,7 +33,7 @@ type _MateStats MateStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMateStats(matches []int64, matchesPlayed int64, mateId int32, wins int64) *MateStats {
+func NewMateStats(matches []int64, matchesPlayed int64, mateId int64, wins int64) *MateStats {
 	this := MateStats{}
 	this.Matches = matches
 	this.MatchesPlayed = matchesPlayed
@@ -99,9 +99,9 @@ func (o *MateStats) SetMatchesPlayed(v int64) {
 }
 
 // GetMateId returns the MateId field value
-func (o *MateStats) GetMateId() int32 {
+func (o *MateStats) GetMateId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -110,7 +110,7 @@ func (o *MateStats) GetMateId() int32 {
 
 // GetMateIdOk returns a tuple with the MateId field value
 // and a boolean to check if the value has been set.
-func (o *MateStats) GetMateIdOk() (*int32, bool) {
+func (o *MateStats) GetMateIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -118,7 +118,7 @@ func (o *MateStats) GetMateIdOk() (*int32, bool) {
 }
 
 // SetMateId sets field value
-func (o *MateStats) SetMateId(v int32) {
+func (o *MateStats) SetMateId(v int64) {
 	o.MateId = v
 }
 

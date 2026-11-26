@@ -71,7 +71,7 @@ class ItemPermutationStats implements ModelInterface, ArrayAccess, \JsonSerializ
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'item_ids' => 'int32',
+        'item_ids' => 'int64',
         'losses' => 'int64',
         'matches' => 'int64',
         'wins' => 'int64'

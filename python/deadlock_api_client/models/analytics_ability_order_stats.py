@@ -28,7 +28,7 @@ class AnalyticsAbilityOrderStats(BaseModel):
     """
     AnalyticsAbilityOrderStats
     """ # noqa: E501
-    abilities: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    abilities: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     avg_upgrade_times_s: List[Union[StrictFloat, StrictInt]] = Field(description="Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.")
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]

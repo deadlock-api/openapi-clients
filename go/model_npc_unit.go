@@ -49,7 +49,7 @@ type NpcUnit struct {
 	HealthBarColorTeam1 NullableColor `json:"health_bar_color_team1,omitempty"`
 	HealthBarColorTeam2 NullableColor `json:"health_bar_color_team2,omitempty"`
 	HealthBarColorTeamNeutral NullableColor `json:"health_bar_color_team_neutral,omitempty"`
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 	// Unit icon (`m_strCustomUnitIcon`) as png.
 	Image NullableString `json:"image,omitempty"`
 	// Unit icon (`m_strCustomUnitIcon`) as webp.
@@ -120,7 +120,7 @@ type _NpcUnit NpcUnit
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNpcUnit(className string, id int32) *NpcUnit {
+func NewNpcUnit(className string, id int64) *NpcUnit {
 	this := NpcUnit{}
 	this.ClassName = className
 	this.Id = id
@@ -1159,9 +1159,9 @@ func (o *NpcUnit) UnsetHealthBarColorTeamNeutral() {
 }
 
 // GetId returns the Id field value
-func (o *NpcUnit) GetId() int32 {
+func (o *NpcUnit) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -1170,7 +1170,7 @@ func (o *NpcUnit) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *NpcUnit) GetIdOk() (*int32, bool) {
+func (o *NpcUnit) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1178,7 +1178,7 @@ func (o *NpcUnit) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *NpcUnit) SetId(v int32) {
+func (o *NpcUnit) SetId(v int64) {
 	o.Id = v
 }
 

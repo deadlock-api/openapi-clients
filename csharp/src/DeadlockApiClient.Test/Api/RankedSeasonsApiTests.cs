@@ -57,7 +57,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task ListRankedSeasonsAsyncTest()
         {
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.ListRankedSeasonsAsync(language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<RankedSeason>>(model);

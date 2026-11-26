@@ -113,7 +113,7 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMiscEntity(idOrClassname: kotlin.String, language: LanguageGetMiscEntity? = null, clientVersion: kotlin.Int? = null) : MiscEntity {
+    fun getMiscEntity(idOrClassname: kotlin.String, language: LanguageGetMiscEntity? = null, clientVersion: kotlin.Long? = null) : MiscEntity {
         val localVarResponse = getMiscEntityWithHttpInfo(idOrClassname = idOrClassname, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -144,7 +144,7 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMiscEntityWithHttpInfo(idOrClassname: kotlin.String, language: LanguageGetMiscEntity?, clientVersion: kotlin.Int?) : ApiResponse<MiscEntity?> {
+    fun getMiscEntityWithHttpInfo(idOrClassname: kotlin.String, language: LanguageGetMiscEntity?, clientVersion: kotlin.Long?) : ApiResponse<MiscEntity?> {
         val localVariableConfig = getMiscEntityRequestConfig(idOrClassname = idOrClassname, language = language, clientVersion = clientVersion)
 
         return request<Unit, MiscEntity>(
@@ -160,7 +160,7 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getMiscEntityRequestConfig(idOrClassname: kotlin.String, language: LanguageGetMiscEntity?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getMiscEntityRequestConfig(idOrClassname: kotlin.String, language: LanguageGetMiscEntity?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -243,7 +243,7 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listMiscEntities(language: LanguageListMiscEntities? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<MiscEntity> {
+    fun listMiscEntities(language: LanguageListMiscEntities? = null, clientVersion: kotlin.Long? = null) : kotlin.collections.List<MiscEntity> {
         val localVarResponse = listMiscEntitiesWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -273,7 +273,7 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listMiscEntitiesWithHttpInfo(language: LanguageListMiscEntities?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<MiscEntity>?> {
+    fun listMiscEntitiesWithHttpInfo(language: LanguageListMiscEntities?, clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<MiscEntity>?> {
         val localVariableConfig = listMiscEntitiesRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<MiscEntity>>(
@@ -288,7 +288,7 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listMiscEntitiesRequestConfig(language: LanguageListMiscEntities?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listMiscEntitiesRequestConfig(language: LanguageListMiscEntities?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

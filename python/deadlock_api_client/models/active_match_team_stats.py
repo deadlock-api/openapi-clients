@@ -29,8 +29,8 @@ class ActiveMatchTeamStats(BaseModel):
     """
     ActiveMatchTeamStats
     """ # noqa: E501
-    brawl_score: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    net_worth: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    brawl_score: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    net_worth: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     objectives_mask: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     team: Optional[StrictInt] = None
     team_parsed: Optional[ActiveMatchTeam] = None

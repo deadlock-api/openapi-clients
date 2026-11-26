@@ -58,7 +58,7 @@ namespace DeadlockApiClient.Test.Api
         {
             string idOrClassName = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetItemAsync(idOrClassName, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Item>(model);
@@ -70,9 +70,9 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetItemsByHeroIdAsyncTest()
         {
-            int id = default!;
+            long id = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetItemsByHeroIdAsync(id, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<Item>>(model);
@@ -86,7 +86,7 @@ namespace DeadlockApiClient.Test.Api
         {
             ItemSlotType slotType = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetItemsBySlotTypeAsync(slotType, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<Item>>(model);
@@ -100,7 +100,7 @@ namespace DeadlockApiClient.Test.Api
         {
             ItemType type = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetItemsByTypeAsync(type, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<Item>>(model);
@@ -113,7 +113,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task ListItemsAsyncTest()
         {
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.ListItemsAsync(language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<Item>>(model);

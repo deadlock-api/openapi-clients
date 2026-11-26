@@ -45,7 +45,7 @@ namespace DeadlockApiClient.Model
         /// <param name="playerRankInitialWinStreak">Win streak the player entered the match with.</param>
         /// <param name="rankInterval">Ranked interval the match counted for, which sets the scale of the flat progress. See &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. &#x60;null&#x60; for matches before 2026-11-05 19:00 UTC, which are all interval 1.</param>
         [JsonConstructor]
-        public LastRankedMatch(long matchId, int playerRankInitialDisplayRank, int startTime, Option<bool?> playerRankConsumedDemotionProtection = default, Option<int?> playerRankDesiredProgressChange = default, Option<int?> playerRankFinalFlatProgress = default, Option<int?> playerRankInitialCalibrationGames = default, Option<int?> playerRankInitialDemotionProtectionGames = default, Option<int?> playerRankInitialFlatProgress = default, Option<int?> playerRankInitialWinStreak = default, Option<int?> rankInterval = default)
+        public LastRankedMatch(long matchId, long playerRankInitialDisplayRank, long startTime, Option<bool?> playerRankConsumedDemotionProtection = default, Option<int?> playerRankDesiredProgressChange = default, Option<long?> playerRankFinalFlatProgress = default, Option<long?> playerRankInitialCalibrationGames = default, Option<long?> playerRankInitialDemotionProtectionGames = default, Option<long?> playerRankInitialFlatProgress = default, Option<long?> playerRankInitialWinStreak = default, Option<long?> rankInterval = default)
         {
             MatchId = matchId;
             PlayerRankInitialDisplayRank = playerRankInitialDisplayRank;
@@ -74,14 +74,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Rank badge the player entered the match with, &#x60;tier * 10 + subrank&#x60;.</value>
         [JsonPropertyName("player_rank_initial_display_rank")]
-        public int PlayerRankInitialDisplayRank { get; set; }
+        public long PlayerRankInitialDisplayRank { get; set; }
 
         /// <summary>
         /// Match start time as a unix timestamp.
         /// </summary>
         /// <value>Match start time as a unix timestamp.</value>
         [JsonPropertyName("start_time")]
-        public int StartTime { get; set; }
+        public long StartTime { get; set; }
 
         /// <summary>
         /// Used to track the state of PlayerRankConsumedDemotionProtection
@@ -116,84 +116,84 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> PlayerRankFinalFlatProgressOption { get; private set; }
+        public Option<long?> PlayerRankFinalFlatProgressOption { get; private set; }
 
         /// <summary>
         /// Rank progress the player ended the match with.
         /// </summary>
         /// <value>Rank progress the player ended the match with.</value>
         [JsonPropertyName("player_rank_final_flat_progress")]
-        public int? PlayerRankFinalFlatProgress { get { return this.PlayerRankFinalFlatProgressOption.Value; } set { this.PlayerRankFinalFlatProgressOption = new(value); } }
+        public long? PlayerRankFinalFlatProgress { get { return this.PlayerRankFinalFlatProgressOption.Value; } set { this.PlayerRankFinalFlatProgressOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PlayerRankInitialCalibrationGames
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> PlayerRankInitialCalibrationGamesOption { get; private set; }
+        public Option<long?> PlayerRankInitialCalibrationGamesOption { get; private set; }
 
         /// <summary>
         /// Remaining placement games at the start of the match.
         /// </summary>
         /// <value>Remaining placement games at the start of the match.</value>
         [JsonPropertyName("player_rank_initial_calibration_games")]
-        public int? PlayerRankInitialCalibrationGames { get { return this.PlayerRankInitialCalibrationGamesOption.Value; } set { this.PlayerRankInitialCalibrationGamesOption = new(value); } }
+        public long? PlayerRankInitialCalibrationGames { get { return this.PlayerRankInitialCalibrationGamesOption.Value; } set { this.PlayerRankInitialCalibrationGamesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PlayerRankInitialDemotionProtectionGames
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> PlayerRankInitialDemotionProtectionGamesOption { get; private set; }
+        public Option<long?> PlayerRankInitialDemotionProtectionGamesOption { get; private set; }
 
         /// <summary>
         /// Remaining demotion protection games at the start of the match.
         /// </summary>
         /// <value>Remaining demotion protection games at the start of the match.</value>
         [JsonPropertyName("player_rank_initial_demotion_protection_games")]
-        public int? PlayerRankInitialDemotionProtectionGames { get { return this.PlayerRankInitialDemotionProtectionGamesOption.Value; } set { this.PlayerRankInitialDemotionProtectionGamesOption = new(value); } }
+        public long? PlayerRankInitialDemotionProtectionGames { get { return this.PlayerRankInitialDemotionProtectionGamesOption.Value; } set { this.PlayerRankInitialDemotionProtectionGamesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PlayerRankInitialFlatProgress
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> PlayerRankInitialFlatProgressOption { get; private set; }
+        public Option<long?> PlayerRankInitialFlatProgressOption { get; private set; }
 
         /// <summary>
         /// Rank progress the player entered the match with.
         /// </summary>
         /// <value>Rank progress the player entered the match with.</value>
         [JsonPropertyName("player_rank_initial_flat_progress")]
-        public int? PlayerRankInitialFlatProgress { get { return this.PlayerRankInitialFlatProgressOption.Value; } set { this.PlayerRankInitialFlatProgressOption = new(value); } }
+        public long? PlayerRankInitialFlatProgress { get { return this.PlayerRankInitialFlatProgressOption.Value; } set { this.PlayerRankInitialFlatProgressOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PlayerRankInitialWinStreak
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> PlayerRankInitialWinStreakOption { get; private set; }
+        public Option<long?> PlayerRankInitialWinStreakOption { get; private set; }
 
         /// <summary>
         /// Win streak the player entered the match with.
         /// </summary>
         /// <value>Win streak the player entered the match with.</value>
         [JsonPropertyName("player_rank_initial_win_streak")]
-        public int? PlayerRankInitialWinStreak { get { return this.PlayerRankInitialWinStreakOption.Value; } set { this.PlayerRankInitialWinStreakOption = new(value); } }
+        public long? PlayerRankInitialWinStreak { get { return this.PlayerRankInitialWinStreakOption.Value; } set { this.PlayerRankInitialWinStreakOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RankInterval
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> RankIntervalOption { get; private set; }
+        public Option<long?> RankIntervalOption { get; private set; }
 
         /// <summary>
         /// Ranked interval the match counted for, which sets the scale of the flat progress. See &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. &#x60;null&#x60; for matches before 2026-11-05 19:00 UTC, which are all interval 1.
         /// </summary>
         /// <value>Ranked interval the match counted for, which sets the scale of the flat progress. See &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. &#x60;null&#x60; for matches before 2026-11-05 19:00 UTC, which are all interval 1.</value>
         [JsonPropertyName("rank_interval")]
-        public int? RankInterval { get { return this.RankIntervalOption.Value; } set { this.RankIntervalOption = new(value); } }
+        public long? RankInterval { get { return this.RankIntervalOption.Value; } set { this.RankIntervalOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -231,50 +231,98 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
-            // PlayerRankInitialDisplayRank (int) minimum
-            if (this.PlayerRankInitialDisplayRank < (int)0)
+            // PlayerRankInitialDisplayRank (long) maximum
+            if (this.PlayerRankInitialDisplayRank > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialDisplayRank, must be a value less than or equal to 4294967295.", new [] { "PlayerRankInitialDisplayRank" });
+            }
+
+            // PlayerRankInitialDisplayRank (long) minimum
+            if (this.PlayerRankInitialDisplayRank < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialDisplayRank, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialDisplayRank" });
             }
 
-            // StartTime (int) minimum
-            if (this.StartTime < (int)0)
+            // StartTime (long) maximum
+            if (this.StartTime > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value less than or equal to 4294967295.", new [] { "StartTime" });
+            }
+
+            // StartTime (long) minimum
+            if (this.StartTime < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
             }
 
-            // PlayerRankFinalFlatProgress (int) minimum
-            if (this.PlayerRankFinalFlatProgressOption.IsSet && this.PlayerRankFinalFlatProgressOption.Value < (int)0)
+            // PlayerRankFinalFlatProgress (long) maximum
+            if (this.PlayerRankFinalFlatProgressOption.IsSet && this.PlayerRankFinalFlatProgressOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankFinalFlatProgress, must be a value less than or equal to 4294967295.", new [] { "PlayerRankFinalFlatProgress" });
+            }
+
+            // PlayerRankFinalFlatProgress (long) minimum
+            if (this.PlayerRankFinalFlatProgressOption.IsSet && this.PlayerRankFinalFlatProgressOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankFinalFlatProgress, must be a value greater than or equal to 0.", new [] { "PlayerRankFinalFlatProgress" });
             }
 
-            // PlayerRankInitialCalibrationGames (int) minimum
-            if (this.PlayerRankInitialCalibrationGamesOption.IsSet && this.PlayerRankInitialCalibrationGamesOption.Value < (int)0)
+            // PlayerRankInitialCalibrationGames (long) maximum
+            if (this.PlayerRankInitialCalibrationGamesOption.IsSet && this.PlayerRankInitialCalibrationGamesOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialCalibrationGames, must be a value less than or equal to 4294967295.", new [] { "PlayerRankInitialCalibrationGames" });
+            }
+
+            // PlayerRankInitialCalibrationGames (long) minimum
+            if (this.PlayerRankInitialCalibrationGamesOption.IsSet && this.PlayerRankInitialCalibrationGamesOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialCalibrationGames, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialCalibrationGames" });
             }
 
-            // PlayerRankInitialDemotionProtectionGames (int) minimum
-            if (this.PlayerRankInitialDemotionProtectionGamesOption.IsSet && this.PlayerRankInitialDemotionProtectionGamesOption.Value < (int)0)
+            // PlayerRankInitialDemotionProtectionGames (long) maximum
+            if (this.PlayerRankInitialDemotionProtectionGamesOption.IsSet && this.PlayerRankInitialDemotionProtectionGamesOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialDemotionProtectionGames, must be a value less than or equal to 4294967295.", new [] { "PlayerRankInitialDemotionProtectionGames" });
+            }
+
+            // PlayerRankInitialDemotionProtectionGames (long) minimum
+            if (this.PlayerRankInitialDemotionProtectionGamesOption.IsSet && this.PlayerRankInitialDemotionProtectionGamesOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialDemotionProtectionGames, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialDemotionProtectionGames" });
             }
 
-            // PlayerRankInitialFlatProgress (int) minimum
-            if (this.PlayerRankInitialFlatProgressOption.IsSet && this.PlayerRankInitialFlatProgressOption.Value < (int)0)
+            // PlayerRankInitialFlatProgress (long) maximum
+            if (this.PlayerRankInitialFlatProgressOption.IsSet && this.PlayerRankInitialFlatProgressOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialFlatProgress, must be a value less than or equal to 4294967295.", new [] { "PlayerRankInitialFlatProgress" });
+            }
+
+            // PlayerRankInitialFlatProgress (long) minimum
+            if (this.PlayerRankInitialFlatProgressOption.IsSet && this.PlayerRankInitialFlatProgressOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialFlatProgress, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialFlatProgress" });
             }
 
-            // PlayerRankInitialWinStreak (int) minimum
-            if (this.PlayerRankInitialWinStreakOption.IsSet && this.PlayerRankInitialWinStreakOption.Value < (int)0)
+            // PlayerRankInitialWinStreak (long) maximum
+            if (this.PlayerRankInitialWinStreakOption.IsSet && this.PlayerRankInitialWinStreakOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialWinStreak, must be a value less than or equal to 4294967295.", new [] { "PlayerRankInitialWinStreak" });
+            }
+
+            // PlayerRankInitialWinStreak (long) minimum
+            if (this.PlayerRankInitialWinStreakOption.IsSet && this.PlayerRankInitialWinStreakOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialWinStreak, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialWinStreak" });
             }
 
-            // RankInterval (int) minimum
-            if (this.RankIntervalOption.IsSet && this.RankIntervalOption.Value < (int)0)
+            // RankInterval (long) maximum
+            if (this.RankIntervalOption.IsSet && this.RankIntervalOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RankInterval, must be a value less than or equal to 4294967295.", new [] { "RankInterval" });
+            }
+
+            // RankInterval (long) minimum
+            if (this.RankIntervalOption.IsSet && this.RankIntervalOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RankInterval, must be a value greater than or equal to 0.", new [] { "RankInterval" });
             }
@@ -316,16 +364,16 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<long?> matchId = default;
-            Option<int?> playerRankInitialDisplayRank = default;
-            Option<int?> startTime = default;
+            Option<long?> playerRankInitialDisplayRank = default;
+            Option<long?> startTime = default;
             Option<bool?> playerRankConsumedDemotionProtection = default;
             Option<int?> playerRankDesiredProgressChange = default;
-            Option<int?> playerRankFinalFlatProgress = default;
-            Option<int?> playerRankInitialCalibrationGames = default;
-            Option<int?> playerRankInitialDemotionProtectionGames = default;
-            Option<int?> playerRankInitialFlatProgress = default;
-            Option<int?> playerRankInitialWinStreak = default;
-            Option<int?> rankInterval = default;
+            Option<long?> playerRankFinalFlatProgress = default;
+            Option<long?> playerRankInitialCalibrationGames = default;
+            Option<long?> playerRankInitialDemotionProtectionGames = default;
+            Option<long?> playerRankInitialFlatProgress = default;
+            Option<long?> playerRankInitialWinStreak = default;
+            Option<long?> rankInterval = default;
 
             while (utf8JsonReader.Read())
             {
@@ -346,10 +394,10 @@ namespace DeadlockApiClient.Model
                             matchId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "player_rank_initial_display_rank":
-                            playerRankInitialDisplayRank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            playerRankInitialDisplayRank = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "start_time":
-                            startTime = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            startTime = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "player_rank_consumed_demotion_protection":
                             playerRankConsumedDemotionProtection = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -358,22 +406,22 @@ namespace DeadlockApiClient.Model
                             playerRankDesiredProgressChange = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "player_rank_final_flat_progress":
-                            playerRankFinalFlatProgress = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            playerRankFinalFlatProgress = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "player_rank_initial_calibration_games":
-                            playerRankInitialCalibrationGames = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            playerRankInitialCalibrationGames = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "player_rank_initial_demotion_protection_games":
-                            playerRankInitialDemotionProtectionGames = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            playerRankInitialDemotionProtectionGames = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "player_rank_initial_flat_progress":
-                            playerRankInitialFlatProgress = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            playerRankInitialFlatProgress = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "player_rank_initial_win_streak":
-                            playerRankInitialWinStreak = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            playerRankInitialWinStreak = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "rank_interval":
-                            rankInterval = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            rankInterval = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

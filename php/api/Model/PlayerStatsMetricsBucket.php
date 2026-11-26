@@ -69,7 +69,7 @@ class PlayerStatsMetricsBucket implements ModelInterface, ArrayAccess, \JsonSeri
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'bucket' => 'int32'
+        'bucket' => 'int64'
     ];
 
     /**
@@ -278,6 +278,10 @@ class PlayerStatsMetricsBucket implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['bucket'] === null) {
             $invalidProperties[] = "'bucket' can't be null";
         }
+        if (($this->container['bucket'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'bucket', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['bucket'] < 0)) {
             $invalidProperties[] = "invalid value for 'bucket', must be bigger than or equal to 0.";
         }
@@ -318,6 +322,9 @@ class PlayerStatsMetricsBucket implements ModelInterface, ArrayAccess, \JsonSeri
     {
         if (is_null($bucket)) {
             throw new \InvalidArgumentException('non-nullable bucket cannot be null');
+        }
+        if (($bucket > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $bucket when calling PlayerStatsMetricsBucket., must be smaller than or equal to 4294967295.');
         }
         if (($bucket < 0)) {
             throw new \InvalidArgumentException('invalid value for $bucket when calling PlayerStatsMetricsBucket., must be bigger than or equal to 0.');

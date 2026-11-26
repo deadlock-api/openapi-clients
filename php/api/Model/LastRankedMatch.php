@@ -81,14 +81,14 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'match_id' => 'int64',
         'player_rank_consumed_demotion_protection' => null,
         'player_rank_desired_progress_change' => 'int32',
-        'player_rank_final_flat_progress' => 'int32',
-        'player_rank_initial_calibration_games' => 'int32',
-        'player_rank_initial_demotion_protection_games' => 'int32',
-        'player_rank_initial_display_rank' => 'int32',
-        'player_rank_initial_flat_progress' => 'int32',
-        'player_rank_initial_win_streak' => 'int32',
-        'rank_interval' => 'int32',
-        'start_time' => 'int32'
+        'player_rank_final_flat_progress' => 'int64',
+        'player_rank_initial_calibration_games' => 'int64',
+        'player_rank_initial_demotion_protection_games' => 'int64',
+        'player_rank_initial_display_rank' => 'int64',
+        'player_rank_initial_flat_progress' => 'int64',
+        'player_rank_initial_win_streak' => 'int64',
+        'rank_interval' => 'int64',
+        'start_time' => 'int64'
     ];
 
     /**
@@ -351,12 +351,24 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'match_id', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['player_rank_final_flat_progress']) && ($this->container['player_rank_final_flat_progress'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'player_rank_final_flat_progress', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['player_rank_final_flat_progress']) && ($this->container['player_rank_final_flat_progress'] < 0)) {
             $invalidProperties[] = "invalid value for 'player_rank_final_flat_progress', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['player_rank_initial_calibration_games']) && ($this->container['player_rank_initial_calibration_games'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'player_rank_initial_calibration_games', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['player_rank_initial_calibration_games']) && ($this->container['player_rank_initial_calibration_games'] < 0)) {
             $invalidProperties[] = "invalid value for 'player_rank_initial_calibration_games', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['player_rank_initial_demotion_protection_games']) && ($this->container['player_rank_initial_demotion_protection_games'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'player_rank_initial_demotion_protection_games', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['player_rank_initial_demotion_protection_games']) && ($this->container['player_rank_initial_demotion_protection_games'] < 0)) {
@@ -366,16 +378,32 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['player_rank_initial_display_rank'] === null) {
             $invalidProperties[] = "'player_rank_initial_display_rank' can't be null";
         }
+        if (($this->container['player_rank_initial_display_rank'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'player_rank_initial_display_rank', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['player_rank_initial_display_rank'] < 0)) {
             $invalidProperties[] = "invalid value for 'player_rank_initial_display_rank', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['player_rank_initial_flat_progress']) && ($this->container['player_rank_initial_flat_progress'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'player_rank_initial_flat_progress', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['player_rank_initial_flat_progress']) && ($this->container['player_rank_initial_flat_progress'] < 0)) {
             $invalidProperties[] = "invalid value for 'player_rank_initial_flat_progress', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['player_rank_initial_win_streak']) && ($this->container['player_rank_initial_win_streak'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'player_rank_initial_win_streak', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['player_rank_initial_win_streak']) && ($this->container['player_rank_initial_win_streak'] < 0)) {
             $invalidProperties[] = "invalid value for 'player_rank_initial_win_streak', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['rank_interval']) && ($this->container['rank_interval'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'rank_interval', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['rank_interval']) && ($this->container['rank_interval'] < 0)) {
@@ -385,6 +413,10 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['start_time'] === null) {
             $invalidProperties[] = "'start_time' can't be null";
         }
+        if (($this->container['start_time'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'start_time', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['start_time'] < 0)) {
             $invalidProperties[] = "invalid value for 'start_time', must be bigger than or equal to 0.";
         }
@@ -532,6 +564,9 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($player_rank_final_flat_progress) && ($player_rank_final_flat_progress > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $player_rank_final_flat_progress when calling LastRankedMatch., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($player_rank_final_flat_progress) && ($player_rank_final_flat_progress < 0)) {
             throw new \InvalidArgumentException('invalid value for $player_rank_final_flat_progress when calling LastRankedMatch., must be bigger than or equal to 0.');
         }
@@ -569,6 +604,9 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($player_rank_initial_calibration_games) && ($player_rank_initial_calibration_games > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $player_rank_initial_calibration_games when calling LastRankedMatch., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($player_rank_initial_calibration_games) && ($player_rank_initial_calibration_games < 0)) {
             throw new \InvalidArgumentException('invalid value for $player_rank_initial_calibration_games when calling LastRankedMatch., must be bigger than or equal to 0.');
@@ -608,6 +646,9 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($player_rank_initial_demotion_protection_games) && ($player_rank_initial_demotion_protection_games > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $player_rank_initial_demotion_protection_games when calling LastRankedMatch., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($player_rank_initial_demotion_protection_games) && ($player_rank_initial_demotion_protection_games < 0)) {
             throw new \InvalidArgumentException('invalid value for $player_rank_initial_demotion_protection_games when calling LastRankedMatch., must be bigger than or equal to 0.');
         }
@@ -638,6 +679,9 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($player_rank_initial_display_rank)) {
             throw new \InvalidArgumentException('non-nullable player_rank_initial_display_rank cannot be null');
+        }
+        if (($player_rank_initial_display_rank > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $player_rank_initial_display_rank when calling LastRankedMatch., must be smaller than or equal to 4294967295.');
         }
         if (($player_rank_initial_display_rank < 0)) {
             throw new \InvalidArgumentException('invalid value for $player_rank_initial_display_rank when calling LastRankedMatch., must be bigger than or equal to 0.');
@@ -677,6 +721,9 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($player_rank_initial_flat_progress) && ($player_rank_initial_flat_progress > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $player_rank_initial_flat_progress when calling LastRankedMatch., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($player_rank_initial_flat_progress) && ($player_rank_initial_flat_progress < 0)) {
             throw new \InvalidArgumentException('invalid value for $player_rank_initial_flat_progress when calling LastRankedMatch., must be bigger than or equal to 0.');
         }
@@ -714,6 +761,9 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($player_rank_initial_win_streak) && ($player_rank_initial_win_streak > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $player_rank_initial_win_streak when calling LastRankedMatch., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($player_rank_initial_win_streak) && ($player_rank_initial_win_streak < 0)) {
             throw new \InvalidArgumentException('invalid value for $player_rank_initial_win_streak when calling LastRankedMatch., must be bigger than or equal to 0.');
@@ -753,6 +803,9 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($rank_interval) && ($rank_interval > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $rank_interval when calling LastRankedMatch., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($rank_interval) && ($rank_interval < 0)) {
             throw new \InvalidArgumentException('invalid value for $rank_interval when calling LastRankedMatch., must be bigger than or equal to 0.');
         }
@@ -783,6 +836,9 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($start_time)) {
             throw new \InvalidArgumentException('non-nullable start_time cannot be null');
+        }
+        if (($start_time > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $start_time when calling LastRankedMatch., must be smaller than or equal to 4294967295.');
         }
         if (($start_time < 0)) {
             throw new \InvalidArgumentException('invalid value for $start_time when calling LastRankedMatch., must be bigger than or equal to 0.');

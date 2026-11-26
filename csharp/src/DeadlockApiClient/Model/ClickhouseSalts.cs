@@ -39,7 +39,7 @@ namespace DeadlockApiClient.Model
         /// <param name="replaySalt">replaySalt</param>
         /// <param name="username">username</param>
         [JsonConstructor]
-        public ClickhouseSalts(long matchId, Option<int?> clusterId = default, Option<int?> metadataSalt = default, Option<int?> replaySalt = default, Option<string?> username = default)
+        public ClickhouseSalts(long matchId, Option<long?> clusterId = default, Option<long?> metadataSalt = default, Option<long?> replaySalt = default, Option<string?> username = default)
         {
             MatchId = matchId;
             ClusterIdOption = clusterId;
@@ -62,39 +62,39 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> ClusterIdOption { get; private set; }
+        public Option<long?> ClusterIdOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets ClusterId
         /// </summary>
         [JsonPropertyName("cluster_id")]
-        public int? ClusterId { get { return this.ClusterIdOption.Value; } set { this.ClusterIdOption = new(value); } }
+        public long? ClusterId { get { return this.ClusterIdOption.Value; } set { this.ClusterIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MetadataSalt
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> MetadataSaltOption { get; private set; }
+        public Option<long?> MetadataSaltOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets MetadataSalt
         /// </summary>
         [JsonPropertyName("metadata_salt")]
-        public int? MetadataSalt { get { return this.MetadataSaltOption.Value; } set { this.MetadataSaltOption = new(value); } }
+        public long? MetadataSalt { get { return this.MetadataSaltOption.Value; } set { this.MetadataSaltOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReplaySalt
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> ReplaySaltOption { get; private set; }
+        public Option<long?> ReplaySaltOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets ReplaySalt
         /// </summary>
         [JsonPropertyName("replay_salt")]
-        public int? ReplaySalt { get { return this.ReplaySaltOption.Value; } set { this.ReplaySaltOption = new(value); } }
+        public long? ReplaySalt { get { return this.ReplaySaltOption.Value; } set { this.ReplaySaltOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Username
@@ -139,20 +139,38 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
-            // ClusterId (int) minimum
-            if (this.ClusterIdOption.IsSet && this.ClusterIdOption.Value < (int)0)
+            // ClusterId (long) maximum
+            if (this.ClusterIdOption.IsSet && this.ClusterIdOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClusterId, must be a value less than or equal to 4294967295.", new [] { "ClusterId" });
+            }
+
+            // ClusterId (long) minimum
+            if (this.ClusterIdOption.IsSet && this.ClusterIdOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClusterId, must be a value greater than or equal to 0.", new [] { "ClusterId" });
             }
 
-            // MetadataSalt (int) minimum
-            if (this.MetadataSaltOption.IsSet && this.MetadataSaltOption.Value < (int)0)
+            // MetadataSalt (long) maximum
+            if (this.MetadataSaltOption.IsSet && this.MetadataSaltOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MetadataSalt, must be a value less than or equal to 4294967295.", new [] { "MetadataSalt" });
+            }
+
+            // MetadataSalt (long) minimum
+            if (this.MetadataSaltOption.IsSet && this.MetadataSaltOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MetadataSalt, must be a value greater than or equal to 0.", new [] { "MetadataSalt" });
             }
 
-            // ReplaySalt (int) minimum
-            if (this.ReplaySaltOption.IsSet && this.ReplaySaltOption.Value < (int)0)
+            // ReplaySalt (long) maximum
+            if (this.ReplaySaltOption.IsSet && this.ReplaySaltOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReplaySalt, must be a value less than or equal to 4294967295.", new [] { "ReplaySalt" });
+            }
+
+            // ReplaySalt (long) minimum
+            if (this.ReplaySaltOption.IsSet && this.ReplaySaltOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReplaySalt, must be a value greater than or equal to 0.", new [] { "ReplaySalt" });
             }
@@ -194,9 +212,9 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<long?> matchId = default;
-            Option<int?> clusterId = default;
-            Option<int?> metadataSalt = default;
-            Option<int?> replaySalt = default;
+            Option<long?> clusterId = default;
+            Option<long?> metadataSalt = default;
+            Option<long?> replaySalt = default;
             Option<string?> username = default;
 
             while (utf8JsonReader.Read())
@@ -218,13 +236,13 @@ namespace DeadlockApiClient.Model
                             matchId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "cluster_id":
-                            clusterId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            clusterId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "metadata_salt":
-                            metadataSalt = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            metadataSalt = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "replay_salt":
-                            replaySalt = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            replaySalt = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "username":
                             username = new Option<string?>(utf8JsonReader.GetString());

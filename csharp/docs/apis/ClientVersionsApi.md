@@ -8,7 +8,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="listclientversions"></a>
 # **ListClientVersions**
-> List&lt;int&gt; ListClientVersions ()
+> List&lt;long&gt; ListClientVersions ()
 
 List Client Versions
 
@@ -19,7 +19,7 @@ Returns all known Deadlock client/game versions for which versioned assets are a
 This endpoint does not need any parameter.
 ### Return type
 
-**List<int>**
+**List<long>**
 
 ### Authorization
 

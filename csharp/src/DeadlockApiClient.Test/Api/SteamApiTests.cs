@@ -71,8 +71,8 @@ namespace DeadlockApiClient.Test.Api
         {
             string searchQuery = default!;
             Client.Option<int?> limit = default!;
-            Client.Option<int?> minMatchesPlayedLast30d = default!;
-            Client.Option<int?> minLastTeamAvgBadge = default!;
+            Client.Option<long?> minMatchesPlayedLast30d = default!;
+            Client.Option<long?> minLastTeamAvgBadge = default!;
             Client.Option<double?> matchesPlayedWeight = default!;
             var response = await _instance.SteamSearchAsync(searchQuery, limit, minMatchesPlayedLast30d, minLastTeamAvgBadge, matchesPlayedWeight);
             var model = response.Ok();

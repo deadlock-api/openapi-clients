@@ -30,8 +30,8 @@ class ItemFlowNode(BaseModel):
     """ # noqa: E501
     adjusted_win_rate: Union[StrictFloat, StrictInt] = Field(description="Win rate standardized to the stage's net-worth-at-buy distribution, removing the \"richer buyers win more\" confound. See the endpoint description.")
     avg_net_worth_at_buy: Union[StrictFloat, StrictInt] = Field(description="Average net worth of buyers at the moment they bought this item (confound visibility).")
-    column: Annotated[int, Field(strict=True, ge=0)] = Field(description="The phase column (0-based) the item was bought in.")
-    item_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/items>")
+    column: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The phase column (0-based) the item was bought in.")
+    item_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/items>")
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
     players: Annotated[int, Field(strict=True, ge=0)]

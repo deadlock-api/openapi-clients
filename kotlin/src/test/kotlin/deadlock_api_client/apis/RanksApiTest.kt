@@ -37,9 +37,9 @@ class RanksApiTest : ShouldSpec() {
         // to test getRank
         should("test getRank") {
             // uncomment below to test getRank
-            //val tier : kotlin.Int = 56 // kotlin.Int | Rank tier (0-11)
+            //val tier : kotlin.Long = 789 // kotlin.Long | Rank tier (0-11)
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : Rank = apiInstance.getRank(tier, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -48,7 +48,7 @@ class RanksApiTest : ShouldSpec() {
         should("test listRanks") {
             // uncomment below to test listRanks
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.List<Rank> = apiInstance.listRanks(language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -56,8 +56,8 @@ class RanksApiTest : ShouldSpec() {
         // to test subrankImage
         should("test subrankImage") {
             // uncomment below to test subrankImage
-            //val tier : kotlin.Int = 56 // kotlin.Int | Rank tier (1-11)
-            //val subrank : kotlin.Int = 56 // kotlin.Int | Division within the tier (1-6)
+            //val tier : kotlin.Long = 789 // kotlin.Long | Rank tier (1-11)
+            //val subrank : kotlin.Long = 789 // kotlin.Long | Division within the tier (1-6)
             //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
             //val result : kotlin.collections.List<kotlin.Int> = apiInstance.subrankImage(tier, subrank, format)
             //result shouldBe ("TODO")

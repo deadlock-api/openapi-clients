@@ -22,9 +22,9 @@ var _ MappedNullable = &HeroSwapStats{}
 // HeroSwapStats struct for HeroSwapStats
 type HeroSwapStats struct {
 	// The bucket value (depends on the bucket query parameter).
-	Bucket int32 `json:"bucket"`
+	Bucket int64 `json:"bucket"`
 	// The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	HeroId int32 `json:"hero_id"`
+	HeroId int64 `json:"hero_id"`
 	// The number of players who played this hero, counting only players whose pre-game hero is known.
 	Matches int64 `json:"matches"`
 	// The number of players who had this hero locked before the pre-game swap window.
@@ -43,7 +43,7 @@ type _HeroSwapStats HeroSwapStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroSwapStats(bucket int32, heroId int32, matches int64, pregamePicks int64, swappedAway int64, swappedIn int64, swappedInWins int64) *HeroSwapStats {
+func NewHeroSwapStats(bucket int64, heroId int64, matches int64, pregamePicks int64, swappedAway int64, swappedIn int64, swappedInWins int64) *HeroSwapStats {
 	this := HeroSwapStats{}
 	this.Bucket = bucket
 	this.HeroId = heroId
@@ -64,9 +64,9 @@ func NewHeroSwapStatsWithDefaults() *HeroSwapStats {
 }
 
 // GetBucket returns the Bucket field value
-func (o *HeroSwapStats) GetBucket() int32 {
+func (o *HeroSwapStats) GetBucket() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -75,7 +75,7 @@ func (o *HeroSwapStats) GetBucket() int32 {
 
 // GetBucketOk returns a tuple with the Bucket field value
 // and a boolean to check if the value has been set.
-func (o *HeroSwapStats) GetBucketOk() (*int32, bool) {
+func (o *HeroSwapStats) GetBucketOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -83,14 +83,14 @@ func (o *HeroSwapStats) GetBucketOk() (*int32, bool) {
 }
 
 // SetBucket sets field value
-func (o *HeroSwapStats) SetBucket(v int32) {
+func (o *HeroSwapStats) SetBucket(v int64) {
 	o.Bucket = v
 }
 
 // GetHeroId returns the HeroId field value
-func (o *HeroSwapStats) GetHeroId() int32 {
+func (o *HeroSwapStats) GetHeroId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -99,7 +99,7 @@ func (o *HeroSwapStats) GetHeroId() int32 {
 
 // GetHeroIdOk returns a tuple with the HeroId field value
 // and a boolean to check if the value has been set.
-func (o *HeroSwapStats) GetHeroIdOk() (*int32, bool) {
+func (o *HeroSwapStats) GetHeroIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -107,7 +107,7 @@ func (o *HeroSwapStats) GetHeroIdOk() (*int32, bool) {
 }
 
 // SetHeroId sets field value
-func (o *HeroSwapStats) SetHeroId(v int32) {
+func (o *HeroSwapStats) SetHeroId(v int64) {
 	o.HeroId = v
 }
 

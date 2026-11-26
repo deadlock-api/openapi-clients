@@ -37,9 +37,9 @@ class AccoladesApiTest : ShouldSpec() {
         // to test getAccolade
         should("test getAccolade") {
             // uncomment below to test getAccolade
-            //val accoladeId : kotlin.Int = 56 // kotlin.Int | Accolade id (`m_unAccoladeID`)
+            //val accoladeId : kotlin.Long = 789 // kotlin.Long | Accolade id (`m_unAccoladeID`)
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : Accolade = apiInstance.getAccolade(accoladeId, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -49,7 +49,7 @@ class AccoladesApiTest : ShouldSpec() {
             // uncomment below to test getAccoladeByName
             //val name : kotlin.String = name_example // kotlin.String | Accolade `class_name` (e.g. `kills`) or `tracked_stat_name`
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : Accolade = apiInstance.getAccoladeByName(name, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -58,7 +58,7 @@ class AccoladesApiTest : ShouldSpec() {
         should("test listAccolades") {
             // uncomment below to test listAccolades
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.List<Accolade> = apiInstance.listAccolades(language, clientVersion)
             //result shouldBe ("TODO")
         }

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | **int32** |  | 
-**Badge** | Pointer to **NullableInt32** | &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the rank badge the progress in &#x60;value&#x60; falls in, &#x60;0&#x60; when the player has no ranked match in range. Omitted for every other sort. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
-**BadgeProgress** | Pointer to **NullableInt32** | &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;, out of &#x60;badge_progress_max&#x60;. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. &#x60;null&#x60; when the player has no ranked match in range. | [optional] 
-**BadgeProgressMax** | Pointer to **NullableInt32** | &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the points the subrank of &#x60;badge&#x60; spans in that match&#39;s season (&#x60;sub_rank_xp&#x60; in &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;). &#x60;null&#x60; in Eternus and when the player has no ranked match in range. | [optional] 
+**AccountId** | **int64** |  | 
+**Badge** | Pointer to **NullableInt64** | &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the rank badge the progress in &#x60;value&#x60; falls in, &#x60;0&#x60; when the player has no ranked match in range. Omitted for every other sort. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**BadgeProgress** | Pointer to **NullableInt64** | &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;, out of &#x60;badge_progress_max&#x60;. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. &#x60;null&#x60; when the player has no ranked match in range. | [optional] 
+**BadgeProgressMax** | Pointer to **NullableInt64** | &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the points the subrank of &#x60;badge&#x60; spans in that match&#39;s season (&#x60;sub_rank_xp&#x60; in &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;). &#x60;null&#x60; in Eternus and when the player has no ranked match in range. | [optional] 
 **Matches** | **int64** |  | 
 **Rank** | **int64** |  | 
 **Value** | **float64** |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewPlayerEntry
 
-`func NewPlayerEntry(accountId int32, matches int64, rank int64, value float64, ) *PlayerEntry`
+`func NewPlayerEntry(accountId int64, matches int64, rank int64, value float64, ) *PlayerEntry`
 
 NewPlayerEntry instantiates a new PlayerEntry object
 This constructor will assign default values to properties that have it defined,
@@ -33,40 +33,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAccountId
 
-`func (o *PlayerEntry) GetAccountId() int32`
+`func (o *PlayerEntry) GetAccountId() int64`
 
 GetAccountId returns the AccountId field if non-nil, zero value otherwise.
 
 ### GetAccountIdOk
 
-`func (o *PlayerEntry) GetAccountIdOk() (*int32, bool)`
+`func (o *PlayerEntry) GetAccountIdOk() (*int64, bool)`
 
 GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccountId
 
-`func (o *PlayerEntry) SetAccountId(v int32)`
+`func (o *PlayerEntry) SetAccountId(v int64)`
 
 SetAccountId sets AccountId field to given value.
 
 
 ### GetBadge
 
-`func (o *PlayerEntry) GetBadge() int32`
+`func (o *PlayerEntry) GetBadge() int64`
 
 GetBadge returns the Badge field if non-nil, zero value otherwise.
 
 ### GetBadgeOk
 
-`func (o *PlayerEntry) GetBadgeOk() (*int32, bool)`
+`func (o *PlayerEntry) GetBadgeOk() (*int64, bool)`
 
 GetBadgeOk returns a tuple with the Badge field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBadge
 
-`func (o *PlayerEntry) SetBadge(v int32)`
+`func (o *PlayerEntry) SetBadge(v int64)`
 
 SetBadge sets Badge field to given value.
 
@@ -88,20 +88,20 @@ HasBadge returns a boolean if a field has been set.
 UnsetBadge ensures that no value is present for Badge, not even an explicit nil
 ### GetBadgeProgress
 
-`func (o *PlayerEntry) GetBadgeProgress() int32`
+`func (o *PlayerEntry) GetBadgeProgress() int64`
 
 GetBadgeProgress returns the BadgeProgress field if non-nil, zero value otherwise.
 
 ### GetBadgeProgressOk
 
-`func (o *PlayerEntry) GetBadgeProgressOk() (*int32, bool)`
+`func (o *PlayerEntry) GetBadgeProgressOk() (*int64, bool)`
 
 GetBadgeProgressOk returns a tuple with the BadgeProgress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBadgeProgress
 
-`func (o *PlayerEntry) SetBadgeProgress(v int32)`
+`func (o *PlayerEntry) SetBadgeProgress(v int64)`
 
 SetBadgeProgress sets BadgeProgress field to given value.
 
@@ -123,20 +123,20 @@ HasBadgeProgress returns a boolean if a field has been set.
 UnsetBadgeProgress ensures that no value is present for BadgeProgress, not even an explicit nil
 ### GetBadgeProgressMax
 
-`func (o *PlayerEntry) GetBadgeProgressMax() int32`
+`func (o *PlayerEntry) GetBadgeProgressMax() int64`
 
 GetBadgeProgressMax returns the BadgeProgressMax field if non-nil, zero value otherwise.
 
 ### GetBadgeProgressMaxOk
 
-`func (o *PlayerEntry) GetBadgeProgressMaxOk() (*int32, bool)`
+`func (o *PlayerEntry) GetBadgeProgressMaxOk() (*int64, bool)`
 
 GetBadgeProgressMaxOk returns a tuple with the BadgeProgressMax field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBadgeProgressMax
 
-`func (o *PlayerEntry) SetBadgeProgressMax(v int32)`
+`func (o *PlayerEntry) SetBadgeProgressMax(v int64)`
 
 SetBadgeProgressMax sets BadgeProgressMax field to given value.
 

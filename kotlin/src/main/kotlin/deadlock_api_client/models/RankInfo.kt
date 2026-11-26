@@ -46,7 +46,7 @@ data class RankInfo (
 
     /* Rank badge (tier * 10 + subrank) the entry stops at: it covers the ranks below it. In Beta Season 2, 91 (Phantom I) gives every rank below Phantom shields and Phantom and up none. */
     @Json(name = "rank_end")
-    val rankEnd: kotlin.Int? = null,
+    val rankEnd: kotlin.Long? = null,
 
     /* Losses a player can take before dropping a subrank (rank loss protection shields). */
     @Json(name = "sub_rank_shields")
@@ -54,7 +54,7 @@ data class RankInfo (
 
     /* Rank points needed per subrank step, the last one being the step to the next badge (Beta Season 2: 1000 between subranks, 1500 from the final subrank). */
     @Json(name = "sub_rank_xp")
-    val subRankXp: kotlin.collections.List<kotlin.Int>? = null
+    val subRankXp: kotlin.collections.List<kotlin.Long>? = null
 
 ) : Serializable {
     companion object {

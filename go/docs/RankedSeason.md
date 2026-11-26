@@ -4,25 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BaseWinLossPointGrant** | Pointer to **NullableInt32** | Base rank points granted per win / taken per loss (build 6701+). | [optional] 
-**CalibrationMatches** | **int32** |  | 
-**CalibrationMaxRank** | Pointer to **NullableInt32** | Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve&#39;s notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance. | [optional] 
+**BaseWinLossPointGrant** | Pointer to **NullableInt64** | Base rank points granted per win / taken per loss (build 6701+). | [optional] 
+**CalibrationMatches** | **int64** |  | 
+**CalibrationMaxRank** | Pointer to **NullableInt64** | Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve&#39;s notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance. | [optional] 
 **ClassName** | **string** |  | 
 **Intervals** | [**[]SeasonInterval**](SeasonInterval.md) |  | 
-**MinHeroUnlockPoints** | Pointer to **NullableInt32** | Points a hero needs to count towards &#x60;min_hero_unlocks&#x60;: 2 per win, 1 per loss (build 6857+). | [optional] 
-**MinHeroUnlocks** | **int32** |  | 
-**MinHeroWins** | Pointer to **NullableInt32** | Wins a hero needs to count towards &#x60;min_hero_unlocks&#x60;. Absent where the season counts hero points instead, see &#x60;min_hero_unlock_points&#x60;. | [optional] 
-**MinWins** | **int32** |  | 
+**MinHeroUnlockPoints** | Pointer to **NullableInt64** | Points a hero needs to count towards &#x60;min_hero_unlocks&#x60;: 2 per win, 1 per loss (build 6857+). | [optional] 
+**MinHeroUnlocks** | **int64** |  | 
+**MinHeroWins** | Pointer to **NullableInt64** | Wins a hero needs to count towards &#x60;min_hero_unlocks&#x60;. Absent where the season counts hero points instead, see &#x60;min_hero_unlock_points&#x60;. | [optional] 
+**MinWins** | **int64** |  | 
 **Name** | **string** |  | 
 **RankInfo** | Pointer to [**[]RankInfo**](RankInfo.md) | Rank progression settings (build 6857+). | [optional] 
 **RankedType** | **string** |  | 
-**ValidPartySizes** | **[]int32** |  | 
+**ValidPartySizes** | **[]int64** |  | 
 
 ## Methods
 
 ### NewRankedSeason
 
-`func NewRankedSeason(calibrationMatches int32, className string, intervals []SeasonInterval, minHeroUnlocks int32, minWins int32, name string, rankedType string, validPartySizes []int32, ) *RankedSeason`
+`func NewRankedSeason(calibrationMatches int64, className string, intervals []SeasonInterval, minHeroUnlocks int64, minWins int64, name string, rankedType string, validPartySizes []int64, ) *RankedSeason`
 
 NewRankedSeason instantiates a new RankedSeason object
 This constructor will assign default values to properties that have it defined,
@@ -39,20 +39,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetBaseWinLossPointGrant
 
-`func (o *RankedSeason) GetBaseWinLossPointGrant() int32`
+`func (o *RankedSeason) GetBaseWinLossPointGrant() int64`
 
 GetBaseWinLossPointGrant returns the BaseWinLossPointGrant field if non-nil, zero value otherwise.
 
 ### GetBaseWinLossPointGrantOk
 
-`func (o *RankedSeason) GetBaseWinLossPointGrantOk() (*int32, bool)`
+`func (o *RankedSeason) GetBaseWinLossPointGrantOk() (*int64, bool)`
 
 GetBaseWinLossPointGrantOk returns a tuple with the BaseWinLossPointGrant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBaseWinLossPointGrant
 
-`func (o *RankedSeason) SetBaseWinLossPointGrant(v int32)`
+`func (o *RankedSeason) SetBaseWinLossPointGrant(v int64)`
 
 SetBaseWinLossPointGrant sets BaseWinLossPointGrant field to given value.
 
@@ -74,40 +74,40 @@ HasBaseWinLossPointGrant returns a boolean if a field has been set.
 UnsetBaseWinLossPointGrant ensures that no value is present for BaseWinLossPointGrant, not even an explicit nil
 ### GetCalibrationMatches
 
-`func (o *RankedSeason) GetCalibrationMatches() int32`
+`func (o *RankedSeason) GetCalibrationMatches() int64`
 
 GetCalibrationMatches returns the CalibrationMatches field if non-nil, zero value otherwise.
 
 ### GetCalibrationMatchesOk
 
-`func (o *RankedSeason) GetCalibrationMatchesOk() (*int32, bool)`
+`func (o *RankedSeason) GetCalibrationMatchesOk() (*int64, bool)`
 
 GetCalibrationMatchesOk returns a tuple with the CalibrationMatches field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCalibrationMatches
 
-`func (o *RankedSeason) SetCalibrationMatches(v int32)`
+`func (o *RankedSeason) SetCalibrationMatches(v int64)`
 
 SetCalibrationMatches sets CalibrationMatches field to given value.
 
 
 ### GetCalibrationMaxRank
 
-`func (o *RankedSeason) GetCalibrationMaxRank() int32`
+`func (o *RankedSeason) GetCalibrationMaxRank() int64`
 
 GetCalibrationMaxRank returns the CalibrationMaxRank field if non-nil, zero value otherwise.
 
 ### GetCalibrationMaxRankOk
 
-`func (o *RankedSeason) GetCalibrationMaxRankOk() (*int32, bool)`
+`func (o *RankedSeason) GetCalibrationMaxRankOk() (*int64, bool)`
 
 GetCalibrationMaxRankOk returns a tuple with the CalibrationMaxRank field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCalibrationMaxRank
 
-`func (o *RankedSeason) SetCalibrationMaxRank(v int32)`
+`func (o *RankedSeason) SetCalibrationMaxRank(v int64)`
 
 SetCalibrationMaxRank sets CalibrationMaxRank field to given value.
 
@@ -169,20 +169,20 @@ SetIntervals sets Intervals field to given value.
 
 ### GetMinHeroUnlockPoints
 
-`func (o *RankedSeason) GetMinHeroUnlockPoints() int32`
+`func (o *RankedSeason) GetMinHeroUnlockPoints() int64`
 
 GetMinHeroUnlockPoints returns the MinHeroUnlockPoints field if non-nil, zero value otherwise.
 
 ### GetMinHeroUnlockPointsOk
 
-`func (o *RankedSeason) GetMinHeroUnlockPointsOk() (*int32, bool)`
+`func (o *RankedSeason) GetMinHeroUnlockPointsOk() (*int64, bool)`
 
 GetMinHeroUnlockPointsOk returns a tuple with the MinHeroUnlockPoints field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMinHeroUnlockPoints
 
-`func (o *RankedSeason) SetMinHeroUnlockPoints(v int32)`
+`func (o *RankedSeason) SetMinHeroUnlockPoints(v int64)`
 
 SetMinHeroUnlockPoints sets MinHeroUnlockPoints field to given value.
 
@@ -204,40 +204,40 @@ HasMinHeroUnlockPoints returns a boolean if a field has been set.
 UnsetMinHeroUnlockPoints ensures that no value is present for MinHeroUnlockPoints, not even an explicit nil
 ### GetMinHeroUnlocks
 
-`func (o *RankedSeason) GetMinHeroUnlocks() int32`
+`func (o *RankedSeason) GetMinHeroUnlocks() int64`
 
 GetMinHeroUnlocks returns the MinHeroUnlocks field if non-nil, zero value otherwise.
 
 ### GetMinHeroUnlocksOk
 
-`func (o *RankedSeason) GetMinHeroUnlocksOk() (*int32, bool)`
+`func (o *RankedSeason) GetMinHeroUnlocksOk() (*int64, bool)`
 
 GetMinHeroUnlocksOk returns a tuple with the MinHeroUnlocks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMinHeroUnlocks
 
-`func (o *RankedSeason) SetMinHeroUnlocks(v int32)`
+`func (o *RankedSeason) SetMinHeroUnlocks(v int64)`
 
 SetMinHeroUnlocks sets MinHeroUnlocks field to given value.
 
 
 ### GetMinHeroWins
 
-`func (o *RankedSeason) GetMinHeroWins() int32`
+`func (o *RankedSeason) GetMinHeroWins() int64`
 
 GetMinHeroWins returns the MinHeroWins field if non-nil, zero value otherwise.
 
 ### GetMinHeroWinsOk
 
-`func (o *RankedSeason) GetMinHeroWinsOk() (*int32, bool)`
+`func (o *RankedSeason) GetMinHeroWinsOk() (*int64, bool)`
 
 GetMinHeroWinsOk returns a tuple with the MinHeroWins field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMinHeroWins
 
-`func (o *RankedSeason) SetMinHeroWins(v int32)`
+`func (o *RankedSeason) SetMinHeroWins(v int64)`
 
 SetMinHeroWins sets MinHeroWins field to given value.
 
@@ -259,20 +259,20 @@ HasMinHeroWins returns a boolean if a field has been set.
 UnsetMinHeroWins ensures that no value is present for MinHeroWins, not even an explicit nil
 ### GetMinWins
 
-`func (o *RankedSeason) GetMinWins() int32`
+`func (o *RankedSeason) GetMinWins() int64`
 
 GetMinWins returns the MinWins field if non-nil, zero value otherwise.
 
 ### GetMinWinsOk
 
-`func (o *RankedSeason) GetMinWinsOk() (*int32, bool)`
+`func (o *RankedSeason) GetMinWinsOk() (*int64, bool)`
 
 GetMinWinsOk returns a tuple with the MinWins field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMinWins
 
-`func (o *RankedSeason) SetMinWins(v int32)`
+`func (o *RankedSeason) SetMinWins(v int64)`
 
 SetMinWins sets MinWins field to given value.
 
@@ -344,20 +344,20 @@ SetRankedType sets RankedType field to given value.
 
 ### GetValidPartySizes
 
-`func (o *RankedSeason) GetValidPartySizes() []int32`
+`func (o *RankedSeason) GetValidPartySizes() []int64`
 
 GetValidPartySizes returns the ValidPartySizes field if non-nil, zero value otherwise.
 
 ### GetValidPartySizesOk
 
-`func (o *RankedSeason) GetValidPartySizesOk() (*[]int32, bool)`
+`func (o *RankedSeason) GetValidPartySizesOk() (*[]int64, bool)`
 
 GetValidPartySizesOk returns a tuple with the ValidPartySizes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValidPartySizes
 
-`func (o *RankedSeason) SetValidPartySizes(v []int32)`
+`func (o *RankedSeason) SetValidPartySizes(v []int64)`
 
 SetValidPartySizes sets ValidPartySizes field to given value.
 

@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassName** | **string** |  | 
-**Id** | **int** |  | 
+**Id** | **long** |  | 
 **Name** | **string** |  | 
 **Type** | **string** |  | 
 **CrosshairCssClass** | **string** |  | [optional] 
 **CustomCrosshairSettings** | [**RawCustomCrosshairSettings**](RawCustomCrosshairSettings.md) |  | [optional] 
-**Hero** | **int** |  | [optional] 
-**Heroes** | **List&lt;int&gt;** |  | [optional] 
+**Hero** | **long** |  | [optional] 
+**Heroes** | **List&lt;long&gt;** |  | [optional] 
 **Image** | **string** |  | [optional] 
 **ImageWebp** | **string** |  | [optional] 
 **Properties** | [**Dictionary&lt;string, ItemProperty&gt;**](ItemProperty.md) |  | [optional] 

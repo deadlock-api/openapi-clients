@@ -30,8 +30,8 @@ class ActiveMatchPlayer(BaseModel):
     ActiveMatchPlayer
     """ # noqa: E501
     abandoned: Optional[StrictBool] = None
-    account_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    hero_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    account_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    hero_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     team: Optional[StrictInt] = None
     team_parsed: Optional[ActiveMatchTeam] = None
     __properties: ClassVar[List[str]] = ["abandoned", "account_id", "hero_id", "team", "team_parsed"]

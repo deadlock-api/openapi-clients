@@ -23,7 +23,7 @@ var _ MappedNullable = &HeroPopularItem{}
 type HeroPopularItem struct {
 	ClassName string `json:"class_name"`
 	// Item id, derived from `class_name` like `/v2/items` ids.
-	ItemId int32 `json:"item_id"`
+	ItemId int64 `json:"item_id"`
 	// Pick rate in percent (0-100).
 	PickPct float64 `json:"pick_pct"`
 	// Win rate in percent (0-100).
@@ -36,7 +36,7 @@ type _HeroPopularItem HeroPopularItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroPopularItem(className string, itemId int32, pickPct float64, winratePct float64) *HeroPopularItem {
+func NewHeroPopularItem(className string, itemId int64, pickPct float64, winratePct float64) *HeroPopularItem {
 	this := HeroPopularItem{}
 	this.ClassName = className
 	this.ItemId = itemId
@@ -78,9 +78,9 @@ func (o *HeroPopularItem) SetClassName(v string) {
 }
 
 // GetItemId returns the ItemId field value
-func (o *HeroPopularItem) GetItemId() int32 {
+func (o *HeroPopularItem) GetItemId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -89,7 +89,7 @@ func (o *HeroPopularItem) GetItemId() int32 {
 
 // GetItemIdOk returns a tuple with the ItemId field value
 // and a boolean to check if the value has been set.
-func (o *HeroPopularItem) GetItemIdOk() (*int32, bool) {
+func (o *HeroPopularItem) GetItemIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -97,7 +97,7 @@ func (o *HeroPopularItem) GetItemIdOk() (*int32, bool) {
 }
 
 // SetItemId sets field value
-func (o *HeroPopularItem) SetItemId(v int32) {
+func (o *HeroPopularItem) SetItemId(v int64) {
 	o.ItemId = v
 }
 

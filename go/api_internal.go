@@ -566,7 +566,7 @@ func (a *InternalAPIService) IngestSaltsExecute(r ApiIngestSaltsRequest) (*http.
 type ApiIngestStatusRequest struct {
 	ctx context.Context
 	ApiService *InternalAPIService
-	accountId int32
+	accountId int64
 }
 
 func (r ApiIngestStatusRequest) Execute() (*IngestStatusResponse, *http.Response, error) {
@@ -587,7 +587,7 @@ this account within the last 14 days. Only uploads whose own salt was verified c
  @param accountId The players `SteamID3`
  @return ApiIngestStatusRequest
 */
-func (a *InternalAPIService) IngestStatus(ctx context.Context, accountId int32) ApiIngestStatusRequest {
+func (a *InternalAPIService) IngestStatus(ctx context.Context, accountId int64) ApiIngestStatusRequest {
 	return ApiIngestStatusRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -618,6 +618,9 @@ func (a *InternalAPIService) IngestStatusExecute(r ApiIngestStatusRequest) (*Ing
 	localVarFormParams := url.Values{}
 	if r.accountId < 0 {
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+	if r.accountId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accountId must be less than 4294967295")
 	}
 
 	// to determine the Content-Type header

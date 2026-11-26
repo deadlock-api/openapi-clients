@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="name">name</param>
         /// <param name="tier">tier</param>
         [JsonConstructor]
-        public Rank(string color, RankImages images, string name, int tier)
+        public Rank(string color, RankImages images, string name, long tier)
         {
             Color = color;
             Images = images;
@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Tier
         /// </summary>
         [JsonPropertyName("tier")]
-        public int Tier { get; set; }
+        public long Tier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -96,8 +96,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Tier (int) minimum
-            if (this.Tier < (int)0)
+            // Tier (long) maximum
+            if (this.Tier > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tier, must be a value less than or equal to 4294967295.", new [] { "Tier" });
+            }
+
+            // Tier (long) minimum
+            if (this.Tier < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tier, must be a value greater than or equal to 0.", new [] { "Tier" });
             }
@@ -141,7 +147,7 @@ namespace DeadlockApiClient.Model
             Option<string?> color = default;
             Option<RankImages?> images = default;
             Option<string?> name = default;
-            Option<int?> tier = default;
+            Option<long?> tier = default;
 
             while (utf8JsonReader.Read())
             {
@@ -168,7 +174,7 @@ namespace DeadlockApiClient.Model
                             name = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "tier":
-                            tier = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            tier = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

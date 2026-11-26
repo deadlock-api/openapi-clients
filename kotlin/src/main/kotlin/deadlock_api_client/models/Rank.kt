@@ -49,7 +49,7 @@ data class Rank (
     val name: kotlin.String,
 
     @Json(name = "tier")
-    val tier: kotlin.Int
+    val tier: kotlin.Long
 
 ) : Serializable {
     companion object {

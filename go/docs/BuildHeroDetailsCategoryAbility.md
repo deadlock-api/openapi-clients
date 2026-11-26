@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AbilityId** | **int32** |  | 
+**AbilityId** | **int64** |  | 
 **Annotation** | Pointer to **NullableString** |  | [optional] 
-**ImbueTargetAbilityId** | Pointer to **NullableInt32** |  | [optional] 
-**RequiredFlexSlots** | Pointer to **NullableInt32** |  | [optional] 
-**SellPriority** | Pointer to **NullableInt32** |  | [optional] 
+**ImbueTargetAbilityId** | Pointer to **NullableInt64** |  | [optional] 
+**RequiredFlexSlots** | Pointer to **NullableInt64** |  | [optional] 
+**SellPriority** | Pointer to **NullableInt64** |  | [optional] 
 
 ## Methods
 
 ### NewBuildHeroDetailsCategoryAbility
 
-`func NewBuildHeroDetailsCategoryAbility(abilityId int32, ) *BuildHeroDetailsCategoryAbility`
+`func NewBuildHeroDetailsCategoryAbility(abilityId int64, ) *BuildHeroDetailsCategoryAbility`
 
 NewBuildHeroDetailsCategoryAbility instantiates a new BuildHeroDetailsCategoryAbility object
 This constructor will assign default values to properties that have it defined,
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAbilityId
 
-`func (o *BuildHeroDetailsCategoryAbility) GetAbilityId() int32`
+`func (o *BuildHeroDetailsCategoryAbility) GetAbilityId() int64`
 
 GetAbilityId returns the AbilityId field if non-nil, zero value otherwise.
 
 ### GetAbilityIdOk
 
-`func (o *BuildHeroDetailsCategoryAbility) GetAbilityIdOk() (*int32, bool)`
+`func (o *BuildHeroDetailsCategoryAbility) GetAbilityIdOk() (*int64, bool)`
 
 GetAbilityIdOk returns a tuple with the AbilityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAbilityId
 
-`func (o *BuildHeroDetailsCategoryAbility) SetAbilityId(v int32)`
+`func (o *BuildHeroDetailsCategoryAbility) SetAbilityId(v int64)`
 
 SetAbilityId sets AbilityId field to given value.
 
@@ -86,20 +86,20 @@ HasAnnotation returns a boolean if a field has been set.
 UnsetAnnotation ensures that no value is present for Annotation, not even an explicit nil
 ### GetImbueTargetAbilityId
 
-`func (o *BuildHeroDetailsCategoryAbility) GetImbueTargetAbilityId() int32`
+`func (o *BuildHeroDetailsCategoryAbility) GetImbueTargetAbilityId() int64`
 
 GetImbueTargetAbilityId returns the ImbueTargetAbilityId field if non-nil, zero value otherwise.
 
 ### GetImbueTargetAbilityIdOk
 
-`func (o *BuildHeroDetailsCategoryAbility) GetImbueTargetAbilityIdOk() (*int32, bool)`
+`func (o *BuildHeroDetailsCategoryAbility) GetImbueTargetAbilityIdOk() (*int64, bool)`
 
 GetImbueTargetAbilityIdOk returns a tuple with the ImbueTargetAbilityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImbueTargetAbilityId
 
-`func (o *BuildHeroDetailsCategoryAbility) SetImbueTargetAbilityId(v int32)`
+`func (o *BuildHeroDetailsCategoryAbility) SetImbueTargetAbilityId(v int64)`
 
 SetImbueTargetAbilityId sets ImbueTargetAbilityId field to given value.
 
@@ -121,20 +121,20 @@ HasImbueTargetAbilityId returns a boolean if a field has been set.
 UnsetImbueTargetAbilityId ensures that no value is present for ImbueTargetAbilityId, not even an explicit nil
 ### GetRequiredFlexSlots
 
-`func (o *BuildHeroDetailsCategoryAbility) GetRequiredFlexSlots() int32`
+`func (o *BuildHeroDetailsCategoryAbility) GetRequiredFlexSlots() int64`
 
 GetRequiredFlexSlots returns the RequiredFlexSlots field if non-nil, zero value otherwise.
 
 ### GetRequiredFlexSlotsOk
 
-`func (o *BuildHeroDetailsCategoryAbility) GetRequiredFlexSlotsOk() (*int32, bool)`
+`func (o *BuildHeroDetailsCategoryAbility) GetRequiredFlexSlotsOk() (*int64, bool)`
 
 GetRequiredFlexSlotsOk returns a tuple with the RequiredFlexSlots field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRequiredFlexSlots
 
-`func (o *BuildHeroDetailsCategoryAbility) SetRequiredFlexSlots(v int32)`
+`func (o *BuildHeroDetailsCategoryAbility) SetRequiredFlexSlots(v int64)`
 
 SetRequiredFlexSlots sets RequiredFlexSlots field to given value.
 
@@ -156,20 +156,20 @@ HasRequiredFlexSlots returns a boolean if a field has been set.
 UnsetRequiredFlexSlots ensures that no value is present for RequiredFlexSlots, not even an explicit nil
 ### GetSellPriority
 
-`func (o *BuildHeroDetailsCategoryAbility) GetSellPriority() int32`
+`func (o *BuildHeroDetailsCategoryAbility) GetSellPriority() int64`
 
 GetSellPriority returns the SellPriority field if non-nil, zero value otherwise.
 
 ### GetSellPriorityOk
 
-`func (o *BuildHeroDetailsCategoryAbility) GetSellPriorityOk() (*int32, bool)`
+`func (o *BuildHeroDetailsCategoryAbility) GetSellPriorityOk() (*int64, bool)`
 
 GetSellPriorityOk returns a tuple with the SellPriority field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSellPriority
 
-`func (o *BuildHeroDetailsCategoryAbility) SetSellPriority(v int32)`
+`func (o *BuildHeroDetailsCategoryAbility) SetSellPriority(v int64)`
 
 SetSellPriority sets SellPriority field to given value.
 

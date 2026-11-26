@@ -40,7 +40,7 @@ namespace DeadlockApiClient.Model
         /// <param name="numWeeklyFavorites">numWeeklyFavorites</param>
         /// <param name="rollupCategory">rollupCategory</param>
         [JsonConstructor]
-        public Build(BuildHero heroBuild, Option<int?> numFavorites = default, Option<int?> numIgnores = default, Option<int?> numReports = default, Option<int?> numWeeklyFavorites = default, Option<int?> rollupCategory = default)
+        public Build(BuildHero heroBuild, Option<long?> numFavorites = default, Option<long?> numIgnores = default, Option<long?> numReports = default, Option<long?> numWeeklyFavorites = default, Option<long?> rollupCategory = default)
         {
             HeroBuild = heroBuild;
             NumFavoritesOption = numFavorites;
@@ -64,65 +64,65 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> NumFavoritesOption { get; private set; }
+        public Option<long?> NumFavoritesOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets NumFavorites
         /// </summary>
         [JsonPropertyName("num_favorites")]
-        public int? NumFavorites { get { return this.NumFavoritesOption.Value; } set { this.NumFavoritesOption = new(value); } }
+        public long? NumFavorites { get { return this.NumFavoritesOption.Value; } set { this.NumFavoritesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NumIgnores
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> NumIgnoresOption { get; private set; }
+        public Option<long?> NumIgnoresOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets NumIgnores
         /// </summary>
         [JsonPropertyName("num_ignores")]
-        public int? NumIgnores { get { return this.NumIgnoresOption.Value; } set { this.NumIgnoresOption = new(value); } }
+        public long? NumIgnores { get { return this.NumIgnoresOption.Value; } set { this.NumIgnoresOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NumReports
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> NumReportsOption { get; private set; }
+        public Option<long?> NumReportsOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets NumReports
         /// </summary>
         [JsonPropertyName("num_reports")]
-        public int? NumReports { get { return this.NumReportsOption.Value; } set { this.NumReportsOption = new(value); } }
+        public long? NumReports { get { return this.NumReportsOption.Value; } set { this.NumReportsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NumWeeklyFavorites
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> NumWeeklyFavoritesOption { get; private set; }
+        public Option<long?> NumWeeklyFavoritesOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets NumWeeklyFavorites
         /// </summary>
         [JsonPropertyName("num_weekly_favorites")]
-        public int? NumWeeklyFavorites { get { return this.NumWeeklyFavoritesOption.Value; } set { this.NumWeeklyFavoritesOption = new(value); } }
+        public long? NumWeeklyFavorites { get { return this.NumWeeklyFavoritesOption.Value; } set { this.NumWeeklyFavoritesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RollupCategory
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> RollupCategoryOption { get; private set; }
+        public Option<long?> RollupCategoryOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets RollupCategory
         /// </summary>
         [JsonPropertyName("rollup_category")]
-        public int? RollupCategory { get { return this.RollupCategoryOption.Value; } set { this.RollupCategoryOption = new(value); } }
+        public long? RollupCategory { get { return this.RollupCategoryOption.Value; } set { this.RollupCategoryOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -149,32 +149,62 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // NumFavorites (int) minimum
-            if (this.NumFavoritesOption.IsSet && this.NumFavoritesOption.Value < (int)0)
+            // NumFavorites (long) maximum
+            if (this.NumFavoritesOption.IsSet && this.NumFavoritesOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumFavorites, must be a value less than or equal to 4294967295.", new [] { "NumFavorites" });
+            }
+
+            // NumFavorites (long) minimum
+            if (this.NumFavoritesOption.IsSet && this.NumFavoritesOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumFavorites, must be a value greater than or equal to 0.", new [] { "NumFavorites" });
             }
 
-            // NumIgnores (int) minimum
-            if (this.NumIgnoresOption.IsSet && this.NumIgnoresOption.Value < (int)0)
+            // NumIgnores (long) maximum
+            if (this.NumIgnoresOption.IsSet && this.NumIgnoresOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumIgnores, must be a value less than or equal to 4294967295.", new [] { "NumIgnores" });
+            }
+
+            // NumIgnores (long) minimum
+            if (this.NumIgnoresOption.IsSet && this.NumIgnoresOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumIgnores, must be a value greater than or equal to 0.", new [] { "NumIgnores" });
             }
 
-            // NumReports (int) minimum
-            if (this.NumReportsOption.IsSet && this.NumReportsOption.Value < (int)0)
+            // NumReports (long) maximum
+            if (this.NumReportsOption.IsSet && this.NumReportsOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumReports, must be a value less than or equal to 4294967295.", new [] { "NumReports" });
+            }
+
+            // NumReports (long) minimum
+            if (this.NumReportsOption.IsSet && this.NumReportsOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumReports, must be a value greater than or equal to 0.", new [] { "NumReports" });
             }
 
-            // NumWeeklyFavorites (int) minimum
-            if (this.NumWeeklyFavoritesOption.IsSet && this.NumWeeklyFavoritesOption.Value < (int)0)
+            // NumWeeklyFavorites (long) maximum
+            if (this.NumWeeklyFavoritesOption.IsSet && this.NumWeeklyFavoritesOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumWeeklyFavorites, must be a value less than or equal to 4294967295.", new [] { "NumWeeklyFavorites" });
+            }
+
+            // NumWeeklyFavorites (long) minimum
+            if (this.NumWeeklyFavoritesOption.IsSet && this.NumWeeklyFavoritesOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumWeeklyFavorites, must be a value greater than or equal to 0.", new [] { "NumWeeklyFavorites" });
             }
 
-            // RollupCategory (int) minimum
-            if (this.RollupCategoryOption.IsSet && this.RollupCategoryOption.Value < (int)0)
+            // RollupCategory (long) maximum
+            if (this.RollupCategoryOption.IsSet && this.RollupCategoryOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RollupCategory, must be a value less than or equal to 4294967295.", new [] { "RollupCategory" });
+            }
+
+            // RollupCategory (long) minimum
+            if (this.RollupCategoryOption.IsSet && this.RollupCategoryOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RollupCategory, must be a value greater than or equal to 0.", new [] { "RollupCategory" });
             }
@@ -216,11 +246,11 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<BuildHero?> heroBuild = default;
-            Option<int?> numFavorites = default;
-            Option<int?> numIgnores = default;
-            Option<int?> numReports = default;
-            Option<int?> numWeeklyFavorites = default;
-            Option<int?> rollupCategory = default;
+            Option<long?> numFavorites = default;
+            Option<long?> numIgnores = default;
+            Option<long?> numReports = default;
+            Option<long?> numWeeklyFavorites = default;
+            Option<long?> rollupCategory = default;
 
             while (utf8JsonReader.Read())
             {
@@ -241,19 +271,19 @@ namespace DeadlockApiClient.Model
                             heroBuild = new Option<BuildHero?>(JsonSerializer.Deserialize<BuildHero>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "num_favorites":
-                            numFavorites = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            numFavorites = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "num_ignores":
-                            numIgnores = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            numIgnores = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "num_reports":
-                            numReports = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            numReports = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "num_weekly_favorites":
-                            numWeeklyFavorites = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            numWeeklyFavorites = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "rollup_category":
-                            rollupCategory = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            rollupCategory = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

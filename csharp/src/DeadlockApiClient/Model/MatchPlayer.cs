@@ -35,7 +35,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="accountId">accountId</param>
         [JsonConstructor]
-        public MatchPlayer(int accountId)
+        public MatchPlayer(long accountId)
         {
             AccountId = accountId;
             OnCreated();
@@ -47,7 +47,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AccountId
         /// </summary>
         [JsonPropertyName("account_id")]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,8 +69,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AccountId (int) minimum
-            if (this.AccountId < (int)0)
+            // AccountId (long) maximum
+            if (this.AccountId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value less than or equal to 4294967295.", new [] { "AccountId" });
+            }
+
+            // AccountId (long) minimum
+            if (this.AccountId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
@@ -111,7 +117,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> accountId = default;
+            Option<long?> accountId = default;
 
             while (utf8JsonReader.Read())
             {
@@ -129,7 +135,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "account_id":
-                            accountId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            accountId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

@@ -28,7 +28,7 @@ type ItemFlowNode struct {
 	// The phase column (0-based) the item was bought in.
 	Column int32 `json:"column"`
 	// See more: <https://api.deadlock-api.com/v1/assets/items>
-	ItemId int32 `json:"item_id"`
+	ItemId int64 `json:"item_id"`
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`
 	Players int64 `json:"players"`
@@ -44,7 +44,7 @@ type _ItemFlowNode ItemFlowNode
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemFlowNode(adjustedWinRate float64, avgNetWorthAtBuy float64, column int32, itemId int32, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64) *ItemFlowNode {
+func NewItemFlowNode(adjustedWinRate float64, avgNetWorthAtBuy float64, column int32, itemId int64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64) *ItemFlowNode {
 	this := ItemFlowNode{}
 	this.AdjustedWinRate = adjustedWinRate
 	this.AvgNetWorthAtBuy = avgNetWorthAtBuy
@@ -141,9 +141,9 @@ func (o *ItemFlowNode) SetColumn(v int32) {
 }
 
 // GetItemId returns the ItemId field value
-func (o *ItemFlowNode) GetItemId() int32 {
+func (o *ItemFlowNode) GetItemId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -152,7 +152,7 @@ func (o *ItemFlowNode) GetItemId() int32 {
 
 // GetItemIdOk returns a tuple with the ItemId field value
 // and a boolean to check if the value has been set.
-func (o *ItemFlowNode) GetItemIdOk() (*int32, bool) {
+func (o *ItemFlowNode) GetItemIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -160,7 +160,7 @@ func (o *ItemFlowNode) GetItemIdOk() (*int32, bool) {
 }
 
 // SetItemId sets field value
-func (o *ItemFlowNode) SetItemId(v int32) {
+func (o *ItemFlowNode) SetItemId(v int64) {
 	o.ItemId = v
 }
 

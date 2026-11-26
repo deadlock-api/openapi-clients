@@ -113,7 +113,7 @@ open class BuildTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBuildTag(buildTagId: kotlin.Int, language: LanguageGetBuildTag? = null, clientVersion: kotlin.Int? = null) : BuildTag {
+    fun getBuildTag(buildTagId: kotlin.Long, language: LanguageGetBuildTag? = null, clientVersion: kotlin.Long? = null) : BuildTag {
         val localVarResponse = getBuildTagWithHttpInfo(buildTagId = buildTagId, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -144,7 +144,7 @@ open class BuildTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBuildTagWithHttpInfo(buildTagId: kotlin.Int, language: LanguageGetBuildTag?, clientVersion: kotlin.Int?) : ApiResponse<BuildTag?> {
+    fun getBuildTagWithHttpInfo(buildTagId: kotlin.Long, language: LanguageGetBuildTag?, clientVersion: kotlin.Long?) : ApiResponse<BuildTag?> {
         val localVariableConfig = getBuildTagRequestConfig(buildTagId = buildTagId, language = language, clientVersion = clientVersion)
 
         return request<Unit, BuildTag>(
@@ -160,7 +160,7 @@ open class BuildTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getBuildTagRequestConfig(buildTagId: kotlin.Int, language: LanguageGetBuildTag?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getBuildTagRequestConfig(buildTagId: kotlin.Long, language: LanguageGetBuildTag?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -244,7 +244,7 @@ open class BuildTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getBuildTagByName(name: kotlin.String, language: LanguageGetBuildTagByName? = null, clientVersion: kotlin.Int? = null) : BuildTag {
+    fun getBuildTagByName(name: kotlin.String, language: LanguageGetBuildTagByName? = null, clientVersion: kotlin.Long? = null) : BuildTag {
         val localVarResponse = getBuildTagByNameWithHttpInfo(name = name, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -275,7 +275,7 @@ open class BuildTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getBuildTagByNameWithHttpInfo(name: kotlin.String, language: LanguageGetBuildTagByName?, clientVersion: kotlin.Int?) : ApiResponse<BuildTag?> {
+    fun getBuildTagByNameWithHttpInfo(name: kotlin.String, language: LanguageGetBuildTagByName?, clientVersion: kotlin.Long?) : ApiResponse<BuildTag?> {
         val localVariableConfig = getBuildTagByNameRequestConfig(name = name, language = language, clientVersion = clientVersion)
 
         return request<Unit, BuildTag>(
@@ -291,7 +291,7 @@ open class BuildTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getBuildTagByNameRequestConfig(name: kotlin.String, language: LanguageGetBuildTagByName?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getBuildTagByNameRequestConfig(name: kotlin.String, language: LanguageGetBuildTagByName?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -374,7 +374,7 @@ open class BuildTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listBuildTags(language: LanguageListBuildTags? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<BuildTag> {
+    fun listBuildTags(language: LanguageListBuildTags? = null, clientVersion: kotlin.Long? = null) : kotlin.collections.List<BuildTag> {
         val localVarResponse = listBuildTagsWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -404,7 +404,7 @@ open class BuildTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listBuildTagsWithHttpInfo(language: LanguageListBuildTags?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<BuildTag>?> {
+    fun listBuildTagsWithHttpInfo(language: LanguageListBuildTags?, clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<BuildTag>?> {
         val localVariableConfig = listBuildTagsRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<BuildTag>>(
@@ -419,7 +419,7 @@ open class BuildTagsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listBuildTagsRequestConfig(language: LanguageListBuildTags?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listBuildTagsRequestConfig(language: LanguageListBuildTags?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

@@ -26,9 +26,9 @@ pub struct EnemyStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
@@ -60,9 +60,9 @@ pub struct MateStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on their ID.
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
@@ -91,9 +91,9 @@ pub struct PlayerHeroStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -139,9 +139,9 @@ pub struct RankDistributionParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on whether they are in the high skill range.
     pub is_high_skill_range_parties: Option<bool>,
     /// Filter matches based on whether they are in the low priority pool.

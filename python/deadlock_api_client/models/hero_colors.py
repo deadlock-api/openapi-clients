@@ -28,9 +28,9 @@ class HeroColors(BaseModel):
     """
     HeroColors
     """ # noqa: E501
-    style: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = None
+    style: Optional[List[Annotated[int, Field(le=255, strict=True, ge=0)]]] = None
     style_hex: Optional[StrictStr] = None
-    ui: List[Annotated[int, Field(strict=True, ge=0)]]
+    ui: List[Annotated[int, Field(le=255, strict=True, ge=0)]]
     __properties: ClassVar[List[str]] = ["style", "style_hex", "ui"]
 
     model_config = ConfigDict(

@@ -586,6 +586,9 @@ class SteamInfoApi
     public function getSteamInfoRequest($client_version = null, string $contentType = self::contentTypes['getSteamInfo'][0])
     {
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling SteamInfoApi.getSteamInfo, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling SteamInfoApi.getSteamInfo, must be bigger than or equal to 0.');
         }

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Description** | **string** |  | 
 **EnabledGameModes** | Pointer to **[]string** |  | [optional] 
 **FlavorName** | **string** |  | 
-**Id** | **int32** |  | 
+**Id** | **int64** |  | 
 **ThresholdType** | **string** |  | 
 **TrackedStatName** | **string** |  | 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewAccolade
 
-`func NewAccolade(className string, description string, flavorName string, id int32, thresholdType string, trackedStatName string, ) *Accolade`
+`func NewAccolade(className string, description string, flavorName string, id int64, thresholdType string, trackedStatName string, ) *Accolade`
 
 NewAccolade instantiates a new Accolade object
 This constructor will assign default values to properties that have it defined,
@@ -128,20 +128,20 @@ SetFlavorName sets FlavorName field to given value.
 
 ### GetId
 
-`func (o *Accolade) GetId() int32`
+`func (o *Accolade) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *Accolade) GetIdOk() (*int32, bool)`
+`func (o *Accolade) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *Accolade) SetId(v int32)`
+`func (o *Accolade) SetId(v int64)`
 
 SetId sets Id field to given value.
 

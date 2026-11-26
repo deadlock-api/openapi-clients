@@ -67,7 +67,7 @@ open class ColorsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listColors(clientVersion: kotlin.Int? = null) : kotlin.collections.Map<kotlin.String, Color> {
+    fun listColors(clientVersion: kotlin.Long? = null) : kotlin.collections.Map<kotlin.String, Color> {
         val localVarResponse = listColorsWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -96,7 +96,7 @@ open class ColorsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listColorsWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.Map<kotlin.String, Color>?> {
+    fun listColorsWithHttpInfo(clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.Map<kotlin.String, Color>?> {
         val localVariableConfig = listColorsRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.Map<kotlin.String, Color>>(
@@ -110,7 +110,7 @@ open class ColorsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listColorsRequestConfig(clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listColorsRequestConfig(clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

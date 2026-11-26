@@ -9,7 +9,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getnpcunit"></a>
 # **GetNpcUnit**
-> NpcUnit GetNpcUnit (string idOrClassname, string language = null, int clientVersion = null)
+> NpcUnit GetNpcUnit (string idOrClassname, string language = null, long clientVersion = null)
 
 Get NPC Unit
 
@@ -22,7 +22,7 @@ Returns a single NPC unit by numeric id or by `class_name` (case-insensitive).
 |------|------|-------------|-------|
 | **idOrClassname** | **string** | NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -49,7 +49,7 @@ No authorization required
 
 <a id="listnpcunits"></a>
 # **ListNpcUnits**
-> List&lt;NpcUnit&gt; ListNpcUnits (string language = null, int clientVersion = null)
+> List&lt;NpcUnit&gt; ListNpcUnits (string language = null, long clientVersion = null)
 
 List NPC Units
 
@@ -61,7 +61,7 @@ Returns the per-NPC-unit metadata used by the game client, parsed from the patch
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

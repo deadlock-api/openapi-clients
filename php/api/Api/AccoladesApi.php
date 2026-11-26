@@ -344,11 +344,17 @@ class AccoladesApi
                 'Missing the required parameter $accolade_id when calling getAccolade'
             );
         }
+        if ($accolade_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$accolade_id" when calling AccoladesApi.getAccolade, must be smaller than or equal to 4294967295.');
+        }
         if ($accolade_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$accolade_id" when calling AccoladesApi.getAccolade, must be bigger than or equal to 0.');
         }
         
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling AccoladesApi.getAccolade, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling AccoladesApi.getAccolade, must be bigger than or equal to 0.');
         }
@@ -663,6 +669,9 @@ class AccoladesApi
         }
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling AccoladesApi.getAccoladeByName, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling AccoladesApi.getAccoladeByName, must be bigger than or equal to 0.');
         }
@@ -965,6 +974,9 @@ class AccoladesApi
     {
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling AccoladesApi.listAccolades, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling AccoladesApi.listAccolades, must be bigger than or equal to 0.');
         }

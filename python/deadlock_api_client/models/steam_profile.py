@@ -30,13 +30,13 @@ class SteamProfile(BaseModel):
     """
     SteamProfile
     """ # noqa: E501
-    account_id: Annotated[int, Field(strict=True, ge=0)]
+    account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     avatar: StrictStr
     avatarfull: StrictStr
     avatarmedium: StrictStr
     countrycode: Optional[StrictStr] = None
     friends: List[SteamFriend]
-    last_team_avg_badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    last_team_avg_badge: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     last_updated: datetime
     matches_played_last_30d: Annotated[int, Field(strict=True, ge=0)]
     personaname: StrictStr

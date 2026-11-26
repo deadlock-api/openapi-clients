@@ -48,7 +48,7 @@ namespace DeadlockApiClient.Model
         /// <param name="useCustomCrosshairSettings">useCustomCrosshairSettings</param>
         /// <param name="weaponInfo">weaponInfo</param>
         [JsonConstructor]
-        public Weapon(string className, int id, string name, Option<string?> crosshairCssClass = default, Option<RawCustomCrosshairSettings?> customCrosshairSettings = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<Dictionary<string, ItemProperty>?> properties = default, Option<bool?> startTrained = default, Option<long?> updateTime = default, Option<bool?> useCustomCrosshairSettings = default, Option<WeaponInfo?> weaponInfo = default)
+        public Weapon(string className, long id, string name, Option<string?> crosshairCssClass = default, Option<RawCustomCrosshairSettings?> customCrosshairSettings = default, Option<long?> hero = default, Option<List<long>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<Dictionary<string, ItemProperty>?> properties = default, Option<bool?> startTrained = default, Option<long?> updateTime = default, Option<bool?> useCustomCrosshairSettings = default, Option<WeaponInfo?> weaponInfo = default)
         {
             ClassName = className;
             Id = id;
@@ -79,7 +79,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Id
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -118,26 +118,26 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> HeroOption { get; private set; }
+        public Option<long?> HeroOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Hero
         /// </summary>
         [JsonPropertyName("hero")]
-        public int? Hero { get { return this.HeroOption.Value; } set { this.HeroOption = new(value); } }
+        public long? Hero { get { return this.HeroOption.Value; } set { this.HeroOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Heroes
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<List<int>?> HeroesOption { get; private set; }
+        public Option<List<long>?> HeroesOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Heroes
         /// </summary>
         [JsonPropertyName("heroes")]
-        public List<int>? Heroes { get { return this.HeroesOption.Value; } set { this.HeroesOption = new(value); } }
+        public List<long>? Heroes { get { return this.HeroesOption.Value; } set { this.HeroesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Image
@@ -263,14 +263,26 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (int) minimum
-            if (this.Id < (int)0)
+            // Id (long) maximum
+            if (this.Id > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value less than or equal to 4294967295.", new [] { "Id" });
+            }
+
+            // Id (long) minimum
+            if (this.Id < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 0.", new [] { "Id" });
             }
 
-            // Hero (int) minimum
-            if (this.HeroOption.IsSet && this.HeroOption.Value < (int)0)
+            // Hero (long) maximum
+            if (this.HeroOption.IsSet && this.HeroOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hero, must be a value less than or equal to 4294967295.", new [] { "Hero" });
+            }
+
+            // Hero (long) minimum
+            if (this.HeroOption.IsSet && this.HeroOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hero, must be a value greater than or equal to 0.", new [] { "Hero" });
             }
@@ -312,12 +324,12 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<string?> className = default;
-            Option<int?> id = default;
+            Option<long?> id = default;
             Option<string?> name = default;
             Option<string?> crosshairCssClass = default;
             Option<RawCustomCrosshairSettings?> customCrosshairSettings = default;
-            Option<int?> hero = default;
-            Option<List<int>?> heroes = default;
+            Option<long?> hero = default;
+            Option<List<long>?> heroes = default;
             Option<string?> image = default;
             Option<string?> imageWebp = default;
             Option<Dictionary<string, ItemProperty>?> properties = default;
@@ -345,7 +357,7 @@ namespace DeadlockApiClient.Model
                             className = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "id":
-                            id = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            id = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);
@@ -357,10 +369,10 @@ namespace DeadlockApiClient.Model
                             customCrosshairSettings = new Option<RawCustomCrosshairSettings?>(JsonSerializer.Deserialize<RawCustomCrosshairSettings>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "hero":
-                            hero = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            hero = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "heroes":
-                            heroes = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions));
+                            heroes = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "image":
                             image = new Option<string?>(utf8JsonReader.GetString());

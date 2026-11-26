@@ -122,7 +122,7 @@ func Test_deadlock_api_client_AnalyticsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var heroId int32
+		var heroId int64
 
 		resp, httpRes, err := apiClient.AnalyticsAPI.HeroBuildStats(context.Background(), heroId).Execute()
 

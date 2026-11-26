@@ -10,7 +10,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="fetchbuildlive"></a>
 # **FetchBuildLive**
-> Build FetchBuildLive (int heroId, int buildId, bool forceRefetch = null)
+> Build FetchBuildLive (long heroId, long buildId, bool forceRefetch = null)
 
 Fetch Live
 
@@ -21,8 +21,8 @@ Fetch Live
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **heroId** | **int** | The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
-| **buildId** | **int** | The build ID to fetch. |  |
+| **heroId** | **long** | The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
+| **buildId** | **long** | The build ID to fetch. |  |
 | **forceRefetch** | **bool** | Fetch the build from the Game Coordinator even if it is already in the database. | [optional]  |
 
 ### Return type
@@ -53,7 +53,7 @@ No authorization required
 
 <a id="fetchbuildsbyauthorlive"></a>
 # **FetchBuildsByAuthorLive**
-> List&lt;Build&gt; FetchBuildsByAuthorLive (int accountId)
+> List&lt;Build&gt; FetchBuildsByAuthorLive (long accountId)
 
 Fetch Live by Author
 
@@ -64,7 +64,7 @@ Fetch Live by Author
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+| **accountId** | **long** | The players &#x60;SteamID3&#x60; |  |
 
 ### Return type
 
@@ -93,7 +93,7 @@ No authorization required
 
 <a id="searchbuilds"></a>
 # **SearchBuilds**
-> List&lt;Build&gt; SearchBuilds (long minUnixTimestamp = null, long maxUnixTimestamp = null, long minPublishedUnixTimestamp = null, long maxPublishedUnixTimestamp = null, string sortBy = null, int start = null, int limit = null, string sortDirection = null, string searchName = null, string searchDescription = null, bool onlyLatest = null, int language = null, string buildLanguage = null, int buildId = null, int version = null, int heroId = null, int tag = null, int rollupCategory = null, int authorId = null)
+> List&lt;Build&gt; SearchBuilds (long minUnixTimestamp = null, long maxUnixTimestamp = null, long minPublishedUnixTimestamp = null, long maxPublishedUnixTimestamp = null, string sortBy = null, long start = null, long limit = null, string sortDirection = null, string searchName = null, string searchDescription = null, bool onlyLatest = null, long language = null, string buildLanguage = null, long buildId = null, long version = null, long heroId = null, long tag = null, long rollupCategory = null, long authorId = null)
 
 Search
 
@@ -109,20 +109,20 @@ Search
 | **minPublishedUnixTimestamp** | **long** | Filter builds based on their published time (Unix timestamp). | [optional]  |
 | **maxPublishedUnixTimestamp** | **long** | Filter builds based on their published time (Unix timestamp). | [optional]  |
 | **sortBy** | **string** | The field to sort the builds by. | [optional]  |
-| **start** | **int** | The index of the first build to return. | [optional]  |
-| **limit** | **int** | The maximum number of builds to return. | [optional] [default to 100] |
+| **start** | **long** | The index of the first build to return. | [optional]  |
+| **limit** | **long** | The maximum number of builds to return. | [optional] [default to 100] |
 | **sortDirection** | **string** | The direction to sort the builds in. | [optional]  |
 | **searchName** | **string** | Search for builds with a name containing this string. | [optional]  |
 | **searchDescription** | **string** | Search for builds with a description containing this string. | [optional]  |
 | **onlyLatest** | **bool** | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. | [optional]  |
-| **language** | **int** | Filter builds by language. | [optional]  |
+| **language** | **long** | Filter builds by language. | [optional]  |
 | **buildLanguage** | **string** | Filter builds by language. | [optional]  |
-| **buildId** | **int** | Filter builds by ID. | [optional]  |
-| **version** | **int** | Filter builds by version. | [optional]  |
-| **heroId** | **int** | Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
-| **tag** | **int** | Filter builds by tag. | [optional]  |
-| **rollupCategory** | **int** | Filter builds by rollup category. | [optional]  |
-| **authorId** | **int** | The author&#39;s &#x60;SteamID3&#x60; | [optional]  |
+| **buildId** | **long** | Filter builds by ID. | [optional]  |
+| **version** | **long** | Filter builds by version. | [optional]  |
+| **heroId** | **long** | Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
+| **tag** | **long** | Filter builds by tag. | [optional]  |
+| **rollupCategory** | **long** | Filter builds by rollup category. | [optional]  |
+| **authorId** | **long** | The author&#39;s &#x60;SteamID3&#x60; | [optional]  |
 
 ### Return type
 

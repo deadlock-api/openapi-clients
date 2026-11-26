@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Column** | **int32** | Its locked stage column. | 
-**ItemId** | **int32** | The locked item left out. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+**Column** | **int64** | Its locked stage column. | 
+**ItemId** | **int64** | The locked item left out. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 **Matches** | **int64** |  | 
 **Wins** | **int64** |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewItemFlowLeaveOneOut
 
-`func NewItemFlowLeaveOneOut(column int32, itemId int32, matches int64, wins int64, ) *ItemFlowLeaveOneOut`
+`func NewItemFlowLeaveOneOut(column int64, itemId int64, matches int64, wins int64, ) *ItemFlowLeaveOneOut`
 
 NewItemFlowLeaveOneOut instantiates a new ItemFlowLeaveOneOut object
 This constructor will assign default values to properties that have it defined,
@@ -30,40 +30,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetColumn
 
-`func (o *ItemFlowLeaveOneOut) GetColumn() int32`
+`func (o *ItemFlowLeaveOneOut) GetColumn() int64`
 
 GetColumn returns the Column field if non-nil, zero value otherwise.
 
 ### GetColumnOk
 
-`func (o *ItemFlowLeaveOneOut) GetColumnOk() (*int32, bool)`
+`func (o *ItemFlowLeaveOneOut) GetColumnOk() (*int64, bool)`
 
 GetColumnOk returns a tuple with the Column field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetColumn
 
-`func (o *ItemFlowLeaveOneOut) SetColumn(v int32)`
+`func (o *ItemFlowLeaveOneOut) SetColumn(v int64)`
 
 SetColumn sets Column field to given value.
 
 
 ### GetItemId
 
-`func (o *ItemFlowLeaveOneOut) GetItemId() int32`
+`func (o *ItemFlowLeaveOneOut) GetItemId() int64`
 
 GetItemId returns the ItemId field if non-nil, zero value otherwise.
 
 ### GetItemIdOk
 
-`func (o *ItemFlowLeaveOneOut) GetItemIdOk() (*int32, bool)`
+`func (o *ItemFlowLeaveOneOut) GetItemIdOk() (*int64, bool)`
 
 GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemId
 
-`func (o *ItemFlowLeaveOneOut) SetItemId(v int32)`
+`func (o *ItemFlowLeaveOneOut) SetItemId(v int64)`
 
 SetItemId sets ItemId field to given value.
 

@@ -67,7 +67,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetSteamInfoAsyncTest()
         {
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetSteamInfoAsync(clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.SteamInfo>(model);

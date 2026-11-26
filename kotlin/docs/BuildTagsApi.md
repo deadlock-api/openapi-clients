@@ -24,9 +24,9 @@ Returns a single build tag by id.
 //import deadlock_api_client.models.*
 
 val apiInstance = BuildTagsApi()
-val buildTagId : kotlin.Int = 56 // kotlin.Int | Build tag id (murmurhash2 of `class_name`)
+val buildTagId : kotlin.Long = 789 // kotlin.Long | Build tag id (murmurhash2 of `class_name`)
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : BuildTag = apiInstance.getBuildTag(buildTagId, language, clientVersion)
     println(result)
@@ -42,9 +42,9 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **buildTagId** | **kotlin.Int**| Build tag id (murmurhash2 of &#x60;class_name&#x60;) | |
+| **buildTagId** | **kotlin.Long**| Build tag id (murmurhash2 of &#x60;class_name&#x60;) | |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -76,7 +76,7 @@ Returns a single build tag by &#x60;class_name&#x60; (case-insensitive).
 val apiInstance = BuildTagsApi()
 val name : kotlin.String = name_example // kotlin.String | Build tag `class_name` (e.g. `citadel_build_tag_weapon`)
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : BuildTag = apiInstance.getBuildTagByName(name, language, clientVersion)
     println(result)
@@ -94,7 +94,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **name** | **kotlin.String**| Build tag &#x60;class_name&#x60; (e.g. &#x60;citadel_build_tag_weapon&#x60;) | |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -125,7 +125,7 @@ Returns the build tag taxonomy used by the game client, derived from per-version
 
 val apiInstance = BuildTagsApi()
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : kotlin.collections.List<BuildTag> = apiInstance.listBuildTags(language, clientVersion)
     println(result)
@@ -142,7 +142,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 

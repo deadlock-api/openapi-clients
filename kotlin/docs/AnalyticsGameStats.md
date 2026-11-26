@@ -54,7 +54,7 @@
 | **avgSelfHealing** | **kotlin.Double** |  |  |
 | **avgTechPower** | **kotlin.Double** |  |  |
 | **avgWeaponPower** | **kotlin.Double** |  |  |
-| **bucket** | **kotlin.Int** |  |  |
+| **bucket** | **kotlin.Long** |  |  |
 | **midBossKillRate** | **kotlin.Double** |  |  |
 | **team0Wins** | **kotlin.Long** |  |  |
 | **team1Wins** | **kotlin.Long** |  |  |

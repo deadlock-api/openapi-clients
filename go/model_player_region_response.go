@@ -21,13 +21,13 @@ var _ MappedNullable = &PlayerRegionResponse{}
 
 // PlayerRegionResponse struct for PlayerRegionResponse
 type PlayerRegionResponse struct {
-	AccountId int32 `json:"account_id"`
+	AccountId int64 `json:"account_id"`
 	// Matches per month and server cluster, newest month first.
 	History []PlayerClusterMonth `json:"history"`
 	// The region the player played most matches in during their latest month with a known region. `null` if none of their matches has a known region.
 	Region NullableString `json:"region,omitempty"`
 	// Unix timestamp of the month `region` was taken from.
-	RegionMonth NullableInt32 `json:"region_month,omitempty"`
+	RegionMonth NullableInt64 `json:"region_month,omitempty"`
 }
 
 type _PlayerRegionResponse PlayerRegionResponse
@@ -36,7 +36,7 @@ type _PlayerRegionResponse PlayerRegionResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlayerRegionResponse(accountId int32, history []PlayerClusterMonth) *PlayerRegionResponse {
+func NewPlayerRegionResponse(accountId int64, history []PlayerClusterMonth) *PlayerRegionResponse {
 	this := PlayerRegionResponse{}
 	this.AccountId = accountId
 	this.History = history
@@ -52,9 +52,9 @@ func NewPlayerRegionResponseWithDefaults() *PlayerRegionResponse {
 }
 
 // GetAccountId returns the AccountId field value
-func (o *PlayerRegionResponse) GetAccountId() int32 {
+func (o *PlayerRegionResponse) GetAccountId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *PlayerRegionResponse) GetAccountId() int32 {
 
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
-func (o *PlayerRegionResponse) GetAccountIdOk() (*int32, bool) {
+func (o *PlayerRegionResponse) GetAccountIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *PlayerRegionResponse) GetAccountIdOk() (*int32, bool) {
 }
 
 // SetAccountId sets field value
-func (o *PlayerRegionResponse) SetAccountId(v int32) {
+func (o *PlayerRegionResponse) SetAccountId(v int64) {
 	o.AccountId = v
 }
 
@@ -142,9 +142,9 @@ func (o *PlayerRegionResponse) UnsetRegion() {
 }
 
 // GetRegionMonth returns the RegionMonth field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerRegionResponse) GetRegionMonth() int32 {
+func (o *PlayerRegionResponse) GetRegionMonth() int64 {
 	if o == nil || IsNil(o.RegionMonth.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RegionMonth.Get()
@@ -153,7 +153,7 @@ func (o *PlayerRegionResponse) GetRegionMonth() int32 {
 // GetRegionMonthOk returns a tuple with the RegionMonth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerRegionResponse) GetRegionMonthOk() (*int32, bool) {
+func (o *PlayerRegionResponse) GetRegionMonthOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -169,8 +169,8 @@ func (o *PlayerRegionResponse) HasRegionMonth() bool {
 	return false
 }
 
-// SetRegionMonth gets a reference to the given NullableInt32 and assigns it to the RegionMonth field.
-func (o *PlayerRegionResponse) SetRegionMonth(v int32) {
+// SetRegionMonth gets a reference to the given NullableInt64 and assigns it to the RegionMonth field.
+func (o *PlayerRegionResponse) SetRegionMonth(v int64) {
 	o.RegionMonth.Set(&v)
 }
 // SetRegionMonthNil sets the value for RegionMonth to be an explicit nil

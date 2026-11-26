@@ -26,15 +26,15 @@ type ItemOneOf2 struct {
 	ComponentItems []string `json:"component_items,omitempty"`
 	// Present on upgrades the Broker can corrupt (build 6711+).
 	CorruptedInfo NullableCorruptedItemInfo `json:"corrupted_info,omitempty"`
-	Cost NullableInt32 `json:"cost,omitempty"`
+	Cost NullableInt64 `json:"cost,omitempty"`
 	Description NullableUpgradeDescription `json:"description,omitempty"`
 	DisableItemTarget NullableString `json:"disable_item_target,omitempty"`
 	Disabled NullableBool `json:"disabled,omitempty"`
 	// Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
 	DisabledShopFilters []string `json:"disabled_shop_filters,omitempty"`
-	Hero NullableInt32 `json:"hero,omitempty"`
-	Heroes []int32 `json:"heroes,omitempty"`
-	Id int32 `json:"id"`
+	Hero NullableInt64 `json:"hero,omitempty"`
+	Heroes []int64 `json:"heroes,omitempty"`
+	Id int64 `json:"id"`
 	Image NullableString `json:"image,omitempty"`
 	ImageWebp NullableString `json:"image_webp,omitempty"`
 	Imbue NullableAbilityImbue `json:"imbue,omitempty"`
@@ -65,7 +65,7 @@ type _ItemOneOf2 ItemOneOf2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemOneOf2(activation AbilityActivation, className string, id int32, isActiveItem bool, itemSlotType ItemSlotType, itemTier int32, name string, shopable bool, type_ string) *ItemOneOf2 {
+func NewItemOneOf2(activation AbilityActivation, className string, id int64, isActiveItem bool, itemSlotType ItemSlotType, itemTier int32, name string, shopable bool, type_ string) *ItemOneOf2 {
 	this := ItemOneOf2{}
 	this.Activation = activation
 	this.ClassName = className
@@ -211,9 +211,9 @@ func (o *ItemOneOf2) UnsetCorruptedInfo() {
 }
 
 // GetCost returns the Cost field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemOneOf2) GetCost() int32 {
+func (o *ItemOneOf2) GetCost() int64 {
 	if o == nil || IsNil(o.Cost.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Cost.Get()
@@ -222,7 +222,7 @@ func (o *ItemOneOf2) GetCost() int32 {
 // GetCostOk returns a tuple with the Cost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemOneOf2) GetCostOk() (*int32, bool) {
+func (o *ItemOneOf2) GetCostOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -238,8 +238,8 @@ func (o *ItemOneOf2) HasCost() bool {
 	return false
 }
 
-// SetCost gets a reference to the given NullableInt32 and assigns it to the Cost field.
-func (o *ItemOneOf2) SetCost(v int32) {
+// SetCost gets a reference to the given NullableInt64 and assigns it to the Cost field.
+func (o *ItemOneOf2) SetCost(v int64) {
 	o.Cost.Set(&v)
 }
 // SetCostNil sets the value for Cost to be an explicit nil
@@ -412,9 +412,9 @@ func (o *ItemOneOf2) SetDisabledShopFilters(v []string) {
 }
 
 // GetHero returns the Hero field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemOneOf2) GetHero() int32 {
+func (o *ItemOneOf2) GetHero() int64 {
 	if o == nil || IsNil(o.Hero.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Hero.Get()
@@ -423,7 +423,7 @@ func (o *ItemOneOf2) GetHero() int32 {
 // GetHeroOk returns a tuple with the Hero field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemOneOf2) GetHeroOk() (*int32, bool) {
+func (o *ItemOneOf2) GetHeroOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -439,8 +439,8 @@ func (o *ItemOneOf2) HasHero() bool {
 	return false
 }
 
-// SetHero gets a reference to the given NullableInt32 and assigns it to the Hero field.
-func (o *ItemOneOf2) SetHero(v int32) {
+// SetHero gets a reference to the given NullableInt64 and assigns it to the Hero field.
+func (o *ItemOneOf2) SetHero(v int64) {
 	o.Hero.Set(&v)
 }
 // SetHeroNil sets the value for Hero to be an explicit nil
@@ -454,9 +454,9 @@ func (o *ItemOneOf2) UnsetHero() {
 }
 
 // GetHeroes returns the Heroes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemOneOf2) GetHeroes() []int32 {
+func (o *ItemOneOf2) GetHeroes() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Heroes
@@ -465,7 +465,7 @@ func (o *ItemOneOf2) GetHeroes() []int32 {
 // GetHeroesOk returns a tuple with the Heroes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemOneOf2) GetHeroesOk() ([]int32, bool) {
+func (o *ItemOneOf2) GetHeroesOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Heroes) {
 		return nil, false
 	}
@@ -481,15 +481,15 @@ func (o *ItemOneOf2) HasHeroes() bool {
 	return false
 }
 
-// SetHeroes gets a reference to the given []int32 and assigns it to the Heroes field.
-func (o *ItemOneOf2) SetHeroes(v []int32) {
+// SetHeroes gets a reference to the given []int64 and assigns it to the Heroes field.
+func (o *ItemOneOf2) SetHeroes(v []int64) {
 	o.Heroes = v
 }
 
 // GetId returns the Id field value
-func (o *ItemOneOf2) GetId() int32 {
+func (o *ItemOneOf2) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -498,7 +498,7 @@ func (o *ItemOneOf2) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *ItemOneOf2) GetIdOk() (*int32, bool) {
+func (o *ItemOneOf2) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -506,7 +506,7 @@ func (o *ItemOneOf2) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *ItemOneOf2) SetId(v int32) {
+func (o *ItemOneOf2) SetId(v int64) {
 	o.Id = v
 }
 

@@ -22,9 +22,9 @@ var _ MappedNullable = &ItemFlowLeaveOneOut{}
 // ItemFlowLeaveOneOut The locked build path without one of its locked items: how the population changes when that item's constraint is dropped and every other one kept.
 type ItemFlowLeaveOneOut struct {
 	// Its locked stage column.
-	Column int32 `json:"column"`
+	Column int64 `json:"column"`
 	// The locked item left out. See more: <https://api.deadlock-api.com/v1/assets/items>
-	ItemId int32 `json:"item_id"`
+	ItemId int64 `json:"item_id"`
 	Matches int64 `json:"matches"`
 	Wins int64 `json:"wins"`
 }
@@ -35,7 +35,7 @@ type _ItemFlowLeaveOneOut ItemFlowLeaveOneOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemFlowLeaveOneOut(column int32, itemId int32, matches int64, wins int64) *ItemFlowLeaveOneOut {
+func NewItemFlowLeaveOneOut(column int64, itemId int64, matches int64, wins int64) *ItemFlowLeaveOneOut {
 	this := ItemFlowLeaveOneOut{}
 	this.Column = column
 	this.ItemId = itemId
@@ -53,9 +53,9 @@ func NewItemFlowLeaveOneOutWithDefaults() *ItemFlowLeaveOneOut {
 }
 
 // GetColumn returns the Column field value
-func (o *ItemFlowLeaveOneOut) GetColumn() int32 {
+func (o *ItemFlowLeaveOneOut) GetColumn() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -64,7 +64,7 @@ func (o *ItemFlowLeaveOneOut) GetColumn() int32 {
 
 // GetColumnOk returns a tuple with the Column field value
 // and a boolean to check if the value has been set.
-func (o *ItemFlowLeaveOneOut) GetColumnOk() (*int32, bool) {
+func (o *ItemFlowLeaveOneOut) GetColumnOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -72,14 +72,14 @@ func (o *ItemFlowLeaveOneOut) GetColumnOk() (*int32, bool) {
 }
 
 // SetColumn sets field value
-func (o *ItemFlowLeaveOneOut) SetColumn(v int32) {
+func (o *ItemFlowLeaveOneOut) SetColumn(v int64) {
 	o.Column = v
 }
 
 // GetItemId returns the ItemId field value
-func (o *ItemFlowLeaveOneOut) GetItemId() int32 {
+func (o *ItemFlowLeaveOneOut) GetItemId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -88,7 +88,7 @@ func (o *ItemFlowLeaveOneOut) GetItemId() int32 {
 
 // GetItemIdOk returns a tuple with the ItemId field value
 // and a boolean to check if the value has been set.
-func (o *ItemFlowLeaveOneOut) GetItemIdOk() (*int32, bool) {
+func (o *ItemFlowLeaveOneOut) GetItemIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,7 +96,7 @@ func (o *ItemFlowLeaveOneOut) GetItemIdOk() (*int32, bool) {
 }
 
 // SetItemId sets field value
-func (o *ItemFlowLeaveOneOut) SetItemId(v int32) {
+func (o *ItemFlowLeaveOneOut) SetItemId(v int64) {
 	o.ItemId = v
 }
 

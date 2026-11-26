@@ -31,8 +31,8 @@ Active
 //import deadlock_api_client.models.*
 
 val apiInstance = MatchesApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The account ID to filter active matches by (`SteamID3`)
-val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
+val accountId : kotlin.Long = 789 // kotlin.Long | The account ID to filter active matches by (`SteamID3`)
+val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids to include
 try {
     val result : kotlin.collections.List<ActiveMatch> = apiInstance.activeMatches(accountId, accountIds)
     println(result)
@@ -48,8 +48,8 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The account ID to filter active matches by (&#x60;SteamID3&#x60;) | [optional] |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+| **accountId** | **kotlin.Long**| The account ID to filter active matches by (&#x60;SteamID3&#x60;) | [optional] |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type
 
@@ -137,8 +137,8 @@ val matchMode : kotlin.String = matchMode_example // kotlin.String | Filter matc
 val matchIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of match ids, limited by `limit`
 val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
 val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val minDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
+val maxDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
 val minAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
 val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
 val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
@@ -146,10 +146,10 @@ val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on thei
 val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the high skill range.
 val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
 val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
-val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Filter matches by account IDs of players that participated in the match.
+val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Filter matches by account IDs of players that participated in the match.
 val onlyFilteredPlayers : kotlin.Boolean = true // kotlin.Boolean | Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`.
 val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-val itemFilterHeroId : kotlin.Int = 56 // kotlin.Int | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
+val itemFilterHeroId : kotlin.Long = 789 // kotlin.Long | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
 val includeItemIds : kotlin.String = includeItemIds_example // kotlin.String | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
 val excludeItemIds : kotlin.String = excludeItemIds_example // kotlin.String | Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
 val extraMatchColumns : kotlin.String = extraMatchColumns_example // kotlin.String | Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.
@@ -188,8 +188,8 @@ try {
 | **matchIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of match ids, limited by &#x60;limit&#x60; | [optional] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minDurationS** | **kotlin.Int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] |
 | **maxAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] |
 | **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
@@ -197,10 +197,10 @@ try {
 | **isHighSkillRangeParties** | **kotlin.Boolean**| Filter matches based on whether they are in the high skill range. | [optional] |
 | **isLowPriPool** | **kotlin.Boolean**| Filter matches based on whether they are in the low priority pool. | [optional] |
 | **isNewPlayerPool** | **kotlin.Boolean**| Filter matches based on whether they are in the new player pool. | [optional] |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Filter matches by account IDs of players that participated in the match. | [optional] |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Filter matches by account IDs of players that participated in the match. | [optional] |
 | **onlyFilteredPlayers** | **kotlin.Boolean**| Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. | [optional] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **itemFilterHeroId** | **kotlin.Int**| Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | [optional] |
+| **itemFilterHeroId** | **kotlin.Long**| Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | [optional] |
 | **includeItemIds** | **kotlin.String**| Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | [optional] |
 | **excludeItemIds** | **kotlin.String**| Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. | [optional] |
 | **extraMatchColumns** | **kotlin.String**| Comma separated list of extra match-level columns to include in the response. Each column is aggregated with &#x60;any(...)&#x60;. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: &#x60;objectives_mask_team0,team_score&#x60;. | [optional] |

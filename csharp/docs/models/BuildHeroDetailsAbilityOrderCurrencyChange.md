@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AbilityId** | **int** |  | 
+**AbilityId** | **long** |  | 
 **CurrencyType** | **int** |  | 
 **Delta** | **int** |  | 
 **Annotation** | **string** |  | [optional] 

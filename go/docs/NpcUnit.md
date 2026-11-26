@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **HealthBarColorTeam1** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **HealthBarColorTeam2** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **HealthBarColorTeamNeutral** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
-**Id** | **int32** |  | 
+**Id** | **int64** |  | 
 **Image** | Pointer to **NullableString** | Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as png. | [optional] 
 **ImageWebp** | Pointer to **NullableString** | Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as webp. | [optional] 
 **IntrinsicModifiers** | Pointer to [**[]SubclassIntrinsicModifiers**](SubclassIntrinsicModifiers.md) |  | [optional] 
@@ -88,7 +88,7 @@ Name | Type | Description | Notes
 
 ### NewNpcUnit
 
-`func NewNpcUnit(className string, id int32, ) *NpcUnit`
+`func NewNpcUnit(className string, id int64, ) *NpcUnit`
 
 NewNpcUnit instantiates a new NpcUnit object
 This constructor will assign default values to properties that have it defined,
@@ -965,20 +965,20 @@ HasHealthBarColorTeamNeutral returns a boolean if a field has been set.
 UnsetHealthBarColorTeamNeutral ensures that no value is present for HealthBarColorTeamNeutral, not even an explicit nil
 ### GetId
 
-`func (o *NpcUnit) GetId() int32`
+`func (o *NpcUnit) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *NpcUnit) GetIdOk() (*int32, bool)`
+`func (o *NpcUnit) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *NpcUnit) SetId(v int32)`
+`func (o *NpcUnit) SetId(v int64)`
 
 SetId sets Id field to given value.
 

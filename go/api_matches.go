@@ -27,19 +27,19 @@ type MatchesAPIService service
 type ApiActiveMatchesRequest struct {
 	ctx context.Context
 	ApiService *MatchesAPIService
-	accountId *int32
-	accountIds *[]int32
+	accountId *int64
+	accountIds *[]int64
 }
 
 // The account ID to filter active matches by (&#x60;SteamID3&#x60;)
 // Deprecated
-func (r ApiActiveMatchesRequest) AccountId(accountId int32) ApiActiveMatchesRequest {
+func (r ApiActiveMatchesRequest) AccountId(accountId int64) ApiActiveMatchesRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiActiveMatchesRequest) AccountIds(accountIds []int32) ApiActiveMatchesRequest {
+func (r ApiActiveMatchesRequest) AccountIds(accountIds []int64) ApiActiveMatchesRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -298,8 +298,8 @@ type ApiBulkMetadataRequest struct {
 	matchIds *[]int64
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
@@ -307,10 +307,10 @@ type ApiBulkMetadataRequest struct {
 	isHighSkillRangeParties *bool
 	isLowPriPool *bool
 	isNewPlayerPool *bool
-	accountIds *[]int32
+	accountIds *[]int64
 	onlyFilteredPlayers *bool
 	heroIds *string
-	itemFilterHeroId *int32
+	itemFilterHeroId *int64
 	includeItemIds *string
 	excludeItemIds *string
 	extraMatchColumns *string
@@ -412,13 +412,13 @@ func (r ApiBulkMetadataRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiBulk
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiBulkMetadataRequest) MinDurationS(minDurationS int64) ApiBulkMetadataRequest {
+func (r ApiBulkMetadataRequest) MinDurationS(minDurationS int32) ApiBulkMetadataRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiBulkMetadataRequest) MaxDurationS(maxDurationS int64) ApiBulkMetadataRequest {
+func (r ApiBulkMetadataRequest) MaxDurationS(maxDurationS int32) ApiBulkMetadataRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -466,7 +466,7 @@ func (r ApiBulkMetadataRequest) IsNewPlayerPool(isNewPlayerPool bool) ApiBulkMet
 }
 
 // Filter matches by account IDs of players that participated in the match.
-func (r ApiBulkMetadataRequest) AccountIds(accountIds []int32) ApiBulkMetadataRequest {
+func (r ApiBulkMetadataRequest) AccountIds(accountIds []int64) ApiBulkMetadataRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -484,7 +484,7 @@ func (r ApiBulkMetadataRequest) HeroIds(heroIds string) ApiBulkMetadataRequest {
 }
 
 // Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;.
-func (r ApiBulkMetadataRequest) ItemFilterHeroId(itemFilterHeroId int32) ApiBulkMetadataRequest {
+func (r ApiBulkMetadataRequest) ItemFilterHeroId(itemFilterHeroId int64) ApiBulkMetadataRequest {
 	r.itemFilterHeroId = &itemFilterHeroId
 	return r
 }

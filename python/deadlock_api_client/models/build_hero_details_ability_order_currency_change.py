@@ -28,7 +28,7 @@ class BuildHeroDetailsAbilityOrderCurrencyChange(BaseModel):
     """
     BuildHeroDetailsAbilityOrderCurrencyChange
     """ # noqa: E501
-    ability_id: Annotated[int, Field(strict=True, ge=0)]
+    ability_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     annotation: Optional[StrictStr] = None
     currency_type: StrictInt
     delta: StrictInt

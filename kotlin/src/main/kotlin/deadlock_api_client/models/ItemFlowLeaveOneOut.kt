@@ -42,11 +42,11 @@ data class ItemFlowLeaveOneOut (
 
     /* Its locked stage column. */
     @Json(name = "column")
-    val column: kotlin.Int,
+    val column: kotlin.Long,
 
     /* The locked item left out. See more: <https://api.deadlock-api.com/v1/assets/items> */
     @Json(name = "item_id")
-    val itemId: kotlin.Int,
+    val itemId: kotlin.Long,
 
     @Json(name = "matches")
     val matches: kotlin.Long,

@@ -28,9 +28,9 @@ class AnalyticsHeroStats(BaseModel):
     """
     AnalyticsHeroStats
     """ # noqa: E501
-    bucket: Annotated[int, Field(strict=True, ge=0)]
+    bucket: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     bucket_matches_since_first_day: Annotated[int, Field(strict=True, ge=0)] = Field(description="Sum of `matches` over all heroes in this bucket, counting only the UTC days from this hero's first match in the response on. A pick rate that leaves out the part of the range before the hero's release: `matches / bucket_matches_since_first_day` times the players per match. The hero's first day counts whole, so it still includes the hours before its first match.")
-    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    hero_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
     matches_per_bucket: Annotated[int, Field(strict=True, ge=0)]

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Description** | [**HeroDescription**](HeroDescription.md) |  | 
 **Disabled** | **bool** |  | 
 **HeroStatsUi** | [**HeroStatsUI**](HeroStatsUI.md) |  | 
-**Id** | **int** |  | 
+**Id** | **long** |  | 
 **Images** | [**HeroImages**](HeroImages.md) |  | 
 **InDevelopment** | **bool** |  | 
 **ItemSlotInfo** | [**Dictionary&lt;string, HashMapItemSlotTypeItemSlotInfoValue&gt;**](HashMapItemSlotTypeItemSlotInfoValue.md) |  | 

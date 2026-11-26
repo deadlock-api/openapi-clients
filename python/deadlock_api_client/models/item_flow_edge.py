@@ -28,11 +28,11 @@ class ItemFlowEdge(BaseModel):
     """
     A transition between an item in one column and an item in the next column, counted across players who purchased both.
     """ # noqa: E501
-    from_column: Annotated[int, Field(strict=True, ge=0)] = Field(description="The column of the source item.")
-    from_item_id: Annotated[int, Field(strict=True, ge=0)]
+    from_column: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The column of the source item.")
+    from_item_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
-    to_item_id: Annotated[int, Field(strict=True, ge=0)]
+    to_item_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]
     __properties: ClassVar[List[str]] = ["from_column", "from_item_id", "losses", "matches", "to_item_id", "wins"]
 

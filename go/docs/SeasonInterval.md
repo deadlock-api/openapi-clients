@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EndTimestamp** | **int64** | Unix timestamp (seconds) at which the interval ends. | 
-**Interval** | **int32** |  | 
-**LeaderboardId** | Pointer to **NullableInt32** | Leaderboard backing this interval (build 6701+). | [optional] 
+**Interval** | **int64** |  | 
+**LeaderboardId** | Pointer to **NullableInt64** | Leaderboard backing this interval (build 6701+). | [optional] 
 **StartTimestamp** | **int64** | Unix timestamp (seconds) at which the interval starts. | 
 
 ## Methods
 
 ### NewSeasonInterval
 
-`func NewSeasonInterval(endTimestamp int64, interval int32, startTimestamp int64, ) *SeasonInterval`
+`func NewSeasonInterval(endTimestamp int64, interval int64, startTimestamp int64, ) *SeasonInterval`
 
 NewSeasonInterval instantiates a new SeasonInterval object
 This constructor will assign default values to properties that have it defined,
@@ -50,40 +50,40 @@ SetEndTimestamp sets EndTimestamp field to given value.
 
 ### GetInterval
 
-`func (o *SeasonInterval) GetInterval() int32`
+`func (o *SeasonInterval) GetInterval() int64`
 
 GetInterval returns the Interval field if non-nil, zero value otherwise.
 
 ### GetIntervalOk
 
-`func (o *SeasonInterval) GetIntervalOk() (*int32, bool)`
+`func (o *SeasonInterval) GetIntervalOk() (*int64, bool)`
 
 GetIntervalOk returns a tuple with the Interval field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInterval
 
-`func (o *SeasonInterval) SetInterval(v int32)`
+`func (o *SeasonInterval) SetInterval(v int64)`
 
 SetInterval sets Interval field to given value.
 
 
 ### GetLeaderboardId
 
-`func (o *SeasonInterval) GetLeaderboardId() int32`
+`func (o *SeasonInterval) GetLeaderboardId() int64`
 
 GetLeaderboardId returns the LeaderboardId field if non-nil, zero value otherwise.
 
 ### GetLeaderboardIdOk
 
-`func (o *SeasonInterval) GetLeaderboardIdOk() (*int32, bool)`
+`func (o *SeasonInterval) GetLeaderboardIdOk() (*int64, bool)`
 
 GetLeaderboardIdOk returns a tuple with the LeaderboardId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLeaderboardId
 
-`func (o *SeasonInterval) SetLeaderboardId(v int32)`
+`func (o *SeasonInterval) SetLeaderboardId(v int64)`
 
 SetLeaderboardId sets LeaderboardId field to given value.
 

@@ -26,9 +26,9 @@ type HeroesAPIService service
 type ApiGetHeroRequest struct {
 	ctx context.Context
 	ApiService *HeroesAPIService
-	heroId int32
+	heroId int64
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -38,7 +38,7 @@ func (r ApiGetHeroRequest) Language(language string) ApiGetHeroRequest {
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetHeroRequest) ClientVersion(clientVersion int32) ApiGetHeroRequest {
+func (r ApiGetHeroRequest) ClientVersion(clientVersion int64) ApiGetHeroRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -56,7 +56,7 @@ Returns a single hero by id.
  @param heroId Hero id (`m_HeroID`)
  @return ApiGetHeroRequest
 */
-func (a *HeroesAPIService) GetHero(ctx context.Context, heroId int32) ApiGetHeroRequest {
+func (a *HeroesAPIService) GetHero(ctx context.Context, heroId int64) ApiGetHeroRequest {
 	return ApiGetHeroRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -87,6 +87,9 @@ func (a *HeroesAPIService) GetHeroExecute(r ApiGetHeroRequest) (*Hero, *http.Res
 	localVarFormParams := url.Values{}
 	if r.heroId < 0 {
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
+	}
+	if r.heroId > 4294967295 {
+		return localVarReturnValue, nil, reportError("heroId must be less than 4294967295")
 	}
 
 	if r.language != nil {
@@ -154,7 +157,7 @@ type ApiGetHeroByNameRequest struct {
 	ApiService *HeroesAPIService
 	name string
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -164,7 +167,7 @@ func (r ApiGetHeroByNameRequest) Language(language string) ApiGetHeroByNameReque
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetHeroByNameRequest) ClientVersion(clientVersion int32) ApiGetHeroByNameRequest {
+func (r ApiGetHeroByNameRequest) ClientVersion(clientVersion int64) ApiGetHeroByNameRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -276,7 +279,7 @@ type ApiListHeroesRequest struct {
 	ctx context.Context
 	ApiService *HeroesAPIService
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 	onlyActive *bool
 }
 
@@ -287,7 +290,7 @@ func (r ApiListHeroesRequest) Language(language string) ApiListHeroesRequest {
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiListHeroesRequest) ClientVersion(clientVersion int32) ApiListHeroesRequest {
+func (r ApiListHeroesRequest) ClientVersion(clientVersion int64) ApiListHeroesRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

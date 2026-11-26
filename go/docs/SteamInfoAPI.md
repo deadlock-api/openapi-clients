@@ -91,7 +91,7 @@ import (
 )
 
 func main() {
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -116,7 +116,7 @@ Other parameters are passed through a pointer to a apiGetSteamInfoRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 

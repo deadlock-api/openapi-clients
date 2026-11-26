@@ -88,7 +88,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboard(region: RegionLeaderboard, leaderboardId: kotlin.Int? = null) : Leaderboard {
+    fun leaderboard(region: RegionLeaderboard, leaderboardId: kotlin.Long? = null) : Leaderboard {
         val localVarResponse = leaderboardWithHttpInfo(region = region, leaderboardId = leaderboardId)
 
         return when (localVarResponse.responseType) {
@@ -118,7 +118,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardWithHttpInfo(region: RegionLeaderboard, leaderboardId: kotlin.Int?) : ApiResponse<Leaderboard?> {
+    fun leaderboardWithHttpInfo(region: RegionLeaderboard, leaderboardId: kotlin.Long?) : ApiResponse<Leaderboard?> {
         val localVariableConfig = leaderboardRequestConfig(region = region, leaderboardId = leaderboardId)
 
         return request<Unit, Leaderboard>(
@@ -133,7 +133,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return RequestConfig
      */
-    fun leaderboardRequestConfig(region: RegionLeaderboard, leaderboardId: kotlin.Int?) : RequestConfig<Unit> {
+    fun leaderboardRequestConfig(region: RegionLeaderboard, leaderboardId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -190,7 +190,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboardHero(region: RegionLeaderboardHero, heroId: kotlin.Int, leaderboardId: kotlin.Int? = null) : Leaderboard {
+    fun leaderboardHero(region: RegionLeaderboardHero, heroId: kotlin.Long, leaderboardId: kotlin.Long? = null) : Leaderboard {
         val localVarResponse = leaderboardHeroWithHttpInfo(region = region, heroId = heroId, leaderboardId = leaderboardId)
 
         return when (localVarResponse.responseType) {
@@ -221,7 +221,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardHeroWithHttpInfo(region: RegionLeaderboardHero, heroId: kotlin.Int, leaderboardId: kotlin.Int?) : ApiResponse<Leaderboard?> {
+    fun leaderboardHeroWithHttpInfo(region: RegionLeaderboardHero, heroId: kotlin.Long, leaderboardId: kotlin.Long?) : ApiResponse<Leaderboard?> {
         val localVariableConfig = leaderboardHeroRequestConfig(region = region, heroId = heroId, leaderboardId = leaderboardId)
 
         return request<Unit, Leaderboard>(
@@ -237,7 +237,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return RequestConfig
      */
-    fun leaderboardHeroRequestConfig(region: RegionLeaderboardHero, heroId: kotlin.Int, leaderboardId: kotlin.Int?) : RequestConfig<Unit> {
+    fun leaderboardHeroRequestConfig(region: RegionLeaderboardHero, heroId: kotlin.Long, leaderboardId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -294,7 +294,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboardHeroRaw(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int, leaderboardId: kotlin.Int? = null) : kotlin.collections.List<kotlin.Int> {
+    fun leaderboardHeroRaw(region: RegionLeaderboardHeroRaw, heroId: kotlin.Long, leaderboardId: kotlin.Long? = null) : kotlin.collections.List<kotlin.Int> {
         val localVarResponse = leaderboardHeroRawWithHttpInfo(region = region, heroId = heroId, leaderboardId = leaderboardId)
 
         return when (localVarResponse.responseType) {
@@ -325,7 +325,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardHeroRawWithHttpInfo(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int, leaderboardId: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+    fun leaderboardHeroRawWithHttpInfo(region: RegionLeaderboardHeroRaw, heroId: kotlin.Long, leaderboardId: kotlin.Long?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
         val localVariableConfig = leaderboardHeroRawRequestConfig(region = region, heroId = heroId, leaderboardId = leaderboardId)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
@@ -341,7 +341,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return RequestConfig
      */
-    fun leaderboardHeroRawRequestConfig(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int, leaderboardId: kotlin.Int?) : RequestConfig<Unit> {
+    fun leaderboardHeroRawRequestConfig(region: RegionLeaderboardHeroRaw, heroId: kotlin.Long, leaderboardId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -397,7 +397,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboardRaw(region: RegionLeaderboardRaw, leaderboardId: kotlin.Int? = null) : kotlin.collections.List<kotlin.Int> {
+    fun leaderboardRaw(region: RegionLeaderboardRaw, leaderboardId: kotlin.Long? = null) : kotlin.collections.List<kotlin.Int> {
         val localVarResponse = leaderboardRawWithHttpInfo(region = region, leaderboardId = leaderboardId)
 
         return when (localVarResponse.responseType) {
@@ -427,7 +427,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardRawWithHttpInfo(region: RegionLeaderboardRaw, leaderboardId: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+    fun leaderboardRawWithHttpInfo(region: RegionLeaderboardRaw, leaderboardId: kotlin.Long?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
         val localVariableConfig = leaderboardRawRequestConfig(region = region, leaderboardId = leaderboardId)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
@@ -442,7 +442,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return RequestConfig
      */
-    fun leaderboardRawRequestConfig(region: RegionLeaderboardRaw, leaderboardId: kotlin.Int?) : RequestConfig<Unit> {
+    fun leaderboardRawRequestConfig(region: RegionLeaderboardRaw, leaderboardId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

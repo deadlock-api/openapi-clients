@@ -26,9 +26,9 @@ type AccoladesAPIService service
 type ApiGetAccoladeRequest struct {
 	ctx context.Context
 	ApiService *AccoladesAPIService
-	accoladeId int32
+	accoladeId int64
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -38,7 +38,7 @@ func (r ApiGetAccoladeRequest) Language(language string) ApiGetAccoladeRequest {
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetAccoladeRequest) ClientVersion(clientVersion int32) ApiGetAccoladeRequest {
+func (r ApiGetAccoladeRequest) ClientVersion(clientVersion int64) ApiGetAccoladeRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -56,7 +56,7 @@ Returns a single accolade by id.
  @param accoladeId Accolade id (`m_unAccoladeID`)
  @return ApiGetAccoladeRequest
 */
-func (a *AccoladesAPIService) GetAccolade(ctx context.Context, accoladeId int32) ApiGetAccoladeRequest {
+func (a *AccoladesAPIService) GetAccolade(ctx context.Context, accoladeId int64) ApiGetAccoladeRequest {
 	return ApiGetAccoladeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -87,6 +87,9 @@ func (a *AccoladesAPIService) GetAccoladeExecute(r ApiGetAccoladeRequest) (*Acco
 	localVarFormParams := url.Values{}
 	if r.accoladeId < 0 {
 		return localVarReturnValue, nil, reportError("accoladeId must be greater than 0")
+	}
+	if r.accoladeId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accoladeId must be less than 4294967295")
 	}
 
 	if r.language != nil {
@@ -154,7 +157,7 @@ type ApiGetAccoladeByNameRequest struct {
 	ApiService *AccoladesAPIService
 	name string
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -164,7 +167,7 @@ func (r ApiGetAccoladeByNameRequest) Language(language string) ApiGetAccoladeByN
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetAccoladeByNameRequest) ClientVersion(clientVersion int32) ApiGetAccoladeByNameRequest {
+func (r ApiGetAccoladeByNameRequest) ClientVersion(clientVersion int64) ApiGetAccoladeByNameRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -276,7 +279,7 @@ type ApiListAccoladesRequest struct {
 	ctx context.Context
 	ApiService *AccoladesAPIService
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -286,7 +289,7 @@ func (r ApiListAccoladesRequest) Language(language string) ApiListAccoladesReque
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiListAccoladesRequest) ClientVersion(clientVersion int32) ApiListAccoladesRequest {
+func (r ApiListAccoladesRequest) ClientVersion(clientVersion int64) ApiListAccoladesRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

@@ -29,13 +29,13 @@ class LaneMatchupStats(BaseModel):
     """
     **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
     """ # noqa: E501
-    assigned_lane: Annotated[int, Field(strict=True, ge=0)] = Field(description="The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")
-    enemy_hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair they laned against, or empty when grouped away.")
-    hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    assigned_lane: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")
+    enemy_hero_ids: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(description="The ascending hero id pair they laned against, or empty when grouped away.")
+    hero_ids: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(description="The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     matches_played: Annotated[int, Field(strict=True, ge=0)] = Field(description="The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane.")
     net_worth_diff: Union[StrictFloat, StrictInt] = Field(description="Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long.")
     sample_matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only.")
-    sample_time_s: Annotated[int, Field(strict=True, ge=0)] = Field(description="Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.")
+    sample_time_s: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.")
     stats: Dict[str, LaneMatchupStat] = Field(description="A reading per stat named in `stats`. Empty unless the parameter was set.")
     wins: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.")
     __properties: ClassVar[List[str]] = ["assigned_lane", "enemy_hero_ids", "hero_ids", "matches_played", "net_worth_diff", "sample_matches", "sample_time_s", "stats", "wins"]

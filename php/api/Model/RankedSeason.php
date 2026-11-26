@@ -80,19 +80,19 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'base_win_loss_point_grant' => 'int32',
-        'calibration_matches' => 'int32',
-        'calibration_max_rank' => 'int32',
+        'base_win_loss_point_grant' => 'int64',
+        'calibration_matches' => 'int64',
+        'calibration_max_rank' => 'int64',
         'class_name' => null,
         'intervals' => null,
-        'min_hero_unlock_points' => 'int32',
-        'min_hero_unlocks' => 'int32',
-        'min_hero_wins' => 'int32',
-        'min_wins' => 'int32',
+        'min_hero_unlock_points' => 'int64',
+        'min_hero_unlocks' => 'int64',
+        'min_hero_wins' => 'int64',
+        'min_wins' => 'int64',
         'name' => null,
         'rank_info' => null,
         'ranked_type' => null,
-        'valid_party_sizes' => 'int32'
+        'valid_party_sizes' => 'int64'
     ];
 
     /**
@@ -358,6 +358,10 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['base_win_loss_point_grant']) && ($this->container['base_win_loss_point_grant'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'base_win_loss_point_grant', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['base_win_loss_point_grant']) && ($this->container['base_win_loss_point_grant'] < 0)) {
             $invalidProperties[] = "invalid value for 'base_win_loss_point_grant', must be bigger than or equal to 0.";
         }
@@ -365,8 +369,16 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['calibration_matches'] === null) {
             $invalidProperties[] = "'calibration_matches' can't be null";
         }
+        if (($this->container['calibration_matches'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'calibration_matches', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['calibration_matches'] < 0)) {
             $invalidProperties[] = "invalid value for 'calibration_matches', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['calibration_max_rank']) && ($this->container['calibration_max_rank'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'calibration_max_rank', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['calibration_max_rank']) && ($this->container['calibration_max_rank'] < 0)) {
@@ -379,6 +391,10 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['intervals'] === null) {
             $invalidProperties[] = "'intervals' can't be null";
         }
+        if (!is_null($this->container['min_hero_unlock_points']) && ($this->container['min_hero_unlock_points'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'min_hero_unlock_points', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['min_hero_unlock_points']) && ($this->container['min_hero_unlock_points'] < 0)) {
             $invalidProperties[] = "invalid value for 'min_hero_unlock_points', must be bigger than or equal to 0.";
         }
@@ -386,8 +402,16 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['min_hero_unlocks'] === null) {
             $invalidProperties[] = "'min_hero_unlocks' can't be null";
         }
+        if (($this->container['min_hero_unlocks'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'min_hero_unlocks', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['min_hero_unlocks'] < 0)) {
             $invalidProperties[] = "invalid value for 'min_hero_unlocks', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['min_hero_wins']) && ($this->container['min_hero_wins'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'min_hero_wins', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['min_hero_wins']) && ($this->container['min_hero_wins'] < 0)) {
@@ -397,6 +421,10 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['min_wins'] === null) {
             $invalidProperties[] = "'min_wins' can't be null";
         }
+        if (($this->container['min_wins'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'min_wins', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['min_wins'] < 0)) {
             $invalidProperties[] = "invalid value for 'min_wins', must be bigger than or equal to 0.";
         }
@@ -454,6 +482,9 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($base_win_loss_point_grant) && ($base_win_loss_point_grant > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $base_win_loss_point_grant when calling RankedSeason., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($base_win_loss_point_grant) && ($base_win_loss_point_grant < 0)) {
             throw new \InvalidArgumentException('invalid value for $base_win_loss_point_grant when calling RankedSeason., must be bigger than or equal to 0.');
         }
@@ -484,6 +515,9 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($calibration_matches)) {
             throw new \InvalidArgumentException('non-nullable calibration_matches cannot be null');
+        }
+        if (($calibration_matches > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $calibration_matches when calling RankedSeason., must be smaller than or equal to 4294967295.');
         }
         if (($calibration_matches < 0)) {
             throw new \InvalidArgumentException('invalid value for $calibration_matches when calling RankedSeason., must be bigger than or equal to 0.');
@@ -522,6 +556,9 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($calibration_max_rank) && ($calibration_max_rank > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $calibration_max_rank when calling RankedSeason., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($calibration_max_rank) && ($calibration_max_rank < 0)) {
             throw new \InvalidArgumentException('invalid value for $calibration_max_rank when calling RankedSeason., must be bigger than or equal to 0.');
@@ -615,6 +652,9 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($min_hero_unlock_points) && ($min_hero_unlock_points > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $min_hero_unlock_points when calling RankedSeason., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($min_hero_unlock_points) && ($min_hero_unlock_points < 0)) {
             throw new \InvalidArgumentException('invalid value for $min_hero_unlock_points when calling RankedSeason., must be bigger than or equal to 0.');
         }
@@ -645,6 +685,9 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($min_hero_unlocks)) {
             throw new \InvalidArgumentException('non-nullable min_hero_unlocks cannot be null');
+        }
+        if (($min_hero_unlocks > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $min_hero_unlocks when calling RankedSeason., must be smaller than or equal to 4294967295.');
         }
         if (($min_hero_unlocks < 0)) {
             throw new \InvalidArgumentException('invalid value for $min_hero_unlocks when calling RankedSeason., must be bigger than or equal to 0.');
@@ -684,6 +727,9 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($min_hero_wins) && ($min_hero_wins > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $min_hero_wins when calling RankedSeason., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($min_hero_wins) && ($min_hero_wins < 0)) {
             throw new \InvalidArgumentException('invalid value for $min_hero_wins when calling RankedSeason., must be bigger than or equal to 0.');
         }
@@ -714,6 +760,9 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($min_wins)) {
             throw new \InvalidArgumentException('non-nullable min_wins cannot be null');
+        }
+        if (($min_wins > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $min_wins when calling RankedSeason., must be smaller than or equal to 4294967295.');
         }
         if (($min_wins < 0)) {
             throw new \InvalidArgumentException('invalid value for $min_wins when calling RankedSeason., must be bigger than or equal to 0.');

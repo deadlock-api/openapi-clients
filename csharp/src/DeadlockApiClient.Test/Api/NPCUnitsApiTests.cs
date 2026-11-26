@@ -58,7 +58,7 @@ namespace DeadlockApiClient.Test.Api
         {
             string idOrClassname = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetNpcUnitAsync(idOrClassname, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.NpcUnit>(model);
@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task ListNpcUnitsAsyncTest()
         {
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.ListNpcUnitsAsync(language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<NpcUnit>>(model);

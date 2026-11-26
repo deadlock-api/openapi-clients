@@ -57,9 +57,9 @@ pub struct BulkMetadataParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>

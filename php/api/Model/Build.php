@@ -74,11 +74,11 @@ class Build implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'hero_build' => null,
-        'num_favorites' => 'int32',
-        'num_ignores' => 'int32',
-        'num_reports' => 'int32',
-        'num_weekly_favorites' => 'int32',
-        'rollup_category' => 'int32'
+        'num_favorites' => 'int64',
+        'num_ignores' => 'int64',
+        'num_reports' => 'int64',
+        'num_weekly_favorites' => 'int64',
+        'rollup_category' => 'int64'
     ];
 
     /**
@@ -312,20 +312,40 @@ class Build implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['hero_build'] === null) {
             $invalidProperties[] = "'hero_build' can't be null";
         }
+        if (!is_null($this->container['num_favorites']) && ($this->container['num_favorites'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'num_favorites', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['num_favorites']) && ($this->container['num_favorites'] < 0)) {
             $invalidProperties[] = "invalid value for 'num_favorites', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['num_ignores']) && ($this->container['num_ignores'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'num_ignores', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['num_ignores']) && ($this->container['num_ignores'] < 0)) {
             $invalidProperties[] = "invalid value for 'num_ignores', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['num_reports']) && ($this->container['num_reports'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'num_reports', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['num_reports']) && ($this->container['num_reports'] < 0)) {
             $invalidProperties[] = "invalid value for 'num_reports', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['num_weekly_favorites']) && ($this->container['num_weekly_favorites'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'num_weekly_favorites', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['num_weekly_favorites']) && ($this->container['num_weekly_favorites'] < 0)) {
             $invalidProperties[] = "invalid value for 'num_weekly_favorites', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['rollup_category']) && ($this->container['rollup_category'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'rollup_category', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['rollup_category']) && ($this->container['rollup_category'] < 0)) {
@@ -403,6 +423,9 @@ class Build implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($num_favorites) && ($num_favorites > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $num_favorites when calling Build., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($num_favorites) && ($num_favorites < 0)) {
             throw new \InvalidArgumentException('invalid value for $num_favorites when calling Build., must be bigger than or equal to 0.');
         }
@@ -440,6 +463,9 @@ class Build implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($num_ignores) && ($num_ignores > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $num_ignores when calling Build., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($num_ignores) && ($num_ignores < 0)) {
             throw new \InvalidArgumentException('invalid value for $num_ignores when calling Build., must be bigger than or equal to 0.');
@@ -479,6 +505,9 @@ class Build implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($num_reports) && ($num_reports > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $num_reports when calling Build., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($num_reports) && ($num_reports < 0)) {
             throw new \InvalidArgumentException('invalid value for $num_reports when calling Build., must be bigger than or equal to 0.');
         }
@@ -517,6 +546,9 @@ class Build implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($num_weekly_favorites) && ($num_weekly_favorites > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $num_weekly_favorites when calling Build., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($num_weekly_favorites) && ($num_weekly_favorites < 0)) {
             throw new \InvalidArgumentException('invalid value for $num_weekly_favorites when calling Build., must be bigger than or equal to 0.');
         }
@@ -554,6 +586,9 @@ class Build implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($rollup_category) && ($rollup_category > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $rollup_category when calling Build., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($rollup_category) && ($rollup_category < 0)) {
             throw new \InvalidArgumentException('invalid value for $rollup_category when calling Build., must be bigger than or equal to 0.');

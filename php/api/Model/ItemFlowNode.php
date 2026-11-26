@@ -82,7 +82,7 @@ class ItemFlowNode implements ModelInterface, ArrayAccess, \JsonSerializable
         'adjusted_win_rate' => 'double',
         'avg_net_worth_at_buy' => 'double',
         'column' => 'int32',
-        'item_id' => 'int32',
+        'item_id' => 'int64',
         'losses' => 'int64',
         'matches' => 'int64',
         'players' => 'int64',
@@ -354,6 +354,10 @@ class ItemFlowNode implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['column'] === null) {
             $invalidProperties[] = "'column' can't be null";
         }
+        if (($this->container['column'] > 255)) {
+            $invalidProperties[] = "invalid value for 'column', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['column'] < 0)) {
             $invalidProperties[] = "invalid value for 'column', must be bigger than or equal to 0.";
         }
@@ -361,6 +365,10 @@ class ItemFlowNode implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['item_id'] === null) {
             $invalidProperties[] = "'item_id' can't be null";
         }
+        if (($this->container['item_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'item_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['item_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'item_id', must be bigger than or equal to 0.";
         }
@@ -505,6 +513,9 @@ class ItemFlowNode implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($column)) {
             throw new \InvalidArgumentException('non-nullable column cannot be null');
         }
+        if (($column > 255)) {
+            throw new \InvalidArgumentException('invalid value for $column when calling ItemFlowNode., must be smaller than or equal to 255.');
+        }
         if (($column < 0)) {
             throw new \InvalidArgumentException('invalid value for $column when calling ItemFlowNode., must be bigger than or equal to 0.');
         }
@@ -535,6 +546,9 @@ class ItemFlowNode implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($item_id)) {
             throw new \InvalidArgumentException('non-nullable item_id cannot be null');
+        }
+        if (($item_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $item_id when calling ItemFlowNode., must be smaller than or equal to 4294967295.');
         }
         if (($item_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $item_id when calling ItemFlowNode., must be bigger than or equal to 0.');

@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AverageBadge** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
-**AverageBadgeTeam0** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
-**AverageBadgeTeam1** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
-**DurationS** | **int32** |  | 
+**AverageBadge** | Pointer to **NullableInt64** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**AverageBadgeTeam0** | Pointer to **NullableInt64** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**AverageBadgeTeam1** | Pointer to **NullableInt64** | See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
+**DurationS** | **int64** |  | 
 **GameMode** | **int32** |  | 
 **MatchId** | **int64** |  | 
 **MatchMode** | **int32** |  | 
 **Players** | [**[]MatchPlayer**](MatchPlayer.md) |  | 
-**StartTime** | **int32** |  | 
+**StartTime** | **int64** |  | 
 
 ## Methods
 
 ### NewClickhouseMatchInfo
 
-`func NewClickhouseMatchInfo(durationS int32, gameMode int32, matchId int64, matchMode int32, players []MatchPlayer, startTime int32, ) *ClickhouseMatchInfo`
+`func NewClickhouseMatchInfo(durationS int64, gameMode int32, matchId int64, matchMode int32, players []MatchPlayer, startTime int64, ) *ClickhouseMatchInfo`
 
 NewClickhouseMatchInfo instantiates a new ClickhouseMatchInfo object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAverageBadge
 
-`func (o *ClickhouseMatchInfo) GetAverageBadge() int32`
+`func (o *ClickhouseMatchInfo) GetAverageBadge() int64`
 
 GetAverageBadge returns the AverageBadge field if non-nil, zero value otherwise.
 
 ### GetAverageBadgeOk
 
-`func (o *ClickhouseMatchInfo) GetAverageBadgeOk() (*int32, bool)`
+`func (o *ClickhouseMatchInfo) GetAverageBadgeOk() (*int64, bool)`
 
 GetAverageBadgeOk returns a tuple with the AverageBadge field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAverageBadge
 
-`func (o *ClickhouseMatchInfo) SetAverageBadge(v int32)`
+`func (o *ClickhouseMatchInfo) SetAverageBadge(v int64)`
 
 SetAverageBadge sets AverageBadge field to given value.
 
@@ -70,20 +70,20 @@ HasAverageBadge returns a boolean if a field has been set.
 UnsetAverageBadge ensures that no value is present for AverageBadge, not even an explicit nil
 ### GetAverageBadgeTeam0
 
-`func (o *ClickhouseMatchInfo) GetAverageBadgeTeam0() int32`
+`func (o *ClickhouseMatchInfo) GetAverageBadgeTeam0() int64`
 
 GetAverageBadgeTeam0 returns the AverageBadgeTeam0 field if non-nil, zero value otherwise.
 
 ### GetAverageBadgeTeam0Ok
 
-`func (o *ClickhouseMatchInfo) GetAverageBadgeTeam0Ok() (*int32, bool)`
+`func (o *ClickhouseMatchInfo) GetAverageBadgeTeam0Ok() (*int64, bool)`
 
 GetAverageBadgeTeam0Ok returns a tuple with the AverageBadgeTeam0 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAverageBadgeTeam0
 
-`func (o *ClickhouseMatchInfo) SetAverageBadgeTeam0(v int32)`
+`func (o *ClickhouseMatchInfo) SetAverageBadgeTeam0(v int64)`
 
 SetAverageBadgeTeam0 sets AverageBadgeTeam0 field to given value.
 
@@ -105,20 +105,20 @@ HasAverageBadgeTeam0 returns a boolean if a field has been set.
 UnsetAverageBadgeTeam0 ensures that no value is present for AverageBadgeTeam0, not even an explicit nil
 ### GetAverageBadgeTeam1
 
-`func (o *ClickhouseMatchInfo) GetAverageBadgeTeam1() int32`
+`func (o *ClickhouseMatchInfo) GetAverageBadgeTeam1() int64`
 
 GetAverageBadgeTeam1 returns the AverageBadgeTeam1 field if non-nil, zero value otherwise.
 
 ### GetAverageBadgeTeam1Ok
 
-`func (o *ClickhouseMatchInfo) GetAverageBadgeTeam1Ok() (*int32, bool)`
+`func (o *ClickhouseMatchInfo) GetAverageBadgeTeam1Ok() (*int64, bool)`
 
 GetAverageBadgeTeam1Ok returns a tuple with the AverageBadgeTeam1 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAverageBadgeTeam1
 
-`func (o *ClickhouseMatchInfo) SetAverageBadgeTeam1(v int32)`
+`func (o *ClickhouseMatchInfo) SetAverageBadgeTeam1(v int64)`
 
 SetAverageBadgeTeam1 sets AverageBadgeTeam1 field to given value.
 
@@ -140,20 +140,20 @@ HasAverageBadgeTeam1 returns a boolean if a field has been set.
 UnsetAverageBadgeTeam1 ensures that no value is present for AverageBadgeTeam1, not even an explicit nil
 ### GetDurationS
 
-`func (o *ClickhouseMatchInfo) GetDurationS() int32`
+`func (o *ClickhouseMatchInfo) GetDurationS() int64`
 
 GetDurationS returns the DurationS field if non-nil, zero value otherwise.
 
 ### GetDurationSOk
 
-`func (o *ClickhouseMatchInfo) GetDurationSOk() (*int32, bool)`
+`func (o *ClickhouseMatchInfo) GetDurationSOk() (*int64, bool)`
 
 GetDurationSOk returns a tuple with the DurationS field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDurationS
 
-`func (o *ClickhouseMatchInfo) SetDurationS(v int32)`
+`func (o *ClickhouseMatchInfo) SetDurationS(v int64)`
 
 SetDurationS sets DurationS field to given value.
 
@@ -240,20 +240,20 @@ SetPlayers sets Players field to given value.
 
 ### GetStartTime
 
-`func (o *ClickhouseMatchInfo) GetStartTime() int32`
+`func (o *ClickhouseMatchInfo) GetStartTime() int64`
 
 GetStartTime returns the StartTime field if non-nil, zero value otherwise.
 
 ### GetStartTimeOk
 
-`func (o *ClickhouseMatchInfo) GetStartTimeOk() (*int32, bool)`
+`func (o *ClickhouseMatchInfo) GetStartTimeOk() (*int64, bool)`
 
 GetStartTimeOk returns a tuple with the StartTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStartTime
 
-`func (o *ClickhouseMatchInfo) SetStartTime(v int32)`
+`func (o *ClickhouseMatchInfo) SetStartTime(v int64)`
 
 SetStartTime sets StartTime field to given value.
 

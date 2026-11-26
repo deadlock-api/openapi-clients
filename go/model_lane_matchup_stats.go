@@ -22,11 +22,11 @@ var _ MappedNullable = &LaneMatchupStats{}
 // LaneMatchupStats **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
 type LaneMatchupStats struct {
 	// The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
-	AssignedLane int32 `json:"assigned_lane"`
+	AssignedLane int64 `json:"assigned_lane"`
 	// The ascending hero id pair they laned against, or empty when grouped away.
-	EnemyHeroIds []int32 `json:"enemy_hero_ids"`
+	EnemyHeroIds []int64 `json:"enemy_hero_ids"`
 	// The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	HeroIds []int32 `json:"hero_ids"`
+	HeroIds []int64 `json:"hero_ids"`
 	// The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane.
 	MatchesPlayed int64 `json:"matches_played"`
 	// Mean souls the duo is ahead by at `sample_time_s`, against that duo. Negative means behind. `0` when no counted matchup lasted that long.
@@ -34,7 +34,7 @@ type LaneMatchupStats struct {
 	// How many of `matches_played` lasted to `sample_time_s` with all four players still in. Every reading on this row rests on those matchups only.
 	SampleMatches int64 `json:"sample_matches"`
 	// Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter.
-	SampleTimeS int32 `json:"sample_time_s"`
+	SampleTimeS int64 `json:"sample_time_s"`
 	// A reading per stat named in `stats`. Empty unless the parameter was set.
 	Stats map[string]LaneMatchupStat `json:"stats"`
 	// The number of matches `hero_ids` won against `enemy_hero_ids` in this lane.
@@ -47,7 +47,7 @@ type _LaneMatchupStats LaneMatchupStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLaneMatchupStats(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff float64, sampleMatches int64, sampleTimeS int32, stats map[string]LaneMatchupStat, wins int64) *LaneMatchupStats {
+func NewLaneMatchupStats(assignedLane int64, enemyHeroIds []int64, heroIds []int64, matchesPlayed int64, netWorthDiff float64, sampleMatches int64, sampleTimeS int64, stats map[string]LaneMatchupStat, wins int64) *LaneMatchupStats {
 	this := LaneMatchupStats{}
 	this.AssignedLane = assignedLane
 	this.EnemyHeroIds = enemyHeroIds
@@ -70,9 +70,9 @@ func NewLaneMatchupStatsWithDefaults() *LaneMatchupStats {
 }
 
 // GetAssignedLane returns the AssignedLane field value
-func (o *LaneMatchupStats) GetAssignedLane() int32 {
+func (o *LaneMatchupStats) GetAssignedLane() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -81,7 +81,7 @@ func (o *LaneMatchupStats) GetAssignedLane() int32 {
 
 // GetAssignedLaneOk returns a tuple with the AssignedLane field value
 // and a boolean to check if the value has been set.
-func (o *LaneMatchupStats) GetAssignedLaneOk() (*int32, bool) {
+func (o *LaneMatchupStats) GetAssignedLaneOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,14 +89,14 @@ func (o *LaneMatchupStats) GetAssignedLaneOk() (*int32, bool) {
 }
 
 // SetAssignedLane sets field value
-func (o *LaneMatchupStats) SetAssignedLane(v int32) {
+func (o *LaneMatchupStats) SetAssignedLane(v int64) {
 	o.AssignedLane = v
 }
 
 // GetEnemyHeroIds returns the EnemyHeroIds field value
-func (o *LaneMatchupStats) GetEnemyHeroIds() []int32 {
+func (o *LaneMatchupStats) GetEnemyHeroIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -105,7 +105,7 @@ func (o *LaneMatchupStats) GetEnemyHeroIds() []int32 {
 
 // GetEnemyHeroIdsOk returns a tuple with the EnemyHeroIds field value
 // and a boolean to check if the value has been set.
-func (o *LaneMatchupStats) GetEnemyHeroIdsOk() ([]int32, bool) {
+func (o *LaneMatchupStats) GetEnemyHeroIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -113,14 +113,14 @@ func (o *LaneMatchupStats) GetEnemyHeroIdsOk() ([]int32, bool) {
 }
 
 // SetEnemyHeroIds sets field value
-func (o *LaneMatchupStats) SetEnemyHeroIds(v []int32) {
+func (o *LaneMatchupStats) SetEnemyHeroIds(v []int64) {
 	o.EnemyHeroIds = v
 }
 
 // GetHeroIds returns the HeroIds field value
-func (o *LaneMatchupStats) GetHeroIds() []int32 {
+func (o *LaneMatchupStats) GetHeroIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -129,7 +129,7 @@ func (o *LaneMatchupStats) GetHeroIds() []int32 {
 
 // GetHeroIdsOk returns a tuple with the HeroIds field value
 // and a boolean to check if the value has been set.
-func (o *LaneMatchupStats) GetHeroIdsOk() ([]int32, bool) {
+func (o *LaneMatchupStats) GetHeroIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -137,7 +137,7 @@ func (o *LaneMatchupStats) GetHeroIdsOk() ([]int32, bool) {
 }
 
 // SetHeroIds sets field value
-func (o *LaneMatchupStats) SetHeroIds(v []int32) {
+func (o *LaneMatchupStats) SetHeroIds(v []int64) {
 	o.HeroIds = v
 }
 
@@ -214,9 +214,9 @@ func (o *LaneMatchupStats) SetSampleMatches(v int64) {
 }
 
 // GetSampleTimeS returns the SampleTimeS field value
-func (o *LaneMatchupStats) GetSampleTimeS() int32 {
+func (o *LaneMatchupStats) GetSampleTimeS() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -225,7 +225,7 @@ func (o *LaneMatchupStats) GetSampleTimeS() int32 {
 
 // GetSampleTimeSOk returns a tuple with the SampleTimeS field value
 // and a boolean to check if the value has been set.
-func (o *LaneMatchupStats) GetSampleTimeSOk() (*int32, bool) {
+func (o *LaneMatchupStats) GetSampleTimeSOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -233,7 +233,7 @@ func (o *LaneMatchupStats) GetSampleTimeSOk() (*int32, bool) {
 }
 
 // SetSampleTimeS sets field value
-func (o *LaneMatchupStats) SetSampleTimeS(v int32) {
+func (o *LaneMatchupStats) SetSampleTimeS(v int64) {
 	o.SampleTimeS = v
 }
 

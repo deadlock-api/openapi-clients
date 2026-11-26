@@ -24,9 +24,9 @@ Returns a single rank by tier index.
 //import deadlock_api_client.models.*
 
 val apiInstance = RanksApi()
-val tier : kotlin.Int = 56 // kotlin.Int | Rank tier (0-11)
+val tier : kotlin.Long = 789 // kotlin.Long | Rank tier (0-11)
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : Rank = apiInstance.getRank(tier, language, clientVersion)
     println(result)
@@ -42,9 +42,9 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tier** | **kotlin.Int**| Rank tier (0-11) | |
+| **tier** | **kotlin.Long**| Rank tier (0-11) | |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -75,7 +75,7 @@ Returns the 12 player ranks (tier, localized name, badge image URLs, hex color).
 
 val apiInstance = RanksApi()
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : kotlin.collections.List<Rank> = apiInstance.listRanks(language, clientVersion)
     println(result)
@@ -92,7 +92,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -122,8 +122,8 @@ Returns the tier badge with its I-VI division numeral drawn on it (binary, not a
 //import deadlock_api_client.models.*
 
 val apiInstance = RanksApi()
-val tier : kotlin.Int = 56 // kotlin.Int | Rank tier (1-11)
-val subrank : kotlin.Int = 56 // kotlin.Int | Division within the tier (1-6)
+val tier : kotlin.Long = 789 // kotlin.Long | Rank tier (1-11)
+val subrank : kotlin.Long = 789 // kotlin.Long | Division within the tier (1-6)
 val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
 try {
     val result : kotlin.collections.List<kotlin.Int> = apiInstance.subrankImage(tier, subrank, format)
@@ -140,8 +140,8 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tier** | **kotlin.Int**| Rank tier (1-11) | |
-| **subrank** | **kotlin.Int**| Division within the tier (1-6) | |
+| **tier** | **kotlin.Long**| Rank tier (1-11) | |
+| **subrank** | **kotlin.Long**| Division within the tier (1-6) | |
 | **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
 
 ### Return type

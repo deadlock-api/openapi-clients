@@ -45,7 +45,7 @@ namespace DeadlockApiClient.Model
         /// <param name="wins">wins</param>
         /// <param name="sold">How many of the &#x60;matches&#x60; purchases were sold again. &#x60;sold / matches&#x60; is the sell rate.</param>
         [JsonConstructor]
-        public ItemStats(double avgBuyTimeRelative, double avgBuyTimeS, double avgSellTimeRelative, double avgSellTimeS, int bucket, int itemId, long losses, long matches, long players, long wins, Option<long?> sold = default)
+        public ItemStats(double avgBuyTimeRelative, double avgBuyTimeS, double avgSellTimeRelative, double avgSellTimeS, long bucket, long itemId, long losses, long matches, long players, long wins, Option<long?> sold = default)
         {
             AvgBuyTimeRelative = avgBuyTimeRelative;
             AvgBuyTimeS = avgBuyTimeS;
@@ -95,14 +95,14 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Bucket
         /// </summary>
         [JsonPropertyName("bucket")]
-        public int Bucket { get; set; }
+        public long Bucket { get; set; }
 
         /// <summary>
         /// See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
         /// </summary>
         /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;</value>
         [JsonPropertyName("item_id")]
-        public int ItemId { get; set; }
+        public long ItemId { get; set; }
 
         /// <summary>
         /// Gets or Sets Losses
@@ -172,14 +172,26 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Bucket (int) minimum
-            if (this.Bucket < (int)0)
+            // Bucket (long) maximum
+            if (this.Bucket > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value less than or equal to 4294967295.", new [] { "Bucket" });
+            }
+
+            // Bucket (long) minimum
+            if (this.Bucket < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
             }
 
-            // ItemId (int) minimum
-            if (this.ItemId < (int)0)
+            // ItemId (long) maximum
+            if (this.ItemId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ItemId, must be a value less than or equal to 4294967295.", new [] { "ItemId" });
+            }
+
+            // ItemId (long) minimum
+            if (this.ItemId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ItemId, must be a value greater than or equal to 0.", new [] { "ItemId" });
             }
@@ -254,8 +266,8 @@ namespace DeadlockApiClient.Model
             Option<double?> avgBuyTimeS = default;
             Option<double?> avgSellTimeRelative = default;
             Option<double?> avgSellTimeS = default;
-            Option<int?> bucket = default;
-            Option<int?> itemId = default;
+            Option<long?> bucket = default;
+            Option<long?> itemId = default;
             Option<long?> losses = default;
             Option<long?> matches = default;
             Option<long?> players = default;
@@ -290,10 +302,10 @@ namespace DeadlockApiClient.Model
                             avgSellTimeS = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "bucket":
-                            bucket = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            bucket = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "item_id":
-                            itemId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            itemId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "losses":
                             losses = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());

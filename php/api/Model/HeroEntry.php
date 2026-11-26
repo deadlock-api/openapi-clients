@@ -298,6 +298,10 @@ class HeroEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['hero_id'] === null) {
             $invalidProperties[] = "'hero_id' can't be null";
         }
+        if (($this->container['hero_id'] > 255)) {
+            $invalidProperties[] = "invalid value for 'hero_id', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['hero_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero_id', must be bigger than or equal to 0.";
         }
@@ -355,6 +359,9 @@ class HeroEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($hero_id)) {
             throw new \InvalidArgumentException('non-nullable hero_id cannot be null');
+        }
+        if (($hero_id > 255)) {
+            throw new \InvalidArgumentException('invalid value for $hero_id when calling HeroEntry., must be smaller than or equal to 255.');
         }
         if (($hero_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero_id when calling HeroEntry., must be bigger than or equal to 0.');

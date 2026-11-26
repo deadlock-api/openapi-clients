@@ -40,11 +40,11 @@ data class LeaderboardEntry (
 
     /* The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.** */
     @Json(name = "possible_account_ids")
-    val possibleAccountIds: kotlin.collections.List<kotlin.Int>,
+    val possibleAccountIds: kotlin.collections.List<kotlin.Long>,
 
     /* The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "top_hero_ids")
-    val topHeroIds: kotlin.collections.List<kotlin.Int>,
+    val topHeroIds: kotlin.collections.List<kotlin.Long>,
 
     /* The account name of the player. */
     @Json(name = "account_name")
@@ -52,7 +52,7 @@ data class LeaderboardEntry (
 
     /* The player's place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge. */
     @Json(name = "rank")
-    val rank: kotlin.Int? = null
+    val rank: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

@@ -56,9 +56,9 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetAccoladeAsyncTest()
         {
-            int accoladeId = default!;
+            long accoladeId = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetAccoladeAsync(accoladeId, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Accolade>(model);
@@ -72,7 +72,7 @@ namespace DeadlockApiClient.Test.Api
         {
             string name = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetAccoladeByNameAsync(name, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Accolade>(model);
@@ -85,7 +85,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task ListAccoladesAsyncTest()
         {
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.ListAccoladesAsync(language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<Accolade>>(model);

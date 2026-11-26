@@ -40,7 +40,7 @@ namespace DeadlockApiClient.Model
         /// <param name="class">Engine class (&#x60;_class&#x60;), e.g. &#x60;citadel_neutral_laser_beam&#x60;.</param>
         /// <param name="folder">Editor folder (&#x60;_editor.folder_name&#x60;), e.g. &#x60;Neutral Ability&#x60;.</param>
         [JsonConstructor]
-        public Modifier(string className, int id, Dictionary<string, double> properties, Option<string?> @base = default, Option<string?> @class = default, Option<string?> folder = default)
+        public Modifier(string className, long id, Dictionary<string, double> properties, Option<string?> @base = default, Option<string?> @class = default, Option<string?> folder = default)
         {
             ClassName = className;
             Id = id;
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Id
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Numeric properties keyed by their source name. Nested properties use a dotted path (&#x60;m_GroundAuraModifier.m_modifierProvidedByAura.m_flDPS&#x60;, &#x60;subclass:&#x60; wrappers are skipped); &#x60;m_vecScriptValues&#x60; entries are keyed by their &#x60;m_eModifierValue&#x60; (&#x60;MODIFIER_VALUE_GRAVITY_SCALE&#x60;).
@@ -139,8 +139,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (int) minimum
-            if (this.Id < (int)0)
+            // Id (long) maximum
+            if (this.Id > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value less than or equal to 4294967295.", new [] { "Id" });
+            }
+
+            // Id (long) minimum
+            if (this.Id < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 0.", new [] { "Id" });
             }
@@ -182,7 +188,7 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<string?> className = default;
-            Option<int?> id = default;
+            Option<long?> id = default;
             Option<Dictionary<string, double>?> properties = default;
             Option<string?> varBase = default;
             Option<string?> varClass = default;
@@ -207,7 +213,7 @@ namespace DeadlockApiClient.Model
                             className = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "id":
-                            id = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            id = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "properties":
                             properties = new Option<Dictionary<string, double>?>(JsonSerializer.Deserialize<Dictionary<string, double>>(ref utf8JsonReader, jsonSerializerOptions)!);

@@ -24,7 +24,7 @@ type HeroBanStats struct {
 	// The number of matches in which this hero was banned.
 	Bans int64 `json:"bans"`
 	// The bucket value (depends on the bucket query parameter).
-	Bucket int32 `json:"bucket"`
+	Bucket int64 `json:"bucket"`
 	// The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
 	// The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 4 bans (3 before Beta Season 2) and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
@@ -37,7 +37,7 @@ type _HeroBanStats HeroBanStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroBanStats(bans int64, bucket int32, heroId int32, matches int64) *HeroBanStats {
+func NewHeroBanStats(bans int64, bucket int64, heroId int32, matches int64) *HeroBanStats {
 	this := HeroBanStats{}
 	this.Bans = bans
 	this.Bucket = bucket
@@ -79,9 +79,9 @@ func (o *HeroBanStats) SetBans(v int64) {
 }
 
 // GetBucket returns the Bucket field value
-func (o *HeroBanStats) GetBucket() int32 {
+func (o *HeroBanStats) GetBucket() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -90,7 +90,7 @@ func (o *HeroBanStats) GetBucket() int32 {
 
 // GetBucketOk returns a tuple with the Bucket field value
 // and a boolean to check if the value has been set.
-func (o *HeroBanStats) GetBucketOk() (*int32, bool) {
+func (o *HeroBanStats) GetBucketOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,7 +98,7 @@ func (o *HeroBanStats) GetBucketOk() (*int32, bool) {
 }
 
 // SetBucket sets field value
-func (o *HeroBanStats) SetBucket(v int32) {
+func (o *HeroBanStats) SetBucket(v int64) {
 	o.Bucket = v
 }
 

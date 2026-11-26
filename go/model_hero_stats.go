@@ -21,7 +21,7 @@ var _ MappedNullable = &HeroStats{}
 
 // HeroStats struct for HeroStats
 type HeroStats struct {
-	AccountId int32 `json:"account_id"`
+	AccountId int64 `json:"account_id"`
 	Accuracy float64 `json:"accuracy"`
 	Assists int64 `json:"assists"`
 	AssistsPerMin float64 `json:"assists_per_min"`
@@ -44,7 +44,7 @@ type HeroStats struct {
 	Kills int64 `json:"kills"`
 	KillsPerMin float64 `json:"kills_per_min"`
 	LastHitsPerMin float64 `json:"last_hits_per_min"`
-	LastPlayed int32 `json:"last_played"`
+	LastPlayed int64 `json:"last_played"`
 	Matches []int64 `json:"matches"`
 	MatchesPlayed int64 `json:"matches_played"`
 	// Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.
@@ -75,7 +75,7 @@ type _HeroStats HeroStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, mvpRankCounts []int64, mvpRatedMatches int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, permanentBuffMatches int64, permanentBuffs int64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64) *HeroStats {
+func NewHeroStats(accountId int64, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int64, matches []int64, matchesPlayed int64, mvpRankCounts []int64, mvpRatedMatches int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, permanentBuffMatches int64, permanentBuffs int64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64) *HeroStats {
 	this := HeroStats{}
 	this.AccountId = accountId
 	this.Accuracy = accuracy
@@ -126,9 +126,9 @@ func NewHeroStatsWithDefaults() *HeroStats {
 }
 
 // GetAccountId returns the AccountId field value
-func (o *HeroStats) GetAccountId() int32 {
+func (o *HeroStats) GetAccountId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -137,7 +137,7 @@ func (o *HeroStats) GetAccountId() int32 {
 
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
-func (o *HeroStats) GetAccountIdOk() (*int32, bool) {
+func (o *HeroStats) GetAccountIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -145,7 +145,7 @@ func (o *HeroStats) GetAccountIdOk() (*int32, bool) {
 }
 
 // SetAccountId sets field value
-func (o *HeroStats) SetAccountId(v int32) {
+func (o *HeroStats) SetAccountId(v int64) {
 	o.AccountId = v
 }
 
@@ -648,9 +648,9 @@ func (o *HeroStats) SetLastHitsPerMin(v float64) {
 }
 
 // GetLastPlayed returns the LastPlayed field value
-func (o *HeroStats) GetLastPlayed() int32 {
+func (o *HeroStats) GetLastPlayed() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -659,7 +659,7 @@ func (o *HeroStats) GetLastPlayed() int32 {
 
 // GetLastPlayedOk returns a tuple with the LastPlayed field value
 // and a boolean to check if the value has been set.
-func (o *HeroStats) GetLastPlayedOk() (*int32, bool) {
+func (o *HeroStats) GetLastPlayedOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -667,7 +667,7 @@ func (o *HeroStats) GetLastPlayedOk() (*int32, bool) {
 }
 
 // SetLastPlayed sets field value
-func (o *HeroStats) SetLastPlayed(v int32) {
+func (o *HeroStats) SetLastPlayed(v int64) {
 	o.LastPlayed = v
 }
 

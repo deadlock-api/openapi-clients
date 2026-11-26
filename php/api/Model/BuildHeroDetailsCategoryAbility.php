@@ -72,11 +72,11 @@ class BuildHeroDetailsCategoryAbility implements ModelInterface, ArrayAccess, \J
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'ability_id' => 'int32',
+        'ability_id' => 'int64',
         'annotation' => null,
-        'imbue_target_ability_id' => 'int32',
-        'required_flex_slots' => 'int32',
-        'sell_priority' => 'int32'
+        'imbue_target_ability_id' => 'int64',
+        'required_flex_slots' => 'int64',
+        'sell_priority' => 'int64'
     ];
 
     /**
@@ -305,16 +305,32 @@ class BuildHeroDetailsCategoryAbility implements ModelInterface, ArrayAccess, \J
         if ($this->container['ability_id'] === null) {
             $invalidProperties[] = "'ability_id' can't be null";
         }
+        if (($this->container['ability_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'ability_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['ability_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'ability_id', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['imbue_target_ability_id']) && ($this->container['imbue_target_ability_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'imbue_target_ability_id', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['imbue_target_ability_id']) && ($this->container['imbue_target_ability_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'imbue_target_ability_id', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['required_flex_slots']) && ($this->container['required_flex_slots'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'required_flex_slots', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['required_flex_slots']) && ($this->container['required_flex_slots'] < 0)) {
             $invalidProperties[] = "invalid value for 'required_flex_slots', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['sell_priority']) && ($this->container['sell_priority'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'sell_priority', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['sell_priority']) && ($this->container['sell_priority'] < 0)) {
@@ -357,6 +373,9 @@ class BuildHeroDetailsCategoryAbility implements ModelInterface, ArrayAccess, \J
     {
         if (is_null($ability_id)) {
             throw new \InvalidArgumentException('non-nullable ability_id cannot be null');
+        }
+        if (($ability_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $ability_id when calling BuildHeroDetailsCategoryAbility., must be smaller than or equal to 4294967295.');
         }
         if (($ability_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $ability_id when calling BuildHeroDetailsCategoryAbility., must be bigger than or equal to 0.');
@@ -430,6 +449,9 @@ class BuildHeroDetailsCategoryAbility implements ModelInterface, ArrayAccess, \J
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($imbue_target_ability_id) && ($imbue_target_ability_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $imbue_target_ability_id when calling BuildHeroDetailsCategoryAbility., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($imbue_target_ability_id) && ($imbue_target_ability_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $imbue_target_ability_id when calling BuildHeroDetailsCategoryAbility., must be bigger than or equal to 0.');
         }
@@ -468,6 +490,9 @@ class BuildHeroDetailsCategoryAbility implements ModelInterface, ArrayAccess, \J
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($required_flex_slots) && ($required_flex_slots > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $required_flex_slots when calling BuildHeroDetailsCategoryAbility., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($required_flex_slots) && ($required_flex_slots < 0)) {
             throw new \InvalidArgumentException('invalid value for $required_flex_slots when calling BuildHeroDetailsCategoryAbility., must be bigger than or equal to 0.');
         }
@@ -505,6 +530,9 @@ class BuildHeroDetailsCategoryAbility implements ModelInterface, ArrayAccess, \J
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($sell_priority) && ($sell_priority > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $sell_priority when calling BuildHeroDetailsCategoryAbility., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($sell_priority) && ($sell_priority < 0)) {
             throw new \InvalidArgumentException('invalid value for $sell_priority when calling BuildHeroDetailsCategoryAbility., must be bigger than or equal to 0.');

@@ -93,7 +93,7 @@ namespace DeadlockApiClient.Model
         /// <param name="spawnIntervalInSeconds">spawnIntervalInSeconds</param>
         /// <param name="spawnMusicState">Corrupted item shop (Broker) trigger: music cue played on spawn.</param>
         [JsonConstructor]
-        public MiscEntity(string className, int id, Option<bool?> breakOnDodgeTouch = default, Option<Color?> buffTypeGraphColor = default, Option<string?> buffTypeLocString = default, Option<string?> buffTypeName = default, Option<string?> buffTypeValueUnit = default, Option<string?> collectionMethod = default, Option<double?> collisionRadius = default, Option<Color?> color = default, Option<bool?> damagedByAbilities = default, Option<bool?> damagedByBullets = default, Option<bool?> damagedByMelee = default, Option<bool?> damagedBySlide = default, Option<CurveOrFloat?> expirationDuration = default, Option<double?> goldAmount = default, Option<double?> goldPerMinuteAmount = default, Option<long?> health = default, Option<long?> heavyMeleeHitCount = default, Option<bool?> heavyMeleeOnly = default, Option<long?> hitsRequired = default, Option<SubclassModifierDefinition?> inShopModifier = default, Option<long?> initialSpawnDelayInSeconds = default, Option<long?> initialSpawnDelaySeconds = default, Option<double?> initialSpawnTime = default, Option<bool?> isMantleable = default, Option<bool?> isPermanentPickup = default, Option<double?> lifetime = default, Option<long?> lootListDeckSize = default, Option<List<Pickup>?> mVecPickupsLv2 = default, Option<List<Pickup>?> mVecPickupsLv3 = default, Option<long?> matchTimeMinsForLevel2Pickups = default, Option<long?> matchTimeMinsForLevel3Pickups = default, Option<string?> minimapClass = default, Option<SubclassModifierDefinition?> modifier = default, Option<string?> name = default, Option<string?> nameLocString = default, Option<double?> orbSpawnDelayMax = default, Option<double?> orbSpawnDelayMin = default, Option<string?> pickup = default, Option<Dictionary<string, double>?> pickupChances = default, Option<CurveOrFloat?> pickupRadius = default, Option<double?> powerupDropChance = default, Option<double?> primaryDropChance = default, Option<List<Pickup>?> primaryPickups = default, Option<double?> regenDuration = default, Option<double?> regenDurationTroopers = default, Option<CurveOrFloat?> regenMaxHealthPercent = default, Option<double?> regenTrooperMulti = default, Option<bool?> renderAfterDeath = default, Option<double?> respawnTime = default, Option<string?> rollType = default, Option<bool?> showOnMinimap = default, Option<string?> singlePickupOverride = default, Option<bool?> solidAfterDeath = default, Option<double?> spawnDelay = default, Option<double?> spawnInterval = default, Option<long?> spawnIntervalInSeconds = default, Option<string?> spawnMusicState = default)
+        public MiscEntity(string className, long id, Option<bool?> breakOnDodgeTouch = default, Option<Color?> buffTypeGraphColor = default, Option<string?> buffTypeLocString = default, Option<string?> buffTypeName = default, Option<string?> buffTypeValueUnit = default, Option<string?> collectionMethod = default, Option<double?> collisionRadius = default, Option<Color?> color = default, Option<bool?> damagedByAbilities = default, Option<bool?> damagedByBullets = default, Option<bool?> damagedByMelee = default, Option<bool?> damagedBySlide = default, Option<CurveOrFloat?> expirationDuration = default, Option<double?> goldAmount = default, Option<double?> goldPerMinuteAmount = default, Option<long?> health = default, Option<long?> heavyMeleeHitCount = default, Option<bool?> heavyMeleeOnly = default, Option<long?> hitsRequired = default, Option<SubclassModifierDefinition?> inShopModifier = default, Option<long?> initialSpawnDelayInSeconds = default, Option<long?> initialSpawnDelaySeconds = default, Option<double?> initialSpawnTime = default, Option<bool?> isMantleable = default, Option<bool?> isPermanentPickup = default, Option<double?> lifetime = default, Option<long?> lootListDeckSize = default, Option<List<Pickup>?> mVecPickupsLv2 = default, Option<List<Pickup>?> mVecPickupsLv3 = default, Option<long?> matchTimeMinsForLevel2Pickups = default, Option<long?> matchTimeMinsForLevel3Pickups = default, Option<string?> minimapClass = default, Option<SubclassModifierDefinition?> modifier = default, Option<string?> name = default, Option<string?> nameLocString = default, Option<double?> orbSpawnDelayMax = default, Option<double?> orbSpawnDelayMin = default, Option<string?> pickup = default, Option<Dictionary<string, double>?> pickupChances = default, Option<CurveOrFloat?> pickupRadius = default, Option<double?> powerupDropChance = default, Option<double?> primaryDropChance = default, Option<List<Pickup>?> primaryPickups = default, Option<double?> regenDuration = default, Option<double?> regenDurationTroopers = default, Option<CurveOrFloat?> regenMaxHealthPercent = default, Option<double?> regenTrooperMulti = default, Option<bool?> renderAfterDeath = default, Option<double?> respawnTime = default, Option<string?> rollType = default, Option<bool?> showOnMinimap = default, Option<string?> singlePickupOverride = default, Option<bool?> solidAfterDeath = default, Option<double?> spawnDelay = default, Option<double?> spawnInterval = default, Option<long?> spawnIntervalInSeconds = default, Option<string?> spawnMusicState = default)
         {
             ClassName = className;
             Id = id;
@@ -169,7 +169,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Id
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Used to track the state of BreakOnDodgeTouch
@@ -1012,8 +1012,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (int) minimum
-            if (this.Id < (int)0)
+            // Id (long) maximum
+            if (this.Id > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value less than or equal to 4294967295.", new [] { "Id" });
+            }
+
+            // Id (long) minimum
+            if (this.Id < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 0.", new [] { "Id" });
             }
@@ -1055,7 +1061,7 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<string?> className = default;
-            Option<int?> id = default;
+            Option<long?> id = default;
             Option<bool?> breakOnDodgeTouch = default;
             Option<Color?> buffTypeGraphColor = default;
             Option<string?> buffTypeLocString = default;
@@ -1133,7 +1139,7 @@ namespace DeadlockApiClient.Model
                             className = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "id":
-                            id = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            id = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "break_on_dodge_touch":
                             breakOnDodgeTouch = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());

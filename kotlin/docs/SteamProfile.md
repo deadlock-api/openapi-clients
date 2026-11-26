@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int** |  |  |
+| **accountId** | **kotlin.Long** |  |  |
 | **avatar** | **kotlin.String** |  |  |
 | **avatarfull** | **kotlin.String** |  |  |
 | **avatarmedium** | **kotlin.String** |  |  |
@@ -14,7 +14,7 @@
 | **personaname** | **kotlin.String** |  |  |
 | **profileurl** | **kotlin.String** |  |  |
 | **countrycode** | **kotlin.String** |  |  [optional] |
-| **lastTeamAvgBadge** | **kotlin.Int** |  |  [optional] |
+| **lastTeamAvgBadge** | **kotlin.Long** |  |  [optional] |
 | **realname** | **kotlin.String** |  |  [optional] |
 
 

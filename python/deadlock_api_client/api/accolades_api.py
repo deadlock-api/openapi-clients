@@ -41,9 +41,9 @@ class AccoladesApi:
     @validate_call
     def get_accolade(
         self,
-        accolade_id: Annotated[int, Field(strict=True, ge=0, description="Accolade id (`m_unAccoladeID`)")],
+        accolade_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Accolade id (`m_unAccoladeID`)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -118,9 +118,9 @@ class AccoladesApi:
     @validate_call
     def get_accolade_with_http_info(
         self,
-        accolade_id: Annotated[int, Field(strict=True, ge=0, description="Accolade id (`m_unAccoladeID`)")],
+        accolade_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Accolade id (`m_unAccoladeID`)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -195,9 +195,9 @@ class AccoladesApi:
     @validate_call
     def get_accolade_without_preload_content(
         self,
-        accolade_id: Annotated[int, Field(strict=True, ge=0, description="Accolade id (`m_unAccoladeID`)")],
+        accolade_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Accolade id (`m_unAccoladeID`)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -343,7 +343,7 @@ class AccoladesApi:
         self,
         name: Annotated[StrictStr, Field(description="Accolade `class_name` (e.g. `kills`) or `tracked_stat_name`")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -420,7 +420,7 @@ class AccoladesApi:
         self,
         name: Annotated[StrictStr, Field(description="Accolade `class_name` (e.g. `kills`) or `tracked_stat_name`")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -497,7 +497,7 @@ class AccoladesApi:
         self,
         name: Annotated[StrictStr, Field(description="Accolade `class_name` (e.g. `kills`) or `tracked_stat_name`")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -642,7 +642,7 @@ class AccoladesApi:
     def list_accolades(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -715,7 +715,7 @@ class AccoladesApi:
     def list_accolades_with_http_info(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -788,7 +788,7 @@ class AccoladesApi:
     def list_accolades_without_preload_content(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

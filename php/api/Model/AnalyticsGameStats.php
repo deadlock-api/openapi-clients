@@ -175,7 +175,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_self_healing' => 'double',
         'avg_tech_power' => 'double',
         'avg_weapon_power' => 'double',
-        'bucket' => 'int32',
+        'bucket' => 'int64',
         'mid_boss_kill_rate' => 'double',
         'team0_wins' => 'int64',
         'team1_wins' => 'int64',
@@ -819,6 +819,10 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['bucket'] === null) {
             $invalidProperties[] = "'bucket' can't be null";
         }
+        if (($this->container['bucket'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'bucket', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['bucket'] < 0)) {
             $invalidProperties[] = "invalid value for 'bucket', must be bigger than or equal to 0.";
         }
@@ -2274,6 +2278,9 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         if (is_null($bucket)) {
             throw new \InvalidArgumentException('non-nullable bucket cannot be null');
+        }
+        if (($bucket > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $bucket when calling AnalyticsGameStats., must be smaller than or equal to 4294967295.');
         }
         if (($bucket < 0)) {
             throw new \InvalidArgumentException('invalid value for $bucket when calling AnalyticsGameStats., must be bigger than or equal to 0.');

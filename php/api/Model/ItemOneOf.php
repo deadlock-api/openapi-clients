@@ -97,9 +97,9 @@ class ItemOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependent_abilities' => null,
         'description' => null,
         'grant_ammo_on_cast' => null,
-        'hero' => 'int32',
-        'heroes' => 'int32',
-        'id' => 'int32',
+        'hero' => 'int64',
+        'heroes' => 'int64',
+        'id' => 'int64',
         'image' => null,
         'image_webp' => null,
         'name' => null,
@@ -440,6 +440,10 @@ class ItemOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['description'] === null) {
             $invalidProperties[] = "'description' can't be null";
         }
+        if (!is_null($this->container['hero']) && ($this->container['hero'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'hero', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['hero']) && ($this->container['hero'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero', must be bigger than or equal to 0.";
         }
@@ -447,6 +451,10 @@ class ItemOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if (($this->container['id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['id'] < 0)) {
             $invalidProperties[] = "invalid value for 'id', must be bigger than or equal to 0.";
         }
@@ -768,6 +776,9 @@ class ItemOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($hero) && ($hero > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $hero when calling ItemOneOf., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($hero) && ($hero < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero when calling ItemOneOf., must be bigger than or equal to 0.');
         }
@@ -832,6 +843,9 @@ class ItemOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        if (($id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $id when calling ItemOneOf., must be smaller than or equal to 4294967295.');
         }
         if (($id < 0)) {
             throw new \InvalidArgumentException('invalid value for $id when calling ItemOneOf., must be bigger than or equal to 0.');

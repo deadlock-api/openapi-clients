@@ -23,9 +23,9 @@ var _ MappedNullable = &SeasonInterval{}
 type SeasonInterval struct {
 	// Unix timestamp (seconds) at which the interval ends.
 	EndTimestamp int64 `json:"end_timestamp"`
-	Interval int32 `json:"interval"`
+	Interval int64 `json:"interval"`
 	// Leaderboard backing this interval (build 6701+).
-	LeaderboardId NullableInt32 `json:"leaderboard_id,omitempty"`
+	LeaderboardId NullableInt64 `json:"leaderboard_id,omitempty"`
 	// Unix timestamp (seconds) at which the interval starts.
 	StartTimestamp int64 `json:"start_timestamp"`
 }
@@ -36,7 +36,7 @@ type _SeasonInterval SeasonInterval
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSeasonInterval(endTimestamp int64, interval int32, startTimestamp int64) *SeasonInterval {
+func NewSeasonInterval(endTimestamp int64, interval int64, startTimestamp int64) *SeasonInterval {
 	this := SeasonInterval{}
 	this.EndTimestamp = endTimestamp
 	this.Interval = interval
@@ -77,9 +77,9 @@ func (o *SeasonInterval) SetEndTimestamp(v int64) {
 }
 
 // GetInterval returns the Interval field value
-func (o *SeasonInterval) GetInterval() int32 {
+func (o *SeasonInterval) GetInterval() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -88,7 +88,7 @@ func (o *SeasonInterval) GetInterval() int32 {
 
 // GetIntervalOk returns a tuple with the Interval field value
 // and a boolean to check if the value has been set.
-func (o *SeasonInterval) GetIntervalOk() (*int32, bool) {
+func (o *SeasonInterval) GetIntervalOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,14 +96,14 @@ func (o *SeasonInterval) GetIntervalOk() (*int32, bool) {
 }
 
 // SetInterval sets field value
-func (o *SeasonInterval) SetInterval(v int32) {
+func (o *SeasonInterval) SetInterval(v int64) {
 	o.Interval = v
 }
 
 // GetLeaderboardId returns the LeaderboardId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SeasonInterval) GetLeaderboardId() int32 {
+func (o *SeasonInterval) GetLeaderboardId() int64 {
 	if o == nil || IsNil(o.LeaderboardId.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.LeaderboardId.Get()
@@ -112,7 +112,7 @@ func (o *SeasonInterval) GetLeaderboardId() int32 {
 // GetLeaderboardIdOk returns a tuple with the LeaderboardId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SeasonInterval) GetLeaderboardIdOk() (*int32, bool) {
+func (o *SeasonInterval) GetLeaderboardIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -128,8 +128,8 @@ func (o *SeasonInterval) HasLeaderboardId() bool {
 	return false
 }
 
-// SetLeaderboardId gets a reference to the given NullableInt32 and assigns it to the LeaderboardId field.
-func (o *SeasonInterval) SetLeaderboardId(v int32) {
+// SetLeaderboardId gets a reference to the given NullableInt64 and assigns it to the LeaderboardId field.
+func (o *SeasonInterval) SetLeaderboardId(v int64) {
 	o.LeaderboardId.Set(&v)
 }
 // SetLeaderboardIdNil sets the value for LeaderboardId to be an explicit nil

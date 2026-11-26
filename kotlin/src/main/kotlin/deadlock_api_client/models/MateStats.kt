@@ -45,7 +45,7 @@ data class MateStats (
     val matchesPlayed: kotlin.Long,
 
     @Json(name = "mate_id")
-    val mateId: kotlin.Int,
+    val mateId: kotlin.Long,
 
     @Json(name = "wins")
     val wins: kotlin.Long

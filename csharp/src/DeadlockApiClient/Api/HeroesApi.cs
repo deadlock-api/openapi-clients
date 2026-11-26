@@ -50,7 +50,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHeroApiResponse"/>&gt;</returns>
-        Task<IGetHeroApiResponse> GetHeroAsync(int heroId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetHeroApiResponse> GetHeroAsync(long heroId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Hero
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHeroApiResponse"/>?&gt;</returns>
-        Task<IGetHeroApiResponse?> GetHeroOrDefaultAsync(int heroId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetHeroApiResponse?> GetHeroOrDefaultAsync(long heroId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Hero By Name
@@ -77,7 +77,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHeroByNameApiResponse"/>&gt;</returns>
-        Task<IGetHeroByNameApiResponse> GetHeroByNameAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetHeroByNameApiResponse> GetHeroByNameAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Hero By Name
@@ -90,7 +90,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHeroByNameApiResponse"/>?&gt;</returns>
-        Task<IGetHeroByNameApiResponse?> GetHeroByNameOrDefaultAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetHeroByNameApiResponse?> GetHeroByNameOrDefaultAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Heroes
@@ -104,7 +104,7 @@ namespace DeadlockApiClient.Api
         /// <param name="onlyActive">When true, hides heroes that aren&#39;t player-selectable or are disabled / in-development. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListHeroesApiResponse"/>&gt;</returns>
-        Task<IListHeroesApiResponse> ListHeroesAsync(Option<string?> language = default, Option<int?> clientVersion = default, Option<bool?> onlyActive = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListHeroesApiResponse> ListHeroesAsync(Option<string?> language = default, Option<long?> clientVersion = default, Option<bool?> onlyActive = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Heroes
@@ -117,7 +117,7 @@ namespace DeadlockApiClient.Api
         /// <param name="onlyActive">When true, hides heroes that aren&#39;t player-selectable or are disabled / in-development. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListHeroesApiResponse"/>?&gt;</returns>
-        Task<IListHeroesApiResponse?> ListHeroesOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, Option<bool?> onlyActive = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListHeroesApiResponse?> ListHeroesOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, Option<bool?> onlyActive = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -299,7 +299,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetHero(ref int heroId, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetHero(ref long heroId, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -308,7 +308,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetHeroDefaultImplementation(IGetHeroApiResponse apiResponseLocalVar, int heroId, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetHeroDefaultImplementation(IGetHeroApiResponse apiResponseLocalVar, long heroId, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetHero(ref suppressDefaultLog, apiResponseLocalVar, heroId, language, clientVersion);
@@ -324,7 +324,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetHero(ref bool suppressDefaultLog, IGetHeroApiResponse apiResponseLocalVar, int heroId, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetHero(ref bool suppressDefaultLog, IGetHeroApiResponse apiResponseLocalVar, long heroId, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -335,7 +335,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetHeroDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int heroId, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetHeroDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long heroId, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetHero(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, heroId, language, clientVersion);
@@ -353,7 +353,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetHero(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int heroId, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetHero(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long heroId, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Hero Returns a single hero by id.
@@ -363,7 +363,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHeroApiResponse"/>&gt;</returns>
-        public async Task<IGetHeroApiResponse?> GetHeroOrDefaultAsync(int heroId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetHeroApiResponse?> GetHeroOrDefaultAsync(long heroId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -384,7 +384,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHeroApiResponse"/>&gt;</returns>
-        public async Task<IGetHeroApiResponse> GetHeroAsync(int heroId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetHeroApiResponse> GetHeroAsync(long heroId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -573,7 +573,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetHeroByName(ref string name, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetHeroByName(ref string name, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -593,7 +593,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetHeroByNameDefaultImplementation(IGetHeroByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetHeroByNameDefaultImplementation(IGetHeroByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetHeroByName(ref suppressDefaultLog, apiResponseLocalVar, name, language, clientVersion);
@@ -609,7 +609,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetHeroByName(ref bool suppressDefaultLog, IGetHeroByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetHeroByName(ref bool suppressDefaultLog, IGetHeroByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -620,7 +620,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetHeroByNameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetHeroByNameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetHeroByName(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, name, language, clientVersion);
@@ -638,7 +638,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetHeroByName(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetHeroByName(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Hero By Name Returns a single hero by &#x60;class_name&#x60; or display &#x60;name&#x60;. Matches the bare value as well as the &#x60;hero_&#x60;-prefixed form.
@@ -648,7 +648,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHeroByNameApiResponse"/>&gt;</returns>
-        public async Task<IGetHeroByNameApiResponse?> GetHeroByNameOrDefaultAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetHeroByNameApiResponse?> GetHeroByNameOrDefaultAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -669,7 +669,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHeroByNameApiResponse"/>&gt;</returns>
-        public async Task<IGetHeroByNameApiResponse> GetHeroByNameAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetHeroByNameApiResponse> GetHeroByNameAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -860,7 +860,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListHeroes(ref Option<string?> language, ref Option<int?> clientVersion, ref Option<bool?> onlyActive);
+        partial void FormatListHeroes(ref Option<string?> language, ref Option<long?> clientVersion, ref Option<bool?> onlyActive);
 
         /// <summary>
         /// Processes the server response
@@ -869,7 +869,7 @@ namespace DeadlockApiClient.Api
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
         /// <param name="onlyActive"></param>
-        private void AfterListHeroesDefaultImplementation(IListHeroesApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion, Option<bool?> onlyActive)
+        private void AfterListHeroesDefaultImplementation(IListHeroesApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion, Option<bool?> onlyActive)
         {
             bool suppressDefaultLog = false;
             AfterListHeroes(ref suppressDefaultLog, apiResponseLocalVar, language, clientVersion, onlyActive);
@@ -885,7 +885,7 @@ namespace DeadlockApiClient.Api
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
         /// <param name="onlyActive"></param>
-        partial void AfterListHeroes(ref bool suppressDefaultLog, IListHeroesApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion, Option<bool?> onlyActive);
+        partial void AfterListHeroes(ref bool suppressDefaultLog, IListHeroesApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion, Option<bool?> onlyActive);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -896,7 +896,7 @@ namespace DeadlockApiClient.Api
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
         /// <param name="onlyActive"></param>
-        private void OnErrorListHeroesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion, Option<bool?> onlyActive)
+        private void OnErrorListHeroesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion, Option<bool?> onlyActive)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorListHeroes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, language, clientVersion, onlyActive);
@@ -914,7 +914,7 @@ namespace DeadlockApiClient.Api
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
         /// <param name="onlyActive"></param>
-        partial void OnErrorListHeroes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion, Option<bool?> onlyActive);
+        partial void OnErrorListHeroes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion, Option<bool?> onlyActive);
 
         /// <summary>
         /// List Heroes Returns the per-hero metadata used by the game client, parsed from the patch&#39;s KV3 source files.
@@ -924,7 +924,7 @@ namespace DeadlockApiClient.Api
         /// <param name="onlyActive">When true, hides heroes that aren&#39;t player-selectable or are disabled / in-development. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListHeroesApiResponse"/>&gt;</returns>
-        public async Task<IListHeroesApiResponse?> ListHeroesOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, Option<bool?> onlyActive = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListHeroesApiResponse?> ListHeroesOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, Option<bool?> onlyActive = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -945,7 +945,7 @@ namespace DeadlockApiClient.Api
         /// <param name="onlyActive">When true, hides heroes that aren&#39;t player-selectable or are disabled / in-development. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListHeroesApiResponse"/>&gt;</returns>
-        public async Task<IListHeroesApiResponse> ListHeroesAsync(Option<string?> language = default, Option<int?> clientVersion = default, Option<bool?> onlyActive = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListHeroesApiResponse> ListHeroesAsync(Option<string?> language = default, Option<long?> clientVersion = default, Option<bool?> onlyActive = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

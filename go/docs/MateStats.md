@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Matches** | **[]int64** |  | 
 **MatchesPlayed** | **int64** |  | 
-**MateId** | **int32** |  | 
+**MateId** | **int64** |  | 
 **Wins** | **int64** |  | 
 
 ## Methods
 
 ### NewMateStats
 
-`func NewMateStats(matches []int64, matchesPlayed int64, mateId int32, wins int64, ) *MateStats`
+`func NewMateStats(matches []int64, matchesPlayed int64, mateId int64, wins int64, ) *MateStats`
 
 NewMateStats instantiates a new MateStats object
 This constructor will assign default values to properties that have it defined,
@@ -70,20 +70,20 @@ SetMatchesPlayed sets MatchesPlayed field to given value.
 
 ### GetMateId
 
-`func (o *MateStats) GetMateId() int32`
+`func (o *MateStats) GetMateId() int64`
 
 GetMateId returns the MateId field if non-nil, zero value otherwise.
 
 ### GetMateIdOk
 
-`func (o *MateStats) GetMateIdOk() (*int32, bool)`
+`func (o *MateStats) GetMateIdOk() (*int64, bool)`
 
 GetMateIdOk returns a tuple with the MateId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMateId
 
-`func (o *MateStats) SetMateId(v int32)`
+`func (o *MateStats) SetMateId(v int64)`
 
 SetMateId sets MateId field to given value.
 

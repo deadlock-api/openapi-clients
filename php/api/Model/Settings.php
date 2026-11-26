@@ -408,24 +408,48 @@ class Settings implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['color_b']) && ($this->container['color_b'] > 255)) {
+            $invalidProperties[] = "invalid value for 'color_b', must be smaller than or equal to 255.";
+        }
+
         if (!is_null($this->container['color_b']) && ($this->container['color_b'] < 0)) {
             $invalidProperties[] = "invalid value for 'color_b', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['color_g']) && ($this->container['color_g'] > 255)) {
+            $invalidProperties[] = "invalid value for 'color_g', must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['color_g']) && ($this->container['color_g'] < 0)) {
             $invalidProperties[] = "invalid value for 'color_g', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['color_r']) && ($this->container['color_r'] > 255)) {
+            $invalidProperties[] = "invalid value for 'color_r', must be smaller than or equal to 255.";
+        }
+
         if (!is_null($this->container['color_r']) && ($this->container['color_r'] < 0)) {
             $invalidProperties[] = "invalid value for 'color_r', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['outline_color_b']) && ($this->container['outline_color_b'] > 255)) {
+            $invalidProperties[] = "invalid value for 'outline_color_b', must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['outline_color_b']) && ($this->container['outline_color_b'] < 0)) {
             $invalidProperties[] = "invalid value for 'outline_color_b', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['outline_color_g']) && ($this->container['outline_color_g'] > 255)) {
+            $invalidProperties[] = "invalid value for 'outline_color_g', must be smaller than or equal to 255.";
+        }
+
         if (!is_null($this->container['outline_color_g']) && ($this->container['outline_color_g'] < 0)) {
             $invalidProperties[] = "invalid value for 'outline_color_g', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['outline_color_r']) && ($this->container['outline_color_r'] > 255)) {
+            $invalidProperties[] = "invalid value for 'outline_color_r', must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['outline_color_r']) && ($this->container['outline_color_r'] < 0)) {
@@ -469,6 +493,9 @@ class Settings implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($color_b)) {
             throw new \InvalidArgumentException('non-nullable color_b cannot be null');
         }
+        if (($color_b > 255)) {
+            throw new \InvalidArgumentException('invalid value for $color_b when calling Settings., must be smaller than or equal to 255.');
+        }
         if (($color_b < 0)) {
             throw new \InvalidArgumentException('invalid value for $color_b when calling Settings., must be bigger than or equal to 0.');
         }
@@ -500,6 +527,9 @@ class Settings implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($color_g)) {
             throw new \InvalidArgumentException('non-nullable color_g cannot be null');
         }
+        if (($color_g > 255)) {
+            throw new \InvalidArgumentException('invalid value for $color_g when calling Settings., must be smaller than or equal to 255.');
+        }
         if (($color_g < 0)) {
             throw new \InvalidArgumentException('invalid value for $color_g when calling Settings., must be bigger than or equal to 0.');
         }
@@ -530,6 +560,9 @@ class Settings implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($color_r)) {
             throw new \InvalidArgumentException('non-nullable color_r cannot be null');
+        }
+        if (($color_r > 255)) {
+            throw new \InvalidArgumentException('invalid value for $color_r when calling Settings., must be smaller than or equal to 255.');
         }
         if (($color_r < 0)) {
             throw new \InvalidArgumentException('invalid value for $color_r when calling Settings., must be bigger than or equal to 0.');
@@ -697,6 +730,9 @@ class Settings implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($outline_color_b)) {
             throw new \InvalidArgumentException('non-nullable outline_color_b cannot be null');
         }
+        if (($outline_color_b > 255)) {
+            throw new \InvalidArgumentException('invalid value for $outline_color_b when calling Settings., must be smaller than or equal to 255.');
+        }
         if (($outline_color_b < 0)) {
             throw new \InvalidArgumentException('invalid value for $outline_color_b when calling Settings., must be bigger than or equal to 0.');
         }
@@ -728,6 +764,9 @@ class Settings implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($outline_color_g)) {
             throw new \InvalidArgumentException('non-nullable outline_color_g cannot be null');
         }
+        if (($outline_color_g > 255)) {
+            throw new \InvalidArgumentException('invalid value for $outline_color_g when calling Settings., must be smaller than or equal to 255.');
+        }
         if (($outline_color_g < 0)) {
             throw new \InvalidArgumentException('invalid value for $outline_color_g when calling Settings., must be bigger than or equal to 0.');
         }
@@ -758,6 +797,9 @@ class Settings implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($outline_color_r)) {
             throw new \InvalidArgumentException('non-nullable outline_color_r cannot be null');
+        }
+        if (($outline_color_r > 255)) {
+            throw new \InvalidArgumentException('invalid value for $outline_color_r when calling Settings., must be smaller than or equal to 255.');
         }
         if (($outline_color_r < 0)) {
             throw new \InvalidArgumentException('invalid value for $outline_color_r when calling Settings., must be bigger than or equal to 0.');

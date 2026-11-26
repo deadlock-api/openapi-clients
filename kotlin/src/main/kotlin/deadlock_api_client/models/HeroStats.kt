@@ -74,7 +74,7 @@ import java.io.Serializable
 data class HeroStats (
 
     @Json(name = "account_id")
-    val accountId: kotlin.Int,
+    val accountId: kotlin.Long,
 
     @Json(name = "accuracy")
     val accuracy: kotlin.Double,
@@ -135,7 +135,7 @@ data class HeroStats (
     val lastHitsPerMin: kotlin.Double,
 
     @Json(name = "last_played")
-    val lastPlayed: kotlin.Int,
+    val lastPlayed: kotlin.Long,
 
     @Json(name = "matches")
     val matches: kotlin.collections.List<kotlin.Long>,

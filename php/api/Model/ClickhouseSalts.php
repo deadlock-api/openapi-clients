@@ -72,10 +72,10 @@ class ClickhouseSalts implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'cluster_id' => 'int32',
+        'cluster_id' => 'int64',
         'match_id' => 'int64',
-        'metadata_salt' => 'int32',
-        'replay_salt' => 'int32',
+        'metadata_salt' => 'int64',
+        'replay_salt' => 'int64',
         'username' => null
     ];
 
@@ -302,6 +302,10 @@ class ClickhouseSalts implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['cluster_id']) && ($this->container['cluster_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'cluster_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['cluster_id']) && ($this->container['cluster_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'cluster_id', must be bigger than or equal to 0.";
         }
@@ -313,8 +317,16 @@ class ClickhouseSalts implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'match_id', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['metadata_salt']) && ($this->container['metadata_salt'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'metadata_salt', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['metadata_salt']) && ($this->container['metadata_salt'] < 0)) {
             $invalidProperties[] = "invalid value for 'metadata_salt', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['replay_salt']) && ($this->container['replay_salt'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'replay_salt', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['replay_salt']) && ($this->container['replay_salt'] < 0)) {
@@ -364,6 +376,9 @@ class ClickhouseSalts implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($cluster_id) && ($cluster_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $cluster_id when calling ClickhouseSalts., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($cluster_id) && ($cluster_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $cluster_id when calling ClickhouseSalts., must be bigger than or equal to 0.');
@@ -434,6 +449,9 @@ class ClickhouseSalts implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($metadata_salt) && ($metadata_salt > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $metadata_salt when calling ClickhouseSalts., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($metadata_salt) && ($metadata_salt < 0)) {
             throw new \InvalidArgumentException('invalid value for $metadata_salt when calling ClickhouseSalts., must be bigger than or equal to 0.');
         }
@@ -471,6 +489,9 @@ class ClickhouseSalts implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($replay_salt) && ($replay_salt > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $replay_salt when calling ClickhouseSalts., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($replay_salt) && ($replay_salt < 0)) {
             throw new \InvalidArgumentException('invalid value for $replay_salt when calling ClickhouseSalts., must be bigger than or equal to 0.');

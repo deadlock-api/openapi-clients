@@ -112,7 +112,7 @@ data class Hero (
     val heroStatsUi: HeroStatsUI,
 
     @Json(name = "id")
-    val id: kotlin.Int,
+    val id: kotlin.Long,
 
     @Json(name = "images")
     val images: HeroImages,

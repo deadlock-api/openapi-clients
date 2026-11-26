@@ -37,7 +37,7 @@ class ColorsApiTest : ShouldSpec() {
         // to test listColors
         should("test listColors") {
             // uncomment below to test listColors
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.Map<kotlin.String, Color> = apiInstance.listColors(clientVersion)
             //result shouldBe ("TODO")
         }

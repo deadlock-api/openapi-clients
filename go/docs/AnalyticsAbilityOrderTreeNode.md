@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Abilities** | **[]int32** | The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one entry shorter. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**Abilities** | **[]int64** | The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one entry shorter. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **AvgUpgradeTimeS** | **float64** | Average game time (in seconds) at which the last upgrade in &#x60;abilities&#x60; was bought. | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsAbilityOrderTreeNode
 
-`func NewAnalyticsAbilityOrderTreeNode(abilities []int32, avgUpgradeTimeS float64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64, ) *AnalyticsAbilityOrderTreeNode`
+`func NewAnalyticsAbilityOrderTreeNode(abilities []int64, avgUpgradeTimeS float64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64, ) *AnalyticsAbilityOrderTreeNode`
 
 NewAnalyticsAbilityOrderTreeNode instantiates a new AnalyticsAbilityOrderTreeNode object
 This constructor will assign default values to properties that have it defined,
@@ -35,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAbilities
 
-`func (o *AnalyticsAbilityOrderTreeNode) GetAbilities() []int32`
+`func (o *AnalyticsAbilityOrderTreeNode) GetAbilities() []int64`
 
 GetAbilities returns the Abilities field if non-nil, zero value otherwise.
 
 ### GetAbilitiesOk
 
-`func (o *AnalyticsAbilityOrderTreeNode) GetAbilitiesOk() (*[]int32, bool)`
+`func (o *AnalyticsAbilityOrderTreeNode) GetAbilitiesOk() (*[]int64, bool)`
 
 GetAbilitiesOk returns a tuple with the Abilities field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAbilities
 
-`func (o *AnalyticsAbilityOrderTreeNode) SetAbilities(v []int32)`
+`func (o *AnalyticsAbilityOrderTreeNode) SetAbilities(v []int64)`
 
 SetAbilities sets Abilities field to given value.
 

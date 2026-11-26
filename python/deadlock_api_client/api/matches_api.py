@@ -46,8 +46,8 @@ class MatchesApi:
     @validate_call
     def active_matches(
         self,
-        account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The account ID to filter active matches by (`SteamID3`)")] = None,
-        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        account_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The account ID to filter active matches by (`SteamID3`)")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -119,8 +119,8 @@ class MatchesApi:
     @validate_call
     def active_matches_with_http_info(
         self,
-        account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The account ID to filter active matches by (`SteamID3`)")] = None,
-        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        account_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The account ID to filter active matches by (`SteamID3`)")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -192,8 +192,8 @@ class MatchesApi:
     @validate_call
     def active_matches_without_preload_content(
         self,
-        account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The account ID to filter active matches by (`SteamID3`)")] = None,
-        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        account_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The account ID to filter active matches by (`SteamID3`)")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -604,10 +604,10 @@ class MatchesApi:
         is_high_skill_range_parties: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the high skill range.")] = None,
         is_low_pri_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the low priority pool.")] = None,
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
-        account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
+        account_ids: Annotated[Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
         only_filtered_players: Annotated[Optional[StrictBool], Field(description="Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        item_filter_hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
+        item_filter_hero_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
         include_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.")] = None,
         exclude_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.")] = None,
         extra_match_columns: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.")] = None,
@@ -813,10 +813,10 @@ class MatchesApi:
         is_high_skill_range_parties: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the high skill range.")] = None,
         is_low_pri_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the low priority pool.")] = None,
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
-        account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
+        account_ids: Annotated[Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
         only_filtered_players: Annotated[Optional[StrictBool], Field(description="Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        item_filter_hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
+        item_filter_hero_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
         include_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.")] = None,
         exclude_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.")] = None,
         extra_match_columns: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.")] = None,
@@ -1022,10 +1022,10 @@ class MatchesApi:
         is_high_skill_range_parties: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the high skill range.")] = None,
         is_low_pri_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the low priority pool.")] = None,
         is_new_player_pool: Annotated[Optional[StrictBool], Field(description="Filter matches based on whether they are in the new player pool.")] = None,
-        account_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
+        account_ids: Annotated[Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]], Field(description="Filter matches by account IDs of players that participated in the match.")] = None,
         only_filtered_players: Annotated[Optional[StrictBool], Field(description="Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        item_filter_hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
+        item_filter_hero_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.")] = None,
         include_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.")] = None,
         exclude_item_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.")] = None,
         extra_match_columns: Annotated[Optional[StrictStr], Field(description="Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.")] = None,

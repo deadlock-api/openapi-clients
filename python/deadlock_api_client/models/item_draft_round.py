@@ -28,8 +28,8 @@ class ItemDraftRound(BaseModel):
     """
     ItemDraftRound
     """ # noqa: E501
-    normal_mod_tier: Annotated[int, Field(strict=True, ge=0)]
-    rare_mod_tier: Annotated[int, Field(strict=True, ge=0)]
+    normal_mod_tier: Annotated[int, Field(le=255, strict=True, ge=0)]
+    rare_mod_tier: Annotated[int, Field(le=255, strict=True, ge=0)]
     __properties: ClassVar[List[str]] = ["normal_mod_tier", "rare_mod_tier"]
 
     model_config = ConfigDict(

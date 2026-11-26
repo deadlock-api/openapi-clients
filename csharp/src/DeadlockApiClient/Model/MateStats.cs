@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="mateId">mateId</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public MateStats(List<long> matches, long matchesPlayed, int mateId, long wins)
+        public MateStats(List<long> matches, long matchesPlayed, long mateId, long wins)
         {
             Matches = matches;
             MatchesPlayed = matchesPlayed;
@@ -65,7 +65,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MateId
         /// </summary>
         [JsonPropertyName("mate_id")]
-        public int MateId { get; set; }
+        public long MateId { get; set; }
 
         /// <summary>
         /// Gets or Sets Wins
@@ -102,8 +102,14 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchesPlayed, must be a value greater than or equal to 0.", new [] { "MatchesPlayed" });
             }
 
-            // MateId (int) minimum
-            if (this.MateId < (int)0)
+            // MateId (long) maximum
+            if (this.MateId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MateId, must be a value less than or equal to 4294967295.", new [] { "MateId" });
+            }
+
+            // MateId (long) minimum
+            if (this.MateId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MateId, must be a value greater than or equal to 0.", new [] { "MateId" });
             }
@@ -152,7 +158,7 @@ namespace DeadlockApiClient.Model
 
             Option<List<long>?> matches = default;
             Option<long?> matchesPlayed = default;
-            Option<int?> mateId = default;
+            Option<long?> mateId = default;
             Option<long?> wins = default;
 
             while (utf8JsonReader.Read())
@@ -177,7 +183,7 @@ namespace DeadlockApiClient.Model
                             matchesPlayed = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "mate_id":
-                            mateId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            mateId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "wins":
                             wins = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());

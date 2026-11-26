@@ -71,10 +71,10 @@ class IngestStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'account_id' => 'int32',
+        'account_id' => 'int64',
         'active' => null,
-        'last_upload_at' => 'int32',
-        'window_days' => 'int32'
+        'last_upload_at' => 'int64',
+        'window_days' => 'int64'
     ];
 
     /**
@@ -298,6 +298,10 @@ class IngestStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
         }
+        if (($this->container['account_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'account_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['account_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'account_id', must be bigger than or equal to 0.";
         }
@@ -305,6 +309,10 @@ class IngestStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['active'] === null) {
             $invalidProperties[] = "'active' can't be null";
         }
+        if (!is_null($this->container['last_upload_at']) && ($this->container['last_upload_at'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'last_upload_at', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['last_upload_at']) && ($this->container['last_upload_at'] < 0)) {
             $invalidProperties[] = "invalid value for 'last_upload_at', must be bigger than or equal to 0.";
         }
@@ -312,6 +320,10 @@ class IngestStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['window_days'] === null) {
             $invalidProperties[] = "'window_days' can't be null";
         }
+        if (($this->container['window_days'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'window_days', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['window_days'] < 0)) {
             $invalidProperties[] = "invalid value for 'window_days', must be bigger than or equal to 0.";
         }
@@ -352,6 +364,9 @@ class IngestStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($account_id)) {
             throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+        }
+        if (($account_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $account_id when calling IngestStatusResponse., must be smaller than or equal to 4294967295.');
         }
         if (($account_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $account_id when calling IngestStatusResponse., must be bigger than or equal to 0.');
@@ -418,6 +433,9 @@ class IngestStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializ
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($last_upload_at) && ($last_upload_at > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $last_upload_at when calling IngestStatusResponse., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($last_upload_at) && ($last_upload_at < 0)) {
             throw new \InvalidArgumentException('invalid value for $last_upload_at when calling IngestStatusResponse., must be bigger than or equal to 0.');
         }
@@ -448,6 +466,9 @@ class IngestStatusResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($window_days)) {
             throw new \InvalidArgumentException('non-nullable window_days cannot be null');
+        }
+        if (($window_days > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $window_days when calling IngestStatusResponse., must be smaller than or equal to 4294967295.');
         }
         if (($window_days < 0)) {
             throw new \InvalidArgumentException('invalid value for $window_days when calling IngestStatusResponse., must be bigger than or equal to 0.');

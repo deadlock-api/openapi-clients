@@ -22,7 +22,7 @@ Panorama color palette (&#x60;@define &lt;name&gt;: #RRGGBB[AA];&#x60; declarati
 //import deadlock_api_client.models.*
 
 val apiInstance = ColorsApi()
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : kotlin.collections.Map<kotlin.String, Color> = apiInstance.listColors(clientVersion)
     println(result)
@@ -38,7 +38,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 

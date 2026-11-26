@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **DeathsStd** | **double** | Standard deviation of deaths at this time point | 
 **DeniesAvg** | **double** | Average lane creeps denied at this time point | 
 **DeniesStd** | **double** | Standard deviation of &#x60;denies_avg&#x60; at this time point | 
-**GameTime** | **int** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | 
+**GameTime** | **long** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | 
 **GameTimeAvg** | **double** | Where in the match the stats snapshots of this point were taken on average, in the unit of &#x60;game_time&#x60;. Snapshots are taken every few minutes and at the end of the match, so with &#x60;resolution&#x60; &gt; 0 a point holds the snapshots from &#x60;game_time&#x60; up to the next point and this is usually about half a bucket later than &#x60;game_time&#x60;. Percentages are averaged from whole percents, so they can be off by a few tenths. | 
 **GoldAbilityAssassinateAvg** | **double** | Average souls earned from the Assassinate ability at this time point | 
 **GoldAbilityAssassinateStd** | **double** | Standard deviation of &#x60;gold_ability_assassinate_avg&#x60; at this time point | 

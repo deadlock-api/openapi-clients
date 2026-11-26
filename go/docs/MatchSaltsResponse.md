@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClusterId** | Pointer to **NullableInt32** |  | [optional] 
+**ClusterId** | Pointer to **NullableInt64** |  | [optional] 
 **DemoUrl** | Pointer to **NullableString** |  | [optional] 
 **MatchId** | **int64** |  | 
-**MetadataSalt** | Pointer to **NullableInt32** |  | [optional] 
+**MetadataSalt** | Pointer to **NullableInt64** |  | [optional] 
 **MetadataUrl** | Pointer to **NullableString** |  | [optional] 
-**ReplaySalt** | Pointer to **NullableInt32** |  | [optional] 
+**ReplaySalt** | Pointer to **NullableInt64** |  | [optional] 
 
 ## Methods
 
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetClusterId
 
-`func (o *MatchSaltsResponse) GetClusterId() int32`
+`func (o *MatchSaltsResponse) GetClusterId() int64`
 
 GetClusterId returns the ClusterId field if non-nil, zero value otherwise.
 
 ### GetClusterIdOk
 
-`func (o *MatchSaltsResponse) GetClusterIdOk() (*int32, bool)`
+`func (o *MatchSaltsResponse) GetClusterIdOk() (*int64, bool)`
 
 GetClusterIdOk returns a tuple with the ClusterId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetClusterId
 
-`func (o *MatchSaltsResponse) SetClusterId(v int32)`
+`func (o *MatchSaltsResponse) SetClusterId(v int64)`
 
 SetClusterId sets ClusterId field to given value.
 
@@ -122,20 +122,20 @@ SetMatchId sets MatchId field to given value.
 
 ### GetMetadataSalt
 
-`func (o *MatchSaltsResponse) GetMetadataSalt() int32`
+`func (o *MatchSaltsResponse) GetMetadataSalt() int64`
 
 GetMetadataSalt returns the MetadataSalt field if non-nil, zero value otherwise.
 
 ### GetMetadataSaltOk
 
-`func (o *MatchSaltsResponse) GetMetadataSaltOk() (*int32, bool)`
+`func (o *MatchSaltsResponse) GetMetadataSaltOk() (*int64, bool)`
 
 GetMetadataSaltOk returns a tuple with the MetadataSalt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadataSalt
 
-`func (o *MatchSaltsResponse) SetMetadataSalt(v int32)`
+`func (o *MatchSaltsResponse) SetMetadataSalt(v int64)`
 
 SetMetadataSalt sets MetadataSalt field to given value.
 
@@ -192,20 +192,20 @@ HasMetadataUrl returns a boolean if a field has been set.
 UnsetMetadataUrl ensures that no value is present for MetadataUrl, not even an explicit nil
 ### GetReplaySalt
 
-`func (o *MatchSaltsResponse) GetReplaySalt() int32`
+`func (o *MatchSaltsResponse) GetReplaySalt() int64`
 
 GetReplaySalt returns the ReplaySalt field if non-nil, zero value otherwise.
 
 ### GetReplaySaltOk
 
-`func (o *MatchSaltsResponse) GetReplaySaltOk() (*int32, bool)`
+`func (o *MatchSaltsResponse) GetReplaySaltOk() (*int64, bool)`
 
 GetReplaySaltOk returns a tuple with the ReplaySalt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReplaySalt
 
-`func (o *MatchSaltsResponse) SetReplaySalt(v int32)`
+`func (o *MatchSaltsResponse) SetReplaySalt(v int64)`
 
 SetReplaySalt sets ReplaySalt field to given value.
 

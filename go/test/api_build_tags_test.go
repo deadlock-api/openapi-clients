@@ -26,7 +26,7 @@ func Test_deadlock_api_client_BuildTagsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var buildTagId int32
+		var buildTagId int64
 
 		resp, httpRes, err := apiClient.BuildTagsAPI.GetBuildTag(context.Background(), buildTagId).Execute()
 

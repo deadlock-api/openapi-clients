@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="startTimestamp">Unix timestamp (seconds) at which the interval starts.</param>
         /// <param name="leaderboardId">Leaderboard backing this interval (build 6701+).</param>
         [JsonConstructor]
-        public SeasonInterval(long endTimestamp, int interval, long startTimestamp, Option<int?> leaderboardId = default)
+        public SeasonInterval(long endTimestamp, long interval, long startTimestamp, Option<long?> leaderboardId = default)
         {
             EndTimestamp = endTimestamp;
             Interval = interval;
@@ -60,7 +60,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Interval
         /// </summary>
         [JsonPropertyName("interval")]
-        public int Interval { get; set; }
+        public long Interval { get; set; }
 
         /// <summary>
         /// Unix timestamp (seconds) at which the interval starts.
@@ -74,14 +74,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> LeaderboardIdOption { get; private set; }
+        public Option<long?> LeaderboardIdOption { get; private set; }
 
         /// <summary>
         /// Leaderboard backing this interval (build 6701+).
         /// </summary>
         /// <value>Leaderboard backing this interval (build 6701+).</value>
         [JsonPropertyName("leaderboard_id")]
-        public int? LeaderboardId { get { return this.LeaderboardIdOption.Value; } set { this.LeaderboardIdOption = new(value); } }
+        public long? LeaderboardId { get { return this.LeaderboardIdOption.Value; } set { this.LeaderboardIdOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -106,14 +106,26 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Interval (int) minimum
-            if (this.Interval < (int)0)
+            // Interval (long) maximum
+            if (this.Interval > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Interval, must be a value less than or equal to 4294967295.", new [] { "Interval" });
+            }
+
+            // Interval (long) minimum
+            if (this.Interval < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Interval, must be a value greater than or equal to 0.", new [] { "Interval" });
             }
 
-            // LeaderboardId (int) minimum
-            if (this.LeaderboardIdOption.IsSet && this.LeaderboardIdOption.Value < (int)0)
+            // LeaderboardId (long) maximum
+            if (this.LeaderboardIdOption.IsSet && this.LeaderboardIdOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LeaderboardId, must be a value less than or equal to 4294967295.", new [] { "LeaderboardId" });
+            }
+
+            // LeaderboardId (long) minimum
+            if (this.LeaderboardIdOption.IsSet && this.LeaderboardIdOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LeaderboardId, must be a value greater than or equal to 0.", new [] { "LeaderboardId" });
             }
@@ -155,9 +167,9 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<long?> endTimestamp = default;
-            Option<int?> interval = default;
+            Option<long?> interval = default;
             Option<long?> startTimestamp = default;
-            Option<int?> leaderboardId = default;
+            Option<long?> leaderboardId = default;
 
             while (utf8JsonReader.Read())
             {
@@ -178,13 +190,13 @@ namespace DeadlockApiClient.Model
                             endTimestamp = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "interval":
-                            interval = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            interval = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "start_timestamp":
                             startTimestamp = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "leaderboard_id":
-                            leaderboardId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            leaderboardId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

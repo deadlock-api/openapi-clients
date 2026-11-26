@@ -5,7 +5,7 @@ One node of the ability order tree: the players whose upgrade order starts with 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Abilities** | **List&lt;int&gt;** | The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one entry shorter. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**Abilities** | **List&lt;long&gt;** | The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one entry shorter. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **AvgUpgradeTimeS** | **double** | Average game time (in seconds) at which the last upgrade in &#x60;abilities&#x60; was bought. | 
 **Losses** | **long** |  | 
 **Matches** | **long** |  | 

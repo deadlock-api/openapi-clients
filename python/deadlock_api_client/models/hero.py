@@ -58,7 +58,7 @@ class Hero(BaseModel):
     hero_stats_ui: HeroStatsUI
     hero_type: Optional[HeroType] = None
     hideout_rich_presence: Optional[StrictStr] = None
-    id: Annotated[int, Field(strict=True, ge=0)]
+    id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     images: HeroImages
     in_development: StrictBool
     item_draft_bucketing: Optional[Dict[str, Optional[HashMapStringOptionDraftBucketingValue]]] = None

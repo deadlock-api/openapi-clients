@@ -82,7 +82,7 @@ type AnalyticsGameStats struct {
 	AvgSelfHealing float64 `json:"avg_self_healing"`
 	AvgTechPower float64 `json:"avg_tech_power"`
 	AvgWeaponPower float64 `json:"avg_weapon_power"`
-	Bucket int32 `json:"bucket"`
+	Bucket int64 `json:"bucket"`
 	MidBossKillRate float64 `json:"mid_boss_kill_rate"`
 	Team0Wins int64 `json:"team0_wins"`
 	Team1Wins int64 `json:"team1_wins"`
@@ -96,7 +96,7 @@ type _AnalyticsGameStats AnalyticsGameStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgFirstObjectiveDestroyedTimeS float64, avgGoldAbilityAssassinate float64, avgGoldAssists float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldBreakable float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldItemCultistSacrifice float64, avgGoldItemGooseEgg float64, avgGoldItemTrophyCollector float64, avgGoldLaneCreep float64, avgGoldLaneCreepOrbs float64, avgGoldNeutralCreep float64, avgGoldNeutralCreepOrbs float64, avgGoldPlayer float64, avgGoldPlayerOrbs float64, avgGoldTeamBonus float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgPermanentBuffs float64, avgPermanentBuffsPerMin float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, team0Wins int64, team1Wins int64, totalMatches int64, totalPlayers int64) *AnalyticsGameStats {
+func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgFirstObjectiveDestroyedTimeS float64, avgGoldAbilityAssassinate float64, avgGoldAssists float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldBreakable float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldItemCultistSacrifice float64, avgGoldItemGooseEgg float64, avgGoldItemTrophyCollector float64, avgGoldLaneCreep float64, avgGoldLaneCreepOrbs float64, avgGoldNeutralCreep float64, avgGoldNeutralCreepOrbs float64, avgGoldPlayer float64, avgGoldPlayerOrbs float64, avgGoldTeamBonus float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgPermanentBuffs float64, avgPermanentBuffsPerMin float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int64, midBossKillRate float64, team0Wins int64, team1Wins int64, totalMatches int64, totalPlayers int64) *AnalyticsGameStats {
 	this := AnalyticsGameStats{}
 	this.AbandonRate = abandonRate
 	this.AvgAccuracy = avgAccuracy
@@ -1408,9 +1408,9 @@ func (o *AnalyticsGameStats) SetAvgWeaponPower(v float64) {
 }
 
 // GetBucket returns the Bucket field value
-func (o *AnalyticsGameStats) GetBucket() int32 {
+func (o *AnalyticsGameStats) GetBucket() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -1419,7 +1419,7 @@ func (o *AnalyticsGameStats) GetBucket() int32 {
 
 // GetBucketOk returns a tuple with the Bucket field value
 // and a boolean to check if the value has been set.
-func (o *AnalyticsGameStats) GetBucketOk() (*int32, bool) {
+func (o *AnalyticsGameStats) GetBucketOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1427,7 +1427,7 @@ func (o *AnalyticsGameStats) GetBucketOk() (*int32, bool) {
 }
 
 // SetBucket sets field value
-func (o *AnalyticsGameStats) SetBucket(v int32) {
+func (o *AnalyticsGameStats) SetBucket(v int64) {
 	o.Bucket = v
 }
 

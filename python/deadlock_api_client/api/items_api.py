@@ -45,7 +45,7 @@ class ItemsApi:
         self,
         id_or_class_name: Annotated[StrictStr, Field(description="Numeric `id` or string `class_name`.")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -120,7 +120,7 @@ class ItemsApi:
         self,
         id_or_class_name: Annotated[StrictStr, Field(description="Numeric `id` or string `class_name`.")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -195,7 +195,7 @@ class ItemsApi:
         self,
         id_or_class_name: Annotated[StrictStr, Field(description="Numeric `id` or string `class_name`.")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -337,9 +337,9 @@ class ItemsApi:
     @validate_call
     def get_items_by_hero_id(
         self,
-        id: Annotated[int, Field(strict=True, ge=0, description="Hero id (`m_HeroID`).")],
+        id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Hero id (`m_HeroID`).")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -412,9 +412,9 @@ class ItemsApi:
     @validate_call
     def get_items_by_hero_id_with_http_info(
         self,
-        id: Annotated[int, Field(strict=True, ge=0, description="Hero id (`m_HeroID`).")],
+        id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Hero id (`m_HeroID`).")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -487,9 +487,9 @@ class ItemsApi:
     @validate_call
     def get_items_by_hero_id_without_preload_content(
         self,
-        id: Annotated[int, Field(strict=True, ge=0, description="Hero id (`m_HeroID`).")],
+        id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Hero id (`m_HeroID`).")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -633,7 +633,7 @@ class ItemsApi:
         self,
         slot_type: Annotated[ItemSlotType, Field(description="Slot type: `weapon`, `spirit`, or `vitality`.")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -707,7 +707,7 @@ class ItemsApi:
         self,
         slot_type: Annotated[ItemSlotType, Field(description="Slot type: `weapon`, `spirit`, or `vitality`.")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -781,7 +781,7 @@ class ItemsApi:
         self,
         slot_type: Annotated[ItemSlotType, Field(description="Slot type: `weapon`, `spirit`, or `vitality`.")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -924,7 +924,7 @@ class ItemsApi:
         self,
         type: Annotated[ItemType, Field(description="Item type: `ability`, `weapon`, or `upgrade`.")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -998,7 +998,7 @@ class ItemsApi:
         self,
         type: Annotated[ItemType, Field(description="Item type: `ability`, `weapon`, or `upgrade`.")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1072,7 +1072,7 @@ class ItemsApi:
         self,
         type: Annotated[ItemType, Field(description="Item type: `ability`, `weapon`, or `upgrade`.")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1214,7 +1214,7 @@ class ItemsApi:
     def list_items(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1287,7 +1287,7 @@ class ItemsApi:
     def list_items_with_http_info(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1360,7 +1360,7 @@ class ItemsApi:
     def list_items_without_preload_content(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

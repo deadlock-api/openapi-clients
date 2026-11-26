@@ -40,19 +40,19 @@ import java.io.Serializable
 data class BuildHeroDetailsCategoryAbility (
 
     @Json(name = "ability_id")
-    val abilityId: kotlin.Int,
+    val abilityId: kotlin.Long,
 
     @Json(name = "annotation")
     val `annotation`: kotlin.String? = null,
 
     @Json(name = "imbue_target_ability_id")
-    val imbueTargetAbilityId: kotlin.Int? = null,
+    val imbueTargetAbilityId: kotlin.Long? = null,
 
     @Json(name = "required_flex_slots")
-    val requiredFlexSlots: kotlin.Int? = null,
+    val requiredFlexSlots: kotlin.Long? = null,
 
     @Json(name = "sell_priority")
-    val sellPriority: kotlin.Int? = null
+    val sellPriority: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

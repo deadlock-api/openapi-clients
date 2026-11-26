@@ -162,7 +162,8 @@ paths:
         name: hero_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -200,7 +201,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -221,7 +222,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -233,7 +234,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -246,7 +247,7 @@ paths:
         name: min_ability_upgrades
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 16
           minimum: 0
           nullable: true
@@ -259,7 +260,7 @@ paths:
         name: max_ability_upgrades
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 16
           minimum: 1
           nullable: true
@@ -344,7 +345,8 @@ paths:
         required: false
         schema:
           default: 10
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -356,7 +358,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -368,7 +371,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -398,7 +402,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -413,7 +418,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -430,7 +436,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -446,7 +453,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -492,7 +500,8 @@ paths:
         name: hero_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -530,7 +539,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -551,7 +560,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -563,7 +572,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -576,7 +585,7 @@ paths:
         name: min_ability_upgrades
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 16
           minimum: 0
           nullable: true
@@ -589,7 +598,7 @@ paths:
         name: max_ability_upgrades
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 16
           minimum: 1
           nullable: true
@@ -674,7 +683,8 @@ paths:
         required: false
         schema:
           default: 10
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -686,7 +696,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -698,7 +709,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -728,7 +740,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -743,7 +756,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -760,7 +774,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -776,7 +791,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -826,7 +842,8 @@ paths:
         name: hero_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -864,7 +881,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -885,7 +902,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -897,7 +914,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -910,7 +927,7 @@ paths:
         name: min_ability_upgrades
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 16
           minimum: 0
           nullable: true
@@ -923,7 +940,7 @@ paths:
         name: max_ability_upgrades
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 16
           minimum: 1
           nullable: true
@@ -1008,7 +1025,8 @@ paths:
         required: false
         schema:
           default: 10
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -1020,7 +1038,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -1032,7 +1051,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -1062,7 +1082,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -1077,7 +1098,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -1094,7 +1116,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -1110,7 +1133,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -1192,7 +1216,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -1213,7 +1237,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -1225,7 +1249,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -1358,7 +1382,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -1379,7 +1403,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -1391,7 +1415,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -1474,7 +1498,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -1488,7 +1513,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -1536,7 +1562,8 @@ paths:
         name: hero_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -1548,7 +1575,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -1647,7 +1674,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -1668,7 +1695,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -1680,7 +1707,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -1765,7 +1792,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -1780,7 +1808,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -1795,7 +1824,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -1812,7 +1842,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -1828,7 +1859,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -1842,7 +1874,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -1924,7 +1957,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -1945,7 +1978,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -1957,7 +1990,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -2100,7 +2133,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -2121,7 +2154,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -2133,7 +2166,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -2229,7 +2262,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -2241,7 +2275,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -2260,7 +2295,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -2276,7 +2312,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -2332,7 +2369,8 @@ paths:
         name: hero_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -2369,7 +2407,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -2390,7 +2428,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -2402,7 +2440,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -2498,7 +2536,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -2510,7 +2549,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -2529,7 +2569,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -2545,7 +2586,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -2621,7 +2663,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -2642,7 +2684,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -2654,7 +2696,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -2737,7 +2779,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -2751,7 +2794,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -2766,7 +2810,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -2781,7 +2826,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -2796,7 +2842,8 @@ paths:
         required: false
         schema:
           default: 20
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -2808,7 +2855,8 @@ paths:
         name: max_matches
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -2833,7 +2881,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -2845,7 +2894,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -2925,7 +2975,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -2946,7 +2996,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -2958,7 +3008,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -3088,7 +3138,8 @@ paths:
         name: max_matches
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -3100,7 +3151,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -3112,7 +3164,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -3224,7 +3277,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -3247,7 +3300,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -3261,7 +3314,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -3402,7 +3455,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -3417,7 +3471,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -3432,7 +3487,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -3449,7 +3505,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -3465,7 +3522,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -3479,7 +3537,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -3491,7 +3550,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -3576,7 +3636,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -3597,7 +3657,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -3609,7 +3669,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -3734,7 +3794,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -3755,7 +3815,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -3767,7 +3827,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -3875,7 +3935,8 @@ paths:
         name: max_matches
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -3887,7 +3948,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -3899,7 +3961,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -3972,7 +4035,8 @@ paths:
         required: false
         schema:
           default: 600
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -4035,7 +4099,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -4056,7 +4120,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -4068,7 +4132,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -4152,7 +4216,8 @@ paths:
         required: false
         schema:
           default: 20
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -4164,7 +4229,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -4181,7 +4247,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4196,7 +4263,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4213,7 +4281,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4229,7 +4298,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4246,7 +4316,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4262,7 +4333,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4308,7 +4380,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4336,7 +4409,8 @@ paths:
         required: false
         schema:
           default: 20
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -4348,7 +4422,8 @@ paths:
         name: max_matches
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -4396,7 +4471,8 @@ paths:
         name: hero_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -4408,7 +4484,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -4429,7 +4505,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -4441,7 +4517,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -4524,7 +4600,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -4536,7 +4613,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -4555,7 +4633,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4571,7 +4650,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4698,7 +4778,8 @@ paths:
         name: hero_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -4768,7 +4849,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -4789,7 +4870,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -4801,7 +4882,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -4884,7 +4965,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4898,7 +4980,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4915,7 +4998,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4931,7 +5015,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -4959,7 +5044,8 @@ paths:
         required: false
         schema:
           default: 20
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -4971,7 +5057,8 @@ paths:
         name: max_matches
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -4983,7 +5070,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -4995,7 +5083,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -5010,7 +5099,8 @@ paths:
         name: min_bought_at_s
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -5021,7 +5111,8 @@ paths:
         name: max_bought_at_s
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -5182,7 +5273,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -5203,7 +5294,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -5215,7 +5306,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -5229,7 +5320,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -5349,7 +5441,8 @@ paths:
         name: min_kills_per_raster
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -5360,7 +5453,8 @@ paths:
         name: max_kills_per_raster
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -5371,7 +5465,8 @@ paths:
         name: min_deaths_per_raster
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -5382,7 +5477,8 @@ paths:
         name: max_deaths_per_raster
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -5490,7 +5586,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -5511,7 +5607,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -5523,7 +5619,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -5587,7 +5683,8 @@ paths:
         required: false
         schema:
           default: 900
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -5611,7 +5708,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -5627,7 +5725,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -5686,7 +5785,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -5776,7 +5876,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -5797,7 +5897,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -5809,7 +5909,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -5871,7 +5971,8 @@ paths:
         required: false
         schema:
           default: 180
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -5884,7 +5985,8 @@ paths:
         name: max_time_s
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -5908,7 +6010,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -5924,7 +6027,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -5983,7 +6087,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -6077,7 +6182,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -6098,7 +6203,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -6110,7 +6215,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -6216,7 +6321,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -6231,7 +6337,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -6248,7 +6355,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -6264,7 +6372,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -6278,7 +6387,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -6389,7 +6499,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -6410,7 +6520,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -6422,7 +6532,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -6504,7 +6614,8 @@ paths:
         name: max_matches
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -6517,7 +6628,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -6532,7 +6644,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -6549,7 +6662,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -6565,7 +6679,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -6579,7 +6694,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -6752,7 +6868,8 @@ paths:
         name: min_matches
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -6764,7 +6881,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -6785,7 +6902,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -6797,7 +6914,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -6880,7 +6997,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -6892,7 +7010,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -7053,7 +7172,8 @@ paths:
         name: hero_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7079,7 +7199,8 @@ paths:
         required: false
         schema:
           default: 20
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -7091,7 +7212,8 @@ paths:
         name: max_matches
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 1
           nullable: true
           type: integer
@@ -7122,7 +7244,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -7134,7 +7256,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -7216,7 +7338,8 @@ paths:
         name: start
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7241,7 +7364,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -7321,7 +7445,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7405,7 +7530,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7435,7 +7561,8 @@ paths:
         name: accolade_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -7487,7 +7614,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7560,7 +7688,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7643,7 +7772,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7673,7 +7803,8 @@ paths:
         name: build_tag_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -7725,7 +7856,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7755,7 +7887,8 @@ paths:
             application/json:
               schema:
                 items:
-                  format: int32
+                  format: int64
+                  maximum: 4294967295
                   minimum: 0
                   type: integer
                 type: array
@@ -7779,7 +7912,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7815,7 +7949,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7857,7 +7992,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -7950,7 +8086,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8023,7 +8160,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8117,7 +8255,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8147,7 +8286,8 @@ paths:
         name: hero_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -8199,7 +8339,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8304,7 +8445,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8337,7 +8479,8 @@ paths:
         name: id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -8389,7 +8532,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8467,7 +8611,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8545,7 +8690,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8623,7 +8769,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8657,7 +8804,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8732,7 +8880,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8815,7 +8964,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8867,7 +9017,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8910,7 +9061,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -8986,7 +9138,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -9069,7 +9222,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -9144,7 +9298,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -9220,7 +9375,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -9253,7 +9409,8 @@ paths:
         name: tier
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -9305,7 +9462,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -9336,7 +9494,8 @@ paths:
         name: tier
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -9346,7 +9505,8 @@ paths:
         name: subrank
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -9368,6 +9528,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -9376,6 +9537,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -9417,7 +9579,8 @@ paths:
         name: client_version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -9528,7 +9691,8 @@ paths:
         name: start
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -9539,7 +9703,8 @@ paths:
         required: false
         schema:
           default: 100
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -9587,7 +9752,8 @@ paths:
         name: language
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -9624,7 +9790,8 @@ paths:
         name: build_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -9634,7 +9801,8 @@ paths:
         name: version
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -9644,7 +9812,8 @@ paths:
         name: hero_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -9654,7 +9823,8 @@ paths:
         name: tag
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -9664,7 +9834,8 @@ paths:
         name: rollup_category
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -9674,7 +9845,8 @@ paths:
         name: author_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -9730,7 +9902,8 @@ paths:
         name: account_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -9796,7 +9969,8 @@ paths:
         name: hero_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -9806,7 +9980,8 @@ paths:
         name: build_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -9873,7 +10048,8 @@ paths:
         name: account_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -9966,7 +10142,8 @@ paths:
         name: account_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -10081,6 +10258,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -10264,6 +10442,7 @@ paths:
         schema:
           default: 255
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10274,6 +10453,7 @@ paths:
         schema:
           default: 255
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10284,6 +10464,7 @@ paths:
         schema:
           default: 255
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10294,6 +10475,7 @@ paths:
         schema:
           default: 0
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10304,6 +10486,7 @@ paths:
         schema:
           default: 0
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10314,6 +10497,7 @@ paths:
         schema:
           default: 0
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10476,6 +10660,7 @@ paths:
         schema:
           default: 255
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10486,6 +10671,7 @@ paths:
         schema:
           default: 255
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10496,6 +10682,7 @@ paths:
         schema:
           default: 255
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10506,6 +10693,7 @@ paths:
         schema:
           default: 0
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10516,6 +10704,7 @@ paths:
         schema:
           default: 0
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10526,6 +10715,7 @@ paths:
         schema:
           default: 0
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         style: form
@@ -10563,6 +10753,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -10780,7 +10971,8 @@ paths:
         name: leaderboard_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -10845,7 +11037,8 @@ paths:
         name: leaderboard_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -10856,6 +11049,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -10906,7 +11100,8 @@ paths:
         name: hero_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -10918,7 +11113,8 @@ paths:
         name: leaderboard_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -10981,7 +11177,8 @@ paths:
         name: hero_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -10993,7 +11190,8 @@ paths:
         name: leaderboard_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: form
@@ -11004,6 +11202,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -11039,7 +11238,8 @@ paths:
         name: account_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -11051,7 +11251,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -11106,6 +11307,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -11811,7 +12013,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -11823,7 +12025,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -11913,7 +12115,8 @@ paths:
         required: false
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
@@ -11945,7 +12148,8 @@ paths:
         name: item_filter_hero_id
         required: false
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -12318,6 +12522,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -12694,7 +12899,8 @@ paths:
         required: true
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -12764,7 +12970,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -12776,7 +12982,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -12898,7 +13104,8 @@ paths:
         required: true
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -12950,7 +13157,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1792972800
+          default: 1793059200
           format: int64
           nullable: true
           type: integer
@@ -12971,7 +13178,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -12983,7 +13190,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -13078,7 +13285,8 @@ paths:
         required: true
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -13102,6 +13310,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -13110,6 +13319,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -13154,7 +13364,8 @@ paths:
         required: true
         schema:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           maxItems: 1000
@@ -13298,7 +13509,8 @@ paths:
         required: false
         schema:
           default: 5
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -13313,7 +13525,8 @@ paths:
         required: false
         schema:
           default: 0
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -13374,7 +13587,8 @@ paths:
         name: account_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -13420,7 +13634,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -13432,7 +13646,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -13515,7 +13729,8 @@ paths:
         name: account_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -13564,7 +13779,8 @@ paths:
         name: account_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -13626,7 +13842,8 @@ paths:
         name: account_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -13672,7 +13889,7 @@ paths:
         name: min_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -13684,7 +13901,7 @@ paths:
         name: max_duration_s
         required: false
         schema:
-          format: int64
+          format: int32
           maximum: 7000
           minimum: 0
           nullable: true
@@ -13796,7 +14013,8 @@ paths:
         name: account_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -13837,7 +14055,8 @@ paths:
         name: account_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -13859,6 +14078,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -13867,6 +14087,7 @@ paths:
               schema:
                 items:
                   format: int32
+                  maximum: 255
                   minimum: 0
                   type: integer
                 type: array
@@ -13913,7 +14134,8 @@ paths:
         name: account_id
         required: true
         schema:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         style: simple
@@ -14178,20 +14400,23 @@ components:
           nullable: true
           type: boolean
         hero:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         heroes:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
           type: array
           default: null
         id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         image:
@@ -14331,7 +14556,7 @@ components:
         - enabled_game_modes
         - enabled_game_modes
         flavor_name: flavor_name
-        id: 0
+        id: 343953088
         threshold_type: threshold_type
         tracked_stat_name: tracked_stat_name
       properties:
@@ -14348,7 +14573,8 @@ components:
         flavor_name:
           type: string
         id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         threshold_type:
@@ -14372,7 +14598,8 @@ components:
               is the badge the player entered their latest ranked match with.
               `0` when no recent ranked match reports a rank.
               See more: <https://api.deadlock-api.com/v1/assets/ranks>
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           last_match:
@@ -14384,12 +14611,14 @@ components:
             nullable: true
           rank:
             description: "Rank tier, `0` when unknown."
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           subrank:
             description: "Sub-rank within the tier, `0` when unknown."
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
         required:
@@ -14399,58 +14628,59 @@ components:
       - properties:
           account_id:
             description: The players `SteamID3`
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
         required:
         - account_id
       example:
-        badge: 0
+        badge: 343953088
         last_match: ""
-        rank: 0
-        subrank: 0
-        account_id: 0
+        rank: 2588772717
+        subrank: 629561881
+        account_id: 2560717018
     ActiveMatch:
       example:
-        compat_version: 0
-        duration_s: 0
+        compat_version: 343953088
+        duration_s: 2588772717
         game_mode: 1
         game_mode_parsed: ""
-        game_mode_version: 0
+        game_mode_version: 2560717018
         lobby_id: 0
         low_pri_pool: true
         match_id: 0
         match_mode: 7
         match_mode_parsed: ""
-        match_score: 0
-        net_worth_team_0: 0
-        net_worth_team_1: 0
+        match_score: 3994939882
+        net_worth_team_0: 1553093137
+        net_worth_team_1: 870642708
         objectives_mask_team0: 0
         objectives_mask_team1: 0
-        open_spectator_slots: 0
+        open_spectator_slots: 528931036
         players:
         - abandoned: true
-          account_id: 0
-          hero_id: 0
+          account_id: 440081977
+          hero_id: 639699262
           team: 6
           team_parsed: ""
         - abandoned: true
-          account_id: 0
-          hero_id: 0
+          account_id: 440081977
+          hero_id: 639699262
           team: 6
           team_parsed: ""
         region_mode: 7
         region_mode_parsed: ""
-        spectators: 0
-        start_time: 0
+        spectators: 503831554
+        start_time: 2132545103
         team_stats:
-        - brawl_score: 0
-          net_worth: 0
+        - brawl_score: 2158223123
+          net_worth: 4280270439
           objectives_mask: 0
           team: 6
           team_parsed: ""
-        - brawl_score: 0
-          net_worth: 0
+        - brawl_score: 2158223123
+          net_worth: 4280270439
           objectives_mask: 0
           team: 6
           team_parsed: ""
@@ -14458,12 +14688,14 @@ components:
         winning_team_parsed: ""
       properties:
         compat_version:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         duration_s:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -14476,7 +14708,8 @@ components:
           - $ref: "#/components/schemas/ActiveMatchGameMode"
           nullable: true
         game_mode_version:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -14502,17 +14735,20 @@ components:
           - $ref: "#/components/schemas/ActiveMatchMode"
           nullable: true
         match_score:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         net_worth_team_0:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         net_worth_team_1:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -14527,7 +14763,8 @@ components:
           nullable: true
           type: integer
         open_spectator_slots:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -14545,12 +14782,14 @@ components:
           - $ref: "#/components/schemas/RegionMode"
           nullable: true
         spectators:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         start_time:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -14596,8 +14835,8 @@ components:
     ActiveMatchPlayer:
       example:
         abandoned: true
-        account_id: 0
-        hero_id: 0
+        account_id: 440081977
+        hero_id: 639699262
         team: 6
         team_parsed: ""
       properties:
@@ -14605,13 +14844,15 @@ components:
           nullable: true
           type: boolean
         account_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         hero_id:
           description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -14631,19 +14872,21 @@ components:
       type: string
     ActiveMatchTeamStats:
       example:
-        brawl_score: 0
-        net_worth: 0
+        brawl_score: 2158223123
+        net_worth: 4280270439
         objectives_mask: 0
         team: 6
         team_parsed: ""
       properties:
         brawl_score:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         net_worth:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -14675,7 +14918,7 @@ components:
       description: "The players who maxed one ability first, or (`ability_id` null)\
         \ none."
       example:
-        ability_id: 0
+        ability_id: 343953088
         losses: 0
         matches: 0
         players: 0
@@ -14685,7 +14928,8 @@ components:
           description: |-
             The ability these players maxed first (unlocked and upgraded three times before any other), null for the
             players who maxed none. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -14714,8 +14958,8 @@ components:
     AnalyticsAbilityOrderStats:
       example:
         abilities:
-        - 0
-        - 0
+        - 343953088
+        - 343953088
         avg_upgrade_times_s:
         - 6.027456183070403
         - 6.027456183070403
@@ -14730,7 +14974,8 @@ components:
         abilities:
           description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -14786,8 +15031,8 @@ components:
         \ order starts with `abilities`."
       example:
         abilities:
-        - 0
-        - 0
+        - 343953088
+        - 343953088
         avg_upgrade_time_s: 6.027456183070403
         losses: 0
         matches: 0
@@ -14802,7 +15047,8 @@ components:
             The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one
             entry shorter. See more: <https://api.deadlock-api.com/v1/assets/heroes>
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -14985,7 +15231,7 @@ components:
         avg_self_healing: 3.2588565619047607
         avg_tech_power: 4.078845849666752
         avg_weapon_power: 0.2025324113236393
-        bucket: 0
+        bucket: 2846903727
         mid_boss_kill_rate: 4.258773108174356
         team0_wins: 0
         team1_wins: 0
@@ -15167,7 +15413,8 @@ components:
           format: double
           type: number
         bucket:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         mid_boss_kill_rate:
@@ -15248,9 +15495,9 @@ components:
       - total_players
     AnalyticsHeroStats:
       example:
-        bucket: 0
+        bucket: 343953088
         bucket_matches_since_first_day: 0
-        hero_id: 0
+        hero_id: 37
         losses: 0
         matches: 0
         matches_per_bucket: 0
@@ -15275,7 +15522,8 @@ components:
         wins: 0
       properties:
         bucket:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         bucket_matches_since_first_day:
@@ -15291,6 +15539,7 @@ components:
         hero_id:
           description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         losses:
@@ -15424,14 +15673,15 @@ components:
       - wins
     BadgeDistribution:
       example:
-        badge_level: 0
+        badge_level: 343953088
         total_matches: 0
         unique_players: 0
       properties:
         badge_level:
           description: "The badge level (tier = first digits, subtier = last digit).\
             \ See more: <https://api.deadlock-api.com/v1/assets/ranks>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         total_matches:
@@ -15490,7 +15740,7 @@ components:
     Build:
       example:
         hero_build:
-          author_account_id: 0
+          author_account_id: 343953088
           description: description
           details:
             ability_order: ""
@@ -15498,77 +15748,82 @@ components:
             - description: description
               height: 6.0274563
               mods:
-              - ability_id: 0
+              - ability_id: 629561881
                 annotation: annotation
-                imbue_target_ability_id: 0
-                required_flex_slots: 0
-                sell_priority: 0
-              - ability_id: 0
+                imbue_target_ability_id: 2560717018
+                required_flex_slots: 2421234836
+                sell_priority: 988759834
+              - ability_id: 629561881
                 annotation: annotation
-                imbue_target_ability_id: 0
-                required_flex_slots: 0
-                sell_priority: 0
+                imbue_target_ability_id: 2560717018
+                required_flex_slots: 2421234836
+                sell_priority: 988759834
               name: name
               optional: true
               width: 7.0614014
             - description: description
               height: 6.0274563
               mods:
-              - ability_id: 0
+              - ability_id: 629561881
                 annotation: annotation
-                imbue_target_ability_id: 0
-                required_flex_slots: 0
-                sell_priority: 0
-              - ability_id: 0
+                imbue_target_ability_id: 2560717018
+                required_flex_slots: 2421234836
+                sell_priority: 988759834
+              - ability_id: 629561881
                 annotation: annotation
-                imbue_target_ability_id: 0
-                required_flex_slots: 0
-                sell_priority: 0
+                imbue_target_ability_id: 2560717018
+                required_flex_slots: 2421234836
+                sell_priority: 988759834
               name: name
               optional: true
               width: 7.0614014
           development_build: true
-          hero_build_id: 0
-          hero_id: 0
-          language: 0
+          hero_build_id: 3994939882
+          hero_id: 1553093137
+          language: 870642708
           last_updated_timestamp: 4
           name: name
-          origin_build_id: 0
+          origin_build_id: 3172383939
           publish_timestamp: 1
           tags:
-          - 0
-          - 0
-          version: 0
-        num_favorites: 0
-        num_ignores: 0
-        num_reports: 0
-        num_weekly_favorites: 0
-        rollup_category: 0
+          - 440081977
+          - 440081977
+          version: 639699262
+        num_favorites: 2940700841
+        num_ignores: 3203076989
+        num_reports: 503831554
+        num_weekly_favorites: 2132545103
+        rollup_category: 2158223123
       properties:
         hero_build:
           $ref: "#/components/schemas/BuildHero"
         num_favorites:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         num_ignores:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         num_reports:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         num_weekly_favorites:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         rollup_category:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -15576,7 +15831,7 @@ components:
       - hero_build
     BuildHero:
       example:
-        author_account_id: 0
+        author_account_id: 343953088
         description: description
         details:
           ability_order: ""
@@ -15584,50 +15839,51 @@ components:
           - description: description
             height: 6.0274563
             mods:
-            - ability_id: 0
+            - ability_id: 629561881
               annotation: annotation
-              imbue_target_ability_id: 0
-              required_flex_slots: 0
-              sell_priority: 0
-            - ability_id: 0
+              imbue_target_ability_id: 2560717018
+              required_flex_slots: 2421234836
+              sell_priority: 988759834
+            - ability_id: 629561881
               annotation: annotation
-              imbue_target_ability_id: 0
-              required_flex_slots: 0
-              sell_priority: 0
+              imbue_target_ability_id: 2560717018
+              required_flex_slots: 2421234836
+              sell_priority: 988759834
             name: name
             optional: true
             width: 7.0614014
           - description: description
             height: 6.0274563
             mods:
-            - ability_id: 0
+            - ability_id: 629561881
               annotation: annotation
-              imbue_target_ability_id: 0
-              required_flex_slots: 0
-              sell_priority: 0
-            - ability_id: 0
+              imbue_target_ability_id: 2560717018
+              required_flex_slots: 2421234836
+              sell_priority: 988759834
+            - ability_id: 629561881
               annotation: annotation
-              imbue_target_ability_id: 0
-              required_flex_slots: 0
-              sell_priority: 0
+              imbue_target_ability_id: 2560717018
+              required_flex_slots: 2421234836
+              sell_priority: 988759834
             name: name
             optional: true
             width: 7.0614014
         development_build: true
-        hero_build_id: 0
-        hero_id: 0
-        language: 0
+        hero_build_id: 3994939882
+        hero_id: 1553093137
+        language: 870642708
         last_updated_timestamp: 4
         name: name
-        origin_build_id: 0
+        origin_build_id: 3172383939
         publish_timestamp: 1
         tags:
-        - 0
-        - 0
-        version: 0
+        - 440081977
+        - 440081977
+        version: 639699262
       properties:
         author_account_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         description:
@@ -15639,16 +15895,19 @@ components:
           nullable: true
           type: boolean
         hero_build_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         hero_id:
           description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         language:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         last_updated_timestamp:
@@ -15658,7 +15917,8 @@ components:
         name:
           type: string
         origin_build_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         publish_timestamp:
@@ -15667,13 +15927,15 @@ components:
           type: integer
         tags:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
           default: null
         version:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
       required:
@@ -15692,32 +15954,32 @@ components:
         - description: description
           height: 6.0274563
           mods:
-          - ability_id: 0
+          - ability_id: 629561881
             annotation: annotation
-            imbue_target_ability_id: 0
-            required_flex_slots: 0
-            sell_priority: 0
-          - ability_id: 0
+            imbue_target_ability_id: 2560717018
+            required_flex_slots: 2421234836
+            sell_priority: 988759834
+          - ability_id: 629561881
             annotation: annotation
-            imbue_target_ability_id: 0
-            required_flex_slots: 0
-            sell_priority: 0
+            imbue_target_ability_id: 2560717018
+            required_flex_slots: 2421234836
+            sell_priority: 988759834
           name: name
           optional: true
           width: 7.0614014
         - description: description
           height: 6.0274563
           mods:
-          - ability_id: 0
+          - ability_id: 629561881
             annotation: annotation
-            imbue_target_ability_id: 0
-            required_flex_slots: 0
-            sell_priority: 0
-          - ability_id: 0
+            imbue_target_ability_id: 2560717018
+            required_flex_slots: 2421234836
+            sell_priority: 988759834
+          - ability_id: 629561881
             annotation: annotation
-            imbue_target_ability_id: 0
-            required_flex_slots: 0
-            sell_priority: 0
+            imbue_target_ability_id: 2560717018
+            required_flex_slots: 2421234836
+            sell_priority: 988759834
           name: name
           optional: true
           width: 7.0614014
@@ -15744,7 +16006,8 @@ components:
     BuildHeroDetailsAbilityOrderCurrencyChange:
       properties:
         ability_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         annotation:
@@ -15765,16 +16028,16 @@ components:
         description: description
         height: 6.0274563
         mods:
-        - ability_id: 0
+        - ability_id: 629561881
           annotation: annotation
-          imbue_target_ability_id: 0
-          required_flex_slots: 0
-          sell_priority: 0
-        - ability_id: 0
+          imbue_target_ability_id: 2560717018
+          required_flex_slots: 2421234836
+          sell_priority: 988759834
+        - ability_id: 629561881
           annotation: annotation
-          imbue_target_ability_id: 0
-          required_flex_slots: 0
-          sell_priority: 0
+          imbue_target_ability_id: 2560717018
+          required_flex_slots: 2421234836
+          sell_priority: 988759834
         name: name
         optional: true
         width: 7.0614014
@@ -15805,31 +16068,35 @@ components:
       - name
     BuildHeroDetailsCategoryAbility:
       example:
-        ability_id: 0
+        ability_id: 629561881
         annotation: annotation
-        imbue_target_ability_id: 0
-        required_flex_slots: 0
-        sell_priority: 0
+        imbue_target_ability_id: 2560717018
+        required_flex_slots: 2421234836
+        sell_priority: 988759834
       properties:
         ability_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         annotation:
           nullable: true
           type: string
         imbue_target_ability_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         required_flex_slots:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         sell_priority:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -15838,7 +16105,7 @@ components:
     BuildItemStats:
       example:
         builds: 0
-        item_id: 6
+        item_id: 2588772717
       properties:
         builds:
           format: int64
@@ -15846,6 +16113,8 @@ components:
         item_id:
           description: "See more: <https://api.deadlock-api.com/v1/assets/items>"
           format: int64
+          maximum: 4294967295
+          minimum: 0
           type: integer
       required:
       - builds
@@ -15854,7 +16123,7 @@ components:
       example:
         class_name: class_name
         icon: icon
-        id: 0
+        id: 343953088
         label: label
       properties:
         class_name:
@@ -15862,7 +16131,8 @@ components:
         icon:
           type: string
         id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         label:
@@ -15874,42 +16144,48 @@ components:
       - label
     ClickhouseMatchInfo:
       example:
-        average_badge: 0
-        average_badge_team0: 0
-        average_badge_team1: 0
-        duration_s: 0
-        game_mode: 5
+        average_badge: 343953088
+        average_badge_team0: 2588772717
+        average_badge_team1: 629561881
+        duration_s: 2560717018
+        game_mode: 15
         match_id: 0
-        match_mode: 7
+        match_mode: 52
         players:
-        - account_id: 0
-        - account_id: 0
-        start_time: 0
+        - account_id: 3994939882
+        - account_id: 3994939882
+        start_time: 1553093137
       properties:
         average_badge:
           description: "See more: <https://api.deadlock-api.com/v1/assets/ranks>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         average_badge_team0:
           description: "See more: <https://api.deadlock-api.com/v1/assets/ranks>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         average_badge_team1:
           description: "See more: <https://api.deadlock-api.com/v1/assets/ranks>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         duration_s:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         game_mode:
           format: int32
+          maximum: 127
+          minimum: -128
           type: integer
         match_id:
           format: int64
@@ -15917,6 +16193,8 @@ components:
           type: integer
         match_mode:
           format: int32
+          maximum: 127
+          minimum: -128
           type: integer
         players:
           items:
@@ -15924,7 +16202,8 @@ components:
           type: array
           default: null
         start_time:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
       required:
@@ -15936,14 +16215,15 @@ components:
       - start_time
     ClickhouseSalts:
       example:
-        cluster_id: 0
+        cluster_id: 343953088
         match_id: 0
-        metadata_salt: 0
-        replay_salt: 0
+        metadata_salt: 629561881
+        replay_salt: 2560717018
         username: username
       properties:
         cluster_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -15952,12 +16232,14 @@ components:
           minimum: 0
           type: integer
         metadata_salt:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         replay_salt:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -15971,25 +16253,29 @@ components:
         RGBA color emitted by KV3 as a 3- or 4-element integer array. Alpha
         defaults to 255 when omitted.
       example:
-        alpha: 0
-        blue: 0
-        green: 0
-        red: 0
+        alpha: 58
+        blue: 180
+        green: 237
+        red: 92
       properties:
         alpha:
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         blue:
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         green:
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         red:
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
       required:
@@ -16000,10 +16286,10 @@ components:
     ColorGradientStop:
       example:
         color:
-          alpha: 0
-          blue: 0
-          green: 0
-          red: 0
+          alpha: 58
+          blue: 180
+          green: 237
+          red: 92
         position: 2.027123023002322
       properties:
         color:
@@ -16227,7 +16513,7 @@ components:
       example:
         callback_url: callback_url
         cheats_enabled: true
-        corrupted_item_shop_spawn_minutes: 0
+        corrupted_item_shop_spawn_minutes: 343953088
         disable_auto_ready: true
         duplicate_heroes_enabled: true
         game_mode: ""
@@ -16247,7 +16533,8 @@ components:
         corrupted_item_shop_spawn_minutes:
           description: Minute of the match at which the Broker's corrupted item shop
             first spawns.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -16333,16 +16620,16 @@ components:
           color: ""
           color_gradient:
           - color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
+              alpha: 58
+              blue: 180
+              green: 237
+              red: 92
             position: 2.027123023002322
           - color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
+              alpha: 58
+              blue: 180
+              green: 237
+              red: 92
             position: 2.027123023002322
           coverage: 4.145608029883936
           duration: 7.386281948385884
@@ -16353,16 +16640,16 @@ components:
           color: ""
           color_gradient:
           - color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
+              alpha: 58
+              blue: 180
+              green: 237
+              red: 92
             position: 2.027123023002322
           - color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
+              alpha: 58
+              blue: 180
+              green: 237
+              red: 92
             position: 2.027123023002322
           coverage: 4.145608029883936
           duration: 7.386281948385884
@@ -16374,16 +16661,16 @@ components:
           color: ""
           color_gradient:
           - color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
+              alpha: 58
+              blue: 180
+              green: 237
+              red: 92
             position: 2.027123023002322
           - color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
+              alpha: 58
+              blue: 180
+              green: 237
+              red: 92
             position: 2.027123023002322
           coverage: 4.145608029883936
           duration: 7.386281948385884
@@ -16394,16 +16681,16 @@ components:
           color: ""
           color_gradient:
           - color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
+              alpha: 58
+              blue: 180
+              green: 237
+              red: 92
             position: 2.027123023002322
           - color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
+              alpha: 58
+              blue: 180
+              green: 237
+              red: 92
             position: 2.027123023002322
           coverage: 4.145608029883936
           duration: 7.386281948385884
@@ -16414,16 +16701,16 @@ components:
           color: ""
           color_gradient:
           - color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
+              alpha: 58
+              blue: 180
+              green: 237
+              red: 92
             position: 2.027123023002322
           - color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
+              alpha: 58
+              blue: 180
+              green: 237
+              red: 92
             position: 2.027123023002322
           coverage: 4.145608029883936
           duration: 7.386281948385884
@@ -16608,7 +16895,7 @@ components:
           type: string
     EnemyStats:
       example:
-        enemy_id: 0
+        enemy_id: 343953088
         matches:
         - 0
         - 0
@@ -16616,7 +16903,8 @@ components:
         wins: 0
       properties:
         enemy_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         matches:
@@ -16733,16 +17021,16 @@ components:
         color: ""
         color_gradient:
         - color:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
+            alpha: 58
+            blue: 180
+            green: 237
+            red: 92
           position: 2.027123023002322
         - color:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
+            alpha: 58
+            blue: 180
+            green: 237
+            red: 92
           position: 2.027123023002322
         coverage: 4.145608029883936
         duration: 7.386281948385884
@@ -16890,16 +17178,16 @@ components:
             color: ""
             color_gradient:
             - color:
-                alpha: 0
-                blue: 0
-                green: 0
-                red: 0
+                alpha: 58
+                blue: 180
+                green: 237
+                red: 92
               position: 2.027123023002322
             - color:
-                alpha: 0
-                blue: 0
-                green: 0
-                red: 0
+                alpha: 58
+                blue: 180
+                green: 237
+                red: 92
               position: 2.027123023002322
             coverage: 4.145608029883936
             duration: 7.386281948385884
@@ -16910,16 +17198,16 @@ components:
             color: ""
             color_gradient:
             - color:
-                alpha: 0
-                blue: 0
-                green: 0
-                red: 0
+                alpha: 58
+                blue: 180
+                green: 237
+                red: 92
               position: 2.027123023002322
             - color:
-                alpha: 0
-                blue: 0
-                green: 0
-                red: 0
+                alpha: 58
+                blue: 180
+                green: 237
+                red: 92
               position: 2.027123023002322
             coverage: 4.145608029883936
             duration: 7.386281948385884
@@ -16931,16 +17219,16 @@ components:
             color: ""
             color_gradient:
             - color:
-                alpha: 0
-                blue: 0
-                green: 0
-                red: 0
+                alpha: 58
+                blue: 180
+                green: 237
+                red: 92
               position: 2.027123023002322
             - color:
-                alpha: 0
-                blue: 0
-                green: 0
-                red: 0
+                alpha: 58
+                blue: 180
+                green: 237
+                red: 92
               position: 2.027123023002322
             coverage: 4.145608029883936
             duration: 7.386281948385884
@@ -16951,16 +17239,16 @@ components:
             color: ""
             color_gradient:
             - color:
-                alpha: 0
-                blue: 0
-                green: 0
-                red: 0
+                alpha: 58
+                blue: 180
+                green: 237
+                red: 92
               position: 2.027123023002322
             - color:
-                alpha: 0
-                blue: 0
-                green: 0
-                red: 0
+                alpha: 58
+                blue: 180
+                green: 237
+                red: 92
               position: 2.027123023002322
             coverage: 4.145608029883936
             duration: 7.386281948385884
@@ -16971,16 +17259,16 @@ components:
             color: ""
             color_gradient:
             - color:
-                alpha: 0
-                blue: 0
-                green: 0
-                red: 0
+                alpha: 58
+                blue: 180
+                green: 237
+                red: 92
               position: 2.027123023002322
             - color:
-                alpha: 0
-                blue: 0
-                green: 0
-                red: 0
+                alpha: 58
+                blue: 180
+                green: 237
+                red: 92
               position: 2.027123023002322
             coverage: 4.145608029883936
             duration: 7.386281948385884
@@ -17414,12 +17702,12 @@ components:
         class_name: class_name
         colors:
           style:
-          - 0
-          - 0
+          - 20
+          - 20
           style_hex: style_hex
           ui:
-          - 0
-          - 0
+          - 153
+          - 153
         complexity: 1
         cost_bonuses: ""
         description:
@@ -17439,7 +17727,7 @@ components:
           weapon_stat_display: weapon_stat_display
         hero_type: ""
         hideout_rich_presence: hideout_rich_presence
-        id: 0
+        id: 2560717018
         images:
           background_image: background_image
           background_image_webp: background_image_webp
@@ -17657,7 +17945,8 @@ components:
           nullable: true
           type: string
         id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         images:
@@ -17785,8 +18074,8 @@ components:
     HeroBanStats:
       example:
         bans: 0
-        bucket: 0
-        hero_id: 0
+        bucket: 2588772717
+        hero_id: 37
         matches: 0
       properties:
         bans:
@@ -17796,12 +18085,14 @@ components:
           type: integer
         bucket:
           description: The bucket value (depends on the bucket query parameter).
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         hero_id:
           description: "The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         matches:
@@ -17820,9 +18111,9 @@ components:
     HeroBuildStats:
       example:
         avg_average_badge: 0.8008281904610115
-        bucket: 0
+        bucket: 2588772717
         hero_build_id: 0
-        hero_id: 0
+        hero_id: 152
         losses: 0
         matches: 0
         players: 0
@@ -17862,7 +18153,8 @@ components:
         bucket:
           description: "The bucket value (depends on the bucket query parameter, 0\
             \ without one)."
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         hero_build_id:
@@ -17874,6 +18166,7 @@ components:
         hero_id:
           description: "The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         losses:
@@ -18036,16 +18329,17 @@ components:
     HeroColors:
       example:
         style:
-        - 0
-        - 0
+        - 20
+        - 20
         style_hex: style_hex
         ui:
-        - 0
-        - 0
+        - 153
+        - 153
       properties:
         style:
           items:
             format: int32
+            maximum: 255
             minimum: 0
             type: integer
           nullable: true
@@ -18057,6 +18351,7 @@ components:
         ui:
           items:
             format: int32
+            maximum: 255
             minimum: 0
             type: integer
           type: array
@@ -18066,8 +18361,8 @@ components:
     HeroCombStats:
       example:
         hero_ids:
-        - 0
-        - 0
+        - 343953088
+        - 343953088
         losses: 0
         matches: 0
         wins: 0
@@ -18075,7 +18370,8 @@ components:
         hero_ids:
           description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -18107,12 +18403,12 @@ components:
         enemy_creeps: 0
         enemy_deaths: 0
         enemy_denies: 0
-        enemy_hero_id: 0
+        enemy_hero_id: 92
         enemy_kills: 0
         enemy_last_hits: 0
         enemy_networth: 0
         enemy_obj_damage: 0
-        hero_id: 0
+        hero_id: 26
         kills: 0
         last_hits: 0
         matches_played: 0
@@ -18164,6 +18460,7 @@ components:
         enemy_hero_id:
           description: "The ID of the opposing hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         enemy_kills:
@@ -18190,6 +18487,7 @@ components:
         hero_id:
           description: "The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         kills:
@@ -18268,7 +18566,7 @@ components:
       type: string
     HeroEntry:
       example:
-        hero_id: 0
+        hero_id: 20
         matches: 0
         rank: 0
         value: 5.962133916683182
@@ -18276,6 +18574,7 @@ components:
         hero_id:
           description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         matches:
@@ -18419,7 +18718,8 @@ components:
           type: string
         item_id:
           description: "Item id, derived from `class_name` like `/v2/items` ids."
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         pick_pct:
@@ -18463,7 +18763,7 @@ components:
       - mid_game
     HeroStats:
       example:
-        account_id: 0
+        account_id: 343953088
         accuracy: 6.027456183070403
         assists: 0
         assists_per_min: 5.962133916683182
@@ -18480,11 +18780,11 @@ components:
         denies_per_match: 1.4894159098541704
         denies_per_min: 6.84685269835264
         ending_level: 7.457744773683766
-        hero_id: 0
+        hero_id: 29
         kills: 0
         kills_per_min: 5.025004791520295
         last_hits_per_min: 9.965781217890562
-        last_played: 0
+        last_played: 4024088119
         matches:
         - 0
         - 0
@@ -18508,7 +18808,8 @@ components:
         wins: 0
       properties:
         account_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         accuracy:
@@ -18568,6 +18869,7 @@ components:
         hero_id:
           description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         kills:
@@ -18581,7 +18883,8 @@ components:
           format: double
           type: number
         last_played:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         matches:
@@ -18742,8 +19045,8 @@ components:
       - stat_type
     HeroSwapStats:
       example:
-        bucket: 0
-        hero_id: 0
+        bucket: 343953088
+        hero_id: 2588772717
         matches: 0
         pregame_picks: 0
         swapped_away: 0
@@ -18752,12 +19055,14 @@ components:
       properties:
         bucket:
           description: The bucket value (depends on the bucket query parameter).
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         hero_id:
           description: "The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         matches:
@@ -18807,8 +19112,8 @@ components:
         deaths2: 0
         denies1: 0
         denies2: 0
-        hero_id1: 0
-        hero_id2: 0
+        hero_id1: 92
+        hero_id2: 51
         kills1: 0
         kills2: 0
         last_hits1: 0
@@ -18865,11 +19170,13 @@ components:
         hero_id1:
           description: The ID of the first hero in the pair.
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         hero_id2:
           description: The ID of the second hero in the pair.
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         kills1:
@@ -19002,13 +19309,14 @@ components:
       - match_id
     IngestStatusResponse:
       example:
-        account_id: 0
+        account_id: 343953088
         active: true
-        last_upload_at: 0
-        window_days: 0
+        last_upload_at: 2588772717
+        window_days: 629561881
       properties:
         account_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         active:
@@ -19018,13 +19326,15 @@ components:
         last_upload_at:
           description: Unix timestamp of the most recent verified upload within the
             window.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         window_days:
           description: "The window, in days, an upload must fall in to count."
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
       required:
@@ -19040,10 +19350,12 @@ components:
       properties:
         normal_mod_tier:
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         rare_mod_tier:
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
       required:
@@ -19069,20 +19381,22 @@ components:
         A transition between an item in one column and an item in the next column,
         counted across players who purchased both.
       example:
-        from_column: 0
-        from_item_id: 0
+        from_column: 20
+        from_item_id: 2588772717
         losses: 0
         matches: 0
-        to_item_id: 0
+        to_item_id: 2421234836
         wins: 0
       properties:
         from_column:
           description: The column of the source item.
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         from_item_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         losses:
@@ -19094,7 +19408,8 @@ components:
           minimum: 0
           type: integer
         to_item_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         wins:
@@ -19113,19 +19428,21 @@ components:
         The locked build path without one of its locked items: how the population changes when that
         item's constraint is dropped and every other one kept.
       example:
-        column: 0
-        item_id: 0
+        column: 3032848738
+        item_id: 3994939882
         matches: 0
         wins: 0
       properties:
         column:
           description: Its locked stage column.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         item_id:
           description: "The locked item left out. See more: <https://api.deadlock-api.com/v1/assets/items>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         matches:
@@ -19146,8 +19463,8 @@ components:
       example:
         adjusted_win_rate: 4.145608029883936
         avg_net_worth_at_buy: 7.386281948385884
-        column: 0
-        item_id: 0
+        column: 31
+        item_id: 440081977
         losses: 0
         matches: 0
         players: 0
@@ -19170,11 +19487,13 @@ components:
         column:
           description: The phase column (0-based) the item was bought in.
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         item_id:
           description: "See more: <https://api.deadlock-api.com/v1/assets/items>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         losses:
@@ -19221,32 +19540,32 @@ components:
       example:
         baseline: ""
         edges:
-        - from_column: 0
-          from_item_id: 0
+        - from_column: 20
+          from_item_id: 2588772717
           losses: 0
           matches: 0
-          to_item_id: 0
+          to_item_id: 2421234836
           wins: 0
-        - from_column: 0
-          from_item_id: 0
+        - from_column: 20
+          from_item_id: 2588772717
           losses: 0
           matches: 0
-          to_item_id: 0
+          to_item_id: 2421234836
           wins: 0
         leave_one_out:
-        - column: 0
-          item_id: 0
+        - column: 3032848738
+          item_id: 3994939882
           matches: 0
           wins: 0
-        - column: 0
-          item_id: 0
+        - column: 3032848738
+          item_id: 3994939882
           matches: 0
           wins: 0
         nodes:
         - adjusted_win_rate: 4.145608029883936
           avg_net_worth_at_buy: 7.386281948385884
-          column: 0
-          item_id: 0
+          column: 31
+          item_id: 440081977
           losses: 0
           matches: 0
           players: 0
@@ -19256,8 +19575,8 @@ components:
           wins: 0
         - adjusted_win_rate: 4.145608029883936
           avg_net_worth_at_buy: 7.386281948385884
-          column: 0
-          item_id: 0
+          column: 31
+          item_id: 440081977
           losses: 0
           matches: 0
           players: 0
@@ -19422,8 +19741,8 @@ components:
     ItemPermutationStats:
       example:
         item_ids:
-        - 0
-        - 0
+        - 343953088
+        - 343953088
         losses: 0
         matches: 0
         wins: 0
@@ -19431,7 +19750,8 @@ components:
         item_ids:
           description: "See more: <https://api.deadlock-api.com/v1/assets/items>"
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -19559,8 +19879,8 @@ components:
         avg_buy_time_s: 6.027456183070403
         avg_sell_time_relative: 1.4658129805029452
         avg_sell_time_s: 5.962133916683182
-        bucket: 0
-        item_id: 0
+        bucket: 2421234836
+        item_id: 988759834
         losses: 0
         matches: 0
         players: 0
@@ -19586,12 +19906,14 @@ components:
           format: double
           type: number
         bucket:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         item_id:
           description: "See more: <https://api.deadlock-api.com/v1/assets/items>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         losses:
@@ -19672,7 +19994,7 @@ components:
     KillDeathStats:
       example:
         deaths: 0
-        killer_team: 0
+        killer_team: 153
         kills: 0
         position_x: 5
         position_y: 5
@@ -19683,6 +20005,7 @@ components:
           type: integer
         killer_team:
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         kills:
@@ -19779,17 +20102,17 @@ components:
       description: "**⚠️ Subject to change:** newly added, fields may change or be\
         \ removed without notice."
       example:
-        assigned_lane: 0
+        assigned_lane: 343953088
         enemy_hero_ids:
-        - 0
-        - 0
+        - 2588772717
+        - 2588772717
         hero_ids:
-        - 0
-        - 0
+        - 629561881
+        - 629561881
         matches_played: 0
         net_worth_diff: 5.637376656633329
         sample_matches: 0
-        sample_time_s: 0
+        sample_time_s: 3032848738
         stats:
           key:
             diff: 9.301444243932576
@@ -19801,14 +20124,16 @@ components:
         assigned_lane:
           description: "The lane the matchup was played in, or `0` when `assigned_lane`\
             \ was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>."
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         enemy_hero_ids:
           description: "The ascending hero id pair they laned against, or empty when\
             \ grouped away."
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -19817,7 +20142,8 @@ components:
           description: "The ascending hero id pair that shared the lane, or empty\
             \ when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -19844,7 +20170,8 @@ components:
         sample_time_s:
           description: Seconds into the match the stat readings were taken at. Echoes
             the `sample_time_s` parameter.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         stats:
@@ -19873,13 +20200,13 @@ components:
       description: "**⚠️ Subject to change:** newly added, fields may change or be\
         \ removed without notice."
       example:
-        assigned_lane: 0
+        assigned_lane: 343953088
         enemy_hero_ids:
-        - 0
-        - 0
+        - 2588772717
+        - 2588772717
         hero_ids:
-        - 0
-        - 0
+        - 629561881
+        - 629561881
         matches_played: 0
         net_worth_diff:
         - 5.637376656633329
@@ -19891,8 +20218,8 @@ components:
         - 0
         - 0
         sample_times_s:
-        - 0
-        - 0
+        - 3994939882
+        - 3994939882
         stats:
           key:
             diff:
@@ -19911,14 +20238,16 @@ components:
         assigned_lane:
           description: "The lane the matchup was played in, or `0` when `assigned_lane`\
             \ was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>."
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         enemy_hero_ids:
           description: "The ascending hero id pair they laned against, or empty when\
             \ grouped away."
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -19927,7 +20256,8 @@ components:
           description: "The ascending hero id pair that shared the lane, or empty\
             \ when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -19975,7 +20305,8 @@ components:
           description: "Seconds into the match each entry of the curves was sampled\
             \ at, ascending."
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -20067,37 +20398,43 @@ components:
           type: integer
         player_rank_final_flat_progress:
           description: Rank progress the player ended the match with.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         player_rank_initial_calibration_games:
           description: Remaining placement games at the start of the match.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         player_rank_initial_demotion_protection_games:
           description: Remaining demotion protection games at the start of the match.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         player_rank_initial_display_rank:
           description: "Rank badge the player entered the match with, `tier * 10 +\
             \ subrank`."
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         player_rank_initial_flat_progress:
           description: Rank progress the player entered the match with.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         player_rank_initial_win_streak:
           description: Win streak the player entered the match with.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -20106,13 +20443,15 @@ components:
             Ranked interval the match counted for, which sets the scale of the flat progress. See
             <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before
             2026-11-05 19:00 UTC, which are all interval 1.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         start_time:
           description: Match start time as a unix timestamp.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
       required:
@@ -20124,20 +20463,20 @@ components:
         entries:
         - account_name: account_name
           possible_account_ids:
-          - 0
-          - 0
-          rank: 0
+          - 343953088
+          - 343953088
+          rank: 2588772717
           top_hero_ids:
-          - 0
-          - 0
+          - 629561881
+          - 629561881
         - account_name: account_name
           possible_account_ids:
-          - 0
-          - 0
-          rank: 0
+          - 343953088
+          - 343953088
+          rank: 2588772717
           top_hero_ids:
-          - 0
-          - 0
+          - 629561881
+          - 629561881
       properties:
         entries:
           description: The leaderboard entries.
@@ -20151,12 +20490,12 @@ components:
       example:
         account_name: account_name
         possible_account_ids:
-        - 0
-        - 0
-        rank: 0
+        - 343953088
+        - 343953088
+        rank: 2588772717
         top_hero_ids:
-        - 0
-        - 0
+        - 629561881
+        - 629561881
       properties:
         account_name:
           description: The account name of the player.
@@ -20166,7 +20505,8 @@ components:
           description: "The possible account IDs of the player. **CAVEAT: This is\
             \ not always correct, as Steam account names are not unique.**"
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -20175,7 +20515,8 @@ components:
           description: |-
             The player's place on the leaderboard, starting at 1. Players can share a place, and the
             following places are then skipped (1, 2, 2, 4). Not a rank badge.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -20184,7 +20525,8 @@ components:
             The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves
             them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes>
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -20285,7 +20627,7 @@ components:
           key:
             left_relative: 5.962133916683182
             top_relative: 5.637376656633329
-        radius: 0
+        radius: 988759834
         zipline_paths:
         - P0_points:
           - - 7.061401241503109
@@ -20304,10 +20646,10 @@ components:
             - 3.616076749251911
           color: color
           color_parsed:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
+            alpha: 58
+            blue: 180
+            green: 237
+            red: 92
           origin:
           - 2.027123023002322
           - 2.027123023002322
@@ -20328,10 +20670,10 @@ components:
             - 3.616076749251911
           color: color
           color_parsed:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
+            alpha: 58
+            blue: 180
+            green: 237
+            red: 92
           origin:
           - 2.027123023002322
           - 2.027123023002322
@@ -20357,7 +20699,8 @@ components:
             $ref: "#/components/schemas/ObjectivePosition"
           type: object
         radius:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         zipline_paths:
@@ -20537,6 +20880,7 @@ components:
         team:
           description: Owning team (0 or 1); absent for neutral entities.
           format: int32
+          maximum: 255
           minimum: 0
           nullable: true
           type: integer
@@ -20593,25 +20937,27 @@ components:
       - plain
     MatchPlayer:
       example:
-        account_id: 0
+        account_id: 3994939882
       properties:
         account_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
       required:
       - account_id
     MatchSaltsResponse:
       example:
-        cluster_id: 0
+        cluster_id: 343953088
         demo_url: demo_url
         match_id: 0
-        metadata_salt: 0
+        metadata_salt: 629561881
         metadata_url: metadata_url
-        replay_salt: 0
+        replay_salt: 2560717018
       properties:
         cluster_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -20623,7 +20969,8 @@ components:
           minimum: 0
           type: integer
         metadata_salt:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -20631,7 +20978,8 @@ components:
           nullable: true
           type: string
         replay_salt:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -20657,7 +21005,7 @@ components:
         - 0
         - 0
         matches_played: 0
-        mate_id: 0
+        mate_id: 629561881
         wins: 0
       properties:
         matches:
@@ -20672,7 +21020,8 @@ components:
           minimum: 0
           type: integer
         mate_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         wins:
@@ -20802,7 +21151,7 @@ components:
         heavy_melee_hit_count: 5
         heavy_melee_only: true
         hits_required: 2
-        id: 0
+        id: 3032848738
         in_shop_modifier: ""
         initial_spawn_delay_in_seconds: 9
         initial_spawn_delay_seconds: 3
@@ -20936,7 +21285,8 @@ components:
           nullable: true
           type: integer
         id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         in_shop_modifier:
@@ -21123,7 +21473,7 @@ components:
         class: class
         class_name: class_name
         folder: folder
-        id: 0
+        id: 343953088
         properties:
           key: 6.027456183070403
       properties:
@@ -21142,7 +21492,8 @@ components:
           nullable: true
           type: string
         id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         properties:
@@ -21308,7 +21659,7 @@ components:
         health_bar_color_team1: ""
         health_bar_color_team2: ""
         health_bar_color_team_neutral: ""
-        id: 0
+        id: 3172383939
         image: image
         image_webp: image_webp
         intrinsic_modifiers:
@@ -21482,7 +21833,8 @@ components:
           - $ref: "#/components/schemas/Color"
           nullable: true
         id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         image:
@@ -22186,15 +22538,16 @@ components:
           type: number
     PlayerClusterMonth:
       example:
-        cluster_id: 0
+        cluster_id: 2588772717
         datacenter: datacenter
         matches: 0
-        month: 0
+        month: 2560717018
         region: region
       properties:
         cluster_id:
           description: The server cluster the matches were played on.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         datacenter:
@@ -22210,7 +22563,8 @@ components:
           type: integer
         month:
           description: Unix timestamp of the first day of the month (UTC).
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         region:
@@ -22225,16 +22579,17 @@ components:
       - month
     PlayerEntry:
       example:
-        account_id: 0
-        badge: 0
-        badge_progress: 0
-        badge_progress_max: 0
+        account_id: 343953088
+        badge: 2588772717
+        badge_progress: 629561881
+        badge_progress_max: 2560717018
         matches: 0
         rank: 0
         value: 7.061401241503109
       properties:
         account_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         badge:
@@ -22242,7 +22597,8 @@ components:
             `rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0`
             when the player has no ranked match in range. Omitted for every other sort.
             See more: <https://api.deadlock-api.com/v1/assets/ranks>
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -22252,7 +22608,8 @@ components:
             `badge_progress_max`. In Eternus, whose subranks are percentile cuts rather than point
             spans, the points past the start of Eternus. `null` when the player has no ranked match in
             range.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -22261,7 +22618,8 @@ components:
             `rank` and `peak_rank` sorts only: the points the subrank of `badge` spans in that match's
             season (`sub_rank_xp` in <https://api.deadlock-api.com/v1/assets/ranked-seasons>). `null` in
             Eternus and when the player has no ranked match in range.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -22283,77 +22641,88 @@ components:
       - value
     PlayerMatchHistoryEntry:
       example:
-        abandoned_time_s: 0
-        account_id: 0
-        brawl_avg_round_time_s: 0
-        brawl_score_team0: 0
-        brawl_score_team1: 0
-        denies: 0
-        game_mode: 7
-        hero_id: 0
-        hero_level: 0
-        last_hits: 0
+        abandoned_time_s: 343953088
+        account_id: 2588772717
+        brawl_avg_round_time_s: 629561881
+        brawl_score_team0: 2560717018
+        brawl_score_team1: 2421234836
+        denies: 988759834
+        game_mode: 52
+        hero_id: 237
+        hero_level: 1553093137
+        last_hits: 870642708
         low_pri_pool: true
-        match_duration_s: 0
+        match_duration_s: 1780525090
         match_id: 0
-        match_mode: 1
-        match_result: 0
-        net_worth: 0
-        objectives_mask_team0: 0
-        objectives_mask_team1: 0
-        player_assists: 0
-        player_deaths: 0
-        player_kills: 0
-        player_match_outcome: 9
-        player_team: 9
-        ranked_calibration_match: 0
+        match_mode: -96
+        match_result: 440081977
+        net_worth: 639699262
+        objectives_mask_team0: 2940700841
+        objectives_mask_team1: 3203076989
+        player_assists: 503831554
+        player_deaths: 2132545103
+        player_kills: 2158223123
+        player_match_outcome: 126
+        player_team: 110
+        ranked_calibration_match: 2870568193
         ranked_delta: 8
-        ranked_display_badge: 0
+        ranked_display_badge: 3873351051
         ranked_used_demotion_protection: true
-        start_time: 0
+        start_time: 2765281858
       properties:
         abandoned_time_s:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         account_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         brawl_avg_round_time_s:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         brawl_score_team0:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         brawl_score_team1:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         denies:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         game_mode:
           format: int32
+          maximum: 127
+          minimum: -128
           type: integer
         hero_id:
           description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         hero_level:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         last_hits:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         low_pri_pool:
@@ -22362,7 +22731,8 @@ components:
           nullable: true
           type: boolean
         match_duration_s:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         match_id:
@@ -22371,47 +22741,61 @@ components:
           type: integer
         match_mode:
           format: int32
+          maximum: 127
+          minimum: -128
           type: integer
         match_result:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         net_worth:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         objectives_mask_team0:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         objectives_mask_team1:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         player_assists:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         player_deaths:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         player_kills:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         player_match_outcome:
           description: "How the match was scored for the player: 0 = invalid, 1 =\
             \ win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored."
           format: int32
+          maximum: 127
+          minimum: -128
           type: integer
         player_team:
           format: int32
+          maximum: 127
+          minimum: -128
           type: integer
         ranked_calibration_match:
           description: Non-zero if this match counted towards the player's ranked
             calibration.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -22425,7 +22809,8 @@ components:
             \ = first digits, subtier = last digit). Within Eternus, where subranks\
             \ are percentile cuts the GC misreports, this is the badge the player\
             \ entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -22435,7 +22820,8 @@ components:
           nullable: true
           type: boolean
         start_time:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
       required:
@@ -22474,7 +22860,7 @@ components:
         deaths_std: 7.386281948385884
         denies_avg: 1.2315135367772556
         denies_std: 1.0246457001441578
-        game_time: 0
+        game_time: 639699262
         game_time_avg: 6.84685269835264
         gold_ability_assassinate_avg: 7.457744773683766
         gold_ability_assassinate_std: 1.1730742509559433
@@ -22593,7 +22979,8 @@ components:
             The time point of the data.
             If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100).
             If `resolution` is 0, this is the match time in seconds.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         game_time_avg:
@@ -22930,23 +23317,24 @@ components:
       - self_damage_std
     PlayerRegionResponse:
       example:
-        account_id: 0
+        account_id: 343953088
         history:
-        - cluster_id: 0
+        - cluster_id: 2588772717
           datacenter: datacenter
           matches: 0
-          month: 0
+          month: 2560717018
           region: region
-        - cluster_id: 0
+        - cluster_id: 2588772717
           datacenter: datacenter
           matches: 0
-          month: 0
+          month: 2560717018
           region: region
         region: region
-        region_month: 0
+        region_month: 2421234836
       properties:
         account_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         history:
@@ -22963,7 +23351,8 @@ components:
           type: string
         region_month:
           description: Unix timestamp of the month `region` was taken from.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -22999,7 +23388,8 @@ components:
       properties:
         bucket:
           description: "The bucket's value: the hero id for `bucket=hero`."
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
       required:
@@ -23059,7 +23449,7 @@ components:
           subrank6: subrank6
           subrank6_webp: subrank6_webp
         name: name
-        tier: 0
+        tier: 343953088
       properties:
         color:
           type: string
@@ -23068,7 +23458,8 @@ components:
         name:
           type: string
         tier:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
       required:
@@ -23078,14 +23469,15 @@ components:
       - tier
     RankDistributionEntry:
       example:
-        badge: 0
+        badge: 343953088
         players: 0
-        rank: 0
-        subrank: 0
+        rank: 629561881
+        subrank: 2560717018
       properties:
         badge:
           description: "Rank badge, `tier * 10 + subrank`. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         players:
@@ -23096,12 +23488,14 @@ components:
           type: integer
         rank:
           description: Rank tier.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         subrank:
           description: Sub-rank within the tier.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
       required:
@@ -23316,11 +23710,11 @@ components:
         \ there."
       example:
         badge_shields: 7
-        rank_end: 0
+        rank_end: 528931036
         sub_rank_shields: 1
         sub_rank_xp:
-        - 0
-        - 0
+        - 639699262
+        - 639699262
       properties:
         badge_shields:
           description: |-
@@ -23333,7 +23727,8 @@ components:
           description: |-
             Rank badge (tier * 10 + subrank) the entry stops at: it covers the ranks below it. In Beta
             Season 2, 91 (Phantom I) gives every rank below Phantom shields and Phantom and up none.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -23348,17 +23743,18 @@ components:
             Rank points needed per subrank step, the last one being the step to the next badge
             (Beta Season 2: 1000 between subranks, 1500 from the final subrank).
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
           default: null
     RankResponse:
       example:
-        badge: 0
+        badge: 343953088
         last_match: ""
-        rank: 0
-        subrank: 0
+        rank: 2588772717
+        subrank: 629561881
       properties:
         badge:
           description: |-
@@ -23367,7 +23763,8 @@ components:
             is the badge the player entered their latest ranked match with.
             `0` when no recent ranked match reports a rank.
             See more: <https://api.deadlock-api.com/v1/assets/ranks>
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         last_match:
@@ -23379,12 +23776,14 @@ components:
           nullable: true
         rank:
           description: "Rank tier, `0` when unknown."
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         subrank:
           description: "Sub-rank within the tier, `0` when unknown."
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
       required:
@@ -23393,50 +23792,52 @@ components:
       - subrank
     RankedSeason:
       example:
-        base_win_loss_point_grant: 0
-        calibration_matches: 0
-        calibration_max_rank: 0
+        base_win_loss_point_grant: 343953088
+        calibration_matches: 2588772717
+        calibration_max_rank: 629561881
         class_name: class_name
         intervals:
         - end_timestamp: 5
-          interval: 0
-          leaderboard_id: 0
+          interval: 2421234836
+          leaderboard_id: 988759834
           start_timestamp: 7
         - end_timestamp: 5
-          interval: 0
-          leaderboard_id: 0
+          interval: 2421234836
+          leaderboard_id: 988759834
           start_timestamp: 7
-        min_hero_unlock_points: 0
-        min_hero_unlocks: 0
-        min_hero_wins: 0
-        min_wins: 0
+        min_hero_unlock_points: 3994939882
+        min_hero_unlocks: 1553093137
+        min_hero_wins: 870642708
+        min_wins: 1780525090
         name: name
         rank_info:
         - badge_shields: 7
-          rank_end: 0
+          rank_end: 528931036
           sub_rank_shields: 1
           sub_rank_xp:
-          - 0
-          - 0
+          - 639699262
+          - 639699262
         - badge_shields: 7
-          rank_end: 0
+          rank_end: 528931036
           sub_rank_shields: 1
           sub_rank_xp:
-          - 0
-          - 0
+          - 639699262
+          - 639699262
         ranked_type: ranked_type
         valid_party_sizes:
-        - 0
-        - 0
+        - 2940700841
+        - 2940700841
       properties:
         base_win_loss_point_grant:
           description: Base rank points granted per win / taken per loss (build 6701+).
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         calibration_matches:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         calibration_max_rank:
@@ -23444,7 +23845,8 @@ components:
             Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+).
             Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for
             strong previous-season performance.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -23459,24 +23861,28 @@ components:
           description: |-
             Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss
             (build 6857+).
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         min_hero_unlocks:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         min_hero_wins:
           description: |-
             Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season
             counts hero points instead, see `min_hero_unlock_points`.
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         min_wins:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         name:
@@ -23491,7 +23897,8 @@ components:
           type: string
         valid_party_sizes:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           type: array
@@ -23836,8 +24243,8 @@ components:
     SeasonInterval:
       example:
         end_timestamp: 5
-        interval: 0
-        leaderboard_id: 0
+        interval: 2421234836
+        leaderboard_id: 988759834
         start_timestamp: 7
       properties:
         end_timestamp:
@@ -23845,12 +24252,14 @@ components:
           format: int64
           type: integer
         interval:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         leaderboard_id:
           description: Leaderboard backing this interval (build 6701+).
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -23894,17 +24303,17 @@ components:
     Settings:
       description: Crosshair convars. Anything not given keeps the game's default.
       example:
-        color_b: 0
-        color_g: 0
-        color_r: 0
+        color_b: 20
+        color_g: 153
+        color_r: 37
         dot_opacity: 5.962134
         dot_outline_border: 5
         dot_outline_gap: 2
         dot_outline_opacity: 7.0614014
         dot_size: 9
-        outline_color_b: 0
-        outline_color_g: 0
-        outline_color_r: 0
+        outline_color_b: 92
+        outline_color_g: 51
+        outline_color_r: 105
         pip_gap: 7
         pip_gap_static: false
         pip_height: 1
@@ -23918,16 +24327,19 @@ components:
         color_b:
           default: 255
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         color_g:
           default: 255
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         color_r:
           default: 255
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         dot_opacity:
@@ -23955,16 +24367,19 @@ components:
         outline_color_b:
           default: 0
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         outline_color_g:
           default: 0
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         outline_color_r:
           default: 0
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         pip_gap:
@@ -24489,11 +24904,12 @@ components:
       - steam_id3
     SteamFriend:
       example:
-        account_id: 0
+        account_id: 2588772717
         friend_since: 2000-01-23T04:56:07.000+00:00
       properties:
         account_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         friend_since:
@@ -24508,33 +24924,37 @@ components:
 
         Field order is load-bearing — it sets the JSON key order.
       example:
-        app_id: 0
-        client_version: 0
+        app_id: 343953088
+        client_version: 2588772717
         product_name: product_name
-        server_app_id: 0
-        server_version: 0
+        server_app_id: 629561881
+        server_version: 2560717018
         source_revision: 0
-        tools_app_id: 0
+        tools_app_id: 988759834
         version_date: version_date
         version_datetime: version_datetime
         version_time: version_time
       properties:
         app_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         client_version:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         product_name:
           type: string
         server_app_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         server_version:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         source_revision:
@@ -24542,7 +24962,8 @@ components:
           minimum: 0
           type: integer
         tools_app_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         version_date:
@@ -24586,17 +25007,17 @@ components:
       - title
     SteamProfile:
       example:
-        account_id: 0
+        account_id: 343953088
         avatar: avatar
         avatarfull: avatarfull
         avatarmedium: avatarmedium
         countrycode: countrycode
         friends:
-        - account_id: 0
+        - account_id: 2588772717
           friend_since: 2000-01-23T04:56:07.000+00:00
-        - account_id: 0
+        - account_id: 2588772717
           friend_since: 2000-01-23T04:56:07.000+00:00
-        last_team_avg_badge: 0
+        last_team_avg_badge: 629561881
         last_updated: 2000-01-23T04:56:07.000+00:00
         matches_played_last_30d: 0
         personaname: personaname
@@ -24604,7 +25025,8 @@ components:
         realname: realname
       properties:
         account_id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         avatar:
@@ -24622,7 +25044,8 @@ components:
           type: array
           default: null
         last_team_avg_badge:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -25065,7 +25488,8 @@ components:
           description: Present on upgrades the Broker can corrupt (build 6711+).
           nullable: true
         cost:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -25089,20 +25513,23 @@ components:
           type: array
           default: null
         hero:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         heroes:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
           type: array
           default: null
         id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         image:
@@ -25121,6 +25548,7 @@ components:
           $ref: "#/components/schemas/ItemSlotType"
         item_tier:
           format: int32
+          maximum: 255
           minimum: 0
           type: integer
         name:
@@ -25359,20 +25787,23 @@ components:
           - $ref: "#/components/schemas/RawCustomCrosshairSettings"
           nullable: true
         hero:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
         heroes:
           items:
-            format: int32
+            format: int64
+            maximum: 4294967295
             minimum: 0
             type: integer
           nullable: true
           type: array
           default: null
         id:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           type: integer
         image:
@@ -25461,7 +25892,8 @@ components:
           nullable: true
           type: number
         bullets:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -25478,7 +25910,8 @@ components:
           nullable: true
           type: number
         burst_shot_count:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -25486,7 +25919,8 @@ components:
           nullable: true
           type: boolean
         clip_size:
-          format: int32
+          format: int64
+          maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
@@ -25711,10 +26145,10 @@ components:
           - 3.616076749251911
         color: color
         color_parsed:
-          alpha: 0
-          blue: 0
-          green: 0
-          red: 0
+          alpha: 58
+          blue: 180
+          green: 237
+          red: 92
         origin:
         - 2.027123023002322
         - 2.027123023002322
@@ -25916,11 +26350,11 @@ components:
           t2_desc: t2_desc
           t3_desc: t3_desc
         grant_ammo_on_cast: true
-        hero: 0
+        hero: 2588772717
         heroes:
-        - 0
-        - 0
-        id: 0
+        - 629561881
+        - 629561881
+        id: 2560717018
         image: image
         image_webp: image_webp
         name: name

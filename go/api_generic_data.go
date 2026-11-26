@@ -26,7 +26,7 @@ type ApiGetGenericDataRequest struct {
 	ctx context.Context
 	ApiService *GenericDataAPIService
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -36,7 +36,7 @@ func (r ApiGetGenericDataRequest) Language(language string) ApiGetGenericDataReq
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetGenericDataRequest) ClientVersion(clientVersion int32) ApiGetGenericDataRequest {
+func (r ApiGetGenericDataRequest) ClientVersion(clientVersion int64) ApiGetGenericDataRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

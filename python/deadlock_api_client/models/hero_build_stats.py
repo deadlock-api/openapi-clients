@@ -29,9 +29,9 @@ class HeroBuildStats(BaseModel):
     HeroBuildStats
     """ # noqa: E501
     avg_average_badge: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
-    bucket: Annotated[int, Field(strict=True, ge=0)] = Field(description="The bucket value (depends on the bucket query parameter, 0 without one).")
+    bucket: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The bucket value (depends on the bucket query parameter, 0 without one).")
     hero_build_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.")
-    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    hero_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     losses: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of losses with this build.")
     matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="The total number of matches played with this build (`wins + losses`).")
     players: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of unique players who used this build.")

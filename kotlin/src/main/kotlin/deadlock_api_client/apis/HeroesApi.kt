@@ -113,7 +113,7 @@ open class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getHero(heroId: kotlin.Int, language: LanguageGetHero? = null, clientVersion: kotlin.Int? = null) : Hero {
+    fun getHero(heroId: kotlin.Long, language: LanguageGetHero? = null, clientVersion: kotlin.Long? = null) : Hero {
         val localVarResponse = getHeroWithHttpInfo(heroId = heroId, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -144,7 +144,7 @@ open class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getHeroWithHttpInfo(heroId: kotlin.Int, language: LanguageGetHero?, clientVersion: kotlin.Int?) : ApiResponse<Hero?> {
+    fun getHeroWithHttpInfo(heroId: kotlin.Long, language: LanguageGetHero?, clientVersion: kotlin.Long?) : ApiResponse<Hero?> {
         val localVariableConfig = getHeroRequestConfig(heroId = heroId, language = language, clientVersion = clientVersion)
 
         return request<Unit, Hero>(
@@ -160,7 +160,7 @@ open class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getHeroRequestConfig(heroId: kotlin.Int, language: LanguageGetHero?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getHeroRequestConfig(heroId: kotlin.Long, language: LanguageGetHero?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -244,7 +244,7 @@ open class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getHeroByName(name: kotlin.String, language: LanguageGetHeroByName? = null, clientVersion: kotlin.Int? = null) : Hero {
+    fun getHeroByName(name: kotlin.String, language: LanguageGetHeroByName? = null, clientVersion: kotlin.Long? = null) : Hero {
         val localVarResponse = getHeroByNameWithHttpInfo(name = name, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -275,7 +275,7 @@ open class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getHeroByNameWithHttpInfo(name: kotlin.String, language: LanguageGetHeroByName?, clientVersion: kotlin.Int?) : ApiResponse<Hero?> {
+    fun getHeroByNameWithHttpInfo(name: kotlin.String, language: LanguageGetHeroByName?, clientVersion: kotlin.Long?) : ApiResponse<Hero?> {
         val localVariableConfig = getHeroByNameRequestConfig(name = name, language = language, clientVersion = clientVersion)
 
         return request<Unit, Hero>(
@@ -291,7 +291,7 @@ open class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getHeroByNameRequestConfig(name: kotlin.String, language: LanguageGetHeroByName?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getHeroByNameRequestConfig(name: kotlin.String, language: LanguageGetHeroByName?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -375,7 +375,7 @@ open class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listHeroes(language: LanguageListHeroes? = null, clientVersion: kotlin.Int? = null, onlyActive: kotlin.Boolean? = null) : kotlin.collections.List<Hero> {
+    fun listHeroes(language: LanguageListHeroes? = null, clientVersion: kotlin.Long? = null, onlyActive: kotlin.Boolean? = null) : kotlin.collections.List<Hero> {
         val localVarResponse = listHeroesWithHttpInfo(language = language, clientVersion = clientVersion, onlyActive = onlyActive)
 
         return when (localVarResponse.responseType) {
@@ -406,7 +406,7 @@ open class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listHeroesWithHttpInfo(language: LanguageListHeroes?, clientVersion: kotlin.Int?, onlyActive: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<Hero>?> {
+    fun listHeroesWithHttpInfo(language: LanguageListHeroes?, clientVersion: kotlin.Long?, onlyActive: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<Hero>?> {
         val localVariableConfig = listHeroesRequestConfig(language = language, clientVersion = clientVersion, onlyActive = onlyActive)
 
         return request<Unit, kotlin.collections.List<Hero>>(
@@ -422,7 +422,7 @@ open class HeroesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param onlyActive When true, hides heroes that aren&#39;t player-selectable or are disabled / in-development. (optional)
      * @return RequestConfig
      */
-    fun listHeroesRequestConfig(language: LanguageListHeroes?, clientVersion: kotlin.Int?, onlyActive: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun listHeroesRequestConfig(language: LanguageListHeroes?, clientVersion: kotlin.Long?, onlyActive: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

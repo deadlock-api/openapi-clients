@@ -12,10 +12,10 @@ export type Scalars = {
     JSON: any,
     JsonScalar: any,
     String: string,
+    UInt32: number,
 }
 
 export interface Ability {
-    id: Scalars['Int']
     class_name: Scalars['String']
     name: Scalars['String']
     start_trained: (Scalars['Boolean'] | null)
@@ -31,6 +31,7 @@ export interface Ability {
     boss_damage_scale: (Scalars['Float'] | null)
     dependant_abilities: (Scalars['String'][] | null)
     videos: (AbilityVideos | null)
+    id: Scalars['UInt32']
     type: ItemType
     properties: Scalars['JSON']
     weapon_info: Scalars['JSON']
@@ -112,10 +113,10 @@ export interface BuildHeroDetailsAbilityOrder {
 }
 
 export interface BuildHeroDetailsAbilityOrderCurrencyChange {
-    ability_id: Scalars['Int']
     currency_type: Scalars['Int']
     delta: Scalars['Int']
     annotation: (Scalars['String'] | null)
+    ability_id: Scalars['UInt32']
     /** Catalog asset for this currency change's `ability_id`. */
     asset: (AssetItem | null)
     __typename: 'BuildHeroDetailsAbilityOrderCurrencyChange'
@@ -132,11 +133,11 @@ export interface BuildHeroDetailsCategory {
 }
 
 export interface BuildHeroDetailsCategoryAbility {
-    ability_id: Scalars['Int']
     annotation: (Scalars['String'] | null)
     required_flex_slots: (Scalars['Int'] | null)
     sell_priority: (Scalars['Int'] | null)
-    imbue_target_ability_id: (Scalars['Int'] | null)
+    ability_id: Scalars['UInt32']
+    imbue_target_ability_id: (Scalars['UInt32'] | null)
     /** Catalog asset for this build slot's `ability_id`. */
     asset: (AssetItem | null)
     __typename: 'BuildHeroDetailsCategoryAbility'
@@ -252,13 +253,13 @@ export interface HeroPhysics {
 }
 
 export interface HeroPopularItem {
-    /** Item id, derived from `class_name` like `/v2/items` ids. */
-    item_id: Scalars['Int']
     class_name: Scalars['String']
     /** Pick rate in percent (0-100). */
     pick_pct: Scalars['Float']
     /** Win rate in percent (0-100). */
     winrate_pct: Scalars['Float']
+    /** Item id, derived from `class_name` like `/v2/items` ids. */
+    item_id: Scalars['UInt32']
     __typename: 'HeroPopularItem'
 }
 
@@ -287,14 +288,14 @@ export type HeroType = 'ASSASSIN' | 'BRAWLER' | 'MARKSMAN' | 'MYSTIC' | 'HEALER'
 
 export interface Item {
     game_time_s: (Scalars['Int'] | null)
-    item_id: (Scalars['Int'] | null)
-    upgrade_id: (Scalars['Int'] | null)
     sold_time_s: (Scalars['Int'] | null)
     flags: (Scalars['Int'] | null)
-    imbued_ability_id: (Scalars['Int'] | null)
     upgrade_info: (Scalars['Int'] | null)
     /** The player's net worth in the last `stats` snapshot before the purchase. */
     net_worth_at_buy: (Scalars['Int'] | null)
+    item_id: (Scalars['UInt32'] | null)
+    upgrade_id: (Scalars['UInt32'] | null)
+    imbued_ability_id: (Scalars['UInt32'] | null)
     /** Catalog asset for this purchased item, matched by `item_id` then `upgrade_id`. */
     asset: (AssetItem | null)
     __typename: 'Item'
@@ -443,8 +444,6 @@ export interface MatchPlayer {
     won: (Scalars['Boolean'] | null)
     hero_xp: (Scalars['Int'] | null)
     hero_equips: (Scalars['Int'][] | null)
-    /** The `items.item_id` entries that are abilities. */
-    abilities: (Scalars['Int'][] | null)
     /** When the row was ingested, as a unix timestamp. */
     created_at: (Scalars['Int'] | null)
     max_level: (Scalars['Int'] | null)
@@ -521,6 +520,8 @@ export interface MatchPlayer {
     stats_type_stat: (Scalars['JsonScalar'] | null)
     hero_xp_rewards: (Scalars['JsonScalar'] | null)
     hero_release_votes: (Scalars['JsonScalar'] | null)
+    /** The `items.item_id` entries that are abilities. */
+    abilities: (Scalars['UInt32'][] | null)
     /** Hero asset metadata for this player's `hero_id` (latest version, English). */
     hero: (Hero | null)
     /**
@@ -862,7 +863,6 @@ export interface SteamProfile {
 }
 
 export interface Upgrade {
-    id: Scalars['Int']
     class_name: Scalars['String']
     name: Scalars['String']
     start_trained: (Scalars['Boolean'] | null)
@@ -897,6 +897,7 @@ export interface Upgrade {
     disabled_shop_filters: (Scalars['String'][] | null)
     shop_version: (Scalars['Int'] | null)
     disable_item_target: (Scalars['String'] | null)
+    id: Scalars['UInt32']
     type: ItemType
     weapon_info: Scalars['JSON']
     properties: Scalars['JSON']
@@ -915,15 +916,14 @@ export interface UpgradeDescription {
 }
 
 export interface UpgradePurchase {
-    item_id: (Scalars['Int'] | null)
     game_time_s: (Scalars['Int'] | null)
     sold_time_s: (Scalars['Int'] | null)
     net_worth_at_buy: (Scalars['Int'] | null)
+    item_id: (Scalars['UInt32'] | null)
     __typename: 'UpgradePurchase'
 }
 
 export interface Weapon {
-    id: Scalars['Int']
     class_name: Scalars['String']
     name: Scalars['String']
     start_trained: (Scalars['Boolean'] | null)
@@ -934,6 +934,7 @@ export interface Weapon {
     update_time: (Scalars['Int'] | null)
     crosshair_css_class: (Scalars['String'] | null)
     use_custom_crosshair_settings: (Scalars['Boolean'] | null)
+    id: Scalars['UInt32']
     type: ItemType
     properties: Scalars['JSON']
     weapon_info: Scalars['JSON']
@@ -944,7 +945,6 @@ export interface Weapon {
 export type Query = QueryRoot
 
 export interface AbilityGenqlSelection{
-    id?: boolean | number
     class_name?: boolean | number
     name?: boolean | number
     start_trained?: boolean | number
@@ -960,6 +960,7 @@ export interface AbilityGenqlSelection{
     boss_damage_scale?: boolean | number
     dependant_abilities?: boolean | number
     videos?: AbilityVideosGenqlSelection
+    id?: boolean | number
     type?: boolean | number
     properties?: boolean | number
     weapon_info?: boolean | number
@@ -1049,10 +1050,10 @@ export interface BuildHeroDetailsAbilityOrderGenqlSelection{
 }
 
 export interface BuildHeroDetailsAbilityOrderCurrencyChangeGenqlSelection{
-    ability_id?: boolean | number
     currency_type?: boolean | number
     delta?: boolean | number
     annotation?: boolean | number
+    ability_id?: boolean | number
     /** Catalog asset for this currency change's `ability_id`. */
     asset?: AssetItemGenqlSelection
     __typename?: boolean | number
@@ -1071,10 +1072,10 @@ export interface BuildHeroDetailsCategoryGenqlSelection{
 }
 
 export interface BuildHeroDetailsCategoryAbilityGenqlSelection{
-    ability_id?: boolean | number
     annotation?: boolean | number
     required_flex_slots?: boolean | number
     sell_priority?: boolean | number
+    ability_id?: boolean | number
     imbue_target_ability_id?: boolean | number
     /** Catalog asset for this build slot's `ability_id`. */
     asset?: AssetItemGenqlSelection
@@ -1217,13 +1218,13 @@ export interface HeroPhysicsGenqlSelection{
 }
 
 export interface HeroPopularItemGenqlSelection{
-    /** Item id, derived from `class_name` like `/v2/items` ids. */
-    item_id?: boolean | number
     class_name?: boolean | number
     /** Pick rate in percent (0-100). */
     pick_pct?: boolean | number
     /** Win rate in percent (0-100). */
     winrate_pct?: boolean | number
+    /** Item id, derived from `class_name` like `/v2/items` ids. */
+    item_id?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1258,14 +1259,14 @@ export interface I64Filter {eq?: (Scalars['Int'] | null),in?: (Scalars['Int'][] 
 
 export interface ItemGenqlSelection{
     game_time_s?: boolean | number
-    item_id?: boolean | number
-    upgrade_id?: boolean | number
     sold_time_s?: boolean | number
     flags?: boolean | number
-    imbued_ability_id?: boolean | number
     upgrade_info?: boolean | number
     /** The player's net worth in the last `stats` snapshot before the purchase. */
     net_worth_at_buy?: boolean | number
+    item_id?: boolean | number
+    upgrade_id?: boolean | number
+    imbued_ability_id?: boolean | number
     /** Catalog asset for this purchased item, matched by `item_id` then `upgrade_id`. */
     asset?: AssetItemGenqlSelection
     __typename?: boolean | number
@@ -1411,8 +1412,6 @@ export interface MatchPlayerGenqlSelection{
     won?: boolean | number
     hero_xp?: boolean | number
     hero_equips?: boolean | number
-    /** The `items.item_id` entries that are abilities. */
-    abilities?: boolean | number
     /** When the row was ingested, as a unix timestamp. */
     created_at?: boolean | number
     max_level?: boolean | number
@@ -1489,6 +1488,8 @@ export interface MatchPlayerGenqlSelection{
     stats_type_stat?: boolean | number
     hero_xp_rewards?: boolean | number
     hero_release_votes?: boolean | number
+    /** The `items.item_id` entries that are abilities. */
+    abilities?: boolean | number
     /** Hero asset metadata for this player's `hero_id` (latest version, English). */
     hero?: HeroGenqlSelection
     /**
@@ -1849,7 +1850,6 @@ export interface U32Filter {eq?: (Scalars['Int'] | null),in?: (Scalars['Int'][] 
 export interface U64Filter {eq?: (Scalars['Int'] | null),in?: (Scalars['Int'][] | null),gt?: (Scalars['Int'] | null),gte?: (Scalars['Int'] | null),lt?: (Scalars['Int'] | null),lte?: (Scalars['Int'] | null),is_null?: (Scalars['Boolean'] | null)}
 
 export interface UpgradeGenqlSelection{
-    id?: boolean | number
     class_name?: boolean | number
     name?: boolean | number
     start_trained?: boolean | number
@@ -1884,6 +1884,7 @@ export interface UpgradeGenqlSelection{
     disabled_shop_filters?: boolean | number
     shop_version?: boolean | number
     disable_item_target?: boolean | number
+    id?: boolean | number
     type?: boolean | number
     weapon_info?: boolean | number
     properties?: boolean | number
@@ -1904,16 +1905,15 @@ export interface UpgradeDescriptionGenqlSelection{
 }
 
 export interface UpgradePurchaseGenqlSelection{
-    item_id?: boolean | number
     game_time_s?: boolean | number
     sold_time_s?: boolean | number
     net_worth_at_buy?: boolean | number
+    item_id?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
 export interface WeaponGenqlSelection{
-    id?: boolean | number
     class_name?: boolean | number
     name?: boolean | number
     start_trained?: boolean | number
@@ -1924,6 +1924,7 @@ export interface WeaponGenqlSelection{
     update_time?: boolean | number
     crosshair_css_class?: boolean | number
     use_custom_crosshair_settings?: boolean | number
+    id?: boolean | number
     type?: boolean | number
     properties?: boolean | number
     weapon_info?: boolean | number

@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="id">id</param>
         /// <param name="label">label</param>
         [JsonConstructor]
-        public BuildTag(string className, string icon, int id, string label)
+        public BuildTag(string className, string icon, long id, string label)
         {
             ClassName = className;
             Icon = icon;
@@ -65,7 +65,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Id
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Label
@@ -96,8 +96,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (int) minimum
-            if (this.Id < (int)0)
+            // Id (long) maximum
+            if (this.Id > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value less than or equal to 4294967295.", new [] { "Id" });
+            }
+
+            // Id (long) minimum
+            if (this.Id < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 0.", new [] { "Id" });
             }
@@ -140,7 +146,7 @@ namespace DeadlockApiClient.Model
 
             Option<string?> className = default;
             Option<string?> icon = default;
-            Option<int?> id = default;
+            Option<long?> id = default;
             Option<string?> label = default;
 
             while (utf8JsonReader.Read())
@@ -165,7 +171,7 @@ namespace DeadlockApiClient.Model
                             icon = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "id":
-                            id = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            id = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "label":
                             label = new Option<string?>(utf8JsonReader.GetString()!);

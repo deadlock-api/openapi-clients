@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BadgeLevel** | **int32** | The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
+**BadgeLevel** | **int64** | The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
 **TotalMatches** | **int64** | The total number of matches. | 
 **UniquePlayers** | **int64** | The number of unique players whose rank on their latest ranked match in the filtered range is this badge level. | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewBadgeDistribution
 
-`func NewBadgeDistribution(badgeLevel int32, totalMatches int64, uniquePlayers int64, ) *BadgeDistribution`
+`func NewBadgeDistribution(badgeLevel int64, totalMatches int64, uniquePlayers int64, ) *BadgeDistribution`
 
 NewBadgeDistribution instantiates a new BadgeDistribution object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetBadgeLevel
 
-`func (o *BadgeDistribution) GetBadgeLevel() int32`
+`func (o *BadgeDistribution) GetBadgeLevel() int64`
 
 GetBadgeLevel returns the BadgeLevel field if non-nil, zero value otherwise.
 
 ### GetBadgeLevelOk
 
-`func (o *BadgeDistribution) GetBadgeLevelOk() (*int32, bool)`
+`func (o *BadgeDistribution) GetBadgeLevelOk() (*int64, bool)`
 
 GetBadgeLevelOk returns a tuple with the BadgeLevel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBadgeLevel
 
-`func (o *BadgeDistribution) SetBadgeLevel(v int32)`
+`func (o *BadgeDistribution) SetBadgeLevel(v int64)`
 
 SetBadgeLevel sets BadgeLevel field to given value.
 

@@ -10,7 +10,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="gethero"></a>
 # **GetHero**
-> Hero GetHero (int heroId, string language = null, int clientVersion = null)
+> Hero GetHero (long heroId, string language = null, long clientVersion = null)
 
 Get Hero
 
@@ -21,9 +21,9 @@ Returns a single hero by id.
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **heroId** | **int** | Hero id (&#x60;m_HeroID&#x60;) |  |
+| **heroId** | **long** | Hero id (&#x60;m_HeroID&#x60;) |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -50,7 +50,7 @@ No authorization required
 
 <a id="getherobyname"></a>
 # **GetHeroByName**
-> Hero GetHeroByName (string name, string language = null, int clientVersion = null)
+> Hero GetHeroByName (string name, string language = null, long clientVersion = null)
 
 Get Hero By Name
 
@@ -63,7 +63,7 @@ Returns a single hero by `class_name` or display `name`. Matches the bare value 
 |------|------|-------------|-------|
 | **name** | **string** | Hero class name (e.g. &#x60;hero_atlas&#x60;) or short name (e.g. &#x60;atlas&#x60;) |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -90,7 +90,7 @@ No authorization required
 
 <a id="listheroes"></a>
 # **ListHeroes**
-> List&lt;Hero&gt; ListHeroes (string language = null, int clientVersion = null, bool onlyActive = null)
+> List&lt;Hero&gt; ListHeroes (string language = null, long clientVersion = null, bool onlyActive = null)
 
 List Heroes
 
@@ -102,7 +102,7 @@ Returns the per-hero metadata used by the game client, parsed from the patch's K
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 | **onlyActive** | **bool** | When true, hides heroes that aren&#39;t player-selectable or are disabled / in-development. | [optional]  |
 
 ### Return type

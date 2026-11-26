@@ -72,10 +72,10 @@ class PlayerClusterMonth implements ModelInterface, ArrayAccess, \JsonSerializab
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'cluster_id' => 'int32',
+        'cluster_id' => 'int64',
         'datacenter' => null,
         'matches' => 'int64',
-        'month' => 'int32',
+        'month' => 'int64',
         'region' => null
     ];
 
@@ -305,6 +305,10 @@ class PlayerClusterMonth implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['cluster_id'] === null) {
             $invalidProperties[] = "'cluster_id' can't be null";
         }
+        if (($this->container['cluster_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'cluster_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['cluster_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'cluster_id', must be bigger than or equal to 0.";
         }
@@ -319,6 +323,10 @@ class PlayerClusterMonth implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['month'] === null) {
             $invalidProperties[] = "'month' can't be null";
         }
+        if (($this->container['month'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'month', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['month'] < 0)) {
             $invalidProperties[] = "invalid value for 'month', must be bigger than or equal to 0.";
         }
@@ -359,6 +367,9 @@ class PlayerClusterMonth implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         if (is_null($cluster_id)) {
             throw new \InvalidArgumentException('non-nullable cluster_id cannot be null');
+        }
+        if (($cluster_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $cluster_id when calling PlayerClusterMonth., must be smaller than or equal to 4294967295.');
         }
         if (($cluster_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $cluster_id when calling PlayerClusterMonth., must be bigger than or equal to 0.');
@@ -455,6 +466,9 @@ class PlayerClusterMonth implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         if (is_null($month)) {
             throw new \InvalidArgumentException('non-nullable month cannot be null');
+        }
+        if (($month > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $month when calling PlayerClusterMonth., must be smaller than or equal to 4294967295.');
         }
         if (($month < 0)) {
             throw new \InvalidArgumentException('invalid value for $month when calling PlayerClusterMonth., must be bigger than or equal to 0.');

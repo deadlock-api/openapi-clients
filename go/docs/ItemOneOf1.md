@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **ClassName** | **string** |  | 
 **CrosshairCssClass** | Pointer to **NullableString** |  | [optional] 
 **CustomCrosshairSettings** | Pointer to [**NullableRawCustomCrosshairSettings**](RawCustomCrosshairSettings.md) |  | [optional] 
-**Hero** | Pointer to **NullableInt32** |  | [optional] 
-**Heroes** | Pointer to **[]int32** |  | [optional] 
-**Id** | **int32** |  | 
+**Hero** | Pointer to **NullableInt64** |  | [optional] 
+**Heroes** | Pointer to **[]int64** |  | [optional] 
+**Id** | **int64** |  | 
 **Image** | Pointer to **NullableString** |  | [optional] 
 **ImageWebp** | Pointer to **NullableString** |  | [optional] 
 **Name** | **string** |  | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewItemOneOf1
 
-`func NewItemOneOf1(className string, id int32, name string, type_ string, ) *ItemOneOf1`
+`func NewItemOneOf1(className string, id int64, name string, type_ string, ) *ItemOneOf1`
 
 NewItemOneOf1 instantiates a new ItemOneOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -131,20 +131,20 @@ HasCustomCrosshairSettings returns a boolean if a field has been set.
 UnsetCustomCrosshairSettings ensures that no value is present for CustomCrosshairSettings, not even an explicit nil
 ### GetHero
 
-`func (o *ItemOneOf1) GetHero() int32`
+`func (o *ItemOneOf1) GetHero() int64`
 
 GetHero returns the Hero field if non-nil, zero value otherwise.
 
 ### GetHeroOk
 
-`func (o *ItemOneOf1) GetHeroOk() (*int32, bool)`
+`func (o *ItemOneOf1) GetHeroOk() (*int64, bool)`
 
 GetHeroOk returns a tuple with the Hero field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHero
 
-`func (o *ItemOneOf1) SetHero(v int32)`
+`func (o *ItemOneOf1) SetHero(v int64)`
 
 SetHero sets Hero field to given value.
 
@@ -166,20 +166,20 @@ HasHero returns a boolean if a field has been set.
 UnsetHero ensures that no value is present for Hero, not even an explicit nil
 ### GetHeroes
 
-`func (o *ItemOneOf1) GetHeroes() []int32`
+`func (o *ItemOneOf1) GetHeroes() []int64`
 
 GetHeroes returns the Heroes field if non-nil, zero value otherwise.
 
 ### GetHeroesOk
 
-`func (o *ItemOneOf1) GetHeroesOk() (*[]int32, bool)`
+`func (o *ItemOneOf1) GetHeroesOk() (*[]int64, bool)`
 
 GetHeroesOk returns a tuple with the Heroes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroes
 
-`func (o *ItemOneOf1) SetHeroes(v []int32)`
+`func (o *ItemOneOf1) SetHeroes(v []int64)`
 
 SetHeroes sets Heroes field to given value.
 
@@ -201,20 +201,20 @@ HasHeroes returns a boolean if a field has been set.
 UnsetHeroes ensures that no value is present for Heroes, not even an explicit nil
 ### GetId
 
-`func (o *ItemOneOf1) GetId() int32`
+`func (o *ItemOneOf1) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *ItemOneOf1) GetIdOk() (*int32, bool)`
+`func (o *ItemOneOf1) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *ItemOneOf1) SetId(v int32)`
+`func (o *ItemOneOf1) SetId(v int64)`
 
 SetId sets Id field to given value.
 

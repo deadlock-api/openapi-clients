@@ -33,7 +33,7 @@ import (
 func main() {
 	idOrClassName := "idOrClassName_example" // string | Numeric `id` or string `class_name`.
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 
@@ -105,9 +105,9 @@ import (
 )
 
 func main() {
-	id := int32(56) // int32 | Hero id (`m_HeroID`).
+	id := int64(789) // int64 | Hero id (`m_HeroID`).
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -127,7 +127,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | Hero id (&#x60;m_HeroID&#x60;). | 
+**id** | **int64** | Hero id (&#x60;m_HeroID&#x60;). | 
 
 ### Other Parameters
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 
@@ -179,7 +179,7 @@ import (
 func main() {
 	slotType := openapiclient.ItemSlotType("weapon") // ItemSlotType | Slot type: `weapon`, `spirit`, or `vitality`.
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 
@@ -251,7 +251,7 @@ import (
 func main() {
 	type_ := openapiclient.ItemType("ability") // ItemType | Item type: `ability`, `weapon`, or `upgrade`.
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 
@@ -324,7 +324,7 @@ import (
 
 func main() {
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -350,7 +350,7 @@ Other parameters are passed through a pointer to a apiListItemsRequest struct vi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 

@@ -43,7 +43,7 @@ namespace DeadlockApiClient.Model
         /// <param name="totalKills">totalKills</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public AnalyticsAbilityOrderTreeNode(List<int> abilities, double avgUpgradeTimeS, long losses, long matches, long players, long totalAssists, long totalDeaths, long totalKills, long wins)
+        public AnalyticsAbilityOrderTreeNode(List<long> abilities, double avgUpgradeTimeS, long losses, long matches, long players, long totalAssists, long totalDeaths, long totalKills, long wins)
         {
             Abilities = abilities;
             AvgUpgradeTimeS = avgUpgradeTimeS;
@@ -64,7 +64,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one entry shorter. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("abilities")]
-        public List<int> Abilities { get; set; }
+        public List<long> Abilities { get; set; }
 
         /// <summary>
         /// Average game time (in seconds) at which the last upgrade in &#x60;abilities&#x60; was bought.
@@ -222,7 +222,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<List<int>?> abilities = default;
+            Option<List<long>?> abilities = default;
             Option<double?> avgUpgradeTimeS = default;
             Option<long?> losses = default;
             Option<long?> matches = default;
@@ -248,7 +248,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "abilities":
-                            abilities = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            abilities = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "avg_upgrade_time_s":
                             avgUpgradeTimeS = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | **int32** |  | 
+**AccountId** | **int64** |  | 
 **FriendSince** | **time.Time** |  | 
 
 ## Methods
 
 ### NewSteamFriend
 
-`func NewSteamFriend(accountId int32, friendSince time.Time, ) *SteamFriend`
+`func NewSteamFriend(accountId int64, friendSince time.Time, ) *SteamFriend`
 
 NewSteamFriend instantiates a new SteamFriend object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAccountId
 
-`func (o *SteamFriend) GetAccountId() int32`
+`func (o *SteamFriend) GetAccountId() int64`
 
 GetAccountId returns the AccountId field if non-nil, zero value otherwise.
 
 ### GetAccountIdOk
 
-`func (o *SteamFriend) GetAccountIdOk() (*int32, bool)`
+`func (o *SteamFriend) GetAccountIdOk() (*int64, bool)`
 
 GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccountId
 
-`func (o *SteamFriend) SetAccountId(v int32)`
+`func (o *SteamFriend) SetAccountId(v int64)`
 
 SetAccountId sets AccountId field to given value.
 

@@ -73,7 +73,7 @@ class MateStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'matches' => 'int64',
         'matches_played' => 'int64',
-        'mate_id' => 'int32',
+        'mate_id' => 'int64',
         'wins' => 'int64'
     ];
 
@@ -308,6 +308,10 @@ class MateStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['mate_id'] === null) {
             $invalidProperties[] = "'mate_id' can't be null";
         }
+        if (($this->container['mate_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'mate_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['mate_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'mate_id', must be bigger than or equal to 0.";
         }
@@ -413,6 +417,9 @@ class MateStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($mate_id)) {
             throw new \InvalidArgumentException('non-nullable mate_id cannot be null');
+        }
+        if (($mate_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $mate_id when calling MateStats., must be smaller than or equal to 4294967295.');
         }
         if (($mate_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $mate_id when calling MateStats., must be bigger than or equal to 0.');

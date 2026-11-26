@@ -105,7 +105,7 @@ namespace DeadlockApiClient.Model
         /// <param name="permanentBuffsAvg">Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none.</param>
         /// <param name="permanentBuffsStd">Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups.</param>
         [JsonConstructor]
-        public PlayerPerformanceCurvePoint(double assistsAvg, double assistsStd, double bossDamageAvg, double bossDamageStd, double bossKillsAvg, double bossKillsStd, double creepDamageAvg, double creepDamageStd, double creepKillsAvg, double creepKillsStd, double deathsAvg, double deathsStd, double deniesAvg, double deniesStd, int gameTime, double gameTimeAvg, double goldAbilityAssassinateAvg, double goldAbilityAssassinateStd, double goldAssistsAvg, double goldAssistsStd, double goldBossAvg, double goldBossOrbAvg, double goldBossOrbStd, double goldBossStd, double goldBreakableAvg, double goldBreakableStd, double goldDeathLossAvg, double goldDeathLossStd, double goldDeniedAvg, double goldDeniedStd, double goldItemCultistSacrificeAvg, double goldItemCultistSacrificeStd, double goldItemGooseEggAvg, double goldItemGooseEggStd, double goldItemTrophyCollectorAvg, double goldItemTrophyCollectorStd, double goldLaneCreepAvg, double goldLaneCreepOrbsAvg, double goldLaneCreepOrbsStd, double goldLaneCreepStd, double goldNeutralCreepAvg, double goldNeutralCreepOrbsAvg, double goldNeutralCreepOrbsStd, double goldNeutralCreepStd, double goldPlayerAvg, double goldPlayerOrbsAvg, double goldPlayerOrbsStd, double goldPlayerStd, double goldTeamBonusAvg, double goldTeamBonusStd, double goldTreasureAvg, double goldTreasureStd, double killsAvg, double killsStd, double netWorthAvg, double netWorthStd, double neutralDamageAvg, double neutralDamageStd, double neutralKillsAvg, double neutralKillsStd, double playerBarrieringAvg, double playerBarrieringStd, double playerDamageAvg, double playerDamageStd, double playerHealingAvg, double playerHealingStd, long samples, double selfDamageAvg, double selfDamageStd, Option<double?> permanentBuffsAvg = default, Option<double?> permanentBuffsStd = default)
+        public PlayerPerformanceCurvePoint(double assistsAvg, double assistsStd, double bossDamageAvg, double bossDamageStd, double bossKillsAvg, double bossKillsStd, double creepDamageAvg, double creepDamageStd, double creepKillsAvg, double creepKillsStd, double deathsAvg, double deathsStd, double deniesAvg, double deniesStd, long gameTime, double gameTimeAvg, double goldAbilityAssassinateAvg, double goldAbilityAssassinateStd, double goldAssistsAvg, double goldAssistsStd, double goldBossAvg, double goldBossOrbAvg, double goldBossOrbStd, double goldBossStd, double goldBreakableAvg, double goldBreakableStd, double goldDeathLossAvg, double goldDeathLossStd, double goldDeniedAvg, double goldDeniedStd, double goldItemCultistSacrificeAvg, double goldItemCultistSacrificeStd, double goldItemGooseEggAvg, double goldItemGooseEggStd, double goldItemTrophyCollectorAvg, double goldItemTrophyCollectorStd, double goldLaneCreepAvg, double goldLaneCreepOrbsAvg, double goldLaneCreepOrbsStd, double goldLaneCreepStd, double goldNeutralCreepAvg, double goldNeutralCreepOrbsAvg, double goldNeutralCreepOrbsStd, double goldNeutralCreepStd, double goldPlayerAvg, double goldPlayerOrbsAvg, double goldPlayerOrbsStd, double goldPlayerStd, double goldTeamBonusAvg, double goldTeamBonusStd, double goldTreasureAvg, double goldTreasureStd, double killsAvg, double killsStd, double netWorthAvg, double netWorthStd, double neutralDamageAvg, double neutralDamageStd, double neutralKillsAvg, double neutralKillsStd, double playerBarrieringAvg, double playerBarrieringStd, double playerDamageAvg, double playerDamageStd, double playerHealingAvg, double playerHealingStd, long samples, double selfDamageAvg, double selfDamageStd, Option<double?> permanentBuffsAvg = default, Option<double?> permanentBuffsStd = default)
         {
             AssistsAvg = assistsAvg;
             AssistsStd = assistsStd;
@@ -286,7 +286,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds.</value>
         [JsonPropertyName("game_time")]
-        public int GameTime { get; set; }
+        public long GameTime { get; set; }
 
         /// <summary>
         /// Where in the match the stats snapshots of this point were taken on average, in the unit of &#x60;game_time&#x60;. Snapshots are taken every few minutes and at the end of the match, so with &#x60;resolution&#x60; &gt; 0 a point holds the snapshots from &#x60;game_time&#x60; up to the next point and this is usually about half a bucket later than &#x60;game_time&#x60;. Percentages are averaged from whole percents, so they can be off by a few tenths.
@@ -784,8 +784,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // GameTime (int) minimum
-            if (this.GameTime < (int)0)
+            // GameTime (long) maximum
+            if (this.GameTime > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GameTime, must be a value less than or equal to 4294967295.", new [] { "GameTime" });
+            }
+
+            // GameTime (long) minimum
+            if (this.GameTime < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GameTime, must be a value greater than or equal to 0.", new [] { "GameTime" });
             }
@@ -846,7 +852,7 @@ namespace DeadlockApiClient.Model
             Option<double?> deathsStd = default;
             Option<double?> deniesAvg = default;
             Option<double?> deniesStd = default;
-            Option<int?> gameTime = default;
+            Option<long?> gameTime = default;
             Option<double?> gameTimeAvg = default;
             Option<double?> goldAbilityAssassinateAvg = default;
             Option<double?> goldAbilityAssassinateStd = default;
@@ -962,7 +968,7 @@ namespace DeadlockApiClient.Model
                             deniesStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "game_time":
-                            gameTime = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            gameTime = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "game_time_avg":
                             gameTimeAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());

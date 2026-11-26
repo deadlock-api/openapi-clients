@@ -29,7 +29,7 @@ class KillDeathStats(BaseModel):
     KillDeathStats
     """ # noqa: E501
     deaths: Annotated[int, Field(strict=True, ge=0)]
-    killer_team: Annotated[int, Field(strict=True, ge=0)]
+    killer_team: Annotated[int, Field(le=255, strict=True, ge=0)]
     kills: Annotated[int, Field(strict=True, ge=0)]
     position_x: StrictInt
     position_y: StrictInt

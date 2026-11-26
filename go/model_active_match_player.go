@@ -20,9 +20,9 @@ var _ MappedNullable = &ActiveMatchPlayer{}
 // ActiveMatchPlayer struct for ActiveMatchPlayer
 type ActiveMatchPlayer struct {
 	Abandoned NullableBool `json:"abandoned,omitempty"`
-	AccountId NullableInt32 `json:"account_id,omitempty"`
+	AccountId NullableInt64 `json:"account_id,omitempty"`
 	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	HeroId NullableInt32 `json:"hero_id,omitempty"`
+	HeroId NullableInt64 `json:"hero_id,omitempty"`
 	Team NullableInt32 `json:"team,omitempty"`
 	TeamParsed NullableActiveMatchTeam `json:"team_parsed,omitempty"`
 }
@@ -87,9 +87,9 @@ func (o *ActiveMatchPlayer) UnsetAbandoned() {
 }
 
 // GetAccountId returns the AccountId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatchPlayer) GetAccountId() int32 {
+func (o *ActiveMatchPlayer) GetAccountId() int64 {
 	if o == nil || IsNil(o.AccountId.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AccountId.Get()
@@ -98,7 +98,7 @@ func (o *ActiveMatchPlayer) GetAccountId() int32 {
 // GetAccountIdOk returns a tuple with the AccountId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatchPlayer) GetAccountIdOk() (*int32, bool) {
+func (o *ActiveMatchPlayer) GetAccountIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -114,8 +114,8 @@ func (o *ActiveMatchPlayer) HasAccountId() bool {
 	return false
 }
 
-// SetAccountId gets a reference to the given NullableInt32 and assigns it to the AccountId field.
-func (o *ActiveMatchPlayer) SetAccountId(v int32) {
+// SetAccountId gets a reference to the given NullableInt64 and assigns it to the AccountId field.
+func (o *ActiveMatchPlayer) SetAccountId(v int64) {
 	o.AccountId.Set(&v)
 }
 // SetAccountIdNil sets the value for AccountId to be an explicit nil
@@ -129,9 +129,9 @@ func (o *ActiveMatchPlayer) UnsetAccountId() {
 }
 
 // GetHeroId returns the HeroId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatchPlayer) GetHeroId() int32 {
+func (o *ActiveMatchPlayer) GetHeroId() int64 {
 	if o == nil || IsNil(o.HeroId.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.HeroId.Get()
@@ -140,7 +140,7 @@ func (o *ActiveMatchPlayer) GetHeroId() int32 {
 // GetHeroIdOk returns a tuple with the HeroId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatchPlayer) GetHeroIdOk() (*int32, bool) {
+func (o *ActiveMatchPlayer) GetHeroIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -156,8 +156,8 @@ func (o *ActiveMatchPlayer) HasHeroId() bool {
 	return false
 }
 
-// SetHeroId gets a reference to the given NullableInt32 and assigns it to the HeroId field.
-func (o *ActiveMatchPlayer) SetHeroId(v int32) {
+// SetHeroId gets a reference to the given NullableInt64 and assigns it to the HeroId field.
+func (o *ActiveMatchPlayer) SetHeroId(v int64) {
 	o.HeroId.Set(&v)
 }
 // SetHeroIdNil sets the value for HeroId to be an explicit nil

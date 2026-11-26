@@ -23,7 +23,7 @@ type CreateCustomRequest struct {
 	CallbackUrl NullableString `json:"callback_url,omitempty"`
 	CheatsEnabled NullableBool `json:"cheats_enabled,omitempty"`
 	// Minute of the match at which the Broker's corrupted item shop first spawns.
-	CorruptedItemShopSpawnMinutes NullableInt32 `json:"corrupted_item_shop_spawn_minutes,omitempty"`
+	CorruptedItemShopSpawnMinutes NullableInt64 `json:"corrupted_item_shop_spawn_minutes,omitempty"`
 	// If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
 	DisableAutoReady NullableBool `json:"disable_auto_ready,omitempty"`
 	DuplicateHeroesEnabled NullableBool `json:"duplicate_heroes_enabled,omitempty"`
@@ -136,9 +136,9 @@ func (o *CreateCustomRequest) UnsetCheatsEnabled() {
 }
 
 // GetCorruptedItemShopSpawnMinutes returns the CorruptedItemShopSpawnMinutes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateCustomRequest) GetCorruptedItemShopSpawnMinutes() int32 {
+func (o *CreateCustomRequest) GetCorruptedItemShopSpawnMinutes() int64 {
 	if o == nil || IsNil(o.CorruptedItemShopSpawnMinutes.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CorruptedItemShopSpawnMinutes.Get()
@@ -147,7 +147,7 @@ func (o *CreateCustomRequest) GetCorruptedItemShopSpawnMinutes() int32 {
 // GetCorruptedItemShopSpawnMinutesOk returns a tuple with the CorruptedItemShopSpawnMinutes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateCustomRequest) GetCorruptedItemShopSpawnMinutesOk() (*int32, bool) {
+func (o *CreateCustomRequest) GetCorruptedItemShopSpawnMinutesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -163,8 +163,8 @@ func (o *CreateCustomRequest) HasCorruptedItemShopSpawnMinutes() bool {
 	return false
 }
 
-// SetCorruptedItemShopSpawnMinutes gets a reference to the given NullableInt32 and assigns it to the CorruptedItemShopSpawnMinutes field.
-func (o *CreateCustomRequest) SetCorruptedItemShopSpawnMinutes(v int32) {
+// SetCorruptedItemShopSpawnMinutes gets a reference to the given NullableInt64 and assigns it to the CorruptedItemShopSpawnMinutes field.
+func (o *CreateCustomRequest) SetCorruptedItemShopSpawnMinutes(v int64) {
 	o.CorruptedItemShopSpawnMinutes.Set(&v)
 }
 // SetCorruptedItemShopSpawnMinutesNil sets the value for CorruptedItemShopSpawnMinutes to be an explicit nil

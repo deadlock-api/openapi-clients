@@ -57,7 +57,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEnemyStatsApiResponse"/>&gt;</returns>
-        Task<IEnemyStatsApiResponse> EnemyStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IEnemyStatsApiResponse> EnemyStatsAsync(long accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Enemy Stats
@@ -77,7 +77,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEnemyStatsApiResponse"/>?&gt;</returns>
-        Task<IEnemyStatsApiResponse?> EnemyStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IEnemyStatsApiResponse?> EnemyStatsOrDefaultAsync(long accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Match History
@@ -90,7 +90,7 @@ namespace DeadlockApiClient.Api
         /// <param name="forceRefetch">Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMatchHistoryApiResponse"/>&gt;</returns>
-        Task<IMatchHistoryApiResponse> MatchHistoryAsync(int accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMatchHistoryApiResponse> MatchHistoryAsync(long accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Match History
@@ -102,7 +102,7 @@ namespace DeadlockApiClient.Api
         /// <param name="forceRefetch">Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMatchHistoryApiResponse"/>?&gt;</returns>
-        Task<IMatchHistoryApiResponse?> MatchHistoryOrDefaultAsync(int accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMatchHistoryApiResponse?> MatchHistoryOrDefaultAsync(long accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Mate Stats
@@ -124,7 +124,7 @@ namespace DeadlockApiClient.Api
         /// <param name="sameParty">Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>&gt;</returns>
-        Task<IMateStatsApiResponse> MateStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMateStatsApiResponse> MateStatsAsync(long accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Mate Stats
@@ -145,7 +145,7 @@ namespace DeadlockApiClient.Api
         /// <param name="sameParty">Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>?&gt;</returns>
-        Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(long accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Stats
@@ -170,7 +170,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerHeroStatsApiResponse"/>&gt;</returns>
-        Task<IPlayerHeroStatsApiResponse> PlayerHeroStatsAsync(List<int> accountIds, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<string?> heroIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPlayerHeroStatsApiResponse> PlayerHeroStatsAsync(List<long> accountIds, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<string?> heroIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Stats
@@ -194,7 +194,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerHeroStatsApiResponse"/>?&gt;</returns>
-        Task<IPlayerHeroStatsApiResponse?> PlayerHeroStatsOrDefaultAsync(List<int> accountIds, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<string?> heroIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPlayerHeroStatsApiResponse?> PlayerHeroStatsOrDefaultAsync(List<long> accountIds, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<string?> heroIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank
@@ -206,7 +206,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankApiResponse"/>&gt;</returns>
-        Task<IRankApiResponse> RankAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankApiResponse> RankAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank
@@ -217,7 +217,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankApiResponse"/>?&gt;</returns>
-        Task<IRankApiResponse?> RankOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankApiResponse?> RankOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Avg Image
@@ -230,7 +230,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankAvgImageApiResponse"/>&gt;</returns>
-        Task<IRankAvgImageApiResponse> RankAvgImageAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankAvgImageApiResponse> RankAvgImageAsync(List<long> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Avg Image
@@ -242,7 +242,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankAvgImageApiResponse"/>?&gt;</returns>
-        Task<IRankAvgImageApiResponse?> RankAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankAvgImageApiResponse?> RankAvgImageOrDefaultAsync(List<long> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Batch Rank
@@ -254,7 +254,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankBatchApiResponse"/>&gt;</returns>
-        Task<IRankBatchApiResponse> RankBatchAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankBatchApiResponse> RankBatchAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Batch Rank
@@ -265,7 +265,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankBatchApiResponse"/>?&gt;</returns>
-        Task<IRankBatchApiResponse?> RankBatchOrDefaultAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankBatchApiResponse?> RankBatchOrDefaultAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Distribution
@@ -274,7 +274,7 @@ namespace DeadlockApiClient.Api
         ///  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1792972800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1793059200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -285,7 +285,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankDistributionApiResponse"/>&gt;</returns>
-        Task<IRankDistributionApiResponse> RankDistributionAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankDistributionApiResponse> RankDistributionAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Distribution
@@ -293,7 +293,7 @@ namespace DeadlockApiClient.Api
         /// <remarks>
         ///  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </remarks>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1792972800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1793059200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -304,7 +304,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankDistributionApiResponse"/>?&gt;</returns>
-        Task<IRankDistributionApiResponse?> RankDistributionOrDefaultAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankDistributionApiResponse?> RankDistributionOrDefaultAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Image
@@ -317,7 +317,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankImageApiResponse"/>&gt;</returns>
-        Task<IRankImageApiResponse> RankImageAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankImageApiResponse> RankImageAsync(long accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Image
@@ -329,7 +329,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankImageApiResponse"/>?&gt;</returns>
-        Task<IRankImageApiResponse?> RankImageOrDefaultAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRankImageApiResponse?> RankImageOrDefaultAsync(long accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Region
@@ -341,7 +341,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegionApiResponse"/>&gt;</returns>
-        Task<IRegionApiResponse> RegionAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRegionApiResponse> RegionAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Region
@@ -352,7 +352,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegionApiResponse"/>?&gt;</returns>
-        Task<IRegionApiResponse?> RegionOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRegionApiResponse?> RegionOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Batch Region
@@ -364,7 +364,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegionBatchApiResponse"/>&gt;</returns>
-        Task<IRegionBatchApiResponse> RegionBatchAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRegionBatchApiResponse> RegionBatchAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Batch Region
@@ -375,7 +375,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegionBatchApiResponse"/>?&gt;</returns>
-        Task<IRegionBatchApiResponse?> RegionBatchOrDefaultAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRegionBatchApiResponse?> RegionBatchOrDefaultAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -951,7 +951,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatEnemyStats(ref int accountId, ref Option<string?> gameMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<long?> minMatchesPlayed, ref Option<long?> maxMatchesPlayed);
+        partial void FormatEnemyStats(ref long accountId, ref Option<string?> gameMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<int?> minDurationS, ref Option<int?> maxDurationS, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<long?> minMatchesPlayed, ref Option<long?> maxMatchesPlayed);
 
         /// <summary>
         /// Processes the server response
@@ -967,7 +967,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        private void AfterEnemyStatsDefaultImplementation(IEnemyStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed)
+        private void AfterEnemyStatsDefaultImplementation(IEnemyStatsApiResponse apiResponseLocalVar, long accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed)
         {
             bool suppressDefaultLog = false;
             AfterEnemyStats(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
@@ -990,7 +990,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        partial void AfterEnemyStats(ref bool suppressDefaultLog, IEnemyStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed);
+        partial void AfterEnemyStats(ref bool suppressDefaultLog, IEnemyStatsApiResponse apiResponseLocalVar, long accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1008,7 +1008,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        private void OnErrorEnemyStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed)
+        private void OnErrorEnemyStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorEnemyStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed);
@@ -1033,7 +1033,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId"></param>
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
-        partial void OnErrorEnemyStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed);
+        partial void OnErrorEnemyStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed);
 
         /// <summary>
         /// Enemy Stats  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
@@ -1050,7 +1050,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEnemyStatsApiResponse"/>&gt;</returns>
-        public async Task<IEnemyStatsApiResponse?> EnemyStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IEnemyStatsApiResponse?> EnemyStatsOrDefaultAsync(long accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -1078,7 +1078,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchesPlayed">Filter based on the number of matches played. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEnemyStatsApiResponse"/>&gt;</returns>
-        public async Task<IEnemyStatsApiResponse> EnemyStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IEnemyStatsApiResponse> EnemyStatsAsync(long accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1288,7 +1288,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatMatchHistory(ref int accountId, ref Option<bool> forceRefetch);
+        partial void FormatMatchHistory(ref long accountId, ref Option<bool> forceRefetch);
 
         /// <summary>
         /// Processes the server response
@@ -1296,7 +1296,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="forceRefetch"></param>
-        private void AfterMatchHistoryDefaultImplementation(IMatchHistoryApiResponse apiResponseLocalVar, int accountId, Option<bool> forceRefetch)
+        private void AfterMatchHistoryDefaultImplementation(IMatchHistoryApiResponse apiResponseLocalVar, long accountId, Option<bool> forceRefetch)
         {
             bool suppressDefaultLog = false;
             AfterMatchHistory(ref suppressDefaultLog, apiResponseLocalVar, accountId, forceRefetch);
@@ -1311,7 +1311,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="forceRefetch"></param>
-        partial void AfterMatchHistory(ref bool suppressDefaultLog, IMatchHistoryApiResponse apiResponseLocalVar, int accountId, Option<bool> forceRefetch);
+        partial void AfterMatchHistory(ref bool suppressDefaultLog, IMatchHistoryApiResponse apiResponseLocalVar, long accountId, Option<bool> forceRefetch);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1321,7 +1321,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="forceRefetch"></param>
-        private void OnErrorMatchHistoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<bool> forceRefetch)
+        private void OnErrorMatchHistoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<bool> forceRefetch)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorMatchHistory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, forceRefetch);
@@ -1338,7 +1338,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="forceRefetch"></param>
-        partial void OnErrorMatchHistory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<bool> forceRefetch);
+        partial void OnErrorMatchHistory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<bool> forceRefetch);
 
         /// <summary>
         /// Match History  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | Stored history: 100req/s&lt;br&gt;Bot friends: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | Stored history: -&lt;br&gt;Bot friends: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | Stored history: -&lt;br&gt;Bot friends: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h | 
@@ -1347,7 +1347,7 @@ namespace DeadlockApiClient.Api
         /// <param name="forceRefetch">Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMatchHistoryApiResponse"/>&gt;</returns>
-        public async Task<IMatchHistoryApiResponse?> MatchHistoryOrDefaultAsync(int accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMatchHistoryApiResponse?> MatchHistoryOrDefaultAsync(long accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -1367,7 +1367,7 @@ namespace DeadlockApiClient.Api
         /// <param name="forceRefetch">Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMatchHistoryApiResponse"/>&gt;</returns>
-        public async Task<IMatchHistoryApiResponse> MatchHistoryAsync(int accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMatchHistoryApiResponse> MatchHistoryAsync(long accountId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1603,7 +1603,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatMateStats(ref int accountId, ref Option<string?> gameMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<long?> minMatchesPlayed, ref Option<long?> maxMatchesPlayed, ref Option<bool> sameParty);
+        partial void FormatMateStats(ref long accountId, ref Option<string?> gameMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<int?> minDurationS, ref Option<int?> maxDurationS, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<long?> minMatchesPlayed, ref Option<long?> maxMatchesPlayed, ref Option<bool> sameParty);
 
         /// <summary>
         /// Processes the server response
@@ -1620,7 +1620,7 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
         /// <param name="sameParty"></param>
-        private void AfterMateStatsDefaultImplementation(IMateStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty)
+        private void AfterMateStatsDefaultImplementation(IMateStatsApiResponse apiResponseLocalVar, long accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty)
         {
             bool suppressDefaultLog = false;
             AfterMateStats(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
@@ -1644,7 +1644,7 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
         /// <param name="sameParty"></param>
-        partial void AfterMateStats(ref bool suppressDefaultLog, IMateStatsApiResponse apiResponseLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty);
+        partial void AfterMateStats(ref bool suppressDefaultLog, IMateStatsApiResponse apiResponseLocalVar, long accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1663,7 +1663,7 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
         /// <param name="sameParty"></param>
-        private void OnErrorMateStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty)
+        private void OnErrorMateStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorMateStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minMatchId, maxMatchId, minMatchesPlayed, maxMatchesPlayed, sameParty);
@@ -1689,7 +1689,7 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchesPlayed"></param>
         /// <param name="maxMatchesPlayed"></param>
         /// <param name="sameParty"></param>
-        partial void OnErrorMateStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty);
+        partial void OnErrorMateStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty);
 
         /// <summary>
         /// Mate Stats  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
@@ -1707,7 +1707,7 @@ namespace DeadlockApiClient.Api
         /// <param name="sameParty">Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>&gt;</returns>
-        public async Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMateStatsApiResponse?> MateStatsOrDefaultAsync(long accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -1736,7 +1736,7 @@ namespace DeadlockApiClient.Api
         /// <param name="sameParty">Filter based on whether the mates were on the same party. Two players are considered to be in the same party if they were on the same team and are Steam friends as of the match start time (per the &#x60;steam_profiles&#x60; friends list). (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMateStatsApiResponse"/>&gt;</returns>
-        public async Task<IMateStatsApiResponse> MateStatsAsync(int accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMateStatsApiResponse> MateStatsAsync(long accountId, Option<string?> gameMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<long?> minMatchesPlayed = default, Option<long?> maxMatchesPlayed = default, Option<bool> sameParty = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1949,14 +1949,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPlayerHeroStats(List<int> accountIds, ref Option<string?> gameMode, ref Option<string?> matchMode, ref Option<string?> heroIds, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minNetworth, ref Option<long?> maxNetworth, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId);
+        partial void FormatPlayerHeroStats(List<long> accountIds, ref Option<string?> gameMode, ref Option<string?> matchMode, ref Option<string?> heroIds, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<int?> minDurationS, ref Option<int?> maxDurationS, ref Option<long?> minNetworth, ref Option<long?> maxNetworth, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId);
 
         /// <summary>
         /// Validates the request parameters
         /// </summary>
         /// <param name="accountIds"></param>
         /// <returns></returns>
-        private void ValidatePlayerHeroStats(List<int> accountIds)
+        private void ValidatePlayerHeroStats(List<long> accountIds)
         {
             if (accountIds == null)
                 throw new ArgumentNullException(nameof(accountIds));
@@ -1980,7 +1980,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        private void AfterPlayerHeroStatsDefaultImplementation(IPlayerHeroStatsApiResponse apiResponseLocalVar, List<int> accountIds, Option<string?> gameMode, Option<string?> matchMode, Option<string?> heroIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId)
+        private void AfterPlayerHeroStatsDefaultImplementation(IPlayerHeroStatsApiResponse apiResponseLocalVar, List<long> accountIds, Option<string?> gameMode, Option<string?> matchMode, Option<string?> heroIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId)
         {
             bool suppressDefaultLog = false;
             AfterPlayerHeroStats(ref suppressDefaultLog, apiResponseLocalVar, accountIds, gameMode, matchMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
@@ -2007,7 +2007,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        partial void AfterPlayerHeroStats(ref bool suppressDefaultLog, IPlayerHeroStatsApiResponse apiResponseLocalVar, List<int> accountIds, Option<string?> gameMode, Option<string?> matchMode, Option<string?> heroIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
+        partial void AfterPlayerHeroStats(ref bool suppressDefaultLog, IPlayerHeroStatsApiResponse apiResponseLocalVar, List<long> accountIds, Option<string?> gameMode, Option<string?> matchMode, Option<string?> heroIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2029,7 +2029,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        private void OnErrorPlayerHeroStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string?> gameMode, Option<string?> matchMode, Option<string?> heroIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId)
+        private void OnErrorPlayerHeroStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds, Option<string?> gameMode, Option<string?> matchMode, Option<string?> heroIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorPlayerHeroStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIds, gameMode, matchMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
@@ -2058,7 +2058,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        partial void OnErrorPlayerHeroStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string?> gameMode, Option<string?> matchMode, Option<string?> heroIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
+        partial void OnErrorPlayerHeroStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds, Option<string?> gameMode, Option<string?> matchMode, Option<string?> heroIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
 
         /// <summary>
         /// Hero Stats  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
@@ -2079,7 +2079,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerHeroStatsApiResponse"/>&gt;</returns>
-        public async Task<IPlayerHeroStatsApiResponse?> PlayerHeroStatsOrDefaultAsync(List<int> accountIds, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<string?> heroIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPlayerHeroStatsApiResponse?> PlayerHeroStatsOrDefaultAsync(List<long> accountIds, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<string?> heroIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -2111,7 +2111,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerHeroStatsApiResponse"/>&gt;</returns>
-        public async Task<IPlayerHeroStatsApiResponse> PlayerHeroStatsAsync(List<int> accountIds, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<string?> heroIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPlayerHeroStatsApiResponse> PlayerHeroStatsAsync(List<long> accountIds, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<string?> heroIds = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2336,14 +2336,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRank(ref int accountId);
+        partial void FormatRank(ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
-        private void AfterRankDefaultImplementation(IRankApiResponse apiResponseLocalVar, int accountId)
+        private void AfterRankDefaultImplementation(IRankApiResponse apiResponseLocalVar, long accountId)
         {
             bool suppressDefaultLog = false;
             AfterRank(ref suppressDefaultLog, apiResponseLocalVar, accountId);
@@ -2357,7 +2357,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
-        partial void AfterRank(ref bool suppressDefaultLog, IRankApiResponse apiResponseLocalVar, int accountId);
+        partial void AfterRank(ref bool suppressDefaultLog, IRankApiResponse apiResponseLocalVar, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2366,7 +2366,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
-        private void OnErrorRankDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId)
+        private void OnErrorRankDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorRank(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
@@ -2382,7 +2382,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
+        partial void OnErrorRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId);
 
         /// <summary>
         /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match&#39;s ranked interval (&#x60;sub_rank_xp&#x60; in &#x60;/v1/assets/ranked-seasons&#x60;: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
@@ -2390,7 +2390,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankApiResponse"/>&gt;</returns>
-        public async Task<IRankApiResponse?> RankOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankApiResponse?> RankOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -2409,7 +2409,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankApiResponse"/>&gt;</returns>
-        public async Task<IRankApiResponse> RankAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankApiResponse> RankAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2594,7 +2594,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRankAvgImage(List<int> accountIds, ref Option<string> format);
+        partial void FormatRankAvgImage(List<long> accountIds, ref Option<string> format);
 
         /// <summary>
         /// Validates the request parameters
@@ -2602,7 +2602,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds"></param>
         /// <param name="format"></param>
         /// <returns></returns>
-        private void ValidateRankAvgImage(List<int> accountIds, Option<string> format)
+        private void ValidateRankAvgImage(List<long> accountIds, Option<string> format)
         {
             if (accountIds == null)
                 throw new ArgumentNullException(nameof(accountIds));
@@ -2617,7 +2617,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountIds"></param>
         /// <param name="format"></param>
-        private void AfterRankAvgImageDefaultImplementation(IRankAvgImageApiResponse apiResponseLocalVar, List<int> accountIds, Option<string> format)
+        private void AfterRankAvgImageDefaultImplementation(IRankAvgImageApiResponse apiResponseLocalVar, List<long> accountIds, Option<string> format)
         {
             bool suppressDefaultLog = false;
             AfterRankAvgImage(ref suppressDefaultLog, apiResponseLocalVar, accountIds, format);
@@ -2632,7 +2632,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountIds"></param>
         /// <param name="format"></param>
-        partial void AfterRankAvgImage(ref bool suppressDefaultLog, IRankAvgImageApiResponse apiResponseLocalVar, List<int> accountIds, Option<string> format);
+        partial void AfterRankAvgImage(ref bool suppressDefaultLog, IRankAvgImageApiResponse apiResponseLocalVar, List<long> accountIds, Option<string> format);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2642,7 +2642,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountIds"></param>
         /// <param name="format"></param>
-        private void OnErrorRankAvgImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format)
+        private void OnErrorRankAvgImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds, Option<string> format)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorRankAvgImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIds, format);
@@ -2659,7 +2659,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountIds"></param>
         /// <param name="format"></param>
-        partial void OnErrorRankAvgImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format);
+        partial void OnErrorRankAvgImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds, Option<string> format);
 
         /// <summary>
         /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
@@ -2668,7 +2668,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankAvgImageApiResponse"/>&gt;</returns>
-        public async Task<IRankAvgImageApiResponse?> RankAvgImageOrDefaultAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankAvgImageApiResponse?> RankAvgImageOrDefaultAsync(List<long> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -2688,7 +2688,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankAvgImageApiResponse"/>&gt;</returns>
-        public async Task<IRankAvgImageApiResponse> RankAvgImageAsync(List<int> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankAvgImageApiResponse> RankAvgImageAsync(List<long> accountIds, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2890,14 +2890,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRankBatch(List<int> accountIds);
+        partial void FormatRankBatch(List<long> accountIds);
 
         /// <summary>
         /// Validates the request parameters
         /// </summary>
         /// <param name="accountIds"></param>
         /// <returns></returns>
-        private void ValidateRankBatch(List<int> accountIds)
+        private void ValidateRankBatch(List<long> accountIds)
         {
             if (accountIds == null)
                 throw new ArgumentNullException(nameof(accountIds));
@@ -2908,7 +2908,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountIds"></param>
-        private void AfterRankBatchDefaultImplementation(IRankBatchApiResponse apiResponseLocalVar, List<int> accountIds)
+        private void AfterRankBatchDefaultImplementation(IRankBatchApiResponse apiResponseLocalVar, List<long> accountIds)
         {
             bool suppressDefaultLog = false;
             AfterRankBatch(ref suppressDefaultLog, apiResponseLocalVar, accountIds);
@@ -2922,7 +2922,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountIds"></param>
-        partial void AfterRankBatch(ref bool suppressDefaultLog, IRankBatchApiResponse apiResponseLocalVar, List<int> accountIds);
+        partial void AfterRankBatch(ref bool suppressDefaultLog, IRankBatchApiResponse apiResponseLocalVar, List<long> accountIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2931,7 +2931,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountIds"></param>
-        private void OnErrorRankBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds)
+        private void OnErrorRankBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorRankBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIds);
@@ -2947,7 +2947,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountIds"></param>
-        partial void OnErrorRankBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds);
+        partial void OnErrorRankBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds);
 
         /// <summary>
         /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
@@ -2955,7 +2955,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankBatchApiResponse"/>&gt;</returns>
-        public async Task<IRankBatchApiResponse?> RankBatchOrDefaultAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankBatchApiResponse?> RankBatchOrDefaultAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -2974,7 +2974,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankBatchApiResponse"/>&gt;</returns>
-        public async Task<IRankBatchApiResponse> RankBatchAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankBatchApiResponse> RankBatchAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3160,7 +3160,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRankDistribution(ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<bool?> isHighSkillRangeParties, ref Option<bool?> isLowPriPool, ref Option<bool?> isNewPlayerPool, ref Option<long?> minMatchId, ref Option<long?> maxMatchId);
+        partial void FormatRankDistribution(ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<int?> minDurationS, ref Option<int?> maxDurationS, ref Option<bool?> isHighSkillRangeParties, ref Option<bool?> isLowPriPool, ref Option<bool?> isNewPlayerPool, ref Option<long?> minMatchId, ref Option<long?> maxMatchId);
 
         /// <summary>
         /// Processes the server response
@@ -3175,7 +3175,7 @@ namespace DeadlockApiClient.Api
         /// <param name="isNewPlayerPool"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        private void AfterRankDistributionDefaultImplementation(IRankDistributionApiResponse apiResponseLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId)
+        private void AfterRankDistributionDefaultImplementation(IRankDistributionApiResponse apiResponseLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId)
         {
             bool suppressDefaultLog = false;
             AfterRankDistribution(ref suppressDefaultLog, apiResponseLocalVar, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId);
@@ -3197,7 +3197,7 @@ namespace DeadlockApiClient.Api
         /// <param name="isNewPlayerPool"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        partial void AfterRankDistribution(ref bool suppressDefaultLog, IRankDistributionApiResponse apiResponseLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId);
+        partial void AfterRankDistribution(ref bool suppressDefaultLog, IRankDistributionApiResponse apiResponseLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3214,7 +3214,7 @@ namespace DeadlockApiClient.Api
         /// <param name="isNewPlayerPool"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        private void OnErrorRankDistributionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId)
+        private void OnErrorRankDistributionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorRankDistribution(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId);
@@ -3238,12 +3238,12 @@ namespace DeadlockApiClient.Api
         /// <param name="isNewPlayerPool"></param>
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
-        partial void OnErrorRankDistribution(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId);
+        partial void OnErrorRankDistribution(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<int?> minDurationS, Option<int?> maxDurationS, Option<bool?> isHighSkillRangeParties, Option<bool?> isLowPriPool, Option<bool?> isNewPlayerPool, Option<long?> minMatchId, Option<long?> maxMatchId);
 
         /// <summary>
         /// Rank Distribution  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </summary>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1792972800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1793059200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3254,7 +3254,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankDistributionApiResponse"/>&gt;</returns>
-        public async Task<IRankDistributionApiResponse?> RankDistributionOrDefaultAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankDistributionApiResponse?> RankDistributionOrDefaultAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -3270,7 +3270,7 @@ namespace DeadlockApiClient.Api
         /// Rank Distribution  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1792972800)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1793059200)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3281,7 +3281,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankDistributionApiResponse"/>&gt;</returns>
-        public async Task<IRankDistributionApiResponse> RankDistributionAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankDistributionApiResponse> RankDistributionAsync(Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<int?> minDurationS = default, Option<int?> maxDurationS = default, Option<bool?> isHighSkillRangeParties = default, Option<bool?> isLowPriPool = default, Option<bool?> isNewPlayerPool = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3490,7 +3490,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRankImage(ref int accountId, ref Option<string> format);
+        partial void FormatRankImage(ref long accountId, ref Option<string> format);
 
         /// <summary>
         /// Validates the request parameters
@@ -3509,7 +3509,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        private void AfterRankImageDefaultImplementation(IRankImageApiResponse apiResponseLocalVar, int accountId, Option<string> format)
+        private void AfterRankImageDefaultImplementation(IRankImageApiResponse apiResponseLocalVar, long accountId, Option<string> format)
         {
             bool suppressDefaultLog = false;
             AfterRankImage(ref suppressDefaultLog, apiResponseLocalVar, accountId, format);
@@ -3524,7 +3524,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        partial void AfterRankImage(ref bool suppressDefaultLog, IRankImageApiResponse apiResponseLocalVar, int accountId, Option<string> format);
+        partial void AfterRankImage(ref bool suppressDefaultLog, IRankImageApiResponse apiResponseLocalVar, long accountId, Option<string> format);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3534,7 +3534,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        private void OnErrorRankImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format)
+        private void OnErrorRankImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> format)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorRankImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, format);
@@ -3551,7 +3551,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
         /// <param name="format"></param>
-        partial void OnErrorRankImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format);
+        partial void OnErrorRankImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> format);
 
         /// <summary>
         /// Rank Image Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
@@ -3560,7 +3560,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankImageApiResponse"/>&gt;</returns>
-        public async Task<IRankImageApiResponse?> RankImageOrDefaultAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankImageApiResponse?> RankImageOrDefaultAsync(long accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -3580,7 +3580,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRankImageApiResponse"/>&gt;</returns>
-        public async Task<IRankImageApiResponse> RankImageAsync(int accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRankImageApiResponse> RankImageAsync(long accountId, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3781,14 +3781,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRegion(ref int accountId);
+        partial void FormatRegion(ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
-        private void AfterRegionDefaultImplementation(IRegionApiResponse apiResponseLocalVar, int accountId)
+        private void AfterRegionDefaultImplementation(IRegionApiResponse apiResponseLocalVar, long accountId)
         {
             bool suppressDefaultLog = false;
             AfterRegion(ref suppressDefaultLog, apiResponseLocalVar, accountId);
@@ -3802,7 +3802,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
-        partial void AfterRegion(ref bool suppressDefaultLog, IRegionApiResponse apiResponseLocalVar, int accountId);
+        partial void AfterRegion(ref bool suppressDefaultLog, IRegionApiResponse apiResponseLocalVar, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3811,7 +3811,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
-        private void OnErrorRegionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId)
+        private void OnErrorRegionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorRegion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
@@ -3827,7 +3827,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorRegion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
+        partial void OnErrorRegion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId);
 
         /// <summary>
         /// Region  The server region a player plays in, from the game servers of their matches.  Each match&#39;s server cluster comes from its salts, and the cluster&#39;s region and datacenter from the server names in replays. &#x60;region&#x60; is the region with the most matches in the player&#39;s latest month with a known region; &#x60;history&#x60; lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. &#x60;dpkt-frankfurt&#x60; or &#x60;helsinki&#x60; next to &#x60;eu_west&#x60;).  ### Rate Limits: &gt; Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
@@ -3835,7 +3835,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegionApiResponse"/>&gt;</returns>
-        public async Task<IRegionApiResponse?> RegionOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRegionApiResponse?> RegionOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -3854,7 +3854,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegionApiResponse"/>&gt;</returns>
-        public async Task<IRegionApiResponse> RegionAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRegionApiResponse> RegionAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4039,14 +4039,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRegionBatch(List<int> accountIds);
+        partial void FormatRegionBatch(List<long> accountIds);
 
         /// <summary>
         /// Validates the request parameters
         /// </summary>
         /// <param name="accountIds"></param>
         /// <returns></returns>
-        private void ValidateRegionBatch(List<int> accountIds)
+        private void ValidateRegionBatch(List<long> accountIds)
         {
             if (accountIds == null)
                 throw new ArgumentNullException(nameof(accountIds));
@@ -4057,7 +4057,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountIds"></param>
-        private void AfterRegionBatchDefaultImplementation(IRegionBatchApiResponse apiResponseLocalVar, List<int> accountIds)
+        private void AfterRegionBatchDefaultImplementation(IRegionBatchApiResponse apiResponseLocalVar, List<long> accountIds)
         {
             bool suppressDefaultLog = false;
             AfterRegionBatch(ref suppressDefaultLog, apiResponseLocalVar, accountIds);
@@ -4071,7 +4071,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountIds"></param>
-        partial void AfterRegionBatch(ref bool suppressDefaultLog, IRegionBatchApiResponse apiResponseLocalVar, List<int> accountIds);
+        partial void AfterRegionBatch(ref bool suppressDefaultLog, IRegionBatchApiResponse apiResponseLocalVar, List<long> accountIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4080,7 +4080,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountIds"></param>
-        private void OnErrorRegionBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds)
+        private void OnErrorRegionBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorRegionBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIds);
@@ -4096,7 +4096,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountIds"></param>
-        partial void OnErrorRegionBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds);
+        partial void OnErrorRegionBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds);
 
         /// <summary>
         /// Batch Region  Returns the server region of each player, the batch form of &#x60;/v1/players/{account_id}/region&#x60;. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a &#x60;null&#x60; &#x60;region&#x60;. Protected accounts are left out.  ### Rate Limits: &gt; Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
@@ -4104,7 +4104,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegionBatchApiResponse"/>&gt;</returns>
-        public async Task<IRegionBatchApiResponse?> RegionBatchOrDefaultAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRegionBatchApiResponse?> RegionBatchOrDefaultAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -4123,7 +4123,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegionBatchApiResponse"/>&gt;</returns>
-        public async Task<IRegionBatchApiResponse> RegionBatchAsync(List<int> accountIds, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRegionBatchApiResponse> RegionBatchAsync(List<long> accountIds, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

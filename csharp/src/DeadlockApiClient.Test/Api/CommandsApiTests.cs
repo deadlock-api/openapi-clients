@@ -67,7 +67,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task CommandResolveAsyncTest()
         {
-            int accountId = default!;
+            long accountId = default!;
             Client.Option<string> region = default!;
             Client.Option<string> template = default!;
             Client.Option<string?> heroName = default!;
@@ -82,7 +82,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task VariablesResolveAsyncTest()
         {
-            int accountId = default!;
+            long accountId = default!;
             Client.Option<string> region = default!;
             Client.Option<string> variables = default!;
             Client.Option<string?> heroName = default!;

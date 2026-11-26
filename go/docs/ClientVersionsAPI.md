@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ListClientVersions
 
-> []int32 ListClientVersions(ctx).Execute()
+> []int64 ListClientVersions(ctx).Execute()
 
 List Client Versions
 
@@ -37,7 +37,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ClientVersionsAPI.ListClientVersions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListClientVersions`: []int32
+	// response from `ListClientVersions`: []int64
 	fmt.Fprintf(os.Stdout, "Response from `ClientVersionsAPI.ListClientVersions`: %v\n", resp)
 }
 ```
@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiListClientVersionsRequest 
 
 ### Return type
 
-**[]int32**
+**[]int64**
 
 ### Authorization
 

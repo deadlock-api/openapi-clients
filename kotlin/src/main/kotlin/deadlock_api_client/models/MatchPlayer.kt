@@ -36,7 +36,7 @@ import java.io.Serializable
 data class MatchPlayer (
 
     @Json(name = "account_id")
-    val accountId: kotlin.Int
+    val accountId: kotlin.Long
 
 ) : Serializable {
     companion object {

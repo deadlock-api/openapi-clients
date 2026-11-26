@@ -39,7 +39,7 @@ namespace DeadlockApiClient.Model
         /// <param name="datacenter">Datacenter(s) of the cluster&#39;s servers, e.g. &#x60;fra2&#x60;; comma-separated if the cluster spans several. &#x60;null&#x60; if the cluster has not been seen in a replay yet.</param>
         /// <param name="region">Region of the cluster&#39;s servers, e.g. &#x60;eu_west&#x60; or &#x60;us_north_central&#x60;. &#x60;null&#x60; if the cluster has not been seen in a replay yet.</param>
         [JsonConstructor]
-        public PlayerClusterMonth(int clusterId, long matches, int month, Option<string?> datacenter = default, Option<string?> region = default)
+        public PlayerClusterMonth(long clusterId, long matches, long month, Option<string?> datacenter = default, Option<string?> region = default)
         {
             ClusterId = clusterId;
             Matches = matches;
@@ -56,7 +56,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The server cluster the matches were played on.</value>
         [JsonPropertyName("cluster_id")]
-        public int ClusterId { get; set; }
+        public long ClusterId { get; set; }
 
         /// <summary>
         /// Number of the player&#39;s matches on this cluster in this month.
@@ -70,7 +70,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Unix timestamp of the first day of the month (UTC).</value>
         [JsonPropertyName("month")]
-        public int Month { get; set; }
+        public long Month { get; set; }
 
         /// <summary>
         /// Used to track the state of Datacenter
@@ -124,8 +124,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ClusterId (int) minimum
-            if (this.ClusterId < (int)0)
+            // ClusterId (long) maximum
+            if (this.ClusterId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClusterId, must be a value less than or equal to 4294967295.", new [] { "ClusterId" });
+            }
+
+            // ClusterId (long) minimum
+            if (this.ClusterId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClusterId, must be a value greater than or equal to 0.", new [] { "ClusterId" });
             }
@@ -136,8 +142,14 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
             }
 
-            // Month (int) minimum
-            if (this.Month < (int)0)
+            // Month (long) maximum
+            if (this.Month > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Month, must be a value less than or equal to 4294967295.", new [] { "Month" });
+            }
+
+            // Month (long) minimum
+            if (this.Month < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Month, must be a value greater than or equal to 0.", new [] { "Month" });
             }
@@ -178,9 +190,9 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> clusterId = default;
+            Option<long?> clusterId = default;
             Option<long?> matches = default;
-            Option<int?> month = default;
+            Option<long?> month = default;
             Option<string?> datacenter = default;
             Option<string?> region = default;
 
@@ -200,13 +212,13 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "cluster_id":
-                            clusterId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            clusterId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "matches":
                             matches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "month":
-                            month = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            month = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "datacenter":
                             datacenter = new Option<string?>(utf8JsonReader.GetString());

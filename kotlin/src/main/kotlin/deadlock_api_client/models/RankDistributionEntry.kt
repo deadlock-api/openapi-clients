@@ -40,7 +40,7 @@ data class RankDistributionEntry (
 
     /* Rank badge, `tier * 10 + subrank`. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "badge")
-    val badge: kotlin.Int,
+    val badge: kotlin.Long,
 
     /* Number of players whose rank at the end of their latest ranked match in the filtered range is this badge. */
     @Json(name = "players")
@@ -48,11 +48,11 @@ data class RankDistributionEntry (
 
     /* Rank tier. */
     @Json(name = "rank")
-    val rank: kotlin.Int,
+    val rank: kotlin.Long,
 
     /* Sub-rank within the tier. */
     @Json(name = "subrank")
-    val subrank: kotlin.Int
+    val subrank: kotlin.Long
 
 ) : Serializable {
     companion object {

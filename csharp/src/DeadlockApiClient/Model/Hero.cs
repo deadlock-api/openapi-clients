@@ -72,7 +72,7 @@ namespace DeadlockApiClient.Model
         /// <param name="prereleaseOnly">Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;.</param>
         /// <param name="searchName">Localized search name (&#x60;m_strHeroSearchName&#x60;, build 6711+).</param>
         [JsonConstructor]
-        public Hero(bool assignedPlayersOnly, string className, HeroColors colors, long complexity, HeroDescription description, bool disabled, HeroStatsUI heroStatsUi, int id, HeroImages images, bool inDevelopment, Dictionary<string, HashMapItemSlotTypeItemSlotInfoValue> itemSlotInfo, Dictionary<string, string> items, Dictionary<string, HashMapStringLevelInfoValue> levelInfo, bool limitedTesting, Dictionary<string, string> models, string name, bool needsTesting, HeroPhysics physics, bool playerSelectable, Dictionary<string, List<HashMapItemSlotTypeVecPurchaseBonusValueInner>> purchaseBonuses, Dictionary<string, HashMapStringScalingStatValue> scalingStats, ShopStatDisplay shopStatDisplay, long skin, Dictionary<string, double> standardLevelUpUpgrades, StartingStats startingStats, StatsDisplay statsDisplay, List<string> tags, Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?> costBonuses = default, Option<HeroDevelopmentState?> developmentState = default, Option<string?> gender = default, Option<string?> gunTag = default, Option<HeroType?> heroType = default, Option<string?> hideoutRichPresence = default, Option<Dictionary<string, HashMapStringOptionDraftBucketingValue>?> itemDraftBucketing = default, Option<Dictionary<string, double>?> itemDraftWeights = default, Option<HeroPopularItems?> popularItems = default, Option<bool?> prereleaseOnly = default, Option<string?> searchName = default)
+        public Hero(bool assignedPlayersOnly, string className, HeroColors colors, long complexity, HeroDescription description, bool disabled, HeroStatsUI heroStatsUi, long id, HeroImages images, bool inDevelopment, Dictionary<string, HashMapItemSlotTypeItemSlotInfoValue> itemSlotInfo, Dictionary<string, string> items, Dictionary<string, HashMapStringLevelInfoValue> levelInfo, bool limitedTesting, Dictionary<string, string> models, string name, bool needsTesting, HeroPhysics physics, bool playerSelectable, Dictionary<string, List<HashMapItemSlotTypeVecPurchaseBonusValueInner>> purchaseBonuses, Dictionary<string, HashMapStringScalingStatValue> scalingStats, ShopStatDisplay shopStatDisplay, long skin, Dictionary<string, double> standardLevelUpUpgrades, StartingStats startingStats, StatsDisplay statsDisplay, List<string> tags, Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?> costBonuses = default, Option<HeroDevelopmentState?> developmentState = default, Option<string?> gender = default, Option<string?> gunTag = default, Option<HeroType?> heroType = default, Option<string?> hideoutRichPresence = default, Option<Dictionary<string, HashMapStringOptionDraftBucketingValue>?> itemDraftBucketing = default, Option<Dictionary<string, double>?> itemDraftWeights = default, Option<HeroPopularItems?> popularItems = default, Option<bool?> prereleaseOnly = default, Option<string?> searchName = default)
         {
             AssignedPlayersOnly = assignedPlayersOnly;
             ClassName = className;
@@ -191,7 +191,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Id
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Images
@@ -489,8 +489,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (int) minimum
-            if (this.Id < (int)0)
+            // Id (long) maximum
+            if (this.Id > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value less than or equal to 4294967295.", new [] { "Id" });
+            }
+
+            // Id (long) minimum
+            if (this.Id < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 0.", new [] { "Id" });
             }
@@ -538,7 +544,7 @@ namespace DeadlockApiClient.Model
             Option<HeroDescription?> description = default;
             Option<bool?> disabled = default;
             Option<HeroStatsUI?> heroStatsUi = default;
-            Option<int?> id = default;
+            Option<long?> id = default;
             Option<HeroImages?> images = default;
             Option<bool?> inDevelopment = default;
             Option<Dictionary<string, HashMapItemSlotTypeItemSlotInfoValue>?> itemSlotInfo = default;
@@ -607,7 +613,7 @@ namespace DeadlockApiClient.Model
                             heroStatsUi = new Option<HeroStatsUI?>(JsonSerializer.Deserialize<HeroStatsUI>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "id":
-                            id = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            id = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "images":
                             images = new Option<HeroImages?>(JsonSerializer.Deserialize<HeroImages>(ref utf8JsonReader, jsonSerializerOptions)!);

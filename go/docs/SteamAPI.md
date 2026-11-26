@@ -100,8 +100,8 @@ import (
 func main() {
 	searchQuery := "searchQuery_example" // string | Search query for Steam profiles.
 	limit := int32(56) // int32 | Maximum number of profiles to return. (optional) (default to 100)
-	minMatchesPlayedLast30d := int32(56) // int32 | Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional) (default to 5)
-	minLastTeamAvgBadge := int32(56) // int32 | Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional) (default to 0)
+	minMatchesPlayedLast30d := int64(789) // int64 | Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional) (default to 5)
+	minLastTeamAvgBadge := int64(789) // int64 | Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. (optional) (default to 0)
 	matchesPlayedWeight := float64(1.2) // float64 | Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. (optional) (default to 0.02)
 
 	configuration := openapiclient.NewConfiguration()
@@ -129,8 +129,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **searchQuery** | **string** | Search query for Steam profiles. | 
  **limit** | **int32** | Maximum number of profiles to return. | [default to 100]
- **minMatchesPlayedLast30d** | **int32** | Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. | [default to 5]
- **minLastTeamAvgBadge** | **int32** | Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. | [default to 0]
+ **minMatchesPlayedLast30d** | **int64** | Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. | [default to 5]
+ **minLastTeamAvgBadge** | **int64** | Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. | [default to 0]
  **matchesPlayedWeight** | **float64** | Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. | [default to 0.02]
 
 ### Return type

@@ -52,7 +52,7 @@ class MiscEntity(BaseModel):
     heavy_melee_hit_count: Optional[StrictInt] = None
     heavy_melee_only: Optional[StrictBool] = None
     hits_required: Optional[StrictInt] = Field(default=None, description="Punchable pickups: hits needed to collect.")
-    id: Annotated[int, Field(strict=True, ge=0)]
+    id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     in_shop_modifier: Optional[SubclassModifierDefinition] = Field(default=None, description="Corrupted item shop (Broker) trigger: modifier applied while inside.")
     initial_spawn_delay_in_seconds: Optional[StrictInt] = None
     initial_spawn_delay_seconds: Optional[StrictInt] = Field(default=None, description="Duplicate of `initial_spawn_delay_in_seconds` for shape parity.")

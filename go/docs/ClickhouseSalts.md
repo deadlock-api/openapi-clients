@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClusterId** | Pointer to **NullableInt32** |  | [optional] 
+**ClusterId** | Pointer to **NullableInt64** |  | [optional] 
 **MatchId** | **int64** |  | 
-**MetadataSalt** | Pointer to **NullableInt32** |  | [optional] 
-**ReplaySalt** | Pointer to **NullableInt32** |  | [optional] 
+**MetadataSalt** | Pointer to **NullableInt64** |  | [optional] 
+**ReplaySalt** | Pointer to **NullableInt64** |  | [optional] 
 **Username** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetClusterId
 
-`func (o *ClickhouseSalts) GetClusterId() int32`
+`func (o *ClickhouseSalts) GetClusterId() int64`
 
 GetClusterId returns the ClusterId field if non-nil, zero value otherwise.
 
 ### GetClusterIdOk
 
-`func (o *ClickhouseSalts) GetClusterIdOk() (*int32, bool)`
+`func (o *ClickhouseSalts) GetClusterIdOk() (*int64, bool)`
 
 GetClusterIdOk returns a tuple with the ClusterId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetClusterId
 
-`func (o *ClickhouseSalts) SetClusterId(v int32)`
+`func (o *ClickhouseSalts) SetClusterId(v int64)`
 
 SetClusterId sets ClusterId field to given value.
 
@@ -86,20 +86,20 @@ SetMatchId sets MatchId field to given value.
 
 ### GetMetadataSalt
 
-`func (o *ClickhouseSalts) GetMetadataSalt() int32`
+`func (o *ClickhouseSalts) GetMetadataSalt() int64`
 
 GetMetadataSalt returns the MetadataSalt field if non-nil, zero value otherwise.
 
 ### GetMetadataSaltOk
 
-`func (o *ClickhouseSalts) GetMetadataSaltOk() (*int32, bool)`
+`func (o *ClickhouseSalts) GetMetadataSaltOk() (*int64, bool)`
 
 GetMetadataSaltOk returns a tuple with the MetadataSalt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadataSalt
 
-`func (o *ClickhouseSalts) SetMetadataSalt(v int32)`
+`func (o *ClickhouseSalts) SetMetadataSalt(v int64)`
 
 SetMetadataSalt sets MetadataSalt field to given value.
 
@@ -121,20 +121,20 @@ HasMetadataSalt returns a boolean if a field has been set.
 UnsetMetadataSalt ensures that no value is present for MetadataSalt, not even an explicit nil
 ### GetReplaySalt
 
-`func (o *ClickhouseSalts) GetReplaySalt() int32`
+`func (o *ClickhouseSalts) GetReplaySalt() int64`
 
 GetReplaySalt returns the ReplaySalt field if non-nil, zero value otherwise.
 
 ### GetReplaySaltOk
 
-`func (o *ClickhouseSalts) GetReplaySaltOk() (*int32, bool)`
+`func (o *ClickhouseSalts) GetReplaySaltOk() (*int64, bool)`
 
 GetReplaySaltOk returns a tuple with the ReplaySalt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReplaySalt
 
-`func (o *ClickhouseSalts) SetReplaySalt(v int32)`
+`func (o *ClickhouseSalts) SetReplaySalt(v int64)`
 
 SetReplaySalt sets ReplaySalt field to given value.
 

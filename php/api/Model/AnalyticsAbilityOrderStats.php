@@ -76,7 +76,7 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'abilities' => 'int32',
+        'abilities' => 'int64',
         'avg_upgrade_times_s' => 'double',
         'losses' => 'int64',
         'matches' => 'int64',

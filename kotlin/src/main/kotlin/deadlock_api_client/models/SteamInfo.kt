@@ -47,25 +47,25 @@ import java.io.Serializable
 data class SteamInfo (
 
     @Json(name = "app_id")
-    val appId: kotlin.Int,
+    val appId: kotlin.Long,
 
     @Json(name = "client_version")
-    val clientVersion: kotlin.Int,
+    val clientVersion: kotlin.Long,
 
     @Json(name = "product_name")
     val productName: kotlin.String,
 
     @Json(name = "server_app_id")
-    val serverAppId: kotlin.Int,
+    val serverAppId: kotlin.Long,
 
     @Json(name = "server_version")
-    val serverVersion: kotlin.Int,
+    val serverVersion: kotlin.Long,
 
     @Json(name = "source_revision")
     val sourceRevision: kotlin.Long,
 
     @Json(name = "tools_app_id")
-    val toolsAppId: kotlin.Int,
+    val toolsAppId: kotlin.Long,
 
     @Json(name = "version_date")
     val versionDate: kotlin.String,

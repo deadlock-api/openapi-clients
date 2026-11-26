@@ -53,29 +53,29 @@ import (
 )
 
 func main() {
-	heroId := int32(56) // int32 | See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	heroId := int64(789) // int64 | See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	minAbilityUpgrades := int64(789) // int64 | Filter players based on their minimum number of ability upgrades over the whole match. (optional)
-	maxAbilityUpgrades := int64(789) // int64 | Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minAbilityUpgrades := int32(56) // int32 | Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+	maxAbilityUpgrades := int32(56) // int32 | Filter players based on their maximum number of ability upgrades over the whole match. (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	minMatches := int32(56) // int32 | The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`: an ability) to be included in the response. (optional) (default to 10)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	minMatches := int64(789) // int64 | The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`: an ability) to be included in the response. (optional) (default to 10)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 	heroBuildId := int64(789) // int64 | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	includeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	excludeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -100,29 +100,29 @@ Other parameters are passed through a pointer to a apiAbilityMaxFirstStatsReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **heroId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **heroId** | **int64** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **minAbilityUpgrades** | **int64** | Filter players based on their minimum number of ability upgrades over the whole match. | 
- **maxAbilityUpgrades** | **int64** | Filter players based on their maximum number of ability upgrades over the whole match. | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minAbilityUpgrades** | **int32** | Filter players based on their minimum number of ability upgrades over the whole match. | 
+ **maxAbilityUpgrades** | **int32** | Filter players based on their maximum number of ability upgrades over the whole match. | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **minMatches** | **int32** | The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. | [default to 10]
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **minMatches** | **int64** | The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. | [default to 10]
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
  **heroBuildId** | **int64** | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **includeItemIds** | **[]int64** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **excludeItemIds** | **[]int64** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Return type
 
@@ -163,29 +163,29 @@ import (
 )
 
 func main() {
-	heroId := int32(56) // int32 | See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	heroId := int64(789) // int64 | See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	minAbilityUpgrades := int64(789) // int64 | Filter players based on their minimum number of ability upgrades over the whole match. (optional)
-	maxAbilityUpgrades := int64(789) // int64 | Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minAbilityUpgrades := int32(56) // int32 | Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+	maxAbilityUpgrades := int32(56) // int32 | Filter players based on their maximum number of ability upgrades over the whole match. (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	minMatches := int32(56) // int32 | The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`: an ability) to be included in the response. (optional) (default to 10)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	minMatches := int64(789) // int64 | The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`: an ability) to be included in the response. (optional) (default to 10)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 	heroBuildId := int64(789) // int64 | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	includeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	excludeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -210,29 +210,29 @@ Other parameters are passed through a pointer to a apiAbilityOrderStatsRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **heroId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **heroId** | **int64** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **minAbilityUpgrades** | **int64** | Filter players based on their minimum number of ability upgrades over the whole match. | 
- **maxAbilityUpgrades** | **int64** | Filter players based on their maximum number of ability upgrades over the whole match. | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minAbilityUpgrades** | **int32** | Filter players based on their minimum number of ability upgrades over the whole match. | 
+ **maxAbilityUpgrades** | **int32** | Filter players based on their maximum number of ability upgrades over the whole match. | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **minMatches** | **int32** | The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. | [default to 10]
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **minMatches** | **int64** | The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. | [default to 10]
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
  **heroBuildId** | **int64** | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **includeItemIds** | **[]int64** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **excludeItemIds** | **[]int64** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Return type
 
@@ -273,29 +273,29 @@ import (
 )
 
 func main() {
-	heroId := int32(56) // int32 | See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	heroId := int64(789) // int64 | See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	minAbilityUpgrades := int64(789) // int64 | Filter players based on their minimum number of ability upgrades over the whole match. (optional)
-	maxAbilityUpgrades := int64(789) // int64 | Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minAbilityUpgrades := int32(56) // int32 | Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+	maxAbilityUpgrades := int32(56) // int32 | Filter players based on their maximum number of ability upgrades over the whole match. (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	minMatches := int32(56) // int32 | The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`: an ability) to be included in the response. (optional) (default to 10)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	minMatches := int64(789) // int64 | The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`: an ability) to be included in the response. (optional) (default to 10)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 	heroBuildId := int64(789) // int64 | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	includeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	excludeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -320,29 +320,29 @@ Other parameters are passed through a pointer to a apiAbilityOrderTreeRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **heroId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **heroId** | **int64** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **minAbilityUpgrades** | **int64** | Filter players based on their minimum number of ability upgrades over the whole match. | 
- **maxAbilityUpgrades** | **int64** | Filter players based on their maximum number of ability upgrades over the whole match. | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minAbilityUpgrades** | **int32** | Filter players based on their minimum number of ability upgrades over the whole match. | 
+ **maxAbilityUpgrades** | **int32** | Filter players based on their maximum number of ability upgrades over the whole match. | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **minMatches** | **int32** | The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. | [default to 10]
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **minMatches** | **int64** | The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. | [default to 10]
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
  **heroBuildId** | **int64** | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **includeItemIds** | **[]int64** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **excludeItemIds** | **[]int64** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Return type
 
@@ -385,10 +385,10 @@ import (
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	isHighSkillRangeParties := true // bool | Filter matches based on whether they are in the high skill range. (optional)
 	isLowPriPool := true // bool | Filter matches based on whether they are in the low priority pool. (optional)
 	isNewPlayerPool := true // bool | Filter matches based on whether they are in the new player pool. (optional)
@@ -420,10 +420,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **isHighSkillRangeParties** | **bool** | Filter matches based on whether they are in the high skill range. | 
  **isLowPriPool** | **bool** | Filter matches based on whether they are in the low priority pool. | 
  **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | 
@@ -471,18 +471,18 @@ import (
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
-	heroIds := []int32{int32(123)} // []int32 | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	heroIds := []int64{int64(123)} // []int64 | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -509,18 +509,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
- **heroIds** | **[]int32** | Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **heroIds** | **[]int64** | Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -561,8 +561,8 @@ import (
 )
 
 func main() {
-	heroId := int32(56) // int32 | Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	minLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	heroId := int64(789) // int64 | Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	minLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxLastUpdatedUnixTimestamp := int64(789) // int64 | Filter builds based on their last updated time (Unix timestamp). (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -588,8 +588,8 @@ Other parameters are passed through a pointer to a apiBuildItemStatsRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **heroId** | **int32** | Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **minLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **heroId** | **int64** | Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **minLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxLastUpdatedUnixTimestamp** | **int64** | Filter builds based on their last updated time (Unix timestamp). | 
 
 ### Return type
@@ -634,22 +634,22 @@ func main() {
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`). (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`). (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
-	heroIds := []int32{int32(123)} // []int32 | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	heroIds := []int64{int64(123)} // []int64 | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	includeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	excludeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -677,22 +677,22 @@ Name | Type | Description  | Notes
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; Only works for &#x60;game_modes&#x60; with badge data (e.g. &#x60;normal&#x60;, not &#x60;street_brawl&#x60;). | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; Only works for &#x60;game_modes&#x60; with badge data (e.g. &#x60;normal&#x60;, not &#x60;street_brawl&#x60;). | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
- **heroIds** | **[]int32** | Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **heroIds** | **[]int64** | Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **includeItemIds** | **[]int64** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **excludeItemIds** | **[]int64** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -735,10 +735,10 @@ import (
 func main() {
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
@@ -769,10 +769,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
@@ -817,13 +817,13 @@ import (
 )
 
 func main() {
-	heroId := int32(56) // int32 | The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	heroId := int64(789) // int64 | The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
@@ -831,10 +831,10 @@ func main() {
 	heroBuildId := int64(789) // int64 | Filter results for a specific hero build. (optional)
 	includePerformance := true // bool | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
 	minMatches := int64(789) // int64 | The minimum number of matches played for a build to be included in the response. (optional) (default to 20)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -854,7 +854,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**heroId** | **int32** | The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**heroId** | **int64** | The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Other Parameters
 
@@ -866,10 +866,10 @@ Name | Type | Description  | Notes
 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
@@ -877,10 +877,10 @@ Name | Type | Description  | Notes
  **heroBuildId** | **int64** | Filter results for a specific hero build. | 
  **includePerformance** | **bool** | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. | 
  **minMatches** | **int64** | The minimum number of matches played for a build to be included in the response. | [default to 20]
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Return type
 
@@ -924,10 +924,10 @@ func main() {
 	heroIds := "heroIds_example" // string | Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
@@ -935,10 +935,10 @@ func main() {
 	heroBuildId := int64(789) // int64 | Filter results for a specific hero build. (optional)
 	includePerformance := true // bool | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
 	minMatches := int64(789) // int64 | The minimum number of matches played for a build to be included in the response. (optional) (default to 20)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -966,10 +966,10 @@ Name | Type | Description  | Notes
  **heroIds** | **string** | Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
@@ -977,10 +977,10 @@ Name | Type | Description  | Notes
  **heroBuildId** | **int64** | Filter results for a specific hero build. | 
  **includePerformance** | **bool** | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. | 
  **minMatches** | **int64** | The minimum number of matches played for a build to be included in the response. | [default to 20]
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ### Return type
 
@@ -1023,25 +1023,25 @@ import (
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	includeHeroIds := []int32{int32(123)} // []int32 | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	excludeHeroIds := []int32{int32(123)} // []int32 | Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	includeEnemyHeroIds := []int32{int32(123)} // []int32 | Comma separated list of enemy hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	excludeEnemyHeroIds := []int32{int32(123)} // []int32 | Comma separated list of enemy hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	minMatches := int32(56) // int32 | The minimum number of matches played for a hero combination to be included in the response. (optional) (default to 20)
-	maxMatches := int32(56) // int32 | The maximum number of matches played for a hero combination to be included in the response. (optional)
+	includeHeroIds := []int64{int64(123)} // []int64 | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	excludeHeroIds := []int64{int64(123)} // []int64 | Comma separated list of hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	includeEnemyHeroIds := []int64{int64(123)} // []int64 | Comma separated list of enemy hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	excludeEnemyHeroIds := []int64{int64(123)} // []int64 | Comma separated list of enemy hero ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	minMatches := int64(789) // int64 | The minimum number of matches played for a hero combination to be included in the response. (optional) (default to 20)
+	maxMatches := int64(789) // int64 | The maximum number of matches played for a hero combination to be included in the response. (optional)
 	combSize := int32(56) // int32 | The combination size to return. (optional) (default to 6)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1068,25 +1068,25 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **includeHeroIds** | **[]int32** | Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **excludeHeroIds** | **[]int32** | Comma separated list of hero ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **includeEnemyHeroIds** | **[]int32** | Comma separated list of enemy hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **excludeEnemyHeroIds** | **[]int32** | Comma separated list of enemy hero ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **minMatches** | **int32** | The minimum number of matches played for a hero combination to be included in the response. | [default to 20]
- **maxMatches** | **int32** | The maximum number of matches played for a hero combination to be included in the response. | 
+ **includeHeroIds** | **[]int64** | Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **excludeHeroIds** | **[]int64** | Comma separated list of hero ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **includeEnemyHeroIds** | **[]int64** | Comma separated list of enemy hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **excludeEnemyHeroIds** | **[]int64** | Comma separated list of enemy hero ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **minMatches** | **int64** | The minimum number of matches played for a hero combination to be included in the response. | [default to 20]
+ **maxMatches** | **int64** | The maximum number of matches played for a hero combination to be included in the response. | 
  **combSize** | **int32** | The combination size to return. | [default to 6]
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -1129,10 +1129,10 @@ import (
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minEnemyNetworth := int64(789) // int64 | Filter enemy players based on their net worth. (optional)
@@ -1143,9 +1143,9 @@ func main() {
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	sameLaneFilter := true // bool | When `true`, only considers matchups where both `hero_id` and `enemy_hero_id` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane. (optional) (default to true)
 	minMatches := int64(789) // int64 | The minimum number of matches played for a hero combination to be included in the response. (optional) (default to 20)
-	maxMatches := int32(56) // int32 | The maximum number of matches played for a hero combination to be included in the response. (optional)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	maxMatches := int64(789) // int64 | The maximum number of matches played for a hero combination to be included in the response. (optional)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 	heroBuildId := int64(789) // int64 | Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1173,10 +1173,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minEnemyNetworth** | **int64** | Filter enemy players based on their net worth. | 
@@ -1187,9 +1187,9 @@ Name | Type | Description  | Notes
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **sameLaneFilter** | **bool** | When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id&#x60; and &#x60;enemy_hero_id&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. | [default to true]
  **minMatches** | **int64** | The minimum number of matches played for a hero combination to be included in the response. | [default to 20]
- **maxMatches** | **int32** | The maximum number of matches played for a hero combination to be included in the response. | 
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **maxMatches** | **int64** | The maximum number of matches played for a hero combination to be included in the response. | 
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
  **heroBuildId** | **int64** | Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | 
 
 ### Return type
@@ -1235,19 +1235,19 @@ func main() {
 	sortDirection := "sortDirection_example" // string | The direction to sort heroes in. (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minMatches := int32(56) // int32 | Filter by min number of matches played. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minMatches := int64(789) // int64 | Filter by min number of matches played. (optional)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1276,19 +1276,19 @@ Name | Type | Description  | Notes
  **sortDirection** | **string** | The direction to sort heroes in. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minMatches** | **int32** | Filter by min number of matches played. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minMatches** | **int64** | Filter by min number of matches played. | 
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -1332,10 +1332,10 @@ func main() {
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute. (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute. (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
@@ -1346,13 +1346,13 @@ func main() {
 	maxHeroMatches := int64(789) // int64 | Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
 	minHeroMatchesTotal := int64(789) // int64 | Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`. The counts are refreshed every 30 minutes. (optional)
 	maxHeroMatchesTotal := int64(789) // int64 | Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`. The counts are refreshed every 30 minutes. (optional)
-	heroMatchesTotalBuckets := []int32{int32(123)} // []int32 | Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player's matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds. (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	heroMatchesTotalBuckets := []int64{int64(123)} // []int64 | Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player's matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds. (optional)
+	includeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	excludeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1380,10 +1380,10 @@ Name | Type | Description  | Notes
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute. | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute (a value ending in 59 seconds, e.g. &#x60;1799&#x60;, is kept). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute. | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute (a value ending in 59 seconds, e.g. &#x60;1799&#x60;, is kept). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
@@ -1394,13 +1394,13 @@ Name | Type | Description  | Notes
  **maxHeroMatches** | **int64** | Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). | 
  **minHeroMatchesTotal** | **int64** | Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. The counts are refreshed every 30 minutes. | 
  **maxHeroMatchesTotal** | **int64** | Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. The counts are refreshed every 30 minutes. | 
- **heroMatchesTotalBuckets** | **[]int32** | Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds. | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **heroMatchesTotalBuckets** | **[]int64** | Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds. | 
+ **includeItemIds** | **[]int64** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **excludeItemIds** | **[]int64** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -1443,10 +1443,10 @@ import (
 func main() {
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
 	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
@@ -1477,10 +1477,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
  **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
@@ -1527,10 +1527,10 @@ import (
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
@@ -1539,9 +1539,9 @@ func main() {
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	sameLaneFilter := true // bool | When `true`, only considers matchups where both `hero_id1` and `hero_id2` were assigned to the same lane (e.g., both Mid Lane). When `false`, considers all matchups regardless of assigned lane. (optional) (default to true)
 	minMatches := int64(789) // int64 | The minimum number of matches played for a hero combination to be included in the response. (optional) (default to 20)
-	maxMatches := int32(56) // int32 | The maximum number of matches played for a hero combination to be included in the response. (optional)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	maxMatches := int64(789) // int64 | The maximum number of matches played for a hero combination to be included in the response. (optional)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1568,10 +1568,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
@@ -1580,9 +1580,9 @@ Name | Type | Description  | Notes
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **sameLaneFilter** | **bool** | When &#x60;true&#x60;, only considers matchups where both &#x60;hero_id1&#x60; and &#x60;hero_id2&#x60; were assigned to the same lane (e.g., both Mid Lane). When &#x60;false&#x60;, considers all matchups regardless of assigned lane. | [default to true]
  **minMatches** | **int64** | The minimum number of matches played for a hero combination to be included in the response. | [default to 20]
- **maxMatches** | **int32** | The maximum number of matches played for a hero combination to be included in the response. | 
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **maxMatches** | **int64** | The maximum number of matches played for a hero combination to be included in the response. | 
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -1623,29 +1623,29 @@ import (
 )
 
 func main() {
-	phaseIntervalS := int32(56) // int32 | Deprecated/unused. `normal` mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; `street_brawl` columns are rounds. (optional) (default to 600)
+	phaseIntervalS := int64(789) // int64 | Deprecated/unused. `normal` mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; `street_brawl` columns are rounds. (optional) (default to 600)
 	phaseCount := int32(56) // int32 | Number of columns for `street_brawl` (rounds). Ignored for `normal`, which has fixed time phases. **Default:** 4. (optional) (default to 4)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	minMatches := int32(56) // int32 | The minimum number of matches for a node or edge to be included in the response. (optional) (default to 20)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	lockedItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	lockedColumns := []int32{int32(123)} // []int32 | Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`. (optional)
+	minMatches := int64(789) // int64 | The minimum number of matches for a node or edge to be included in the response. (optional) (default to 20)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
+	includeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	excludeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	lockedItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	lockedColumns := []int64{int64(123)} // []int64 | Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1670,29 +1670,29 @@ Other parameters are passed through a pointer to a apiItemFlowStatsRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **phaseIntervalS** | **int32** | Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds. | [default to 600]
+ **phaseIntervalS** | **int64** | Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds. | [default to 600]
  **phaseCount** | **int32** | Number of columns for &#x60;street_brawl&#x60; (rounds). Ignored for &#x60;normal&#x60;, which has fixed time phases. **Default:** 4. | [default to 4]
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **minMatches** | **int32** | The minimum number of matches for a node or edge to be included in the response. | [default to 20]
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **lockedItemIds** | **[]int32** | Comma separated list of item ids forming a \&quot;locked\&quot; build path. Pairs positionally with &#x60;locked_columns&#x60;: the i-th item must have been bought in the i-th &#x60;locked_columns&#x60; stage. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **lockedColumns** | **[]int32** | Comma separated 0-based stage column indices for each &#x60;locked_item_ids&#x60; entry (time phase for &#x60;normal&#x60;, round for &#x60;street_brawl&#x60;). Must have the same length as &#x60;locked_item_ids&#x60;. | 
+ **minMatches** | **int64** | The minimum number of matches for a node or edge to be included in the response. | [default to 20]
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
+ **includeItemIds** | **[]int64** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **excludeItemIds** | **[]int64** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **lockedItemIds** | **[]int64** | Comma separated list of item ids forming a \&quot;locked\&quot; build path. Pairs positionally with &#x60;locked_columns&#x60;: the i-th item must have been bought in the i-th &#x60;locked_columns&#x60; stage. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **lockedColumns** | **[]int64** | Comma separated 0-based stage column indices for each &#x60;locked_item_ids&#x60; entry (time phase for &#x60;normal&#x60;, round for &#x60;street_brawl&#x60;). Must have the same length as &#x60;locked_item_ids&#x60;. | 
 
 ### Return type
 
@@ -1733,28 +1733,28 @@ import (
 )
 
 func main() {
-	itemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	itemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
 	combSize := int32(56) // int32 | The combination size to return. (optional) (default to 2)
-	minMatches := int32(56) // int32 | The minimum number of matches for an item combination to be included in the response. (optional) (default to 20)
-	maxMatches := int32(56) // int32 | The maximum number of matches for an item combination to be included in the response. (optional)
+	minMatches := int64(789) // int64 | The minimum number of matches for an item combination to be included in the response. (optional) (default to 20)
+	maxMatches := int64(789) // int64 | The maximum number of matches for an item combination to be included in the response. (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	heroId := int32(56) // int32 | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	heroId := int64(789) // int64 | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	includeCorruptedItems := true // bool | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** `false`, corrupted purchases are ignored. (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1780,28 +1780,28 @@ Other parameters are passed through a pointer to a apiItemPermutationStatsReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemIds** | **[]int32** | Comma separated list of item ids. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **itemIds** | **[]int64** | Comma separated list of item ids. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
  **combSize** | **int32** | The combination size to return. | [default to 2]
- **minMatches** | **int32** | The minimum number of matches for an item combination to be included in the response. | [default to 20]
- **maxMatches** | **int32** | The maximum number of matches for an item combination to be included in the response. | 
+ **minMatches** | **int64** | The minimum number of matches for an item combination to be included in the response. | [default to 20]
+ **maxMatches** | **int64** | The maximum number of matches for an item combination to be included in the response. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **heroId** | **int32** | Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **heroId** | **int64** | Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **includeCorruptedItems** | **bool** | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are ignored. | [default to false]
 
 ### Return type
@@ -1847,33 +1847,33 @@ func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	heroId := int32(56) // int32 | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	heroId := int64(789) // int64 | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	enemyHeroIds := "enemyHeroIds_example" // string | Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \"what items beat hero(es) X?\" stats. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	enemyHeroIdsAllMatch := true // bool | When `true`, requires *all* of the specified `enemy_hero_ids` to be on the same enemy team. When `false` (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when `enemy_hero_ids` is unset. (optional)
 	minEnemyNetworth := int64(789) // int64 | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. (optional)
 	maxEnemyNetworth := int64(789) // int64 | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. (optional)
 	sameLaneFilter := true // bool | When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	includeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	excludeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	heroBuildId := int64(789) // int64 | Only players who started the match with this hero build selected (the first build they had selected when the game started). Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
-	minMatches := int32(56) // int32 | The minimum number of matches played for an item to be included in the response. (optional) (default to 20)
-	maxMatches := int32(56) // int32 | The maximum number of matches played for an item to be included in the response. (optional)
-	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
-	minBoughtAtS := int32(56) // int32 | Filter items bought after this game time (seconds). (optional)
-	maxBoughtAtS := int32(56) // int32 | Filter items bought before this game time (seconds). (optional)
+	minMatches := int64(789) // int64 | The minimum number of matches played for an item to be included in the response. (optional) (default to 20)
+	maxMatches := int64(789) // int64 | The maximum number of matches played for an item to be included in the response. (optional)
+	accountId := int64(789) // int64 | Filter for matches with a specific player account ID. (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
+	minBoughtAtS := int64(789) // int64 | Filter items bought after this game time (seconds). (optional)
+	maxBoughtAtS := int64(789) // int64 | Filter items bought before this game time (seconds). (optional)
 	itemOrder := []string{"Inner_example"} // []string | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
 	corruptedItems := "corruptedItems_example" // string | How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set. (optional)
 	includeCorruptedItems := true // bool | Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set. (optional) (default to false)
@@ -1906,33 +1906,33 @@ Name | Type | Description  | Notes
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **heroId** | **int32** | Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **heroId** | **int64** | Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **enemyHeroIds** | **string** | Filter to matches where one or more of these heroes were on the opposing team. Comma separated. When set, returns \&quot;what items beat hero(es) X?\&quot; stats. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **enemyHeroIdsAllMatch** | **bool** | When &#x60;true&#x60;, requires *all* of the specified &#x60;enemy_hero_ids&#x60; to be on the same enemy team. When &#x60;false&#x60; (default), matches if *any* of the specified hero(es) are on the enemy team. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | 
  **minEnemyNetworth** | **int64** | Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | 
  **maxEnemyNetworth** | **int64** | Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | 
  **sameLaneFilter** | **bool** | When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **includeItemIds** | **[]int64** | Comma separated list of item ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **excludeItemIds** | **[]int64** | Comma separated list of item ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **heroBuildId** | **int64** | Only players who started the match with this hero build selected (the first build they had selected when the game started). Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | 
- **minMatches** | **int32** | The minimum number of matches played for an item to be included in the response. | [default to 20]
- **maxMatches** | **int32** | The maximum number of matches played for an item to be included in the response. | 
- **accountId** | **int32** | Filter for matches with a specific player account ID. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
- **minBoughtAtS** | **int32** | Filter items bought after this game time (seconds). | 
- **maxBoughtAtS** | **int32** | Filter items bought before this game time (seconds). | 
+ **minMatches** | **int64** | The minimum number of matches played for an item to be included in the response. | [default to 20]
+ **maxMatches** | **int64** | The maximum number of matches played for an item to be included in the response. | 
+ **accountId** | **int64** | Filter for matches with a specific player account ID. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
+ **minBoughtAtS** | **int64** | Filter items bought after this game time (seconds). | 
+ **maxBoughtAtS** | **int64** | Filter items bought before this game time (seconds). | 
  **itemOrder** | **[]string** | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
  **corruptedItems** | **string** | How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). &#x60;exclude&#x60;: only normal purchases. &#x60;include&#x60;: corrupted purchases count as the normal item. &#x60;only&#x60;: only corrupted purchases, so each row describes the corrupted variant of &#x60;item_id&#x60;. Compare it with the same request using &#x60;exclude&#x60;. Corrupted items only exist in matches from 2026-09-29 on, so &#x60;only&#x60; ignores earlier time and match-id bounds. &#x60;include&#x60; and &#x60;only&#x60; skip the pre-aggregated rollups, so those requests are slower. **Default:** &#x60;exclude&#x60;, or &#x60;include&#x60; if the deprecated &#x60;include_corrupted_items&#x3D;true&#x60; is set. | 
  **includeCorruptedItems** | **bool** | Deprecated alias of &#x60;corrupted_items&#x3D;include&#x60;. &#x60;corrupted_items&#x60; takes precedence when both are set. | [default to false]
@@ -1980,11 +1980,11 @@ func main() {
 	team := int32(56) // int32 | Filter by team number. (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	accountIds := []int32{int32(123)} // []int32 | Filter matches by account IDs of players that participated in the match. (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	accountIds := []int64{int64(123)} // []int64 | Filter matches by account IDs of players that participated in the match. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
@@ -1995,10 +1995,10 @@ func main() {
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
-	minKillsPerRaster := int32(56) // int32 | Filter Raster cells based on minimum kills. (optional)
-	maxKillsPerRaster := int32(56) // int32 | Filter Raster cells based on maximum kills. (optional)
-	minDeathsPerRaster := int32(56) // int32 | Filter Raster cells based on minimum deaths. (optional)
-	maxDeathsPerRaster := int32(56) // int32 | Filter Raster cells based on maximum deaths. (optional)
+	minKillsPerRaster := int64(789) // int64 | Filter Raster cells based on minimum kills. (optional)
+	maxKillsPerRaster := int64(789) // int64 | Filter Raster cells based on maximum kills. (optional)
+	minDeathsPerRaster := int64(789) // int64 | Filter Raster cells based on minimum deaths. (optional)
+	maxDeathsPerRaster := int64(789) // int64 | Filter Raster cells based on maximum deaths. (optional)
 	minGameTimeS := int32(56) // int32 | Filter kills based on their game time. (optional)
 	maxGameTimeS := int32(56) // int32 | Filter kills based on their game time. (optional)
 
@@ -2028,11 +2028,11 @@ Name | Type | Description  | Notes
  **team** | **int32** | Filter by team number. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **accountIds** | **[]int32** | Filter matches by account IDs of players that participated in the match. | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **accountIds** | **[]int64** | Filter matches by account IDs of players that participated in the match. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
@@ -2043,10 +2043,10 @@ Name | Type | Description  | Notes
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
- **minKillsPerRaster** | **int32** | Filter Raster cells based on minimum kills. | 
- **maxKillsPerRaster** | **int32** | Filter Raster cells based on maximum kills. | 
- **minDeathsPerRaster** | **int32** | Filter Raster cells based on minimum deaths. | 
- **maxDeathsPerRaster** | **int32** | Filter Raster cells based on maximum deaths. | 
+ **minKillsPerRaster** | **int64** | Filter Raster cells based on minimum kills. | 
+ **maxKillsPerRaster** | **int64** | Filter Raster cells based on maximum kills. | 
+ **minDeathsPerRaster** | **int64** | Filter Raster cells based on minimum deaths. | 
+ **maxDeathsPerRaster** | **int64** | Filter Raster cells based on maximum deaths. | 
  **minGameTimeS** | **int32** | Filter kills based on their game time. | 
  **maxGameTimeS** | **int32** | Filter kills based on their game time. | 
 
@@ -2091,23 +2091,23 @@ import (
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	sampleTimeS := int32(56) // int32 | Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did. (optional) (default to 900)
+	sampleTimeS := int64(789) // int64 | Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in `wins` and `matches_played`, but contribute no reading; `sample_matches` reports how many did. (optional) (default to 900)
 	assignedLanes := "assignedLanes_example" // string | Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>. (optional)
-	heroIds := []int32{int32(123)} // []int32 | Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	enemyHeroIds := []int32{int32(123)} // []int32 | Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	heroIds := []int64{int64(123)} // []int64 | Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	enemyHeroIds := []int64{int64(123)} // []int64 | Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	stats := "stats_example" // string | Comma separated list of extra per-tick stats to report, at most 8. **Default:** none. (optional)
 	groupBy := "groupBy_example" // string | Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three. (optional)
 	minMatches := int64(789) // int64 | The minimum number of lane matchups behind a row for it to be included in the response. (optional) (default to 20)
 	maxMatches := int64(789) // int64 | The maximum number of lane matchups behind a row for it to be included in the response. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2134,23 +2134,23 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **sampleTimeS** | **int32** | Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in &#x60;wins&#x60; and &#x60;matches_played&#x60;, but contribute no reading; &#x60;sample_matches&#x60; reports how many did. | [default to 900]
+ **sampleTimeS** | **int64** | Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in &#x60;wins&#x60; and &#x60;matches_played&#x60;, but contribute no reading; &#x60;sample_matches&#x60; reports how many did. | [default to 900]
  **assignedLanes** | **string** | Comma separated list of &#x60;assigned_lane&#x60; values to restrict the response to. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;. | 
- **heroIds** | **[]int32** | Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **enemyHeroIds** | **[]int32** | Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **heroIds** | **[]int64** | Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **enemyHeroIds** | **[]int64** | Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **stats** | **string** | Comma separated list of extra per-tick stats to report, at most 8. **Default:** none. | 
  **groupBy** | **string** | Comma separated list of dimensions to group by. Valid values: &#x60;assigned_lane&#x60;, &#x60;hero_ids&#x60;, &#x60;enemy_hero_ids&#x60;. **Default:** all three. | 
  **minMatches** | **int64** | The minimum number of lane matchups behind a row for it to be included in the response. | [default to 20]
  **maxMatches** | **int64** | The maximum number of lane matchups behind a row for it to be included in the response. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -2193,24 +2193,24 @@ import (
 func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	minTimeS := int32(56) // int32 | Earliest sample to return, in seconds into the match. **Default:** 180. (optional) (default to 180)
-	maxTimeS := int32(56) // int32 | Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match. (optional)
+	minTimeS := int64(789) // int64 | Earliest sample to return, in seconds into the match. **Default:** 180. (optional) (default to 180)
+	maxTimeS := int64(789) // int64 | Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match. (optional)
 	assignedLanes := "assignedLanes_example" // string | Comma separated list of `assigned_lane` values to restrict the response to. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>. (optional)
-	heroIds := []int32{int32(123)} // []int32 | Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	enemyHeroIds := []int32{int32(123)} // []int32 | Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	heroIds := []int64{int64(123)} // []int64 | Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	enemyHeroIds := []int64{int64(123)} // []int64 | Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	stats := "stats_example" // string | Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none. (optional)
 	groupBy := "groupBy_example" // string | Comma separated list of dimensions to group by. Valid values: `assigned_lane`, `hero_ids`, `enemy_hero_ids`. **Default:** all three. (optional)
 	minMatches := int64(789) // int64 | The minimum number of lane matchups behind a row for it to be included in the response. (optional) (default to 20)
 	maxMatches := int64(789) // int64 | The maximum number of lane matchups behind a row for it to be included in the response. (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2237,24 +2237,24 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **minTimeS** | **int32** | Earliest sample to return, in seconds into the match. **Default:** 180. | [default to 180]
- **maxTimeS** | **int32** | Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match. | 
+ **minTimeS** | **int64** | Earliest sample to return, in seconds into the match. **Default:** 180. | [default to 180]
+ **maxTimeS** | **int64** | Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match. | 
  **assignedLanes** | **string** | Comma separated list of &#x60;assigned_lane&#x60; values to restrict the response to. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;. | 
- **heroIds** | **[]int32** | Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **enemyHeroIds** | **[]int32** | Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **heroIds** | **[]int64** | Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **enemyHeroIds** | **[]int64** | Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **stats** | **string** | Comma separated list of extra per-tick stats to return curves for, at most 8. **Default:** none. | 
  **groupBy** | **string** | Comma separated list of dimensions to group by. Valid values: &#x60;assigned_lane&#x60;, &#x60;hero_ids&#x60;, &#x60;enemy_hero_ids&#x60;. **Default:** all three. | 
  **minMatches** | **int64** | The minimum number of lane matchups behind a row for it to be included in the response. | [default to 20]
  **maxMatches** | **int64** | The maximum number of lane matchups behind a row for it to be included in the response. | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -2298,10 +2298,10 @@ func main() {
 	resolution := int32(56) // int32 | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). (optional) (default to 10)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
@@ -2310,11 +2310,11 @@ func main() {
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	heroBuildId := int64(789) // int64 | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	includeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	excludeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2342,10 +2342,10 @@ Name | Type | Description  | Notes
  **resolution** | **int32** | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [default to 10]
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
@@ -2354,11 +2354,11 @@ Name | Type | Description  | Notes
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **heroBuildId** | **int64** | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **includeItemIds** | **[]int64** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **excludeItemIds** | **[]int64** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -2403,23 +2403,23 @@ func main() {
 	sortDirection := "sortDirection_example" // string | The direction to sort players in. (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	heroId := int32(56) // int32 | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	heroId := int64(789) // int64 | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	heroBuildId := int64(789) // int64 | Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
-	minMatches := int32(56) // int32 | The minimum number of matches played for a player to be included in the scoreboard. (optional) (default to 20)
-	maxMatches := int32(56) // int32 | The maximum number of matches played for a player to be included in the scoreboard. (optional)
+	minMatches := int64(789) // int64 | The minimum number of matches played for a player to be included in the scoreboard. (optional) (default to 20)
+	maxMatches := int64(789) // int64 | The maximum number of matches played for a player to be included in the scoreboard. (optional)
 	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	start := int32(56) // int32 | The rank to start fetching players from (1-based, like `rank`). (optional)
+	start := int64(789) // int64 | The rank to start fetching players from (1-based, like `rank`). (optional)
 	limit := int32(56) // int32 | The maximum number of players to fetch. (optional) (default to 100)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2448,23 +2448,23 @@ Name | Type | Description  | Notes
  **sortDirection** | **string** | The direction to sort players in. | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **heroId** | **int32** | Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **heroId** | **int64** | Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **heroBuildId** | **int64** | Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | 
- **minMatches** | **int32** | The minimum number of matches played for a player to be included in the scoreboard. | [default to 20]
- **maxMatches** | **int32** | The maximum number of matches played for a player to be included in the scoreboard. | 
+ **minMatches** | **int64** | The minimum number of matches played for a player to be included in the scoreboard. | [default to 20]
+ **maxMatches** | **int64** | The maximum number of matches played for a player to be included in the scoreboard. | 
  **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **start** | **int32** | The rank to start fetching players from (1-based, like &#x60;rank&#x60;). | 
+ **start** | **int64** | The rank to start fetching players from (1-based, like &#x60;rank&#x60;). | 
  **limit** | **int32** | The maximum number of players to fetch. | [default to 100]
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
 
 ### Return type
 
@@ -2509,22 +2509,22 @@ func main() {
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1792972800)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
-	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
-	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
 	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
-	maxMatches := int32(56) // int32 | The maximum number of matches to analyze. (optional)
-	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
-	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	maxMatches := int64(789) // int64 | The maximum number of matches to analyze. (optional)
+	includeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	excludeItemIds := []int64{int64(123)} // []int64 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	abilityOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
+	abilityUnlockOrderPrefix := []int64{int64(123)} // []int64 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids to include (optional)
 	includeBuffMetrics := true // bool | Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them. (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
@@ -2554,22 +2554,22 @@ Name | Type | Description  | Notes
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1792972800]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
- **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
- **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **minNetworth** | **int64** | Filter players based on their final net worth. | 
  **maxNetworth** | **int64** | Filter players based on their final net worth. | 
  **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
- **maxMatches** | **int32** | The maximum number of matches to analyze. | 
- **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
- **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **maxMatches** | **int64** | The maximum number of matches to analyze. | 
+ **includeItemIds** | **[]int64** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **excludeItemIds** | **[]int64** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **abilityOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
+ **abilityUnlockOrderPrefix** | **[]int64** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **accountIds** | **[]int64** | Comma separated list of account ids to include | 
  **includeBuffMetrics** | **bool** | Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. | [default to false]
 
 ### Return type

@@ -22,7 +22,7 @@ var _ MappedNullable = &BadgeDistribution{}
 // BadgeDistribution struct for BadgeDistribution
 type BadgeDistribution struct {
 	// The badge level (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	BadgeLevel int32 `json:"badge_level"`
+	BadgeLevel int64 `json:"badge_level"`
 	// The total number of matches.
 	TotalMatches int64 `json:"total_matches"`
 	// The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.
@@ -35,7 +35,7 @@ type _BadgeDistribution BadgeDistribution
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBadgeDistribution(badgeLevel int32, totalMatches int64, uniquePlayers int64) *BadgeDistribution {
+func NewBadgeDistribution(badgeLevel int64, totalMatches int64, uniquePlayers int64) *BadgeDistribution {
 	this := BadgeDistribution{}
 	this.BadgeLevel = badgeLevel
 	this.TotalMatches = totalMatches
@@ -52,9 +52,9 @@ func NewBadgeDistributionWithDefaults() *BadgeDistribution {
 }
 
 // GetBadgeLevel returns the BadgeLevel field value
-func (o *BadgeDistribution) GetBadgeLevel() int32 {
+func (o *BadgeDistribution) GetBadgeLevel() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *BadgeDistribution) GetBadgeLevel() int32 {
 
 // GetBadgeLevelOk returns a tuple with the BadgeLevel field value
 // and a boolean to check if the value has been set.
-func (o *BadgeDistribution) GetBadgeLevelOk() (*int32, bool) {
+func (o *BadgeDistribution) GetBadgeLevelOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *BadgeDistribution) GetBadgeLevelOk() (*int32, bool) {
 }
 
 // SetBadgeLevel sets field value
-func (o *BadgeDistribution) SetBadgeLevel(v int32) {
+func (o *BadgeDistribution) SetBadgeLevel(v int64) {
 	o.BadgeLevel = v
 }
 

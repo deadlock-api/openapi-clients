@@ -27,11 +27,11 @@ type ApiGetConvarRequest struct {
 	ctx context.Context
 	ApiService *ConvarsAPIService
 	name string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetConvarRequest) ClientVersion(clientVersion int32) ApiGetConvarRequest {
+func (r ApiGetConvarRequest) ClientVersion(clientVersion int64) ApiGetConvarRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -139,11 +139,11 @@ func (a *ConvarsAPIService) GetConvarExecute(r ApiGetConvarRequest) (*Convar, *h
 type ApiListConvarsRequest struct {
 	ctx context.Context
 	ApiService *ConvarsAPIService
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiListConvarsRequest) ClientVersion(clientVersion int32) ApiListConvarsRequest {
+func (r ApiListConvarsRequest) ClientVersion(clientVersion int64) ApiListConvarsRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

@@ -22,17 +22,17 @@ var _ MappedNullable = &ClickhouseMatchInfo{}
 // ClickhouseMatchInfo struct for ClickhouseMatchInfo
 type ClickhouseMatchInfo struct {
 	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	AverageBadge NullableInt32 `json:"average_badge,omitempty"`
+	AverageBadge NullableInt64 `json:"average_badge,omitempty"`
 	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	AverageBadgeTeam0 NullableInt32 `json:"average_badge_team0,omitempty"`
+	AverageBadgeTeam0 NullableInt64 `json:"average_badge_team0,omitempty"`
 	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	AverageBadgeTeam1 NullableInt32 `json:"average_badge_team1,omitempty"`
-	DurationS int32 `json:"duration_s"`
+	AverageBadgeTeam1 NullableInt64 `json:"average_badge_team1,omitempty"`
+	DurationS int64 `json:"duration_s"`
 	GameMode int32 `json:"game_mode"`
 	MatchId int64 `json:"match_id"`
 	MatchMode int32 `json:"match_mode"`
 	Players []MatchPlayer `json:"players"`
-	StartTime int32 `json:"start_time"`
+	StartTime int64 `json:"start_time"`
 }
 
 type _ClickhouseMatchInfo ClickhouseMatchInfo
@@ -41,7 +41,7 @@ type _ClickhouseMatchInfo ClickhouseMatchInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClickhouseMatchInfo(durationS int32, gameMode int32, matchId int64, matchMode int32, players []MatchPlayer, startTime int32) *ClickhouseMatchInfo {
+func NewClickhouseMatchInfo(durationS int64, gameMode int32, matchId int64, matchMode int32, players []MatchPlayer, startTime int64) *ClickhouseMatchInfo {
 	this := ClickhouseMatchInfo{}
 	this.DurationS = durationS
 	this.GameMode = gameMode
@@ -61,9 +61,9 @@ func NewClickhouseMatchInfoWithDefaults() *ClickhouseMatchInfo {
 }
 
 // GetAverageBadge returns the AverageBadge field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ClickhouseMatchInfo) GetAverageBadge() int32 {
+func (o *ClickhouseMatchInfo) GetAverageBadge() int64 {
 	if o == nil || IsNil(o.AverageBadge.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AverageBadge.Get()
@@ -72,7 +72,7 @@ func (o *ClickhouseMatchInfo) GetAverageBadge() int32 {
 // GetAverageBadgeOk returns a tuple with the AverageBadge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ClickhouseMatchInfo) GetAverageBadgeOk() (*int32, bool) {
+func (o *ClickhouseMatchInfo) GetAverageBadgeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -88,8 +88,8 @@ func (o *ClickhouseMatchInfo) HasAverageBadge() bool {
 	return false
 }
 
-// SetAverageBadge gets a reference to the given NullableInt32 and assigns it to the AverageBadge field.
-func (o *ClickhouseMatchInfo) SetAverageBadge(v int32) {
+// SetAverageBadge gets a reference to the given NullableInt64 and assigns it to the AverageBadge field.
+func (o *ClickhouseMatchInfo) SetAverageBadge(v int64) {
 	o.AverageBadge.Set(&v)
 }
 // SetAverageBadgeNil sets the value for AverageBadge to be an explicit nil
@@ -103,9 +103,9 @@ func (o *ClickhouseMatchInfo) UnsetAverageBadge() {
 }
 
 // GetAverageBadgeTeam0 returns the AverageBadgeTeam0 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ClickhouseMatchInfo) GetAverageBadgeTeam0() int32 {
+func (o *ClickhouseMatchInfo) GetAverageBadgeTeam0() int64 {
 	if o == nil || IsNil(o.AverageBadgeTeam0.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AverageBadgeTeam0.Get()
@@ -114,7 +114,7 @@ func (o *ClickhouseMatchInfo) GetAverageBadgeTeam0() int32 {
 // GetAverageBadgeTeam0Ok returns a tuple with the AverageBadgeTeam0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ClickhouseMatchInfo) GetAverageBadgeTeam0Ok() (*int32, bool) {
+func (o *ClickhouseMatchInfo) GetAverageBadgeTeam0Ok() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -130,8 +130,8 @@ func (o *ClickhouseMatchInfo) HasAverageBadgeTeam0() bool {
 	return false
 }
 
-// SetAverageBadgeTeam0 gets a reference to the given NullableInt32 and assigns it to the AverageBadgeTeam0 field.
-func (o *ClickhouseMatchInfo) SetAverageBadgeTeam0(v int32) {
+// SetAverageBadgeTeam0 gets a reference to the given NullableInt64 and assigns it to the AverageBadgeTeam0 field.
+func (o *ClickhouseMatchInfo) SetAverageBadgeTeam0(v int64) {
 	o.AverageBadgeTeam0.Set(&v)
 }
 // SetAverageBadgeTeam0Nil sets the value for AverageBadgeTeam0 to be an explicit nil
@@ -145,9 +145,9 @@ func (o *ClickhouseMatchInfo) UnsetAverageBadgeTeam0() {
 }
 
 // GetAverageBadgeTeam1 returns the AverageBadgeTeam1 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ClickhouseMatchInfo) GetAverageBadgeTeam1() int32 {
+func (o *ClickhouseMatchInfo) GetAverageBadgeTeam1() int64 {
 	if o == nil || IsNil(o.AverageBadgeTeam1.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AverageBadgeTeam1.Get()
@@ -156,7 +156,7 @@ func (o *ClickhouseMatchInfo) GetAverageBadgeTeam1() int32 {
 // GetAverageBadgeTeam1Ok returns a tuple with the AverageBadgeTeam1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ClickhouseMatchInfo) GetAverageBadgeTeam1Ok() (*int32, bool) {
+func (o *ClickhouseMatchInfo) GetAverageBadgeTeam1Ok() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -172,8 +172,8 @@ func (o *ClickhouseMatchInfo) HasAverageBadgeTeam1() bool {
 	return false
 }
 
-// SetAverageBadgeTeam1 gets a reference to the given NullableInt32 and assigns it to the AverageBadgeTeam1 field.
-func (o *ClickhouseMatchInfo) SetAverageBadgeTeam1(v int32) {
+// SetAverageBadgeTeam1 gets a reference to the given NullableInt64 and assigns it to the AverageBadgeTeam1 field.
+func (o *ClickhouseMatchInfo) SetAverageBadgeTeam1(v int64) {
 	o.AverageBadgeTeam1.Set(&v)
 }
 // SetAverageBadgeTeam1Nil sets the value for AverageBadgeTeam1 to be an explicit nil
@@ -187,9 +187,9 @@ func (o *ClickhouseMatchInfo) UnsetAverageBadgeTeam1() {
 }
 
 // GetDurationS returns the DurationS field value
-func (o *ClickhouseMatchInfo) GetDurationS() int32 {
+func (o *ClickhouseMatchInfo) GetDurationS() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -198,7 +198,7 @@ func (o *ClickhouseMatchInfo) GetDurationS() int32 {
 
 // GetDurationSOk returns a tuple with the DurationS field value
 // and a boolean to check if the value has been set.
-func (o *ClickhouseMatchInfo) GetDurationSOk() (*int32, bool) {
+func (o *ClickhouseMatchInfo) GetDurationSOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -206,7 +206,7 @@ func (o *ClickhouseMatchInfo) GetDurationSOk() (*int32, bool) {
 }
 
 // SetDurationS sets field value
-func (o *ClickhouseMatchInfo) SetDurationS(v int32) {
+func (o *ClickhouseMatchInfo) SetDurationS(v int64) {
 	o.DurationS = v
 }
 
@@ -307,9 +307,9 @@ func (o *ClickhouseMatchInfo) SetPlayers(v []MatchPlayer) {
 }
 
 // GetStartTime returns the StartTime field value
-func (o *ClickhouseMatchInfo) GetStartTime() int32 {
+func (o *ClickhouseMatchInfo) GetStartTime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -318,7 +318,7 @@ func (o *ClickhouseMatchInfo) GetStartTime() int32 {
 
 // GetStartTimeOk returns a tuple with the StartTime field value
 // and a boolean to check if the value has been set.
-func (o *ClickhouseMatchInfo) GetStartTimeOk() (*int32, bool) {
+func (o *ClickhouseMatchInfo) GetStartTimeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -326,7 +326,7 @@ func (o *ClickhouseMatchInfo) GetStartTimeOk() (*int32, bool) {
 }
 
 // SetStartTime sets field value
-func (o *ClickhouseMatchInfo) SetStartTime(v int32) {
+func (o *ClickhouseMatchInfo) SetStartTime(v int64) {
 	o.StartTime = v
 }
 

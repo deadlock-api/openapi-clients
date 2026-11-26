@@ -22,11 +22,11 @@ type RankInfo struct {
 	// Losses a player at a badge's first subrank with 0 rank points can take before dropping a badge (rank loss protection shields).
 	BadgeShields NullableInt32 `json:"badge_shields,omitempty"`
 	// Rank badge (tier * 10 + subrank) the entry stops at: it covers the ranks below it. In Beta Season 2, 91 (Phantom I) gives every rank below Phantom shields and Phantom and up none.
-	RankEnd NullableInt32 `json:"rank_end,omitempty"`
+	RankEnd NullableInt64 `json:"rank_end,omitempty"`
 	// Losses a player can take before dropping a subrank (rank loss protection shields).
 	SubRankShields NullableInt32 `json:"sub_rank_shields,omitempty"`
 	// Rank points needed per subrank step, the last one being the step to the next badge (Beta Season 2: 1000 between subranks, 1500 from the final subrank).
-	SubRankXp []int32 `json:"sub_rank_xp,omitempty"`
+	SubRankXp []int64 `json:"sub_rank_xp,omitempty"`
 }
 
 // NewRankInfo instantiates a new RankInfo object
@@ -89,9 +89,9 @@ func (o *RankInfo) UnsetBadgeShields() {
 }
 
 // GetRankEnd returns the RankEnd field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RankInfo) GetRankEnd() int32 {
+func (o *RankInfo) GetRankEnd() int64 {
 	if o == nil || IsNil(o.RankEnd.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RankEnd.Get()
@@ -100,7 +100,7 @@ func (o *RankInfo) GetRankEnd() int32 {
 // GetRankEndOk returns a tuple with the RankEnd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RankInfo) GetRankEndOk() (*int32, bool) {
+func (o *RankInfo) GetRankEndOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -116,8 +116,8 @@ func (o *RankInfo) HasRankEnd() bool {
 	return false
 }
 
-// SetRankEnd gets a reference to the given NullableInt32 and assigns it to the RankEnd field.
-func (o *RankInfo) SetRankEnd(v int32) {
+// SetRankEnd gets a reference to the given NullableInt64 and assigns it to the RankEnd field.
+func (o *RankInfo) SetRankEnd(v int64) {
 	o.RankEnd.Set(&v)
 }
 // SetRankEndNil sets the value for RankEnd to be an explicit nil
@@ -173,9 +173,9 @@ func (o *RankInfo) UnsetSubRankShields() {
 }
 
 // GetSubRankXp returns the SubRankXp field value if set, zero value otherwise.
-func (o *RankInfo) GetSubRankXp() []int32 {
+func (o *RankInfo) GetSubRankXp() []int64 {
 	if o == nil || IsNil(o.SubRankXp) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.SubRankXp
@@ -183,7 +183,7 @@ func (o *RankInfo) GetSubRankXp() []int32 {
 
 // GetSubRankXpOk returns a tuple with the SubRankXp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RankInfo) GetSubRankXpOk() ([]int32, bool) {
+func (o *RankInfo) GetSubRankXpOk() ([]int64, bool) {
 	if o == nil || IsNil(o.SubRankXp) {
 		return nil, false
 	}
@@ -199,8 +199,8 @@ func (o *RankInfo) HasSubRankXp() bool {
 	return false
 }
 
-// SetSubRankXp gets a reference to the given []int32 and assigns it to the SubRankXp field.
-func (o *RankInfo) SetSubRankXp(v []int32) {
+// SetSubRankXp gets a reference to the given []int64 and assigns it to the SubRankXp field.
+func (o *RankInfo) SetSubRankXp(v []int64) {
 	o.SubRankXp = v
 }
 

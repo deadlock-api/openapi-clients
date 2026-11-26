@@ -56,9 +56,9 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetRankAsyncTest()
         {
-            int tier = default!;
+            long tier = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetRankAsync(tier, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Rank>(model);
@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task ListRanksAsyncTest()
         {
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.ListRanksAsync(language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<Rank>>(model);
@@ -83,8 +83,8 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task SubrankImageAsyncTest()
         {
-            int tier = default!;
-            int subrank = default!;
+            long tier = default!;
+            long subrank = default!;
             Client.Option<string> format = default!;
             var response = await _instance.SubrankImageAsync(tier, subrank, format);
             var model = response.Ok();

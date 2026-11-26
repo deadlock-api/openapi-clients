@@ -28,7 +28,7 @@ class MatchPlayer(BaseModel):
     """
     MatchPlayer
     """ # noqa: E501
-    account_id: Annotated[int, Field(strict=True, ge=0)]
+    account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     __properties: ClassVar[List[str]] = ["account_id"]
 
     model_config = ConfigDict(

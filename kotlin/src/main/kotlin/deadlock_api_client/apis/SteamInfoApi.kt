@@ -137,7 +137,7 @@ open class SteamInfoApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getSteamInfo(clientVersion: kotlin.Int? = null) : SteamInfo {
+    fun getSteamInfo(clientVersion: kotlin.Long? = null) : SteamInfo {
         val localVarResponse = getSteamInfoWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -166,7 +166,7 @@ open class SteamInfoApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getSteamInfoWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<SteamInfo?> {
+    fun getSteamInfoWithHttpInfo(clientVersion: kotlin.Long?) : ApiResponse<SteamInfo?> {
         val localVariableConfig = getSteamInfoRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, SteamInfo>(
@@ -180,7 +180,7 @@ open class SteamInfoApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getSteamInfoRequestConfig(clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getSteamInfoRequestConfig(clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

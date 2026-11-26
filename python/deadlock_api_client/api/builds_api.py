@@ -41,8 +41,8 @@ class BuildsApi:
     @validate_call
     def fetch_build_live(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
-        build_id: Annotated[int, Field(strict=True, ge=0, description="The build ID to fetch.")],
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        build_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The build ID to fetch.")],
         force_refetch: Annotated[Optional[StrictBool], Field(description="Fetch the build from the Game Coordinator even if it is already in the database.")] = None,
         _request_timeout: Union[
             None,
@@ -121,8 +121,8 @@ class BuildsApi:
     @validate_call
     def fetch_build_live_with_http_info(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
-        build_id: Annotated[int, Field(strict=True, ge=0, description="The build ID to fetch.")],
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        build_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The build ID to fetch.")],
         force_refetch: Annotated[Optional[StrictBool], Field(description="Fetch the build from the Game Coordinator even if it is already in the database.")] = None,
         _request_timeout: Union[
             None,
@@ -201,8 +201,8 @@ class BuildsApi:
     @validate_call
     def fetch_build_live_without_preload_content(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
-        build_id: Annotated[int, Field(strict=True, ge=0, description="The build ID to fetch.")],
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        build_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The build ID to fetch.")],
         force_refetch: Annotated[Optional[StrictBool], Field(description="Fetch the build from the Game Coordinator even if it is already in the database.")] = None,
         _request_timeout: Union[
             None,
@@ -348,7 +348,7 @@ class BuildsApi:
     @validate_call
     def fetch_builds_by_author_live(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -419,7 +419,7 @@ class BuildsApi:
     @validate_call
     def fetch_builds_by_author_live_with_http_info(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -490,7 +490,7 @@ class BuildsApi:
     @validate_call
     def fetch_builds_by_author_live_without_preload_content(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -625,20 +625,20 @@ class BuildsApi:
         min_published_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their published time (Unix timestamp).")] = None,
         max_published_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their published time (Unix timestamp).")] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field to sort the builds by.")] = None,
-        start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The index of the first build to return.")] = None,
-        limit: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The maximum number of builds to return.")] = None,
+        start: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The index of the first build to return.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The maximum number of builds to return.")] = None,
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort the builds in.")] = None,
         search_name: Annotated[Optional[StrictStr], Field(description="Search for builds with a name containing this string.")] = None,
         search_description: Annotated[Optional[StrictStr], Field(description="Search for builds with a description containing this string.")] = None,
         only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.")] = None,
-        language: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
+        language: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
         build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
-        build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
-        version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        tag: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by tag.")] = None,
-        rollup_category: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by rollup category.")] = None,
-        author_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The author's `SteamID3`")] = None,
+        build_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
+        version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        tag: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by tag.")] = None,
+        rollup_category: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by rollup category.")] = None,
+        author_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The author's `SteamID3`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -767,20 +767,20 @@ class BuildsApi:
         min_published_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their published time (Unix timestamp).")] = None,
         max_published_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their published time (Unix timestamp).")] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field to sort the builds by.")] = None,
-        start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The index of the first build to return.")] = None,
-        limit: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The maximum number of builds to return.")] = None,
+        start: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The index of the first build to return.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The maximum number of builds to return.")] = None,
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort the builds in.")] = None,
         search_name: Annotated[Optional[StrictStr], Field(description="Search for builds with a name containing this string.")] = None,
         search_description: Annotated[Optional[StrictStr], Field(description="Search for builds with a description containing this string.")] = None,
         only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.")] = None,
-        language: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
+        language: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
         build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
-        build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
-        version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        tag: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by tag.")] = None,
-        rollup_category: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by rollup category.")] = None,
-        author_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The author's `SteamID3`")] = None,
+        build_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
+        version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        tag: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by tag.")] = None,
+        rollup_category: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by rollup category.")] = None,
+        author_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The author's `SteamID3`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -909,20 +909,20 @@ class BuildsApi:
         min_published_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their published time (Unix timestamp).")] = None,
         max_published_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter builds based on their published time (Unix timestamp).")] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field to sort the builds by.")] = None,
-        start: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The index of the first build to return.")] = None,
-        limit: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The maximum number of builds to return.")] = None,
+        start: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The index of the first build to return.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The maximum number of builds to return.")] = None,
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort the builds in.")] = None,
         search_name: Annotated[Optional[StrictStr], Field(description="Search for builds with a name containing this string.")] = None,
         search_description: Annotated[Optional[StrictStr], Field(description="Search for builds with a description containing this string.")] = None,
         only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.")] = None,
-        language: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
+        language: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
         build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
-        build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
-        version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
-        hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
-        tag: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by tag.")] = None,
-        rollup_category: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by rollup category.")] = None,
-        author_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="The author's `SteamID3`")] = None,
+        build_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
+        version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by version.")] = None,
+        hero_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        tag: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by tag.")] = None,
+        rollup_category: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Filter builds by rollup category.")] = None,
+        author_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="The author's `SteamID3`")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

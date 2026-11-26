@@ -1142,7 +1142,7 @@ class InternalApi:
     @validate_call
     def ingest_status(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1212,7 +1212,7 @@ class InternalApi:
     @validate_call
     def ingest_status_with_http_info(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1282,7 +1282,7 @@ class InternalApi:
     @validate_call
     def ingest_status_without_preload_content(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

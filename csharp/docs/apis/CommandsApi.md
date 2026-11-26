@@ -44,7 +44,7 @@ No authorization required
 
 <a id="commandresolve"></a>
 # **CommandResolve**
-> string CommandResolve (int accountId, string region = null, string template = null, string heroName = null)
+> string CommandResolve (long accountId, string region = null, string template = null, string heroName = null)
 
 Resolve Command
 
@@ -55,7 +55,7 @@ Resolve Command
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+| **accountId** | **long** | The players &#x60;SteamID3&#x60; |  |
 | **region** | **string** | The players region | [optional]  |
 | **template** | **string** | The command template to resolve | [optional]  |
 | **heroName** | **string** | Hero name to check for hero specific stats | [optional]  |
@@ -84,7 +84,7 @@ No authorization required
 
 <a id="variablesresolve"></a>
 # **VariablesResolve**
-> Dictionary&lt;string, string&gt; VariablesResolve (int accountId, string region = null, string variables = null, string heroName = null)
+> Dictionary&lt;string, string&gt; VariablesResolve (long accountId, string region = null, string variables = null, string heroName = null)
 
 Resolve Variables
 
@@ -95,7 +95,7 @@ Resolve Variables
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** |  |  |
+| **accountId** | **long** |  |  |
 | **region** | **string** |  | [optional]  |
 | **variables** | **string** | Variables to resolve, separated by commas. | [optional]  |
 | **heroName** | **string** | Hero name to check for hero specific stats | [optional]  |

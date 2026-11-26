@@ -5,11 +5,11 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **matchId** | **kotlin.Long** |  |  |
-| **clusterId** | **kotlin.Int** |  |  [optional] |
+| **clusterId** | **kotlin.Long** |  |  [optional] |
 | **demoUrl** | **kotlin.String** |  |  [optional] |
-| **metadataSalt** | **kotlin.Int** |  |  [optional] |
+| **metadataSalt** | **kotlin.Long** |  |  [optional] |
 | **metadataUrl** | **kotlin.String** |  |  [optional] |
-| **replaySalt** | **kotlin.Int** |  |  [optional] |
+| **replaySalt** | **kotlin.Long** |  |  [optional] |
 
 
 

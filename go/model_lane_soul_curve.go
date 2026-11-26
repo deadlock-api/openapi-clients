@@ -22,11 +22,11 @@ var _ MappedNullable = &LaneSoulCurve{}
 // LaneSoulCurve **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
 type LaneSoulCurve struct {
 	// The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.
-	AssignedLane int32 `json:"assigned_lane"`
+	AssignedLane int64 `json:"assigned_lane"`
 	// The ascending hero id pair they laned against, or empty when grouped away.
-	EnemyHeroIds []int32 `json:"enemy_hero_ids"`
+	EnemyHeroIds []int64 `json:"enemy_hero_ids"`
 	// The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	HeroIds []int32 `json:"hero_ids"`
+	HeroIds []int64 `json:"hero_ids"`
 	// Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on.
 	MatchesPlayed int64 `json:"matches_played"`
 	// Mean souls the duo is ahead by at the matching entry of `sample_times_s`. Negative means behind. Same length as `sample_times_s`.
@@ -36,7 +36,7 @@ type LaneSoulCurve struct {
 	// How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out.
 	SampleMatches []int64 `json:"sample_matches"`
 	// Seconds into the match each entry of the curves was sampled at, ascending.
-	SampleTimesS []int32 `json:"sample_times_s"`
+	SampleTimesS []int64 `json:"sample_times_s"`
 	// A curve per stat named in `stats`. Empty unless the parameter was set.
 	Stats map[string]LaneStatCurve `json:"stats"`
 }
@@ -47,7 +47,7 @@ type _LaneSoulCurve LaneSoulCurve
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLaneSoulCurve(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff []float64, netWorthDiffStd []float64, sampleMatches []int64, sampleTimesS []int32, stats map[string]LaneStatCurve) *LaneSoulCurve {
+func NewLaneSoulCurve(assignedLane int64, enemyHeroIds []int64, heroIds []int64, matchesPlayed int64, netWorthDiff []float64, netWorthDiffStd []float64, sampleMatches []int64, sampleTimesS []int64, stats map[string]LaneStatCurve) *LaneSoulCurve {
 	this := LaneSoulCurve{}
 	this.AssignedLane = assignedLane
 	this.EnemyHeroIds = enemyHeroIds
@@ -70,9 +70,9 @@ func NewLaneSoulCurveWithDefaults() *LaneSoulCurve {
 }
 
 // GetAssignedLane returns the AssignedLane field value
-func (o *LaneSoulCurve) GetAssignedLane() int32 {
+func (o *LaneSoulCurve) GetAssignedLane() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -81,7 +81,7 @@ func (o *LaneSoulCurve) GetAssignedLane() int32 {
 
 // GetAssignedLaneOk returns a tuple with the AssignedLane field value
 // and a boolean to check if the value has been set.
-func (o *LaneSoulCurve) GetAssignedLaneOk() (*int32, bool) {
+func (o *LaneSoulCurve) GetAssignedLaneOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,14 +89,14 @@ func (o *LaneSoulCurve) GetAssignedLaneOk() (*int32, bool) {
 }
 
 // SetAssignedLane sets field value
-func (o *LaneSoulCurve) SetAssignedLane(v int32) {
+func (o *LaneSoulCurve) SetAssignedLane(v int64) {
 	o.AssignedLane = v
 }
 
 // GetEnemyHeroIds returns the EnemyHeroIds field value
-func (o *LaneSoulCurve) GetEnemyHeroIds() []int32 {
+func (o *LaneSoulCurve) GetEnemyHeroIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -105,7 +105,7 @@ func (o *LaneSoulCurve) GetEnemyHeroIds() []int32 {
 
 // GetEnemyHeroIdsOk returns a tuple with the EnemyHeroIds field value
 // and a boolean to check if the value has been set.
-func (o *LaneSoulCurve) GetEnemyHeroIdsOk() ([]int32, bool) {
+func (o *LaneSoulCurve) GetEnemyHeroIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -113,14 +113,14 @@ func (o *LaneSoulCurve) GetEnemyHeroIdsOk() ([]int32, bool) {
 }
 
 // SetEnemyHeroIds sets field value
-func (o *LaneSoulCurve) SetEnemyHeroIds(v []int32) {
+func (o *LaneSoulCurve) SetEnemyHeroIds(v []int64) {
 	o.EnemyHeroIds = v
 }
 
 // GetHeroIds returns the HeroIds field value
-func (o *LaneSoulCurve) GetHeroIds() []int32 {
+func (o *LaneSoulCurve) GetHeroIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -129,7 +129,7 @@ func (o *LaneSoulCurve) GetHeroIds() []int32 {
 
 // GetHeroIdsOk returns a tuple with the HeroIds field value
 // and a boolean to check if the value has been set.
-func (o *LaneSoulCurve) GetHeroIdsOk() ([]int32, bool) {
+func (o *LaneSoulCurve) GetHeroIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -137,7 +137,7 @@ func (o *LaneSoulCurve) GetHeroIdsOk() ([]int32, bool) {
 }
 
 // SetHeroIds sets field value
-func (o *LaneSoulCurve) SetHeroIds(v []int32) {
+func (o *LaneSoulCurve) SetHeroIds(v []int64) {
 	o.HeroIds = v
 }
 
@@ -238,9 +238,9 @@ func (o *LaneSoulCurve) SetSampleMatches(v []int64) {
 }
 
 // GetSampleTimesS returns the SampleTimesS field value
-func (o *LaneSoulCurve) GetSampleTimesS() []int32 {
+func (o *LaneSoulCurve) GetSampleTimesS() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -249,7 +249,7 @@ func (o *LaneSoulCurve) GetSampleTimesS() []int32 {
 
 // GetSampleTimesSOk returns a tuple with the SampleTimesS field value
 // and a boolean to check if the value has been set.
-func (o *LaneSoulCurve) GetSampleTimesSOk() ([]int32, bool) {
+func (o *LaneSoulCurve) GetSampleTimesSOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -257,7 +257,7 @@ func (o *LaneSoulCurve) GetSampleTimesSOk() ([]int32, bool) {
 }
 
 // SetSampleTimesS sets field value
-func (o *LaneSoulCurve) SetSampleTimesS(v []int32) {
+func (o *LaneSoulCurve) SetSampleTimesS(v []int64) {
 	o.SampleTimesS = v
 }
 

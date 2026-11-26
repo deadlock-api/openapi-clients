@@ -28,7 +28,7 @@ class AnalyticsAbilityOrderTreeNode(BaseModel):
     """
     One node of the ability order tree: the players whose upgrade order starts with `abilities`.
     """ # noqa: E501
-    abilities: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one entry shorter. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    abilities: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(description="The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one entry shorter. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     avg_upgrade_time_s: Union[StrictFloat, StrictInt] = Field(description="Average game time (in seconds) at which the last upgrade in `abilities` was bought.")
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]

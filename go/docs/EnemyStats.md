@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnemyId** | **int32** |  | 
+**EnemyId** | **int64** |  | 
 **Matches** | **[]int64** |  | 
 **MatchesPlayed** | **int64** |  | 
 **Wins** | **int64** | The amount of matches won against the enemy. | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewEnemyStats
 
-`func NewEnemyStats(enemyId int32, matches []int64, matchesPlayed int64, wins int64, ) *EnemyStats`
+`func NewEnemyStats(enemyId int64, matches []int64, matchesPlayed int64, wins int64, ) *EnemyStats`
 
 NewEnemyStats instantiates a new EnemyStats object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEnemyId
 
-`func (o *EnemyStats) GetEnemyId() int32`
+`func (o *EnemyStats) GetEnemyId() int64`
 
 GetEnemyId returns the EnemyId field if non-nil, zero value otherwise.
 
 ### GetEnemyIdOk
 
-`func (o *EnemyStats) GetEnemyIdOk() (*int32, bool)`
+`func (o *EnemyStats) GetEnemyIdOk() (*int64, bool)`
 
 GetEnemyIdOk returns a tuple with the EnemyId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnemyId
 
-`func (o *EnemyStats) SetEnemyId(v int32)`
+`func (o *EnemyStats) SetEnemyId(v int64)`
 
 SetEnemyId sets EnemyId field to given value.
 

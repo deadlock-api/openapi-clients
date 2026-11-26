@@ -76,15 +76,15 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'average_badge' => 'int32',
-        'average_badge_team0' => 'int32',
-        'average_badge_team1' => 'int32',
-        'duration_s' => 'int32',
+        'average_badge' => 'int64',
+        'average_badge_team0' => 'int64',
+        'average_badge_team1' => 'int64',
+        'duration_s' => 'int64',
         'game_mode' => 'int32',
         'match_id' => 'int64',
         'match_mode' => 'int32',
         'players' => null,
-        'start_time' => 'int32'
+        'start_time' => 'int64'
     ];
 
     /**
@@ -330,12 +330,24 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['average_badge']) && ($this->container['average_badge'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'average_badge', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['average_badge']) && ($this->container['average_badge'] < 0)) {
             $invalidProperties[] = "invalid value for 'average_badge', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['average_badge_team0']) && ($this->container['average_badge_team0'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'average_badge_team0', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['average_badge_team0']) && ($this->container['average_badge_team0'] < 0)) {
             $invalidProperties[] = "invalid value for 'average_badge_team0', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['average_badge_team1']) && ($this->container['average_badge_team1'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'average_badge_team1', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['average_badge_team1']) && ($this->container['average_badge_team1'] < 0)) {
@@ -345,6 +357,10 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['duration_s'] === null) {
             $invalidProperties[] = "'duration_s' can't be null";
         }
+        if (($this->container['duration_s'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'duration_s', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['duration_s'] < 0)) {
             $invalidProperties[] = "invalid value for 'duration_s', must be bigger than or equal to 0.";
         }
@@ -352,6 +368,14 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['game_mode'] === null) {
             $invalidProperties[] = "'game_mode' can't be null";
         }
+        if (($this->container['game_mode'] > 127)) {
+            $invalidProperties[] = "invalid value for 'game_mode', must be smaller than or equal to 127.";
+        }
+
+        if (($this->container['game_mode'] < -128)) {
+            $invalidProperties[] = "invalid value for 'game_mode', must be bigger than or equal to -128.";
+        }
+
         if ($this->container['match_id'] === null) {
             $invalidProperties[] = "'match_id' can't be null";
         }
@@ -362,12 +386,24 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['match_mode'] === null) {
             $invalidProperties[] = "'match_mode' can't be null";
         }
+        if (($this->container['match_mode'] > 127)) {
+            $invalidProperties[] = "invalid value for 'match_mode', must be smaller than or equal to 127.";
+        }
+
+        if (($this->container['match_mode'] < -128)) {
+            $invalidProperties[] = "invalid value for 'match_mode', must be bigger than or equal to -128.";
+        }
+
         if ($this->container['players'] === null) {
             $invalidProperties[] = "'players' can't be null";
         }
         if ($this->container['start_time'] === null) {
             $invalidProperties[] = "'start_time' can't be null";
         }
+        if (($this->container['start_time'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'start_time', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['start_time'] < 0)) {
             $invalidProperties[] = "invalid value for 'start_time', must be bigger than or equal to 0.";
         }
@@ -416,6 +452,9 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($average_badge) && ($average_badge > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $average_badge when calling ClickhouseMatchInfo., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($average_badge) && ($average_badge < 0)) {
             throw new \InvalidArgumentException('invalid value for $average_badge when calling ClickhouseMatchInfo., must be bigger than or equal to 0.');
         }
@@ -453,6 +492,9 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($average_badge_team0) && ($average_badge_team0 > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $average_badge_team0 when calling ClickhouseMatchInfo., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($average_badge_team0) && ($average_badge_team0 < 0)) {
             throw new \InvalidArgumentException('invalid value for $average_badge_team0 when calling ClickhouseMatchInfo., must be bigger than or equal to 0.');
@@ -492,6 +534,9 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($average_badge_team1) && ($average_badge_team1 > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $average_badge_team1 when calling ClickhouseMatchInfo., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($average_badge_team1) && ($average_badge_team1 < 0)) {
             throw new \InvalidArgumentException('invalid value for $average_badge_team1 when calling ClickhouseMatchInfo., must be bigger than or equal to 0.');
         }
@@ -522,6 +567,9 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         if (is_null($duration_s)) {
             throw new \InvalidArgumentException('non-nullable duration_s cannot be null');
+        }
+        if (($duration_s > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $duration_s when calling ClickhouseMatchInfo., must be smaller than or equal to 4294967295.');
         }
         if (($duration_s < 0)) {
             throw new \InvalidArgumentException('invalid value for $duration_s when calling ClickhouseMatchInfo., must be bigger than or equal to 0.');
@@ -554,6 +602,13 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($game_mode)) {
             throw new \InvalidArgumentException('non-nullable game_mode cannot be null');
         }
+        if (($game_mode > 127)) {
+            throw new \InvalidArgumentException('invalid value for $game_mode when calling ClickhouseMatchInfo., must be smaller than or equal to 127.');
+        }
+        if (($game_mode < -128)) {
+            throw new \InvalidArgumentException('invalid value for $game_mode when calling ClickhouseMatchInfo., must be bigger than or equal to -128.');
+        }
+
         $this->container['game_mode'] = $game_mode;
 
         return $this;
@@ -612,6 +667,13 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($match_mode)) {
             throw new \InvalidArgumentException('non-nullable match_mode cannot be null');
         }
+        if (($match_mode > 127)) {
+            throw new \InvalidArgumentException('invalid value for $match_mode when calling ClickhouseMatchInfo., must be smaller than or equal to 127.');
+        }
+        if (($match_mode < -128)) {
+            throw new \InvalidArgumentException('invalid value for $match_mode when calling ClickhouseMatchInfo., must be bigger than or equal to -128.');
+        }
+
         $this->container['match_mode'] = $match_mode;
 
         return $this;
@@ -665,6 +727,9 @@ class ClickhouseMatchInfo implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         if (is_null($start_time)) {
             throw new \InvalidArgumentException('non-nullable start_time cannot be null');
+        }
+        if (($start_time > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $start_time when calling ClickhouseMatchInfo., must be smaller than or equal to 4294967295.');
         }
         if (($start_time < 0)) {
             throw new \InvalidArgumentException('invalid value for $start_time when calling ClickhouseMatchInfo., must be bigger than or equal to 0.');

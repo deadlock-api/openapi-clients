@@ -9,7 +9,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getmodifier"></a>
 # **GetModifier**
-> Modifier GetModifier (string idOrClassname, int clientVersion = null)
+> Modifier GetModifier (string idOrClassname, long clientVersion = null)
 
 Get Modifier
 
@@ -21,7 +21,7 @@ Returns a single modifier by numeric id or by `class_name` (case-insensitive).
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **idOrClassname** | **string** | Modifier id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; |  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -48,7 +48,7 @@ No authorization required
 
 <a id="listmodifiers"></a>
 # **ListModifiers**
-> List&lt;Modifier&gt; ListModifiers (int clientVersion = null)
+> List&lt;Modifier&gt; ListModifiers (long clientVersion = null)
 
 List Modifiers
 
@@ -59,7 +59,7 @@ Returns modifier definitions parsed from the patch's `modifiers.vdata` KV3 sourc
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

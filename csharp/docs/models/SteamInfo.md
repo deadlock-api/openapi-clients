@@ -5,13 +5,13 @@ Per-patch Steam manifest as served by the public assets API.  Field order is loa
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppId** | **int** |  | 
-**ClientVersion** | **int** |  | 
+**AppId** | **long** |  | 
+**ClientVersion** | **long** |  | 
 **ProductName** | **string** |  | 
-**ServerAppId** | **int** |  | 
-**ServerVersion** | **int** |  | 
+**ServerAppId** | **long** |  | 
+**ServerVersion** | **long** |  | 
 **SourceRevision** | **long** |  | 
-**ToolsAppId** | **int** |  | 
+**ToolsAppId** | **long** |  | 
 **VersionDate** | **string** |  | 
 **VersionDatetime** | **string** | &#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone). | 
 **VersionTime** | **string** |  | 

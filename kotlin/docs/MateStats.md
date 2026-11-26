@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **matches** | **kotlin.collections.List&lt;kotlin.Long&gt;** |  |  |
 | **matchesPlayed** | **kotlin.Long** |  |  |
-| **mateId** | **kotlin.Int** |  |  |
+| **mateId** | **kotlin.Long** |  |  |
 | **wins** | **kotlin.Long** |  |  |
 
 

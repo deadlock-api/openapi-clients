@@ -26,7 +26,7 @@ Get Item
 val apiInstance = ItemsApi()
 val idOrClassName : kotlin.String = idOrClassName_example // kotlin.String | Numeric `id` or string `class_name`.
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : Item = apiInstance.getItem(idOrClassName, language, clientVersion)
     println(result)
@@ -44,7 +44,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **idOrClassName** | **kotlin.String**| Numeric &#x60;id&#x60; or string &#x60;class_name&#x60;. | |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -74,9 +74,9 @@ Hero-bound abilities, excluding the generic movement abilities.
 //import deadlock_api_client.models.*
 
 val apiInstance = ItemsApi()
-val id : kotlin.Int = 56 // kotlin.Int | Hero id (`m_HeroID`).
+val id : kotlin.Long = 789 // kotlin.Long | Hero id (`m_HeroID`).
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : kotlin.collections.List<Item> = apiInstance.getItemsByHeroId(id, language, clientVersion)
     println(result)
@@ -92,9 +92,9 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int**| Hero id (&#x60;m_HeroID&#x60;). | |
+| **id** | **kotlin.Long**| Hero id (&#x60;m_HeroID&#x60;). | |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -124,7 +124,7 @@ List Items By Slot Type
 val apiInstance = ItemsApi()
 val slotType : ItemSlotType =  // ItemSlotType | Slot type: `weapon`, `spirit`, or `vitality`.
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : kotlin.collections.List<Item> = apiInstance.getItemsBySlotType(slotType, language, clientVersion)
     println(result)
@@ -142,7 +142,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **slotType** | [**ItemSlotType**](.md)| Slot type: &#x60;weapon&#x60;, &#x60;spirit&#x60;, or &#x60;vitality&#x60;. | [enum: weapon, spirit, vitality] |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -172,7 +172,7 @@ List Items By Type
 val apiInstance = ItemsApi()
 val type : ItemType =  // ItemType | Item type: `ability`, `weapon`, or `upgrade`.
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : kotlin.collections.List<Item> = apiInstance.getItemsByType(type, language, clientVersion)
     println(result)
@@ -190,7 +190,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **type** | [**ItemType**](.md)| Item type: &#x60;ability&#x60;, &#x60;weapon&#x60;, or &#x60;upgrade&#x60;. | [enum: ability, weapon, upgrade] |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -221,7 +221,7 @@ Returns the full per-patch item list — abilities, weapons, and upgrades.
 
 val apiInstance = ItemsApi()
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : kotlin.collections.List<Item> = apiInstance.listItems(language, clientVersion)
     println(result)
@@ -238,7 +238,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 

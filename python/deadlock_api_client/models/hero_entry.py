@@ -28,7 +28,7 @@ class HeroEntry(BaseModel):
     """
     HeroEntry
     """ # noqa: E501
-    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    hero_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     matches: Annotated[int, Field(strict=True, ge=0)]
     rank: Annotated[int, Field(strict=True, ge=0)]
     value: Union[StrictFloat, StrictInt]

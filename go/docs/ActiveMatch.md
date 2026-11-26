@@ -4,27 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CompatVersion** | Pointer to **NullableInt32** |  | [optional] 
-**DurationS** | Pointer to **NullableInt32** |  | [optional] 
+**CompatVersion** | Pointer to **NullableInt64** |  | [optional] 
+**DurationS** | Pointer to **NullableInt64** |  | [optional] 
 **GameMode** | Pointer to **NullableInt32** |  | [optional] 
 **GameModeParsed** | Pointer to [**NullableActiveMatchGameMode**](ActiveMatchGameMode.md) |  | [optional] 
-**GameModeVersion** | Pointer to **NullableInt32** |  | [optional] 
+**GameModeVersion** | Pointer to **NullableInt64** |  | [optional] 
 **LobbyId** | Pointer to **NullableInt64** |  | [optional] 
 **LowPriPool** | Pointer to **NullableBool** |  | [optional] 
 **MatchId** | Pointer to **NullableInt64** |  | [optional] 
 **MatchMode** | Pointer to **NullableInt32** |  | [optional] 
 **MatchModeParsed** | Pointer to [**NullableActiveMatchMode**](ActiveMatchMode.md) |  | [optional] 
-**MatchScore** | Pointer to **NullableInt32** |  | [optional] 
-**NetWorthTeam0** | Pointer to **NullableInt32** |  | [optional] 
-**NetWorthTeam1** | Pointer to **NullableInt32** |  | [optional] 
+**MatchScore** | Pointer to **NullableInt64** |  | [optional] 
+**NetWorthTeam0** | Pointer to **NullableInt64** |  | [optional] 
+**NetWorthTeam1** | Pointer to **NullableInt64** |  | [optional] 
 **ObjectivesMaskTeam0** | Pointer to **NullableInt64** |  | [optional] 
 **ObjectivesMaskTeam1** | Pointer to **NullableInt64** |  | [optional] 
-**OpenSpectatorSlots** | Pointer to **NullableInt32** |  | [optional] 
+**OpenSpectatorSlots** | Pointer to **NullableInt64** |  | [optional] 
 **Players** | [**[]ActiveMatchPlayer**](ActiveMatchPlayer.md) |  | 
 **RegionMode** | Pointer to **NullableInt32** |  | [optional] 
 **RegionModeParsed** | Pointer to [**NullableRegionMode**](RegionMode.md) |  | [optional] 
-**Spectators** | Pointer to **NullableInt32** |  | [optional] 
-**StartTime** | Pointer to **NullableInt32** |  | [optional] 
+**Spectators** | Pointer to **NullableInt64** |  | [optional] 
+**StartTime** | Pointer to **NullableInt64** |  | [optional] 
 **TeamStats** | [**[]ActiveMatchTeamStats**](ActiveMatchTeamStats.md) |  | 
 **WinningTeam** | Pointer to **NullableInt32** |  | [optional] 
 **WinningTeamParsed** | Pointer to [**NullableActiveMatchTeam**](ActiveMatchTeam.md) |  | [optional] 
@@ -50,20 +50,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCompatVersion
 
-`func (o *ActiveMatch) GetCompatVersion() int32`
+`func (o *ActiveMatch) GetCompatVersion() int64`
 
 GetCompatVersion returns the CompatVersion field if non-nil, zero value otherwise.
 
 ### GetCompatVersionOk
 
-`func (o *ActiveMatch) GetCompatVersionOk() (*int32, bool)`
+`func (o *ActiveMatch) GetCompatVersionOk() (*int64, bool)`
 
 GetCompatVersionOk returns a tuple with the CompatVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompatVersion
 
-`func (o *ActiveMatch) SetCompatVersion(v int32)`
+`func (o *ActiveMatch) SetCompatVersion(v int64)`
 
 SetCompatVersion sets CompatVersion field to given value.
 
@@ -85,20 +85,20 @@ HasCompatVersion returns a boolean if a field has been set.
 UnsetCompatVersion ensures that no value is present for CompatVersion, not even an explicit nil
 ### GetDurationS
 
-`func (o *ActiveMatch) GetDurationS() int32`
+`func (o *ActiveMatch) GetDurationS() int64`
 
 GetDurationS returns the DurationS field if non-nil, zero value otherwise.
 
 ### GetDurationSOk
 
-`func (o *ActiveMatch) GetDurationSOk() (*int32, bool)`
+`func (o *ActiveMatch) GetDurationSOk() (*int64, bool)`
 
 GetDurationSOk returns a tuple with the DurationS field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDurationS
 
-`func (o *ActiveMatch) SetDurationS(v int32)`
+`func (o *ActiveMatch) SetDurationS(v int64)`
 
 SetDurationS sets DurationS field to given value.
 
@@ -190,20 +190,20 @@ HasGameModeParsed returns a boolean if a field has been set.
 UnsetGameModeParsed ensures that no value is present for GameModeParsed, not even an explicit nil
 ### GetGameModeVersion
 
-`func (o *ActiveMatch) GetGameModeVersion() int32`
+`func (o *ActiveMatch) GetGameModeVersion() int64`
 
 GetGameModeVersion returns the GameModeVersion field if non-nil, zero value otherwise.
 
 ### GetGameModeVersionOk
 
-`func (o *ActiveMatch) GetGameModeVersionOk() (*int32, bool)`
+`func (o *ActiveMatch) GetGameModeVersionOk() (*int64, bool)`
 
 GetGameModeVersionOk returns a tuple with the GameModeVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGameModeVersion
 
-`func (o *ActiveMatch) SetGameModeVersion(v int32)`
+`func (o *ActiveMatch) SetGameModeVersion(v int64)`
 
 SetGameModeVersion sets GameModeVersion field to given value.
 
@@ -400,20 +400,20 @@ HasMatchModeParsed returns a boolean if a field has been set.
 UnsetMatchModeParsed ensures that no value is present for MatchModeParsed, not even an explicit nil
 ### GetMatchScore
 
-`func (o *ActiveMatch) GetMatchScore() int32`
+`func (o *ActiveMatch) GetMatchScore() int64`
 
 GetMatchScore returns the MatchScore field if non-nil, zero value otherwise.
 
 ### GetMatchScoreOk
 
-`func (o *ActiveMatch) GetMatchScoreOk() (*int32, bool)`
+`func (o *ActiveMatch) GetMatchScoreOk() (*int64, bool)`
 
 GetMatchScoreOk returns a tuple with the MatchScore field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMatchScore
 
-`func (o *ActiveMatch) SetMatchScore(v int32)`
+`func (o *ActiveMatch) SetMatchScore(v int64)`
 
 SetMatchScore sets MatchScore field to given value.
 
@@ -435,20 +435,20 @@ HasMatchScore returns a boolean if a field has been set.
 UnsetMatchScore ensures that no value is present for MatchScore, not even an explicit nil
 ### GetNetWorthTeam0
 
-`func (o *ActiveMatch) GetNetWorthTeam0() int32`
+`func (o *ActiveMatch) GetNetWorthTeam0() int64`
 
 GetNetWorthTeam0 returns the NetWorthTeam0 field if non-nil, zero value otherwise.
 
 ### GetNetWorthTeam0Ok
 
-`func (o *ActiveMatch) GetNetWorthTeam0Ok() (*int32, bool)`
+`func (o *ActiveMatch) GetNetWorthTeam0Ok() (*int64, bool)`
 
 GetNetWorthTeam0Ok returns a tuple with the NetWorthTeam0 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetWorthTeam0
 
-`func (o *ActiveMatch) SetNetWorthTeam0(v int32)`
+`func (o *ActiveMatch) SetNetWorthTeam0(v int64)`
 
 SetNetWorthTeam0 sets NetWorthTeam0 field to given value.
 
@@ -470,20 +470,20 @@ HasNetWorthTeam0 returns a boolean if a field has been set.
 UnsetNetWorthTeam0 ensures that no value is present for NetWorthTeam0, not even an explicit nil
 ### GetNetWorthTeam1
 
-`func (o *ActiveMatch) GetNetWorthTeam1() int32`
+`func (o *ActiveMatch) GetNetWorthTeam1() int64`
 
 GetNetWorthTeam1 returns the NetWorthTeam1 field if non-nil, zero value otherwise.
 
 ### GetNetWorthTeam1Ok
 
-`func (o *ActiveMatch) GetNetWorthTeam1Ok() (*int32, bool)`
+`func (o *ActiveMatch) GetNetWorthTeam1Ok() (*int64, bool)`
 
 GetNetWorthTeam1Ok returns a tuple with the NetWorthTeam1 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetWorthTeam1
 
-`func (o *ActiveMatch) SetNetWorthTeam1(v int32)`
+`func (o *ActiveMatch) SetNetWorthTeam1(v int64)`
 
 SetNetWorthTeam1 sets NetWorthTeam1 field to given value.
 
@@ -575,20 +575,20 @@ HasObjectivesMaskTeam1 returns a boolean if a field has been set.
 UnsetObjectivesMaskTeam1 ensures that no value is present for ObjectivesMaskTeam1, not even an explicit nil
 ### GetOpenSpectatorSlots
 
-`func (o *ActiveMatch) GetOpenSpectatorSlots() int32`
+`func (o *ActiveMatch) GetOpenSpectatorSlots() int64`
 
 GetOpenSpectatorSlots returns the OpenSpectatorSlots field if non-nil, zero value otherwise.
 
 ### GetOpenSpectatorSlotsOk
 
-`func (o *ActiveMatch) GetOpenSpectatorSlotsOk() (*int32, bool)`
+`func (o *ActiveMatch) GetOpenSpectatorSlotsOk() (*int64, bool)`
 
 GetOpenSpectatorSlotsOk returns a tuple with the OpenSpectatorSlots field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOpenSpectatorSlots
 
-`func (o *ActiveMatch) SetOpenSpectatorSlots(v int32)`
+`func (o *ActiveMatch) SetOpenSpectatorSlots(v int64)`
 
 SetOpenSpectatorSlots sets OpenSpectatorSlots field to given value.
 
@@ -700,20 +700,20 @@ HasRegionModeParsed returns a boolean if a field has been set.
 UnsetRegionModeParsed ensures that no value is present for RegionModeParsed, not even an explicit nil
 ### GetSpectators
 
-`func (o *ActiveMatch) GetSpectators() int32`
+`func (o *ActiveMatch) GetSpectators() int64`
 
 GetSpectators returns the Spectators field if non-nil, zero value otherwise.
 
 ### GetSpectatorsOk
 
-`func (o *ActiveMatch) GetSpectatorsOk() (*int32, bool)`
+`func (o *ActiveMatch) GetSpectatorsOk() (*int64, bool)`
 
 GetSpectatorsOk returns a tuple with the Spectators field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpectators
 
-`func (o *ActiveMatch) SetSpectators(v int32)`
+`func (o *ActiveMatch) SetSpectators(v int64)`
 
 SetSpectators sets Spectators field to given value.
 
@@ -735,20 +735,20 @@ HasSpectators returns a boolean if a field has been set.
 UnsetSpectators ensures that no value is present for Spectators, not even an explicit nil
 ### GetStartTime
 
-`func (o *ActiveMatch) GetStartTime() int32`
+`func (o *ActiveMatch) GetStartTime() int64`
 
 GetStartTime returns the StartTime field if non-nil, zero value otherwise.
 
 ### GetStartTimeOk
 
-`func (o *ActiveMatch) GetStartTimeOk() (*int32, bool)`
+`func (o *ActiveMatch) GetStartTimeOk() (*int64, bool)`
 
 GetStartTimeOk returns a tuple with the StartTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStartTime
 
-`func (o *ActiveMatch) SetStartTime(v int32)`
+`func (o *ActiveMatch) SetStartTime(v int64)`
 
 SetStartTime sets StartTime field to given value.
 

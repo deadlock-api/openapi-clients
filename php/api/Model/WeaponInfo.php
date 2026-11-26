@@ -154,13 +154,13 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'bullet_speed' => 'double',
         'bullet_speed_curve' => null,
         'bullet_whiz_distance' => 'double',
-        'bullets' => 'int32',
+        'bullets' => 'int64',
         'bullets_per_second' => 'double',
         'bullets_per_second_with_reload' => 'double',
         'burst_shot_cooldown' => 'double',
-        'burst_shot_count' => 'int32',
+        'burst_shot_count' => 'int64',
         'can_zoom' => null,
-        'clip_size' => 'int32',
+        'clip_size' => 'int64',
         'crit_bonus_against_npcs' => 'double',
         'crit_bonus_end' => 'double',
         'crit_bonus_end_range' => 'double',
@@ -778,12 +778,24 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['bullets']) && ($this->container['bullets'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'bullets', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['bullets']) && ($this->container['bullets'] < 0)) {
             $invalidProperties[] = "invalid value for 'bullets', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['burst_shot_count']) && ($this->container['burst_shot_count'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'burst_shot_count', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['burst_shot_count']) && ($this->container['burst_shot_count'] < 0)) {
             $invalidProperties[] = "invalid value for 'burst_shot_count', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['clip_size']) && ($this->container['clip_size'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'clip_size', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['clip_size']) && ($this->container['clip_size'] < 0)) {
@@ -1310,6 +1322,9 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($bullets) && ($bullets > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $bullets when calling WeaponInfo., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($bullets) && ($bullets < 0)) {
             throw new \InvalidArgumentException('invalid value for $bullets when calling WeaponInfo., must be bigger than or equal to 0.');
         }
@@ -1450,6 +1465,9 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($burst_shot_count) && ($burst_shot_count > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $burst_shot_count when calling WeaponInfo., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($burst_shot_count) && ($burst_shot_count < 0)) {
             throw new \InvalidArgumentException('invalid value for $burst_shot_count when calling WeaponInfo., must be bigger than or equal to 0.');
         }
@@ -1521,6 +1539,9 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($clip_size) && ($clip_size > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $clip_size when calling WeaponInfo., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($clip_size) && ($clip_size < 0)) {
             throw new \InvalidArgumentException('invalid value for $clip_size when calling WeaponInfo., must be bigger than or equal to 0.');

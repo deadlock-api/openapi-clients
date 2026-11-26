@@ -43,13 +43,13 @@ data class ClickhouseSalts (
     val matchId: kotlin.Long,
 
     @Json(name = "cluster_id")
-    val clusterId: kotlin.Int? = null,
+    val clusterId: kotlin.Long? = null,
 
     @Json(name = "metadata_salt")
-    val metadataSalt: kotlin.Int? = null,
+    val metadataSalt: kotlin.Long? = null,
 
     @Json(name = "replay_salt")
-    val replaySalt: kotlin.Int? = null,
+    val replaySalt: kotlin.Long? = null,
 
     @Json(name = "username")
     val username: kotlin.String? = null

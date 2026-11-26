@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="accountName">The account name of the player.</param>
         /// <param name="rank">The player&#39;s place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.</param>
         [JsonConstructor]
-        public LeaderboardEntry(List<int> possibleAccountIds, List<int> topHeroIds, Option<string?> accountName = default, Option<int?> rank = default)
+        public LeaderboardEntry(List<long> possibleAccountIds, List<long> topHeroIds, Option<string?> accountName = default, Option<long?> rank = default)
         {
             PossibleAccountIds = possibleAccountIds;
             TopHeroIds = topHeroIds;
@@ -54,14 +54,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**</value>
         [JsonPropertyName("possible_account_ids")]
-        public List<int> PossibleAccountIds { get; set; }
+        public List<long> PossibleAccountIds { get; set; }
 
         /// <summary>
         /// The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
         /// <value>The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("top_hero_ids")]
-        public List<int> TopHeroIds { get; set; }
+        public List<long> TopHeroIds { get; set; }
 
         /// <summary>
         /// Used to track the state of AccountName
@@ -82,14 +82,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> RankOption { get; private set; }
+        public Option<long?> RankOption { get; private set; }
 
         /// <summary>
         /// The player&#39;s place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.
         /// </summary>
         /// <value>The player&#39;s place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.</value>
         [JsonPropertyName("rank")]
-        public int? Rank { get { return this.RankOption.Value; } set { this.RankOption = new(value); } }
+        public long? Rank { get { return this.RankOption.Value; } set { this.RankOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -114,8 +114,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Rank (int) minimum
-            if (this.RankOption.IsSet && this.RankOption.Value < (int)0)
+            // Rank (long) maximum
+            if (this.RankOption.IsSet && this.RankOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rank, must be a value less than or equal to 4294967295.", new [] { "Rank" });
+            }
+
+            // Rank (long) minimum
+            if (this.RankOption.IsSet && this.RankOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
             }
@@ -156,10 +162,10 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<List<int>?> possibleAccountIds = default;
-            Option<List<int>?> topHeroIds = default;
+            Option<List<long>?> possibleAccountIds = default;
+            Option<List<long>?> topHeroIds = default;
             Option<string?> accountName = default;
-            Option<int?> rank = default;
+            Option<long?> rank = default;
 
             while (utf8JsonReader.Read())
             {
@@ -177,16 +183,16 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "possible_account_ids":
-                            possibleAccountIds = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            possibleAccountIds = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "top_hero_ids":
-                            topHeroIds = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            topHeroIds = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "account_name":
                             accountName = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "rank":
-                            rank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            rank = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

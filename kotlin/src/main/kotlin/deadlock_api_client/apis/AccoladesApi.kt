@@ -113,7 +113,7 @@ open class AccoladesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAccolade(accoladeId: kotlin.Int, language: LanguageGetAccolade? = null, clientVersion: kotlin.Int? = null) : Accolade {
+    fun getAccolade(accoladeId: kotlin.Long, language: LanguageGetAccolade? = null, clientVersion: kotlin.Long? = null) : Accolade {
         val localVarResponse = getAccoladeWithHttpInfo(accoladeId = accoladeId, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -144,7 +144,7 @@ open class AccoladesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAccoladeWithHttpInfo(accoladeId: kotlin.Int, language: LanguageGetAccolade?, clientVersion: kotlin.Int?) : ApiResponse<Accolade?> {
+    fun getAccoladeWithHttpInfo(accoladeId: kotlin.Long, language: LanguageGetAccolade?, clientVersion: kotlin.Long?) : ApiResponse<Accolade?> {
         val localVariableConfig = getAccoladeRequestConfig(accoladeId = accoladeId, language = language, clientVersion = clientVersion)
 
         return request<Unit, Accolade>(
@@ -160,7 +160,7 @@ open class AccoladesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getAccoladeRequestConfig(accoladeId: kotlin.Int, language: LanguageGetAccolade?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getAccoladeRequestConfig(accoladeId: kotlin.Long, language: LanguageGetAccolade?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -244,7 +244,7 @@ open class AccoladesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAccoladeByName(name: kotlin.String, language: LanguageGetAccoladeByName? = null, clientVersion: kotlin.Int? = null) : Accolade {
+    fun getAccoladeByName(name: kotlin.String, language: LanguageGetAccoladeByName? = null, clientVersion: kotlin.Long? = null) : Accolade {
         val localVarResponse = getAccoladeByNameWithHttpInfo(name = name, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -275,7 +275,7 @@ open class AccoladesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAccoladeByNameWithHttpInfo(name: kotlin.String, language: LanguageGetAccoladeByName?, clientVersion: kotlin.Int?) : ApiResponse<Accolade?> {
+    fun getAccoladeByNameWithHttpInfo(name: kotlin.String, language: LanguageGetAccoladeByName?, clientVersion: kotlin.Long?) : ApiResponse<Accolade?> {
         val localVariableConfig = getAccoladeByNameRequestConfig(name = name, language = language, clientVersion = clientVersion)
 
         return request<Unit, Accolade>(
@@ -291,7 +291,7 @@ open class AccoladesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getAccoladeByNameRequestConfig(name: kotlin.String, language: LanguageGetAccoladeByName?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getAccoladeByNameRequestConfig(name: kotlin.String, language: LanguageGetAccoladeByName?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -374,7 +374,7 @@ open class AccoladesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listAccolades(language: LanguageListAccolades? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<Accolade> {
+    fun listAccolades(language: LanguageListAccolades? = null, clientVersion: kotlin.Long? = null) : kotlin.collections.List<Accolade> {
         val localVarResponse = listAccoladesWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -404,7 +404,7 @@ open class AccoladesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listAccoladesWithHttpInfo(language: LanguageListAccolades?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<Accolade>?> {
+    fun listAccoladesWithHttpInfo(language: LanguageListAccolades?, clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<Accolade>?> {
         val localVariableConfig = listAccoladesRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<Accolade>>(
@@ -419,7 +419,7 @@ open class AccoladesApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listAccoladesRequestConfig(language: LanguageListAccolades?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listAccoladesRequestConfig(language: LanguageListAccolades?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

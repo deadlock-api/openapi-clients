@@ -31,8 +31,8 @@ import (
 )
 
 func main() {
-	heroId := int32(56) // int32 | The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	buildId := int32(56) // int32 | The build ID to fetch.
+	heroId := int64(789) // int64 | The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	buildId := int64(789) // int64 | The build ID to fetch.
 	forceRefetch := true // bool | Fetch the build from the Game Coordinator even if it is already in the database. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -53,8 +53,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**heroId** | **int32** | The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
-**buildId** | **int32** | The build ID to fetch. | 
+**heroId** | **int64** | The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**buildId** | **int64** | The build ID to fetch. | 
 
 ### Other Parameters
 
@@ -106,7 +106,7 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
+	accountId := int64(789) // int64 | The players `SteamID3`
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -126,7 +126,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+**accountId** | **int64** | The players &#x60;SteamID3&#x60; | 
 
 ### Other Parameters
 
@@ -181,20 +181,20 @@ func main() {
 	minPublishedUnixTimestamp := int64(789) // int64 | Filter builds based on their published time (Unix timestamp). (optional)
 	maxPublishedUnixTimestamp := int64(789) // int64 | Filter builds based on their published time (Unix timestamp). (optional)
 	sortBy := "sortBy_example" // string | The field to sort the builds by. (optional)
-	start := int32(56) // int32 | The index of the first build to return. (optional)
-	limit := int32(56) // int32 | The maximum number of builds to return. (optional) (default to 100)
+	start := int64(789) // int64 | The index of the first build to return. (optional)
+	limit := int64(789) // int64 | The maximum number of builds to return. (optional) (default to 100)
 	sortDirection := "sortDirection_example" // string | The direction to sort the builds in. (optional)
 	searchName := "searchName_example" // string | Search for builds with a name containing this string. (optional)
 	searchDescription := "searchDescription_example" // string | Search for builds with a description containing this string. (optional)
 	onlyLatest := true // bool | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. (optional)
-	language := int32(56) // int32 | Filter builds by language. (optional)
+	language := int64(789) // int64 | Filter builds by language. (optional)
 	buildLanguage := "buildLanguage_example" // string | Filter builds by language. (optional)
-	buildId := int32(56) // int32 | Filter builds by ID. (optional)
-	version := int32(56) // int32 | Filter builds by version. (optional)
-	heroId := int32(56) // int32 | Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
-	tag := int32(56) // int32 | Filter builds by tag. (optional)
-	rollupCategory := int32(56) // int32 | Filter builds by rollup category. (optional)
-	authorId := int32(56) // int32 | The author's `SteamID3` (optional)
+	buildId := int64(789) // int64 | Filter builds by ID. (optional)
+	version := int64(789) // int64 | Filter builds by version. (optional)
+	heroId := int64(789) // int64 | Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	tag := int64(789) // int64 | Filter builds by tag. (optional)
+	rollupCategory := int64(789) // int64 | Filter builds by rollup category. (optional)
+	authorId := int64(789) // int64 | The author's `SteamID3` (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -224,20 +224,20 @@ Name | Type | Description  | Notes
  **minPublishedUnixTimestamp** | **int64** | Filter builds based on their published time (Unix timestamp). | 
  **maxPublishedUnixTimestamp** | **int64** | Filter builds based on their published time (Unix timestamp). | 
  **sortBy** | **string** | The field to sort the builds by. | 
- **start** | **int32** | The index of the first build to return. | 
- **limit** | **int32** | The maximum number of builds to return. | [default to 100]
+ **start** | **int64** | The index of the first build to return. | 
+ **limit** | **int64** | The maximum number of builds to return. | [default to 100]
  **sortDirection** | **string** | The direction to sort the builds in. | 
  **searchName** | **string** | Search for builds with a name containing this string. | 
  **searchDescription** | **string** | Search for builds with a description containing this string. | 
  **onlyLatest** | **bool** | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. | 
- **language** | **int32** | Filter builds by language. | 
+ **language** | **int64** | Filter builds by language. | 
  **buildLanguage** | **string** | Filter builds by language. | 
- **buildId** | **int32** | Filter builds by ID. | 
- **version** | **int32** | Filter builds by version. | 
- **heroId** | **int32** | Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
- **tag** | **int32** | Filter builds by tag. | 
- **rollupCategory** | **int32** | Filter builds by rollup category. | 
- **authorId** | **int32** | The author&#39;s &#x60;SteamID3&#x60; | 
+ **buildId** | **int64** | Filter builds by ID. | 
+ **version** | **int64** | Filter builds by version. | 
+ **heroId** | **int64** | Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **tag** | **int64** | Filter builds by tag. | 
+ **rollupCategory** | **int64** | Filter builds by rollup category. | 
+ **authorId** | **int64** | The author&#39;s &#x60;SteamID3&#x60; | 
 
 ### Return type
 

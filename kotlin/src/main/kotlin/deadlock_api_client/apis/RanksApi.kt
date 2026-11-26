@@ -113,7 +113,7 @@ open class RanksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRank(tier: kotlin.Int, language: LanguageGetRank? = null, clientVersion: kotlin.Int? = null) : Rank {
+    fun getRank(tier: kotlin.Long, language: LanguageGetRank? = null, clientVersion: kotlin.Long? = null) : Rank {
         val localVarResponse = getRankWithHttpInfo(tier = tier, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -144,7 +144,7 @@ open class RanksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRankWithHttpInfo(tier: kotlin.Int, language: LanguageGetRank?, clientVersion: kotlin.Int?) : ApiResponse<Rank?> {
+    fun getRankWithHttpInfo(tier: kotlin.Long, language: LanguageGetRank?, clientVersion: kotlin.Long?) : ApiResponse<Rank?> {
         val localVariableConfig = getRankRequestConfig(tier = tier, language = language, clientVersion = clientVersion)
 
         return request<Unit, Rank>(
@@ -160,7 +160,7 @@ open class RanksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getRankRequestConfig(tier: kotlin.Int, language: LanguageGetRank?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getRankRequestConfig(tier: kotlin.Long, language: LanguageGetRank?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -243,7 +243,7 @@ open class RanksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listRanks(language: LanguageListRanks? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<Rank> {
+    fun listRanks(language: LanguageListRanks? = null, clientVersion: kotlin.Long? = null) : kotlin.collections.List<Rank> {
         val localVarResponse = listRanksWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -273,7 +273,7 @@ open class RanksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listRanksWithHttpInfo(language: LanguageListRanks?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<Rank>?> {
+    fun listRanksWithHttpInfo(language: LanguageListRanks?, clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<Rank>?> {
         val localVariableConfig = listRanksRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<Rank>>(
@@ -288,7 +288,7 @@ open class RanksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listRanksRequestConfig(language: LanguageListRanks?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listRanksRequestConfig(language: LanguageListRanks?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -345,7 +345,7 @@ open class RanksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun subrankImage(tier: kotlin.Int, subrank: kotlin.Int, format: FormatSubrankImage? = null) : kotlin.collections.List<kotlin.Int> {
+    fun subrankImage(tier: kotlin.Long, subrank: kotlin.Long, format: FormatSubrankImage? = null) : kotlin.collections.List<kotlin.Int> {
         val localVarResponse = subrankImageWithHttpInfo(tier = tier, subrank = subrank, format = format)
 
         return when (localVarResponse.responseType) {
@@ -376,7 +376,7 @@ open class RanksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun subrankImageWithHttpInfo(tier: kotlin.Int, subrank: kotlin.Int, format: FormatSubrankImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+    fun subrankImageWithHttpInfo(tier: kotlin.Long, subrank: kotlin.Long, format: FormatSubrankImage?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
         val localVariableConfig = subrankImageRequestConfig(tier = tier, subrank = subrank, format = format)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
@@ -392,7 +392,7 @@ open class RanksApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param format Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)
      * @return RequestConfig
      */
-    fun subrankImageRequestConfig(tier: kotlin.Int, subrank: kotlin.Int, format: FormatSubrankImage?) : RequestConfig<Unit> {
+    fun subrankImageRequestConfig(tier: kotlin.Long, subrank: kotlin.Long, format: FormatSubrankImage?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

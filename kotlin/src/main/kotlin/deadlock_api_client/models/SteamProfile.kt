@@ -48,7 +48,7 @@ import java.io.Serializable
 data class SteamProfile (
 
     @Json(name = "account_id")
-    val accountId: kotlin.Int,
+    val accountId: kotlin.Long,
 
     @Json(name = "avatar")
     val avatar: kotlin.String,
@@ -78,7 +78,7 @@ data class SteamProfile (
     val countrycode: kotlin.String? = null,
 
     @Json(name = "last_team_avg_badge")
-    val lastTeamAvgBadge: kotlin.Int? = null,
+    val lastTeamAvgBadge: kotlin.Long? = null,
 
     @Json(name = "realname")
     val realname: kotlin.String? = null

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**HeroIds** | **[]int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**HeroIds** | **[]int64** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **Wins** | **int64** |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewHeroCombStats
 
-`func NewHeroCombStats(heroIds []int32, losses int64, matches int64, wins int64, ) *HeroCombStats`
+`func NewHeroCombStats(heroIds []int64, losses int64, matches int64, wins int64, ) *HeroCombStats`
 
 NewHeroCombStats instantiates a new HeroCombStats object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetHeroIds
 
-`func (o *HeroCombStats) GetHeroIds() []int32`
+`func (o *HeroCombStats) GetHeroIds() []int64`
 
 GetHeroIds returns the HeroIds field if non-nil, zero value otherwise.
 
 ### GetHeroIdsOk
 
-`func (o *HeroCombStats) GetHeroIdsOk() (*[]int32, bool)`
+`func (o *HeroCombStats) GetHeroIdsOk() (*[]int64, bool)`
 
 GetHeroIdsOk returns a tuple with the HeroIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroIds
 
-`func (o *HeroCombStats) SetHeroIds(v []int32)`
+`func (o *HeroCombStats) SetHeroIds(v []int64)`
 
 SetHeroIds sets HeroIds field to given value.
 

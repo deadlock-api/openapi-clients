@@ -24,7 +24,7 @@ Returns a single modifier by numeric id or by &#x60;class_name&#x60; (case-insen
 
 val apiInstance = ModifiersApi()
 val idOrClassname : kotlin.String = idOrClassname_example // kotlin.String | Modifier id (`murmurhash2(class_name)`) or `class_name`
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : Modifier = apiInstance.getModifier(idOrClassname, clientVersion)
     println(result)
@@ -41,7 +41,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **idOrClassname** | **kotlin.String**| Modifier id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; | |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -71,7 +71,7 @@ Returns modifier definitions parsed from the patch&#39;s &#x60;modifiers.vdata&#
 //import deadlock_api_client.models.*
 
 val apiInstance = ModifiersApi()
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : kotlin.collections.List<Modifier> = apiInstance.listModifiers(clientVersion)
     println(result)
@@ -87,7 +87,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 

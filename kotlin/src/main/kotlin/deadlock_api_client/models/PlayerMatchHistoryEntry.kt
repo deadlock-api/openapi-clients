@@ -63,10 +63,10 @@ import java.io.Serializable
 data class PlayerMatchHistoryEntry (
 
     @Json(name = "account_id")
-    val accountId: kotlin.Int,
+    val accountId: kotlin.Long,
 
     @Json(name = "denies")
-    val denies: kotlin.Int,
+    val denies: kotlin.Long,
 
     @Json(name = "game_mode")
     val gameMode: kotlin.Int,
@@ -76,13 +76,13 @@ data class PlayerMatchHistoryEntry (
     val heroId: kotlin.Int,
 
     @Json(name = "hero_level")
-    val heroLevel: kotlin.Int,
+    val heroLevel: kotlin.Long,
 
     @Json(name = "last_hits")
-    val lastHits: kotlin.Int,
+    val lastHits: kotlin.Long,
 
     @Json(name = "match_duration_s")
-    val matchDurationS: kotlin.Int,
+    val matchDurationS: kotlin.Long,
 
     @Json(name = "match_id")
     val matchId: kotlin.Long,
@@ -91,25 +91,25 @@ data class PlayerMatchHistoryEntry (
     val matchMode: kotlin.Int,
 
     @Json(name = "match_result")
-    val matchResult: kotlin.Int,
+    val matchResult: kotlin.Long,
 
     @Json(name = "net_worth")
-    val netWorth: kotlin.Int,
+    val netWorth: kotlin.Long,
 
     @Json(name = "objectives_mask_team0")
-    val objectivesMaskTeam0: kotlin.Int,
+    val objectivesMaskTeam0: kotlin.Long,
 
     @Json(name = "objectives_mask_team1")
-    val objectivesMaskTeam1: kotlin.Int,
+    val objectivesMaskTeam1: kotlin.Long,
 
     @Json(name = "player_assists")
-    val playerAssists: kotlin.Int,
+    val playerAssists: kotlin.Long,
 
     @Json(name = "player_deaths")
-    val playerDeaths: kotlin.Int,
+    val playerDeaths: kotlin.Long,
 
     @Json(name = "player_kills")
-    val playerKills: kotlin.Int,
+    val playerKills: kotlin.Long,
 
     /* How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored. */
     @Json(name = "player_match_outcome")
@@ -119,19 +119,19 @@ data class PlayerMatchHistoryEntry (
     val playerTeam: kotlin.Int,
 
     @Json(name = "start_time")
-    val startTime: kotlin.Int,
+    val startTime: kotlin.Long,
 
     @Json(name = "abandoned_time_s")
-    val abandonedTimeS: kotlin.Int? = null,
+    val abandonedTimeS: kotlin.Long? = null,
 
     @Json(name = "brawl_avg_round_time_s")
-    val brawlAvgRoundTimeS: kotlin.Int? = null,
+    val brawlAvgRoundTimeS: kotlin.Long? = null,
 
     @Json(name = "brawl_score_team0")
-    val brawlScoreTeam0: kotlin.Int? = null,
+    val brawlScoreTeam0: kotlin.Long? = null,
 
     @Json(name = "brawl_score_team1")
-    val brawlScoreTeam1: kotlin.Int? = null,
+    val brawlScoreTeam1: kotlin.Long? = null,
 
     /* Whether the match was played in the low priority pool. `None` for entries stored before this was recorded. */
     @Json(name = "low_pri_pool")
@@ -139,7 +139,7 @@ data class PlayerMatchHistoryEntry (
 
     /* Non-zero if this match counted towards the player's ranked calibration. */
     @Json(name = "ranked_calibration_match")
-    val rankedCalibrationMatch: kotlin.Int? = null,
+    val rankedCalibrationMatch: kotlin.Long? = null,
 
     /* The ranked progress change the player got from this match. */
     @Json(name = "ranked_delta")
@@ -147,7 +147,7 @@ data class PlayerMatchHistoryEntry (
 
     /* The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "ranked_display_badge")
-    val rankedDisplayBadge: kotlin.Int? = null,
+    val rankedDisplayBadge: kotlin.Long? = null,
 
     /* Whether the player's demotion protection absorbed a loss in this match. */
     @Json(name = "ranked_used_demotion_protection")

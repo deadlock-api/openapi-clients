@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **abilityId** | **kotlin.Int** |  |  |
+| **abilityId** | **kotlin.Long** |  |  |
 | **currencyType** | **kotlin.Int** |  |  |
 | **delta** | **kotlin.Int** |  |  |
 | **&#x60;annotation&#x60;** | **kotlin.String** |  |  [optional] |

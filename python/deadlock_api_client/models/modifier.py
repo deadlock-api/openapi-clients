@@ -32,7 +32,7 @@ class Modifier(BaseModel):
     var_class: Optional[StrictStr] = Field(default=None, description="Engine class (`_class`), e.g. `citadel_neutral_laser_beam`.", alias="class")
     class_name: StrictStr
     folder: Optional[StrictStr] = Field(default=None, description="Editor folder (`_editor.folder_name`), e.g. `Neutral Ability`.")
-    id: Annotated[int, Field(strict=True, ge=0)]
+    id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     properties: Dict[str, Union[StrictFloat, StrictInt]] = Field(description="Numeric properties keyed by their source name. Nested properties use a dotted path (`m_GroundAuraModifier.m_modifierProvidedByAura.m_flDPS`, `subclass:` wrappers are skipped); `m_vecScriptValues` entries are keyed by their `m_eModifierValue` (`MODIFIER_VALUE_GRAVITY_SCALE`).")
     __properties: ClassVar[List[str]] = ["base", "class", "class_name", "folder", "id", "properties"]
 

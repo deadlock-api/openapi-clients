@@ -308,10 +308,22 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Denies2, must be a value greater than or equal to 0.", new [] { "Denies2" });
             }
 
+            // HeroId1 (int) maximum
+            if (this.HeroId1 > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId1, must be a value less than or equal to 255.", new [] { "HeroId1" });
+            }
+
             // HeroId1 (int) minimum
             if (this.HeroId1 < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId1, must be a value greater than or equal to 0.", new [] { "HeroId1" });
+            }
+
+            // HeroId2 (int) maximum
+            if (this.HeroId2 > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId2, must be a value less than or equal to 255.", new [] { "HeroId2" });
             }
 
             // HeroId2 (int) minimum

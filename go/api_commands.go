@@ -133,14 +133,14 @@ func (a *CommandsAPIService) AvailableVariablesExecute(r ApiAvailableVariablesRe
 type ApiCommandResolveRequest struct {
 	ctx context.Context
 	ApiService *CommandsAPIService
-	accountId *int32
+	accountId *int64
 	region *string
 	template *string
 	heroName *string
 }
 
 // The players &#x60;SteamID3&#x60;
-func (r ApiCommandResolveRequest) AccountId(accountId int32) ApiCommandResolveRequest {
+func (r ApiCommandResolveRequest) AccountId(accountId int64) ApiCommandResolveRequest {
 	r.accountId = &accountId
 	return r
 }
@@ -217,6 +217,9 @@ func (a *CommandsAPIService) CommandResolveExecute(r ApiCommandResolveRequest) (
 	if *r.accountId < 0 {
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
 	}
+	if *r.accountId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accountId must be less than 4294967295")
+	}
 
 	if r.region != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
@@ -285,13 +288,13 @@ func (a *CommandsAPIService) CommandResolveExecute(r ApiCommandResolveRequest) (
 type ApiVariablesResolveRequest struct {
 	ctx context.Context
 	ApiService *CommandsAPIService
-	accountId *int32
+	accountId *int64
 	region *string
 	variables *string
 	heroName *string
 }
 
-func (r ApiVariablesResolveRequest) AccountId(accountId int32) ApiVariablesResolveRequest {
+func (r ApiVariablesResolveRequest) AccountId(accountId int64) ApiVariablesResolveRequest {
 	r.accountId = &accountId
 	return r
 }
@@ -366,6 +369,9 @@ func (a *CommandsAPIService) VariablesResolveExecute(r ApiVariablesResolveReques
 	}
 	if *r.accountId < 0 {
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+	if *r.accountId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accountId must be less than 4294967295")
 	}
 
 	if r.region != nil {

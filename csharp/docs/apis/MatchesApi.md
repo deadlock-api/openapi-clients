@@ -17,7 +17,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="activematches"></a>
 # **ActiveMatches**
-> List&lt;ActiveMatch&gt; ActiveMatches (int accountId = null, List<int> accountIds = null)
+> List&lt;ActiveMatch&gt; ActiveMatches (long accountId = null, List<long> accountIds = null)
 
 Active
 
@@ -28,8 +28,8 @@ Active
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** | The account ID to filter active matches by (&#x60;SteamID3&#x60;) | [optional]  |
-| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
+| **accountId** | **long** | The account ID to filter active matches by (&#x60;SteamID3&#x60;) | [optional]  |
+| **accountIds** | [**List&lt;long&gt;**](long.md) | Comma separated list of account ids to include | [optional]  |
 
 ### Return type
 
@@ -89,7 +89,7 @@ No authorization required
 
 <a id="bulkmetadata"></a>
 # **BulkMetadata**
-> List&lt;Object&gt; BulkMetadata (bool includeInfo = null, bool includeMoreInfo = null, bool includeObjectives = null, bool includeMidBoss = null, bool includePlayerInfo = null, bool includePlayerKda = null, bool includePlayerItems = null, bool includePlayerStats = null, bool includePlayerFinalStats = null, bool includePlayerDeathDetails = null, string gameMode = null, string matchMode = null, List<long> matchIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, List<int> accountIds = null, bool onlyFilteredPlayers = null, string heroIds = null, int itemFilterHeroId = null, string includeItemIds = null, string excludeItemIds = null, string extraMatchColumns = null, string extraPlayerColumns = null, string orderBy = null, string orderDirection = null, int limit = null, string format = null)
+> List&lt;Object&gt; BulkMetadata (bool includeInfo = null, bool includeMoreInfo = null, bool includeObjectives = null, bool includeMidBoss = null, bool includePlayerInfo = null, bool includePlayerKda = null, bool includePlayerItems = null, bool includePlayerStats = null, bool includePlayerFinalStats = null, bool includePlayerDeathDetails = null, string gameMode = null, string matchMode = null, List<long> matchIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, int minDurationS = null, int maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, List<long> accountIds = null, bool onlyFilteredPlayers = null, string heroIds = null, long itemFilterHeroId = null, string includeItemIds = null, string excludeItemIds = null, string extraMatchColumns = null, string extraPlayerColumns = null, string orderBy = null, string orderDirection = null, int limit = null, string format = null)
 
 Bulk Metadata
 
@@ -115,8 +115,8 @@ Bulk Metadata
 | **matchIds** | [**List&lt;long&gt;**](long.md) | Comma separated list of match ids, limited by &#x60;limit&#x60; | [optional]  |
 | **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
-| **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
-| **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **minDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **maxDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **minAverageBadge** | **int** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional]  |
 | **maxAverageBadge** | **int** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional]  |
 | **minMatchId** | **long** | Filter matches based on their ID. | [optional]  |
@@ -124,10 +124,10 @@ Bulk Metadata
 | **isHighSkillRangeParties** | **bool** | Filter matches based on whether they are in the high skill range. | [optional]  |
 | **isLowPriPool** | **bool** | Filter matches based on whether they are in the low priority pool. | [optional]  |
 | **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | [optional]  |
-| **accountIds** | [**List&lt;int&gt;**](int.md) | Filter matches by account IDs of players that participated in the match. | [optional]  |
+| **accountIds** | [**List&lt;long&gt;**](long.md) | Filter matches by account IDs of players that participated in the match. | [optional]  |
 | **onlyFilteredPlayers** | **bool** | Only include the players matching &#x60;account_ids&#x60; in the &#x60;players&#x60; array instead of all players of the match. Requires &#x60;account_ids&#x60;. | [optional]  |
 | **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
-| **itemFilterHeroId** | **int** | Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | [optional]  |
+| **itemFilterHeroId** | **long** | Hero ID to scope item filters to. Required when using &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60;. | [optional]  |
 | **includeItemIds** | **string** | Comma separated list of item ids to include. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has ALL of these items. | [optional]  |
 | **excludeItemIds** | **string** | Comma separated list of item ids to exclude. Requires &#x60;item_filter_hero_id&#x60;. Returns matches where a player on the specified hero has NONE of these items. | [optional]  |
 | **extraMatchColumns** | **string** | Comma separated list of extra match-level columns to include in the response. Each column is aggregated with &#x60;any(...)&#x60;. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: &#x60;objectives_mask_team0,team_score&#x60;. | [optional]  |

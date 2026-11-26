@@ -21,20 +21,20 @@ var _ MappedNullable = &BuildHero{}
 
 // BuildHero struct for BuildHero
 type BuildHero struct {
-	AuthorAccountId int32 `json:"author_account_id"`
+	AuthorAccountId int64 `json:"author_account_id"`
 	Description NullableString `json:"description,omitempty"`
 	Details BuildHeroDetails `json:"details"`
 	DevelopmentBuild NullableBool `json:"development_build,omitempty"`
-	HeroBuildId int32 `json:"hero_build_id"`
+	HeroBuildId int64 `json:"hero_build_id"`
 	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	HeroId int32 `json:"hero_id"`
-	Language int32 `json:"language"`
+	HeroId int64 `json:"hero_id"`
+	Language int64 `json:"language"`
 	LastUpdatedTimestamp NullableInt64 `json:"last_updated_timestamp,omitempty"`
 	Name string `json:"name"`
-	OriginBuildId int32 `json:"origin_build_id"`
+	OriginBuildId int64 `json:"origin_build_id"`
 	PublishTimestamp NullableInt64 `json:"publish_timestamp,omitempty"`
-	Tags []int32 `json:"tags,omitempty"`
-	Version int32 `json:"version"`
+	Tags []int64 `json:"tags,omitempty"`
+	Version int64 `json:"version"`
 }
 
 type _BuildHero BuildHero
@@ -43,7 +43,7 @@ type _BuildHero BuildHero
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBuildHero(authorAccountId int32, details BuildHeroDetails, heroBuildId int32, heroId int32, language int32, name string, originBuildId int32, version int32) *BuildHero {
+func NewBuildHero(authorAccountId int64, details BuildHeroDetails, heroBuildId int64, heroId int64, language int64, name string, originBuildId int64, version int64) *BuildHero {
 	this := BuildHero{}
 	this.AuthorAccountId = authorAccountId
 	this.Details = details
@@ -65,9 +65,9 @@ func NewBuildHeroWithDefaults() *BuildHero {
 }
 
 // GetAuthorAccountId returns the AuthorAccountId field value
-func (o *BuildHero) GetAuthorAccountId() int32 {
+func (o *BuildHero) GetAuthorAccountId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -76,7 +76,7 @@ func (o *BuildHero) GetAuthorAccountId() int32 {
 
 // GetAuthorAccountIdOk returns a tuple with the AuthorAccountId field value
 // and a boolean to check if the value has been set.
-func (o *BuildHero) GetAuthorAccountIdOk() (*int32, bool) {
+func (o *BuildHero) GetAuthorAccountIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -84,7 +84,7 @@ func (o *BuildHero) GetAuthorAccountIdOk() (*int32, bool) {
 }
 
 // SetAuthorAccountId sets field value
-func (o *BuildHero) SetAuthorAccountId(v int32) {
+func (o *BuildHero) SetAuthorAccountId(v int64) {
 	o.AuthorAccountId = v
 }
 
@@ -197,9 +197,9 @@ func (o *BuildHero) UnsetDevelopmentBuild() {
 }
 
 // GetHeroBuildId returns the HeroBuildId field value
-func (o *BuildHero) GetHeroBuildId() int32 {
+func (o *BuildHero) GetHeroBuildId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -208,7 +208,7 @@ func (o *BuildHero) GetHeroBuildId() int32 {
 
 // GetHeroBuildIdOk returns a tuple with the HeroBuildId field value
 // and a boolean to check if the value has been set.
-func (o *BuildHero) GetHeroBuildIdOk() (*int32, bool) {
+func (o *BuildHero) GetHeroBuildIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -216,14 +216,14 @@ func (o *BuildHero) GetHeroBuildIdOk() (*int32, bool) {
 }
 
 // SetHeroBuildId sets field value
-func (o *BuildHero) SetHeroBuildId(v int32) {
+func (o *BuildHero) SetHeroBuildId(v int64) {
 	o.HeroBuildId = v
 }
 
 // GetHeroId returns the HeroId field value
-func (o *BuildHero) GetHeroId() int32 {
+func (o *BuildHero) GetHeroId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -232,7 +232,7 @@ func (o *BuildHero) GetHeroId() int32 {
 
 // GetHeroIdOk returns a tuple with the HeroId field value
 // and a boolean to check if the value has been set.
-func (o *BuildHero) GetHeroIdOk() (*int32, bool) {
+func (o *BuildHero) GetHeroIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -240,14 +240,14 @@ func (o *BuildHero) GetHeroIdOk() (*int32, bool) {
 }
 
 // SetHeroId sets field value
-func (o *BuildHero) SetHeroId(v int32) {
+func (o *BuildHero) SetHeroId(v int64) {
 	o.HeroId = v
 }
 
 // GetLanguage returns the Language field value
-func (o *BuildHero) GetLanguage() int32 {
+func (o *BuildHero) GetLanguage() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -256,7 +256,7 @@ func (o *BuildHero) GetLanguage() int32 {
 
 // GetLanguageOk returns a tuple with the Language field value
 // and a boolean to check if the value has been set.
-func (o *BuildHero) GetLanguageOk() (*int32, bool) {
+func (o *BuildHero) GetLanguageOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -264,7 +264,7 @@ func (o *BuildHero) GetLanguageOk() (*int32, bool) {
 }
 
 // SetLanguage sets field value
-func (o *BuildHero) SetLanguage(v int32) {
+func (o *BuildHero) SetLanguage(v int64) {
 	o.Language = v
 }
 
@@ -335,9 +335,9 @@ func (o *BuildHero) SetName(v string) {
 }
 
 // GetOriginBuildId returns the OriginBuildId field value
-func (o *BuildHero) GetOriginBuildId() int32 {
+func (o *BuildHero) GetOriginBuildId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -346,7 +346,7 @@ func (o *BuildHero) GetOriginBuildId() int32 {
 
 // GetOriginBuildIdOk returns a tuple with the OriginBuildId field value
 // and a boolean to check if the value has been set.
-func (o *BuildHero) GetOriginBuildIdOk() (*int32, bool) {
+func (o *BuildHero) GetOriginBuildIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -354,7 +354,7 @@ func (o *BuildHero) GetOriginBuildIdOk() (*int32, bool) {
 }
 
 // SetOriginBuildId sets field value
-func (o *BuildHero) SetOriginBuildId(v int32) {
+func (o *BuildHero) SetOriginBuildId(v int64) {
 	o.OriginBuildId = v
 }
 
@@ -401,9 +401,9 @@ func (o *BuildHero) UnsetPublishTimestamp() {
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
-func (o *BuildHero) GetTags() []int32 {
+func (o *BuildHero) GetTags() []int64 {
 	if o == nil || IsNil(o.Tags) {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 	return o.Tags
@@ -411,7 +411,7 @@ func (o *BuildHero) GetTags() []int32 {
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BuildHero) GetTagsOk() ([]int32, bool) {
+func (o *BuildHero) GetTagsOk() ([]int64, bool) {
 	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
@@ -427,15 +427,15 @@ func (o *BuildHero) HasTags() bool {
 	return false
 }
 
-// SetTags gets a reference to the given []int32 and assigns it to the Tags field.
-func (o *BuildHero) SetTags(v []int32) {
+// SetTags gets a reference to the given []int64 and assigns it to the Tags field.
+func (o *BuildHero) SetTags(v []int64) {
 	o.Tags = v
 }
 
 // GetVersion returns the Version field value
-func (o *BuildHero) GetVersion() int32 {
+func (o *BuildHero) GetVersion() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -444,7 +444,7 @@ func (o *BuildHero) GetVersion() int32 {
 
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
-func (o *BuildHero) GetVersionOk() (*int32, bool) {
+func (o *BuildHero) GetVersionOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -452,7 +452,7 @@ func (o *BuildHero) GetVersionOk() (*int32, bool) {
 }
 
 // SetVersion sets field value
-func (o *BuildHero) SetVersion(v int32) {
+func (o *BuildHero) SetVersion(v int64) {
 	o.Version = v
 }
 

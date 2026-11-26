@@ -40,7 +40,7 @@ data class PlayerStatsMetricsBucket (
 
     /* The bucket's value: the hero id for `bucket=hero`. */
     @Json(name = "bucket")
-    val bucket: kotlin.Int
+    val bucket: kotlin.Long
 
 ) : kotlin.collections.HashMap<String, MetricValues>(), Serializable {
     companion object {

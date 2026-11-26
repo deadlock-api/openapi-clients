@@ -32,12 +32,12 @@ Enemy Stats
 //import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
 val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
 val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val minDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
+val maxDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
 val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 val minMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
@@ -57,12 +57,12 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **accountId** | **kotlin.Long**| The players &#x60;SteamID3&#x60; | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal, internal02] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minDurationS** | **kotlin.Int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **minMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
@@ -96,7 +96,7 @@ Match History
 //import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
 val forceRefetch : kotlin.Boolean = true // kotlin.Boolean | Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.
 try {
     val result : kotlin.collections.List<PlayerMatchHistoryEntry> = apiInstance.matchHistory(accountId, forceRefetch)
@@ -113,7 +113,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **accountId** | **kotlin.Long**| The players &#x60;SteamID3&#x60; | |
 | **forceRefetch** | **kotlin.Boolean**| Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. | [optional] |
 
 ### Return type
@@ -144,12 +144,12 @@ Mate Stats
 //import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
 val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
 val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val minDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
+val maxDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
 val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 val minMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
@@ -170,12 +170,12 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **accountId** | **kotlin.Long**| The players &#x60;SteamID3&#x60; | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal, internal02] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minDurationS** | **kotlin.Int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **minMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **minMatchesPlayed** | **kotlin.Long**| Filter based on the number of matches played. | [optional] |
@@ -210,14 +210,14 @@ Hero Stats
 //import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
-val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
 val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 val matchMode : kotlin.String = matchMode_example // kotlin.String | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
 val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
 val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val minDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
+val maxDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
 val minNetworth : kotlin.Long = 789 // kotlin.Long | Filter players based on their final net worth.
 val maxNetworth : kotlin.Long = 789 // kotlin.Long | Filter players based on their final net worth.
 val minAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -239,14 +239,14 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal, internal02] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minDurationS** | **kotlin.Int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **minNetworth** | **kotlin.Long**| Filter players based on their final net worth. | [optional] |
 | **maxNetworth** | **kotlin.Long**| Filter players based on their final net worth. | [optional] |
 | **minAverageBadge** | **kotlin.Int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] |
@@ -282,7 +282,7 @@ Rank
 //import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
 try {
     val result : RankResponse = apiInstance.rank(accountId)
     println(result)
@@ -298,7 +298,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **accountId** | **kotlin.Long**| The players &#x60;SteamID3&#x60; | |
 
 ### Return type
 
@@ -328,7 +328,7 @@ Returns the average rank badge image (binary) for a comma-separated list of acco
 //import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
-val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
+val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma-separated list of account IDs (max 12).
 val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
 try {
     val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankAvgImage(accountIds, format)
@@ -345,7 +345,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma-separated list of account IDs (max 12). | |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma-separated list of account IDs (max 12). | |
 | **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
 
 ### Return type
@@ -376,7 +376,7 @@ Batch Rank
 //import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
-val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
 try {
     val result : kotlin.collections.List<AccountRank> = apiInstance.rankBatch(accountIds)
     println(result)
@@ -392,7 +392,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | |
 
 ### Return type
 
@@ -424,8 +424,8 @@ Rank Distribution
 val apiInstance = PlayersApi()
 val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+val minDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
+val maxDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
 val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the high skill range.
 val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
 val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
@@ -446,10 +446,10 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1792972800L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1793059200L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
-| **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
-| **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **minDurationS** | **kotlin.Int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **maxDurationS** | **kotlin.Int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **isHighSkillRangeParties** | **kotlin.Boolean**| Filter matches based on whether they are in the high skill range. | [optional] |
 | **isLowPriPool** | **kotlin.Boolean**| Filter matches based on whether they are in the low priority pool. | [optional] |
 | **isNewPlayerPool** | **kotlin.Boolean**| Filter matches based on whether they are in the new player pool. | [optional] |
@@ -484,7 +484,7 @@ Returns the rank badge image directly (binary), not a URL, with the player&#39;s
 //import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
 val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
 try {
     val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankImage(accountId, format)
@@ -501,7 +501,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **accountId** | **kotlin.Long**| The players &#x60;SteamID3&#x60; | |
 | **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
 
 ### Return type
@@ -532,7 +532,7 @@ Region
 //import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
 try {
     val result : PlayerRegionResponse = apiInstance.region(accountId)
     println(result)
@@ -548,7 +548,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **accountId** | **kotlin.Long**| The players &#x60;SteamID3&#x60; | |
 
 ### Return type
 
@@ -578,7 +578,7 @@ Batch Region
 //import deadlock_api_client.models.*
 
 val apiInstance = PlayersApi()
-val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
 try {
     val result : kotlin.collections.List<PlayerRegionResponse> = apiInstance.regionBatch(accountIds)
     println(result)
@@ -594,7 +594,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | |
 
 ### Return type
 

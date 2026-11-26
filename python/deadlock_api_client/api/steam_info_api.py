@@ -289,7 +289,7 @@ class SteamInfoApi:
     @validate_call
     def get_steam_info(
         self,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -358,7 +358,7 @@ class SteamInfoApi:
     @validate_call
     def get_steam_info_with_http_info(
         self,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -427,7 +427,7 @@ class SteamInfoApi:
     @validate_call
     def get_steam_info_without_preload_content(
         self,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

@@ -140,7 +140,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIngestStatusApiResponse"/>&gt;</returns>
-        Task<IIngestStatusApiResponse> IngestStatusAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IIngestStatusApiResponse> IngestStatusAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Ingest Status
@@ -151,7 +151,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIngestStatusApiResponse"/>?&gt;</returns>
-        Task<IIngestStatusApiResponse?> IngestStatusOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IIngestStatusApiResponse?> IngestStatusOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Prioritized Steam Accounts
@@ -1801,14 +1801,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatIngestStatus(ref int accountId);
+        partial void FormatIngestStatus(ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
-        private void AfterIngestStatusDefaultImplementation(IIngestStatusApiResponse apiResponseLocalVar, int accountId)
+        private void AfterIngestStatusDefaultImplementation(IIngestStatusApiResponse apiResponseLocalVar, long accountId)
         {
             bool suppressDefaultLog = false;
             AfterIngestStatus(ref suppressDefaultLog, apiResponseLocalVar, accountId);
@@ -1822,7 +1822,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
-        partial void AfterIngestStatus(ref bool suppressDefaultLog, IIngestStatusApiResponse apiResponseLocalVar, int accountId);
+        partial void AfterIngestStatus(ref bool suppressDefaultLog, IIngestStatusApiResponse apiResponseLocalVar, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1831,7 +1831,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
-        private void OnErrorIngestStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId)
+        private void OnErrorIngestStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorIngestStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
@@ -1847,7 +1847,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorIngestStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
+        partial void OnErrorIngestStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId);
 
         /// <summary>
         /// Ingest Status  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
@@ -1855,7 +1855,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIngestStatusApiResponse"/>&gt;</returns>
-        public async Task<IIngestStatusApiResponse?> IngestStatusOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IIngestStatusApiResponse?> IngestStatusOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -1874,7 +1874,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIngestStatusApiResponse"/>&gt;</returns>
-        public async Task<IIngestStatusApiResponse> IngestStatusAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IIngestStatusApiResponse> IngestStatusAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

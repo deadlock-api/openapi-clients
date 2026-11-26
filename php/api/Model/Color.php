@@ -299,6 +299,10 @@ class Color implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['alpha'] === null) {
             $invalidProperties[] = "'alpha' can't be null";
         }
+        if (($this->container['alpha'] > 255)) {
+            $invalidProperties[] = "invalid value for 'alpha', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['alpha'] < 0)) {
             $invalidProperties[] = "invalid value for 'alpha', must be bigger than or equal to 0.";
         }
@@ -306,6 +310,10 @@ class Color implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['blue'] === null) {
             $invalidProperties[] = "'blue' can't be null";
         }
+        if (($this->container['blue'] > 255)) {
+            $invalidProperties[] = "invalid value for 'blue', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['blue'] < 0)) {
             $invalidProperties[] = "invalid value for 'blue', must be bigger than or equal to 0.";
         }
@@ -313,6 +321,10 @@ class Color implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['green'] === null) {
             $invalidProperties[] = "'green' can't be null";
         }
+        if (($this->container['green'] > 255)) {
+            $invalidProperties[] = "invalid value for 'green', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['green'] < 0)) {
             $invalidProperties[] = "invalid value for 'green', must be bigger than or equal to 0.";
         }
@@ -320,6 +332,10 @@ class Color implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['red'] === null) {
             $invalidProperties[] = "'red' can't be null";
         }
+        if (($this->container['red'] > 255)) {
+            $invalidProperties[] = "invalid value for 'red', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['red'] < 0)) {
             $invalidProperties[] = "invalid value for 'red', must be bigger than or equal to 0.";
         }
@@ -361,6 +377,9 @@ class Color implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($alpha)) {
             throw new \InvalidArgumentException('non-nullable alpha cannot be null');
         }
+        if (($alpha > 255)) {
+            throw new \InvalidArgumentException('invalid value for $alpha when calling Color., must be smaller than or equal to 255.');
+        }
         if (($alpha < 0)) {
             throw new \InvalidArgumentException('invalid value for $alpha when calling Color., must be bigger than or equal to 0.');
         }
@@ -391,6 +410,9 @@ class Color implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($blue)) {
             throw new \InvalidArgumentException('non-nullable blue cannot be null');
+        }
+        if (($blue > 255)) {
+            throw new \InvalidArgumentException('invalid value for $blue when calling Color., must be smaller than or equal to 255.');
         }
         if (($blue < 0)) {
             throw new \InvalidArgumentException('invalid value for $blue when calling Color., must be bigger than or equal to 0.');
@@ -423,6 +445,9 @@ class Color implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($green)) {
             throw new \InvalidArgumentException('non-nullable green cannot be null');
         }
+        if (($green > 255)) {
+            throw new \InvalidArgumentException('invalid value for $green when calling Color., must be smaller than or equal to 255.');
+        }
         if (($green < 0)) {
             throw new \InvalidArgumentException('invalid value for $green when calling Color., must be bigger than or equal to 0.');
         }
@@ -453,6 +478,9 @@ class Color implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($red)) {
             throw new \InvalidArgumentException('non-nullable red cannot be null');
+        }
+        if (($red > 255)) {
+            throw new \InvalidArgumentException('invalid value for $red when calling Color., must be smaller than or equal to 255.');
         }
         if (($red < 0)) {
             throw new \InvalidArgumentException('invalid value for $red when calling Color., must be bigger than or equal to 0.');

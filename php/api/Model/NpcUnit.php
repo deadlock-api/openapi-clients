@@ -171,7 +171,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team1' => null,
         'health_bar_color_team2' => null,
         'health_bar_color_team_neutral' => null,
-        'id' => 'int32',
+        'id' => 'int64',
         'image' => null,
         'image_webp' => null,
         'intrinsic_modifiers' => null,
@@ -826,6 +826,10 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if (($this->container['id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['id'] < 0)) {
             $invalidProperties[] = "invalid value for 'id', must be bigger than or equal to 0.";
         }
@@ -1709,6 +1713,9 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        if (($id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $id when calling NpcUnit., must be smaller than or equal to 4294967295.');
         }
         if (($id < 0)) {
             throw new \InvalidArgumentException('invalid value for $id when calling NpcUnit., must be bigger than or equal to 0.');

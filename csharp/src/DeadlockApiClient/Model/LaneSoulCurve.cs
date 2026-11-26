@@ -43,7 +43,7 @@ namespace DeadlockApiClient.Model
         /// <param name="sampleTimesS">Seconds into the match each entry of the curves was sampled at, ascending.</param>
         /// <param name="stats">A curve per stat named in &#x60;stats&#x60;. Empty unless the parameter was set.</param>
         [JsonConstructor]
-        public LaneSoulCurve(int assignedLane, List<int> enemyHeroIds, List<int> heroIds, long matchesPlayed, List<double> netWorthDiff, List<double> netWorthDiffStd, List<long> sampleMatches, List<int> sampleTimesS, Dictionary<string, LaneStatCurve> stats)
+        public LaneSoulCurve(long assignedLane, List<long> enemyHeroIds, List<long> heroIds, long matchesPlayed, List<double> netWorthDiff, List<double> netWorthDiffStd, List<long> sampleMatches, List<long> sampleTimesS, Dictionary<string, LaneStatCurve> stats)
         {
             AssignedLane = assignedLane;
             EnemyHeroIds = enemyHeroIds;
@@ -64,21 +64,21 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;.</value>
         [JsonPropertyName("assigned_lane")]
-        public int AssignedLane { get; set; }
+        public long AssignedLane { get; set; }
 
         /// <summary>
         /// The ascending hero id pair they laned against, or empty when grouped away.
         /// </summary>
         /// <value>The ascending hero id pair they laned against, or empty when grouped away.</value>
         [JsonPropertyName("enemy_hero_ids")]
-        public List<int> EnemyHeroIds { get; set; }
+        public List<long> EnemyHeroIds { get; set; }
 
         /// <summary>
         /// The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
         /// <value>The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_ids")]
-        public List<int> HeroIds { get; set; }
+        public List<long> HeroIds { get; set; }
 
         /// <summary>
         /// Lane matchups behind the row, counted at its *first* sample. This is what &#x60;min_matches&#x60; and &#x60;max_matches&#x60; filter on, so it does not move when the requested time range changes; read &#x60;sample_matches&#x60; for what any individual point rests on.
@@ -113,7 +113,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Seconds into the match each entry of the curves was sampled at, ascending.</value>
         [JsonPropertyName("sample_times_s")]
-        public List<int> SampleTimesS { get; set; }
+        public List<long> SampleTimesS { get; set; }
 
         /// <summary>
         /// A curve per stat named in &#x60;stats&#x60;. Empty unless the parameter was set.
@@ -150,8 +150,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AssignedLane (int) minimum
-            if (this.AssignedLane < (int)0)
+            // AssignedLane (long) maximum
+            if (this.AssignedLane > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssignedLane, must be a value less than or equal to 4294967295.", new [] { "AssignedLane" });
+            }
+
+            // AssignedLane (long) minimum
+            if (this.AssignedLane < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssignedLane, must be a value greater than or equal to 0.", new [] { "AssignedLane" });
             }
@@ -198,14 +204,14 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> assignedLane = default;
-            Option<List<int>?> enemyHeroIds = default;
-            Option<List<int>?> heroIds = default;
+            Option<long?> assignedLane = default;
+            Option<List<long>?> enemyHeroIds = default;
+            Option<List<long>?> heroIds = default;
             Option<long?> matchesPlayed = default;
             Option<List<double>?> netWorthDiff = default;
             Option<List<double>?> netWorthDiffStd = default;
             Option<List<long>?> sampleMatches = default;
-            Option<List<int>?> sampleTimesS = default;
+            Option<List<long>?> sampleTimesS = default;
             Option<Dictionary<string, LaneStatCurve>?> stats = default;
 
             while (utf8JsonReader.Read())
@@ -224,13 +230,13 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "assigned_lane":
-                            assignedLane = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            assignedLane = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "enemy_hero_ids":
-                            enemyHeroIds = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            enemyHeroIds = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "hero_ids":
-                            heroIds = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            heroIds = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "matches_played":
                             matchesPlayed = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -245,7 +251,7 @@ namespace DeadlockApiClient.Model
                             sampleMatches = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "sample_times_s":
-                            sampleTimesS = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            sampleTimesS = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "stats":
                             stats = new Option<Dictionary<string, LaneStatCurve>?>(JsonSerializer.Deserialize<Dictionary<string, LaneStatCurve>>(ref utf8JsonReader, jsonSerializerOptions)!);

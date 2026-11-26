@@ -21,7 +21,7 @@ var _ MappedNullable = &BuildHeroDetailsAbilityOrderCurrencyChange{}
 
 // BuildHeroDetailsAbilityOrderCurrencyChange struct for BuildHeroDetailsAbilityOrderCurrencyChange
 type BuildHeroDetailsAbilityOrderCurrencyChange struct {
-	AbilityId int32 `json:"ability_id"`
+	AbilityId int64 `json:"ability_id"`
 	Annotation NullableString `json:"annotation,omitempty"`
 	CurrencyType int32 `json:"currency_type"`
 	Delta int32 `json:"delta"`
@@ -33,7 +33,7 @@ type _BuildHeroDetailsAbilityOrderCurrencyChange BuildHeroDetailsAbilityOrderCur
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBuildHeroDetailsAbilityOrderCurrencyChange(abilityId int32, currencyType int32, delta int32) *BuildHeroDetailsAbilityOrderCurrencyChange {
+func NewBuildHeroDetailsAbilityOrderCurrencyChange(abilityId int64, currencyType int32, delta int32) *BuildHeroDetailsAbilityOrderCurrencyChange {
 	this := BuildHeroDetailsAbilityOrderCurrencyChange{}
 	this.AbilityId = abilityId
 	this.CurrencyType = currencyType
@@ -50,9 +50,9 @@ func NewBuildHeroDetailsAbilityOrderCurrencyChangeWithDefaults() *BuildHeroDetai
 }
 
 // GetAbilityId returns the AbilityId field value
-func (o *BuildHeroDetailsAbilityOrderCurrencyChange) GetAbilityId() int32 {
+func (o *BuildHeroDetailsAbilityOrderCurrencyChange) GetAbilityId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -61,7 +61,7 @@ func (o *BuildHeroDetailsAbilityOrderCurrencyChange) GetAbilityId() int32 {
 
 // GetAbilityIdOk returns a tuple with the AbilityId field value
 // and a boolean to check if the value has been set.
-func (o *BuildHeroDetailsAbilityOrderCurrencyChange) GetAbilityIdOk() (*int32, bool) {
+func (o *BuildHeroDetailsAbilityOrderCurrencyChange) GetAbilityIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -69,7 +69,7 @@ func (o *BuildHeroDetailsAbilityOrderCurrencyChange) GetAbilityIdOk() (*int32, b
 }
 
 // SetAbilityId sets field value
-func (o *BuildHeroDetailsAbilityOrderCurrencyChange) SetAbilityId(v int32) {
+func (o *BuildHeroDetailsAbilityOrderCurrencyChange) SetAbilityId(v int64) {
 	o.AbilityId = v
 }
 

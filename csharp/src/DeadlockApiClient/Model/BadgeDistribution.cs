@@ -37,7 +37,7 @@ namespace DeadlockApiClient.Model
         /// <param name="totalMatches">The total number of matches.</param>
         /// <param name="uniquePlayers">The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.</param>
         [JsonConstructor]
-        public BadgeDistribution(int badgeLevel, long totalMatches, long uniquePlayers)
+        public BadgeDistribution(long badgeLevel, long totalMatches, long uniquePlayers)
         {
             BadgeLevel = badgeLevel;
             TotalMatches = totalMatches;
@@ -52,7 +52,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The badge level (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("badge_level")]
-        public int BadgeLevel { get; set; }
+        public long BadgeLevel { get; set; }
 
         /// <summary>
         /// The total number of matches.
@@ -90,8 +90,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // BadgeLevel (int) minimum
-            if (this.BadgeLevel < (int)0)
+            // BadgeLevel (long) maximum
+            if (this.BadgeLevel > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BadgeLevel, must be a value less than or equal to 4294967295.", new [] { "BadgeLevel" });
+            }
+
+            // BadgeLevel (long) minimum
+            if (this.BadgeLevel < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BadgeLevel, must be a value greater than or equal to 0.", new [] { "BadgeLevel" });
             }
@@ -144,7 +150,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> badgeLevel = default;
+            Option<long?> badgeLevel = default;
             Option<long?> totalMatches = default;
             Option<long?> uniquePlayers = default;
 
@@ -164,7 +170,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "badge_level":
-                            badgeLevel = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            badgeLevel = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "total_matches":
                             totalMatches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());

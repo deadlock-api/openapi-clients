@@ -21,7 +21,7 @@ var _ MappedNullable = &EnemyStats{}
 
 // EnemyStats struct for EnemyStats
 type EnemyStats struct {
-	EnemyId int32 `json:"enemy_id"`
+	EnemyId int64 `json:"enemy_id"`
 	Matches []int64 `json:"matches"`
 	MatchesPlayed int64 `json:"matches_played"`
 	// The amount of matches won against the enemy.
@@ -34,7 +34,7 @@ type _EnemyStats EnemyStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnemyStats(enemyId int32, matches []int64, matchesPlayed int64, wins int64) *EnemyStats {
+func NewEnemyStats(enemyId int64, matches []int64, matchesPlayed int64, wins int64) *EnemyStats {
 	this := EnemyStats{}
 	this.EnemyId = enemyId
 	this.Matches = matches
@@ -52,9 +52,9 @@ func NewEnemyStatsWithDefaults() *EnemyStats {
 }
 
 // GetEnemyId returns the EnemyId field value
-func (o *EnemyStats) GetEnemyId() int32 {
+func (o *EnemyStats) GetEnemyId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *EnemyStats) GetEnemyId() int32 {
 
 // GetEnemyIdOk returns a tuple with the EnemyId field value
 // and a boolean to check if the value has been set.
-func (o *EnemyStats) GetEnemyIdOk() (*int32, bool) {
+func (o *EnemyStats) GetEnemyIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *EnemyStats) GetEnemyIdOk() (*int32, bool) {
 }
 
 // SetEnemyId sets field value
-func (o *EnemyStats) SetEnemyId(v int32) {
+func (o *EnemyStats) SetEnemyId(v int64) {
 	o.EnemyId = v
 }
 

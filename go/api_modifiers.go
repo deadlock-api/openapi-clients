@@ -27,11 +27,11 @@ type ApiGetModifierRequest struct {
 	ctx context.Context
 	ApiService *ModifiersAPIService
 	idOrClassname string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetModifierRequest) ClientVersion(clientVersion int32) ApiGetModifierRequest {
+func (r ApiGetModifierRequest) ClientVersion(clientVersion int64) ApiGetModifierRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -139,11 +139,11 @@ func (a *ModifiersAPIService) GetModifierExecute(r ApiGetModifierRequest) (*Modi
 type ApiListModifiersRequest struct {
 	ctx context.Context
 	ApiService *ModifiersAPIService
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiListModifiersRequest) ClientVersion(clientVersion int32) ApiListModifiersRequest {
+func (r ApiListModifiersRequest) ClientVersion(clientVersion int64) ApiListModifiersRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

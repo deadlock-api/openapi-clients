@@ -42,7 +42,7 @@ class ModifiersApi:
     def get_modifier(
         self,
         id_or_classname: Annotated[StrictStr, Field(description="Modifier id (`murmurhash2(class_name)`) or `class_name`")],
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -115,7 +115,7 @@ class ModifiersApi:
     def get_modifier_with_http_info(
         self,
         id_or_classname: Annotated[StrictStr, Field(description="Modifier id (`murmurhash2(class_name)`) or `class_name`")],
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -188,7 +188,7 @@ class ModifiersApi:
     def get_modifier_without_preload_content(
         self,
         id_or_classname: Annotated[StrictStr, Field(description="Modifier id (`murmurhash2(class_name)`) or `class_name`")],
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -324,7 +324,7 @@ class ModifiersApi:
     @validate_call
     def list_modifiers(
         self,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -393,7 +393,7 @@ class ModifiersApi:
     @validate_call
     def list_modifiers_with_http_info(
         self,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -462,7 +462,7 @@ class ModifiersApi:
     @validate_call
     def list_modifiers_without_preload_content(
         self,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

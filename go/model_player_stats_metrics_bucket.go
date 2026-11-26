@@ -21,7 +21,7 @@ var _ MappedNullable = &PlayerStatsMetricsBucket{}
 // PlayerStatsMetricsBucket One bucket's metrics: `bucket`, and per metric the same values as an unbucketed response.
 type PlayerStatsMetricsBucket struct {
 	// The bucket's value: the hero id for `bucket=hero`.
-	Bucket int32 `json:"bucket"`
+	Bucket int64 `json:"bucket"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,7 +31,7 @@ type _PlayerStatsMetricsBucket PlayerStatsMetricsBucket
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlayerStatsMetricsBucket(bucket int32) *PlayerStatsMetricsBucket {
+func NewPlayerStatsMetricsBucket(bucket int64) *PlayerStatsMetricsBucket {
 	this := PlayerStatsMetricsBucket{}
 	this.Bucket = bucket
 	return &this
@@ -46,9 +46,9 @@ func NewPlayerStatsMetricsBucketWithDefaults() *PlayerStatsMetricsBucket {
 }
 
 // GetBucket returns the Bucket field value
-func (o *PlayerStatsMetricsBucket) GetBucket() int32 {
+func (o *PlayerStatsMetricsBucket) GetBucket() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *PlayerStatsMetricsBucket) GetBucket() int32 {
 
 // GetBucketOk returns a tuple with the Bucket field value
 // and a boolean to check if the value has been set.
-func (o *PlayerStatsMetricsBucket) GetBucketOk() (*int32, bool) {
+func (o *PlayerStatsMetricsBucket) GetBucketOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *PlayerStatsMetricsBucket) GetBucketOk() (*int32, bool) {
 }
 
 // SetBucket sets field value
-func (o *PlayerStatsMetricsBucket) SetBucket(v int32) {
+func (o *PlayerStatsMetricsBucket) SetBucket(v int64) {
 	o.Bucket = v
 }
 

@@ -73,9 +73,9 @@ class RankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'badge_shields' => 'int32',
-        'rank_end' => 'int32',
+        'rank_end' => 'int64',
         'sub_rank_shields' => 'int32',
-        'sub_rank_xp' => 'int32'
+        'sub_rank_xp' => 'int64'
     ];
 
     /**
@@ -296,6 +296,10 @@ class RankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['rank_end']) && ($this->container['rank_end'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'rank_end', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['rank_end']) && ($this->container['rank_end'] < 0)) {
             $invalidProperties[] = "invalid value for 'rank_end', must be bigger than or equal to 0.";
         }
@@ -377,6 +381,9 @@ class RankInfo implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($rank_end) && ($rank_end > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $rank_end when calling RankInfo., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($rank_end) && ($rank_end < 0)) {
             throw new \InvalidArgumentException('invalid value for $rank_end when calling RankInfo., must be bigger than or equal to 0.');

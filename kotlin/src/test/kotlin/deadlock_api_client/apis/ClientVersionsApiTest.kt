@@ -36,7 +36,7 @@ class ClientVersionsApiTest : ShouldSpec() {
         // to test listClientVersions
         should("test listClientVersions") {
             // uncomment below to test listClientVersions
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.listClientVersions()
+            //val result : kotlin.collections.List<kotlin.Long> = apiInstance.listClientVersions()
             //result shouldBe ("TODO")
         }
 

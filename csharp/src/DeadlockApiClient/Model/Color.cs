@@ -96,10 +96,22 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Alpha (int) maximum
+            if (this.Alpha > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Alpha, must be a value less than or equal to 255.", new [] { "Alpha" });
+            }
+
             // Alpha (int) minimum
             if (this.Alpha < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Alpha, must be a value greater than or equal to 0.", new [] { "Alpha" });
+            }
+
+            // Blue (int) maximum
+            if (this.Blue > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Blue, must be a value less than or equal to 255.", new [] { "Blue" });
             }
 
             // Blue (int) minimum
@@ -108,10 +120,22 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Blue, must be a value greater than or equal to 0.", new [] { "Blue" });
             }
 
+            // Green (int) maximum
+            if (this.Green > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Green, must be a value less than or equal to 255.", new [] { "Green" });
+            }
+
             // Green (int) minimum
             if (this.Green < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Green, must be a value greater than or equal to 0.", new [] { "Green" });
+            }
+
+            // Red (int) maximum
+            if (this.Red > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Red, must be a value less than or equal to 255.", new [] { "Red" });
             }
 
             // Red (int) minimum

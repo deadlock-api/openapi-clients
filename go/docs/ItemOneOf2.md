@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **ClassName** | **string** |  | 
 **ComponentItems** | Pointer to **[]string** |  | [optional] 
 **CorruptedInfo** | Pointer to [**NullableCorruptedItemInfo**](CorruptedItemInfo.md) | Present on upgrades the Broker can corrupt (build 6711+). | [optional] 
-**Cost** | Pointer to **NullableInt32** |  | [optional] 
+**Cost** | Pointer to **NullableInt64** |  | [optional] 
 **Description** | Pointer to [**NullableUpgradeDescription**](UpgradeDescription.md) |  | [optional] 
 **DisableItemTarget** | Pointer to **NullableString** |  | [optional] 
 **Disabled** | Pointer to **NullableBool** |  | [optional] 
 **DisabledShopFilters** | Pointer to **[]string** | Shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names) this item is hidden from even though its stats would match them. | [optional] 
-**Hero** | Pointer to **NullableInt32** |  | [optional] 
-**Heroes** | Pointer to **[]int32** |  | [optional] 
-**Id** | **int32** |  | 
+**Hero** | Pointer to **NullableInt64** |  | [optional] 
+**Heroes** | Pointer to **[]int64** |  | [optional] 
+**Id** | **int64** |  | 
 **Image** | Pointer to **NullableString** |  | [optional] 
 **ImageWebp** | Pointer to **NullableString** |  | [optional] 
 **Imbue** | Pointer to [**NullableAbilityImbue**](AbilityImbue.md) |  | [optional] 
@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 
 ### NewItemOneOf2
 
-`func NewItemOneOf2(activation AbilityActivation, className string, id int32, isActiveItem bool, itemSlotType ItemSlotType, itemTier int32, name string, shopable bool, type_ string, ) *ItemOneOf2`
+`func NewItemOneOf2(activation AbilityActivation, className string, id int64, isActiveItem bool, itemSlotType ItemSlotType, itemTier int32, name string, shopable bool, type_ string, ) *ItemOneOf2`
 
 NewItemOneOf2 instantiates a new ItemOneOf2 object
 This constructor will assign default values to properties that have it defined,
@@ -169,20 +169,20 @@ HasCorruptedInfo returns a boolean if a field has been set.
 UnsetCorruptedInfo ensures that no value is present for CorruptedInfo, not even an explicit nil
 ### GetCost
 
-`func (o *ItemOneOf2) GetCost() int32`
+`func (o *ItemOneOf2) GetCost() int64`
 
 GetCost returns the Cost field if non-nil, zero value otherwise.
 
 ### GetCostOk
 
-`func (o *ItemOneOf2) GetCostOk() (*int32, bool)`
+`func (o *ItemOneOf2) GetCostOk() (*int64, bool)`
 
 GetCostOk returns a tuple with the Cost field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCost
 
-`func (o *ItemOneOf2) SetCost(v int32)`
+`func (o *ItemOneOf2) SetCost(v int64)`
 
 SetCost sets Cost field to given value.
 
@@ -344,20 +344,20 @@ HasDisabledShopFilters returns a boolean if a field has been set.
 UnsetDisabledShopFilters ensures that no value is present for DisabledShopFilters, not even an explicit nil
 ### GetHero
 
-`func (o *ItemOneOf2) GetHero() int32`
+`func (o *ItemOneOf2) GetHero() int64`
 
 GetHero returns the Hero field if non-nil, zero value otherwise.
 
 ### GetHeroOk
 
-`func (o *ItemOneOf2) GetHeroOk() (*int32, bool)`
+`func (o *ItemOneOf2) GetHeroOk() (*int64, bool)`
 
 GetHeroOk returns a tuple with the Hero field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHero
 
-`func (o *ItemOneOf2) SetHero(v int32)`
+`func (o *ItemOneOf2) SetHero(v int64)`
 
 SetHero sets Hero field to given value.
 
@@ -379,20 +379,20 @@ HasHero returns a boolean if a field has been set.
 UnsetHero ensures that no value is present for Hero, not even an explicit nil
 ### GetHeroes
 
-`func (o *ItemOneOf2) GetHeroes() []int32`
+`func (o *ItemOneOf2) GetHeroes() []int64`
 
 GetHeroes returns the Heroes field if non-nil, zero value otherwise.
 
 ### GetHeroesOk
 
-`func (o *ItemOneOf2) GetHeroesOk() (*[]int32, bool)`
+`func (o *ItemOneOf2) GetHeroesOk() (*[]int64, bool)`
 
 GetHeroesOk returns a tuple with the Heroes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroes
 
-`func (o *ItemOneOf2) SetHeroes(v []int32)`
+`func (o *ItemOneOf2) SetHeroes(v []int64)`
 
 SetHeroes sets Heroes field to given value.
 
@@ -414,20 +414,20 @@ HasHeroes returns a boolean if a field has been set.
 UnsetHeroes ensures that no value is present for Heroes, not even an explicit nil
 ### GetId
 
-`func (o *ItemOneOf2) GetId() int32`
+`func (o *ItemOneOf2) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *ItemOneOf2) GetIdOk() (*int32, bool)`
+`func (o *ItemOneOf2) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *ItemOneOf2) SetId(v int32)`
+`func (o *ItemOneOf2) SetId(v int64)`
 
 SetId sets Id field to given value.
 

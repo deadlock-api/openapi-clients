@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int** |  |  |
+| **accountId** | **kotlin.Long** |  |  |
 | **accuracy** | **kotlin.Double** |  |  |
 | **assists** | **kotlin.Long** |  |  |
 | **assistsPerMin** | **kotlin.Double** |  |  |
@@ -24,7 +24,7 @@
 | **kills** | **kotlin.Long** |  |  |
 | **killsPerMin** | **kotlin.Double** |  |  |
 | **lastHitsPerMin** | **kotlin.Double** |  |  |
-| **lastPlayed** | **kotlin.Int** |  |  |
+| **lastPlayed** | **kotlin.Long** |  |  |
 | **matches** | **kotlin.collections.List&lt;kotlin.Long&gt;** |  |  |
 | **matchesPlayed** | **kotlin.Long** |  |  |
 | **mvpRankCounts** | **kotlin.collections.List&lt;kotlin.Long&gt;** | Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank. |  |

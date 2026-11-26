@@ -337,6 +337,9 @@ class ModifiersApi
             );
         }
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling ModifiersApi.getModifier, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling ModifiersApi.getModifier, must be bigger than or equal to 0.');
         }
@@ -624,6 +627,9 @@ class ModifiersApi
     public function listModifiersRequest($client_version = null, string $contentType = self::contentTypes['listModifiers'][0])
     {
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling ModifiersApi.listModifiers, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling ModifiersApi.listModifiers, must be bigger than or equal to 0.');
         }

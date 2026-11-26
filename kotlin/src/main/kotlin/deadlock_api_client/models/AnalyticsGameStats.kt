@@ -251,7 +251,7 @@ data class AnalyticsGameStats (
     val avgWeaponPower: kotlin.Double,
 
     @Json(name = "bucket")
-    val bucket: kotlin.Int,
+    val bucket: kotlin.Long,
 
     @Json(name = "mid_boss_kill_rate")
     val midBossKillRate: kotlin.Double,

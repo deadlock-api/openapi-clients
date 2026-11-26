@@ -82,8 +82,8 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'avg_buy_time_s' => 'double',
         'avg_sell_time_relative' => 'double',
         'avg_sell_time_s' => 'double',
-        'bucket' => 'int32',
-        'item_id' => 'int32',
+        'bucket' => 'int64',
+        'item_id' => 'int64',
         'losses' => 'int64',
         'matches' => 'int64',
         'players' => 'int64',
@@ -359,6 +359,10 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['bucket'] === null) {
             $invalidProperties[] = "'bucket' can't be null";
         }
+        if (($this->container['bucket'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'bucket', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['bucket'] < 0)) {
             $invalidProperties[] = "invalid value for 'bucket', must be bigger than or equal to 0.";
         }
@@ -366,6 +370,10 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['item_id'] === null) {
             $invalidProperties[] = "'item_id' can't be null";
         }
+        if (($this->container['item_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'item_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['item_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'item_id', must be bigger than or equal to 0.";
         }
@@ -547,6 +555,9 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($bucket)) {
             throw new \InvalidArgumentException('non-nullable bucket cannot be null');
         }
+        if (($bucket > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $bucket when calling ItemStats., must be smaller than or equal to 4294967295.');
+        }
         if (($bucket < 0)) {
             throw new \InvalidArgumentException('invalid value for $bucket when calling ItemStats., must be bigger than or equal to 0.');
         }
@@ -577,6 +588,9 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($item_id)) {
             throw new \InvalidArgumentException('non-nullable item_id cannot be null');
+        }
+        if (($item_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $item_id when calling ItemStats., must be smaller than or equal to 4294967295.');
         }
         if (($item_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $item_id when calling ItemStats., must be bigger than or equal to 0.');

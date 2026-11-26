@@ -47,7 +47,7 @@ namespace DeadlockApiClient.Model
         /// <param name="minHeroWins">Wins a hero needs to count towards &#x60;min_hero_unlocks&#x60;. Absent where the season counts hero points instead, see &#x60;min_hero_unlock_points&#x60;.</param>
         /// <param name="rankInfo">Rank progression settings (build 6857+).</param>
         [JsonConstructor]
-        public RankedSeason(int calibrationMatches, string className, List<SeasonInterval> intervals, int minHeroUnlocks, int minWins, string name, string rankedType, List<int> validPartySizes, Option<int?> baseWinLossPointGrant = default, Option<int?> calibrationMaxRank = default, Option<int?> minHeroUnlockPoints = default, Option<int?> minHeroWins = default, Option<List<RankInfo>?> rankInfo = default)
+        public RankedSeason(long calibrationMatches, string className, List<SeasonInterval> intervals, long minHeroUnlocks, long minWins, string name, string rankedType, List<long> validPartySizes, Option<long?> baseWinLossPointGrant = default, Option<long?> calibrationMaxRank = default, Option<long?> minHeroUnlockPoints = default, Option<long?> minHeroWins = default, Option<List<RankInfo>?> rankInfo = default)
         {
             CalibrationMatches = calibrationMatches;
             ClassName = className;
@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets CalibrationMatches
         /// </summary>
         [JsonPropertyName("calibration_matches")]
-        public int CalibrationMatches { get; set; }
+        public long CalibrationMatches { get; set; }
 
         /// <summary>
         /// Gets or Sets ClassName
@@ -89,13 +89,13 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MinHeroUnlocks
         /// </summary>
         [JsonPropertyName("min_hero_unlocks")]
-        public int MinHeroUnlocks { get; set; }
+        public long MinHeroUnlocks { get; set; }
 
         /// <summary>
         /// Gets or Sets MinWins
         /// </summary>
         [JsonPropertyName("min_wins")]
-        public int MinWins { get; set; }
+        public long MinWins { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -113,63 +113,63 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ValidPartySizes
         /// </summary>
         [JsonPropertyName("valid_party_sizes")]
-        public List<int> ValidPartySizes { get; set; }
+        public List<long> ValidPartySizes { get; set; }
 
         /// <summary>
         /// Used to track the state of BaseWinLossPointGrant
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BaseWinLossPointGrantOption { get; private set; }
+        public Option<long?> BaseWinLossPointGrantOption { get; private set; }
 
         /// <summary>
         /// Base rank points granted per win / taken per loss (build 6701+).
         /// </summary>
         /// <value>Base rank points granted per win / taken per loss (build 6701+).</value>
         [JsonPropertyName("base_win_loss_point_grant")]
-        public int? BaseWinLossPointGrant { get { return this.BaseWinLossPointGrantOption.Value; } set { this.BaseWinLossPointGrantOption = new(value); } }
+        public long? BaseWinLossPointGrant { get { return this.BaseWinLossPointGrantOption.Value; } set { this.BaseWinLossPointGrantOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CalibrationMaxRank
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> CalibrationMaxRankOption { get; private set; }
+        public Option<long?> CalibrationMaxRankOption { get; private set; }
 
         /// <summary>
         /// Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve&#39;s notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.
         /// </summary>
         /// <value>Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve&#39;s notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.</value>
         [JsonPropertyName("calibration_max_rank")]
-        public int? CalibrationMaxRank { get { return this.CalibrationMaxRankOption.Value; } set { this.CalibrationMaxRankOption = new(value); } }
+        public long? CalibrationMaxRank { get { return this.CalibrationMaxRankOption.Value; } set { this.CalibrationMaxRankOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MinHeroUnlockPoints
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> MinHeroUnlockPointsOption { get; private set; }
+        public Option<long?> MinHeroUnlockPointsOption { get; private set; }
 
         /// <summary>
         /// Points a hero needs to count towards &#x60;min_hero_unlocks&#x60;: 2 per win, 1 per loss (build 6857+).
         /// </summary>
         /// <value>Points a hero needs to count towards &#x60;min_hero_unlocks&#x60;: 2 per win, 1 per loss (build 6857+).</value>
         [JsonPropertyName("min_hero_unlock_points")]
-        public int? MinHeroUnlockPoints { get { return this.MinHeroUnlockPointsOption.Value; } set { this.MinHeroUnlockPointsOption = new(value); } }
+        public long? MinHeroUnlockPoints { get { return this.MinHeroUnlockPointsOption.Value; } set { this.MinHeroUnlockPointsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MinHeroWins
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> MinHeroWinsOption { get; private set; }
+        public Option<long?> MinHeroWinsOption { get; private set; }
 
         /// <summary>
         /// Wins a hero needs to count towards &#x60;min_hero_unlocks&#x60;. Absent where the season counts hero points instead, see &#x60;min_hero_unlock_points&#x60;.
         /// </summary>
         /// <value>Wins a hero needs to count towards &#x60;min_hero_unlocks&#x60;. Absent where the season counts hero points instead, see &#x60;min_hero_unlock_points&#x60;.</value>
         [JsonPropertyName("min_hero_wins")]
-        public int? MinHeroWins { get { return this.MinHeroWinsOption.Value; } set { this.MinHeroWinsOption = new(value); } }
+        public long? MinHeroWins { get { return this.MinHeroWinsOption.Value; } set { this.MinHeroWinsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RankInfo
@@ -217,44 +217,86 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CalibrationMatches (int) minimum
-            if (this.CalibrationMatches < (int)0)
+            // CalibrationMatches (long) maximum
+            if (this.CalibrationMatches > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CalibrationMatches, must be a value less than or equal to 4294967295.", new [] { "CalibrationMatches" });
+            }
+
+            // CalibrationMatches (long) minimum
+            if (this.CalibrationMatches < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CalibrationMatches, must be a value greater than or equal to 0.", new [] { "CalibrationMatches" });
             }
 
-            // MinHeroUnlocks (int) minimum
-            if (this.MinHeroUnlocks < (int)0)
+            // MinHeroUnlocks (long) maximum
+            if (this.MinHeroUnlocks > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinHeroUnlocks, must be a value less than or equal to 4294967295.", new [] { "MinHeroUnlocks" });
+            }
+
+            // MinHeroUnlocks (long) minimum
+            if (this.MinHeroUnlocks < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinHeroUnlocks, must be a value greater than or equal to 0.", new [] { "MinHeroUnlocks" });
             }
 
-            // MinWins (int) minimum
-            if (this.MinWins < (int)0)
+            // MinWins (long) maximum
+            if (this.MinWins > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinWins, must be a value less than or equal to 4294967295.", new [] { "MinWins" });
+            }
+
+            // MinWins (long) minimum
+            if (this.MinWins < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinWins, must be a value greater than or equal to 0.", new [] { "MinWins" });
             }
 
-            // BaseWinLossPointGrant (int) minimum
-            if (this.BaseWinLossPointGrantOption.IsSet && this.BaseWinLossPointGrantOption.Value < (int)0)
+            // BaseWinLossPointGrant (long) maximum
+            if (this.BaseWinLossPointGrantOption.IsSet && this.BaseWinLossPointGrantOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BaseWinLossPointGrant, must be a value less than or equal to 4294967295.", new [] { "BaseWinLossPointGrant" });
+            }
+
+            // BaseWinLossPointGrant (long) minimum
+            if (this.BaseWinLossPointGrantOption.IsSet && this.BaseWinLossPointGrantOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BaseWinLossPointGrant, must be a value greater than or equal to 0.", new [] { "BaseWinLossPointGrant" });
             }
 
-            // CalibrationMaxRank (int) minimum
-            if (this.CalibrationMaxRankOption.IsSet && this.CalibrationMaxRankOption.Value < (int)0)
+            // CalibrationMaxRank (long) maximum
+            if (this.CalibrationMaxRankOption.IsSet && this.CalibrationMaxRankOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CalibrationMaxRank, must be a value less than or equal to 4294967295.", new [] { "CalibrationMaxRank" });
+            }
+
+            // CalibrationMaxRank (long) minimum
+            if (this.CalibrationMaxRankOption.IsSet && this.CalibrationMaxRankOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CalibrationMaxRank, must be a value greater than or equal to 0.", new [] { "CalibrationMaxRank" });
             }
 
-            // MinHeroUnlockPoints (int) minimum
-            if (this.MinHeroUnlockPointsOption.IsSet && this.MinHeroUnlockPointsOption.Value < (int)0)
+            // MinHeroUnlockPoints (long) maximum
+            if (this.MinHeroUnlockPointsOption.IsSet && this.MinHeroUnlockPointsOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinHeroUnlockPoints, must be a value less than or equal to 4294967295.", new [] { "MinHeroUnlockPoints" });
+            }
+
+            // MinHeroUnlockPoints (long) minimum
+            if (this.MinHeroUnlockPointsOption.IsSet && this.MinHeroUnlockPointsOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinHeroUnlockPoints, must be a value greater than or equal to 0.", new [] { "MinHeroUnlockPoints" });
             }
 
-            // MinHeroWins (int) minimum
-            if (this.MinHeroWinsOption.IsSet && this.MinHeroWinsOption.Value < (int)0)
+            // MinHeroWins (long) maximum
+            if (this.MinHeroWinsOption.IsSet && this.MinHeroWinsOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinHeroWins, must be a value less than or equal to 4294967295.", new [] { "MinHeroWins" });
+            }
+
+            // MinHeroWins (long) minimum
+            if (this.MinHeroWinsOption.IsSet && this.MinHeroWinsOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinHeroWins, must be a value greater than or equal to 0.", new [] { "MinHeroWins" });
             }
@@ -295,18 +337,18 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> calibrationMatches = default;
+            Option<long?> calibrationMatches = default;
             Option<string?> className = default;
             Option<List<SeasonInterval>?> intervals = default;
-            Option<int?> minHeroUnlocks = default;
-            Option<int?> minWins = default;
+            Option<long?> minHeroUnlocks = default;
+            Option<long?> minWins = default;
             Option<string?> name = default;
             Option<string?> rankedType = default;
-            Option<List<int>?> validPartySizes = default;
-            Option<int?> baseWinLossPointGrant = default;
-            Option<int?> calibrationMaxRank = default;
-            Option<int?> minHeroUnlockPoints = default;
-            Option<int?> minHeroWins = default;
+            Option<List<long>?> validPartySizes = default;
+            Option<long?> baseWinLossPointGrant = default;
+            Option<long?> calibrationMaxRank = default;
+            Option<long?> minHeroUnlockPoints = default;
+            Option<long?> minHeroWins = default;
             Option<List<RankInfo>?> rankInfo = default;
 
             while (utf8JsonReader.Read())
@@ -325,7 +367,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "calibration_matches":
-                            calibrationMatches = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            calibrationMatches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "class_name":
                             className = new Option<string?>(utf8JsonReader.GetString()!);
@@ -334,10 +376,10 @@ namespace DeadlockApiClient.Model
                             intervals = new Option<List<SeasonInterval>?>(JsonSerializer.Deserialize<List<SeasonInterval>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "min_hero_unlocks":
-                            minHeroUnlocks = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            minHeroUnlocks = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "min_wins":
-                            minWins = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            minWins = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);
@@ -346,19 +388,19 @@ namespace DeadlockApiClient.Model
                             rankedType = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "valid_party_sizes":
-                            validPartySizes = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            validPartySizes = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "base_win_loss_point_grant":
-                            baseWinLossPointGrant = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            baseWinLossPointGrant = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "calibration_max_rank":
-                            calibrationMaxRank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            calibrationMaxRank = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "min_hero_unlock_points":
-                            minHeroUnlockPoints = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            minHeroUnlockPoints = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "min_hero_wins":
-                            minHeroWins = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            minHeroWins = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "rank_info":
                             rankInfo = new Option<List<RankInfo>?>(JsonSerializer.Deserialize<List<RankInfo>>(ref utf8JsonReader, jsonSerializerOptions)!);

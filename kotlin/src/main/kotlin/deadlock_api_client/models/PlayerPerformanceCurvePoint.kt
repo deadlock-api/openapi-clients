@@ -163,7 +163,7 @@ data class PlayerPerformanceCurvePoint (
 
     /* The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds. */
     @Json(name = "game_time")
-    val gameTime: kotlin.Int,
+    val gameTime: kotlin.Long,
 
     /* Where in the match the stats snapshots of this point were taken on average, in the unit of `game_time`. Snapshots are taken every few minutes and at the end of the match, so with `resolution` > 0 a point holds the snapshots from `game_time` up to the next point and this is usually about half a bucket later than `game_time`. Percentages are averaged from whole percents, so they can be off by a few tenths. */
     @Json(name = "game_time_avg")

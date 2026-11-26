@@ -45,19 +45,19 @@ data class Build (
     val heroBuild: BuildHero,
 
     @Json(name = "num_favorites")
-    val numFavorites: kotlin.Int? = null,
+    val numFavorites: kotlin.Long? = null,
 
     @Json(name = "num_ignores")
-    val numIgnores: kotlin.Int? = null,
+    val numIgnores: kotlin.Long? = null,
 
     @Json(name = "num_reports")
-    val numReports: kotlin.Int? = null,
+    val numReports: kotlin.Long? = null,
 
     @Json(name = "num_weekly_favorites")
-    val numWeeklyFavorites: kotlin.Int? = null,
+    val numWeeklyFavorites: kotlin.Long? = null,
 
     @Json(name = "rollup_category")
-    val rollupCategory: kotlin.Int? = null
+    val rollupCategory: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

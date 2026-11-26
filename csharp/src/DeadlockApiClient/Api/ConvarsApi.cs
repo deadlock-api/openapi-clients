@@ -49,7 +49,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConvarApiResponse"/>&gt;</returns>
-        Task<IGetConvarApiResponse> GetConvarAsync(string name, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetConvarApiResponse> GetConvarAsync(string name, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Convar
@@ -61,7 +61,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConvarApiResponse"/>?&gt;</returns>
-        Task<IGetConvarApiResponse?> GetConvarOrDefaultAsync(string name, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetConvarApiResponse?> GetConvarOrDefaultAsync(string name, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Convars
@@ -73,7 +73,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListConvarsApiResponse"/>&gt;</returns>
-        Task<IListConvarsApiResponse> ListConvarsAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListConvarsApiResponse> ListConvarsAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Convars
@@ -84,7 +84,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListConvarsApiResponse"/>?&gt;</returns>
-        Task<IListConvarsApiResponse?> ListConvarsOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListConvarsApiResponse?> ListConvarsOrDefaultAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -222,7 +222,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetConvar(ref string name, ref Option<int?> clientVersion);
+        partial void FormatGetConvar(ref string name, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -241,7 +241,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="name"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetConvarDefaultImplementation(IGetConvarApiResponse apiResponseLocalVar, string name, Option<int?> clientVersion)
+        private void AfterGetConvarDefaultImplementation(IGetConvarApiResponse apiResponseLocalVar, string name, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetConvar(ref suppressDefaultLog, apiResponseLocalVar, name, clientVersion);
@@ -256,7 +256,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="name"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetConvar(ref bool suppressDefaultLog, IGetConvarApiResponse apiResponseLocalVar, string name, Option<int?> clientVersion);
+        partial void AfterGetConvar(ref bool suppressDefaultLog, IGetConvarApiResponse apiResponseLocalVar, string name, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -266,7 +266,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="name"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetConvarDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<int?> clientVersion)
+        private void OnErrorGetConvarDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetConvar(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, name, clientVersion);
@@ -283,7 +283,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="name"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetConvar(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<int?> clientVersion);
+        partial void OnErrorGetConvar(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Convar Returns a single console variable by name (case-insensitive).
@@ -292,7 +292,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConvarApiResponse"/>&gt;</returns>
-        public async Task<IGetConvarApiResponse?> GetConvarOrDefaultAsync(string name, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetConvarApiResponse?> GetConvarOrDefaultAsync(string name, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -312,7 +312,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConvarApiResponse"/>&gt;</returns>
-        public async Task<IGetConvarApiResponse> GetConvarAsync(string name, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetConvarApiResponse> GetConvarAsync(string name, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -500,14 +500,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListConvars(ref Option<int?> clientVersion);
+        partial void FormatListConvars(ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="clientVersion"></param>
-        private void AfterListConvarsDefaultImplementation(IListConvarsApiResponse apiResponseLocalVar, Option<int?> clientVersion)
+        private void AfterListConvarsDefaultImplementation(IListConvarsApiResponse apiResponseLocalVar, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterListConvars(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
@@ -521,7 +521,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterListConvars(ref bool suppressDefaultLog, IListConvarsApiResponse apiResponseLocalVar, Option<int?> clientVersion);
+        partial void AfterListConvars(ref bool suppressDefaultLog, IListConvarsApiResponse apiResponseLocalVar, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -530,7 +530,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorListConvarsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion)
+        private void OnErrorListConvarsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorListConvars(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
@@ -546,7 +546,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorListConvars(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion);
+        partial void OnErrorListConvars(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> clientVersion);
 
         /// <summary>
         /// List Convars Returns every console variable registered by the patch&#39;s &#x60;client.dll&#x60; and &#x60;server.dll&#x60;, keyed by name, with its type, compiled-in default value, &#x60;FCVAR_*&#x60; flags and help text. These are the defaults the binaries ship with; servers and game modes can override them at runtime.
@@ -554,7 +554,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListConvarsApiResponse"/>&gt;</returns>
-        public async Task<IListConvarsApiResponse?> ListConvarsOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListConvarsApiResponse?> ListConvarsOrDefaultAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -573,7 +573,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListConvarsApiResponse"/>&gt;</returns>
-        public async Task<IListConvarsApiResponse> ListConvarsAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListConvarsApiResponse> ListConvarsAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

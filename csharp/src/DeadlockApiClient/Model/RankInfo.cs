@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="subRankShields">Losses a player can take before dropping a subrank (rank loss protection shields).</param>
         /// <param name="subRankXp">Rank points needed per subrank step, the last one being the step to the next badge (Beta Season 2: 1000 between subranks, 1500 from the final subrank).</param>
         [JsonConstructor]
-        public RankInfo(Option<int?> badgeShields = default, Option<int?> rankEnd = default, Option<int?> subRankShields = default, Option<List<int>?> subRankXp = default)
+        public RankInfo(Option<int?> badgeShields = default, Option<long?> rankEnd = default, Option<int?> subRankShields = default, Option<List<long>?> subRankXp = default)
         {
             BadgeShieldsOption = badgeShields;
             RankEndOption = rankEnd;
@@ -68,14 +68,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> RankEndOption { get; private set; }
+        public Option<long?> RankEndOption { get; private set; }
 
         /// <summary>
         /// Rank badge (tier * 10 + subrank) the entry stops at: it covers the ranks below it. In Beta Season 2, 91 (Phantom I) gives every rank below Phantom shields and Phantom and up none.
         /// </summary>
         /// <value>Rank badge (tier * 10 + subrank) the entry stops at: it covers the ranks below it. In Beta Season 2, 91 (Phantom I) gives every rank below Phantom shields and Phantom and up none.</value>
         [JsonPropertyName("rank_end")]
-        public int? RankEnd { get { return this.RankEndOption.Value; } set { this.RankEndOption = new(value); } }
+        public long? RankEnd { get { return this.RankEndOption.Value; } set { this.RankEndOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SubRankShields
@@ -96,14 +96,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<List<int>?> SubRankXpOption { get; private set; }
+        public Option<List<long>?> SubRankXpOption { get; private set; }
 
         /// <summary>
         /// Rank points needed per subrank step, the last one being the step to the next badge (Beta Season 2: 1000 between subranks, 1500 from the final subrank).
         /// </summary>
         /// <value>Rank points needed per subrank step, the last one being the step to the next badge (Beta Season 2: 1000 between subranks, 1500 from the final subrank).</value>
         [JsonPropertyName("sub_rank_xp")]
-        public List<int>? SubRankXp { get { return this.SubRankXpOption.Value; } set { this.SubRankXpOption = new(value); } }
+        public List<long>? SubRankXp { get { return this.SubRankXpOption.Value; } set { this.SubRankXpOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -128,8 +128,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // RankEnd (int) minimum
-            if (this.RankEndOption.IsSet && this.RankEndOption.Value < (int)0)
+            // RankEnd (long) maximum
+            if (this.RankEndOption.IsSet && this.RankEndOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RankEnd, must be a value less than or equal to 4294967295.", new [] { "RankEnd" });
+            }
+
+            // RankEnd (long) minimum
+            if (this.RankEndOption.IsSet && this.RankEndOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RankEnd, must be a value greater than or equal to 0.", new [] { "RankEnd" });
             }
@@ -171,9 +177,9 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<int?> badgeShields = default;
-            Option<int?> rankEnd = default;
+            Option<long?> rankEnd = default;
             Option<int?> subRankShields = default;
-            Option<List<int>?> subRankXp = default;
+            Option<List<long>?> subRankXp = default;
 
             while (utf8JsonReader.Read())
             {
@@ -194,13 +200,13 @@ namespace DeadlockApiClient.Model
                             badgeShields = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "rank_end":
-                            rankEnd = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            rankEnd = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "sub_rank_shields":
                             subRankShields = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "sub_rank_xp":
-                            subRankXp = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            subRankXp = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

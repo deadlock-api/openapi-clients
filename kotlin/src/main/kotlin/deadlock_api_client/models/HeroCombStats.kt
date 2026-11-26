@@ -40,7 +40,7 @@ data class HeroCombStats (
 
     /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_ids")
-    val heroIds: kotlin.collections.List<kotlin.Int>,
+    val heroIds: kotlin.collections.List<kotlin.Long>,
 
     @Json(name = "losses")
     val losses: kotlin.Long,

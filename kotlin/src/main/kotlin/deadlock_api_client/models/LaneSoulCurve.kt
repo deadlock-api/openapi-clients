@@ -48,15 +48,15 @@ data class LaneSoulCurve (
 
     /* The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>. */
     @Json(name = "assigned_lane")
-    val assignedLane: kotlin.Int,
+    val assignedLane: kotlin.Long,
 
     /* The ascending hero id pair they laned against, or empty when grouped away. */
     @Json(name = "enemy_hero_ids")
-    val enemyHeroIds: kotlin.collections.List<kotlin.Int>,
+    val enemyHeroIds: kotlin.collections.List<kotlin.Long>,
 
     /* The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_ids")
-    val heroIds: kotlin.collections.List<kotlin.Int>,
+    val heroIds: kotlin.collections.List<kotlin.Long>,
 
     /* Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on. */
     @Json(name = "matches_played")
@@ -76,7 +76,7 @@ data class LaneSoulCurve (
 
     /* Seconds into the match each entry of the curves was sampled at, ascending. */
     @Json(name = "sample_times_s")
-    val sampleTimesS: kotlin.collections.List<kotlin.Int>,
+    val sampleTimesS: kotlin.collections.List<kotlin.Long>,
 
     /* A curve per stat named in `stats`. Empty unless the parameter was set. */
     @Json(name = "stats")

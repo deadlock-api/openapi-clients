@@ -30,7 +30,7 @@ class MateStats(BaseModel):
     """ # noqa: E501
     matches: List[Annotated[int, Field(strict=True, ge=0)]]
     matches_played: Annotated[int, Field(strict=True, ge=0)]
-    mate_id: Annotated[int, Field(strict=True, ge=0)]
+    mate_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]
     __properties: ClassVar[List[str]] = ["matches", "matches_played", "mate_id", "wins"]
 

@@ -26,7 +26,7 @@ func Test_deadlock_api_client_RanksAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var tier int32
+		var tier int64
 
 		resp, httpRes, err := apiClient.RanksAPI.GetRank(context.Background(), tier).Execute()
 
@@ -52,8 +52,8 @@ func Test_deadlock_api_client_RanksAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var tier int32
-		var subrank int32
+		var tier int64
+		var subrank int64
 
 		resp, httpRes, err := apiClient.RanksAPI.SubrankImage(context.Background(), tier, subrank).Execute()
 

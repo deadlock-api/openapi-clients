@@ -29,19 +29,19 @@ class BuildHero(BaseModel):
     """
     BuildHero
     """ # noqa: E501
-    author_account_id: Annotated[int, Field(strict=True, ge=0)]
+    author_account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     description: Optional[StrictStr] = None
     details: BuildHeroDetails
     development_build: Optional[StrictBool] = None
-    hero_build_id: Annotated[int, Field(strict=True, ge=0)]
-    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
-    language: Annotated[int, Field(strict=True, ge=0)]
+    hero_build_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
+    hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    language: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     last_updated_timestamp: Optional[StrictInt] = None
     name: StrictStr
-    origin_build_id: Annotated[int, Field(strict=True, ge=0)]
+    origin_build_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     publish_timestamp: Optional[StrictInt] = None
-    tags: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = None
-    version: Annotated[int, Field(strict=True, ge=0)]
+    tags: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = None
+    version: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     __properties: ClassVar[List[str]] = ["author_account_id", "description", "details", "development_build", "hero_build_id", "hero_id", "language", "last_updated_timestamp", "name", "origin_build_id", "publish_timestamp", "tags", "version"]
 
     model_config = ConfigDict(

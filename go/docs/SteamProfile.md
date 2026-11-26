@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | **int32** |  | 
+**AccountId** | **int64** |  | 
 **Avatar** | **string** |  | 
 **Avatarfull** | **string** |  | 
 **Avatarmedium** | **string** |  | 
 **Countrycode** | Pointer to **NullableString** |  | [optional] 
 **Friends** | [**[]SteamFriend**](SteamFriend.md) |  | 
-**LastTeamAvgBadge** | Pointer to **NullableInt32** |  | [optional] 
+**LastTeamAvgBadge** | Pointer to **NullableInt64** |  | [optional] 
 **LastUpdated** | **time.Time** |  | 
 **MatchesPlayedLast30d** | **int64** |  | 
 **Personaname** | **string** |  | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewSteamProfile
 
-`func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarmedium string, friends []SteamFriend, lastUpdated time.Time, matchesPlayedLast30d int64, personaname string, profileurl string, ) *SteamProfile`
+`func NewSteamProfile(accountId int64, avatar string, avatarfull string, avatarmedium string, friends []SteamFriend, lastUpdated time.Time, matchesPlayedLast30d int64, personaname string, profileurl string, ) *SteamProfile`
 
 NewSteamProfile instantiates a new SteamProfile object
 This constructor will assign default values to properties that have it defined,
@@ -38,20 +38,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAccountId
 
-`func (o *SteamProfile) GetAccountId() int32`
+`func (o *SteamProfile) GetAccountId() int64`
 
 GetAccountId returns the AccountId field if non-nil, zero value otherwise.
 
 ### GetAccountIdOk
 
-`func (o *SteamProfile) GetAccountIdOk() (*int32, bool)`
+`func (o *SteamProfile) GetAccountIdOk() (*int64, bool)`
 
 GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccountId
 
-`func (o *SteamProfile) SetAccountId(v int32)`
+`func (o *SteamProfile) SetAccountId(v int64)`
 
 SetAccountId sets AccountId field to given value.
 
@@ -173,20 +173,20 @@ SetFriends sets Friends field to given value.
 
 ### GetLastTeamAvgBadge
 
-`func (o *SteamProfile) GetLastTeamAvgBadge() int32`
+`func (o *SteamProfile) GetLastTeamAvgBadge() int64`
 
 GetLastTeamAvgBadge returns the LastTeamAvgBadge field if non-nil, zero value otherwise.
 
 ### GetLastTeamAvgBadgeOk
 
-`func (o *SteamProfile) GetLastTeamAvgBadgeOk() (*int32, bool)`
+`func (o *SteamProfile) GetLastTeamAvgBadgeOk() (*int64, bool)`
 
 GetLastTeamAvgBadgeOk returns a tuple with the LastTeamAvgBadge field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastTeamAvgBadge
 
-`func (o *SteamProfile) SetLastTeamAvgBadge(v int32)`
+`func (o *SteamProfile) SetLastTeamAvgBadge(v int64)`
 
 SetLastTeamAvgBadge sets LastTeamAvgBadge field to given value.
 

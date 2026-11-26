@@ -37,7 +37,7 @@ import java.io.Serializable
 data class SteamFriend (
 
     @Json(name = "account_id")
-    val accountId: kotlin.Int,
+    val accountId: kotlin.Long,
 
     @Json(name = "friend_since")
     val friendSince: java.time.OffsetDateTime

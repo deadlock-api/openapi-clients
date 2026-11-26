@@ -154,6 +154,12 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Team (int) maximum
+            if (this.TeamOption.IsSet && this.TeamOption.Value > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Team, must be a value less than or equal to 255.", new [] { "Team" });
+            }
+
             // Team (int) minimum
             if (this.TeamOption.IsSet && this.TeamOption.Value < (int)0)
             {

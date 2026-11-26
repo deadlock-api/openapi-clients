@@ -466,6 +466,10 @@ class HeroSynergyStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['hero_id1'] === null) {
             $invalidProperties[] = "'hero_id1' can't be null";
         }
+        if (($this->container['hero_id1'] > 255)) {
+            $invalidProperties[] = "invalid value for 'hero_id1', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['hero_id1'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero_id1', must be bigger than or equal to 0.";
         }
@@ -473,6 +477,10 @@ class HeroSynergyStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['hero_id2'] === null) {
             $invalidProperties[] = "'hero_id2' can't be null";
         }
+        if (($this->container['hero_id2'] > 255)) {
+            $invalidProperties[] = "invalid value for 'hero_id2', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['hero_id2'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero_id2', must be bigger than or equal to 0.";
         }
@@ -832,6 +840,9 @@ class HeroSynergyStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($hero_id1)) {
             throw new \InvalidArgumentException('non-nullable hero_id1 cannot be null');
         }
+        if (($hero_id1 > 255)) {
+            throw new \InvalidArgumentException('invalid value for $hero_id1 when calling HeroSynergyStats., must be smaller than or equal to 255.');
+        }
         if (($hero_id1 < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero_id1 when calling HeroSynergyStats., must be bigger than or equal to 0.');
         }
@@ -862,6 +873,9 @@ class HeroSynergyStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($hero_id2)) {
             throw new \InvalidArgumentException('non-nullable hero_id2 cannot be null');
+        }
+        if (($hero_id2 > 255)) {
+            throw new \InvalidArgumentException('invalid value for $hero_id2 when calling HeroSynergyStats., must be smaller than or equal to 255.');
         }
         if (($hero_id2 < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero_id2 when calling HeroSynergyStats., must be bigger than or equal to 0.');

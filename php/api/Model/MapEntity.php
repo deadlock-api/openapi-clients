@@ -313,6 +313,10 @@ class MapEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['position'] === null) {
             $invalidProperties[] = "'position' can't be null";
         }
+        if (!is_null($this->container['team']) && ($this->container['team'] > 255)) {
+            $invalidProperties[] = "invalid value for 'team', must be smaller than or equal to 255.";
+        }
+
         if (!is_null($this->container['team']) && ($this->container['team'] < 0)) {
             $invalidProperties[] = "invalid value for 'team', must be bigger than or equal to 0.";
         }
@@ -482,6 +486,9 @@ class MapEntity implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($team) && ($team > 255)) {
+            throw new \InvalidArgumentException('invalid value for $team when calling MapEntity., must be smaller than or equal to 255.');
         }
         if (!is_null($team) && ($team < 0)) {
             throw new \InvalidArgumentException('invalid value for $team when calling MapEntity., must be bigger than or equal to 0.');

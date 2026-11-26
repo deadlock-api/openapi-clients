@@ -37,9 +37,9 @@ class BuildTagsApiTest : ShouldSpec() {
         // to test getBuildTag
         should("test getBuildTag") {
             // uncomment below to test getBuildTag
-            //val buildTagId : kotlin.Int = 56 // kotlin.Int | Build tag id (murmurhash2 of `class_name`)
+            //val buildTagId : kotlin.Long = 789 // kotlin.Long | Build tag id (murmurhash2 of `class_name`)
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : BuildTag = apiInstance.getBuildTag(buildTagId, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -49,7 +49,7 @@ class BuildTagsApiTest : ShouldSpec() {
             // uncomment below to test getBuildTagByName
             //val name : kotlin.String = name_example // kotlin.String | Build tag `class_name` (e.g. `citadel_build_tag_weapon`)
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : BuildTag = apiInstance.getBuildTagByName(name, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -58,7 +58,7 @@ class BuildTagsApiTest : ShouldSpec() {
         should("test listBuildTags") {
             // uncomment below to test listBuildTags
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.List<BuildTag> = apiInstance.listBuildTags(language, clientVersion)
             //result shouldBe ("TODO")
         }

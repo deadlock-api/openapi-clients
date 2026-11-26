@@ -50,11 +50,11 @@ data class LastRankedMatch (
 
     /* Rank badge the player entered the match with, `tier * 10 + subrank`. */
     @Json(name = "player_rank_initial_display_rank")
-    val playerRankInitialDisplayRank: kotlin.Int,
+    val playerRankInitialDisplayRank: kotlin.Long,
 
     /* Match start time as a unix timestamp. */
     @Json(name = "start_time")
-    val startTime: kotlin.Int,
+    val startTime: kotlin.Long,
 
     /* Whether the match used up one of the player's demotion protection games. */
     @Json(name = "player_rank_consumed_demotion_protection")
@@ -66,27 +66,27 @@ data class LastRankedMatch (
 
     /* Rank progress the player ended the match with. */
     @Json(name = "player_rank_final_flat_progress")
-    val playerRankFinalFlatProgress: kotlin.Int? = null,
+    val playerRankFinalFlatProgress: kotlin.Long? = null,
 
     /* Remaining placement games at the start of the match. */
     @Json(name = "player_rank_initial_calibration_games")
-    val playerRankInitialCalibrationGames: kotlin.Int? = null,
+    val playerRankInitialCalibrationGames: kotlin.Long? = null,
 
     /* Remaining demotion protection games at the start of the match. */
     @Json(name = "player_rank_initial_demotion_protection_games")
-    val playerRankInitialDemotionProtectionGames: kotlin.Int? = null,
+    val playerRankInitialDemotionProtectionGames: kotlin.Long? = null,
 
     /* Rank progress the player entered the match with. */
     @Json(name = "player_rank_initial_flat_progress")
-    val playerRankInitialFlatProgress: kotlin.Int? = null,
+    val playerRankInitialFlatProgress: kotlin.Long? = null,
 
     /* Win streak the player entered the match with. */
     @Json(name = "player_rank_initial_win_streak")
-    val playerRankInitialWinStreak: kotlin.Int? = null,
+    val playerRankInitialWinStreak: kotlin.Long? = null,
 
     /* Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1. */
     @Json(name = "rank_interval")
-    val rankInterval: kotlin.Int? = null
+    val rankInterval: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

@@ -71,7 +71,7 @@ class EnemyStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'enemy_id' => 'int32',
+        'enemy_id' => 'int64',
         'matches' => 'int64',
         'matches_played' => 'int64',
         'wins' => 'int64'
@@ -298,6 +298,10 @@ class EnemyStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['enemy_id'] === null) {
             $invalidProperties[] = "'enemy_id' can't be null";
         }
+        if (($this->container['enemy_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'enemy_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['enemy_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'enemy_id', must be bigger than or equal to 0.";
         }
@@ -355,6 +359,9 @@ class EnemyStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($enemy_id)) {
             throw new \InvalidArgumentException('non-nullable enemy_id cannot be null');
+        }
+        if (($enemy_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $enemy_id when calling EnemyStats., must be smaller than or equal to 4294967295.');
         }
         if (($enemy_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $enemy_id when calling EnemyStats., must be bigger than or equal to 0.');

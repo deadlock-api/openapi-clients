@@ -28,8 +28,8 @@ class HeroSwapStats(BaseModel):
     """
     HeroSwapStats
     """ # noqa: E501
-    bucket: Annotated[int, Field(strict=True, ge=0)] = Field(description="The bucket value (depends on the bucket query parameter).")
-    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    bucket: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The bucket value (depends on the bucket query parameter).")
+    hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of players who played this hero, counting only players whose pre-game hero is known.")
     pregame_picks: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of players who had this hero locked before the pre-game swap window.")
     swapped_away: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of `pregame_picks` players who swapped away from this hero.")

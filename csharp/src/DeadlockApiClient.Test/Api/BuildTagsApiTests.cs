@@ -56,9 +56,9 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetBuildTagAsyncTest()
         {
-            int buildTagId = default!;
+            long buildTagId = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetBuildTagAsync(buildTagId, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.BuildTag>(model);
@@ -72,7 +72,7 @@ namespace DeadlockApiClient.Test.Api
         {
             string name = default!;
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetBuildTagByNameAsync(name, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.BuildTag>(model);
@@ -85,7 +85,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task ListBuildTagsAsyncTest()
         {
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.ListBuildTagsAsync(language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<BuildTag>>(model);

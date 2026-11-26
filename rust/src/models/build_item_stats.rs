@@ -17,11 +17,11 @@ pub struct BuildItemStats {
     pub builds: i64,
     /// See more: <https://api.deadlock-api.com/v1/assets/items>
     #[serde(rename = "item_id")]
-    pub item_id: i64,
+    pub item_id: u32,
 }
 
 impl BuildItemStats {
-    pub fn new(builds: i64, item_id: i64) -> BuildItemStats {
+    pub fn new(builds: i64, item_id: u32) -> BuildItemStats {
         BuildItemStats {
             builds,
             item_id,

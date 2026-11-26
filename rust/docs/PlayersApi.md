@@ -34,8 +34,8 @@ Name | Type | Description  | Required | Notes
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **min_matches_played** | Option<**u64**> | Filter based on the number of matches played. |  |
@@ -104,8 +104,8 @@ Name | Type | Description  | Required | Notes
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **min_matches_played** | Option<**u64**> | Filter based on the number of matches played. |  |
@@ -146,8 +146,8 @@ Name | Type | Description  | Required | Notes
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -274,10 +274,10 @@ Rank Distribution
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **is_high_skill_range_parties** | Option<**bool**> | Filter matches based on whether they are in the high skill range. |  |
 **is_low_pri_pool** | Option<**bool**> | Filter matches based on whether they are in the low priority pool. |  |
 **is_new_player_pool** | Option<**bool**> | Filter matches based on whether they are in the new player pool. |  |

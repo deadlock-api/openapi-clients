@@ -50,7 +50,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRankApiResponse"/>&gt;</returns>
-        Task<IGetRankApiResponse> GetRankAsync(int tier, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRankApiResponse> GetRankAsync(long tier, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Rank
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRankApiResponse"/>?&gt;</returns>
-        Task<IGetRankApiResponse?> GetRankOrDefaultAsync(int tier, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRankApiResponse?> GetRankOrDefaultAsync(long tier, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Ranks
@@ -76,7 +76,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListRanksApiResponse"/>&gt;</returns>
-        Task<IListRanksApiResponse> ListRanksAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListRanksApiResponse> ListRanksAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Ranks
@@ -88,7 +88,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListRanksApiResponse"/>?&gt;</returns>
-        Task<IListRanksApiResponse?> ListRanksOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListRanksApiResponse?> ListRanksOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Subrank Image
@@ -102,7 +102,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubrankImageApiResponse"/>&gt;</returns>
-        Task<ISubrankImageApiResponse> SubrankImageAsync(int tier, int subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISubrankImageApiResponse> SubrankImageAsync(long tier, long subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rank Subrank Image
@@ -115,7 +115,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubrankImageApiResponse"/>?&gt;</returns>
-        Task<ISubrankImageApiResponse?> SubrankImageOrDefaultAsync(int tier, int subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISubrankImageApiResponse?> SubrankImageOrDefaultAsync(long tier, long subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -297,7 +297,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetRank(ref int tier, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetRank(ref long tier, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -306,7 +306,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tier"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetRankDefaultImplementation(IGetRankApiResponse apiResponseLocalVar, int tier, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetRankDefaultImplementation(IGetRankApiResponse apiResponseLocalVar, long tier, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetRank(ref suppressDefaultLog, apiResponseLocalVar, tier, language, clientVersion);
@@ -322,7 +322,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tier"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetRank(ref bool suppressDefaultLog, IGetRankApiResponse apiResponseLocalVar, int tier, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetRank(ref bool suppressDefaultLog, IGetRankApiResponse apiResponseLocalVar, long tier, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -333,7 +333,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tier"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetRankDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int tier, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetRankDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long tier, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetRank(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, tier, language, clientVersion);
@@ -351,7 +351,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tier"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int tier, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long tier, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Rank Returns a single rank by tier index.
@@ -361,7 +361,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRankApiResponse"/>&gt;</returns>
-        public async Task<IGetRankApiResponse?> GetRankOrDefaultAsync(int tier, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRankApiResponse?> GetRankOrDefaultAsync(long tier, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -382,7 +382,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRankApiResponse"/>&gt;</returns>
-        public async Task<IGetRankApiResponse> GetRankAsync(int tier, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRankApiResponse> GetRankAsync(long tier, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -571,7 +571,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListRanks(ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatListRanks(ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -579,7 +579,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterListRanksDefaultImplementation(IListRanksApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void AfterListRanksDefaultImplementation(IListRanksApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterListRanks(ref suppressDefaultLog, apiResponseLocalVar, language, clientVersion);
@@ -594,7 +594,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterListRanks(ref bool suppressDefaultLog, IListRanksApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterListRanks(ref bool suppressDefaultLog, IListRanksApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -604,7 +604,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorListRanksDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorListRanksDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorListRanks(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, language, clientVersion);
@@ -621,7 +621,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorListRanks(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorListRanks(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// List Ranks Returns the 12 player ranks (tier, localized name, badge image URLs, hex color).
@@ -630,7 +630,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListRanksApiResponse"/>&gt;</returns>
-        public async Task<IListRanksApiResponse?> ListRanksOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListRanksApiResponse?> ListRanksOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -650,7 +650,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListRanksApiResponse"/>&gt;</returns>
-        public async Task<IListRanksApiResponse> ListRanksAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListRanksApiResponse> ListRanksAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -838,7 +838,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSubrankImage(ref int tier, ref int subrank, ref Option<string> format);
+        partial void FormatSubrankImage(ref long tier, ref long subrank, ref Option<string> format);
 
         /// <summary>
         /// Validates the request parameters
@@ -858,7 +858,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tier"></param>
         /// <param name="subrank"></param>
         /// <param name="format"></param>
-        private void AfterSubrankImageDefaultImplementation(ISubrankImageApiResponse apiResponseLocalVar, int tier, int subrank, Option<string> format)
+        private void AfterSubrankImageDefaultImplementation(ISubrankImageApiResponse apiResponseLocalVar, long tier, long subrank, Option<string> format)
         {
             bool suppressDefaultLog = false;
             AfterSubrankImage(ref suppressDefaultLog, apiResponseLocalVar, tier, subrank, format);
@@ -874,7 +874,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tier"></param>
         /// <param name="subrank"></param>
         /// <param name="format"></param>
-        partial void AfterSubrankImage(ref bool suppressDefaultLog, ISubrankImageApiResponse apiResponseLocalVar, int tier, int subrank, Option<string> format);
+        partial void AfterSubrankImage(ref bool suppressDefaultLog, ISubrankImageApiResponse apiResponseLocalVar, long tier, long subrank, Option<string> format);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -885,7 +885,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tier"></param>
         /// <param name="subrank"></param>
         /// <param name="format"></param>
-        private void OnErrorSubrankImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int tier, int subrank, Option<string> format)
+        private void OnErrorSubrankImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long tier, long subrank, Option<string> format)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorSubrankImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, tier, subrank, format);
@@ -903,7 +903,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tier"></param>
         /// <param name="subrank"></param>
         /// <param name="format"></param>
-        partial void OnErrorSubrankImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int tier, int subrank, Option<string> format);
+        partial void OnErrorSubrankImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long tier, long subrank, Option<string> format);
 
         /// <summary>
         /// Rank Subrank Image Returns the tier badge with its I-VI division numeral drawn on it (binary, not a URL). Use &#x60;?format&#x3D;webp&#x60; for WebP.
@@ -913,7 +913,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubrankImageApiResponse"/>&gt;</returns>
-        public async Task<ISubrankImageApiResponse?> SubrankImageOrDefaultAsync(int tier, int subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISubrankImageApiResponse?> SubrankImageOrDefaultAsync(long tier, long subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -934,7 +934,7 @@ namespace DeadlockApiClient.Api
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubrankImageApiResponse"/>&gt;</returns>
-        public async Task<ISubrankImageApiResponse> SubrankImageAsync(int tier, int subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISubrankImageApiResponse> SubrankImageAsync(long tier, long subrank, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

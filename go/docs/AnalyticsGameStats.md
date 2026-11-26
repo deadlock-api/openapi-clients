@@ -55,7 +55,7 @@ Name | Type | Description | Notes
 **AvgSelfHealing** | **float64** |  | 
 **AvgTechPower** | **float64** |  | 
 **AvgWeaponPower** | **float64** |  | 
-**Bucket** | **int32** |  | 
+**Bucket** | **int64** |  | 
 **MidBossKillRate** | **float64** |  | 
 **Team0Wins** | **int64** |  | 
 **Team1Wins** | **int64** |  | 
@@ -66,7 +66,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsGameStats
 
-`func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgFirstObjectiveDestroyedTimeS float64, avgGoldAbilityAssassinate float64, avgGoldAssists float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldBreakable float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldItemCultistSacrifice float64, avgGoldItemGooseEgg float64, avgGoldItemTrophyCollector float64, avgGoldLaneCreep float64, avgGoldLaneCreepOrbs float64, avgGoldNeutralCreep float64, avgGoldNeutralCreepOrbs float64, avgGoldPlayer float64, avgGoldPlayerOrbs float64, avgGoldTeamBonus float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgPermanentBuffs float64, avgPermanentBuffsPerMin float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, team0Wins int64, team1Wins int64, totalMatches int64, totalPlayers int64, ) *AnalyticsGameStats`
+`func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgFirstObjectiveDestroyedTimeS float64, avgGoldAbilityAssassinate float64, avgGoldAssists float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldBreakable float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldItemCultistSacrifice float64, avgGoldItemGooseEgg float64, avgGoldItemTrophyCollector float64, avgGoldLaneCreep float64, avgGoldLaneCreepOrbs float64, avgGoldNeutralCreep float64, avgGoldNeutralCreepOrbs float64, avgGoldPlayer float64, avgGoldPlayerOrbs float64, avgGoldTeamBonus float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgPermanentBuffs float64, avgPermanentBuffsPerMin float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int64, midBossKillRate float64, team0Wins int64, team1Wins int64, totalMatches int64, totalPlayers int64, ) *AnalyticsGameStats`
 
 NewAnalyticsGameStats instantiates a new AnalyticsGameStats object
 This constructor will assign default values to properties that have it defined,
@@ -1118,20 +1118,20 @@ SetAvgWeaponPower sets AvgWeaponPower field to given value.
 
 ### GetBucket
 
-`func (o *AnalyticsGameStats) GetBucket() int32`
+`func (o *AnalyticsGameStats) GetBucket() int64`
 
 GetBucket returns the Bucket field if non-nil, zero value otherwise.
 
 ### GetBucketOk
 
-`func (o *AnalyticsGameStats) GetBucketOk() (*int32, bool)`
+`func (o *AnalyticsGameStats) GetBucketOk() (*int64, bool)`
 
 GetBucketOk returns a tuple with the Bucket field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBucket
 
-`func (o *AnalyticsGameStats) SetBucket(v int32)`
+`func (o *AnalyticsGameStats) SetBucket(v int64)`
 
 SetBucket sets Bucket field to given value.
 

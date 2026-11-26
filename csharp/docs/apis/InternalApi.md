@@ -169,7 +169,7 @@ No authorization required
 
 <a id="ingeststatus"></a>
 # **IngestStatus**
-> IngestStatusResponse IngestStatus (int accountId)
+> IngestStatusResponse IngestStatus (long accountId)
 
 Ingest Status
 
@@ -180,7 +180,7 @@ Ingest Status
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+| **accountId** | **long** | The players &#x60;SteamID3&#x60; |  |
 
 ### Return type
 

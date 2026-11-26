@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Abandoned** | Pointer to **NullableBool** |  | [optional] 
-**AccountId** | Pointer to **NullableInt32** |  | [optional] 
-**HeroId** | Pointer to **NullableInt32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
+**AccountId** | Pointer to **NullableInt64** |  | [optional] 
+**HeroId** | Pointer to **NullableInt64** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
 **Team** | Pointer to **NullableInt32** |  | [optional] 
 **TeamParsed** | Pointer to [**NullableActiveMatchTeam**](ActiveMatchTeam.md) |  | [optional] 
 
@@ -66,20 +66,20 @@ HasAbandoned returns a boolean if a field has been set.
 UnsetAbandoned ensures that no value is present for Abandoned, not even an explicit nil
 ### GetAccountId
 
-`func (o *ActiveMatchPlayer) GetAccountId() int32`
+`func (o *ActiveMatchPlayer) GetAccountId() int64`
 
 GetAccountId returns the AccountId field if non-nil, zero value otherwise.
 
 ### GetAccountIdOk
 
-`func (o *ActiveMatchPlayer) GetAccountIdOk() (*int32, bool)`
+`func (o *ActiveMatchPlayer) GetAccountIdOk() (*int64, bool)`
 
 GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccountId
 
-`func (o *ActiveMatchPlayer) SetAccountId(v int32)`
+`func (o *ActiveMatchPlayer) SetAccountId(v int64)`
 
 SetAccountId sets AccountId field to given value.
 
@@ -101,20 +101,20 @@ HasAccountId returns a boolean if a field has been set.
 UnsetAccountId ensures that no value is present for AccountId, not even an explicit nil
 ### GetHeroId
 
-`func (o *ActiveMatchPlayer) GetHeroId() int32`
+`func (o *ActiveMatchPlayer) GetHeroId() int64`
 
 GetHeroId returns the HeroId field if non-nil, zero value otherwise.
 
 ### GetHeroIdOk
 
-`func (o *ActiveMatchPlayer) GetHeroIdOk() (*int32, bool)`
+`func (o *ActiveMatchPlayer) GetHeroIdOk() (*int64, bool)`
 
 GetHeroIdOk returns a tuple with the HeroId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroId
 
-`func (o *ActiveMatchPlayer) SetHeroId(v int32)`
+`func (o *ActiveMatchPlayer) SetHeroId(v int64)`
 
 SetHeroId sets HeroId field to given value.
 

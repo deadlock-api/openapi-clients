@@ -28,17 +28,17 @@ class Settings(BaseModel):
     """
     Crosshair convars. Anything not given keeps the game's default.
     """ # noqa: E501
-    color_b: Optional[Annotated[int, Field(strict=True, ge=0)]] = 255
-    color_g: Optional[Annotated[int, Field(strict=True, ge=0)]] = 255
-    color_r: Optional[Annotated[int, Field(strict=True, ge=0)]] = 255
+    color_b: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = 255
+    color_g: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = 255
+    color_r: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = 255
     dot_opacity: Optional[Union[StrictFloat, StrictInt]] = Field(default=0.7, description="0 to 1.")
     dot_outline_border: Optional[StrictInt] = 2
     dot_outline_gap: Optional[StrictInt] = 0
     dot_outline_opacity: Optional[Union[StrictFloat, StrictInt]] = Field(default=0.7, description="0 to 1.")
     dot_size: Optional[StrictInt] = 4
-    outline_color_b: Optional[Annotated[int, Field(strict=True, ge=0)]] = 0
-    outline_color_g: Optional[Annotated[int, Field(strict=True, ge=0)]] = 0
-    outline_color_r: Optional[Annotated[int, Field(strict=True, ge=0)]] = 0
+    outline_color_b: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = 0
+    outline_color_g: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = 0
+    outline_color_r: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = 0
     pip_gap: Optional[StrictInt] = 4
     pip_gap_static: Optional[StrictBool] = Field(default=False, description="Keep the pips at a fixed distance instead of spreading them with weapon spread.")
     pip_height: Optional[StrictInt] = 16

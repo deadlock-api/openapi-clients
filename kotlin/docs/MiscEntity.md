@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **className** | **kotlin.String** |  |  |
-| **id** | **kotlin.Int** |  |  |
+| **id** | **kotlin.Long** |  |  |
 | **breakOnDodgeTouch** | **kotlin.Boolean** |  |  [optional] |
 | **buffTypeGraphColor** | [**Color**](Color.md) | Permanent pickups: color used for the buff in the stat graph. |  [optional] |
 | **buffTypeLocString** | **kotlin.String** | Permanent pickups: localization token of the stat the buff raises. |  [optional] |

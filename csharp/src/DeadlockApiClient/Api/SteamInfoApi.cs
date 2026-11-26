@@ -69,7 +69,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSteamInfoApiResponse"/>&gt;</returns>
-        Task<IGetSteamInfoApiResponse> GetSteamInfoAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSteamInfoApiResponse> GetSteamInfoAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Steam Info
@@ -80,7 +80,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSteamInfoApiResponse"/>?&gt;</returns>
-        Task<IGetSteamInfoApiResponse?> GetSteamInfoOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSteamInfoApiResponse?> GetSteamInfoOrDefaultAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -447,14 +447,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetSteamInfo(ref Option<int?> clientVersion);
+        partial void FormatGetSteamInfo(ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetSteamInfoDefaultImplementation(IGetSteamInfoApiResponse apiResponseLocalVar, Option<int?> clientVersion)
+        private void AfterGetSteamInfoDefaultImplementation(IGetSteamInfoApiResponse apiResponseLocalVar, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetSteamInfo(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
@@ -468,7 +468,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetSteamInfo(ref bool suppressDefaultLog, IGetSteamInfoApiResponse apiResponseLocalVar, Option<int?> clientVersion);
+        partial void AfterGetSteamInfo(ref bool suppressDefaultLog, IGetSteamInfoApiResponse apiResponseLocalVar, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -477,7 +477,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetSteamInfoDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion)
+        private void OnErrorGetSteamInfoDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetSteamInfo(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
@@ -493,7 +493,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetSteamInfo(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion);
+        partial void OnErrorGetSteamInfo(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Steam Info Returns the &#x60;steam.inf&#x60; manifest published with the patch (client/server version, app IDs, source revision, build timestamp).
@@ -501,7 +501,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSteamInfoApiResponse"/>&gt;</returns>
-        public async Task<IGetSteamInfoApiResponse?> GetSteamInfoOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSteamInfoApiResponse?> GetSteamInfoOrDefaultAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -520,7 +520,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSteamInfoApiResponse"/>&gt;</returns>
-        public async Task<IGetSteamInfoApiResponse> GetSteamInfoAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSteamInfoApiResponse> GetSteamInfoAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

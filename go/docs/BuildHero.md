@@ -4,25 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthorAccountId** | **int32** |  | 
+**AuthorAccountId** | **int64** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Details** | [**BuildHeroDetails**](BuildHeroDetails.md) |  | 
 **DevelopmentBuild** | Pointer to **NullableBool** |  | [optional] 
-**HeroBuildId** | **int32** |  | 
-**HeroId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
-**Language** | **int32** |  | 
+**HeroBuildId** | **int64** |  | 
+**HeroId** | **int64** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**Language** | **int64** |  | 
 **LastUpdatedTimestamp** | Pointer to **NullableInt64** |  | [optional] 
 **Name** | **string** |  | 
-**OriginBuildId** | **int32** |  | 
+**OriginBuildId** | **int64** |  | 
 **PublishTimestamp** | Pointer to **NullableInt64** |  | [optional] 
-**Tags** | Pointer to **[]int32** |  | [optional] 
-**Version** | **int32** |  | 
+**Tags** | Pointer to **[]int64** |  | [optional] 
+**Version** | **int64** |  | 
 
 ## Methods
 
 ### NewBuildHero
 
-`func NewBuildHero(authorAccountId int32, details BuildHeroDetails, heroBuildId int32, heroId int32, language int32, name string, originBuildId int32, version int32, ) *BuildHero`
+`func NewBuildHero(authorAccountId int64, details BuildHeroDetails, heroBuildId int64, heroId int64, language int64, name string, originBuildId int64, version int64, ) *BuildHero`
 
 NewBuildHero instantiates a new BuildHero object
 This constructor will assign default values to properties that have it defined,
@@ -39,20 +39,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAuthorAccountId
 
-`func (o *BuildHero) GetAuthorAccountId() int32`
+`func (o *BuildHero) GetAuthorAccountId() int64`
 
 GetAuthorAccountId returns the AuthorAccountId field if non-nil, zero value otherwise.
 
 ### GetAuthorAccountIdOk
 
-`func (o *BuildHero) GetAuthorAccountIdOk() (*int32, bool)`
+`func (o *BuildHero) GetAuthorAccountIdOk() (*int64, bool)`
 
 GetAuthorAccountIdOk returns a tuple with the AuthorAccountId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAuthorAccountId
 
-`func (o *BuildHero) SetAuthorAccountId(v int32)`
+`func (o *BuildHero) SetAuthorAccountId(v int64)`
 
 SetAuthorAccountId sets AuthorAccountId field to given value.
 
@@ -149,60 +149,60 @@ HasDevelopmentBuild returns a boolean if a field has been set.
 UnsetDevelopmentBuild ensures that no value is present for DevelopmentBuild, not even an explicit nil
 ### GetHeroBuildId
 
-`func (o *BuildHero) GetHeroBuildId() int32`
+`func (o *BuildHero) GetHeroBuildId() int64`
 
 GetHeroBuildId returns the HeroBuildId field if non-nil, zero value otherwise.
 
 ### GetHeroBuildIdOk
 
-`func (o *BuildHero) GetHeroBuildIdOk() (*int32, bool)`
+`func (o *BuildHero) GetHeroBuildIdOk() (*int64, bool)`
 
 GetHeroBuildIdOk returns a tuple with the HeroBuildId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroBuildId
 
-`func (o *BuildHero) SetHeroBuildId(v int32)`
+`func (o *BuildHero) SetHeroBuildId(v int64)`
 
 SetHeroBuildId sets HeroBuildId field to given value.
 
 
 ### GetHeroId
 
-`func (o *BuildHero) GetHeroId() int32`
+`func (o *BuildHero) GetHeroId() int64`
 
 GetHeroId returns the HeroId field if non-nil, zero value otherwise.
 
 ### GetHeroIdOk
 
-`func (o *BuildHero) GetHeroIdOk() (*int32, bool)`
+`func (o *BuildHero) GetHeroIdOk() (*int64, bool)`
 
 GetHeroIdOk returns a tuple with the HeroId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroId
 
-`func (o *BuildHero) SetHeroId(v int32)`
+`func (o *BuildHero) SetHeroId(v int64)`
 
 SetHeroId sets HeroId field to given value.
 
 
 ### GetLanguage
 
-`func (o *BuildHero) GetLanguage() int32`
+`func (o *BuildHero) GetLanguage() int64`
 
 GetLanguage returns the Language field if non-nil, zero value otherwise.
 
 ### GetLanguageOk
 
-`func (o *BuildHero) GetLanguageOk() (*int32, bool)`
+`func (o *BuildHero) GetLanguageOk() (*int64, bool)`
 
 GetLanguageOk returns a tuple with the Language field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLanguage
 
-`func (o *BuildHero) SetLanguage(v int32)`
+`func (o *BuildHero) SetLanguage(v int64)`
 
 SetLanguage sets Language field to given value.
 
@@ -264,20 +264,20 @@ SetName sets Name field to given value.
 
 ### GetOriginBuildId
 
-`func (o *BuildHero) GetOriginBuildId() int32`
+`func (o *BuildHero) GetOriginBuildId() int64`
 
 GetOriginBuildId returns the OriginBuildId field if non-nil, zero value otherwise.
 
 ### GetOriginBuildIdOk
 
-`func (o *BuildHero) GetOriginBuildIdOk() (*int32, bool)`
+`func (o *BuildHero) GetOriginBuildIdOk() (*int64, bool)`
 
 GetOriginBuildIdOk returns a tuple with the OriginBuildId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOriginBuildId
 
-`func (o *BuildHero) SetOriginBuildId(v int32)`
+`func (o *BuildHero) SetOriginBuildId(v int64)`
 
 SetOriginBuildId sets OriginBuildId field to given value.
 
@@ -319,20 +319,20 @@ HasPublishTimestamp returns a boolean if a field has been set.
 UnsetPublishTimestamp ensures that no value is present for PublishTimestamp, not even an explicit nil
 ### GetTags
 
-`func (o *BuildHero) GetTags() []int32`
+`func (o *BuildHero) GetTags() []int64`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *BuildHero) GetTagsOk() (*[]int32, bool)`
+`func (o *BuildHero) GetTagsOk() (*[]int64, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *BuildHero) SetTags(v []int32)`
+`func (o *BuildHero) SetTags(v []int64)`
 
 SetTags sets Tags field to given value.
 
@@ -344,20 +344,20 @@ HasTags returns a boolean if a field has been set.
 
 ### GetVersion
 
-`func (o *BuildHero) GetVersion() int32`
+`func (o *BuildHero) GetVersion() int64`
 
 GetVersion returns the Version field if non-nil, zero value otherwise.
 
 ### GetVersionOk
 
-`func (o *BuildHero) GetVersionOk() (*int32, bool)`
+`func (o *BuildHero) GetVersionOk() (*int64, bool)`
 
 GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVersion
 
-`func (o *BuildHero) SetVersion(v int32)`
+`func (o *BuildHero) SetVersion(v int64)`
 
 SetVersion sets Version field to given value.
 

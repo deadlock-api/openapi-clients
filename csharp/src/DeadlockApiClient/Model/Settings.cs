@@ -386,10 +386,22 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ColorB (int) maximum
+            if (this.ColorBOption.IsSet && this.ColorBOption.Value > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ColorB, must be a value less than or equal to 255.", new [] { "ColorB" });
+            }
+
             // ColorB (int) minimum
             if (this.ColorBOption.IsSet && this.ColorBOption.Value < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ColorB, must be a value greater than or equal to 0.", new [] { "ColorB" });
+            }
+
+            // ColorG (int) maximum
+            if (this.ColorGOption.IsSet && this.ColorGOption.Value > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ColorG, must be a value less than or equal to 255.", new [] { "ColorG" });
             }
 
             // ColorG (int) minimum
@@ -398,10 +410,22 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ColorG, must be a value greater than or equal to 0.", new [] { "ColorG" });
             }
 
+            // ColorR (int) maximum
+            if (this.ColorROption.IsSet && this.ColorROption.Value > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ColorR, must be a value less than or equal to 255.", new [] { "ColorR" });
+            }
+
             // ColorR (int) minimum
             if (this.ColorROption.IsSet && this.ColorROption.Value < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ColorR, must be a value greater than or equal to 0.", new [] { "ColorR" });
+            }
+
+            // OutlineColorB (int) maximum
+            if (this.OutlineColorBOption.IsSet && this.OutlineColorBOption.Value > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OutlineColorB, must be a value less than or equal to 255.", new [] { "OutlineColorB" });
             }
 
             // OutlineColorB (int) minimum
@@ -410,10 +434,22 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OutlineColorB, must be a value greater than or equal to 0.", new [] { "OutlineColorB" });
             }
 
+            // OutlineColorG (int) maximum
+            if (this.OutlineColorGOption.IsSet && this.OutlineColorGOption.Value > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OutlineColorG, must be a value less than or equal to 255.", new [] { "OutlineColorG" });
+            }
+
             // OutlineColorG (int) minimum
             if (this.OutlineColorGOption.IsSet && this.OutlineColorGOption.Value < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OutlineColorG, must be a value greater than or equal to 0.", new [] { "OutlineColorG" });
+            }
+
+            // OutlineColorR (int) maximum
+            if (this.OutlineColorROption.IsSet && this.OutlineColorROption.Value > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OutlineColorR, must be a value less than or equal to 255.", new [] { "OutlineColorR" });
             }
 
             // OutlineColorR (int) minimum

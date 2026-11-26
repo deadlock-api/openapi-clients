@@ -231,7 +231,7 @@ Ingest Status
 //import deadlock_api_client.models.*
 
 val apiInstance = InternalApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
 try {
     val result : IngestStatusResponse = apiInstance.ingestStatus(accountId)
     println(result)
@@ -247,7 +247,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **accountId** | **kotlin.Long**| The players &#x60;SteamID3&#x60; | |
 
 ### Return type
 

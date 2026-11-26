@@ -51,7 +51,7 @@ data class Accolade (
     val flavorName: kotlin.String,
 
     @Json(name = "id")
-    val id: kotlin.Int,
+    val id: kotlin.Long,
 
     @Json(name = "threshold_type")
     val thresholdType: kotlin.String,

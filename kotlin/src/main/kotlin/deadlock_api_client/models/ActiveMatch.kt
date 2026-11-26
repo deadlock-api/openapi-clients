@@ -71,10 +71,10 @@ data class ActiveMatch (
     val teamStats: kotlin.collections.List<ActiveMatchTeamStats>,
 
     @Json(name = "compat_version")
-    val compatVersion: kotlin.Int? = null,
+    val compatVersion: kotlin.Long? = null,
 
     @Json(name = "duration_s")
-    val durationS: kotlin.Int? = null,
+    val durationS: kotlin.Long? = null,
 
     @Json(name = "game_mode")
     val gameMode: kotlin.Int? = null,
@@ -83,7 +83,7 @@ data class ActiveMatch (
     val gameModeParsed: ActiveMatchGameMode? = null,
 
     @Json(name = "game_mode_version")
-    val gameModeVersion: kotlin.Int? = null,
+    val gameModeVersion: kotlin.Long? = null,
 
     @Json(name = "lobby_id")
     val lobbyId: kotlin.Long? = null,
@@ -101,13 +101,13 @@ data class ActiveMatch (
     val matchModeParsed: ActiveMatchMode? = null,
 
     @Json(name = "match_score")
-    val matchScore: kotlin.Int? = null,
+    val matchScore: kotlin.Long? = null,
 
     @Json(name = "net_worth_team_0")
-    val netWorthTeam0: kotlin.Int? = null,
+    val netWorthTeam0: kotlin.Long? = null,
 
     @Json(name = "net_worth_team_1")
-    val netWorthTeam1: kotlin.Int? = null,
+    val netWorthTeam1: kotlin.Long? = null,
 
     @Json(name = "objectives_mask_team0")
     val objectivesMaskTeam0: kotlin.Long? = null,
@@ -116,7 +116,7 @@ data class ActiveMatch (
     val objectivesMaskTeam1: kotlin.Long? = null,
 
     @Json(name = "open_spectator_slots")
-    val openSpectatorSlots: kotlin.Int? = null,
+    val openSpectatorSlots: kotlin.Long? = null,
 
     @Json(name = "region_mode")
     val regionMode: kotlin.Int? = null,
@@ -125,10 +125,10 @@ data class ActiveMatch (
     val regionModeParsed: RegionMode? = null,
 
     @Json(name = "spectators")
-    val spectators: kotlin.Int? = null,
+    val spectators: kotlin.Long? = null,
 
     @Json(name = "start_time")
-    val startTime: kotlin.Int? = null,
+    val startTime: kotlin.Long? = null,
 
     @Json(name = "winning_team")
     val winningTeam: kotlin.Int? = null,

@@ -26,9 +26,9 @@ type BuildTagsAPIService service
 type ApiGetBuildTagRequest struct {
 	ctx context.Context
 	ApiService *BuildTagsAPIService
-	buildTagId int32
+	buildTagId int64
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -38,7 +38,7 @@ func (r ApiGetBuildTagRequest) Language(language string) ApiGetBuildTagRequest {
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetBuildTagRequest) ClientVersion(clientVersion int32) ApiGetBuildTagRequest {
+func (r ApiGetBuildTagRequest) ClientVersion(clientVersion int64) ApiGetBuildTagRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -56,7 +56,7 @@ Returns a single build tag by id.
  @param buildTagId Build tag id (murmurhash2 of `class_name`)
  @return ApiGetBuildTagRequest
 */
-func (a *BuildTagsAPIService) GetBuildTag(ctx context.Context, buildTagId int32) ApiGetBuildTagRequest {
+func (a *BuildTagsAPIService) GetBuildTag(ctx context.Context, buildTagId int64) ApiGetBuildTagRequest {
 	return ApiGetBuildTagRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -87,6 +87,9 @@ func (a *BuildTagsAPIService) GetBuildTagExecute(r ApiGetBuildTagRequest) (*Buil
 	localVarFormParams := url.Values{}
 	if r.buildTagId < 0 {
 		return localVarReturnValue, nil, reportError("buildTagId must be greater than 0")
+	}
+	if r.buildTagId > 4294967295 {
+		return localVarReturnValue, nil, reportError("buildTagId must be less than 4294967295")
 	}
 
 	if r.language != nil {
@@ -154,7 +157,7 @@ type ApiGetBuildTagByNameRequest struct {
 	ApiService *BuildTagsAPIService
 	name string
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -164,7 +167,7 @@ func (r ApiGetBuildTagByNameRequest) Language(language string) ApiGetBuildTagByN
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetBuildTagByNameRequest) ClientVersion(clientVersion int32) ApiGetBuildTagByNameRequest {
+func (r ApiGetBuildTagByNameRequest) ClientVersion(clientVersion int64) ApiGetBuildTagByNameRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -276,7 +279,7 @@ type ApiListBuildTagsRequest struct {
 	ctx context.Context
 	ApiService *BuildTagsAPIService
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -286,7 +289,7 @@ func (r ApiListBuildTagsRequest) Language(language string) ApiListBuildTagsReque
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiListBuildTagsRequest) ClientVersion(clientVersion int32) ApiListBuildTagsRequest {
+func (r ApiListBuildTagsRequest) ClientVersion(clientVersion int64) ApiListBuildTagsRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

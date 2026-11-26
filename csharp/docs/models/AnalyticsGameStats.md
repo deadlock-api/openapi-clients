@@ -54,7 +54,7 @@ Name | Type | Description | Notes
 **AvgSelfHealing** | **double** |  | 
 **AvgTechPower** | **double** |  | 
 **AvgWeaponPower** | **double** |  | 
-**Bucket** | **int** |  | 
+**Bucket** | **long** |  | 
 **MidBossKillRate** | **double** |  | 
 **Team0Wins** | **long** |  | 
 **Team1Wins** | **long** |  | 

@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +29,7 @@ class BuildItemStats(BaseModel):
     BuildItemStats
     """ # noqa: E501
     builds: StrictInt
-    item_id: StrictInt = Field(description="See more: <https://api.deadlock-api.com/v1/assets/items>")
+    item_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/items>")
     __properties: ClassVar[List[str]] = ["builds", "item_id"]
 
     model_config = ConfigDict(

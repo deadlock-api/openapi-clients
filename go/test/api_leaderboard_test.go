@@ -41,7 +41,7 @@ func Test_deadlock_api_client_LeaderboardAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		var region string
-		var heroId int32
+		var heroId int64
 
 		resp, httpRes, err := apiClient.LeaderboardAPI.LeaderboardHero(context.Background(), region, heroId).Execute()
 
@@ -56,7 +56,7 @@ func Test_deadlock_api_client_LeaderboardAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		var region string
-		var heroId int32
+		var heroId int64
 
 		resp, httpRes, err := apiClient.LeaderboardAPI.LeaderboardHeroRaw(context.Background(), region, heroId).Execute()
 

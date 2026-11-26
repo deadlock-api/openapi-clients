@@ -68,7 +68,7 @@ Resolve Command
 //import deadlock_api_client.models.*
 
 val apiInstance = CommandsApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
 val region : kotlin.String = region_example // kotlin.String | The players region
 val template : kotlin.String = template_example // kotlin.String | The command template to resolve
 val heroName : kotlin.String = heroName_example // kotlin.String | Hero name to check for hero specific stats
@@ -87,7 +87,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **accountId** | **kotlin.Long**| The players &#x60;SteamID3&#x60; | |
 | **region** | **kotlin.String**| The players region | [optional] [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | **template** | **kotlin.String**| The command template to resolve | [optional] |
 | **heroName** | **kotlin.String**| Hero name to check for hero specific stats | [optional] |
@@ -120,7 +120,7 @@ Resolve Variables
 //import deadlock_api_client.models.*
 
 val apiInstance = CommandsApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | 
+val accountId : kotlin.Long = 789 // kotlin.Long | 
 val region : kotlin.String = region_example // kotlin.String | 
 val variables : kotlin.String = variables_example // kotlin.String | Variables to resolve, separated by commas.
 val heroName : kotlin.String = heroName_example // kotlin.String | Hero name to check for hero specific stats
@@ -139,7 +139,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**|  | |
+| **accountId** | **kotlin.Long**|  | |
 | **region** | **kotlin.String**|  | [optional] [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | **variables** | **kotlin.String**| Variables to resolve, separated by commas. | [optional] |
 | **heroName** | **kotlin.String**| Hero name to check for hero specific stats | [optional] |

@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssignedLane** | **int32** | The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;. | 
-**EnemyHeroIds** | **[]int32** | The ascending hero id pair they laned against, or empty when grouped away. | 
-**HeroIds** | **[]int32** | The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**AssignedLane** | **int64** | The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;. | 
+**EnemyHeroIds** | **[]int64** | The ascending hero id pair they laned against, or empty when grouped away. | 
+**HeroIds** | **[]int64** | The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **MatchesPlayed** | **int64** | Lane matchups behind the row, counted at its *first* sample. This is what &#x60;min_matches&#x60; and &#x60;max_matches&#x60; filter on, so it does not move when the requested time range changes; read &#x60;sample_matches&#x60; for what any individual point rests on. | 
 **NetWorthDiff** | **[]float64** | Mean souls the duo is ahead by at the matching entry of &#x60;sample_times_s&#x60;. Negative means behind. Same length as &#x60;sample_times_s&#x60;. | 
 **NetWorthDiffStd** | **[]float64** | Population standard deviation of the lead across the counted matchups, at the matching entry of &#x60;sample_times_s&#x60;. Same length as &#x60;sample_times_s&#x60;.  Spread between individual games, not uncertainty about the mean: it stays wide however many matchups are counted, because lane outcomes genuinely differ that much. | 
 **SampleMatches** | **[]int64** | How many lane matchups were still running at the matching entry of &#x60;sample_times_s&#x60;. Falls off towards the end of the curve as shorter matches drop out. | 
-**SampleTimesS** | **[]int32** | Seconds into the match each entry of the curves was sampled at, ascending. | 
+**SampleTimesS** | **[]int64** | Seconds into the match each entry of the curves was sampled at, ascending. | 
 **Stats** | [**map[string]LaneStatCurve**](LaneStatCurve.md) | A curve per stat named in &#x60;stats&#x60;. Empty unless the parameter was set. | 
 
 ## Methods
 
 ### NewLaneSoulCurve
 
-`func NewLaneSoulCurve(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff []float64, netWorthDiffStd []float64, sampleMatches []int64, sampleTimesS []int32, stats map[string]LaneStatCurve, ) *LaneSoulCurve`
+`func NewLaneSoulCurve(assignedLane int64, enemyHeroIds []int64, heroIds []int64, matchesPlayed int64, netWorthDiff []float64, netWorthDiffStd []float64, sampleMatches []int64, sampleTimesS []int64, stats map[string]LaneStatCurve, ) *LaneSoulCurve`
 
 NewLaneSoulCurve instantiates a new LaneSoulCurve object
 This constructor will assign default values to properties that have it defined,
@@ -35,60 +35,60 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAssignedLane
 
-`func (o *LaneSoulCurve) GetAssignedLane() int32`
+`func (o *LaneSoulCurve) GetAssignedLane() int64`
 
 GetAssignedLane returns the AssignedLane field if non-nil, zero value otherwise.
 
 ### GetAssignedLaneOk
 
-`func (o *LaneSoulCurve) GetAssignedLaneOk() (*int32, bool)`
+`func (o *LaneSoulCurve) GetAssignedLaneOk() (*int64, bool)`
 
 GetAssignedLaneOk returns a tuple with the AssignedLane field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAssignedLane
 
-`func (o *LaneSoulCurve) SetAssignedLane(v int32)`
+`func (o *LaneSoulCurve) SetAssignedLane(v int64)`
 
 SetAssignedLane sets AssignedLane field to given value.
 
 
 ### GetEnemyHeroIds
 
-`func (o *LaneSoulCurve) GetEnemyHeroIds() []int32`
+`func (o *LaneSoulCurve) GetEnemyHeroIds() []int64`
 
 GetEnemyHeroIds returns the EnemyHeroIds field if non-nil, zero value otherwise.
 
 ### GetEnemyHeroIdsOk
 
-`func (o *LaneSoulCurve) GetEnemyHeroIdsOk() (*[]int32, bool)`
+`func (o *LaneSoulCurve) GetEnemyHeroIdsOk() (*[]int64, bool)`
 
 GetEnemyHeroIdsOk returns a tuple with the EnemyHeroIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnemyHeroIds
 
-`func (o *LaneSoulCurve) SetEnemyHeroIds(v []int32)`
+`func (o *LaneSoulCurve) SetEnemyHeroIds(v []int64)`
 
 SetEnemyHeroIds sets EnemyHeroIds field to given value.
 
 
 ### GetHeroIds
 
-`func (o *LaneSoulCurve) GetHeroIds() []int32`
+`func (o *LaneSoulCurve) GetHeroIds() []int64`
 
 GetHeroIds returns the HeroIds field if non-nil, zero value otherwise.
 
 ### GetHeroIdsOk
 
-`func (o *LaneSoulCurve) GetHeroIdsOk() (*[]int32, bool)`
+`func (o *LaneSoulCurve) GetHeroIdsOk() (*[]int64, bool)`
 
 GetHeroIdsOk returns a tuple with the HeroIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroIds
 
-`func (o *LaneSoulCurve) SetHeroIds(v []int32)`
+`func (o *LaneSoulCurve) SetHeroIds(v []int64)`
 
 SetHeroIds sets HeroIds field to given value.
 
@@ -175,20 +175,20 @@ SetSampleMatches sets SampleMatches field to given value.
 
 ### GetSampleTimesS
 
-`func (o *LaneSoulCurve) GetSampleTimesS() []int32`
+`func (o *LaneSoulCurve) GetSampleTimesS() []int64`
 
 GetSampleTimesS returns the SampleTimesS field if non-nil, zero value otherwise.
 
 ### GetSampleTimesSOk
 
-`func (o *LaneSoulCurve) GetSampleTimesSOk() (*[]int32, bool)`
+`func (o *LaneSoulCurve) GetSampleTimesSOk() (*[]int64, bool)`
 
 GetSampleTimesSOk returns a tuple with the SampleTimesS field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSampleTimesS
 
-`func (o *LaneSoulCurve) SetSampleTimesS(v []int32)`
+`func (o *LaneSoulCurve) SetSampleTimesS(v []int64)`
 
 SetSampleTimesS sets SampleTimesS field to given value.
 

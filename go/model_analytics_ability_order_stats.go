@@ -22,7 +22,7 @@ var _ MappedNullable = &AnalyticsAbilityOrderStats{}
 // AnalyticsAbilityOrderStats struct for AnalyticsAbilityOrderStats
 type AnalyticsAbilityOrderStats struct {
 	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	Abilities []int32 `json:"abilities"`
+	Abilities []int64 `json:"abilities"`
 	// Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.
 	AvgUpgradeTimesS []float64 `json:"avg_upgrade_times_s"`
 	Losses int64 `json:"losses"`
@@ -40,7 +40,7 @@ type _AnalyticsAbilityOrderStats AnalyticsAbilityOrderStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyticsAbilityOrderStats(abilities []int32, avgUpgradeTimesS []float64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64) *AnalyticsAbilityOrderStats {
+func NewAnalyticsAbilityOrderStats(abilities []int64, avgUpgradeTimesS []float64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64) *AnalyticsAbilityOrderStats {
 	this := AnalyticsAbilityOrderStats{}
 	this.Abilities = abilities
 	this.AvgUpgradeTimesS = avgUpgradeTimesS
@@ -63,9 +63,9 @@ func NewAnalyticsAbilityOrderStatsWithDefaults() *AnalyticsAbilityOrderStats {
 }
 
 // GetAbilities returns the Abilities field value
-func (o *AnalyticsAbilityOrderStats) GetAbilities() []int32 {
+func (o *AnalyticsAbilityOrderStats) GetAbilities() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -74,7 +74,7 @@ func (o *AnalyticsAbilityOrderStats) GetAbilities() []int32 {
 
 // GetAbilitiesOk returns a tuple with the Abilities field value
 // and a boolean to check if the value has been set.
-func (o *AnalyticsAbilityOrderStats) GetAbilitiesOk() ([]int32, bool) {
+func (o *AnalyticsAbilityOrderStats) GetAbilitiesOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -82,7 +82,7 @@ func (o *AnalyticsAbilityOrderStats) GetAbilitiesOk() ([]int32, bool) {
 }
 
 // SetAbilities sets field value
-func (o *AnalyticsAbilityOrderStats) SetAbilities(v []int32) {
+func (o *AnalyticsAbilityOrderStats) SetAbilities(v []int64) {
 	o.Abilities = v
 }
 

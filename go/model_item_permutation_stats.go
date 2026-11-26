@@ -22,7 +22,7 @@ var _ MappedNullable = &ItemPermutationStats{}
 // ItemPermutationStats struct for ItemPermutationStats
 type ItemPermutationStats struct {
 	// See more: <https://api.deadlock-api.com/v1/assets/items>
-	ItemIds []int32 `json:"item_ids"`
+	ItemIds []int64 `json:"item_ids"`
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`
 	Wins int64 `json:"wins"`
@@ -34,7 +34,7 @@ type _ItemPermutationStats ItemPermutationStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemPermutationStats(itemIds []int32, losses int64, matches int64, wins int64) *ItemPermutationStats {
+func NewItemPermutationStats(itemIds []int64, losses int64, matches int64, wins int64) *ItemPermutationStats {
 	this := ItemPermutationStats{}
 	this.ItemIds = itemIds
 	this.Losses = losses
@@ -52,9 +52,9 @@ func NewItemPermutationStatsWithDefaults() *ItemPermutationStats {
 }
 
 // GetItemIds returns the ItemIds field value
-func (o *ItemPermutationStats) GetItemIds() []int32 {
+func (o *ItemPermutationStats) GetItemIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *ItemPermutationStats) GetItemIds() []int32 {
 
 // GetItemIdsOk returns a tuple with the ItemIds field value
 // and a boolean to check if the value has been set.
-func (o *ItemPermutationStats) GetItemIdsOk() ([]int32, bool) {
+func (o *ItemPermutationStats) GetItemIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *ItemPermutationStats) GetItemIdsOk() ([]int32, bool) {
 }
 
 // SetItemIds sets field value
-func (o *ItemPermutationStats) SetItemIds(v []int32) {
+func (o *ItemPermutationStats) SetItemIds(v []int64) {
 	o.ItemIds = v
 }
 

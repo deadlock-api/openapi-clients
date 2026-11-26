@@ -28,12 +28,12 @@ class MatchSaltsResponse(BaseModel):
     """
     MatchSaltsResponse
     """ # noqa: E501
-    cluster_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    cluster_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     demo_url: Optional[StrictStr] = None
     match_id: Annotated[int, Field(strict=True, ge=0)]
-    metadata_salt: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    metadata_salt: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     metadata_url: Optional[StrictStr] = None
-    replay_salt: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    replay_salt: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     __properties: ClassVar[List[str]] = ["cluster_id", "demo_url", "match_id", "metadata_salt", "metadata_url", "replay_salt"]
 
     model_config = ConfigDict(

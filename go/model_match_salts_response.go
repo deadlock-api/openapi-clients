@@ -21,12 +21,12 @@ var _ MappedNullable = &MatchSaltsResponse{}
 
 // MatchSaltsResponse struct for MatchSaltsResponse
 type MatchSaltsResponse struct {
-	ClusterId NullableInt32 `json:"cluster_id,omitempty"`
+	ClusterId NullableInt64 `json:"cluster_id,omitempty"`
 	DemoUrl NullableString `json:"demo_url,omitempty"`
 	MatchId int64 `json:"match_id"`
-	MetadataSalt NullableInt32 `json:"metadata_salt,omitempty"`
+	MetadataSalt NullableInt64 `json:"metadata_salt,omitempty"`
 	MetadataUrl NullableString `json:"metadata_url,omitempty"`
-	ReplaySalt NullableInt32 `json:"replay_salt,omitempty"`
+	ReplaySalt NullableInt64 `json:"replay_salt,omitempty"`
 }
 
 type _MatchSaltsResponse MatchSaltsResponse
@@ -50,9 +50,9 @@ func NewMatchSaltsResponseWithDefaults() *MatchSaltsResponse {
 }
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MatchSaltsResponse) GetClusterId() int32 {
+func (o *MatchSaltsResponse) GetClusterId() int64 {
 	if o == nil || IsNil(o.ClusterId.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ClusterId.Get()
@@ -61,7 +61,7 @@ func (o *MatchSaltsResponse) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MatchSaltsResponse) GetClusterIdOk() (*int32, bool) {
+func (o *MatchSaltsResponse) GetClusterIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -77,8 +77,8 @@ func (o *MatchSaltsResponse) HasClusterId() bool {
 	return false
 }
 
-// SetClusterId gets a reference to the given NullableInt32 and assigns it to the ClusterId field.
-func (o *MatchSaltsResponse) SetClusterId(v int32) {
+// SetClusterId gets a reference to the given NullableInt64 and assigns it to the ClusterId field.
+func (o *MatchSaltsResponse) SetClusterId(v int64) {
 	o.ClusterId.Set(&v)
 }
 // SetClusterIdNil sets the value for ClusterId to be an explicit nil
@@ -158,9 +158,9 @@ func (o *MatchSaltsResponse) SetMatchId(v int64) {
 }
 
 // GetMetadataSalt returns the MetadataSalt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MatchSaltsResponse) GetMetadataSalt() int32 {
+func (o *MatchSaltsResponse) GetMetadataSalt() int64 {
 	if o == nil || IsNil(o.MetadataSalt.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.MetadataSalt.Get()
@@ -169,7 +169,7 @@ func (o *MatchSaltsResponse) GetMetadataSalt() int32 {
 // GetMetadataSaltOk returns a tuple with the MetadataSalt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MatchSaltsResponse) GetMetadataSaltOk() (*int32, bool) {
+func (o *MatchSaltsResponse) GetMetadataSaltOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -185,8 +185,8 @@ func (o *MatchSaltsResponse) HasMetadataSalt() bool {
 	return false
 }
 
-// SetMetadataSalt gets a reference to the given NullableInt32 and assigns it to the MetadataSalt field.
-func (o *MatchSaltsResponse) SetMetadataSalt(v int32) {
+// SetMetadataSalt gets a reference to the given NullableInt64 and assigns it to the MetadataSalt field.
+func (o *MatchSaltsResponse) SetMetadataSalt(v int64) {
 	o.MetadataSalt.Set(&v)
 }
 // SetMetadataSaltNil sets the value for MetadataSalt to be an explicit nil
@@ -242,9 +242,9 @@ func (o *MatchSaltsResponse) UnsetMetadataUrl() {
 }
 
 // GetReplaySalt returns the ReplaySalt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MatchSaltsResponse) GetReplaySalt() int32 {
+func (o *MatchSaltsResponse) GetReplaySalt() int64 {
 	if o == nil || IsNil(o.ReplaySalt.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ReplaySalt.Get()
@@ -253,7 +253,7 @@ func (o *MatchSaltsResponse) GetReplaySalt() int32 {
 // GetReplaySaltOk returns a tuple with the ReplaySalt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MatchSaltsResponse) GetReplaySaltOk() (*int32, bool) {
+func (o *MatchSaltsResponse) GetReplaySaltOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -269,8 +269,8 @@ func (o *MatchSaltsResponse) HasReplaySalt() bool {
 	return false
 }
 
-// SetReplaySalt gets a reference to the given NullableInt32 and assigns it to the ReplaySalt field.
-func (o *MatchSaltsResponse) SetReplaySalt(v int32) {
+// SetReplaySalt gets a reference to the given NullableInt64 and assigns it to the ReplaySalt field.
+func (o *MatchSaltsResponse) SetReplaySalt(v int64) {
 	o.ReplaySalt.Set(&v)
 }
 // SetReplaySaltNil sets the value for ReplaySalt to be an explicit nil

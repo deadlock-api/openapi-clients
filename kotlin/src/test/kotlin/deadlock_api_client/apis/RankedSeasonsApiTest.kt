@@ -38,7 +38,7 @@ class RankedSeasonsApiTest : ShouldSpec() {
         should("test listRankedSeasons") {
             // uncomment below to test listRankedSeasons
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.List<RankedSeason> = apiInstance.listRankedSeasons(language, clientVersion)
             //result shouldBe ("TODO")
         }

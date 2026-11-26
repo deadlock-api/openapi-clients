@@ -62,7 +62,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IListClientVersionsApiResponse"/>
     /// </summary>
-    public interface IListClientVersionsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<int>?>
+    public interface IListClientVersionsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<long>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -322,32 +322,32 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public List<int>? Ok()
+            public List<long>? Ok()
             {
                 bool suppressDefault = false;
-                List<int>? result = null;
+                List<long>? result = null;
                 OnOk(ref suppressDefault, ref result);
                 if (!suppressDefault)
                     result = DefaultOk();
                 return result;
             }
 
-            private List<int>? DefaultOk()
+            private List<long>? DefaultOk()
             {
                 // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<List<int>>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<long>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
-            partial void OnOk(ref bool suppressDefault, ref List<int>? result);
+            partial void OnOk(ref bool suppressDefault, ref List<long>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out List<int>? result)
+            public bool TryOk([NotNullWhen(true)]out List<long>? result)
             {
                 result = null;
 

@@ -352,6 +352,9 @@ class ItemsApi
         }
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling ItemsApi.getItem, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling ItemsApi.getItem, must be bigger than or equal to 0.');
         }
@@ -664,11 +667,17 @@ class ItemsApi
                 'Missing the required parameter $id when calling getItemsByHeroId'
             );
         }
+        if ($id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$id" when calling ItemsApi.getItemsByHeroId, must be smaller than or equal to 4294967295.');
+        }
         if ($id < 0) {
             throw new \InvalidArgumentException('invalid value for "$id" when calling ItemsApi.getItemsByHeroId, must be bigger than or equal to 0.');
         }
         
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling ItemsApi.getItemsByHeroId, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling ItemsApi.getItemsByHeroId, must be bigger than or equal to 0.');
         }
@@ -983,6 +992,9 @@ class ItemsApi
         }
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling ItemsApi.getItemsBySlotType, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling ItemsApi.getItemsBySlotType, must be bigger than or equal to 0.');
         }
@@ -1297,6 +1309,9 @@ class ItemsApi
         }
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling ItemsApi.getItemsByType, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling ItemsApi.getItemsByType, must be bigger than or equal to 0.');
         }
@@ -1599,6 +1614,9 @@ class ItemsApi
     {
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling ItemsApi.listItems, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling ItemsApi.listItems, must be bigger than or equal to 0.');
         }

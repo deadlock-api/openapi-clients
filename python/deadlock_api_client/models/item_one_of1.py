@@ -34,9 +34,9 @@ class ItemOneOf1(BaseModel):
     class_name: StrictStr
     crosshair_css_class: Optional[StrictStr] = None
     custom_crosshair_settings: Optional[RawCustomCrosshairSettings] = None
-    hero: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    heroes: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = None
-    id: Annotated[int, Field(strict=True, ge=0)]
+    hero: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    heroes: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = None
+    id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     image: Optional[StrictStr] = None
     image_webp: Optional[StrictStr] = None
     name: StrictStr

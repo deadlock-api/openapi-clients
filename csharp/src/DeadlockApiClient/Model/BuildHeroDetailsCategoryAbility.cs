@@ -39,7 +39,7 @@ namespace DeadlockApiClient.Model
         /// <param name="requiredFlexSlots">requiredFlexSlots</param>
         /// <param name="sellPriority">sellPriority</param>
         [JsonConstructor]
-        public BuildHeroDetailsCategoryAbility(int abilityId, Option<string?> annotation = default, Option<int?> imbueTargetAbilityId = default, Option<int?> requiredFlexSlots = default, Option<int?> sellPriority = default)
+        public BuildHeroDetailsCategoryAbility(long abilityId, Option<string?> annotation = default, Option<long?> imbueTargetAbilityId = default, Option<long?> requiredFlexSlots = default, Option<long?> sellPriority = default)
         {
             AbilityId = abilityId;
             AnnotationOption = annotation;
@@ -55,7 +55,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AbilityId
         /// </summary>
         [JsonPropertyName("ability_id")]
-        public int AbilityId { get; set; }
+        public long AbilityId { get; set; }
 
         /// <summary>
         /// Used to track the state of Annotation
@@ -75,39 +75,39 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> ImbueTargetAbilityIdOption { get; private set; }
+        public Option<long?> ImbueTargetAbilityIdOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets ImbueTargetAbilityId
         /// </summary>
         [JsonPropertyName("imbue_target_ability_id")]
-        public int? ImbueTargetAbilityId { get { return this.ImbueTargetAbilityIdOption.Value; } set { this.ImbueTargetAbilityIdOption = new(value); } }
+        public long? ImbueTargetAbilityId { get { return this.ImbueTargetAbilityIdOption.Value; } set { this.ImbueTargetAbilityIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RequiredFlexSlots
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> RequiredFlexSlotsOption { get; private set; }
+        public Option<long?> RequiredFlexSlotsOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets RequiredFlexSlots
         /// </summary>
         [JsonPropertyName("required_flex_slots")]
-        public int? RequiredFlexSlots { get { return this.RequiredFlexSlotsOption.Value; } set { this.RequiredFlexSlotsOption = new(value); } }
+        public long? RequiredFlexSlots { get { return this.RequiredFlexSlotsOption.Value; } set { this.RequiredFlexSlotsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SellPriority
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> SellPriorityOption { get; private set; }
+        public Option<long?> SellPriorityOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets SellPriority
         /// </summary>
         [JsonPropertyName("sell_priority")]
-        public int? SellPriority { get { return this.SellPriorityOption.Value; } set { this.SellPriorityOption = new(value); } }
+        public long? SellPriority { get { return this.SellPriorityOption.Value; } set { this.SellPriorityOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -133,26 +133,50 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AbilityId (int) minimum
-            if (this.AbilityId < (int)0)
+            // AbilityId (long) maximum
+            if (this.AbilityId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AbilityId, must be a value less than or equal to 4294967295.", new [] { "AbilityId" });
+            }
+
+            // AbilityId (long) minimum
+            if (this.AbilityId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AbilityId, must be a value greater than or equal to 0.", new [] { "AbilityId" });
             }
 
-            // ImbueTargetAbilityId (int) minimum
-            if (this.ImbueTargetAbilityIdOption.IsSet && this.ImbueTargetAbilityIdOption.Value < (int)0)
+            // ImbueTargetAbilityId (long) maximum
+            if (this.ImbueTargetAbilityIdOption.IsSet && this.ImbueTargetAbilityIdOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImbueTargetAbilityId, must be a value less than or equal to 4294967295.", new [] { "ImbueTargetAbilityId" });
+            }
+
+            // ImbueTargetAbilityId (long) minimum
+            if (this.ImbueTargetAbilityIdOption.IsSet && this.ImbueTargetAbilityIdOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImbueTargetAbilityId, must be a value greater than or equal to 0.", new [] { "ImbueTargetAbilityId" });
             }
 
-            // RequiredFlexSlots (int) minimum
-            if (this.RequiredFlexSlotsOption.IsSet && this.RequiredFlexSlotsOption.Value < (int)0)
+            // RequiredFlexSlots (long) maximum
+            if (this.RequiredFlexSlotsOption.IsSet && this.RequiredFlexSlotsOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequiredFlexSlots, must be a value less than or equal to 4294967295.", new [] { "RequiredFlexSlots" });
+            }
+
+            // RequiredFlexSlots (long) minimum
+            if (this.RequiredFlexSlotsOption.IsSet && this.RequiredFlexSlotsOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequiredFlexSlots, must be a value greater than or equal to 0.", new [] { "RequiredFlexSlots" });
             }
 
-            // SellPriority (int) minimum
-            if (this.SellPriorityOption.IsSet && this.SellPriorityOption.Value < (int)0)
+            // SellPriority (long) maximum
+            if (this.SellPriorityOption.IsSet && this.SellPriorityOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SellPriority, must be a value less than or equal to 4294967295.", new [] { "SellPriority" });
+            }
+
+            // SellPriority (long) minimum
+            if (this.SellPriorityOption.IsSet && this.SellPriorityOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SellPriority, must be a value greater than or equal to 0.", new [] { "SellPriority" });
             }
@@ -193,11 +217,11 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> abilityId = default;
+            Option<long?> abilityId = default;
             Option<string?> annotation = default;
-            Option<int?> imbueTargetAbilityId = default;
-            Option<int?> requiredFlexSlots = default;
-            Option<int?> sellPriority = default;
+            Option<long?> imbueTargetAbilityId = default;
+            Option<long?> requiredFlexSlots = default;
+            Option<long?> sellPriority = default;
 
             while (utf8JsonReader.Read())
             {
@@ -215,19 +239,19 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "ability_id":
-                            abilityId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            abilityId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "annotation":
                             annotation = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "imbue_target_ability_id":
-                            imbueTargetAbilityId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            imbueTargetAbilityId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "required_flex_slots":
-                            requiredFlexSlots = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            requiredFlexSlots = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "sell_priority":
-                            sellPriority = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            sellPriority = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

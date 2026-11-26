@@ -73,8 +73,8 @@ Steam Profile Search
 val apiInstance = SteamApi()
 val searchQuery : kotlin.String = searchQuery_example // kotlin.String | Search query for Steam profiles.
 val limit : kotlin.Int = 56 // kotlin.Int | Maximum number of profiles to return.
-val minMatchesPlayedLast30d : kotlin.Int = 56 // kotlin.Int | Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
-val minLastTeamAvgBadge : kotlin.Int = 56 // kotlin.Int | Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
+val minMatchesPlayedLast30d : kotlin.Long = 789 // kotlin.Long | Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
+val minLastTeamAvgBadge : kotlin.Long = 789 // kotlin.Long | Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
 val matchesPlayedWeight : kotlin.Double = 1.2 // kotlin.Double | Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.
 try {
     val result : kotlin.collections.List<SteamProfile> = apiInstance.steamSearch(searchQuery, limit, minMatchesPlayedLast30d, minLastTeamAvgBadge, matchesPlayedWeight)
@@ -93,8 +93,8 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **searchQuery** | **kotlin.String**| Search query for Steam profiles. | |
 | **limit** | **kotlin.Int**| Maximum number of profiles to return. | [optional] [default to 100] |
-| **minMatchesPlayedLast30d** | **kotlin.Int**| Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. | [optional] [default to 5] |
-| **minLastTeamAvgBadge** | **kotlin.Int**| Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. | [optional] [default to 0] |
+| **minMatchesPlayedLast30d** | **kotlin.Long**| Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. | [optional] [default to 5L] |
+| **minLastTeamAvgBadge** | **kotlin.Long**| Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0. | [optional] [default to 0L] |
 | **matchesPlayedWeight** | **kotlin.Double**| Weight applied to &#x60;log1p(matches_played_last_30d)&#x60; when reranking candidates. The final score per profile is &#x60;jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)&#x60;. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players. | [optional] [default to 0.02] |
 
 ### Return type

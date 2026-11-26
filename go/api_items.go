@@ -28,7 +28,7 @@ type ApiGetItemRequest struct {
 	ApiService *ItemsAPIService
 	idOrClassName string
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -38,7 +38,7 @@ func (r ApiGetItemRequest) Language(language string) ApiGetItemRequest {
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetItemRequest) ClientVersion(clientVersion int32) ApiGetItemRequest {
+func (r ApiGetItemRequest) ClientVersion(clientVersion int64) ApiGetItemRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -147,9 +147,9 @@ func (a *ItemsAPIService) GetItemExecute(r ApiGetItemRequest) (*Item, *http.Resp
 type ApiGetItemsByHeroIdRequest struct {
 	ctx context.Context
 	ApiService *ItemsAPIService
-	id int32
+	id int64
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -159,7 +159,7 @@ func (r ApiGetItemsByHeroIdRequest) Language(language string) ApiGetItemsByHeroI
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetItemsByHeroIdRequest) ClientVersion(clientVersion int32) ApiGetItemsByHeroIdRequest {
+func (r ApiGetItemsByHeroIdRequest) ClientVersion(clientVersion int64) ApiGetItemsByHeroIdRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -177,7 +177,7 @@ Hero-bound abilities, excluding the generic movement abilities.
  @param id Hero id (`m_HeroID`).
  @return ApiGetItemsByHeroIdRequest
 */
-func (a *ItemsAPIService) GetItemsByHeroId(ctx context.Context, id int32) ApiGetItemsByHeroIdRequest {
+func (a *ItemsAPIService) GetItemsByHeroId(ctx context.Context, id int64) ApiGetItemsByHeroIdRequest {
 	return ApiGetItemsByHeroIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -208,6 +208,9 @@ func (a *ItemsAPIService) GetItemsByHeroIdExecute(r ApiGetItemsByHeroIdRequest) 
 	localVarFormParams := url.Values{}
 	if r.id < 0 {
 		return localVarReturnValue, nil, reportError("id must be greater than 0")
+	}
+	if r.id > 4294967295 {
+		return localVarReturnValue, nil, reportError("id must be less than 4294967295")
 	}
 
 	if r.language != nil {
@@ -275,7 +278,7 @@ type ApiGetItemsBySlotTypeRequest struct {
 	ApiService *ItemsAPIService
 	slotType ItemSlotType
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -285,7 +288,7 @@ func (r ApiGetItemsBySlotTypeRequest) Language(language string) ApiGetItemsBySlo
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetItemsBySlotTypeRequest) ClientVersion(clientVersion int32) ApiGetItemsBySlotTypeRequest {
+func (r ApiGetItemsBySlotTypeRequest) ClientVersion(clientVersion int64) ApiGetItemsBySlotTypeRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -396,7 +399,7 @@ type ApiGetItemsByTypeRequest struct {
 	ApiService *ItemsAPIService
 	type_ ItemType
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -406,7 +409,7 @@ func (r ApiGetItemsByTypeRequest) Language(language string) ApiGetItemsByTypeReq
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetItemsByTypeRequest) ClientVersion(clientVersion int32) ApiGetItemsByTypeRequest {
+func (r ApiGetItemsByTypeRequest) ClientVersion(clientVersion int64) ApiGetItemsByTypeRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -516,7 +519,7 @@ type ApiListItemsRequest struct {
 	ctx context.Context
 	ApiService *ItemsAPIService
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -526,7 +529,7 @@ func (r ApiListItemsRequest) Language(language string) ApiListItemsRequest {
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiListItemsRequest) ClientVersion(clientVersion int32) ApiListItemsRequest {
+func (r ApiListItemsRequest) ClientVersion(clientVersion int64) ApiListItemsRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

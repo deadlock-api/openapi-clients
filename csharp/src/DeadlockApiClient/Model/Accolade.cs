@@ -41,7 +41,7 @@ namespace DeadlockApiClient.Model
         /// <param name="trackedStatName">trackedStatName</param>
         /// <param name="enabledGameModes">enabledGameModes</param>
         [JsonConstructor]
-        public Accolade(string className, string description, string flavorName, int id, string thresholdType, string trackedStatName, Option<List<string>?> enabledGameModes = default)
+        public Accolade(string className, string description, string flavorName, long id, string thresholdType, string trackedStatName, Option<List<string>?> enabledGameModes = default)
         {
             ClassName = className;
             Description = description;
@@ -77,7 +77,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Id
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ThresholdType
@@ -130,8 +130,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (int) minimum
-            if (this.Id < (int)0)
+            // Id (long) maximum
+            if (this.Id > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value less than or equal to 4294967295.", new [] { "Id" });
+            }
+
+            // Id (long) minimum
+            if (this.Id < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 0.", new [] { "Id" });
             }
@@ -175,7 +181,7 @@ namespace DeadlockApiClient.Model
             Option<string?> className = default;
             Option<string?> description = default;
             Option<string?> flavorName = default;
-            Option<int?> id = default;
+            Option<long?> id = default;
             Option<string?> thresholdType = default;
             Option<string?> trackedStatName = default;
             Option<List<string>?> enabledGameModes = default;
@@ -205,7 +211,7 @@ namespace DeadlockApiClient.Model
                             flavorName = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "id":
-                            id = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            id = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "threshold_type":
                             thresholdType = new Option<string?>(utf8JsonReader.GetString()!);

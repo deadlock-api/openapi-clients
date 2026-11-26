@@ -97,6 +97,12 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // HeroId (int) maximum
+            if (this.HeroId > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value less than or equal to 255.", new [] { "HeroId" });
+            }
+
             // HeroId (int) minimum
             if (this.HeroId < (int)0)
             {

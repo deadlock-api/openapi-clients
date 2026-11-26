@@ -2,7 +2,6 @@ declare const _default: {
     scalars: number[];
     types: {
         Ability: {
-            id: number[];
             class_name: number[];
             name: number[];
             start_trained: number[];
@@ -18,6 +17,7 @@ declare const _default: {
             boss_damage_scale: number[];
             dependant_abilities: number[];
             videos: number[];
+            id: number[];
             type: number[];
             properties: number[];
             weapon_info: number[];
@@ -93,10 +93,10 @@ declare const _default: {
             __typename: number[];
         };
         BuildHeroDetailsAbilityOrderCurrencyChange: {
-            ability_id: number[];
             currency_type: number[];
             delta: number[];
             annotation: number[];
+            ability_id: number[];
             asset: number[];
             __typename: number[];
         };
@@ -110,10 +110,10 @@ declare const _default: {
             __typename: number[];
         };
         BuildHeroDetailsCategoryAbility: {
-            ability_id: number[];
             annotation: number[];
             required_flex_slots: number[];
             sell_priority: number[];
+            ability_id: number[];
             imbue_target_ability_id: number[];
             asset: number[];
             __typename: number[];
@@ -219,10 +219,10 @@ declare const _default: {
             __typename: number[];
         };
         HeroPopularItem: {
-            item_id: number[];
             class_name: number[];
             pick_pct: number[];
             winrate_pct: number[];
+            item_id: number[];
             __typename: number[];
         };
         HeroPopularItems: {
@@ -267,13 +267,13 @@ declare const _default: {
         Int: {};
         Item: {
             game_time_s: number[];
-            item_id: number[];
-            upgrade_id: number[];
             sold_time_s: number[];
             flags: number[];
-            imbued_ability_id: number[];
             upgrade_info: number[];
             net_worth_at_buy: number[];
+            item_id: number[];
+            upgrade_id: number[];
+            imbued_ability_id: number[];
             asset: number[];
             __typename: number[];
         };
@@ -409,7 +409,6 @@ declare const _default: {
             won: number[];
             hero_xp: number[];
             hero_equips: number[];
-            abilities: number[];
             created_at: number[];
             max_level: number[];
             max_player_damage: number[];
@@ -478,6 +477,7 @@ declare const _default: {
             stats_type_stat: number[];
             hero_xp_rewards: number[];
             hero_release_votes: number[];
+            abilities: number[];
             hero: number[];
             steam: number[];
             hero_build: number[];
@@ -771,8 +771,8 @@ declare const _default: {
             is_null: number[];
             __typename: number[];
         };
+        UInt32: {};
         Upgrade: {
-            id: number[];
             class_name: number[];
             name: number[];
             start_trained: number[];
@@ -799,6 +799,7 @@ declare const _default: {
             disabled_shop_filters: number[];
             shop_version: number[];
             disable_item_target: number[];
+            id: number[];
             type: number[];
             weapon_info: number[];
             properties: number[];
@@ -815,14 +816,13 @@ declare const _default: {
             __typename: number[];
         };
         UpgradePurchase: {
-            item_id: number[];
             game_time_s: number[];
             sold_time_s: number[];
             net_worth_at_buy: number[];
+            item_id: number[];
             __typename: number[];
         };
         Weapon: {
-            id: number[];
             class_name: number[];
             name: number[];
             start_trained: number[];
@@ -833,6 +833,7 @@ declare const _default: {
             update_time: number[];
             crosshair_css_class: number[];
             use_custom_crosshair_settings: number[];
+            id: number[];
             type: number[];
             properties: number[];
             weapon_info: number[];

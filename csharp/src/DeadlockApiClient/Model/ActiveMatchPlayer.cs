@@ -39,7 +39,7 @@ namespace DeadlockApiClient.Model
         /// <param name="team">team</param>
         /// <param name="teamParsed">teamParsed</param>
         [JsonConstructor]
-        public ActiveMatchPlayer(Option<bool?> abandoned = default, Option<int?> accountId = default, Option<int?> heroId = default, Option<int?> team = default, Option<ActiveMatchTeam?> teamParsed = default)
+        public ActiveMatchPlayer(Option<bool?> abandoned = default, Option<long?> accountId = default, Option<long?> heroId = default, Option<int?> team = default, Option<ActiveMatchTeam?> teamParsed = default)
         {
             AbandonedOption = abandoned;
             AccountIdOption = accountId;
@@ -82,27 +82,27 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> AccountIdOption { get; private set; }
+        public Option<long?> AccountIdOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets AccountId
         /// </summary>
         [JsonPropertyName("account_id")]
-        public int? AccountId { get { return this.AccountIdOption.Value; } set { this.AccountIdOption = new(value); } }
+        public long? AccountId { get { return this.AccountIdOption.Value; } set { this.AccountIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HeroId
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> HeroIdOption { get; private set; }
+        public Option<long?> HeroIdOption { get; private set; }
 
         /// <summary>
         /// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
         /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
-        public int? HeroId { get { return this.HeroIdOption.Value; } set { this.HeroIdOption = new(value); } }
+        public long? HeroId { get { return this.HeroIdOption.Value; } set { this.HeroIdOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Team
@@ -141,14 +141,26 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AccountId (int) minimum
-            if (this.AccountIdOption.IsSet && this.AccountIdOption.Value < (int)0)
+            // AccountId (long) maximum
+            if (this.AccountIdOption.IsSet && this.AccountIdOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value less than or equal to 4294967295.", new [] { "AccountId" });
+            }
+
+            // AccountId (long) minimum
+            if (this.AccountIdOption.IsSet && this.AccountIdOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
 
-            // HeroId (int) minimum
-            if (this.HeroIdOption.IsSet && this.HeroIdOption.Value < (int)0)
+            // HeroId (long) maximum
+            if (this.HeroIdOption.IsSet && this.HeroIdOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value less than or equal to 4294967295.", new [] { "HeroId" });
+            }
+
+            // HeroId (long) minimum
+            if (this.HeroIdOption.IsSet && this.HeroIdOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
             }
@@ -190,8 +202,8 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<bool?> abandoned = default;
-            Option<int?> accountId = default;
-            Option<int?> heroId = default;
+            Option<long?> accountId = default;
+            Option<long?> heroId = default;
             Option<int?> team = default;
             Option<ActiveMatchTeam?> teamParsed = default;
 
@@ -214,10 +226,10 @@ namespace DeadlockApiClient.Model
                             abandoned = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "account_id":
-                            accountId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            accountId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "hero_id":
-                            heroId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            heroId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "team":
                             team = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());

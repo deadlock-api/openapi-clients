@@ -113,7 +113,7 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNpcUnit(idOrClassname: kotlin.String, language: LanguageGetNpcUnit? = null, clientVersion: kotlin.Int? = null) : NpcUnit {
+    fun getNpcUnit(idOrClassname: kotlin.String, language: LanguageGetNpcUnit? = null, clientVersion: kotlin.Long? = null) : NpcUnit {
         val localVarResponse = getNpcUnitWithHttpInfo(idOrClassname = idOrClassname, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -144,7 +144,7 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNpcUnitWithHttpInfo(idOrClassname: kotlin.String, language: LanguageGetNpcUnit?, clientVersion: kotlin.Int?) : ApiResponse<NpcUnit?> {
+    fun getNpcUnitWithHttpInfo(idOrClassname: kotlin.String, language: LanguageGetNpcUnit?, clientVersion: kotlin.Long?) : ApiResponse<NpcUnit?> {
         val localVariableConfig = getNpcUnitRequestConfig(idOrClassname = idOrClassname, language = language, clientVersion = clientVersion)
 
         return request<Unit, NpcUnit>(
@@ -160,7 +160,7 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getNpcUnitRequestConfig(idOrClassname: kotlin.String, language: LanguageGetNpcUnit?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getNpcUnitRequestConfig(idOrClassname: kotlin.String, language: LanguageGetNpcUnit?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -243,7 +243,7 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listNpcUnits(language: LanguageListNpcUnits? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<NpcUnit> {
+    fun listNpcUnits(language: LanguageListNpcUnits? = null, clientVersion: kotlin.Long? = null) : kotlin.collections.List<NpcUnit> {
         val localVarResponse = listNpcUnitsWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -273,7 +273,7 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listNpcUnitsWithHttpInfo(language: LanguageListNpcUnits?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<NpcUnit>?> {
+    fun listNpcUnitsWithHttpInfo(language: LanguageListNpcUnits?, clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<NpcUnit>?> {
         val localVariableConfig = listNpcUnitsRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<NpcUnit>>(
@@ -288,7 +288,7 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listNpcUnitsRequestConfig(language: LanguageListNpcUnits?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listNpcUnitsRequestConfig(language: LanguageListNpcUnits?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

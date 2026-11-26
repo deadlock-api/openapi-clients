@@ -11,7 +11,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="leaderboard"></a>
 # **Leaderboard**
-> Leaderboard Leaderboard (string region, int leaderboardId = null)
+> Leaderboard Leaderboard (string region, long leaderboardId = null)
 
 Leaderboard
 
@@ -23,7 +23,7 @@ Leaderboard
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **region** | **string** | The region to fetch the leaderboard for. |  |
-| **leaderboardId** | **int** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional]  |
+| **leaderboardId** | **long** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional]  |
 
 ### Return type
 
@@ -50,7 +50,7 @@ No authorization required
 
 <a id="leaderboardhero"></a>
 # **LeaderboardHero**
-> Leaderboard LeaderboardHero (string region, int heroId, int leaderboardId = null)
+> Leaderboard LeaderboardHero (string region, long heroId, long leaderboardId = null)
 
 Hero Leaderboard
 
@@ -62,8 +62,8 @@ Hero Leaderboard
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **region** | **string** | The region to fetch the leaderboard for. |  |
-| **heroId** | **int** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
-| **leaderboardId** | **int** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional]  |
+| **heroId** | **long** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
+| **leaderboardId** | **long** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional]  |
 
 ### Return type
 
@@ -90,7 +90,7 @@ No authorization required
 
 <a id="leaderboardheroraw"></a>
 # **LeaderboardHeroRaw**
-> List&lt;int&gt; LeaderboardHeroRaw (string region, int heroId, int leaderboardId = null)
+> List&lt;int&gt; LeaderboardHeroRaw (string region, long heroId, long leaderboardId = null)
 
 Hero Leaderboard as Protobuf
 
@@ -102,8 +102,8 @@ Hero Leaderboard as Protobuf
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **region** | **string** | The region to fetch the leaderboard for. |  |
-| **heroId** | **int** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
-| **leaderboardId** | **int** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional]  |
+| **heroId** | **long** | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
+| **leaderboardId** | **long** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional]  |
 
 ### Return type
 
@@ -130,7 +130,7 @@ No authorization required
 
 <a id="leaderboardraw"></a>
 # **LeaderboardRaw**
-> List&lt;int&gt; LeaderboardRaw (string region, int leaderboardId = null)
+> List&lt;int&gt; LeaderboardRaw (string region, long leaderboardId = null)
 
 Leaderboard as Protobuf
 
@@ -142,7 +142,7 @@ Leaderboard as Protobuf
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **region** | **string** | The region to fetch the leaderboard for. |  |
-| **leaderboardId** | **int** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional]  |
+| **leaderboardId** | **long** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional]  |
 
 ### Return type
 

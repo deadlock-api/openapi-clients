@@ -32,7 +32,7 @@ import (
 func main() {
 	idOrClassname := "idOrClassname_example" // string | NPC unit id (`murmurhash2(class_name)`) or `class_name`
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 
@@ -105,7 +105,7 @@ import (
 
 func main() {
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -131,7 +131,7 @@ Other parameters are passed through a pointer to a apiListNpcUnitsRequest struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 

@@ -40,7 +40,7 @@ import java.io.Serializable
 data class PlayerRegionResponse (
 
     @Json(name = "account_id")
-    val accountId: kotlin.Int,
+    val accountId: kotlin.Long,
 
     /* Matches per month and server cluster, newest month first. */
     @Json(name = "history")
@@ -52,7 +52,7 @@ data class PlayerRegionResponse (
 
     /* Unix timestamp of the month `region` was taken from. */
     @Json(name = "region_month")
-    val regionMonth: kotlin.Int? = null
+    val regionMonth: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

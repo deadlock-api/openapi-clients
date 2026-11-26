@@ -28,7 +28,7 @@ type ApiGetMiscEntityRequest struct {
 	ApiService *MiscEntitiesAPIService
 	idOrClassname string
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -38,7 +38,7 @@ func (r ApiGetMiscEntityRequest) Language(language string) ApiGetMiscEntityReque
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetMiscEntityRequest) ClientVersion(clientVersion int32) ApiGetMiscEntityRequest {
+func (r ApiGetMiscEntityRequest) ClientVersion(clientVersion int64) ApiGetMiscEntityRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -150,7 +150,7 @@ type ApiListMiscEntitiesRequest struct {
 	ctx context.Context
 	ApiService *MiscEntitiesAPIService
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -160,7 +160,7 @@ func (r ApiListMiscEntitiesRequest) Language(language string) ApiListMiscEntitie
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiListMiscEntitiesRequest) ClientVersion(clientVersion int32) ApiListMiscEntitiesRequest {
+func (r ApiListMiscEntitiesRequest) ClientVersion(clientVersion int64) ApiListMiscEntitiesRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

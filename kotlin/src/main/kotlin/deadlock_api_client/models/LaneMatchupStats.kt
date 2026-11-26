@@ -48,15 +48,15 @@ data class LaneMatchupStats (
 
     /* The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>. */
     @Json(name = "assigned_lane")
-    val assignedLane: kotlin.Int,
+    val assignedLane: kotlin.Long,
 
     /* The ascending hero id pair they laned against, or empty when grouped away. */
     @Json(name = "enemy_hero_ids")
-    val enemyHeroIds: kotlin.collections.List<kotlin.Int>,
+    val enemyHeroIds: kotlin.collections.List<kotlin.Long>,
 
     /* The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_ids")
-    val heroIds: kotlin.collections.List<kotlin.Int>,
+    val heroIds: kotlin.collections.List<kotlin.Long>,
 
     /* The total number of lane matchups between `hero_ids` and `enemy_hero_ids` in this lane. */
     @Json(name = "matches_played")
@@ -72,7 +72,7 @@ data class LaneMatchupStats (
 
     /* Seconds into the match the stat readings were taken at. Echoes the `sample_time_s` parameter. */
     @Json(name = "sample_time_s")
-    val sampleTimeS: kotlin.Int,
+    val sampleTimeS: kotlin.Long,
 
     /* A reading per stat named in `stats`. Empty unless the parameter was set. */
     @Json(name = "stats")

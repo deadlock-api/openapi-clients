@@ -56,8 +56,8 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task FetchBuildLiveAsyncTest()
         {
-            int heroId = default!;
-            int buildId = default!;
+            long heroId = default!;
+            long buildId = default!;
             Client.Option<bool> forceRefetch = default!;
             var response = await _instance.FetchBuildLiveAsync(heroId, buildId, forceRefetch);
             var model = response.Ok();
@@ -70,7 +70,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task FetchBuildsByAuthorLiveAsyncTest()
         {
-            int accountId = default!;
+            long accountId = default!;
             var response = await _instance.FetchBuildsByAuthorLiveAsync(accountId);
             var model = response.Ok();
             Assert.IsType<List<Build>>(model);
@@ -87,20 +87,20 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<long> minPublishedUnixTimestamp = default!;
             Client.Option<long> maxPublishedUnixTimestamp = default!;
             Client.Option<string> sortBy = default!;
-            Client.Option<int> start = default!;
-            Client.Option<int> limit = default!;
+            Client.Option<long> start = default!;
+            Client.Option<long> limit = default!;
             Client.Option<string> sortDirection = default!;
             Client.Option<string> searchName = default!;
             Client.Option<string> searchDescription = default!;
             Client.Option<bool> onlyLatest = default!;
-            Client.Option<int> language = default!;
+            Client.Option<long> language = default!;
             Client.Option<string> buildLanguage = default!;
-            Client.Option<int> buildId = default!;
-            Client.Option<int> version = default!;
-            Client.Option<int> heroId = default!;
-            Client.Option<int> tag = default!;
-            Client.Option<int> rollupCategory = default!;
-            Client.Option<int> authorId = default!;
+            Client.Option<long> buildId = default!;
+            Client.Option<long> version = default!;
+            Client.Option<long> heroId = default!;
+            Client.Option<long> tag = default!;
+            Client.Option<long> rollupCategory = default!;
+            Client.Option<long> authorId = default!;
             var response = await _instance.SearchBuildsAsync(minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildLanguage, buildId, version, heroId, tag, rollupCategory, authorId);
             var model = response.Ok();
             Assert.IsType<List<Build>>(model);

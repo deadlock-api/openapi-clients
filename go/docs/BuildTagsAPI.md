@@ -31,9 +31,9 @@ import (
 )
 
 func main() {
-	buildTagId := int32(56) // int32 | Build tag id (murmurhash2 of `class_name`)
+	buildTagId := int64(789) // int64 | Build tag id (murmurhash2 of `class_name`)
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -53,7 +53,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**buildTagId** | **int32** | Build tag id (murmurhash2 of &#x60;class_name&#x60;) | 
+**buildTagId** | **int64** | Build tag id (murmurhash2 of &#x60;class_name&#x60;) | 
 
 ### Other Parameters
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 
@@ -107,7 +107,7 @@ import (
 func main() {
 	name := "name_example" // string | Build tag `class_name` (e.g. `citadel_build_tag_weapon`)
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 
@@ -180,7 +180,7 @@ import (
 
 func main() {
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -206,7 +206,7 @@ Other parameters are passed through a pointer to a apiListBuildTagsRequest struc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 

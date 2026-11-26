@@ -115,7 +115,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItem(idOrClassName: kotlin.String, language: LanguageGetItem? = null, clientVersion: kotlin.Int? = null) : Item {
+    fun getItem(idOrClassName: kotlin.String, language: LanguageGetItem? = null, clientVersion: kotlin.Long? = null) : Item {
         val localVarResponse = getItemWithHttpInfo(idOrClassName = idOrClassName, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -146,7 +146,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemWithHttpInfo(idOrClassName: kotlin.String, language: LanguageGetItem?, clientVersion: kotlin.Int?) : ApiResponse<Item?> {
+    fun getItemWithHttpInfo(idOrClassName: kotlin.String, language: LanguageGetItem?, clientVersion: kotlin.Long?) : ApiResponse<Item?> {
         val localVariableConfig = getItemRequestConfig(idOrClassName = idOrClassName, language = language, clientVersion = clientVersion)
 
         return request<Unit, Item>(
@@ -162,7 +162,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getItemRequestConfig(idOrClassName: kotlin.String, language: LanguageGetItem?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getItemRequestConfig(idOrClassName: kotlin.String, language: LanguageGetItem?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -246,7 +246,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsByHeroId(id: kotlin.Int, language: LanguageGetItemsByHeroId? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<Item> {
+    fun getItemsByHeroId(id: kotlin.Long, language: LanguageGetItemsByHeroId? = null, clientVersion: kotlin.Long? = null) : kotlin.collections.List<Item> {
         val localVarResponse = getItemsByHeroIdWithHttpInfo(id = id, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -277,7 +277,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsByHeroIdWithHttpInfo(id: kotlin.Int, language: LanguageGetItemsByHeroId?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<Item>?> {
+    fun getItemsByHeroIdWithHttpInfo(id: kotlin.Long, language: LanguageGetItemsByHeroId?, clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<Item>?> {
         val localVariableConfig = getItemsByHeroIdRequestConfig(id = id, language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<Item>>(
@@ -293,7 +293,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getItemsByHeroIdRequestConfig(id: kotlin.Int, language: LanguageGetItemsByHeroId?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getItemsByHeroIdRequestConfig(id: kotlin.Long, language: LanguageGetItemsByHeroId?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -377,7 +377,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsBySlotType(slotType: ItemSlotType, language: LanguageGetItemsBySlotType? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<Item> {
+    fun getItemsBySlotType(slotType: ItemSlotType, language: LanguageGetItemsBySlotType? = null, clientVersion: kotlin.Long? = null) : kotlin.collections.List<Item> {
         val localVarResponse = getItemsBySlotTypeWithHttpInfo(slotType = slotType, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -408,7 +408,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsBySlotTypeWithHttpInfo(slotType: ItemSlotType, language: LanguageGetItemsBySlotType?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<Item>?> {
+    fun getItemsBySlotTypeWithHttpInfo(slotType: ItemSlotType, language: LanguageGetItemsBySlotType?, clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<Item>?> {
         val localVariableConfig = getItemsBySlotTypeRequestConfig(slotType = slotType, language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<Item>>(
@@ -424,7 +424,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getItemsBySlotTypeRequestConfig(slotType: ItemSlotType, language: LanguageGetItemsBySlotType?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getItemsBySlotTypeRequestConfig(slotType: ItemSlotType, language: LanguageGetItemsBySlotType?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -508,7 +508,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getItemsByType(type: ItemType, language: LanguageGetItemsByType? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<Item> {
+    fun getItemsByType(type: ItemType, language: LanguageGetItemsByType? = null, clientVersion: kotlin.Long? = null) : kotlin.collections.List<Item> {
         val localVarResponse = getItemsByTypeWithHttpInfo(type = type, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -539,7 +539,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getItemsByTypeWithHttpInfo(type: ItemType, language: LanguageGetItemsByType?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<Item>?> {
+    fun getItemsByTypeWithHttpInfo(type: ItemType, language: LanguageGetItemsByType?, clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<Item>?> {
         val localVariableConfig = getItemsByTypeRequestConfig(type = type, language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<Item>>(
@@ -555,7 +555,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getItemsByTypeRequestConfig(type: ItemType, language: LanguageGetItemsByType?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getItemsByTypeRequestConfig(type: ItemType, language: LanguageGetItemsByType?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -638,7 +638,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listItems(language: LanguageListItems? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<Item> {
+    fun listItems(language: LanguageListItems? = null, clientVersion: kotlin.Long? = null) : kotlin.collections.List<Item> {
         val localVarResponse = listItemsWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -668,7 +668,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listItemsWithHttpInfo(language: LanguageListItems?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<Item>?> {
+    fun listItemsWithHttpInfo(language: LanguageListItems?, clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<Item>?> {
         val localVariableConfig = listItemsRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<Item>>(
@@ -683,7 +683,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listItemsRequestConfig(language: LanguageListItems?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listItemsRequestConfig(language: LanguageListItems?, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

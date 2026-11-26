@@ -29,10 +29,10 @@ class PlayerRegionResponse(BaseModel):
     """
     PlayerRegionResponse
     """ # noqa: E501
-    account_id: Annotated[int, Field(strict=True, ge=0)]
+    account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     history: List[PlayerClusterMonth] = Field(description="Matches per month and server cluster, newest month first.")
     region: Optional[StrictStr] = Field(default=None, description="The region the player played most matches in during their latest month with a known region. `null` if none of their matches has a known region.")
-    region_month: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Unix timestamp of the month `region` was taken from.")
+    region_month: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Unix timestamp of the month `region` was taken from.")
     __properties: ClassVar[List[str]] = ["account_id", "history", "region", "region_month"]
 
     model_config = ConfigDict(

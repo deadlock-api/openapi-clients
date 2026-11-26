@@ -343,6 +343,9 @@ class LeaderboardApi
             );
         }
 
+        if ($leaderboard_id !== null && $leaderboard_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboard, must be smaller than or equal to 4294967295.');
+        }
         if ($leaderboard_id !== null && $leaderboard_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboard, must be bigger than or equal to 0.');
         }
@@ -653,10 +656,16 @@ class LeaderboardApi
                 'Missing the required parameter $hero_id when calling leaderboardHero'
             );
         }
+        if ($hero_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling LeaderboardApi.leaderboardHero, must be smaller than or equal to 4294967295.');
+        }
         if ($hero_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$hero_id" when calling LeaderboardApi.leaderboardHero, must be bigger than or equal to 0.');
         }
         
+        if ($leaderboard_id !== null && $leaderboard_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboardHero, must be smaller than or equal to 4294967295.');
+        }
         if ($leaderboard_id !== null && $leaderboard_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboardHero, must be bigger than or equal to 0.');
         }
@@ -975,10 +984,16 @@ class LeaderboardApi
                 'Missing the required parameter $hero_id when calling leaderboardHeroRaw'
             );
         }
+        if ($hero_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling LeaderboardApi.leaderboardHeroRaw, must be smaller than or equal to 4294967295.');
+        }
         if ($hero_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$hero_id" when calling LeaderboardApi.leaderboardHeroRaw, must be bigger than or equal to 0.');
         }
         
+        if ($leaderboard_id !== null && $leaderboard_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboardHeroRaw, must be smaller than or equal to 4294967295.');
+        }
         if ($leaderboard_id !== null && $leaderboard_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboardHeroRaw, must be bigger than or equal to 0.');
         }
@@ -1286,6 +1301,9 @@ class LeaderboardApi
             );
         }
 
+        if ($leaderboard_id !== null && $leaderboard_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboardRaw, must be smaller than or equal to 4294967295.');
+        }
         if ($leaderboard_id !== null && $leaderboard_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboardRaw, must be bigger than or equal to 0.');
         }

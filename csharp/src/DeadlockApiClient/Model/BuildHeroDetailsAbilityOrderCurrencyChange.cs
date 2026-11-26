@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="delta">delta</param>
         /// <param name="annotation">annotation</param>
         [JsonConstructor]
-        public BuildHeroDetailsAbilityOrderCurrencyChange(int abilityId, int currencyType, int delta, Option<string?> annotation = default)
+        public BuildHeroDetailsAbilityOrderCurrencyChange(long abilityId, int currencyType, int delta, Option<string?> annotation = default)
         {
             AbilityId = abilityId;
             CurrencyType = currencyType;
@@ -53,7 +53,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AbilityId
         /// </summary>
         [JsonPropertyName("ability_id")]
-        public int AbilityId { get; set; }
+        public long AbilityId { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrencyType
@@ -103,8 +103,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AbilityId (int) minimum
-            if (this.AbilityId < (int)0)
+            // AbilityId (long) maximum
+            if (this.AbilityId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AbilityId, must be a value less than or equal to 4294967295.", new [] { "AbilityId" });
+            }
+
+            // AbilityId (long) minimum
+            if (this.AbilityId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AbilityId, must be a value greater than or equal to 0.", new [] { "AbilityId" });
             }
@@ -145,7 +151,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> abilityId = default;
+            Option<long?> abilityId = default;
             Option<int?> currencyType = default;
             Option<int?> delta = default;
             Option<string?> annotation = default;
@@ -166,7 +172,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "ability_id":
-                            abilityId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            abilityId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "currency_type":
                             currencyType = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());

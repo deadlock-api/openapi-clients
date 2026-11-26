@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bucket** | **int** | The bucket value (depends on the bucket query parameter). | 
-**HeroId** | **int** | The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**Bucket** | **long** | The bucket value (depends on the bucket query parameter). | 
+**HeroId** | **long** | The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Matches** | **long** | The number of players who played this hero, counting only players whose pre-game hero is known. | 
 **PregamePicks** | **long** | The number of players who had this hero locked before the pre-game swap window. | 
 **SwappedAway** | **long** | The number of &#x60;pregame_picks&#x60; players who swapped away from this hero. | 

@@ -72,8 +72,8 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'end_timestamp' => 'int64',
-        'interval' => 'int32',
-        'leaderboard_id' => 'int32',
+        'interval' => 'int64',
+        'leaderboard_id' => 'int64',
         'start_timestamp' => 'int64'
     ];
 
@@ -301,8 +301,16 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['interval'] === null) {
             $invalidProperties[] = "'interval' can't be null";
         }
+        if (($this->container['interval'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'interval', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['interval'] < 0)) {
             $invalidProperties[] = "invalid value for 'interval', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['leaderboard_id']) && ($this->container['leaderboard_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'leaderboard_id', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['leaderboard_id']) && ($this->container['leaderboard_id'] < 0)) {
@@ -376,6 +384,9 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($interval)) {
             throw new \InvalidArgumentException('non-nullable interval cannot be null');
         }
+        if (($interval > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $interval when calling SeasonInterval., must be smaller than or equal to 4294967295.');
+        }
         if (($interval < 0)) {
             throw new \InvalidArgumentException('invalid value for $interval when calling SeasonInterval., must be bigger than or equal to 0.');
         }
@@ -413,6 +424,9 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($leaderboard_id) && ($leaderboard_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $leaderboard_id when calling SeasonInterval., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($leaderboard_id) && ($leaderboard_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $leaderboard_id when calling SeasonInterval., must be bigger than or equal to 0.');

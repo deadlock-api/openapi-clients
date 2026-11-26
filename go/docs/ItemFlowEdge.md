@@ -5,17 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FromColumn** | **int32** | The column of the source item. | 
-**FromItemId** | **int32** |  | 
+**FromItemId** | **int64** |  | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
-**ToItemId** | **int32** |  | 
+**ToItemId** | **int64** |  | 
 **Wins** | **int64** |  | 
 
 ## Methods
 
 ### NewItemFlowEdge
 
-`func NewItemFlowEdge(fromColumn int32, fromItemId int32, losses int64, matches int64, toItemId int32, wins int64, ) *ItemFlowEdge`
+`func NewItemFlowEdge(fromColumn int32, fromItemId int64, losses int64, matches int64, toItemId int64, wins int64, ) *ItemFlowEdge`
 
 NewItemFlowEdge instantiates a new ItemFlowEdge object
 This constructor will assign default values to properties that have it defined,
@@ -52,20 +52,20 @@ SetFromColumn sets FromColumn field to given value.
 
 ### GetFromItemId
 
-`func (o *ItemFlowEdge) GetFromItemId() int32`
+`func (o *ItemFlowEdge) GetFromItemId() int64`
 
 GetFromItemId returns the FromItemId field if non-nil, zero value otherwise.
 
 ### GetFromItemIdOk
 
-`func (o *ItemFlowEdge) GetFromItemIdOk() (*int32, bool)`
+`func (o *ItemFlowEdge) GetFromItemIdOk() (*int64, bool)`
 
 GetFromItemIdOk returns a tuple with the FromItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFromItemId
 
-`func (o *ItemFlowEdge) SetFromItemId(v int32)`
+`func (o *ItemFlowEdge) SetFromItemId(v int64)`
 
 SetFromItemId sets FromItemId field to given value.
 
@@ -112,20 +112,20 @@ SetMatches sets Matches field to given value.
 
 ### GetToItemId
 
-`func (o *ItemFlowEdge) GetToItemId() int32`
+`func (o *ItemFlowEdge) GetToItemId() int64`
 
 GetToItemId returns the ToItemId field if non-nil, zero value otherwise.
 
 ### GetToItemIdOk
 
-`func (o *ItemFlowEdge) GetToItemIdOk() (*int32, bool)`
+`func (o *ItemFlowEdge) GetToItemIdOk() (*int64, bool)`
 
 GetToItemIdOk returns a tuple with the ToItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetToItemId
 
-`func (o *ItemFlowEdge) SetToItemId(v int32)`
+`func (o *ItemFlowEdge) SetToItemId(v int64)`
 
 SetToItemId sets ToItemId field to given value.
 

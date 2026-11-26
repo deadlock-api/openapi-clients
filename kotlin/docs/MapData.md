@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **images** | [**MapImages**](MapImages.md) |  |  |
 | **objectivePositions** | [**kotlin.collections.Map&lt;kotlin.String, ObjectivePosition&gt;**](ObjectivePosition.md) |  |  |
-| **radius** | **kotlin.Int** |  |  |
+| **radius** | **kotlin.Long** |  |  |
 | **ziplinePaths** | [**kotlin.collections.List&lt;ZiplanePath&gt;**](ZiplanePath.md) |  |  |
 | **entities** | [**MapEntities**](MapEntities.md) | Interactable map entities; only for builds whose assets were built with the map entity extraction. |  [optional] |
 | **neutralCamps** | [**kotlin.collections.List&lt;NeutralCamp&gt;**](NeutralCamp.md) | Neutral camps (build 6711+). |  [optional] |

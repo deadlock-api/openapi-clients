@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="windowDays">The window, in days, an upload must fall in to count.</param>
         /// <param name="lastUploadAt">Unix timestamp of the most recent verified upload within the window.</param>
         [JsonConstructor]
-        public IngestStatusResponse(int accountId, bool active, int windowDays, Option<int?> lastUploadAt = default)
+        public IngestStatusResponse(long accountId, bool active, long windowDays, Option<long?> lastUploadAt = default)
         {
             AccountId = accountId;
             Active = active;
@@ -53,7 +53,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AccountId
         /// </summary>
         [JsonPropertyName("account_id")]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Whether the ingest tool uploaded a salt for this account within the window that was then verified.
@@ -67,21 +67,21 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The window, in days, an upload must fall in to count.</value>
         [JsonPropertyName("window_days")]
-        public int WindowDays { get; set; }
+        public long WindowDays { get; set; }
 
         /// <summary>
         /// Used to track the state of LastUploadAt
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> LastUploadAtOption { get; private set; }
+        public Option<long?> LastUploadAtOption { get; private set; }
 
         /// <summary>
         /// Unix timestamp of the most recent verified upload within the window.
         /// </summary>
         /// <value>Unix timestamp of the most recent verified upload within the window.</value>
         [JsonPropertyName("last_upload_at")]
-        public int? LastUploadAt { get { return this.LastUploadAtOption.Value; } set { this.LastUploadAtOption = new(value); } }
+        public long? LastUploadAt { get { return this.LastUploadAtOption.Value; } set { this.LastUploadAtOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -106,20 +106,38 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AccountId (int) minimum
-            if (this.AccountId < (int)0)
+            // AccountId (long) maximum
+            if (this.AccountId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value less than or equal to 4294967295.", new [] { "AccountId" });
+            }
+
+            // AccountId (long) minimum
+            if (this.AccountId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
 
-            // WindowDays (int) minimum
-            if (this.WindowDays < (int)0)
+            // WindowDays (long) maximum
+            if (this.WindowDays > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WindowDays, must be a value less than or equal to 4294967295.", new [] { "WindowDays" });
+            }
+
+            // WindowDays (long) minimum
+            if (this.WindowDays < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WindowDays, must be a value greater than or equal to 0.", new [] { "WindowDays" });
             }
 
-            // LastUploadAt (int) minimum
-            if (this.LastUploadAtOption.IsSet && this.LastUploadAtOption.Value < (int)0)
+            // LastUploadAt (long) maximum
+            if (this.LastUploadAtOption.IsSet && this.LastUploadAtOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastUploadAt, must be a value less than or equal to 4294967295.", new [] { "LastUploadAt" });
+            }
+
+            // LastUploadAt (long) minimum
+            if (this.LastUploadAtOption.IsSet && this.LastUploadAtOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastUploadAt, must be a value greater than or equal to 0.", new [] { "LastUploadAt" });
             }
@@ -160,10 +178,10 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> accountId = default;
+            Option<long?> accountId = default;
             Option<bool?> active = default;
-            Option<int?> windowDays = default;
-            Option<int?> lastUploadAt = default;
+            Option<long?> windowDays = default;
+            Option<long?> lastUploadAt = default;
 
             while (utf8JsonReader.Read())
             {
@@ -181,16 +199,16 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "account_id":
-                            accountId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            accountId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "active":
                             active = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "window_days":
-                            windowDays = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            windowDays = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "last_upload_at":
-                            lastUploadAt = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            lastUploadAt = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

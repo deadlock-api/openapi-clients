@@ -24,9 +24,9 @@ Returns a single hero by id.
 //import deadlock_api_client.models.*
 
 val apiInstance = HeroesApi()
-val heroId : kotlin.Int = 56 // kotlin.Int | Hero id (`m_HeroID`)
+val heroId : kotlin.Long = 789 // kotlin.Long | Hero id (`m_HeroID`)
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : Hero = apiInstance.getHero(heroId, language, clientVersion)
     println(result)
@@ -42,9 +42,9 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **heroId** | **kotlin.Int**| Hero id (&#x60;m_HeroID&#x60;) | |
+| **heroId** | **kotlin.Long**| Hero id (&#x60;m_HeroID&#x60;) | |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -76,7 +76,7 @@ Returns a single hero by &#x60;class_name&#x60; or display &#x60;name&#x60;. Mat
 val apiInstance = HeroesApi()
 val name : kotlin.String = name_example // kotlin.String | Hero class name (e.g. `hero_atlas`) or short name (e.g. `atlas`)
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : Hero = apiInstance.getHeroByName(name, language, clientVersion)
     println(result)
@@ -94,7 +94,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **name** | **kotlin.String**| Hero class name (e.g. &#x60;hero_atlas&#x60;) or short name (e.g. &#x60;atlas&#x60;) | |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -125,7 +125,7 @@ Returns the per-hero metadata used by the game client, parsed from the patch&#39
 
 val apiInstance = HeroesApi()
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 val onlyActive : kotlin.Boolean = true // kotlin.Boolean | When true, hides heroes that aren't player-selectable or are disabled / in-development.
 try {
     val result : kotlin.collections.List<Hero> = apiInstance.listHeroes(language, clientVersion, onlyActive)
@@ -143,7 +143,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 | **onlyActive** | **kotlin.Boolean**| When true, hides heroes that aren&#39;t player-selectable or are disabled / in-development. | [optional] |
 
 ### Return type

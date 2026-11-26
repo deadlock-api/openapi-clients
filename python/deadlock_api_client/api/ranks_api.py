@@ -41,9 +41,9 @@ class RanksApi:
     @validate_call
     def get_rank(
         self,
-        tier: Annotated[int, Field(strict=True, ge=0, description="Rank tier (0-11)")],
+        tier: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Rank tier (0-11)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -118,9 +118,9 @@ class RanksApi:
     @validate_call
     def get_rank_with_http_info(
         self,
-        tier: Annotated[int, Field(strict=True, ge=0, description="Rank tier (0-11)")],
+        tier: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Rank tier (0-11)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -195,9 +195,9 @@ class RanksApi:
     @validate_call
     def get_rank_without_preload_content(
         self,
-        tier: Annotated[int, Field(strict=True, ge=0, description="Rank tier (0-11)")],
+        tier: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Rank tier (0-11)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -342,7 +342,7 @@ class RanksApi:
     def list_ranks(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -415,7 +415,7 @@ class RanksApi:
     def list_ranks_with_http_info(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -488,7 +488,7 @@ class RanksApi:
     def list_ranks_without_preload_content(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -626,8 +626,8 @@ class RanksApi:
     @validate_call
     def subrank_image(
         self,
-        tier: Annotated[int, Field(strict=True, ge=0, description="Rank tier (1-11)")],
-        subrank: Annotated[int, Field(strict=True, ge=0, description="Division within the tier (1-6)")],
+        tier: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Rank tier (1-11)")],
+        subrank: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Division within the tier (1-6)")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
@@ -703,8 +703,8 @@ class RanksApi:
     @validate_call
     def subrank_image_with_http_info(
         self,
-        tier: Annotated[int, Field(strict=True, ge=0, description="Rank tier (1-11)")],
-        subrank: Annotated[int, Field(strict=True, ge=0, description="Division within the tier (1-6)")],
+        tier: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Rank tier (1-11)")],
+        subrank: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Division within the tier (1-6)")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,
@@ -780,8 +780,8 @@ class RanksApi:
     @validate_call
     def subrank_image_without_preload_content(
         self,
-        tier: Annotated[int, Field(strict=True, ge=0, description="Rank tier (1-11)")],
-        subrank: Annotated[int, Field(strict=True, ge=0, description="Division within the tier (1-6)")],
+        tier: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Rank tier (1-11)")],
+        subrank: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Division within the tier (1-6)")],
         format: Annotated[Optional[StrictStr], Field(description="Image format. Defaults to `png`. Supported: `png`, `webp`.")] = None,
         _request_timeout: Union[
             None,

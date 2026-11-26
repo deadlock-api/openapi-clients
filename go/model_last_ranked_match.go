@@ -27,21 +27,21 @@ type LastRankedMatch struct {
 	// Progress change the match was supposed to award, before demotion protection is applied.
 	PlayerRankDesiredProgressChange NullableInt32 `json:"player_rank_desired_progress_change,omitempty"`
 	// Rank progress the player ended the match with.
-	PlayerRankFinalFlatProgress NullableInt32 `json:"player_rank_final_flat_progress,omitempty"`
+	PlayerRankFinalFlatProgress NullableInt64 `json:"player_rank_final_flat_progress,omitempty"`
 	// Remaining placement games at the start of the match.
-	PlayerRankInitialCalibrationGames NullableInt32 `json:"player_rank_initial_calibration_games,omitempty"`
+	PlayerRankInitialCalibrationGames NullableInt64 `json:"player_rank_initial_calibration_games,omitempty"`
 	// Remaining demotion protection games at the start of the match.
-	PlayerRankInitialDemotionProtectionGames NullableInt32 `json:"player_rank_initial_demotion_protection_games,omitempty"`
+	PlayerRankInitialDemotionProtectionGames NullableInt64 `json:"player_rank_initial_demotion_protection_games,omitempty"`
 	// Rank badge the player entered the match with, `tier * 10 + subrank`.
-	PlayerRankInitialDisplayRank int32 `json:"player_rank_initial_display_rank"`
+	PlayerRankInitialDisplayRank int64 `json:"player_rank_initial_display_rank"`
 	// Rank progress the player entered the match with.
-	PlayerRankInitialFlatProgress NullableInt32 `json:"player_rank_initial_flat_progress,omitempty"`
+	PlayerRankInitialFlatProgress NullableInt64 `json:"player_rank_initial_flat_progress,omitempty"`
 	// Win streak the player entered the match with.
-	PlayerRankInitialWinStreak NullableInt32 `json:"player_rank_initial_win_streak,omitempty"`
+	PlayerRankInitialWinStreak NullableInt64 `json:"player_rank_initial_win_streak,omitempty"`
 	// Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.
-	RankInterval NullableInt32 `json:"rank_interval,omitempty"`
+	RankInterval NullableInt64 `json:"rank_interval,omitempty"`
 	// Match start time as a unix timestamp.
-	StartTime int32 `json:"start_time"`
+	StartTime int64 `json:"start_time"`
 }
 
 type _LastRankedMatch LastRankedMatch
@@ -50,7 +50,7 @@ type _LastRankedMatch LastRankedMatch
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLastRankedMatch(matchId int64, playerRankInitialDisplayRank int32, startTime int32) *LastRankedMatch {
+func NewLastRankedMatch(matchId int64, playerRankInitialDisplayRank int64, startTime int64) *LastRankedMatch {
 	this := LastRankedMatch{}
 	this.MatchId = matchId
 	this.PlayerRankInitialDisplayRank = playerRankInitialDisplayRank
@@ -175,9 +175,9 @@ func (o *LastRankedMatch) UnsetPlayerRankDesiredProgressChange() {
 }
 
 // GetPlayerRankFinalFlatProgress returns the PlayerRankFinalFlatProgress field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LastRankedMatch) GetPlayerRankFinalFlatProgress() int32 {
+func (o *LastRankedMatch) GetPlayerRankFinalFlatProgress() int64 {
 	if o == nil || IsNil(o.PlayerRankFinalFlatProgress.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PlayerRankFinalFlatProgress.Get()
@@ -186,7 +186,7 @@ func (o *LastRankedMatch) GetPlayerRankFinalFlatProgress() int32 {
 // GetPlayerRankFinalFlatProgressOk returns a tuple with the PlayerRankFinalFlatProgress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LastRankedMatch) GetPlayerRankFinalFlatProgressOk() (*int32, bool) {
+func (o *LastRankedMatch) GetPlayerRankFinalFlatProgressOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -202,8 +202,8 @@ func (o *LastRankedMatch) HasPlayerRankFinalFlatProgress() bool {
 	return false
 }
 
-// SetPlayerRankFinalFlatProgress gets a reference to the given NullableInt32 and assigns it to the PlayerRankFinalFlatProgress field.
-func (o *LastRankedMatch) SetPlayerRankFinalFlatProgress(v int32) {
+// SetPlayerRankFinalFlatProgress gets a reference to the given NullableInt64 and assigns it to the PlayerRankFinalFlatProgress field.
+func (o *LastRankedMatch) SetPlayerRankFinalFlatProgress(v int64) {
 	o.PlayerRankFinalFlatProgress.Set(&v)
 }
 // SetPlayerRankFinalFlatProgressNil sets the value for PlayerRankFinalFlatProgress to be an explicit nil
@@ -217,9 +217,9 @@ func (o *LastRankedMatch) UnsetPlayerRankFinalFlatProgress() {
 }
 
 // GetPlayerRankInitialCalibrationGames returns the PlayerRankInitialCalibrationGames field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LastRankedMatch) GetPlayerRankInitialCalibrationGames() int32 {
+func (o *LastRankedMatch) GetPlayerRankInitialCalibrationGames() int64 {
 	if o == nil || IsNil(o.PlayerRankInitialCalibrationGames.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PlayerRankInitialCalibrationGames.Get()
@@ -228,7 +228,7 @@ func (o *LastRankedMatch) GetPlayerRankInitialCalibrationGames() int32 {
 // GetPlayerRankInitialCalibrationGamesOk returns a tuple with the PlayerRankInitialCalibrationGames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LastRankedMatch) GetPlayerRankInitialCalibrationGamesOk() (*int32, bool) {
+func (o *LastRankedMatch) GetPlayerRankInitialCalibrationGamesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -244,8 +244,8 @@ func (o *LastRankedMatch) HasPlayerRankInitialCalibrationGames() bool {
 	return false
 }
 
-// SetPlayerRankInitialCalibrationGames gets a reference to the given NullableInt32 and assigns it to the PlayerRankInitialCalibrationGames field.
-func (o *LastRankedMatch) SetPlayerRankInitialCalibrationGames(v int32) {
+// SetPlayerRankInitialCalibrationGames gets a reference to the given NullableInt64 and assigns it to the PlayerRankInitialCalibrationGames field.
+func (o *LastRankedMatch) SetPlayerRankInitialCalibrationGames(v int64) {
 	o.PlayerRankInitialCalibrationGames.Set(&v)
 }
 // SetPlayerRankInitialCalibrationGamesNil sets the value for PlayerRankInitialCalibrationGames to be an explicit nil
@@ -259,9 +259,9 @@ func (o *LastRankedMatch) UnsetPlayerRankInitialCalibrationGames() {
 }
 
 // GetPlayerRankInitialDemotionProtectionGames returns the PlayerRankInitialDemotionProtectionGames field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LastRankedMatch) GetPlayerRankInitialDemotionProtectionGames() int32 {
+func (o *LastRankedMatch) GetPlayerRankInitialDemotionProtectionGames() int64 {
 	if o == nil || IsNil(o.PlayerRankInitialDemotionProtectionGames.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PlayerRankInitialDemotionProtectionGames.Get()
@@ -270,7 +270,7 @@ func (o *LastRankedMatch) GetPlayerRankInitialDemotionProtectionGames() int32 {
 // GetPlayerRankInitialDemotionProtectionGamesOk returns a tuple with the PlayerRankInitialDemotionProtectionGames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LastRankedMatch) GetPlayerRankInitialDemotionProtectionGamesOk() (*int32, bool) {
+func (o *LastRankedMatch) GetPlayerRankInitialDemotionProtectionGamesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -286,8 +286,8 @@ func (o *LastRankedMatch) HasPlayerRankInitialDemotionProtectionGames() bool {
 	return false
 }
 
-// SetPlayerRankInitialDemotionProtectionGames gets a reference to the given NullableInt32 and assigns it to the PlayerRankInitialDemotionProtectionGames field.
-func (o *LastRankedMatch) SetPlayerRankInitialDemotionProtectionGames(v int32) {
+// SetPlayerRankInitialDemotionProtectionGames gets a reference to the given NullableInt64 and assigns it to the PlayerRankInitialDemotionProtectionGames field.
+func (o *LastRankedMatch) SetPlayerRankInitialDemotionProtectionGames(v int64) {
 	o.PlayerRankInitialDemotionProtectionGames.Set(&v)
 }
 // SetPlayerRankInitialDemotionProtectionGamesNil sets the value for PlayerRankInitialDemotionProtectionGames to be an explicit nil
@@ -301,9 +301,9 @@ func (o *LastRankedMatch) UnsetPlayerRankInitialDemotionProtectionGames() {
 }
 
 // GetPlayerRankInitialDisplayRank returns the PlayerRankInitialDisplayRank field value
-func (o *LastRankedMatch) GetPlayerRankInitialDisplayRank() int32 {
+func (o *LastRankedMatch) GetPlayerRankInitialDisplayRank() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -312,7 +312,7 @@ func (o *LastRankedMatch) GetPlayerRankInitialDisplayRank() int32 {
 
 // GetPlayerRankInitialDisplayRankOk returns a tuple with the PlayerRankInitialDisplayRank field value
 // and a boolean to check if the value has been set.
-func (o *LastRankedMatch) GetPlayerRankInitialDisplayRankOk() (*int32, bool) {
+func (o *LastRankedMatch) GetPlayerRankInitialDisplayRankOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -320,14 +320,14 @@ func (o *LastRankedMatch) GetPlayerRankInitialDisplayRankOk() (*int32, bool) {
 }
 
 // SetPlayerRankInitialDisplayRank sets field value
-func (o *LastRankedMatch) SetPlayerRankInitialDisplayRank(v int32) {
+func (o *LastRankedMatch) SetPlayerRankInitialDisplayRank(v int64) {
 	o.PlayerRankInitialDisplayRank = v
 }
 
 // GetPlayerRankInitialFlatProgress returns the PlayerRankInitialFlatProgress field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LastRankedMatch) GetPlayerRankInitialFlatProgress() int32 {
+func (o *LastRankedMatch) GetPlayerRankInitialFlatProgress() int64 {
 	if o == nil || IsNil(o.PlayerRankInitialFlatProgress.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PlayerRankInitialFlatProgress.Get()
@@ -336,7 +336,7 @@ func (o *LastRankedMatch) GetPlayerRankInitialFlatProgress() int32 {
 // GetPlayerRankInitialFlatProgressOk returns a tuple with the PlayerRankInitialFlatProgress field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LastRankedMatch) GetPlayerRankInitialFlatProgressOk() (*int32, bool) {
+func (o *LastRankedMatch) GetPlayerRankInitialFlatProgressOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -352,8 +352,8 @@ func (o *LastRankedMatch) HasPlayerRankInitialFlatProgress() bool {
 	return false
 }
 
-// SetPlayerRankInitialFlatProgress gets a reference to the given NullableInt32 and assigns it to the PlayerRankInitialFlatProgress field.
-func (o *LastRankedMatch) SetPlayerRankInitialFlatProgress(v int32) {
+// SetPlayerRankInitialFlatProgress gets a reference to the given NullableInt64 and assigns it to the PlayerRankInitialFlatProgress field.
+func (o *LastRankedMatch) SetPlayerRankInitialFlatProgress(v int64) {
 	o.PlayerRankInitialFlatProgress.Set(&v)
 }
 // SetPlayerRankInitialFlatProgressNil sets the value for PlayerRankInitialFlatProgress to be an explicit nil
@@ -367,9 +367,9 @@ func (o *LastRankedMatch) UnsetPlayerRankInitialFlatProgress() {
 }
 
 // GetPlayerRankInitialWinStreak returns the PlayerRankInitialWinStreak field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LastRankedMatch) GetPlayerRankInitialWinStreak() int32 {
+func (o *LastRankedMatch) GetPlayerRankInitialWinStreak() int64 {
 	if o == nil || IsNil(o.PlayerRankInitialWinStreak.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PlayerRankInitialWinStreak.Get()
@@ -378,7 +378,7 @@ func (o *LastRankedMatch) GetPlayerRankInitialWinStreak() int32 {
 // GetPlayerRankInitialWinStreakOk returns a tuple with the PlayerRankInitialWinStreak field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LastRankedMatch) GetPlayerRankInitialWinStreakOk() (*int32, bool) {
+func (o *LastRankedMatch) GetPlayerRankInitialWinStreakOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -394,8 +394,8 @@ func (o *LastRankedMatch) HasPlayerRankInitialWinStreak() bool {
 	return false
 }
 
-// SetPlayerRankInitialWinStreak gets a reference to the given NullableInt32 and assigns it to the PlayerRankInitialWinStreak field.
-func (o *LastRankedMatch) SetPlayerRankInitialWinStreak(v int32) {
+// SetPlayerRankInitialWinStreak gets a reference to the given NullableInt64 and assigns it to the PlayerRankInitialWinStreak field.
+func (o *LastRankedMatch) SetPlayerRankInitialWinStreak(v int64) {
 	o.PlayerRankInitialWinStreak.Set(&v)
 }
 // SetPlayerRankInitialWinStreakNil sets the value for PlayerRankInitialWinStreak to be an explicit nil
@@ -409,9 +409,9 @@ func (o *LastRankedMatch) UnsetPlayerRankInitialWinStreak() {
 }
 
 // GetRankInterval returns the RankInterval field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LastRankedMatch) GetRankInterval() int32 {
+func (o *LastRankedMatch) GetRankInterval() int64 {
 	if o == nil || IsNil(o.RankInterval.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RankInterval.Get()
@@ -420,7 +420,7 @@ func (o *LastRankedMatch) GetRankInterval() int32 {
 // GetRankIntervalOk returns a tuple with the RankInterval field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LastRankedMatch) GetRankIntervalOk() (*int32, bool) {
+func (o *LastRankedMatch) GetRankIntervalOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -436,8 +436,8 @@ func (o *LastRankedMatch) HasRankInterval() bool {
 	return false
 }
 
-// SetRankInterval gets a reference to the given NullableInt32 and assigns it to the RankInterval field.
-func (o *LastRankedMatch) SetRankInterval(v int32) {
+// SetRankInterval gets a reference to the given NullableInt64 and assigns it to the RankInterval field.
+func (o *LastRankedMatch) SetRankInterval(v int64) {
 	o.RankInterval.Set(&v)
 }
 // SetRankIntervalNil sets the value for RankInterval to be an explicit nil
@@ -451,9 +451,9 @@ func (o *LastRankedMatch) UnsetRankInterval() {
 }
 
 // GetStartTime returns the StartTime field value
-func (o *LastRankedMatch) GetStartTime() int32 {
+func (o *LastRankedMatch) GetStartTime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -462,7 +462,7 @@ func (o *LastRankedMatch) GetStartTime() int32 {
 
 // GetStartTimeOk returns a tuple with the StartTime field value
 // and a boolean to check if the value has been set.
-func (o *LastRankedMatch) GetStartTimeOk() (*int32, bool) {
+func (o *LastRankedMatch) GetStartTimeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -470,7 +470,7 @@ func (o *LastRankedMatch) GetStartTimeOk() (*int32, bool) {
 }
 
 // SetStartTime sets field value
-func (o *LastRankedMatch) SetStartTime(v int32) {
+func (o *LastRankedMatch) SetStartTime(v int64) {
 	o.StartTime = v
 }
 

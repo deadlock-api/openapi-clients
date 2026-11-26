@@ -37,7 +37,7 @@ type Hero struct {
 	HeroStatsUi HeroStatsUI `json:"hero_stats_ui"`
 	HeroType NullableHeroType `json:"hero_type,omitempty"`
 	HideoutRichPresence NullableString `json:"hideout_rich_presence,omitempty"`
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 	Images HeroImages `json:"images"`
 	InDevelopment bool `json:"in_development"`
 	ItemDraftBucketing map[string]HashMapStringOptionDraftBucketingValue `json:"item_draft_bucketing,omitempty"`
@@ -77,7 +77,7 @@ type _Hero Hero
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHero(assignedPlayersOnly bool, className string, colors HeroColors, complexity int64, description HeroDescription, disabled bool, heroStatsUi HeroStatsUI, id int32, images HeroImages, inDevelopment bool, itemSlotInfo map[string]HashMapItemSlotTypeItemSlotInfoValue, items map[string]string, levelInfo map[string]HashMapStringLevelInfoValue, limitedTesting bool, models map[string]string, name string, needsTesting bool, physics HeroPhysics, playerSelectable bool, purchaseBonuses map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner, scalingStats map[string]HashMapStringScalingStatValue, shopStatDisplay ShopStatDisplay, skin int64, standardLevelUpUpgrades map[string]float64, startingStats StartingStats, statsDisplay StatsDisplay, tags []string) *Hero {
+func NewHero(assignedPlayersOnly bool, className string, colors HeroColors, complexity int64, description HeroDescription, disabled bool, heroStatsUi HeroStatsUI, id int64, images HeroImages, inDevelopment bool, itemSlotInfo map[string]HashMapItemSlotTypeItemSlotInfoValue, items map[string]string, levelInfo map[string]HashMapStringLevelInfoValue, limitedTesting bool, models map[string]string, name string, needsTesting bool, physics HeroPhysics, playerSelectable bool, purchaseBonuses map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner, scalingStats map[string]HashMapStringScalingStatValue, shopStatDisplay ShopStatDisplay, skin int64, standardLevelUpUpgrades map[string]float64, startingStats StartingStats, statsDisplay StatsDisplay, tags []string) *Hero {
 	this := Hero{}
 	this.AssignedPlayersOnly = assignedPlayersOnly
 	this.ClassName = className
@@ -529,9 +529,9 @@ func (o *Hero) UnsetHideoutRichPresence() {
 }
 
 // GetId returns the Id field value
-func (o *Hero) GetId() int32 {
+func (o *Hero) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -540,7 +540,7 @@ func (o *Hero) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *Hero) GetIdOk() (*int32, bool) {
+func (o *Hero) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -548,7 +548,7 @@ func (o *Hero) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *Hero) SetId(v int32) {
+func (o *Hero) SetId(v int64) {
 	o.Id = v
 }
 

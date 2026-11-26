@@ -45,7 +45,7 @@ data class AnalyticsAbilityOrderStats (
 
     /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "abilities")
-    val abilities: kotlin.collections.List<kotlin.Int>,
+    val abilities: kotlin.collections.List<kotlin.Long>,
 
     /* Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`. */
     @Json(name = "avg_upgrade_times_s")

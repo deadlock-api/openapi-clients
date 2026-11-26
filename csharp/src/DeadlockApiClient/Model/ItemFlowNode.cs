@@ -45,7 +45,7 @@ namespace DeadlockApiClient.Model
         /// <param name="totalKills">totalKills</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public ItemFlowNode(double adjustedWinRate, double avgNetWorthAtBuy, int column, int itemId, long losses, long matches, long players, long totalAssists, long totalDeaths, long totalKills, long wins)
+        public ItemFlowNode(double adjustedWinRate, double avgNetWorthAtBuy, int column, long itemId, long losses, long matches, long players, long totalAssists, long totalDeaths, long totalKills, long wins)
         {
             AdjustedWinRate = adjustedWinRate;
             AvgNetWorthAtBuy = avgNetWorthAtBuy;
@@ -89,7 +89,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;</value>
         [JsonPropertyName("item_id")]
-        public int ItemId { get; set; }
+        public long ItemId { get; set; }
 
         /// <summary>
         /// Gets or Sets Losses
@@ -163,14 +163,26 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Column (int) maximum
+            if (this.Column > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Column, must be a value less than or equal to 255.", new [] { "Column" });
+            }
+
             // Column (int) minimum
             if (this.Column < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Column, must be a value greater than or equal to 0.", new [] { "Column" });
             }
 
-            // ItemId (int) minimum
-            if (this.ItemId < (int)0)
+            // ItemId (long) maximum
+            if (this.ItemId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ItemId, must be a value less than or equal to 4294967295.", new [] { "ItemId" });
+            }
+
+            // ItemId (long) minimum
+            if (this.ItemId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ItemId, must be a value greater than or equal to 0.", new [] { "ItemId" });
             }
@@ -256,7 +268,7 @@ namespace DeadlockApiClient.Model
             Option<double?> adjustedWinRate = default;
             Option<double?> avgNetWorthAtBuy = default;
             Option<int?> column = default;
-            Option<int?> itemId = default;
+            Option<long?> itemId = default;
             Option<long?> losses = default;
             Option<long?> matches = default;
             Option<long?> players = default;
@@ -290,7 +302,7 @@ namespace DeadlockApiClient.Model
                             column = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "item_id":
-                            itemId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            itemId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "losses":
                             losses = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());

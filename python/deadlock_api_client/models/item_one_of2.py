@@ -41,20 +41,20 @@ class ItemOneOf2(BaseModel):
     class_name: StrictStr
     component_items: Optional[List[StrictStr]] = None
     corrupted_info: Optional[CorruptedItemInfo] = Field(default=None, description="Present on upgrades the Broker can corrupt (build 6711+).")
-    cost: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    cost: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     description: Optional[UpgradeDescription] = None
     disable_item_target: Optional[StrictStr] = None
     disabled: Optional[StrictBool] = None
     disabled_shop_filters: Optional[List[StrictStr]] = Field(default=None, description="Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.")
-    hero: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    heroes: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = None
-    id: Annotated[int, Field(strict=True, ge=0)]
+    hero: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    heroes: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = None
+    id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     image: Optional[StrictStr] = None
     image_webp: Optional[StrictStr] = None
     imbue: Optional[AbilityImbue] = None
     is_active_item: StrictBool
     item_slot_type: ItemSlotType
-    item_tier: Annotated[int, Field(strict=True, ge=0)]
+    item_tier: Annotated[int, Field(le=255, strict=True, ge=0)]
     name: StrictStr
     properties: Optional[Dict[str, UpgradeProperty]] = None
     shop_filters: Optional[List[StrictStr]] = Field(default=None, description="Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.")

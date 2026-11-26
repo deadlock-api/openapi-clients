@@ -41,7 +41,7 @@ class ItemsApiTest : ShouldSpec() {
             // uncomment below to test getItem
             //val idOrClassName : kotlin.String = idOrClassName_example // kotlin.String | Numeric `id` or string `class_name`.
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : Item = apiInstance.getItem(idOrClassName, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -49,9 +49,9 @@ class ItemsApiTest : ShouldSpec() {
         // to test getItemsByHeroId
         should("test getItemsByHeroId") {
             // uncomment below to test getItemsByHeroId
-            //val id : kotlin.Int = 56 // kotlin.Int | Hero id (`m_HeroID`).
+            //val id : kotlin.Long = 789 // kotlin.Long | Hero id (`m_HeroID`).
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.List<Item> = apiInstance.getItemsByHeroId(id, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -61,7 +61,7 @@ class ItemsApiTest : ShouldSpec() {
             // uncomment below to test getItemsBySlotType
             //val slotType : ItemSlotType =  // ItemSlotType | Slot type: `weapon`, `spirit`, or `vitality`.
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.List<Item> = apiInstance.getItemsBySlotType(slotType, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -71,7 +71,7 @@ class ItemsApiTest : ShouldSpec() {
             // uncomment below to test getItemsByType
             //val type : ItemType =  // ItemType | Item type: `ability`, `weapon`, or `upgrade`.
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.List<Item> = apiInstance.getItemsByType(type, language, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -80,7 +80,7 @@ class ItemsApiTest : ShouldSpec() {
         should("test listItems") {
             // uncomment below to test listItems
             //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.List<Item> = apiInstance.listItems(language, clientVersion)
             //result shouldBe ("TODO")
         }

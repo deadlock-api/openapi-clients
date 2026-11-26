@@ -344,11 +344,17 @@ class RanksApi
                 'Missing the required parameter $tier when calling getRank'
             );
         }
+        if ($tier > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$tier" when calling RanksApi.getRank, must be smaller than or equal to 4294967295.');
+        }
         if ($tier < 0) {
             throw new \InvalidArgumentException('invalid value for "$tier" when calling RanksApi.getRank, must be bigger than or equal to 0.');
         }
         
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling RanksApi.getRank, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling RanksApi.getRank, must be bigger than or equal to 0.');
         }
@@ -651,6 +657,9 @@ class RanksApi
     {
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling RanksApi.listRanks, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling RanksApi.listRanks, must be bigger than or equal to 0.');
         }
@@ -955,6 +964,9 @@ class RanksApi
                 'Missing the required parameter $tier when calling subrankImage'
             );
         }
+        if ($tier > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$tier" when calling RanksApi.subrankImage, must be smaller than or equal to 4294967295.');
+        }
         if ($tier < 0) {
             throw new \InvalidArgumentException('invalid value for "$tier" when calling RanksApi.subrankImage, must be bigger than or equal to 0.');
         }
@@ -964,6 +976,9 @@ class RanksApi
             throw new \InvalidArgumentException(
                 'Missing the required parameter $subrank when calling subrankImage'
             );
+        }
+        if ($subrank > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$subrank" when calling RanksApi.subrankImage, must be smaller than or equal to 4294967295.');
         }
         if ($subrank < 0) {
             throw new \InvalidArgumentException('invalid value for "$subrank" when calling RanksApi.subrankImage, must be bigger than or equal to 0.');

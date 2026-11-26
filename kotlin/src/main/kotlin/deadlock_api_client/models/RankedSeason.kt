@@ -50,7 +50,7 @@ import java.io.Serializable
 data class RankedSeason (
 
     @Json(name = "calibration_matches")
-    val calibrationMatches: kotlin.Int,
+    val calibrationMatches: kotlin.Long,
 
     @Json(name = "class_name")
     val className: kotlin.String,
@@ -59,10 +59,10 @@ data class RankedSeason (
     val intervals: kotlin.collections.List<SeasonInterval>,
 
     @Json(name = "min_hero_unlocks")
-    val minHeroUnlocks: kotlin.Int,
+    val minHeroUnlocks: kotlin.Long,
 
     @Json(name = "min_wins")
-    val minWins: kotlin.Int,
+    val minWins: kotlin.Long,
 
     @Json(name = "name")
     val name: kotlin.String,
@@ -71,23 +71,23 @@ data class RankedSeason (
     val rankedType: kotlin.String,
 
     @Json(name = "valid_party_sizes")
-    val validPartySizes: kotlin.collections.List<kotlin.Int>,
+    val validPartySizes: kotlin.collections.List<kotlin.Long>,
 
     /* Base rank points granted per win / taken per loss (build 6701+). */
     @Json(name = "base_win_loss_point_grant")
-    val baseWinLossPointGrant: kotlin.Int? = null,
+    val baseWinLossPointGrant: kotlin.Long? = null,
 
     /* Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance. */
     @Json(name = "calibration_max_rank")
-    val calibrationMaxRank: kotlin.Int? = null,
+    val calibrationMaxRank: kotlin.Long? = null,
 
     /* Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+). */
     @Json(name = "min_hero_unlock_points")
-    val minHeroUnlockPoints: kotlin.Int? = null,
+    val minHeroUnlockPoints: kotlin.Long? = null,
 
     /* Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`. */
     @Json(name = "min_hero_wins")
-    val minHeroWins: kotlin.Int? = null,
+    val minHeroWins: kotlin.Long? = null,
 
     /* Rank progression settings (build 6857+). */
     @Json(name = "rank_info")

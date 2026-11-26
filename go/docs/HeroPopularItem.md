@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassName** | **string** |  | 
-**ItemId** | **int32** | Item id, derived from &#x60;class_name&#x60; like &#x60;/v2/items&#x60; ids. | 
+**ItemId** | **int64** | Item id, derived from &#x60;class_name&#x60; like &#x60;/v2/items&#x60; ids. | 
 **PickPct** | **float64** | Pick rate in percent (0-100). | 
 **WinratePct** | **float64** | Win rate in percent (0-100). | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewHeroPopularItem
 
-`func NewHeroPopularItem(className string, itemId int32, pickPct float64, winratePct float64, ) *HeroPopularItem`
+`func NewHeroPopularItem(className string, itemId int64, pickPct float64, winratePct float64, ) *HeroPopularItem`
 
 NewHeroPopularItem instantiates a new HeroPopularItem object
 This constructor will assign default values to properties that have it defined,
@@ -50,20 +50,20 @@ SetClassName sets ClassName field to given value.
 
 ### GetItemId
 
-`func (o *HeroPopularItem) GetItemId() int32`
+`func (o *HeroPopularItem) GetItemId() int64`
 
 GetItemId returns the ItemId field if non-nil, zero value otherwise.
 
 ### GetItemIdOk
 
-`func (o *HeroPopularItem) GetItemIdOk() (*int32, bool)`
+`func (o *HeroPopularItem) GetItemIdOk() (*int64, bool)`
 
 GetItemIdOk returns a tuple with the ItemId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItemId
 
-`func (o *HeroPopularItem) SetItemId(v int32)`
+`func (o *HeroPopularItem) SetItemId(v int64)`
 
 SetItemId sets ItemId field to given value.
 

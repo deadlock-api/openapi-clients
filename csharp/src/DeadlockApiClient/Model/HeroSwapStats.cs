@@ -41,7 +41,7 @@ namespace DeadlockApiClient.Model
         /// <param name="swappedIn">The number of players who played this hero after swapping to it from another pre-game hero.</param>
         /// <param name="swappedInWins">The number of &#x60;swapped_in&#x60; players who won the match.</param>
         [JsonConstructor]
-        public HeroSwapStats(int bucket, int heroId, long matches, long pregamePicks, long swappedAway, long swappedIn, long swappedInWins)
+        public HeroSwapStats(long bucket, long heroId, long matches, long pregamePicks, long swappedAway, long swappedIn, long swappedInWins)
         {
             Bucket = bucket;
             HeroId = heroId;
@@ -60,14 +60,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The bucket value (depends on the bucket query parameter).</value>
         [JsonPropertyName("bucket")]
-        public int Bucket { get; set; }
+        public long Bucket { get; set; }
 
         /// <summary>
         /// The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
         /// <value>The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
-        public int HeroId { get; set; }
+        public long HeroId { get; set; }
 
         /// <summary>
         /// The number of players who played this hero, counting only players whose pre-game hero is known.
@@ -130,14 +130,26 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Bucket (int) minimum
-            if (this.Bucket < (int)0)
+            // Bucket (long) maximum
+            if (this.Bucket > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value less than or equal to 4294967295.", new [] { "Bucket" });
+            }
+
+            // Bucket (long) minimum
+            if (this.Bucket < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
             }
 
-            // HeroId (int) minimum
-            if (this.HeroId < (int)0)
+            // HeroId (long) maximum
+            if (this.HeroId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value less than or equal to 4294967295.", new [] { "HeroId" });
+            }
+
+            // HeroId (long) minimum
+            if (this.HeroId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
             }
@@ -208,8 +220,8 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> bucket = default;
-            Option<int?> heroId = default;
+            Option<long?> bucket = default;
+            Option<long?> heroId = default;
             Option<long?> matches = default;
             Option<long?> pregamePicks = default;
             Option<long?> swappedAway = default;
@@ -232,10 +244,10 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "bucket":
-                            bucket = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            bucket = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "hero_id":
-                            heroId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            heroId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "matches":
                             matches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());

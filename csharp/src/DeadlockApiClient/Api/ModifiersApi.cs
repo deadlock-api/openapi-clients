@@ -49,7 +49,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetModifierApiResponse"/>&gt;</returns>
-        Task<IGetModifierApiResponse> GetModifierAsync(string idOrClassname, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetModifierApiResponse> GetModifierAsync(string idOrClassname, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Modifier
@@ -61,7 +61,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetModifierApiResponse"/>?&gt;</returns>
-        Task<IGetModifierApiResponse?> GetModifierOrDefaultAsync(string idOrClassname, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetModifierApiResponse?> GetModifierOrDefaultAsync(string idOrClassname, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Modifiers
@@ -73,7 +73,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListModifiersApiResponse"/>&gt;</returns>
-        Task<IListModifiersApiResponse> ListModifiersAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListModifiersApiResponse> ListModifiersAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Modifiers
@@ -84,7 +84,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListModifiersApiResponse"/>?&gt;</returns>
-        Task<IListModifiersApiResponse?> ListModifiersOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListModifiersApiResponse?> ListModifiersOrDefaultAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -222,7 +222,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetModifier(ref string idOrClassname, ref Option<int?> clientVersion);
+        partial void FormatGetModifier(ref string idOrClassname, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -241,7 +241,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="idOrClassname"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetModifierDefaultImplementation(IGetModifierApiResponse apiResponseLocalVar, string idOrClassname, Option<int?> clientVersion)
+        private void AfterGetModifierDefaultImplementation(IGetModifierApiResponse apiResponseLocalVar, string idOrClassname, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetModifier(ref suppressDefaultLog, apiResponseLocalVar, idOrClassname, clientVersion);
@@ -256,7 +256,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="idOrClassname"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetModifier(ref bool suppressDefaultLog, IGetModifierApiResponse apiResponseLocalVar, string idOrClassname, Option<int?> clientVersion);
+        partial void AfterGetModifier(ref bool suppressDefaultLog, IGetModifierApiResponse apiResponseLocalVar, string idOrClassname, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -266,7 +266,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="idOrClassname"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetModifierDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<int?> clientVersion)
+        private void OnErrorGetModifierDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetModifier(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, idOrClassname, clientVersion);
@@ -283,7 +283,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="idOrClassname"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetModifier(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<int?> clientVersion);
+        partial void OnErrorGetModifier(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Modifier Returns a single modifier by numeric id or by &#x60;class_name&#x60; (case-insensitive).
@@ -292,7 +292,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetModifierApiResponse"/>&gt;</returns>
-        public async Task<IGetModifierApiResponse?> GetModifierOrDefaultAsync(string idOrClassname, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetModifierApiResponse?> GetModifierOrDefaultAsync(string idOrClassname, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -312,7 +312,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetModifierApiResponse"/>&gt;</returns>
-        public async Task<IGetModifierApiResponse> GetModifierAsync(string idOrClassname, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetModifierApiResponse> GetModifierAsync(string idOrClassname, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -500,14 +500,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListModifiers(ref Option<int?> clientVersion);
+        partial void FormatListModifiers(ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="clientVersion"></param>
-        private void AfterListModifiersDefaultImplementation(IListModifiersApiResponse apiResponseLocalVar, Option<int?> clientVersion)
+        private void AfterListModifiersDefaultImplementation(IListModifiersApiResponse apiResponseLocalVar, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterListModifiers(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
@@ -521,7 +521,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterListModifiers(ref bool suppressDefaultLog, IListModifiersApiResponse apiResponseLocalVar, Option<int?> clientVersion);
+        partial void AfterListModifiers(ref bool suppressDefaultLog, IListModifiersApiResponse apiResponseLocalVar, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -530,7 +530,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorListModifiersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion)
+        private void OnErrorListModifiersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorListModifiers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
@@ -546,7 +546,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorListModifiers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion);
+        partial void OnErrorListModifiers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> clientVersion);
 
         /// <summary>
         /// List Modifiers Returns modifier definitions parsed from the patch&#39;s &#x60;modifiers.vdata&#x60; KV3 source file, including the neutral (\&quot;Haunt\&quot;) abilities referenced by NPC units&#39; &#x60;neutral_abilities&#x60; / &#x60;neutral_melee&#x60; (&#x60;citadel_neutral_*&#x60;). Each entry exposes its class and numeric properties; nested properties use dotted paths.
@@ -554,7 +554,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListModifiersApiResponse"/>&gt;</returns>
-        public async Task<IListModifiersApiResponse?> ListModifiersOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListModifiersApiResponse?> ListModifiersOrDefaultAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -573,7 +573,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListModifiersApiResponse"/>&gt;</returns>
-        public async Task<IListModifiersApiResponse> ListModifiersAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListModifiersApiResponse> ListModifiersAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

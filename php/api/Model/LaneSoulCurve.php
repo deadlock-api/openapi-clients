@@ -77,14 +77,14 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'assigned_lane' => 'int32',
-        'enemy_hero_ids' => 'int32',
-        'hero_ids' => 'int32',
+        'assigned_lane' => 'int64',
+        'enemy_hero_ids' => 'int64',
+        'hero_ids' => 'int64',
         'matches_played' => 'int64',
         'net_worth_diff' => 'double',
         'net_worth_diff_std' => 'double',
         'sample_matches' => 'int64',
-        'sample_times_s' => 'int32',
+        'sample_times_s' => 'int64',
         'stats' => null
     ];
 
@@ -334,6 +334,10 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['assigned_lane'] === null) {
             $invalidProperties[] = "'assigned_lane' can't be null";
         }
+        if (($this->container['assigned_lane'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'assigned_lane', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['assigned_lane'] < 0)) {
             $invalidProperties[] = "invalid value for 'assigned_lane', must be bigger than or equal to 0.";
         }
@@ -402,6 +406,9 @@ class LaneSoulCurve implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($assigned_lane)) {
             throw new \InvalidArgumentException('non-nullable assigned_lane cannot be null');
+        }
+        if (($assigned_lane > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $assigned_lane when calling LaneSoulCurve., must be smaller than or equal to 4294967295.');
         }
         if (($assigned_lane < 0)) {
             throw new \InvalidArgumentException('invalid value for $assigned_lane when calling LaneSoulCurve., must be bigger than or equal to 0.');

@@ -79,7 +79,7 @@ class AnalyticsGameStats(BaseModel):
     avg_self_healing: Union[StrictFloat, StrictInt]
     avg_tech_power: Union[StrictFloat, StrictInt]
     avg_weapon_power: Union[StrictFloat, StrictInt]
-    bucket: Annotated[int, Field(strict=True, ge=0)]
+    bucket: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     mid_boss_kill_rate: Union[StrictFloat, StrictInt]
     team0_wins: Annotated[int, Field(strict=True, ge=0)]
     team1_wins: Annotated[int, Field(strict=True, ge=0)]

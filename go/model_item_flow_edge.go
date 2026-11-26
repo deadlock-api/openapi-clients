@@ -23,10 +23,10 @@ var _ MappedNullable = &ItemFlowEdge{}
 type ItemFlowEdge struct {
 	// The column of the source item.
 	FromColumn int32 `json:"from_column"`
-	FromItemId int32 `json:"from_item_id"`
+	FromItemId int64 `json:"from_item_id"`
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`
-	ToItemId int32 `json:"to_item_id"`
+	ToItemId int64 `json:"to_item_id"`
 	Wins int64 `json:"wins"`
 }
 
@@ -36,7 +36,7 @@ type _ItemFlowEdge ItemFlowEdge
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemFlowEdge(fromColumn int32, fromItemId int32, losses int64, matches int64, toItemId int32, wins int64) *ItemFlowEdge {
+func NewItemFlowEdge(fromColumn int32, fromItemId int64, losses int64, matches int64, toItemId int64, wins int64) *ItemFlowEdge {
 	this := ItemFlowEdge{}
 	this.FromColumn = fromColumn
 	this.FromItemId = fromItemId
@@ -80,9 +80,9 @@ func (o *ItemFlowEdge) SetFromColumn(v int32) {
 }
 
 // GetFromItemId returns the FromItemId field value
-func (o *ItemFlowEdge) GetFromItemId() int32 {
+func (o *ItemFlowEdge) GetFromItemId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -91,7 +91,7 @@ func (o *ItemFlowEdge) GetFromItemId() int32 {
 
 // GetFromItemIdOk returns a tuple with the FromItemId field value
 // and a boolean to check if the value has been set.
-func (o *ItemFlowEdge) GetFromItemIdOk() (*int32, bool) {
+func (o *ItemFlowEdge) GetFromItemIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -99,7 +99,7 @@ func (o *ItemFlowEdge) GetFromItemIdOk() (*int32, bool) {
 }
 
 // SetFromItemId sets field value
-func (o *ItemFlowEdge) SetFromItemId(v int32) {
+func (o *ItemFlowEdge) SetFromItemId(v int64) {
 	o.FromItemId = v
 }
 
@@ -152,9 +152,9 @@ func (o *ItemFlowEdge) SetMatches(v int64) {
 }
 
 // GetToItemId returns the ToItemId field value
-func (o *ItemFlowEdge) GetToItemId() int32 {
+func (o *ItemFlowEdge) GetToItemId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -163,7 +163,7 @@ func (o *ItemFlowEdge) GetToItemId() int32 {
 
 // GetToItemIdOk returns a tuple with the ToItemId field value
 // and a boolean to check if the value has been set.
-func (o *ItemFlowEdge) GetToItemIdOk() (*int32, bool) {
+func (o *ItemFlowEdge) GetToItemIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -171,7 +171,7 @@ func (o *ItemFlowEdge) GetToItemIdOk() (*int32, bool) {
 }
 
 // SetToItemId sets field value
-func (o *ItemFlowEdge) SetToItemId(v int32) {
+func (o *ItemFlowEdge) SetToItemId(v int64) {
 	o.ToItemId = v
 }
 

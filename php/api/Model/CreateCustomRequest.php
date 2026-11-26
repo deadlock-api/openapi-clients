@@ -79,7 +79,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'callback_url' => null,
         'cheats_enabled' => null,
-        'corrupted_item_shop_spawn_minutes' => 'int32',
+        'corrupted_item_shop_spawn_minutes' => 'int64',
         'disable_auto_ready' => null,
         'duplicate_heroes_enabled' => null,
         'game_mode' => null,
@@ -337,6 +337,10 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['corrupted_item_shop_spawn_minutes']) && ($this->container['corrupted_item_shop_spawn_minutes'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'corrupted_item_shop_spawn_minutes', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['corrupted_item_shop_spawn_minutes']) && ($this->container['corrupted_item_shop_spawn_minutes'] < 0)) {
             $invalidProperties[] = "invalid value for 'corrupted_item_shop_spawn_minutes', must be bigger than or equal to 0.";
         }
@@ -460,6 +464,9 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($corrupted_item_shop_spawn_minutes) && ($corrupted_item_shop_spawn_minutes > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $corrupted_item_shop_spawn_minutes when calling CreateCustomRequest., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($corrupted_item_shop_spawn_minutes) && ($corrupted_item_shop_spawn_minutes < 0)) {
             throw new \InvalidArgumentException('invalid value for $corrupted_item_shop_spawn_minutes when calling CreateCustomRequest., must be bigger than or equal to 0.');

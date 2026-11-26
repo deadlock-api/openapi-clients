@@ -42,7 +42,7 @@ class LeaderboardApi:
     def leaderboard(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -115,7 +115,7 @@ class LeaderboardApi:
     def leaderboard_with_http_info(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -188,7 +188,7 @@ class LeaderboardApi:
     def leaderboard_without_preload_content(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -325,8 +325,8 @@ class LeaderboardApi:
     def leaderboard_hero(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -402,8 +402,8 @@ class LeaderboardApi:
     def leaderboard_hero_with_http_info(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -479,8 +479,8 @@ class LeaderboardApi:
     def leaderboard_hero_without_preload_content(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -623,8 +623,8 @@ class LeaderboardApi:
     def leaderboard_hero_raw(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -700,8 +700,8 @@ class LeaderboardApi:
     def leaderboard_hero_raw_with_http_info(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -777,8 +777,8 @@ class LeaderboardApi:
     def leaderboard_hero_raw_without_preload_content(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -921,7 +921,7 @@ class LeaderboardApi:
     def leaderboard_raw(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -994,7 +994,7 @@ class LeaderboardApi:
     def leaderboard_raw_with_http_info(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1067,7 +1067,7 @@ class LeaderboardApi:
     def leaderboard_raw_without_preload_content(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
-        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

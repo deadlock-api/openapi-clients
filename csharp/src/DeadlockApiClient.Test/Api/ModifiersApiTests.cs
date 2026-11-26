@@ -57,7 +57,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task GetModifierAsyncTest()
         {
             string idOrClassname = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetModifierAsync(idOrClassname, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Modifier>(model);
@@ -69,7 +69,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task ListModifiersAsyncTest()
         {
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.ListModifiersAsync(clientVersion);
             var model = response.Ok();
             Assert.IsType<List<Modifier>>(model);

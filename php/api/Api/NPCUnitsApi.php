@@ -343,6 +343,9 @@ class NPCUnitsApi
         }
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling NPCUnitsApi.getNpcUnit, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling NPCUnitsApi.getNpcUnit, must be bigger than or equal to 0.');
         }
@@ -645,6 +648,9 @@ class NPCUnitsApi
     {
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling NPCUnitsApi.listNpcUnits, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling NPCUnitsApi.listNpcUnits, must be bigger than or equal to 0.');
         }

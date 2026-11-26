@@ -66,7 +66,7 @@ namespace DeadlockApiClient.Model
         /// <param name="upgrades">upgrades</param>
         /// <param name="weaponInfo">weaponInfo</param>
         [JsonConstructor]
-        public Upgrade(AbilityActivation activation, string className, int id, bool isActiveItem, ItemSlotType itemSlotType, int itemTier, string name, bool shopable, Option<List<string>?> componentItems = default, Option<CorruptedItemInfo?> corruptedInfo = default, Option<int?> cost = default, Option<UpgradeDescription?> description = default, Option<string?> disableItemTarget = default, Option<bool?> disabled = default, Option<List<string>?> disabledShopFilters = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<AbilityImbue?> imbue = default, Option<Dictionary<string, UpgradeProperty>?> properties = default, Option<List<string>?> shopFilters = default, Option<string?> shopImage = default, Option<string?> shopImageSmall = default, Option<string?> shopImageSmallWebp = default, Option<string?> shopImageWebp = default, Option<long?> shopVersion = default, Option<bool?> startTrained = default, Option<List<UpgradeTooltipSection>?> tooltipSections = default, Option<long?> updateTime = default, Option<List<RawAbilityUpgrade>?> upgrades = default, Option<RawItemWeaponInfoInner?> weaponInfo = default)
+        public Upgrade(AbilityActivation activation, string className, long id, bool isActiveItem, ItemSlotType itemSlotType, int itemTier, string name, bool shopable, Option<List<string>?> componentItems = default, Option<CorruptedItemInfo?> corruptedInfo = default, Option<long?> cost = default, Option<UpgradeDescription?> description = default, Option<string?> disableItemTarget = default, Option<bool?> disabled = default, Option<List<string>?> disabledShopFilters = default, Option<long?> hero = default, Option<List<long>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<AbilityImbue?> imbue = default, Option<Dictionary<string, UpgradeProperty>?> properties = default, Option<List<string>?> shopFilters = default, Option<string?> shopImage = default, Option<string?> shopImageSmall = default, Option<string?> shopImageSmallWebp = default, Option<string?> shopImageWebp = default, Option<long?> shopVersion = default, Option<bool?> startTrained = default, Option<List<UpgradeTooltipSection>?> tooltipSections = default, Option<long?> updateTime = default, Option<List<RawAbilityUpgrade>?> upgrades = default, Option<RawItemWeaponInfoInner?> weaponInfo = default)
         {
             Activation = activation;
             ClassName = className;
@@ -140,7 +140,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Id
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or Sets IsActiveItem
@@ -198,13 +198,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> CostOption { get; private set; }
+        public Option<long?> CostOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Cost
         /// </summary>
         [JsonPropertyName("cost")]
-        public int? Cost { get { return this.CostOption.Value; } set { this.CostOption = new(value); } }
+        public long? Cost { get { return this.CostOption.Value; } set { this.CostOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Description
@@ -264,26 +264,26 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> HeroOption { get; private set; }
+        public Option<long?> HeroOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Hero
         /// </summary>
         [JsonPropertyName("hero")]
-        public int? Hero { get { return this.HeroOption.Value; } set { this.HeroOption = new(value); } }
+        public long? Hero { get { return this.HeroOption.Value; } set { this.HeroOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Heroes
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<List<int>?> HeroesOption { get; private set; }
+        public Option<List<long>?> HeroesOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Heroes
         /// </summary>
         [JsonPropertyName("heroes")]
-        public List<int>? Heroes { get { return this.HeroesOption.Value; } set { this.HeroesOption = new(value); } }
+        public List<long>? Heroes { get { return this.HeroesOption.Value; } set { this.HeroesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Image
@@ -519,10 +519,22 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (int) minimum
-            if (this.Id < (int)0)
+            // Id (long) maximum
+            if (this.Id > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value less than or equal to 4294967295.", new [] { "Id" });
+            }
+
+            // Id (long) minimum
+            if (this.Id < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 0.", new [] { "Id" });
+            }
+
+            // ItemTier (int) maximum
+            if (this.ItemTier > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ItemTier, must be a value less than or equal to 255.", new [] { "ItemTier" });
             }
 
             // ItemTier (int) minimum
@@ -531,14 +543,26 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ItemTier, must be a value greater than or equal to 0.", new [] { "ItemTier" });
             }
 
-            // Cost (int) minimum
-            if (this.CostOption.IsSet && this.CostOption.Value < (int)0)
+            // Cost (long) maximum
+            if (this.CostOption.IsSet && this.CostOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Cost, must be a value less than or equal to 4294967295.", new [] { "Cost" });
+            }
+
+            // Cost (long) minimum
+            if (this.CostOption.IsSet && this.CostOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Cost, must be a value greater than or equal to 0.", new [] { "Cost" });
             }
 
-            // Hero (int) minimum
-            if (this.HeroOption.IsSet && this.HeroOption.Value < (int)0)
+            // Hero (long) maximum
+            if (this.HeroOption.IsSet && this.HeroOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hero, must be a value less than or equal to 4294967295.", new [] { "Hero" });
+            }
+
+            // Hero (long) minimum
+            if (this.HeroOption.IsSet && this.HeroOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hero, must be a value greater than or equal to 0.", new [] { "Hero" });
             }
@@ -581,7 +605,7 @@ namespace DeadlockApiClient.Model
 
             Option<AbilityActivation?> activation = default;
             Option<string?> className = default;
-            Option<int?> id = default;
+            Option<long?> id = default;
             Option<bool?> isActiveItem = default;
             Option<ItemSlotType?> itemSlotType = default;
             Option<int?> itemTier = default;
@@ -589,13 +613,13 @@ namespace DeadlockApiClient.Model
             Option<bool?> shopable = default;
             Option<List<string>?> componentItems = default;
             Option<CorruptedItemInfo?> corruptedInfo = default;
-            Option<int?> cost = default;
+            Option<long?> cost = default;
             Option<UpgradeDescription?> description = default;
             Option<string?> disableItemTarget = default;
             Option<bool?> disabled = default;
             Option<List<string>?> disabledShopFilters = default;
-            Option<int?> hero = default;
-            Option<List<int>?> heroes = default;
+            Option<long?> hero = default;
+            Option<List<long>?> heroes = default;
             Option<string?> image = default;
             Option<string?> imageWebp = default;
             Option<AbilityImbue?> imbue = default;
@@ -634,7 +658,7 @@ namespace DeadlockApiClient.Model
                             className = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "id":
-                            id = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            id = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "is_active_item":
                             isActiveItem = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -658,7 +682,7 @@ namespace DeadlockApiClient.Model
                             corruptedInfo = new Option<CorruptedItemInfo?>(JsonSerializer.Deserialize<CorruptedItemInfo>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "cost":
-                            cost = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            cost = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "description":
                             description = new Option<UpgradeDescription?>(JsonSerializer.Deserialize<UpgradeDescription>(ref utf8JsonReader, jsonSerializerOptions));
@@ -673,10 +697,10 @@ namespace DeadlockApiClient.Model
                             disabledShopFilters = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "hero":
-                            hero = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            hero = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "heroes":
-                            heroes = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions));
+                            heroes = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "image":
                             image = new Option<string?>(utf8JsonReader.GetString());

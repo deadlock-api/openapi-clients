@@ -106,7 +106,7 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'account_id' => 'int32',
+        'account_id' => 'int64',
         'accuracy' => 'double',
         'assists' => 'int64',
         'assists_per_min' => 'double',
@@ -127,7 +127,7 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'kills' => 'int64',
         'kills_per_min' => 'double',
         'last_hits_per_min' => 'double',
-        'last_played' => 'int32',
+        'last_played' => 'int64',
         'matches' => 'int64',
         'matches_played' => 'int64',
         'mvp_rank_counts' => 'int64',
@@ -543,6 +543,10 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
         }
+        if (($this->container['account_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'account_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['account_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'account_id', must be bigger than or equal to 0.";
         }
@@ -603,6 +607,10 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['hero_id'] === null) {
             $invalidProperties[] = "'hero_id' can't be null";
         }
+        if (($this->container['hero_id'] > 255)) {
+            $invalidProperties[] = "invalid value for 'hero_id', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['hero_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero_id', must be bigger than or equal to 0.";
         }
@@ -623,6 +631,10 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['last_played'] === null) {
             $invalidProperties[] = "'last_played' can't be null";
         }
+        if (($this->container['last_played'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'last_played', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['last_played'] < 0)) {
             $invalidProperties[] = "invalid value for 'last_played', must be bigger than or equal to 0.";
         }
@@ -755,6 +767,9 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($account_id)) {
             throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+        }
+        if (($account_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $account_id when calling HeroStats., must be smaller than or equal to 4294967295.');
         }
         if (($account_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $account_id when calling HeroStats., must be bigger than or equal to 0.');
@@ -1234,6 +1249,9 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($hero_id)) {
             throw new \InvalidArgumentException('non-nullable hero_id cannot be null');
         }
+        if (($hero_id > 255)) {
+            throw new \InvalidArgumentException('invalid value for $hero_id when calling HeroStats., must be smaller than or equal to 255.');
+        }
         if (($hero_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero_id when calling HeroStats., must be bigger than or equal to 0.');
         }
@@ -1349,6 +1367,9 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($last_played)) {
             throw new \InvalidArgumentException('non-nullable last_played cannot be null');
+        }
+        if (($last_played > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $last_played when calling HeroStats., must be smaller than or equal to 4294967295.');
         }
         if (($last_played < 0)) {
             throw new \InvalidArgumentException('invalid value for $last_played when calling HeroStats., must be bigger than or equal to 0.');

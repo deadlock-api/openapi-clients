@@ -39,7 +39,7 @@ data class BadgeDistribution (
 
     /* The badge level (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "badge_level")
-    val badgeLevel: kotlin.Int,
+    val badgeLevel: kotlin.Long,
 
     /* The total number of matches. */
     @Json(name = "total_matches")

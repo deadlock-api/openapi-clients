@@ -77,7 +77,7 @@ func Test_deadlock_api_client_InternalAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var accountId int32
+		var accountId int64
 
 		resp, httpRes, err := apiClient.InternalAPI.IngestStatus(context.Background(), accountId).Execute()
 

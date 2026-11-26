@@ -57,7 +57,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task GetGenericDataAsyncTest()
         {
             Client.Option<string?> language = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetGenericDataAsync(language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.GenericData>(model);

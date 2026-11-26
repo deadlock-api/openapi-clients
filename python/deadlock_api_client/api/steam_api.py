@@ -338,8 +338,8 @@ class SteamApi:
         self,
         search_query: Annotated[StrictStr, Field(description="Search query for Steam profiles.")],
         limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Maximum number of profiles to return.")] = None,
-        min_matches_played_last_30d: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.")] = None,
-        min_last_team_avg_badge: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.")] = None,
+        min_matches_played_last_30d: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.")] = None,
+        min_last_team_avg_badge: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.")] = None,
         matches_played_weight: Annotated[Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]], Field(description="Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.")] = None,
         _request_timeout: Union[
             None,
@@ -424,8 +424,8 @@ class SteamApi:
         self,
         search_query: Annotated[StrictStr, Field(description="Search query for Steam profiles.")],
         limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Maximum number of profiles to return.")] = None,
-        min_matches_played_last_30d: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.")] = None,
-        min_last_team_avg_badge: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.")] = None,
+        min_matches_played_last_30d: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.")] = None,
+        min_last_team_avg_badge: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.")] = None,
         matches_played_weight: Annotated[Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]], Field(description="Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.")] = None,
         _request_timeout: Union[
             None,
@@ -510,8 +510,8 @@ class SteamApi:
         self,
         search_query: Annotated[StrictStr, Field(description="Search query for Steam profiles.")],
         limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Maximum number of profiles to return.")] = None,
-        min_matches_played_last_30d: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.")] = None,
-        min_last_team_avg_badge: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.")] = None,
+        min_matches_played_last_30d: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.")] = None,
+        min_last_team_avg_badge: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Only return profiles whose `last_team_avg_badge` is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.")] = None,
         matches_played_weight: Annotated[Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]], Field(description="Weight applied to `log1p(matches_played_last_30d)` when reranking candidates. The final score per profile is `jaro_winkler(personaname_lc, query) + weight * log1p(matches_played)`. Set to 0 to rank purely by string similarity; raise it to bias toward active/popular players.")] = None,
         _request_timeout: Union[
             None,

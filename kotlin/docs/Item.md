@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **className** | **kotlin.String** |  |  |
 | **description** | [**UpgradeDescription**](UpgradeDescription.md) |  |  |
-| **id** | **kotlin.Int** |  |  |
+| **id** | **kotlin.Long** |  |  |
 | **name** | **kotlin.String** |  |  |
 | **type** | [**inline**](#Type) |  |  |
 | **activation** | [**AbilityActivation**](AbilityActivation.md) |  |  |
@@ -20,8 +20,8 @@
 | **dependantAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, DependantAbilities&gt;**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. |  [optional] |
 | **grantAmmoOnCast** | **kotlin.Boolean** |  |  [optional] |
-| **hero** | **kotlin.Int** |  |  [optional] |
-| **heroes** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  [optional] |
+| **hero** | **kotlin.Long** |  |  [optional] |
+| **heroes** | **kotlin.collections.List&lt;kotlin.Long&gt;** |  |  [optional] |
 | **image** | **kotlin.String** |  |  [optional] |
 | **imageWebp** | **kotlin.String** |  |  [optional] |
 | **properties** | [**kotlin.collections.Map&lt;kotlin.String, UpgradeProperty&gt;**](UpgradeProperty.md) |  |  [optional] |
@@ -36,7 +36,7 @@
 | **useCustomCrosshairSettings** | **kotlin.Boolean** |  |  [optional] |
 | **componentItems** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **corruptedInfo** | [**CorruptedItemInfo**](CorruptedItemInfo.md) | Present on upgrades the Broker can corrupt (build 6711+). |  [optional] |
-| **cost** | **kotlin.Int** |  |  [optional] |
+| **cost** | **kotlin.Long** |  |  [optional] |
 | **disableItemTarget** | **kotlin.String** |  |  [optional] |
 | **disabled** | **kotlin.Boolean** |  |  [optional] |
 | **disabledShopFilters** | **kotlin.collections.List&lt;kotlin.String&gt;** | Shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names) this item is hidden from even though its stats would match them. |  [optional] |

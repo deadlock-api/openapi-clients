@@ -79,13 +79,13 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'account_id' => 'int32',
+        'account_id' => 'int64',
         'avatar' => null,
         'avatarfull' => null,
         'avatarmedium' => null,
         'countrycode' => null,
         'friends' => null,
-        'last_team_avg_badge' => 'int32',
+        'last_team_avg_badge' => 'int64',
         'last_updated' => 'date-time',
         'matches_played_last_30d' => 'int64',
         'personaname' => null,
@@ -354,6 +354,10 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
         }
+        if (($this->container['account_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'account_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['account_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'account_id', must be bigger than or equal to 0.";
         }
@@ -370,6 +374,10 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['friends'] === null) {
             $invalidProperties[] = "'friends' can't be null";
         }
+        if (!is_null($this->container['last_team_avg_badge']) && ($this->container['last_team_avg_badge'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'last_team_avg_badge', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['last_team_avg_badge']) && ($this->container['last_team_avg_badge'] < 0)) {
             $invalidProperties[] = "invalid value for 'last_team_avg_badge', must be bigger than or equal to 0.";
         }
@@ -426,6 +434,9 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($account_id)) {
             throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+        }
+        if (($account_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $account_id when calling SteamProfile., must be smaller than or equal to 4294967295.');
         }
         if (($account_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $account_id when calling SteamProfile., must be bigger than or equal to 0.');
@@ -606,6 +617,9 @@ class SteamProfile implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($last_team_avg_badge) && ($last_team_avg_badge > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $last_team_avg_badge when calling SteamProfile., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($last_team_avg_badge) && ($last_team_avg_badge < 0)) {
             throw new \InvalidArgumentException('invalid value for $last_team_avg_badge when calling SteamProfile., must be bigger than or equal to 0.');

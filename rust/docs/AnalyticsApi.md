@@ -47,12 +47,12 @@ Name | Type | Description  | Required | Notes
 **hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_ability_upgrades** | Option<**u64**> | Filter players based on their minimum number of ability upgrades over the whole match. |  |
-**max_ability_upgrades** | Option<**u64**> | Filter players based on their maximum number of ability upgrades over the whole match. |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_ability_upgrades** | Option<**u32**> | Filter players based on their minimum number of ability upgrades over the whole match. |  |
+**max_ability_upgrades** | Option<**u32**> | Filter players based on their maximum number of ability upgrades over the whole match. |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -99,12 +99,12 @@ Name | Type | Description  | Required | Notes
 **hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_ability_upgrades** | Option<**u64**> | Filter players based on their minimum number of ability upgrades over the whole match. |  |
-**max_ability_upgrades** | Option<**u64**> | Filter players based on their maximum number of ability upgrades over the whole match. |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_ability_upgrades** | Option<**u32**> | Filter players based on their minimum number of ability upgrades over the whole match. |  |
+**max_ability_upgrades** | Option<**u32**> | Filter players based on their maximum number of ability upgrades over the whole match. |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -151,12 +151,12 @@ Name | Type | Description  | Required | Notes
 **hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**min_ability_upgrades** | Option<**u64**> | Filter players based on their minimum number of ability upgrades over the whole match. |  |
-**max_ability_upgrades** | Option<**u64**> | Filter players based on their maximum number of ability upgrades over the whole match. |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_ability_upgrades** | Option<**u32**> | Filter players based on their minimum number of ability upgrades over the whole match. |  |
+**max_ability_upgrades** | Option<**u32**> | Filter players based on their maximum number of ability upgrades over the whole match. |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -202,10 +202,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **is_high_skill_range_parties** | Option<**bool**> | Filter matches based on whether they are in the high skill range. |  |
 **is_low_pri_pool** | Option<**bool**> | Filter matches based on whether they are in the low priority pool. |  |
 **is_new_player_pool** | Option<**bool**> | Filter matches based on whether they are in the new player pool. |  |
@@ -242,10 +242,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
@@ -284,7 +284,7 @@ Build Item Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_id** | Option<**u32**> | Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
-**min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). |  |
 
 ### Return type
@@ -318,10 +318,10 @@ Name | Type | Description  | Required | Notes
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`). |  |
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`). |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
@@ -365,10 +365,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
@@ -405,10 +405,10 @@ Name | Type | Description  | Required | Notes
 **hero_id** | **u32** | The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
@@ -452,10 +452,10 @@ Name | Type | Description  | Required | Notes
 **hero_ids** | Option<**String**> | Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
@@ -498,10 +498,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -548,10 +548,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_enemy_networth** | Option<**u64**> | Filter enemy players based on their net worth. |  |
@@ -600,10 +600,10 @@ Name | Type | Description  | Required | Notes
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **min_matches** | Option<**u32**> | Filter by min number of matches played. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -644,10 +644,10 @@ Name | Type | Description  | Required | Notes
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute. |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute. |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -696,10 +696,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
@@ -735,10 +735,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -784,10 +784,10 @@ Name | Type | Description  | Required | Notes
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -839,10 +839,10 @@ Name | Type | Description  | Required | Notes
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **hero_id** | Option<**u32**> | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -893,10 +893,10 @@ Name | Type | Description  | Required | Notes
 **min_enemy_networth** | Option<**u64**> | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. |  |
 **max_enemy_networth** | Option<**u64**> | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. |  |
 **same_lane_filter** | Option<**bool**> | When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -950,10 +950,10 @@ Name | Type | Description  | Required | Notes
 **team** | Option<**u32**> | Filter by team number. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Filter matches by account IDs of players that participated in the match. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
@@ -1002,10 +1002,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
@@ -1050,10 +1050,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **max_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
@@ -1100,10 +1100,10 @@ Name | Type | Description  | Required | Notes
 **resolution** | Option<**u32**> | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). |  |[default to 10]
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -1156,8 +1156,8 @@ Name | Type | Description  | Required | Notes
 **max_matches** | Option<**u32**> | The maximum number of matches played for a player to be included in the scoreboard. |  |
 **min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |
@@ -1200,10 +1200,10 @@ Name | Type | Description  | Required | Notes
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1792972800]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1793059200]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
-**min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
-**max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**min_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
+**max_duration_s** | Option<**u32**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **min_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **max_networth** | Option<**u64**> | Filter players based on their final net worth. |  |
 **min_average_badge** | Option<**u32**> | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> |  |

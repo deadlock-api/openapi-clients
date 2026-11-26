@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassName** | **string** |  | 
 **Description** | [**AbilityDescription**](AbilityDescription.md) |  | 
-**Id** | **int** |  | 
+**Id** | **long** |  | 
 **Name** | **string** |  | 
 **Type** | **string** |  | 
 **AbilityType** | **AbilityType** |  | [optional] 
@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **DependantAbilities** | **List&lt;string&gt;** |  | [optional] 
 **DependentAbilities** | [**Dictionary&lt;string, DependantAbilities&gt;**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. | [optional] 
 **GrantAmmoOnCast** | **bool** |  | [optional] 
-**Hero** | **int** |  | [optional] 
-**Heroes** | **List&lt;int&gt;** |  | [optional] 
+**Hero** | **long** |  | [optional] 
+**Heroes** | **List&lt;long&gt;** |  | [optional] 
 **Image** | **string** |  | [optional] 
 **ImageWebp** | **string** |  | [optional] 
 **Properties** | [**Dictionary&lt;string, ItemProperty&gt;**](ItemProperty.md) |  | [optional] 

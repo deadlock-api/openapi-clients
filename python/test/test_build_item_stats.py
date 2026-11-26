@@ -36,12 +36,12 @@ class TestBuildItemStats(unittest.TestCase):
         if include_optional:
             return BuildItemStats(
                 builds = 56,
-                item_id = 56
+                item_id = 0
             )
         else:
             return BuildItemStats(
                 builds = 56,
-                item_id = 56,
+                item_id = 0,
         )
         """
 

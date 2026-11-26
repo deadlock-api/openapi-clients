@@ -25,7 +25,7 @@ Returns a single misc entity by numeric id or by &#x60;class_name&#x60; (case-in
 val apiInstance = MiscEntitiesApi()
 val idOrClassname : kotlin.String = idOrClassname_example // kotlin.String | Misc entity id (`murmurhash2(class_name)`) or `class_name`
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : MiscEntity = apiInstance.getMiscEntity(idOrClassname, language, clientVersion)
     println(result)
@@ -43,7 +43,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **idOrClassname** | **kotlin.String**| Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; | |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 
@@ -74,7 +74,7 @@ Returns the per-misc-entity metadata used by the game client, parsed from the pa
 
 val apiInstance = MiscEntitiesApi()
 val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
-val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
     val result : kotlin.collections.List<MiscEntity> = apiInstance.listMiscEntities(language, clientVersion)
     println(result)
@@ -91,7 +91,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
-| **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
+| **clientVersion** | **kotlin.Long**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
 

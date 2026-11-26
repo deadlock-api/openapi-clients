@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.match_player import MatchPlayer
@@ -29,15 +29,15 @@ class ClickhouseMatchInfo(BaseModel):
     """
     ClickhouseMatchInfo
     """ # noqa: E501
-    average_badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
-    average_badge_team0: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
-    average_badge_team1: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
-    duration_s: Annotated[int, Field(strict=True, ge=0)]
-    game_mode: StrictInt
+    average_badge: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    average_badge_team0: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    average_badge_team1: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    duration_s: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
+    game_mode: Annotated[int, Field(le=127, strict=True, ge=-128)]
     match_id: Annotated[int, Field(strict=True, ge=0)]
-    match_mode: StrictInt
+    match_mode: Annotated[int, Field(le=127, strict=True, ge=-128)]
     players: List[MatchPlayer]
-    start_time: Annotated[int, Field(strict=True, ge=0)]
+    start_time: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     __properties: ClassVar[List[str]] = ["average_badge", "average_badge_team0", "average_badge_team1", "duration_s", "game_mode", "match_id", "match_mode", "players", "start_time"]
 
     model_config = ConfigDict(

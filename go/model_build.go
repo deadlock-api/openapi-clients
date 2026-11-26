@@ -22,11 +22,11 @@ var _ MappedNullable = &Build{}
 // Build struct for Build
 type Build struct {
 	HeroBuild BuildHero `json:"hero_build"`
-	NumFavorites NullableInt32 `json:"num_favorites,omitempty"`
-	NumIgnores NullableInt32 `json:"num_ignores,omitempty"`
-	NumReports NullableInt32 `json:"num_reports,omitempty"`
-	NumWeeklyFavorites NullableInt32 `json:"num_weekly_favorites,omitempty"`
-	RollupCategory NullableInt32 `json:"rollup_category,omitempty"`
+	NumFavorites NullableInt64 `json:"num_favorites,omitempty"`
+	NumIgnores NullableInt64 `json:"num_ignores,omitempty"`
+	NumReports NullableInt64 `json:"num_reports,omitempty"`
+	NumWeeklyFavorites NullableInt64 `json:"num_weekly_favorites,omitempty"`
+	RollupCategory NullableInt64 `json:"rollup_category,omitempty"`
 }
 
 type _Build Build
@@ -74,9 +74,9 @@ func (o *Build) SetHeroBuild(v BuildHero) {
 }
 
 // GetNumFavorites returns the NumFavorites field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Build) GetNumFavorites() int32 {
+func (o *Build) GetNumFavorites() int64 {
 	if o == nil || IsNil(o.NumFavorites.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NumFavorites.Get()
@@ -85,7 +85,7 @@ func (o *Build) GetNumFavorites() int32 {
 // GetNumFavoritesOk returns a tuple with the NumFavorites field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Build) GetNumFavoritesOk() (*int32, bool) {
+func (o *Build) GetNumFavoritesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *Build) HasNumFavorites() bool {
 	return false
 }
 
-// SetNumFavorites gets a reference to the given NullableInt32 and assigns it to the NumFavorites field.
-func (o *Build) SetNumFavorites(v int32) {
+// SetNumFavorites gets a reference to the given NullableInt64 and assigns it to the NumFavorites field.
+func (o *Build) SetNumFavorites(v int64) {
 	o.NumFavorites.Set(&v)
 }
 // SetNumFavoritesNil sets the value for NumFavorites to be an explicit nil
@@ -116,9 +116,9 @@ func (o *Build) UnsetNumFavorites() {
 }
 
 // GetNumIgnores returns the NumIgnores field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Build) GetNumIgnores() int32 {
+func (o *Build) GetNumIgnores() int64 {
 	if o == nil || IsNil(o.NumIgnores.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NumIgnores.Get()
@@ -127,7 +127,7 @@ func (o *Build) GetNumIgnores() int32 {
 // GetNumIgnoresOk returns a tuple with the NumIgnores field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Build) GetNumIgnoresOk() (*int32, bool) {
+func (o *Build) GetNumIgnoresOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,8 +143,8 @@ func (o *Build) HasNumIgnores() bool {
 	return false
 }
 
-// SetNumIgnores gets a reference to the given NullableInt32 and assigns it to the NumIgnores field.
-func (o *Build) SetNumIgnores(v int32) {
+// SetNumIgnores gets a reference to the given NullableInt64 and assigns it to the NumIgnores field.
+func (o *Build) SetNumIgnores(v int64) {
 	o.NumIgnores.Set(&v)
 }
 // SetNumIgnoresNil sets the value for NumIgnores to be an explicit nil
@@ -158,9 +158,9 @@ func (o *Build) UnsetNumIgnores() {
 }
 
 // GetNumReports returns the NumReports field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Build) GetNumReports() int32 {
+func (o *Build) GetNumReports() int64 {
 	if o == nil || IsNil(o.NumReports.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NumReports.Get()
@@ -169,7 +169,7 @@ func (o *Build) GetNumReports() int32 {
 // GetNumReportsOk returns a tuple with the NumReports field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Build) GetNumReportsOk() (*int32, bool) {
+func (o *Build) GetNumReportsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -185,8 +185,8 @@ func (o *Build) HasNumReports() bool {
 	return false
 }
 
-// SetNumReports gets a reference to the given NullableInt32 and assigns it to the NumReports field.
-func (o *Build) SetNumReports(v int32) {
+// SetNumReports gets a reference to the given NullableInt64 and assigns it to the NumReports field.
+func (o *Build) SetNumReports(v int64) {
 	o.NumReports.Set(&v)
 }
 // SetNumReportsNil sets the value for NumReports to be an explicit nil
@@ -200,9 +200,9 @@ func (o *Build) UnsetNumReports() {
 }
 
 // GetNumWeeklyFavorites returns the NumWeeklyFavorites field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Build) GetNumWeeklyFavorites() int32 {
+func (o *Build) GetNumWeeklyFavorites() int64 {
 	if o == nil || IsNil(o.NumWeeklyFavorites.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NumWeeklyFavorites.Get()
@@ -211,7 +211,7 @@ func (o *Build) GetNumWeeklyFavorites() int32 {
 // GetNumWeeklyFavoritesOk returns a tuple with the NumWeeklyFavorites field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Build) GetNumWeeklyFavoritesOk() (*int32, bool) {
+func (o *Build) GetNumWeeklyFavoritesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -227,8 +227,8 @@ func (o *Build) HasNumWeeklyFavorites() bool {
 	return false
 }
 
-// SetNumWeeklyFavorites gets a reference to the given NullableInt32 and assigns it to the NumWeeklyFavorites field.
-func (o *Build) SetNumWeeklyFavorites(v int32) {
+// SetNumWeeklyFavorites gets a reference to the given NullableInt64 and assigns it to the NumWeeklyFavorites field.
+func (o *Build) SetNumWeeklyFavorites(v int64) {
 	o.NumWeeklyFavorites.Set(&v)
 }
 // SetNumWeeklyFavoritesNil sets the value for NumWeeklyFavorites to be an explicit nil
@@ -242,9 +242,9 @@ func (o *Build) UnsetNumWeeklyFavorites() {
 }
 
 // GetRollupCategory returns the RollupCategory field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Build) GetRollupCategory() int32 {
+func (o *Build) GetRollupCategory() int64 {
 	if o == nil || IsNil(o.RollupCategory.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RollupCategory.Get()
@@ -253,7 +253,7 @@ func (o *Build) GetRollupCategory() int32 {
 // GetRollupCategoryOk returns a tuple with the RollupCategory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Build) GetRollupCategoryOk() (*int32, bool) {
+func (o *Build) GetRollupCategoryOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -269,8 +269,8 @@ func (o *Build) HasRollupCategory() bool {
 	return false
 }
 
-// SetRollupCategory gets a reference to the given NullableInt32 and assigns it to the RollupCategory field.
-func (o *Build) SetRollupCategory(v int32) {
+// SetRollupCategory gets a reference to the given NullableInt64 and assigns it to the RollupCategory field.
+func (o *Build) SetRollupCategory(v int64) {
 	o.RollupCategory.Set(&v)
 }
 // SetRollupCategoryNil sets the value for RollupCategory to be an explicit nil

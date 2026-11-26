@@ -28,10 +28,10 @@ class RankDistributionEntry(BaseModel):
     """
     RankDistributionEntry
     """ # noqa: E501
-    badge: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank badge, `tier * 10 + subrank`. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    badge: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="Rank badge, `tier * 10 + subrank`. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     players: Annotated[int, Field(strict=True, ge=0)] = Field(description="Number of players whose rank at the end of their latest ranked match in the filtered range is this badge.")
-    rank: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank tier.")
-    subrank: Annotated[int, Field(strict=True, ge=0)] = Field(description="Sub-rank within the tier.")
+    rank: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="Rank tier.")
+    subrank: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="Sub-rank within the tier.")
     __properties: ClassVar[List[str]] = ["badge", "players", "rank", "subrank"]
 
     model_config = ConfigDict(

@@ -28,7 +28,7 @@ class HeroStats(BaseModel):
     """
     HeroStats
     """ # noqa: E501
-    account_id: Annotated[int, Field(strict=True, ge=0)]
+    account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     accuracy: Union[StrictFloat, StrictInt]
     assists: Annotated[int, Field(strict=True, ge=0)]
     assists_per_min: Union[StrictFloat, StrictInt]
@@ -45,11 +45,11 @@ class HeroStats(BaseModel):
     denies_per_match: Union[StrictFloat, StrictInt]
     denies_per_min: Union[StrictFloat, StrictInt]
     ending_level: Union[StrictFloat, StrictInt]
-    hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    hero_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     kills: Annotated[int, Field(strict=True, ge=0)]
     kills_per_min: Union[StrictFloat, StrictInt]
     last_hits_per_min: Union[StrictFloat, StrictInt]
-    last_played: Annotated[int, Field(strict=True, ge=0)]
+    last_played: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     matches: List[Annotated[int, Field(strict=True, ge=0)]]
     matches_played: Annotated[int, Field(strict=True, ge=0)]
     mvp_rank_counts: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.")

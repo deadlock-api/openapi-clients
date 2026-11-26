@@ -119,9 +119,9 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'dependent_abilities' => null,
         'description' => null,
         'grant_ammo_on_cast' => null,
-        'hero' => 'int32',
-        'heroes' => 'int32',
-        'id' => 'int32',
+        'hero' => 'int64',
+        'heroes' => 'int64',
+        'id' => 'int64',
         'image' => null,
         'image_webp' => null,
         'name' => null,
@@ -139,7 +139,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'activation' => null,
         'component_items' => null,
         'corrupted_info' => null,
-        'cost' => 'int32',
+        'cost' => 'int64',
         'disable_item_target' => null,
         'disabled' => null,
         'disabled_shop_filters' => null,
@@ -598,6 +598,10 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['description'] === null && !$this->isNullableSetToNull('description')) {
             $invalidProperties[] = "'description' is required";
         }
+        if (!is_null($this->container['hero']) && ($this->container['hero'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'hero', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['hero']) && ($this->container['hero'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero', must be bigger than or equal to 0.";
         }
@@ -605,6 +609,10 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if (($this->container['id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['id'] < 0)) {
             $invalidProperties[] = "invalid value for 'id', must be bigger than or equal to 0.";
         }
@@ -627,6 +635,10 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['activation'] === null) {
             $invalidProperties[] = "'activation' can't be null";
         }
+        if (!is_null($this->container['cost']) && ($this->container['cost'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'cost', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['cost']) && ($this->container['cost'] < 0)) {
             $invalidProperties[] = "invalid value for 'cost', must be bigger than or equal to 0.";
         }
@@ -640,6 +652,10 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['item_tier'] === null) {
             $invalidProperties[] = "'item_tier' can't be null";
         }
+        if (($this->container['item_tier'] > 255)) {
+            $invalidProperties[] = "invalid value for 'item_tier', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['item_tier'] < 0)) {
             $invalidProperties[] = "invalid value for 'item_tier', must be bigger than or equal to 0.";
         }
@@ -956,6 +972,9 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($hero) && ($hero > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $hero when calling Item., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($hero) && ($hero < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero when calling Item., must be bigger than or equal to 0.');
         }
@@ -1020,6 +1039,9 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        if (($id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $id when calling Item., must be smaller than or equal to 4294967295.');
         }
         if (($id < 0)) {
             throw new \InvalidArgumentException('invalid value for $id when calling Item., must be bigger than or equal to 0.');
@@ -1626,6 +1648,9 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($cost) && ($cost > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $cost when calling Item., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($cost) && ($cost < 0)) {
             throw new \InvalidArgumentException('invalid value for $cost when calling Item., must be bigger than or equal to 0.');
         }
@@ -1846,6 +1871,9 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($item_tier)) {
             throw new \InvalidArgumentException('non-nullable item_tier cannot be null');
+        }
+        if (($item_tier > 255)) {
+            throw new \InvalidArgumentException('invalid value for $item_tier when calling Item., must be smaller than or equal to 255.');
         }
         if (($item_tier < 0)) {
             throw new \InvalidArgumentException('invalid value for $item_tier when calling Item., must be bigger than or equal to 0.');

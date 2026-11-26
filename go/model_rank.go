@@ -24,7 +24,7 @@ type Rank struct {
 	Color string `json:"color"`
 	Images RankImages `json:"images"`
 	Name string `json:"name"`
-	Tier int32 `json:"tier"`
+	Tier int64 `json:"tier"`
 }
 
 type _Rank Rank
@@ -33,7 +33,7 @@ type _Rank Rank
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRank(color string, images RankImages, name string, tier int32) *Rank {
+func NewRank(color string, images RankImages, name string, tier int64) *Rank {
 	this := Rank{}
 	this.Color = color
 	this.Images = images
@@ -123,9 +123,9 @@ func (o *Rank) SetName(v string) {
 }
 
 // GetTier returns the Tier field value
-func (o *Rank) GetTier() int32 {
+func (o *Rank) GetTier() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -134,7 +134,7 @@ func (o *Rank) GetTier() int32 {
 
 // GetTierOk returns a tuple with the Tier field value
 // and a boolean to check if the value has been set.
-func (o *Rank) GetTierOk() (*int32, bool) {
+func (o *Rank) GetTierOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -142,7 +142,7 @@ func (o *Rank) GetTierOk() (*int32, bool) {
 }
 
 // SetTier sets field value
-func (o *Rank) SetTier(v int32) {
+func (o *Rank) SetTier(v int64) {
 	o.Tier = v
 }
 

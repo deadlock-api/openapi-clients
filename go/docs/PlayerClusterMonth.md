@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClusterId** | **int32** | The server cluster the matches were played on. | 
+**ClusterId** | **int64** | The server cluster the matches were played on. | 
 **Datacenter** | Pointer to **NullableString** | Datacenter(s) of the cluster&#39;s servers, e.g. &#x60;fra2&#x60;; comma-separated if the cluster spans several. &#x60;null&#x60; if the cluster has not been seen in a replay yet. | [optional] 
 **Matches** | **int64** | Number of the player&#39;s matches on this cluster in this month. | 
-**Month** | **int32** | Unix timestamp of the first day of the month (UTC). | 
+**Month** | **int64** | Unix timestamp of the first day of the month (UTC). | 
 **Region** | Pointer to **NullableString** | Region of the cluster&#39;s servers, e.g. &#x60;eu_west&#x60; or &#x60;us_north_central&#x60;. &#x60;null&#x60; if the cluster has not been seen in a replay yet. | [optional] 
 
 ## Methods
 
 ### NewPlayerClusterMonth
 
-`func NewPlayerClusterMonth(clusterId int32, matches int64, month int32, ) *PlayerClusterMonth`
+`func NewPlayerClusterMonth(clusterId int64, matches int64, month int64, ) *PlayerClusterMonth`
 
 NewPlayerClusterMonth instantiates a new PlayerClusterMonth object
 This constructor will assign default values to properties that have it defined,
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetClusterId
 
-`func (o *PlayerClusterMonth) GetClusterId() int32`
+`func (o *PlayerClusterMonth) GetClusterId() int64`
 
 GetClusterId returns the ClusterId field if non-nil, zero value otherwise.
 
 ### GetClusterIdOk
 
-`func (o *PlayerClusterMonth) GetClusterIdOk() (*int32, bool)`
+`func (o *PlayerClusterMonth) GetClusterIdOk() (*int64, bool)`
 
 GetClusterIdOk returns a tuple with the ClusterId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetClusterId
 
-`func (o *PlayerClusterMonth) SetClusterId(v int32)`
+`func (o *PlayerClusterMonth) SetClusterId(v int64)`
 
 SetClusterId sets ClusterId field to given value.
 
@@ -106,20 +106,20 @@ SetMatches sets Matches field to given value.
 
 ### GetMonth
 
-`func (o *PlayerClusterMonth) GetMonth() int32`
+`func (o *PlayerClusterMonth) GetMonth() int64`
 
 GetMonth returns the Month field if non-nil, zero value otherwise.
 
 ### GetMonthOk
 
-`func (o *PlayerClusterMonth) GetMonthOk() (*int32, bool)`
+`func (o *PlayerClusterMonth) GetMonthOk() (*int64, bool)`
 
 GetMonthOk returns a tuple with the Month field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMonth
 
-`func (o *PlayerClusterMonth) SetMonth(v int32)`
+`func (o *PlayerClusterMonth) SetMonth(v int64)`
 
 SetMonth sets Month field to given value.
 

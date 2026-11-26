@@ -56,8 +56,8 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task ActiveMatchesAsyncTest()
         {
-            Client.Option<int?> accountId = default!;
-            Client.Option<List<int>?> accountIds = default!;
+            Client.Option<long?> accountId = default!;
+            Client.Option<List<long>?> accountIds = default!;
             var response = await _instance.ActiveMatchesAsync(accountId, accountIds);
             var model = response.Ok();
             Assert.IsType<List<ActiveMatch>>(model);
@@ -95,8 +95,8 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<List<long>?> matchIds = default!;
             Client.Option<long?> minUnixTimestamp = default!;
             Client.Option<long?> maxUnixTimestamp = default!;
-            Client.Option<long?> minDurationS = default!;
-            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minDurationS = default!;
+            Client.Option<int?> maxDurationS = default!;
             Client.Option<int?> minAverageBadge = default!;
             Client.Option<int?> maxAverageBadge = default!;
             Client.Option<long?> minMatchId = default!;
@@ -104,10 +104,10 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<bool?> isHighSkillRangeParties = default!;
             Client.Option<bool?> isLowPriPool = default!;
             Client.Option<bool?> isNewPlayerPool = default!;
-            Client.Option<List<int>?> accountIds = default!;
+            Client.Option<List<long>?> accountIds = default!;
             Client.Option<bool> onlyFilteredPlayers = default!;
             Client.Option<string?> heroIds = default!;
-            Client.Option<int?> itemFilterHeroId = default!;
+            Client.Option<long?> itemFilterHeroId = default!;
             Client.Option<string?> includeItemIds = default!;
             Client.Option<string?> excludeItemIds = default!;
             Client.Option<string?> extraMatchColumns = default!;

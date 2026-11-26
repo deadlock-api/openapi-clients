@@ -8,7 +8,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="listrankedseasons"></a>
 # **ListRankedSeasons**
-> List&lt;RankedSeason&gt; ListRankedSeasons (string language = null, int clientVersion = null)
+> List&lt;RankedSeason&gt; ListRankedSeasons (string language = null, long clientVersion = null)
 
 List Ranked Seasons
 
@@ -20,7 +20,7 @@ Returns the ranked season definitions used by the game client, parsed from the p
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

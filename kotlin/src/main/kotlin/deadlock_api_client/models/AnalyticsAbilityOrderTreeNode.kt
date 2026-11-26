@@ -47,7 +47,7 @@ data class AnalyticsAbilityOrderTreeNode (
 
     /* The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one entry shorter. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "abilities")
-    val abilities: kotlin.collections.List<kotlin.Int>,
+    val abilities: kotlin.collections.List<kotlin.Long>,
 
     /* Average game time (in seconds) at which the last upgrade in `abilities` was bought. */
     @Json(name = "avg_upgrade_time_s")

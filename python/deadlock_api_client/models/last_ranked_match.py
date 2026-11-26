@@ -31,14 +31,14 @@ class LastRankedMatch(BaseModel):
     match_id: Annotated[int, Field(strict=True, ge=0)]
     player_rank_consumed_demotion_protection: Optional[StrictBool] = Field(default=None, description="Whether the match used up one of the player's demotion protection games.")
     player_rank_desired_progress_change: Optional[StrictInt] = Field(default=None, description="Progress change the match was supposed to award, before demotion protection is applied.")
-    player_rank_final_flat_progress: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Rank progress the player ended the match with.")
-    player_rank_initial_calibration_games: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Remaining placement games at the start of the match.")
-    player_rank_initial_demotion_protection_games: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Remaining demotion protection games at the start of the match.")
-    player_rank_initial_display_rank: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank badge the player entered the match with, `tier * 10 + subrank`.")
-    player_rank_initial_flat_progress: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Rank progress the player entered the match with.")
-    player_rank_initial_win_streak: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Win streak the player entered the match with.")
-    rank_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.")
-    start_time: Annotated[int, Field(strict=True, ge=0)] = Field(description="Match start time as a unix timestamp.")
+    player_rank_final_flat_progress: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Rank progress the player ended the match with.")
+    player_rank_initial_calibration_games: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Remaining placement games at the start of the match.")
+    player_rank_initial_demotion_protection_games: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Remaining demotion protection games at the start of the match.")
+    player_rank_initial_display_rank: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="Rank badge the player entered the match with, `tier * 10 + subrank`.")
+    player_rank_initial_flat_progress: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Rank progress the player entered the match with.")
+    player_rank_initial_win_streak: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Win streak the player entered the match with.")
+    rank_interval: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.")
+    start_time: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="Match start time as a unix timestamp.")
     __properties: ClassVar[List[str]] = ["match_id", "player_rank_consumed_demotion_protection", "player_rank_desired_progress_change", "player_rank_final_flat_progress", "player_rank_initial_calibration_games", "player_rank_initial_demotion_protection_games", "player_rank_initial_display_rank", "player_rank_initial_flat_progress", "player_rank_initial_win_streak", "rank_interval", "start_time"]
 
     model_config = ConfigDict(

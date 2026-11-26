@@ -284,6 +284,10 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['normal_mod_tier'] === null) {
             $invalidProperties[] = "'normal_mod_tier' can't be null";
         }
+        if (($this->container['normal_mod_tier'] > 255)) {
+            $invalidProperties[] = "invalid value for 'normal_mod_tier', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['normal_mod_tier'] < 0)) {
             $invalidProperties[] = "invalid value for 'normal_mod_tier', must be bigger than or equal to 0.";
         }
@@ -291,6 +295,10 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['rare_mod_tier'] === null) {
             $invalidProperties[] = "'rare_mod_tier' can't be null";
         }
+        if (($this->container['rare_mod_tier'] > 255)) {
+            $invalidProperties[] = "invalid value for 'rare_mod_tier', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['rare_mod_tier'] < 0)) {
             $invalidProperties[] = "invalid value for 'rare_mod_tier', must be bigger than or equal to 0.";
         }
@@ -332,6 +340,9 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($normal_mod_tier)) {
             throw new \InvalidArgumentException('non-nullable normal_mod_tier cannot be null');
         }
+        if (($normal_mod_tier > 255)) {
+            throw new \InvalidArgumentException('invalid value for $normal_mod_tier when calling ItemDraftRound., must be smaller than or equal to 255.');
+        }
         if (($normal_mod_tier < 0)) {
             throw new \InvalidArgumentException('invalid value for $normal_mod_tier when calling ItemDraftRound., must be bigger than or equal to 0.');
         }
@@ -362,6 +373,9 @@ class ItemDraftRound implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($rare_mod_tier)) {
             throw new \InvalidArgumentException('non-nullable rare_mod_tier cannot be null');
+        }
+        if (($rare_mod_tier > 255)) {
+            throw new \InvalidArgumentException('invalid value for $rare_mod_tier when calling ItemDraftRound., must be smaller than or equal to 255.');
         }
         if (($rare_mod_tier < 0)) {
             throw new \InvalidArgumentException('invalid value for $rare_mod_tier when calling ItemDraftRound., must be bigger than or equal to 0.');

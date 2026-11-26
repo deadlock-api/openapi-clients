@@ -47,7 +47,7 @@ type MiscEntity struct {
 	HeavyMeleeOnly NullableBool `json:"heavy_melee_only,omitempty"`
 	// Punchable pickups: hits needed to collect.
 	HitsRequired NullableInt64 `json:"hits_required,omitempty"`
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 	// Corrupted item shop (Broker) trigger: modifier applied while inside.
 	InShopModifier NullableSubclassModifierDefinition `json:"in_shop_modifier,omitempty"`
 	InitialSpawnDelayInSeconds NullableInt64 `json:"initial_spawn_delay_in_seconds,omitempty"`
@@ -110,7 +110,7 @@ type _MiscEntity MiscEntity
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMiscEntity(className string, id int32) *MiscEntity {
+func NewMiscEntity(className string, id int64) *MiscEntity {
 	this := MiscEntity{}
 	this.ClassName = className
 	this.Id = id
@@ -948,9 +948,9 @@ func (o *MiscEntity) UnsetHitsRequired() {
 }
 
 // GetId returns the Id field value
-func (o *MiscEntity) GetId() int32 {
+func (o *MiscEntity) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -959,7 +959,7 @@ func (o *MiscEntity) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *MiscEntity) GetIdOk() (*int32, bool) {
+func (o *MiscEntity) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -967,7 +967,7 @@ func (o *MiscEntity) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *MiscEntity) SetId(v int32) {
+func (o *MiscEntity) SetId(v int64) {
 	o.Id = v
 }
 

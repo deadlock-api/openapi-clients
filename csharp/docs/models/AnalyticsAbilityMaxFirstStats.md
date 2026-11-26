@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Matches** | **long** |  | 
 **Players** | **long** | Distinct players, counted exactly. | 
 **Wins** | **long** |  | 
-**AbilityId** | **int** | The ability these players maxed first (unlocked and upgraded three times before any other), null for the players who maxed none. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
+**AbilityId** | **long** | The ability these players maxed first (unlocked and upgraded three times before any other), null for the players who maxed none. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

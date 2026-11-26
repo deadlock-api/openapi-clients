@@ -28,10 +28,10 @@ class IngestStatusResponse(BaseModel):
     """
     IngestStatusResponse
     """ # noqa: E501
-    account_id: Annotated[int, Field(strict=True, ge=0)]
+    account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     active: StrictBool = Field(description="Whether the ingest tool uploaded a salt for this account within the window that was then verified.")
-    last_upload_at: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Unix timestamp of the most recent verified upload within the window.")
-    window_days: Annotated[int, Field(strict=True, ge=0)] = Field(description="The window, in days, an upload must fall in to count.")
+    last_upload_at: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Unix timestamp of the most recent verified upload within the window.")
+    window_days: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The window, in days, an upload must fall in to count.")
     __properties: ClassVar[List[str]] = ["account_id", "active", "last_upload_at", "window_days"]
 
     model_config = ConfigDict(

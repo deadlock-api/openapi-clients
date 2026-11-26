@@ -78,7 +78,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
         'images' => null,
         'neutral_camps' => null,
         'objective_positions' => null,
-        'radius' => 'int32',
+        'radius' => 'int64',
         'zipline_paths' => null
     ];
 
@@ -319,6 +319,10 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['radius'] === null) {
             $invalidProperties[] = "'radius' can't be null";
         }
+        if (($this->container['radius'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'radius', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['radius'] < 0)) {
             $invalidProperties[] = "invalid value for 'radius', must be bigger than or equal to 0.";
         }
@@ -484,6 +488,9 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($radius)) {
             throw new \InvalidArgumentException('non-nullable radius cannot be null');
+        }
+        if (($radius > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $radius when calling MapData., must be smaller than or equal to 4294967295.');
         }
         if (($radius < 0)) {
             throw new \InvalidArgumentException('invalid value for $radius when calling MapData., must be bigger than or equal to 0.');

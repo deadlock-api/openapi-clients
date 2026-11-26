@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **ClassName** | **string** |  | 
 **CrosshairCssClass** | Pointer to **NullableString** |  | [optional] 
 **CustomCrosshairSettings** | Pointer to [**NullableRawCustomCrosshairSettings**](RawCustomCrosshairSettings.md) |  | [optional] 
-**Hero** | Pointer to **NullableInt32** |  | [optional] 
-**Heroes** | Pointer to **[]int32** |  | [optional] 
-**Id** | **int32** |  | 
+**Hero** | Pointer to **NullableInt64** |  | [optional] 
+**Heroes** | Pointer to **[]int64** |  | [optional] 
+**Id** | **int64** |  | 
 **Image** | Pointer to **NullableString** |  | [optional] 
 **ImageWebp** | Pointer to **NullableString** |  | [optional] 
 **Name** | **string** |  | 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewWeapon
 
-`func NewWeapon(className string, id int32, name string, ) *Weapon`
+`func NewWeapon(className string, id int64, name string, ) *Weapon`
 
 NewWeapon instantiates a new Weapon object
 This constructor will assign default values to properties that have it defined,
@@ -130,20 +130,20 @@ HasCustomCrosshairSettings returns a boolean if a field has been set.
 UnsetCustomCrosshairSettings ensures that no value is present for CustomCrosshairSettings, not even an explicit nil
 ### GetHero
 
-`func (o *Weapon) GetHero() int32`
+`func (o *Weapon) GetHero() int64`
 
 GetHero returns the Hero field if non-nil, zero value otherwise.
 
 ### GetHeroOk
 
-`func (o *Weapon) GetHeroOk() (*int32, bool)`
+`func (o *Weapon) GetHeroOk() (*int64, bool)`
 
 GetHeroOk returns a tuple with the Hero field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHero
 
-`func (o *Weapon) SetHero(v int32)`
+`func (o *Weapon) SetHero(v int64)`
 
 SetHero sets Hero field to given value.
 
@@ -165,20 +165,20 @@ HasHero returns a boolean if a field has been set.
 UnsetHero ensures that no value is present for Hero, not even an explicit nil
 ### GetHeroes
 
-`func (o *Weapon) GetHeroes() []int32`
+`func (o *Weapon) GetHeroes() []int64`
 
 GetHeroes returns the Heroes field if non-nil, zero value otherwise.
 
 ### GetHeroesOk
 
-`func (o *Weapon) GetHeroesOk() (*[]int32, bool)`
+`func (o *Weapon) GetHeroesOk() (*[]int64, bool)`
 
 GetHeroesOk returns a tuple with the Heroes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroes
 
-`func (o *Weapon) SetHeroes(v []int32)`
+`func (o *Weapon) SetHeroes(v []int64)`
 
 SetHeroes sets Heroes field to given value.
 
@@ -200,20 +200,20 @@ HasHeroes returns a boolean if a field has been set.
 UnsetHeroes ensures that no value is present for Heroes, not even an explicit nil
 ### GetId
 
-`func (o *Weapon) GetId() int32`
+`func (o *Weapon) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *Weapon) GetIdOk() (*int32, bool)`
+`func (o *Weapon) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *Weapon) SetId(v int32)`
+`func (o *Weapon) SetId(v int64)`
 
 SetId sets Id field to given value.
 

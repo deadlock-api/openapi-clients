@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PossibleAccountIds** | **List&lt;int&gt;** | The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.** | 
-**TopHeroIds** | **List&lt;int&gt;** | The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**PossibleAccountIds** | **List&lt;long&gt;** | The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.** | 
+**TopHeroIds** | **List&lt;long&gt;** | The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **AccountName** | **string** | The account name of the player. | [optional] 
-**Rank** | **int** | The player&#39;s place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge. | [optional] 
+**Rank** | **long** | The player&#39;s place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

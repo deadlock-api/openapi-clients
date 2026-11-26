@@ -25,7 +25,7 @@ type Accolade struct {
 	Description string `json:"description"`
 	EnabledGameModes []string `json:"enabled_game_modes,omitempty"`
 	FlavorName string `json:"flavor_name"`
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 	ThresholdType string `json:"threshold_type"`
 	TrackedStatName string `json:"tracked_stat_name"`
 }
@@ -36,7 +36,7 @@ type _Accolade Accolade
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAccolade(className string, description string, flavorName string, id int32, thresholdType string, trackedStatName string) *Accolade {
+func NewAccolade(className string, description string, flavorName string, id int64, thresholdType string, trackedStatName string) *Accolade {
 	this := Accolade{}
 	this.ClassName = className
 	this.Description = description
@@ -161,9 +161,9 @@ func (o *Accolade) SetFlavorName(v string) {
 }
 
 // GetId returns the Id field value
-func (o *Accolade) GetId() int32 {
+func (o *Accolade) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -172,7 +172,7 @@ func (o *Accolade) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *Accolade) GetIdOk() (*int32, bool) {
+func (o *Accolade) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -180,7 +180,7 @@ func (o *Accolade) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *Accolade) SetId(v int32) {
+func (o *Accolade) SetId(v int64) {
 	o.Id = v
 }
 

@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **HeroBuild** | [**BuildHero**](BuildHero.md) |  | 
-**NumFavorites** | Pointer to **NullableInt32** |  | [optional] 
-**NumIgnores** | Pointer to **NullableInt32** |  | [optional] 
-**NumReports** | Pointer to **NullableInt32** |  | [optional] 
-**NumWeeklyFavorites** | Pointer to **NullableInt32** |  | [optional] 
-**RollupCategory** | Pointer to **NullableInt32** |  | [optional] 
+**NumFavorites** | Pointer to **NullableInt64** |  | [optional] 
+**NumIgnores** | Pointer to **NullableInt64** |  | [optional] 
+**NumReports** | Pointer to **NullableInt64** |  | [optional] 
+**NumWeeklyFavorites** | Pointer to **NullableInt64** |  | [optional] 
+**RollupCategory** | Pointer to **NullableInt64** |  | [optional] 
 
 ## Methods
 
@@ -52,20 +52,20 @@ SetHeroBuild sets HeroBuild field to given value.
 
 ### GetNumFavorites
 
-`func (o *Build) GetNumFavorites() int32`
+`func (o *Build) GetNumFavorites() int64`
 
 GetNumFavorites returns the NumFavorites field if non-nil, zero value otherwise.
 
 ### GetNumFavoritesOk
 
-`func (o *Build) GetNumFavoritesOk() (*int32, bool)`
+`func (o *Build) GetNumFavoritesOk() (*int64, bool)`
 
 GetNumFavoritesOk returns a tuple with the NumFavorites field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNumFavorites
 
-`func (o *Build) SetNumFavorites(v int32)`
+`func (o *Build) SetNumFavorites(v int64)`
 
 SetNumFavorites sets NumFavorites field to given value.
 
@@ -87,20 +87,20 @@ HasNumFavorites returns a boolean if a field has been set.
 UnsetNumFavorites ensures that no value is present for NumFavorites, not even an explicit nil
 ### GetNumIgnores
 
-`func (o *Build) GetNumIgnores() int32`
+`func (o *Build) GetNumIgnores() int64`
 
 GetNumIgnores returns the NumIgnores field if non-nil, zero value otherwise.
 
 ### GetNumIgnoresOk
 
-`func (o *Build) GetNumIgnoresOk() (*int32, bool)`
+`func (o *Build) GetNumIgnoresOk() (*int64, bool)`
 
 GetNumIgnoresOk returns a tuple with the NumIgnores field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNumIgnores
 
-`func (o *Build) SetNumIgnores(v int32)`
+`func (o *Build) SetNumIgnores(v int64)`
 
 SetNumIgnores sets NumIgnores field to given value.
 
@@ -122,20 +122,20 @@ HasNumIgnores returns a boolean if a field has been set.
 UnsetNumIgnores ensures that no value is present for NumIgnores, not even an explicit nil
 ### GetNumReports
 
-`func (o *Build) GetNumReports() int32`
+`func (o *Build) GetNumReports() int64`
 
 GetNumReports returns the NumReports field if non-nil, zero value otherwise.
 
 ### GetNumReportsOk
 
-`func (o *Build) GetNumReportsOk() (*int32, bool)`
+`func (o *Build) GetNumReportsOk() (*int64, bool)`
 
 GetNumReportsOk returns a tuple with the NumReports field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNumReports
 
-`func (o *Build) SetNumReports(v int32)`
+`func (o *Build) SetNumReports(v int64)`
 
 SetNumReports sets NumReports field to given value.
 
@@ -157,20 +157,20 @@ HasNumReports returns a boolean if a field has been set.
 UnsetNumReports ensures that no value is present for NumReports, not even an explicit nil
 ### GetNumWeeklyFavorites
 
-`func (o *Build) GetNumWeeklyFavorites() int32`
+`func (o *Build) GetNumWeeklyFavorites() int64`
 
 GetNumWeeklyFavorites returns the NumWeeklyFavorites field if non-nil, zero value otherwise.
 
 ### GetNumWeeklyFavoritesOk
 
-`func (o *Build) GetNumWeeklyFavoritesOk() (*int32, bool)`
+`func (o *Build) GetNumWeeklyFavoritesOk() (*int64, bool)`
 
 GetNumWeeklyFavoritesOk returns a tuple with the NumWeeklyFavorites field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNumWeeklyFavorites
 
-`func (o *Build) SetNumWeeklyFavorites(v int32)`
+`func (o *Build) SetNumWeeklyFavorites(v int64)`
 
 SetNumWeeklyFavorites sets NumWeeklyFavorites field to given value.
 
@@ -192,20 +192,20 @@ HasNumWeeklyFavorites returns a boolean if a field has been set.
 UnsetNumWeeklyFavorites ensures that no value is present for NumWeeklyFavorites, not even an explicit nil
 ### GetRollupCategory
 
-`func (o *Build) GetRollupCategory() int32`
+`func (o *Build) GetRollupCategory() int64`
 
 GetRollupCategory returns the RollupCategory field if non-nil, zero value otherwise.
 
 ### GetRollupCategoryOk
 
-`func (o *Build) GetRollupCategoryOk() (*int32, bool)`
+`func (o *Build) GetRollupCategoryOk() (*int64, bool)`
 
 GetRollupCategoryOk returns a tuple with the RollupCategory field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRollupCategory
 
-`func (o *Build) SetRollupCategory(v int32)`
+`func (o *Build) SetRollupCategory(v int64)`
 
 SetRollupCategory sets RollupCategory field to given value.
 

@@ -287,6 +287,14 @@ class BuildItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['item_id'] === null) {
             $invalidProperties[] = "'item_id' can't be null";
         }
+        if (($this->container['item_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'item_id', must be smaller than or equal to 4294967295.";
+        }
+
+        if (($this->container['item_id'] < 0)) {
+            $invalidProperties[] = "invalid value for 'item_id', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -351,6 +359,13 @@ class BuildItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($item_id)) {
             throw new \InvalidArgumentException('non-nullable item_id cannot be null');
         }
+        if (($item_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $item_id when calling BuildItemStats., must be smaller than or equal to 4294967295.');
+        }
+        if (($item_id < 0)) {
+            throw new \InvalidArgumentException('invalid value for $item_id when calling BuildItemStats., must be bigger than or equal to 0.');
+        }
+
         $this->container['item_id'] = $item_id;
 
         return $this;

@@ -48,7 +48,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMapApiResponse"/>&gt;</returns>
-        Task<IGetMapApiResponse> GetMapAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMapApiResponse> GetMapAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Map
@@ -59,7 +59,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMapApiResponse"/>?&gt;</returns>
-        Task<IGetMapApiResponse?> GetMapOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMapApiResponse?> GetMapOrDefaultAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -153,14 +153,14 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetMap(ref Option<int?> clientVersion);
+        partial void FormatGetMap(ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetMapDefaultImplementation(IGetMapApiResponse apiResponseLocalVar, Option<int?> clientVersion)
+        private void AfterGetMapDefaultImplementation(IGetMapApiResponse apiResponseLocalVar, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetMap(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
@@ -174,7 +174,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetMap(ref bool suppressDefaultLog, IGetMapApiResponse apiResponseLocalVar, Option<int?> clientVersion);
+        partial void AfterGetMap(ref bool suppressDefaultLog, IGetMapApiResponse apiResponseLocalVar, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -183,7 +183,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetMapDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion)
+        private void OnErrorGetMapDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetMap(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
@@ -199,7 +199,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetMap(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion);
+        partial void OnErrorGetMap(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long?> clientVersion);
 
         /// <summary>
         /// Map Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. &#x60;entities&#x60; lists the interactable map entities (crates, golden statues, bounce pads, shops, teleporters, ...) for builds whose assets include the map entity lump extract. Defaults to the latest known client version.
@@ -207,7 +207,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMapApiResponse"/>&gt;</returns>
-        public async Task<IGetMapApiResponse?> GetMapOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMapApiResponse?> GetMapOrDefaultAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -226,7 +226,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMapApiResponse"/>&gt;</returns>
-        public async Task<IGetMapApiResponse> GetMapAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMapApiResponse> GetMapAsync(Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

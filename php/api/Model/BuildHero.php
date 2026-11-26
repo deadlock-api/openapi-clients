@@ -80,19 +80,19 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'author_account_id' => 'int32',
+        'author_account_id' => 'int64',
         'description' => null,
         'details' => null,
         'development_build' => null,
-        'hero_build_id' => 'int32',
-        'hero_id' => 'int32',
-        'language' => 'int32',
+        'hero_build_id' => 'int64',
+        'hero_id' => 'int64',
+        'language' => 'int64',
         'last_updated_timestamp' => 'int64',
         'name' => null,
-        'origin_build_id' => 'int32',
+        'origin_build_id' => 'int64',
         'publish_timestamp' => 'int64',
-        'tags' => 'int32',
-        'version' => 'int32'
+        'tags' => 'int64',
+        'version' => 'int64'
     ];
 
     /**
@@ -361,6 +361,10 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['author_account_id'] === null) {
             $invalidProperties[] = "'author_account_id' can't be null";
         }
+        if (($this->container['author_account_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'author_account_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['author_account_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'author_account_id', must be bigger than or equal to 0.";
         }
@@ -371,6 +375,10 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['hero_build_id'] === null) {
             $invalidProperties[] = "'hero_build_id' can't be null";
         }
+        if (($this->container['hero_build_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'hero_build_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['hero_build_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero_build_id', must be bigger than or equal to 0.";
         }
@@ -378,6 +386,10 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['hero_id'] === null) {
             $invalidProperties[] = "'hero_id' can't be null";
         }
+        if (($this->container['hero_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'hero_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['hero_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero_id', must be bigger than or equal to 0.";
         }
@@ -385,6 +397,10 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['language'] === null) {
             $invalidProperties[] = "'language' can't be null";
         }
+        if (($this->container['language'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'language', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['language'] < 0)) {
             $invalidProperties[] = "invalid value for 'language', must be bigger than or equal to 0.";
         }
@@ -395,6 +411,10 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['origin_build_id'] === null) {
             $invalidProperties[] = "'origin_build_id' can't be null";
         }
+        if (($this->container['origin_build_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'origin_build_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['origin_build_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'origin_build_id', must be bigger than or equal to 0.";
         }
@@ -402,6 +422,10 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['version'] === null) {
             $invalidProperties[] = "'version' can't be null";
         }
+        if (($this->container['version'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'version', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['version'] < 0)) {
             $invalidProperties[] = "invalid value for 'version', must be bigger than or equal to 0.";
         }
@@ -442,6 +466,9 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($author_account_id)) {
             throw new \InvalidArgumentException('non-nullable author_account_id cannot be null');
+        }
+        if (($author_account_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $author_account_id when calling BuildHero., must be smaller than or equal to 4294967295.');
         }
         if (($author_account_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $author_account_id when calling BuildHero., must be bigger than or equal to 0.');
@@ -569,6 +596,9 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($hero_build_id)) {
             throw new \InvalidArgumentException('non-nullable hero_build_id cannot be null');
         }
+        if (($hero_build_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $hero_build_id when calling BuildHero., must be smaller than or equal to 4294967295.');
+        }
         if (($hero_build_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero_build_id when calling BuildHero., must be bigger than or equal to 0.');
         }
@@ -600,6 +630,9 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($hero_id)) {
             throw new \InvalidArgumentException('non-nullable hero_id cannot be null');
         }
+        if (($hero_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $hero_id when calling BuildHero., must be smaller than or equal to 4294967295.');
+        }
         if (($hero_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero_id when calling BuildHero., must be bigger than or equal to 0.');
         }
@@ -630,6 +663,9 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($language)) {
             throw new \InvalidArgumentException('non-nullable language cannot be null');
+        }
+        if (($language > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $language when calling BuildHero., must be smaller than or equal to 4294967295.');
         }
         if (($language < 0)) {
             throw new \InvalidArgumentException('invalid value for $language when calling BuildHero., must be bigger than or equal to 0.');
@@ -723,6 +759,9 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($origin_build_id)) {
             throw new \InvalidArgumentException('non-nullable origin_build_id cannot be null');
         }
+        if (($origin_build_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $origin_build_id when calling BuildHero., must be smaller than or equal to 4294967295.');
+        }
         if (($origin_build_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $origin_build_id when calling BuildHero., must be bigger than or equal to 0.');
         }
@@ -814,6 +853,9 @@ class BuildHero implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($version)) {
             throw new \InvalidArgumentException('non-nullable version cannot be null');
+        }
+        if (($version > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $version when calling BuildHero., must be smaller than or equal to 4294967295.');
         }
         if (($version < 0)) {
             throw new \InvalidArgumentException('invalid value for $version when calling BuildHero., must be bigger than or equal to 0.');

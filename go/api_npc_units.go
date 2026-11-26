@@ -28,7 +28,7 @@ type ApiGetNpcUnitRequest struct {
 	ApiService *NPCUnitsAPIService
 	idOrClassname string
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -38,7 +38,7 @@ func (r ApiGetNpcUnitRequest) Language(language string) ApiGetNpcUnitRequest {
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetNpcUnitRequest) ClientVersion(clientVersion int32) ApiGetNpcUnitRequest {
+func (r ApiGetNpcUnitRequest) ClientVersion(clientVersion int64) ApiGetNpcUnitRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -150,7 +150,7 @@ type ApiListNpcUnitsRequest struct {
 	ctx context.Context
 	ApiService *NPCUnitsAPIService
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -160,7 +160,7 @@ func (r ApiListNpcUnitsRequest) Language(language string) ApiListNpcUnitsRequest
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiListNpcUnitsRequest) ClientVersion(clientVersion int32) ApiListNpcUnitsRequest {
+func (r ApiListNpcUnitsRequest) ClientVersion(clientVersion int64) ApiListNpcUnitsRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

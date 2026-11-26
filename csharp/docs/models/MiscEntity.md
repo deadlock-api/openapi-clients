@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassName** | **string** |  | 
-**Id** | **int** |  | 
+**Id** | **long** |  | 
 **BreakOnDodgeTouch** | **bool** |  | [optional] 
 **BuffTypeGraphColor** | [**Color**](Color.md) | Permanent pickups: color used for the buff in the stat graph. | [optional] 
 **BuffTypeLocString** | **string** | Permanent pickups: localization token of the stat the buff raises. | [optional] 

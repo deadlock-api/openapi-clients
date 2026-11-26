@@ -344,6 +344,9 @@ class BuildsApi
                 'Missing the required parameter $hero_id when calling fetchBuildLive'
             );
         }
+        if ($hero_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling BuildsApi.fetchBuildLive, must be smaller than or equal to 4294967295.');
+        }
         if ($hero_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$hero_id" when calling BuildsApi.fetchBuildLive, must be bigger than or equal to 0.');
         }
@@ -353,6 +356,9 @@ class BuildsApi
             throw new \InvalidArgumentException(
                 'Missing the required parameter $build_id when calling fetchBuildLive'
             );
+        }
+        if ($build_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$build_id" when calling BuildsApi.fetchBuildLive, must be smaller than or equal to 4294967295.');
         }
         if ($build_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$build_id" when calling BuildsApi.fetchBuildLive, must be bigger than or equal to 0.');
@@ -655,6 +661,9 @@ class BuildsApi
             throw new \InvalidArgumentException(
                 'Missing the required parameter $account_id when calling fetchBuildsByAuthorLive'
             );
+        }
+        if ($account_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling BuildsApi.fetchBuildsByAuthorLive, must be smaller than or equal to 4294967295.');
         }
         if ($account_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$account_id" when calling BuildsApi.fetchBuildsByAuthorLive, must be bigger than or equal to 0.');
@@ -1029,10 +1038,16 @@ class BuildsApi
 
 
 
+        if ($start !== null && $start > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$start" when calling BuildsApi.searchBuilds, must be smaller than or equal to 4294967295.');
+        }
         if ($start !== null && $start < 0) {
             throw new \InvalidArgumentException('invalid value for "$start" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }
         
+        if ($limit !== null && $limit > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BuildsApi.searchBuilds, must be smaller than or equal to 4294967295.');
+        }
         if ($limit !== null && $limit < 0) {
             throw new \InvalidArgumentException('invalid value for "$limit" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }
@@ -1041,31 +1056,52 @@ class BuildsApi
 
 
 
+        if ($language !== null && $language > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$language" when calling BuildsApi.searchBuilds, must be smaller than or equal to 4294967295.');
+        }
         if ($language !== null && $language < 0) {
             throw new \InvalidArgumentException('invalid value for "$language" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }
         
 
+        if ($build_id !== null && $build_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$build_id" when calling BuildsApi.searchBuilds, must be smaller than or equal to 4294967295.');
+        }
         if ($build_id !== null && $build_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$build_id" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }
         
+        if ($version !== null && $version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$version" when calling BuildsApi.searchBuilds, must be smaller than or equal to 4294967295.');
+        }
         if ($version !== null && $version < 0) {
             throw new \InvalidArgumentException('invalid value for "$version" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }
         
+        if ($hero_id !== null && $hero_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling BuildsApi.searchBuilds, must be smaller than or equal to 4294967295.');
+        }
         if ($hero_id !== null && $hero_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$hero_id" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }
         
+        if ($tag !== null && $tag > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$tag" when calling BuildsApi.searchBuilds, must be smaller than or equal to 4294967295.');
+        }
         if ($tag !== null && $tag < 0) {
             throw new \InvalidArgumentException('invalid value for "$tag" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }
         
+        if ($rollup_category !== null && $rollup_category > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$rollup_category" when calling BuildsApi.searchBuilds, must be smaller than or equal to 4294967295.');
+        }
         if ($rollup_category !== null && $rollup_category < 0) {
             throw new \InvalidArgumentException('invalid value for "$rollup_category" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }
         
+        if ($author_id !== null && $author_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$author_id" when calling BuildsApi.searchBuilds, must be smaller than or equal to 4294967295.');
+        }
         if ($author_id !== null && $author_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$author_id" when calling BuildsApi.searchBuilds, must be bigger than or equal to 0.');
         }

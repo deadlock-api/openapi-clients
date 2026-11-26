@@ -21,13 +21,13 @@ var _ MappedNullable = &SteamInfo{}
 
 // SteamInfo Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order.
 type SteamInfo struct {
-	AppId int32 `json:"app_id"`
-	ClientVersion int32 `json:"client_version"`
+	AppId int64 `json:"app_id"`
+	ClientVersion int64 `json:"client_version"`
 	ProductName string `json:"product_name"`
-	ServerAppId int32 `json:"server_app_id"`
-	ServerVersion int32 `json:"server_version"`
+	ServerAppId int64 `json:"server_app_id"`
+	ServerVersion int64 `json:"server_version"`
 	SourceRevision int64 `json:"source_revision"`
-	ToolsAppId int32 `json:"tools_app_id"`
+	ToolsAppId int64 `json:"tools_app_id"`
 	VersionDate string `json:"version_date"`
 	// `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone).
 	VersionDatetime string `json:"version_datetime"`
@@ -40,7 +40,7 @@ type _SteamInfo SteamInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSteamInfo(appId int32, clientVersion int32, productName string, serverAppId int32, serverVersion int32, sourceRevision int64, toolsAppId int32, versionDate string, versionDatetime string, versionTime string) *SteamInfo {
+func NewSteamInfo(appId int64, clientVersion int64, productName string, serverAppId int64, serverVersion int64, sourceRevision int64, toolsAppId int64, versionDate string, versionDatetime string, versionTime string) *SteamInfo {
 	this := SteamInfo{}
 	this.AppId = appId
 	this.ClientVersion = clientVersion
@@ -64,9 +64,9 @@ func NewSteamInfoWithDefaults() *SteamInfo {
 }
 
 // GetAppId returns the AppId field value
-func (o *SteamInfo) GetAppId() int32 {
+func (o *SteamInfo) GetAppId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -75,7 +75,7 @@ func (o *SteamInfo) GetAppId() int32 {
 
 // GetAppIdOk returns a tuple with the AppId field value
 // and a boolean to check if the value has been set.
-func (o *SteamInfo) GetAppIdOk() (*int32, bool) {
+func (o *SteamInfo) GetAppIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -83,14 +83,14 @@ func (o *SteamInfo) GetAppIdOk() (*int32, bool) {
 }
 
 // SetAppId sets field value
-func (o *SteamInfo) SetAppId(v int32) {
+func (o *SteamInfo) SetAppId(v int64) {
 	o.AppId = v
 }
 
 // GetClientVersion returns the ClientVersion field value
-func (o *SteamInfo) GetClientVersion() int32 {
+func (o *SteamInfo) GetClientVersion() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -99,7 +99,7 @@ func (o *SteamInfo) GetClientVersion() int32 {
 
 // GetClientVersionOk returns a tuple with the ClientVersion field value
 // and a boolean to check if the value has been set.
-func (o *SteamInfo) GetClientVersionOk() (*int32, bool) {
+func (o *SteamInfo) GetClientVersionOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -107,7 +107,7 @@ func (o *SteamInfo) GetClientVersionOk() (*int32, bool) {
 }
 
 // SetClientVersion sets field value
-func (o *SteamInfo) SetClientVersion(v int32) {
+func (o *SteamInfo) SetClientVersion(v int64) {
 	o.ClientVersion = v
 }
 
@@ -136,9 +136,9 @@ func (o *SteamInfo) SetProductName(v string) {
 }
 
 // GetServerAppId returns the ServerAppId field value
-func (o *SteamInfo) GetServerAppId() int32 {
+func (o *SteamInfo) GetServerAppId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -147,7 +147,7 @@ func (o *SteamInfo) GetServerAppId() int32 {
 
 // GetServerAppIdOk returns a tuple with the ServerAppId field value
 // and a boolean to check if the value has been set.
-func (o *SteamInfo) GetServerAppIdOk() (*int32, bool) {
+func (o *SteamInfo) GetServerAppIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -155,14 +155,14 @@ func (o *SteamInfo) GetServerAppIdOk() (*int32, bool) {
 }
 
 // SetServerAppId sets field value
-func (o *SteamInfo) SetServerAppId(v int32) {
+func (o *SteamInfo) SetServerAppId(v int64) {
 	o.ServerAppId = v
 }
 
 // GetServerVersion returns the ServerVersion field value
-func (o *SteamInfo) GetServerVersion() int32 {
+func (o *SteamInfo) GetServerVersion() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -171,7 +171,7 @@ func (o *SteamInfo) GetServerVersion() int32 {
 
 // GetServerVersionOk returns a tuple with the ServerVersion field value
 // and a boolean to check if the value has been set.
-func (o *SteamInfo) GetServerVersionOk() (*int32, bool) {
+func (o *SteamInfo) GetServerVersionOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -179,7 +179,7 @@ func (o *SteamInfo) GetServerVersionOk() (*int32, bool) {
 }
 
 // SetServerVersion sets field value
-func (o *SteamInfo) SetServerVersion(v int32) {
+func (o *SteamInfo) SetServerVersion(v int64) {
 	o.ServerVersion = v
 }
 
@@ -208,9 +208,9 @@ func (o *SteamInfo) SetSourceRevision(v int64) {
 }
 
 // GetToolsAppId returns the ToolsAppId field value
-func (o *SteamInfo) GetToolsAppId() int32 {
+func (o *SteamInfo) GetToolsAppId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -219,7 +219,7 @@ func (o *SteamInfo) GetToolsAppId() int32 {
 
 // GetToolsAppIdOk returns a tuple with the ToolsAppId field value
 // and a boolean to check if the value has been set.
-func (o *SteamInfo) GetToolsAppIdOk() (*int32, bool) {
+func (o *SteamInfo) GetToolsAppIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -227,7 +227,7 @@ func (o *SteamInfo) GetToolsAppIdOk() (*int32, bool) {
 }
 
 // SetToolsAppId sets field value
-func (o *SteamInfo) SetToolsAppId(v int32) {
+func (o *SteamInfo) SetToolsAppId(v int64) {
 	o.ToolsAppId = v
 }
 

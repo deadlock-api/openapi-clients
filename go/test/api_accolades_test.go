@@ -26,7 +26,7 @@ func Test_deadlock_api_client_AccoladesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var accoladeId int32
+		var accoladeId int64
 
 		resp, httpRes, err := apiClient.AccoladesAPI.GetAccolade(context.Background(), accoladeId).Execute()
 

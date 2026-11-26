@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassName** | **string** |  | 
-**Id** | **int** |  | 
+**Id** | **long** |  | 
 **Acceleration** | **double** |  | [optional] 
 **AttackT1BossMaxRange** | **double** |  | [optional] 
 **AttackT3BossMaxRange** | **double** |  | [optional] 

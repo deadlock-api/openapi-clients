@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bucket** | **int32** | The bucket value (depends on the bucket query parameter). | 
-**HeroId** | **int32** | The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**Bucket** | **int64** | The bucket value (depends on the bucket query parameter). | 
+**HeroId** | **int64** | The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Matches** | **int64** | The number of players who played this hero, counting only players whose pre-game hero is known. | 
 **PregamePicks** | **int64** | The number of players who had this hero locked before the pre-game swap window. | 
 **SwappedAway** | **int64** | The number of &#x60;pregame_picks&#x60; players who swapped away from this hero. | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewHeroSwapStats
 
-`func NewHeroSwapStats(bucket int32, heroId int32, matches int64, pregamePicks int64, swappedAway int64, swappedIn int64, swappedInWins int64, ) *HeroSwapStats`
+`func NewHeroSwapStats(bucket int64, heroId int64, matches int64, pregamePicks int64, swappedAway int64, swappedIn int64, swappedInWins int64, ) *HeroSwapStats`
 
 NewHeroSwapStats instantiates a new HeroSwapStats object
 This constructor will assign default values to properties that have it defined,
@@ -33,40 +33,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetBucket
 
-`func (o *HeroSwapStats) GetBucket() int32`
+`func (o *HeroSwapStats) GetBucket() int64`
 
 GetBucket returns the Bucket field if non-nil, zero value otherwise.
 
 ### GetBucketOk
 
-`func (o *HeroSwapStats) GetBucketOk() (*int32, bool)`
+`func (o *HeroSwapStats) GetBucketOk() (*int64, bool)`
 
 GetBucketOk returns a tuple with the Bucket field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBucket
 
-`func (o *HeroSwapStats) SetBucket(v int32)`
+`func (o *HeroSwapStats) SetBucket(v int64)`
 
 SetBucket sets Bucket field to given value.
 
 
 ### GetHeroId
 
-`func (o *HeroSwapStats) GetHeroId() int32`
+`func (o *HeroSwapStats) GetHeroId() int64`
 
 GetHeroId returns the HeroId field if non-nil, zero value otherwise.
 
 ### GetHeroIdOk
 
-`func (o *HeroSwapStats) GetHeroIdOk() (*int32, bool)`
+`func (o *HeroSwapStats) GetHeroIdOk() (*int64, bool)`
 
 GetHeroIdOk returns a tuple with the HeroId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroId
 
-`func (o *HeroSwapStats) SetHeroId(v int32)`
+`func (o *HeroSwapStats) SetHeroId(v int64)`
 
 SetHeroId sets HeroId field to given value.
 

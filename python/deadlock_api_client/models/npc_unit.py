@@ -64,7 +64,7 @@ class NpcUnit(BaseModel):
     health_bar_color_team1: Optional[Color] = None
     health_bar_color_team2: Optional[Color] = None
     health_bar_color_team_neutral: Optional[Color] = None
-    id: Annotated[int, Field(strict=True, ge=0)]
+    id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     image: Optional[StrictStr] = Field(default=None, description="Unit icon (`m_strCustomUnitIcon`) as png.")
     image_webp: Optional[StrictStr] = Field(default=None, description="Unit icon (`m_strCustomUnitIcon`) as webp.")
     intrinsic_modifiers: Optional[List[SubclassIntrinsicModifiers]] = None

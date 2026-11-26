@@ -34,27 +34,27 @@ class ActiveMatch(BaseModel):
     """
     ActiveMatch
     """ # noqa: E501
-    compat_version: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    duration_s: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    compat_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    duration_s: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     game_mode: Optional[StrictInt] = None
     game_mode_parsed: Optional[ActiveMatchGameMode] = None
-    game_mode_version: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    game_mode_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     lobby_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     low_pri_pool: Optional[StrictBool] = None
     match_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     match_mode: Optional[StrictInt] = None
     match_mode_parsed: Optional[ActiveMatchMode] = None
-    match_score: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    net_worth_team_0: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    net_worth_team_1: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    match_score: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    net_worth_team_0: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    net_worth_team_1: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     objectives_mask_team0: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     objectives_mask_team1: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    open_spectator_slots: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    open_spectator_slots: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     players: List[ActiveMatchPlayer]
     region_mode: Optional[StrictInt] = None
     region_mode_parsed: Optional[RegionMode] = None
-    spectators: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    start_time: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    spectators: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    start_time: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     team_stats: List[ActiveMatchTeamStats]
     winning_team: Optional[StrictInt] = None
     winning_team_parsed: Optional[ActiveMatchTeam] = None

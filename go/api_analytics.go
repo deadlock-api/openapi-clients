@@ -27,33 +27,33 @@ type AnalyticsAPIService service
 type ApiAbilityMaxFirstStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	heroId *int32
+	heroId *int64
 	gameMode *string
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
-	minAbilityUpgrades *int64
-	maxAbilityUpgrades *int64
+	minDurationS *int32
+	maxDurationS *int32
+	minAbilityUpgrades *int32
+	maxAbilityUpgrades *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	minMatches *int32
-	accountId *int32
-	accountIds *[]int32
+	minMatches *int64
+	accountId *int64
+	accountIds *[]int64
 	heroBuildId *int64
-	includeItemIds *[]int32
-	excludeItemIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
+	includeItemIds *[]int64
+	excludeItemIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
 }
 
 // See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiAbilityMaxFirstStatsRequest) HeroId(heroId int32) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) HeroId(heroId int64) ApiAbilityMaxFirstStatsRequest {
 	r.heroId = &heroId
 	return r
 }
@@ -83,25 +83,25 @@ func (r ApiAbilityMaxFirstStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64)
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiAbilityMaxFirstStatsRequest) MinDurationS(minDurationS int64) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) MinDurationS(minDurationS int32) ApiAbilityMaxFirstStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiAbilityMaxFirstStatsRequest) MaxDurationS(maxDurationS int64) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) MaxDurationS(maxDurationS int32) ApiAbilityMaxFirstStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
 
 // Filter players based on their minimum number of ability upgrades over the whole match.
-func (r ApiAbilityMaxFirstStatsRequest) MinAbilityUpgrades(minAbilityUpgrades int64) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) MinAbilityUpgrades(minAbilityUpgrades int32) ApiAbilityMaxFirstStatsRequest {
 	r.minAbilityUpgrades = &minAbilityUpgrades
 	return r
 }
 
 // Filter players based on their maximum number of ability upgrades over the whole match.
-func (r ApiAbilityMaxFirstStatsRequest) MaxAbilityUpgrades(maxAbilityUpgrades int64) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) MaxAbilityUpgrades(maxAbilityUpgrades int32) ApiAbilityMaxFirstStatsRequest {
 	r.maxAbilityUpgrades = &maxAbilityUpgrades
 	return r
 }
@@ -143,20 +143,20 @@ func (r ApiAbilityMaxFirstStatsRequest) MaxMatchId(maxMatchId int64) ApiAbilityM
 }
 
 // The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
-func (r ApiAbilityMaxFirstStatsRequest) MinMatches(minMatches int32) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) MinMatches(minMatches int64) ApiAbilityMaxFirstStatsRequest {
 	r.minMatches = &minMatches
 	return r
 }
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiAbilityMaxFirstStatsRequest) AccountId(accountId int32) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) AccountId(accountId int64) ApiAbilityMaxFirstStatsRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiAbilityMaxFirstStatsRequest) AccountIds(accountIds []int32) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) AccountIds(accountIds []int64) ApiAbilityMaxFirstStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -168,25 +168,25 @@ func (r ApiAbilityMaxFirstStatsRequest) HeroBuildId(heroBuildId int64) ApiAbilit
 }
 
 // Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiAbilityMaxFirstStatsRequest) IncludeItemIds(includeItemIds []int32) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) IncludeItemIds(includeItemIds []int64) ApiAbilityMaxFirstStatsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
 // Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiAbilityMaxFirstStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) ExcludeItemIds(excludeItemIds []int64) ApiAbilityMaxFirstStatsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiAbilityMaxFirstStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiAbilityMaxFirstStatsRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiAbilityMaxFirstStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiAbilityMaxFirstStatsRequest {
+func (r ApiAbilityMaxFirstStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiAbilityMaxFirstStatsRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
@@ -252,6 +252,9 @@ func (a *AnalyticsAPIService) AbilityMaxFirstStatsExecute(r ApiAbilityMaxFirstSt
 	if *r.heroId < 0 {
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
 	}
+	if *r.heroId > 4294967295 {
+		return localVarReturnValue, nil, reportError("heroId must be less than 4294967295")
+	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hero_id", r.heroId, "form", "")
 	if r.gameMode != nil {
@@ -263,7 +266,7 @@ func (a *AnalyticsAPIService) AbilityMaxFirstStatsExecute(r ApiAbilityMaxFirstSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -303,7 +306,7 @@ func (a *AnalyticsAPIService) AbilityMaxFirstStatsExecute(r ApiAbilityMaxFirstSt
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
 	} else {
-		var defaultValue int32 = 10
+		var defaultValue int64 = 10
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
 		r.minMatches = &defaultValue
 	}
@@ -409,33 +412,33 @@ func (a *AnalyticsAPIService) AbilityMaxFirstStatsExecute(r ApiAbilityMaxFirstSt
 type ApiAbilityOrderStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	heroId *int32
+	heroId *int64
 	gameMode *string
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
-	minAbilityUpgrades *int64
-	maxAbilityUpgrades *int64
+	minDurationS *int32
+	maxDurationS *int32
+	minAbilityUpgrades *int32
+	maxAbilityUpgrades *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	minMatches *int32
-	accountId *int32
-	accountIds *[]int32
+	minMatches *int64
+	accountId *int64
+	accountIds *[]int64
 	heroBuildId *int64
-	includeItemIds *[]int32
-	excludeItemIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
+	includeItemIds *[]int64
+	excludeItemIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
 }
 
 // See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiAbilityOrderStatsRequest) HeroId(heroId int32) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) HeroId(heroId int64) ApiAbilityOrderStatsRequest {
 	r.heroId = &heroId
 	return r
 }
@@ -465,25 +468,25 @@ func (r ApiAbilityOrderStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) Ap
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiAbilityOrderStatsRequest) MinDurationS(minDurationS int64) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) MinDurationS(minDurationS int32) ApiAbilityOrderStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiAbilityOrderStatsRequest) MaxDurationS(maxDurationS int64) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) MaxDurationS(maxDurationS int32) ApiAbilityOrderStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
 
 // Filter players based on their minimum number of ability upgrades over the whole match.
-func (r ApiAbilityOrderStatsRequest) MinAbilityUpgrades(minAbilityUpgrades int64) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) MinAbilityUpgrades(minAbilityUpgrades int32) ApiAbilityOrderStatsRequest {
 	r.minAbilityUpgrades = &minAbilityUpgrades
 	return r
 }
 
 // Filter players based on their maximum number of ability upgrades over the whole match.
-func (r ApiAbilityOrderStatsRequest) MaxAbilityUpgrades(maxAbilityUpgrades int64) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) MaxAbilityUpgrades(maxAbilityUpgrades int32) ApiAbilityOrderStatsRequest {
 	r.maxAbilityUpgrades = &maxAbilityUpgrades
 	return r
 }
@@ -525,20 +528,20 @@ func (r ApiAbilityOrderStatsRequest) MaxMatchId(maxMatchId int64) ApiAbilityOrde
 }
 
 // The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
-func (r ApiAbilityOrderStatsRequest) MinMatches(minMatches int32) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) MinMatches(minMatches int64) ApiAbilityOrderStatsRequest {
 	r.minMatches = &minMatches
 	return r
 }
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiAbilityOrderStatsRequest) AccountId(accountId int32) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) AccountId(accountId int64) ApiAbilityOrderStatsRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiAbilityOrderStatsRequest) AccountIds(accountIds []int32) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) AccountIds(accountIds []int64) ApiAbilityOrderStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -550,25 +553,25 @@ func (r ApiAbilityOrderStatsRequest) HeroBuildId(heroBuildId int64) ApiAbilityOr
 }
 
 // Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiAbilityOrderStatsRequest) IncludeItemIds(includeItemIds []int32) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) IncludeItemIds(includeItemIds []int64) ApiAbilityOrderStatsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
 // Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiAbilityOrderStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) ExcludeItemIds(excludeItemIds []int64) ApiAbilityOrderStatsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiAbilityOrderStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiAbilityOrderStatsRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiAbilityOrderStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiAbilityOrderStatsRequest {
+func (r ApiAbilityOrderStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiAbilityOrderStatsRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
@@ -629,6 +632,9 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if *r.heroId < 0 {
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
 	}
+	if *r.heroId > 4294967295 {
+		return localVarReturnValue, nil, reportError("heroId must be less than 4294967295")
+	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hero_id", r.heroId, "form", "")
 	if r.gameMode != nil {
@@ -640,7 +646,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -680,7 +686,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
 	} else {
-		var defaultValue int32 = 10
+		var defaultValue int64 = 10
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
 		r.minMatches = &defaultValue
 	}
@@ -786,33 +792,33 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 type ApiAbilityOrderTreeRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	heroId *int32
+	heroId *int64
 	gameMode *string
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
-	minAbilityUpgrades *int64
-	maxAbilityUpgrades *int64
+	minDurationS *int32
+	maxDurationS *int32
+	minAbilityUpgrades *int32
+	maxAbilityUpgrades *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	minMatches *int32
-	accountId *int32
-	accountIds *[]int32
+	minMatches *int64
+	accountId *int64
+	accountIds *[]int64
 	heroBuildId *int64
-	includeItemIds *[]int32
-	excludeItemIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
+	includeItemIds *[]int64
+	excludeItemIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
 }
 
 // See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiAbilityOrderTreeRequest) HeroId(heroId int32) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) HeroId(heroId int64) ApiAbilityOrderTreeRequest {
 	r.heroId = &heroId
 	return r
 }
@@ -842,25 +848,25 @@ func (r ApiAbilityOrderTreeRequest) MaxUnixTimestamp(maxUnixTimestamp int64) Api
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiAbilityOrderTreeRequest) MinDurationS(minDurationS int64) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) MinDurationS(minDurationS int32) ApiAbilityOrderTreeRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiAbilityOrderTreeRequest) MaxDurationS(maxDurationS int64) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) MaxDurationS(maxDurationS int32) ApiAbilityOrderTreeRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
 
 // Filter players based on their minimum number of ability upgrades over the whole match.
-func (r ApiAbilityOrderTreeRequest) MinAbilityUpgrades(minAbilityUpgrades int64) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) MinAbilityUpgrades(minAbilityUpgrades int32) ApiAbilityOrderTreeRequest {
 	r.minAbilityUpgrades = &minAbilityUpgrades
 	return r
 }
 
 // Filter players based on their maximum number of ability upgrades over the whole match.
-func (r ApiAbilityOrderTreeRequest) MaxAbilityUpgrades(maxAbilityUpgrades int64) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) MaxAbilityUpgrades(maxAbilityUpgrades int32) ApiAbilityOrderTreeRequest {
 	r.maxAbilityUpgrades = &maxAbilityUpgrades
 	return r
 }
@@ -902,20 +908,20 @@ func (r ApiAbilityOrderTreeRequest) MaxMatchId(maxMatchId int64) ApiAbilityOrder
 }
 
 // The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
-func (r ApiAbilityOrderTreeRequest) MinMatches(minMatches int32) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) MinMatches(minMatches int64) ApiAbilityOrderTreeRequest {
 	r.minMatches = &minMatches
 	return r
 }
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiAbilityOrderTreeRequest) AccountId(accountId int32) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) AccountId(accountId int64) ApiAbilityOrderTreeRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiAbilityOrderTreeRequest) AccountIds(accountIds []int32) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) AccountIds(accountIds []int64) ApiAbilityOrderTreeRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -927,25 +933,25 @@ func (r ApiAbilityOrderTreeRequest) HeroBuildId(heroBuildId int64) ApiAbilityOrd
 }
 
 // Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiAbilityOrderTreeRequest) IncludeItemIds(includeItemIds []int32) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) IncludeItemIds(includeItemIds []int64) ApiAbilityOrderTreeRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
 // Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiAbilityOrderTreeRequest) ExcludeItemIds(excludeItemIds []int32) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) ExcludeItemIds(excludeItemIds []int64) ApiAbilityOrderTreeRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiAbilityOrderTreeRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiAbilityOrderTreeRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiAbilityOrderTreeRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiAbilityOrderTreeRequest {
+func (r ApiAbilityOrderTreeRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiAbilityOrderTreeRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
@@ -1010,6 +1016,9 @@ func (a *AnalyticsAPIService) AbilityOrderTreeExecute(r ApiAbilityOrderTreeReque
 	if *r.heroId < 0 {
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
 	}
+	if *r.heroId > 4294967295 {
+		return localVarReturnValue, nil, reportError("heroId must be less than 4294967295")
+	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hero_id", r.heroId, "form", "")
 	if r.gameMode != nil {
@@ -1021,7 +1030,7 @@ func (a *AnalyticsAPIService) AbilityOrderTreeExecute(r ApiAbilityOrderTreeReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1061,7 +1070,7 @@ func (a *AnalyticsAPIService) AbilityOrderTreeExecute(r ApiAbilityOrderTreeReque
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
 	} else {
-		var defaultValue int32 = 10
+		var defaultValue int64 = 10
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
 		r.minMatches = &defaultValue
 	}
@@ -1171,8 +1180,8 @@ type ApiBadgeDistributionRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	isHighSkillRangeParties *bool
 	isLowPriPool *bool
 	isNewPlayerPool *bool
@@ -1205,13 +1214,13 @@ func (r ApiBadgeDistributionRequest) MaxUnixTimestamp(maxUnixTimestamp int64) Ap
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiBadgeDistributionRequest) MinDurationS(minDurationS int64) ApiBadgeDistributionRequest {
+func (r ApiBadgeDistributionRequest) MinDurationS(minDurationS int32) ApiBadgeDistributionRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiBadgeDistributionRequest) MaxDurationS(maxDurationS int64) ApiBadgeDistributionRequest {
+func (r ApiBadgeDistributionRequest) MaxDurationS(maxDurationS int32) ApiBadgeDistributionRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -1313,7 +1322,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1402,16 +1411,16 @@ type ApiBuffStatsRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
 	minNetworth *int64
 	maxNetworth *int64
-	heroIds *[]int32
-	accountIds *[]int32
+	heroIds *[]int64
+	accountIds *[]int64
 }
 
 // Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -1439,13 +1448,13 @@ func (r ApiBuffStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiBuffSta
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiBuffStatsRequest) MinDurationS(minDurationS int64) ApiBuffStatsRequest {
+func (r ApiBuffStatsRequest) MinDurationS(minDurationS int32) ApiBuffStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiBuffStatsRequest) MaxDurationS(maxDurationS int64) ApiBuffStatsRequest {
+func (r ApiBuffStatsRequest) MaxDurationS(maxDurationS int32) ApiBuffStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -1487,13 +1496,13 @@ func (r ApiBuffStatsRequest) MaxNetworth(maxNetworth int64) ApiBuffStatsRequest 
 }
 
 // Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiBuffStatsRequest) HeroIds(heroIds []int32) ApiBuffStatsRequest {
+func (r ApiBuffStatsRequest) HeroIds(heroIds []int64) ApiBuffStatsRequest {
 	r.heroIds = &heroIds
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiBuffStatsRequest) AccountIds(accountIds []int32) ApiBuffStatsRequest {
+func (r ApiBuffStatsRequest) AccountIds(accountIds []int64) ApiBuffStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -1568,7 +1577,7 @@ func (a *AnalyticsAPIService) BuffStatsExecute(r ApiBuffStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1678,13 +1687,13 @@ func (a *AnalyticsAPIService) BuffStatsExecute(r ApiBuffStatsRequest) ([]Analyti
 type ApiBuildItemStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	heroId *int32
+	heroId *int64
 	minLastUpdatedUnixTimestamp *int64
 	maxLastUpdatedUnixTimestamp *int64
 }
 
 // Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiBuildItemStatsRequest) HeroId(heroId int32) ApiBuildItemStatsRequest {
+func (r ApiBuildItemStatsRequest) HeroId(heroId int64) ApiBuildItemStatsRequest {
 	r.heroId = &heroId
 	return r
 }
@@ -1758,7 +1767,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
 		r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -1827,20 +1836,20 @@ type ApiGameStatsRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
 	minNetworth *int64
 	maxNetworth *int64
-	heroIds *[]int32
-	includeItemIds *[]int32
-	excludeItemIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
-	accountIds *[]int32
+	heroIds *[]int64
+	includeItemIds *[]int64
+	excludeItemIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
+	accountIds *[]int64
 }
 
 // Bucket allows you to group the stats by a specific field.
@@ -1874,13 +1883,13 @@ func (r ApiGameStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiGameSta
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiGameStatsRequest) MinDurationS(minDurationS int64) ApiGameStatsRequest {
+func (r ApiGameStatsRequest) MinDurationS(minDurationS int32) ApiGameStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiGameStatsRequest) MaxDurationS(maxDurationS int64) ApiGameStatsRequest {
+func (r ApiGameStatsRequest) MaxDurationS(maxDurationS int32) ApiGameStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -1922,37 +1931,37 @@ func (r ApiGameStatsRequest) MaxNetworth(maxNetworth int64) ApiGameStatsRequest 
 }
 
 // Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiGameStatsRequest) HeroIds(heroIds []int32) ApiGameStatsRequest {
+func (r ApiGameStatsRequest) HeroIds(heroIds []int64) ApiGameStatsRequest {
 	r.heroIds = &heroIds
 	return r
 }
 
 // Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiGameStatsRequest) IncludeItemIds(includeItemIds []int32) ApiGameStatsRequest {
+func (r ApiGameStatsRequest) IncludeItemIds(includeItemIds []int64) ApiGameStatsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
 // Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiGameStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiGameStatsRequest {
+func (r ApiGameStatsRequest) ExcludeItemIds(excludeItemIds []int64) ApiGameStatsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiGameStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiGameStatsRequest {
+func (r ApiGameStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiGameStatsRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiGameStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiGameStatsRequest {
+func (r ApiGameStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiGameStatsRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiGameStatsRequest) AccountIds(accountIds []int32) ApiGameStatsRequest {
+func (r ApiGameStatsRequest) AccountIds(accountIds []int64) ApiGameStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -2020,7 +2029,7 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2162,8 +2171,8 @@ type ApiHeroBanStatsRequest struct {
 	bucket *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
@@ -2195,13 +2204,13 @@ func (r ApiHeroBanStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiHero
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroBanStatsRequest) MinDurationS(minDurationS int64) ApiHeroBanStatsRequest {
+func (r ApiHeroBanStatsRequest) MinDurationS(minDurationS int32) ApiHeroBanStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroBanStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroBanStatsRequest {
+func (r ApiHeroBanStatsRequest) MaxDurationS(maxDurationS int32) ApiHeroBanStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -2295,7 +2304,7 @@ func (a *AnalyticsAPIService) HeroBanStatsExecute(r ApiHeroBanStatsRequest) ([]H
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2377,13 +2386,13 @@ func (a *AnalyticsAPIService) HeroBanStatsExecute(r ApiHeroBanStatsRequest) ([]H
 type ApiHeroBuildStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	heroId int32
+	heroId int64
 	matchMode *string
 	bucket *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
@@ -2391,10 +2400,10 @@ type ApiHeroBuildStatsRequest struct {
 	heroBuildId *int64
 	includePerformance *bool
 	minMatches *int64
-	accountId *int32
-	accountIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
+	accountId *int64
+	accountIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
 }
 
 // Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
@@ -2422,13 +2431,13 @@ func (r ApiHeroBuildStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiHe
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroBuildStatsRequest) MinDurationS(minDurationS int64) ApiHeroBuildStatsRequest {
+func (r ApiHeroBuildStatsRequest) MinDurationS(minDurationS int32) ApiHeroBuildStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroBuildStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroBuildStatsRequest {
+func (r ApiHeroBuildStatsRequest) MaxDurationS(maxDurationS int32) ApiHeroBuildStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -2477,25 +2486,25 @@ func (r ApiHeroBuildStatsRequest) MinMatches(minMatches int64) ApiHeroBuildStats
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiHeroBuildStatsRequest) AccountId(accountId int32) ApiHeroBuildStatsRequest {
+func (r ApiHeroBuildStatsRequest) AccountId(accountId int64) ApiHeroBuildStatsRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiHeroBuildStatsRequest) AccountIds(accountIds []int32) ApiHeroBuildStatsRequest {
+func (r ApiHeroBuildStatsRequest) AccountIds(accountIds []int64) ApiHeroBuildStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiHeroBuildStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiHeroBuildStatsRequest {
+func (r ApiHeroBuildStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiHeroBuildStatsRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiHeroBuildStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiHeroBuildStatsRequest {
+func (r ApiHeroBuildStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiHeroBuildStatsRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
@@ -2535,7 +2544,7 @@ Results are cached for **1 hour** based on the combination of query parameters p
 
 Deprecated
 */
-func (a *AnalyticsAPIService) HeroBuildStats(ctx context.Context, heroId int32) ApiHeroBuildStatsRequest {
+func (a *AnalyticsAPIService) HeroBuildStats(ctx context.Context, heroId int64) ApiHeroBuildStatsRequest {
 	return ApiHeroBuildStatsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2568,6 +2577,9 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 	if r.heroId < 0 {
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
 	}
+	if r.heroId > 4294967295 {
+		return localVarReturnValue, nil, reportError("heroId must be less than 4294967295")
+	}
 
 	if r.matchMode != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "match_mode", r.matchMode, "form", "")
@@ -2578,7 +2590,7 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2698,8 +2710,8 @@ type ApiHeroBuildStatsByHeroesRequest struct {
 	bucket *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
@@ -2707,10 +2719,10 @@ type ApiHeroBuildStatsByHeroesRequest struct {
 	heroBuildId *int64
 	includePerformance *bool
 	minMatches *int64
-	accountId *int32
-	accountIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
+	accountId *int64
+	accountIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
 }
 
 // Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -2744,13 +2756,13 @@ func (r ApiHeroBuildStatsByHeroesRequest) MaxUnixTimestamp(maxUnixTimestamp int6
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroBuildStatsByHeroesRequest) MinDurationS(minDurationS int64) ApiHeroBuildStatsByHeroesRequest {
+func (r ApiHeroBuildStatsByHeroesRequest) MinDurationS(minDurationS int32) ApiHeroBuildStatsByHeroesRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroBuildStatsByHeroesRequest) MaxDurationS(maxDurationS int64) ApiHeroBuildStatsByHeroesRequest {
+func (r ApiHeroBuildStatsByHeroesRequest) MaxDurationS(maxDurationS int32) ApiHeroBuildStatsByHeroesRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -2799,25 +2811,25 @@ func (r ApiHeroBuildStatsByHeroesRequest) MinMatches(minMatches int64) ApiHeroBu
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiHeroBuildStatsByHeroesRequest) AccountId(accountId int32) ApiHeroBuildStatsByHeroesRequest {
+func (r ApiHeroBuildStatsByHeroesRequest) AccountId(accountId int64) ApiHeroBuildStatsByHeroesRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiHeroBuildStatsByHeroesRequest) AccountIds(accountIds []int32) ApiHeroBuildStatsByHeroesRequest {
+func (r ApiHeroBuildStatsByHeroesRequest) AccountIds(accountIds []int64) ApiHeroBuildStatsByHeroesRequest {
 	r.accountIds = &accountIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiHeroBuildStatsByHeroesRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiHeroBuildStatsByHeroesRequest {
+func (r ApiHeroBuildStatsByHeroesRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiHeroBuildStatsByHeroesRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiHeroBuildStatsByHeroesRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiHeroBuildStatsByHeroesRequest {
+func (r ApiHeroBuildStatsByHeroesRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiHeroBuildStatsByHeroesRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
@@ -2898,7 +2910,7 @@ func (a *AnalyticsAPIService) HeroBuildStatsByHeroesExecute(r ApiHeroBuildStatsB
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3017,23 +3029,23 @@ type ApiHeroCombStatsRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	includeHeroIds *[]int32
-	excludeHeroIds *[]int32
-	includeEnemyHeroIds *[]int32
-	excludeEnemyHeroIds *[]int32
-	minMatches *int32
-	maxMatches *int32
+	includeHeroIds *[]int64
+	excludeHeroIds *[]int64
+	includeEnemyHeroIds *[]int64
+	excludeEnemyHeroIds *[]int64
+	minMatches *int64
+	maxMatches *int64
 	combSize *int32
-	accountId *int32
-	accountIds *[]int32
+	accountId *int64
+	accountIds *[]int64
 }
 
 // Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -3061,13 +3073,13 @@ func (r ApiHeroCombStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiHer
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroCombStatsRequest) MinDurationS(minDurationS int64) ApiHeroCombStatsRequest {
+func (r ApiHeroCombStatsRequest) MinDurationS(minDurationS int32) ApiHeroCombStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroCombStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroCombStatsRequest {
+func (r ApiHeroCombStatsRequest) MaxDurationS(maxDurationS int32) ApiHeroCombStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -3109,37 +3121,37 @@ func (r ApiHeroCombStatsRequest) MaxMatchId(maxMatchId int64) ApiHeroCombStatsRe
 }
 
 // Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiHeroCombStatsRequest) IncludeHeroIds(includeHeroIds []int32) ApiHeroCombStatsRequest {
+func (r ApiHeroCombStatsRequest) IncludeHeroIds(includeHeroIds []int64) ApiHeroCombStatsRequest {
 	r.includeHeroIds = &includeHeroIds
 	return r
 }
 
 // Comma separated list of hero ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiHeroCombStatsRequest) ExcludeHeroIds(excludeHeroIds []int32) ApiHeroCombStatsRequest {
+func (r ApiHeroCombStatsRequest) ExcludeHeroIds(excludeHeroIds []int64) ApiHeroCombStatsRequest {
 	r.excludeHeroIds = &excludeHeroIds
 	return r
 }
 
 // Comma separated list of enemy hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiHeroCombStatsRequest) IncludeEnemyHeroIds(includeEnemyHeroIds []int32) ApiHeroCombStatsRequest {
+func (r ApiHeroCombStatsRequest) IncludeEnemyHeroIds(includeEnemyHeroIds []int64) ApiHeroCombStatsRequest {
 	r.includeEnemyHeroIds = &includeEnemyHeroIds
 	return r
 }
 
 // Comma separated list of enemy hero ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiHeroCombStatsRequest) ExcludeEnemyHeroIds(excludeEnemyHeroIds []int32) ApiHeroCombStatsRequest {
+func (r ApiHeroCombStatsRequest) ExcludeEnemyHeroIds(excludeEnemyHeroIds []int64) ApiHeroCombStatsRequest {
 	r.excludeEnemyHeroIds = &excludeEnemyHeroIds
 	return r
 }
 
 // The minimum number of matches played for a hero combination to be included in the response.
-func (r ApiHeroCombStatsRequest) MinMatches(minMatches int32) ApiHeroCombStatsRequest {
+func (r ApiHeroCombStatsRequest) MinMatches(minMatches int64) ApiHeroCombStatsRequest {
 	r.minMatches = &minMatches
 	return r
 }
 
 // The maximum number of matches played for a hero combination to be included in the response.
-func (r ApiHeroCombStatsRequest) MaxMatches(maxMatches int32) ApiHeroCombStatsRequest {
+func (r ApiHeroCombStatsRequest) MaxMatches(maxMatches int64) ApiHeroCombStatsRequest {
 	r.maxMatches = &maxMatches
 	return r
 }
@@ -3152,13 +3164,13 @@ func (r ApiHeroCombStatsRequest) CombSize(combSize int32) ApiHeroCombStatsReques
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiHeroCombStatsRequest) AccountId(accountId int32) ApiHeroCombStatsRequest {
+func (r ApiHeroCombStatsRequest) AccountId(accountId int64) ApiHeroCombStatsRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiHeroCombStatsRequest) AccountIds(accountIds []int32) ApiHeroCombStatsRequest {
+func (r ApiHeroCombStatsRequest) AccountIds(accountIds []int64) ApiHeroCombStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -3225,7 +3237,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3303,7 +3315,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
 	} else {
-		var defaultValue int32 = 20
+		var defaultValue int64 = 20
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
 		r.minMatches = &defaultValue
 	}
@@ -3392,8 +3404,8 @@ type ApiHeroCountersStatsRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minEnemyNetworth *int64
@@ -3404,9 +3416,9 @@ type ApiHeroCountersStatsRequest struct {
 	maxMatchId *int64
 	sameLaneFilter *bool
 	minMatches *int64
-	maxMatches *int32
-	accountId *int32
-	accountIds *[]int32
+	maxMatches *int64
+	accountId *int64
+	accountIds *[]int64
 	heroBuildId *int64
 }
 
@@ -3435,13 +3447,13 @@ func (r ApiHeroCountersStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) Ap
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroCountersStatsRequest) MinDurationS(minDurationS int64) ApiHeroCountersStatsRequest {
+func (r ApiHeroCountersStatsRequest) MinDurationS(minDurationS int32) ApiHeroCountersStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroCountersStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroCountersStatsRequest {
+func (r ApiHeroCountersStatsRequest) MaxDurationS(maxDurationS int32) ApiHeroCountersStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -3507,20 +3519,20 @@ func (r ApiHeroCountersStatsRequest) MinMatches(minMatches int64) ApiHeroCounter
 }
 
 // The maximum number of matches played for a hero combination to be included in the response.
-func (r ApiHeroCountersStatsRequest) MaxMatches(maxMatches int32) ApiHeroCountersStatsRequest {
+func (r ApiHeroCountersStatsRequest) MaxMatches(maxMatches int64) ApiHeroCountersStatsRequest {
 	r.maxMatches = &maxMatches
 	return r
 }
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiHeroCountersStatsRequest) AccountId(accountId int32) ApiHeroCountersStatsRequest {
+func (r ApiHeroCountersStatsRequest) AccountId(accountId int64) ApiHeroCountersStatsRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiHeroCountersStatsRequest) AccountIds(accountIds []int32) ApiHeroCountersStatsRequest {
+func (r ApiHeroCountersStatsRequest) AccountIds(accountIds []int64) ApiHeroCountersStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -3595,7 +3607,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3727,19 +3739,19 @@ type ApiHeroScoreboardRequest struct {
 	sortDirection *string
 	gameMode *string
 	matchMode *string
-	minMatches *int32
+	minMatches *int64
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	accountId *int32
-	accountIds *[]int32
+	accountId *int64
+	accountIds *[]int64
 }
 
 // The field to sort by.
@@ -3767,7 +3779,7 @@ func (r ApiHeroScoreboardRequest) MatchMode(matchMode string) ApiHeroScoreboardR
 }
 
 // Filter by min number of matches played.
-func (r ApiHeroScoreboardRequest) MinMatches(minMatches int32) ApiHeroScoreboardRequest {
+func (r ApiHeroScoreboardRequest) MinMatches(minMatches int64) ApiHeroScoreboardRequest {
 	r.minMatches = &minMatches
 	return r
 }
@@ -3785,13 +3797,13 @@ func (r ApiHeroScoreboardRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiHe
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroScoreboardRequest) MinDurationS(minDurationS int64) ApiHeroScoreboardRequest {
+func (r ApiHeroScoreboardRequest) MinDurationS(minDurationS int32) ApiHeroScoreboardRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroScoreboardRequest) MaxDurationS(maxDurationS int64) ApiHeroScoreboardRequest {
+func (r ApiHeroScoreboardRequest) MaxDurationS(maxDurationS int32) ApiHeroScoreboardRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -3834,13 +3846,13 @@ func (r ApiHeroScoreboardRequest) MaxMatchId(maxMatchId int64) ApiHeroScoreboard
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiHeroScoreboardRequest) AccountId(accountId int32) ApiHeroScoreboardRequest {
+func (r ApiHeroScoreboardRequest) AccountId(accountId int64) ApiHeroScoreboardRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiHeroScoreboardRequest) AccountIds(accountIds []int32) ApiHeroScoreboardRequest {
+func (r ApiHeroScoreboardRequest) AccountIds(accountIds []int64) ApiHeroScoreboardRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -3915,7 +3927,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4022,8 +4034,8 @@ type ApiHeroStatsRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
@@ -4034,13 +4046,13 @@ type ApiHeroStatsRequest struct {
 	maxHeroMatches *int64
 	minHeroMatchesTotal *int64
 	maxHeroMatchesTotal *int64
-	heroMatchesTotalBuckets *[]int32
-	includeItemIds *[]int32
-	excludeItemIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
-	accountId *int32
-	accountIds *[]int32
+	heroMatchesTotalBuckets *[]int64
+	includeItemIds *[]int64
+	excludeItemIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
+	accountId *int64
+	accountIds *[]int64
 }
 
 // Bucket allows you to group the stats by a specific field.
@@ -4074,13 +4086,13 @@ func (r ApiHeroStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiHeroSta
 }
 
 // Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute.
-func (r ApiHeroStatsRequest) MinDurationS(minDurationS int64) ApiHeroStatsRequest {
+func (r ApiHeroStatsRequest) MinDurationS(minDurationS int32) ApiHeroStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s). With a single &#x60;include_item_ids&#x60; or &#x60;exclude_item_ids&#x60; item, rounded to the nearest minute (a value ending in 59 seconds, e.g. &#x60;1799&#x60;, is kept).
-func (r ApiHeroStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroStatsRequest {
+func (r ApiHeroStatsRequest) MaxDurationS(maxDurationS int32) ApiHeroStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -4146,44 +4158,44 @@ func (r ApiHeroStatsRequest) MaxHeroMatchesTotal(maxHeroMatchesTotal int64) ApiH
 }
 
 // Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds.
-func (r ApiHeroStatsRequest) HeroMatchesTotalBuckets(heroMatchesTotalBuckets []int32) ApiHeroStatsRequest {
+func (r ApiHeroStatsRequest) HeroMatchesTotalBuckets(heroMatchesTotalBuckets []int64) ApiHeroStatsRequest {
 	r.heroMatchesTotalBuckets = &heroMatchesTotalBuckets
 	return r
 }
 
 // Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiHeroStatsRequest) IncludeItemIds(includeItemIds []int32) ApiHeroStatsRequest {
+func (r ApiHeroStatsRequest) IncludeItemIds(includeItemIds []int64) ApiHeroStatsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
 // Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiHeroStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiHeroStatsRequest {
+func (r ApiHeroStatsRequest) ExcludeItemIds(excludeItemIds []int64) ApiHeroStatsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiHeroStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiHeroStatsRequest {
+func (r ApiHeroStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiHeroStatsRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiHeroStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiHeroStatsRequest {
+func (r ApiHeroStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiHeroStatsRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiHeroStatsRequest) AccountId(accountId int32) ApiHeroStatsRequest {
+func (r ApiHeroStatsRequest) AccountId(accountId int64) ApiHeroStatsRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiHeroStatsRequest) AccountIds(accountIds []int32) ApiHeroStatsRequest {
+func (r ApiHeroStatsRequest) AccountIds(accountIds []int64) ApiHeroStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -4251,7 +4263,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4408,8 +4420,8 @@ type ApiHeroSwapStatsRequest struct {
 	bucket *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
@@ -4441,13 +4453,13 @@ func (r ApiHeroSwapStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiHer
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroSwapStatsRequest) MinDurationS(minDurationS int64) ApiHeroSwapStatsRequest {
+func (r ApiHeroSwapStatsRequest) MinDurationS(minDurationS int32) ApiHeroSwapStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroSwapStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroSwapStatsRequest {
+func (r ApiHeroSwapStatsRequest) MaxDurationS(maxDurationS int32) ApiHeroSwapStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -4544,7 +4556,7 @@ func (a *AnalyticsAPIService) HeroSwapStatsExecute(r ApiHeroSwapStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4630,8 +4642,8 @@ type ApiHeroSynergiesStatsRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
@@ -4640,9 +4652,9 @@ type ApiHeroSynergiesStatsRequest struct {
 	maxMatchId *int64
 	sameLaneFilter *bool
 	minMatches *int64
-	maxMatches *int32
-	accountId *int32
-	accountIds *[]int32
+	maxMatches *int64
+	accountId *int64
+	accountIds *[]int64
 }
 
 // Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -4670,13 +4682,13 @@ func (r ApiHeroSynergiesStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) A
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroSynergiesStatsRequest) MinDurationS(minDurationS int64) ApiHeroSynergiesStatsRequest {
+func (r ApiHeroSynergiesStatsRequest) MinDurationS(minDurationS int32) ApiHeroSynergiesStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiHeroSynergiesStatsRequest) MaxDurationS(maxDurationS int64) ApiHeroSynergiesStatsRequest {
+func (r ApiHeroSynergiesStatsRequest) MaxDurationS(maxDurationS int32) ApiHeroSynergiesStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -4730,20 +4742,20 @@ func (r ApiHeroSynergiesStatsRequest) MinMatches(minMatches int64) ApiHeroSynerg
 }
 
 // The maximum number of matches played for a hero combination to be included in the response.
-func (r ApiHeroSynergiesStatsRequest) MaxMatches(maxMatches int32) ApiHeroSynergiesStatsRequest {
+func (r ApiHeroSynergiesStatsRequest) MaxMatches(maxMatches int64) ApiHeroSynergiesStatsRequest {
 	r.maxMatches = &maxMatches
 	return r
 }
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiHeroSynergiesStatsRequest) AccountId(accountId int32) ApiHeroSynergiesStatsRequest {
+func (r ApiHeroSynergiesStatsRequest) AccountId(accountId int64) ApiHeroSynergiesStatsRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiHeroSynergiesStatsRequest) AccountIds(accountIds []int32) ApiHeroSynergiesStatsRequest {
+func (r ApiHeroSynergiesStatsRequest) AccountIds(accountIds []int64) ApiHeroSynergiesStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -4812,7 +4824,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4931,33 +4943,33 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 type ApiItemFlowStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	phaseIntervalS *int32
+	phaseIntervalS *int64
 	phaseCount *int32
 	gameMode *string
 	matchMode *string
 	heroIds *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	minMatches *int32
-	accountIds *[]int32
-	includeItemIds *[]int32
-	excludeItemIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
-	lockedItemIds *[]int32
-	lockedColumns *[]int32
+	minMatches *int64
+	accountIds *[]int64
+	includeItemIds *[]int64
+	excludeItemIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
+	lockedItemIds *[]int64
+	lockedColumns *[]int64
 }
 
 // Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds.
-func (r ApiItemFlowStatsRequest) PhaseIntervalS(phaseIntervalS int32) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) PhaseIntervalS(phaseIntervalS int64) ApiItemFlowStatsRequest {
 	r.phaseIntervalS = &phaseIntervalS
 	return r
 }
@@ -4999,13 +5011,13 @@ func (r ApiItemFlowStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiIte
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiItemFlowStatsRequest) MinDurationS(minDurationS int64) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) MinDurationS(minDurationS int32) ApiItemFlowStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiItemFlowStatsRequest) MaxDurationS(maxDurationS int64) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) MaxDurationS(maxDurationS int32) ApiItemFlowStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -5047,49 +5059,49 @@ func (r ApiItemFlowStatsRequest) MaxMatchId(maxMatchId int64) ApiItemFlowStatsRe
 }
 
 // The minimum number of matches for a node or edge to be included in the response.
-func (r ApiItemFlowStatsRequest) MinMatches(minMatches int32) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) MinMatches(minMatches int64) ApiItemFlowStatsRequest {
 	r.minMatches = &minMatches
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiItemFlowStatsRequest) AccountIds(accountIds []int32) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) AccountIds(accountIds []int64) ApiItemFlowStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
 
 // Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiItemFlowStatsRequest) IncludeItemIds(includeItemIds []int32) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) IncludeItemIds(includeItemIds []int64) ApiItemFlowStatsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
 // Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiItemFlowStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) ExcludeItemIds(excludeItemIds []int64) ApiItemFlowStatsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiItemFlowStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiItemFlowStatsRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiItemFlowStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiItemFlowStatsRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
 
 // Comma separated list of item ids forming a \&quot;locked\&quot; build path. Pairs positionally with &#x60;locked_columns&#x60;: the i-th item must have been bought in the i-th &#x60;locked_columns&#x60; stage. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiItemFlowStatsRequest) LockedItemIds(lockedItemIds []int32) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) LockedItemIds(lockedItemIds []int64) ApiItemFlowStatsRequest {
 	r.lockedItemIds = &lockedItemIds
 	return r
 }
 
 // Comma separated 0-based stage column indices for each &#x60;locked_item_ids&#x60; entry (time phase for &#x60;normal&#x60;, round for &#x60;street_brawl&#x60;). Must have the same length as &#x60;locked_item_ids&#x60;.
-func (r ApiItemFlowStatsRequest) LockedColumns(lockedColumns []int32) ApiItemFlowStatsRequest {
+func (r ApiItemFlowStatsRequest) LockedColumns(lockedColumns []int64) ApiItemFlowStatsRequest {
 	r.lockedColumns = &lockedColumns
 	return r
 }
@@ -5170,7 +5182,7 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 	if r.phaseIntervalS != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "phase_interval_s", r.phaseIntervalS, "form", "")
 	} else {
-		var defaultValue int32 = 600
+		var defaultValue int64 = 600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "phase_interval_s", defaultValue, "form", "")
 		r.phaseIntervalS = &defaultValue
 	}
@@ -5193,7 +5205,7 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5227,7 +5239,7 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
 	} else {
-		var defaultValue int32 = 20
+		var defaultValue int64 = 20
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
 		r.minMatches = &defaultValue
 	}
@@ -5333,33 +5345,33 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 type ApiItemPermutationStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	itemIds *[]int32
+	itemIds *[]int64
 	combSize *int32
-	minMatches *int32
-	maxMatches *int32
+	minMatches *int64
+	maxMatches *int64
 	gameMode *string
 	matchMode *string
 	heroIds *string
-	heroId *int32
+	heroId *int64
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	accountId *int32
-	accountIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
+	accountId *int64
+	accountIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
 	includeCorruptedItems *bool
 }
 
 // Comma separated list of item ids. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiItemPermutationStatsRequest) ItemIds(itemIds []int32) ApiItemPermutationStatsRequest {
+func (r ApiItemPermutationStatsRequest) ItemIds(itemIds []int64) ApiItemPermutationStatsRequest {
 	r.itemIds = &itemIds
 	return r
 }
@@ -5371,13 +5383,13 @@ func (r ApiItemPermutationStatsRequest) CombSize(combSize int32) ApiItemPermutat
 }
 
 // The minimum number of matches for an item combination to be included in the response.
-func (r ApiItemPermutationStatsRequest) MinMatches(minMatches int32) ApiItemPermutationStatsRequest {
+func (r ApiItemPermutationStatsRequest) MinMatches(minMatches int64) ApiItemPermutationStatsRequest {
 	r.minMatches = &minMatches
 	return r
 }
 
 // The maximum number of matches for an item combination to be included in the response.
-func (r ApiItemPermutationStatsRequest) MaxMatches(maxMatches int32) ApiItemPermutationStatsRequest {
+func (r ApiItemPermutationStatsRequest) MaxMatches(maxMatches int64) ApiItemPermutationStatsRequest {
 	r.maxMatches = &maxMatches
 	return r
 }
@@ -5402,7 +5414,7 @@ func (r ApiItemPermutationStatsRequest) HeroIds(heroIds string) ApiItemPermutati
 
 // Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 // Deprecated
-func (r ApiItemPermutationStatsRequest) HeroId(heroId int32) ApiItemPermutationStatsRequest {
+func (r ApiItemPermutationStatsRequest) HeroId(heroId int64) ApiItemPermutationStatsRequest {
 	r.heroId = &heroId
 	return r
 }
@@ -5420,13 +5432,13 @@ func (r ApiItemPermutationStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64)
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiItemPermutationStatsRequest) MinDurationS(minDurationS int64) ApiItemPermutationStatsRequest {
+func (r ApiItemPermutationStatsRequest) MinDurationS(minDurationS int32) ApiItemPermutationStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiItemPermutationStatsRequest) MaxDurationS(maxDurationS int64) ApiItemPermutationStatsRequest {
+func (r ApiItemPermutationStatsRequest) MaxDurationS(maxDurationS int32) ApiItemPermutationStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -5469,25 +5481,25 @@ func (r ApiItemPermutationStatsRequest) MaxMatchId(maxMatchId int64) ApiItemPerm
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiItemPermutationStatsRequest) AccountId(accountId int32) ApiItemPermutationStatsRequest {
+func (r ApiItemPermutationStatsRequest) AccountId(accountId int64) ApiItemPermutationStatsRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiItemPermutationStatsRequest) AccountIds(accountIds []int32) ApiItemPermutationStatsRequest {
+func (r ApiItemPermutationStatsRequest) AccountIds(accountIds []int64) ApiItemPermutationStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiItemPermutationStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiItemPermutationStatsRequest {
+func (r ApiItemPermutationStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiItemPermutationStatsRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiItemPermutationStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiItemPermutationStatsRequest {
+func (r ApiItemPermutationStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiItemPermutationStatsRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
@@ -5572,7 +5584,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
 	} else {
-		var defaultValue int32 = 20
+		var defaultValue int64 = 20
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
 		r.minMatches = &defaultValue
 	}
@@ -5594,7 +5606,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5713,7 +5725,7 @@ type ApiItemStatsRequest struct {
 	gameMode *string
 	matchMode *string
 	heroIds *string
-	heroId *int32
+	heroId *int64
 	enemyHeroIds *string
 	enemyHeroIdsAllMatch *bool
 	minEnemyNetworth *int64
@@ -5721,25 +5733,25 @@ type ApiItemStatsRequest struct {
 	sameLaneFilter *bool
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	includeItemIds *[]int32
-	excludeItemIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
+	includeItemIds *[]int64
+	excludeItemIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
 	heroBuildId *int64
-	minMatches *int32
-	maxMatches *int32
-	accountId *int32
-	accountIds *[]int32
-	minBoughtAtS *int32
-	maxBoughtAtS *int32
+	minMatches *int64
+	maxMatches *int64
+	accountId *int64
+	accountIds *[]int64
+	minBoughtAtS *int64
+	maxBoughtAtS *int64
 	itemOrder *[]string
 	corruptedItems *string
 	includeCorruptedItems *bool
@@ -5772,7 +5784,7 @@ func (r ApiItemStatsRequest) HeroIds(heroIds string) ApiItemStatsRequest {
 
 // Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 // Deprecated
-func (r ApiItemStatsRequest) HeroId(heroId int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) HeroId(heroId int64) ApiItemStatsRequest {
 	r.heroId = &heroId
 	return r
 }
@@ -5820,13 +5832,13 @@ func (r ApiItemStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiItemSta
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiItemStatsRequest) MinDurationS(minDurationS int64) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) MinDurationS(minDurationS int32) ApiItemStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiItemStatsRequest) MaxDurationS(maxDurationS int64) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) MaxDurationS(maxDurationS int32) ApiItemStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -5868,25 +5880,25 @@ func (r ApiItemStatsRequest) MaxMatchId(maxMatchId int64) ApiItemStatsRequest {
 }
 
 // Comma separated list of item ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiItemStatsRequest) IncludeItemIds(includeItemIds []int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) IncludeItemIds(includeItemIds []int64) ApiItemStatsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
 // Comma separated list of item ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiItemStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) ExcludeItemIds(excludeItemIds []int64) ApiItemStatsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiItemStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiItemStatsRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiItemStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiItemStatsRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
@@ -5898,38 +5910,38 @@ func (r ApiItemStatsRequest) HeroBuildId(heroBuildId int64) ApiItemStatsRequest 
 }
 
 // The minimum number of matches played for an item to be included in the response.
-func (r ApiItemStatsRequest) MinMatches(minMatches int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) MinMatches(minMatches int64) ApiItemStatsRequest {
 	r.minMatches = &minMatches
 	return r
 }
 
 // The maximum number of matches played for an item to be included in the response.
-func (r ApiItemStatsRequest) MaxMatches(maxMatches int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) MaxMatches(maxMatches int64) ApiItemStatsRequest {
 	r.maxMatches = &maxMatches
 	return r
 }
 
 // Filter for matches with a specific player account ID.
 // Deprecated
-func (r ApiItemStatsRequest) AccountId(accountId int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) AccountId(accountId int64) ApiItemStatsRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiItemStatsRequest) AccountIds(accountIds []int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) AccountIds(accountIds []int64) ApiItemStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
 
 // Filter items bought after this game time (seconds).
-func (r ApiItemStatsRequest) MinBoughtAtS(minBoughtAtS int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) MinBoughtAtS(minBoughtAtS int64) ApiItemStatsRequest {
 	r.minBoughtAtS = &minBoughtAtS
 	return r
 }
 
 // Filter items bought before this game time (seconds).
-func (r ApiItemStatsRequest) MaxBoughtAtS(maxBoughtAtS int32) ApiItemStatsRequest {
+func (r ApiItemStatsRequest) MaxBoughtAtS(maxBoughtAtS int64) ApiItemStatsRequest {
 	r.maxBoughtAtS = &maxBoughtAtS
 	return r
 }
@@ -6045,7 +6057,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6110,7 +6122,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
 	} else {
-		var defaultValue int32 = 20
+		var defaultValue int64 = 20
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
 		r.minMatches = &defaultValue
 	}
@@ -6223,9 +6235,9 @@ type ApiKillDeathStatsRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
-	accountIds *[]int32
+	minDurationS *int32
+	maxDurationS *int32
+	accountIds *[]int64
 	heroIds *string
 	minNetworth *int64
 	maxNetworth *int64
@@ -6236,10 +6248,10 @@ type ApiKillDeathStatsRequest struct {
 	maxMatchId *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
-	minKillsPerRaster *int32
-	maxKillsPerRaster *int32
-	minDeathsPerRaster *int32
-	maxDeathsPerRaster *int32
+	minKillsPerRaster *int64
+	maxKillsPerRaster *int64
+	minDeathsPerRaster *int64
+	maxDeathsPerRaster *int64
 	minGameTimeS *int32
 	maxGameTimeS *int32
 }
@@ -6275,19 +6287,19 @@ func (r ApiKillDeathStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiKi
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiKillDeathStatsRequest) MinDurationS(minDurationS int64) ApiKillDeathStatsRequest {
+func (r ApiKillDeathStatsRequest) MinDurationS(minDurationS int32) ApiKillDeathStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiKillDeathStatsRequest) MaxDurationS(maxDurationS int64) ApiKillDeathStatsRequest {
+func (r ApiKillDeathStatsRequest) MaxDurationS(maxDurationS int32) ApiKillDeathStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
 
 // Filter matches by account IDs of players that participated in the match.
-func (r ApiKillDeathStatsRequest) AccountIds(accountIds []int32) ApiKillDeathStatsRequest {
+func (r ApiKillDeathStatsRequest) AccountIds(accountIds []int64) ApiKillDeathStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -6353,25 +6365,25 @@ func (r ApiKillDeathStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiKill
 }
 
 // Filter Raster cells based on minimum kills.
-func (r ApiKillDeathStatsRequest) MinKillsPerRaster(minKillsPerRaster int32) ApiKillDeathStatsRequest {
+func (r ApiKillDeathStatsRequest) MinKillsPerRaster(minKillsPerRaster int64) ApiKillDeathStatsRequest {
 	r.minKillsPerRaster = &minKillsPerRaster
 	return r
 }
 
 // Filter Raster cells based on maximum kills.
-func (r ApiKillDeathStatsRequest) MaxKillsPerRaster(maxKillsPerRaster int32) ApiKillDeathStatsRequest {
+func (r ApiKillDeathStatsRequest) MaxKillsPerRaster(maxKillsPerRaster int64) ApiKillDeathStatsRequest {
 	r.maxKillsPerRaster = &maxKillsPerRaster
 	return r
 }
 
 // Filter Raster cells based on minimum deaths.
-func (r ApiKillDeathStatsRequest) MinDeathsPerRaster(minDeathsPerRaster int32) ApiKillDeathStatsRequest {
+func (r ApiKillDeathStatsRequest) MinDeathsPerRaster(minDeathsPerRaster int64) ApiKillDeathStatsRequest {
 	r.minDeathsPerRaster = &minDeathsPerRaster
 	return r
 }
 
 // Filter Raster cells based on maximum deaths.
-func (r ApiKillDeathStatsRequest) MaxDeathsPerRaster(maxDeathsPerRaster int32) ApiKillDeathStatsRequest {
+func (r ApiKillDeathStatsRequest) MaxDeathsPerRaster(maxDeathsPerRaster int64) ApiKillDeathStatsRequest {
 	r.maxDeathsPerRaster = &maxDeathsPerRaster
 	return r
 }
@@ -6451,7 +6463,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6584,21 +6596,21 @@ type ApiLaneMatchupStatsRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	sampleTimeS *int32
+	sampleTimeS *int64
 	assignedLanes *string
-	heroIds *[]int32
-	enemyHeroIds *[]int32
+	heroIds *[]int64
+	enemyHeroIds *[]int64
 	stats *string
 	groupBy *string
 	minMatches *int64
 	maxMatches *int64
-	accountIds *[]int32
+	accountIds *[]int64
 }
 
 // Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -6626,13 +6638,13 @@ func (r ApiLaneMatchupStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) Api
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiLaneMatchupStatsRequest) MinDurationS(minDurationS int64) ApiLaneMatchupStatsRequest {
+func (r ApiLaneMatchupStatsRequest) MinDurationS(minDurationS int32) ApiLaneMatchupStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiLaneMatchupStatsRequest) MaxDurationS(maxDurationS int64) ApiLaneMatchupStatsRequest {
+func (r ApiLaneMatchupStatsRequest) MaxDurationS(maxDurationS int32) ApiLaneMatchupStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -6662,7 +6674,7 @@ func (r ApiLaneMatchupStatsRequest) MaxMatchId(maxMatchId int64) ApiLaneMatchupS
 }
 
 // Seconds into the match the stat readings are taken at. **Default:** 900. Matchups whose match ended earlier are still counted in &#x60;wins&#x60; and &#x60;matches_played&#x60;, but contribute no reading; &#x60;sample_matches&#x60; reports how many did.
-func (r ApiLaneMatchupStatsRequest) SampleTimeS(sampleTimeS int32) ApiLaneMatchupStatsRequest {
+func (r ApiLaneMatchupStatsRequest) SampleTimeS(sampleTimeS int64) ApiLaneMatchupStatsRequest {
 	r.sampleTimeS = &sampleTimeS
 	return r
 }
@@ -6674,13 +6686,13 @@ func (r ApiLaneMatchupStatsRequest) AssignedLanes(assignedLanes string) ApiLaneM
 }
 
 // Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiLaneMatchupStatsRequest) HeroIds(heroIds []int32) ApiLaneMatchupStatsRequest {
+func (r ApiLaneMatchupStatsRequest) HeroIds(heroIds []int64) ApiLaneMatchupStatsRequest {
 	r.heroIds = &heroIds
 	return r
 }
 
 // Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiLaneMatchupStatsRequest) EnemyHeroIds(enemyHeroIds []int32) ApiLaneMatchupStatsRequest {
+func (r ApiLaneMatchupStatsRequest) EnemyHeroIds(enemyHeroIds []int64) ApiLaneMatchupStatsRequest {
 	r.enemyHeroIds = &enemyHeroIds
 	return r
 }
@@ -6710,7 +6722,7 @@ func (r ApiLaneMatchupStatsRequest) MaxMatches(maxMatches int64) ApiLaneMatchupS
 }
 
 // Comma separated list of account ids to include
-func (r ApiLaneMatchupStatsRequest) AccountIds(accountIds []int32) ApiLaneMatchupStatsRequest {
+func (r ApiLaneMatchupStatsRequest) AccountIds(accountIds []int64) ApiLaneMatchupStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -6787,7 +6799,7 @@ func (a *AnalyticsAPIService) LaneMatchupStatsExecute(r ApiLaneMatchupStatsReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6815,7 +6827,7 @@ func (a *AnalyticsAPIService) LaneMatchupStatsExecute(r ApiLaneMatchupStatsReque
 	if r.sampleTimeS != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sample_time_s", r.sampleTimeS, "form", "")
 	} else {
-		var defaultValue int32 = 900
+		var defaultValue int64 = 900
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sample_time_s", defaultValue, "form", "")
 		r.sampleTimeS = &defaultValue
 	}
@@ -6932,22 +6944,22 @@ type ApiLaneSoulCurveRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	minTimeS *int32
-	maxTimeS *int32
+	minTimeS *int64
+	maxTimeS *int64
 	assignedLanes *string
-	heroIds *[]int32
-	enemyHeroIds *[]int32
+	heroIds *[]int64
+	enemyHeroIds *[]int64
 	stats *string
 	groupBy *string
 	minMatches *int64
 	maxMatches *int64
-	accountIds *[]int32
+	accountIds *[]int64
 }
 
 // Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -6975,13 +6987,13 @@ func (r ApiLaneSoulCurveRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiLan
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiLaneSoulCurveRequest) MinDurationS(minDurationS int64) ApiLaneSoulCurveRequest {
+func (r ApiLaneSoulCurveRequest) MinDurationS(minDurationS int32) ApiLaneSoulCurveRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiLaneSoulCurveRequest) MaxDurationS(maxDurationS int64) ApiLaneSoulCurveRequest {
+func (r ApiLaneSoulCurveRequest) MaxDurationS(maxDurationS int32) ApiLaneSoulCurveRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -7011,13 +7023,13 @@ func (r ApiLaneSoulCurveRequest) MaxMatchId(maxMatchId int64) ApiLaneSoulCurveRe
 }
 
 // Earliest sample to return, in seconds into the match. **Default:** 180.
-func (r ApiLaneSoulCurveRequest) MinTimeS(minTimeS int32) ApiLaneSoulCurveRequest {
+func (r ApiLaneSoulCurveRequest) MinTimeS(minTimeS int64) ApiLaneSoulCurveRequest {
 	r.minTimeS = &minTimeS
 	return r
 }
 
 // Latest sample to return, in seconds into the match. Omit to follow every matchup to the end of its match.
-func (r ApiLaneSoulCurveRequest) MaxTimeS(maxTimeS int32) ApiLaneSoulCurveRequest {
+func (r ApiLaneSoulCurveRequest) MaxTimeS(maxTimeS int64) ApiLaneSoulCurveRequest {
 	r.maxTimeS = &maxTimeS
 	return r
 }
@@ -7029,13 +7041,13 @@ func (r ApiLaneSoulCurveRequest) AssignedLanes(assignedLanes string) ApiLaneSoul
 }
 
 // Comma separated list of hero ids the *ally* duo has to be drawn from, or a single hero id the *ally* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiLaneSoulCurveRequest) HeroIds(heroIds []int32) ApiLaneSoulCurveRequest {
+func (r ApiLaneSoulCurveRequest) HeroIds(heroIds []int64) ApiLaneSoulCurveRequest {
 	r.heroIds = &heroIds
 	return r
 }
 
 // Comma separated list of hero ids the *enemy* duo has to be drawn from, or a single hero id the *enemy* duo has to include. Omit to return every duo. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiLaneSoulCurveRequest) EnemyHeroIds(enemyHeroIds []int32) ApiLaneSoulCurveRequest {
+func (r ApiLaneSoulCurveRequest) EnemyHeroIds(enemyHeroIds []int64) ApiLaneSoulCurveRequest {
 	r.enemyHeroIds = &enemyHeroIds
 	return r
 }
@@ -7065,7 +7077,7 @@ func (r ApiLaneSoulCurveRequest) MaxMatches(maxMatches int64) ApiLaneSoulCurveRe
 }
 
 // Comma separated list of account ids to include
-func (r ApiLaneSoulCurveRequest) AccountIds(accountIds []int32) ApiLaneSoulCurveRequest {
+func (r ApiLaneSoulCurveRequest) AccountIds(accountIds []int64) ApiLaneSoulCurveRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -7144,7 +7156,7 @@ func (a *AnalyticsAPIService) LaneSoulCurveExecute(r ApiLaneSoulCurveRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -7172,7 +7184,7 @@ func (a *AnalyticsAPIService) LaneSoulCurveExecute(r ApiLaneSoulCurveRequest) ([
 	if r.minTimeS != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_time_s", r.minTimeS, "form", "")
 	} else {
-		var defaultValue int32 = 180
+		var defaultValue int64 = 180
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_time_s", defaultValue, "form", "")
 		r.minTimeS = &defaultValue
 	}
@@ -7293,8 +7305,8 @@ type ApiPlayerPerformanceCurveRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
@@ -7303,11 +7315,11 @@ type ApiPlayerPerformanceCurveRequest struct {
 	maxMatchId *int64
 	heroIds *string
 	heroBuildId *int64
-	includeItemIds *[]int32
-	excludeItemIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
-	accountIds *[]int32
+	includeItemIds *[]int64
+	excludeItemIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
+	accountIds *[]int64
 }
 
 // Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
@@ -7341,13 +7353,13 @@ func (r ApiPlayerPerformanceCurveRequest) MaxUnixTimestamp(maxUnixTimestamp int6
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiPlayerPerformanceCurveRequest) MinDurationS(minDurationS int64) ApiPlayerPerformanceCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MinDurationS(minDurationS int32) ApiPlayerPerformanceCurveRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiPlayerPerformanceCurveRequest) MaxDurationS(maxDurationS int64) ApiPlayerPerformanceCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) MaxDurationS(maxDurationS int32) ApiPlayerPerformanceCurveRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -7401,31 +7413,31 @@ func (r ApiPlayerPerformanceCurveRequest) HeroBuildId(heroBuildId int64) ApiPlay
 }
 
 // Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiPlayerPerformanceCurveRequest) IncludeItemIds(includeItemIds []int32) ApiPlayerPerformanceCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) IncludeItemIds(includeItemIds []int64) ApiPlayerPerformanceCurveRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
 // Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiPlayerPerformanceCurveRequest) ExcludeItemIds(excludeItemIds []int32) ApiPlayerPerformanceCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) ExcludeItemIds(excludeItemIds []int64) ApiPlayerPerformanceCurveRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiPlayerPerformanceCurveRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiPlayerPerformanceCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiPlayerPerformanceCurveRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiPlayerPerformanceCurveRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiPlayerPerformanceCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiPlayerPerformanceCurveRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiPlayerPerformanceCurveRequest) AccountIds(accountIds []int32) ApiPlayerPerformanceCurveRequest {
+func (r ApiPlayerPerformanceCurveRequest) AccountIds(accountIds []int64) ApiPlayerPerformanceCurveRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -7499,7 +7511,7 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -7636,23 +7648,23 @@ type ApiPlayerScoreboardRequest struct {
 	sortDirection *string
 	gameMode *string
 	matchMode *string
-	heroId *int32
+	heroId *int64
 	heroBuildId *int64
-	minMatches *int32
-	maxMatches *int32
+	minMatches *int64
+	maxMatches *int64
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	start *int32
+	start *int64
 	limit *int32
-	accountIds *[]int32
+	accountIds *[]int64
 }
 
 // The field to sort by.
@@ -7680,7 +7692,7 @@ func (r ApiPlayerScoreboardRequest) MatchMode(matchMode string) ApiPlayerScorebo
 }
 
 // Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiPlayerScoreboardRequest) HeroId(heroId int32) ApiPlayerScoreboardRequest {
+func (r ApiPlayerScoreboardRequest) HeroId(heroId int64) ApiPlayerScoreboardRequest {
 	r.heroId = &heroId
 	return r
 }
@@ -7692,13 +7704,13 @@ func (r ApiPlayerScoreboardRequest) HeroBuildId(heroBuildId int64) ApiPlayerScor
 }
 
 // The minimum number of matches played for a player to be included in the scoreboard.
-func (r ApiPlayerScoreboardRequest) MinMatches(minMatches int32) ApiPlayerScoreboardRequest {
+func (r ApiPlayerScoreboardRequest) MinMatches(minMatches int64) ApiPlayerScoreboardRequest {
 	r.minMatches = &minMatches
 	return r
 }
 
 // The maximum number of matches played for a player to be included in the scoreboard.
-func (r ApiPlayerScoreboardRequest) MaxMatches(maxMatches int32) ApiPlayerScoreboardRequest {
+func (r ApiPlayerScoreboardRequest) MaxMatches(maxMatches int64) ApiPlayerScoreboardRequest {
 	r.maxMatches = &maxMatches
 	return r
 }
@@ -7716,13 +7728,13 @@ func (r ApiPlayerScoreboardRequest) MaxUnixTimestamp(maxUnixTimestamp int64) Api
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiPlayerScoreboardRequest) MinDurationS(minDurationS int64) ApiPlayerScoreboardRequest {
+func (r ApiPlayerScoreboardRequest) MinDurationS(minDurationS int32) ApiPlayerScoreboardRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiPlayerScoreboardRequest) MaxDurationS(maxDurationS int64) ApiPlayerScoreboardRequest {
+func (r ApiPlayerScoreboardRequest) MaxDurationS(maxDurationS int32) ApiPlayerScoreboardRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -7764,7 +7776,7 @@ func (r ApiPlayerScoreboardRequest) MaxMatchId(maxMatchId int64) ApiPlayerScoreb
 }
 
 // The rank to start fetching players from (1-based, like &#x60;rank&#x60;).
-func (r ApiPlayerScoreboardRequest) Start(start int32) ApiPlayerScoreboardRequest {
+func (r ApiPlayerScoreboardRequest) Start(start int64) ApiPlayerScoreboardRequest {
 	r.start = &start
 	return r
 }
@@ -7776,7 +7788,7 @@ func (r ApiPlayerScoreboardRequest) Limit(limit int32) ApiPlayerScoreboardReques
 }
 
 // Comma separated list of account ids to include
-func (r ApiPlayerScoreboardRequest) AccountIds(accountIds []int32) ApiPlayerScoreboardRequest {
+func (r ApiPlayerScoreboardRequest) AccountIds(accountIds []int64) ApiPlayerScoreboardRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -7854,7 +7866,7 @@ func (a *AnalyticsAPIService) PlayerScoreboardExecute(r ApiPlayerScoreboardReque
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
 	} else {
-		var defaultValue int32 = 20
+		var defaultValue int64 = 20
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
 		r.minMatches = &defaultValue
 	}
@@ -7975,20 +7987,20 @@ type ApiPlayerStatsMetricsRequest struct {
 	matchMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
 	maxAverageBadge *int32
 	minMatchId *int64
 	maxMatchId *int64
-	maxMatches *int32
-	includeItemIds *[]int32
-	excludeItemIds *[]int32
-	abilityOrderPrefix *[]int32
-	abilityUnlockOrderPrefix *[]int32
-	accountIds *[]int32
+	maxMatches *int64
+	includeItemIds *[]int64
+	excludeItemIds *[]int64
+	abilityOrderPrefix *[]int64
+	abilityUnlockOrderPrefix *[]int64
+	accountIds *[]int64
 	includeBuffMetrics *bool
 }
 
@@ -8029,13 +8041,13 @@ func (r ApiPlayerStatsMetricsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) A
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiPlayerStatsMetricsRequest) MinDurationS(minDurationS int64) ApiPlayerStatsMetricsRequest {
+func (r ApiPlayerStatsMetricsRequest) MinDurationS(minDurationS int32) ApiPlayerStatsMetricsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiPlayerStatsMetricsRequest) MaxDurationS(maxDurationS int64) ApiPlayerStatsMetricsRequest {
+func (r ApiPlayerStatsMetricsRequest) MaxDurationS(maxDurationS int32) ApiPlayerStatsMetricsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -8077,37 +8089,37 @@ func (r ApiPlayerStatsMetricsRequest) MaxMatchId(maxMatchId int64) ApiPlayerStat
 }
 
 // The maximum number of matches to analyze.
-func (r ApiPlayerStatsMetricsRequest) MaxMatches(maxMatches int32) ApiPlayerStatsMetricsRequest {
+func (r ApiPlayerStatsMetricsRequest) MaxMatches(maxMatches int64) ApiPlayerStatsMetricsRequest {
 	r.maxMatches = &maxMatches
 	return r
 }
 
 // Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiPlayerStatsMetricsRequest) IncludeItemIds(includeItemIds []int32) ApiPlayerStatsMetricsRequest {
+func (r ApiPlayerStatsMetricsRequest) IncludeItemIds(includeItemIds []int64) ApiPlayerStatsMetricsRequest {
 	r.includeItemIds = &includeItemIds
 	return r
 }
 
 // Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-func (r ApiPlayerStatsMetricsRequest) ExcludeItemIds(excludeItemIds []int32) ApiPlayerStatsMetricsRequest {
+func (r ApiPlayerStatsMetricsRequest) ExcludeItemIds(excludeItemIds []int64) ApiPlayerStatsMetricsRequest {
 	r.excludeItemIds = &excludeItemIds
 	return r
 }
 
 // Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
-func (r ApiPlayerStatsMetricsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiPlayerStatsMetricsRequest {
+func (r ApiPlayerStatsMetricsRequest) AbilityOrderPrefix(abilityOrderPrefix []int64) ApiPlayerStatsMetricsRequest {
 	r.abilityOrderPrefix = &abilityOrderPrefix
 	return r
 }
 
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-func (r ApiPlayerStatsMetricsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiPlayerStatsMetricsRequest {
+func (r ApiPlayerStatsMetricsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int64) ApiPlayerStatsMetricsRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
 	return r
 }
 
 // Comma separated list of account ids to include
-func (r ApiPlayerStatsMetricsRequest) AccountIds(accountIds []int32) ApiPlayerStatsMetricsRequest {
+func (r ApiPlayerStatsMetricsRequest) AccountIds(accountIds []int64) ApiPlayerStatsMetricsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -8198,7 +8210,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

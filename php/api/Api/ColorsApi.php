@@ -322,6 +322,9 @@ class ColorsApi
     public function listColorsRequest($client_version = null, string $contentType = self::contentTypes['listColors'][0])
     {
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling ColorsApi.listColors, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling ColorsApi.listColors, must be bigger than or equal to 0.');
         }

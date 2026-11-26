@@ -68,7 +68,7 @@ open class ConvarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getConvar(name: kotlin.String, clientVersion: kotlin.Int? = null) : Convar {
+    fun getConvar(name: kotlin.String, clientVersion: kotlin.Long? = null) : Convar {
         val localVarResponse = getConvarWithHttpInfo(name = name, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -98,7 +98,7 @@ open class ConvarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getConvarWithHttpInfo(name: kotlin.String, clientVersion: kotlin.Int?) : ApiResponse<Convar?> {
+    fun getConvarWithHttpInfo(name: kotlin.String, clientVersion: kotlin.Long?) : ApiResponse<Convar?> {
         val localVariableConfig = getConvarRequestConfig(name = name, clientVersion = clientVersion)
 
         return request<Unit, Convar>(
@@ -113,7 +113,7 @@ open class ConvarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getConvarRequestConfig(name: kotlin.String, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getConvarRequestConfig(name: kotlin.String, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -148,7 +148,7 @@ open class ConvarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listConvars(clientVersion: kotlin.Int? = null) : kotlin.collections.Map<kotlin.String, Convar> {
+    fun listConvars(clientVersion: kotlin.Long? = null) : kotlin.collections.Map<kotlin.String, Convar> {
         val localVarResponse = listConvarsWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -177,7 +177,7 @@ open class ConvarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listConvarsWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.Map<kotlin.String, Convar>?> {
+    fun listConvarsWithHttpInfo(clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.Map<kotlin.String, Convar>?> {
         val localVariableConfig = listConvarsRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.Map<kotlin.String, Convar>>(
@@ -191,7 +191,7 @@ open class ConvarsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listConvarsRequestConfig(clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listConvarsRequestConfig(clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

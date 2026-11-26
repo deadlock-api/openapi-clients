@@ -44,7 +44,7 @@ namespace DeadlockApiClient.Model
         /// <param name="versionDatetime">&#x60;version_date&#x60; + &#x60;version_time&#x60; combined into a naive ISO-8601 string (&#x60;YYYY-MM-DDTHH:MM:SS&#x60;, no timezone).</param>
         /// <param name="versionTime">versionTime</param>
         [JsonConstructor]
-        public SteamInfo(int appId, int clientVersion, string productName, int serverAppId, int serverVersion, long sourceRevision, int toolsAppId, string versionDate, string versionDatetime, string versionTime)
+        public SteamInfo(long appId, long clientVersion, string productName, long serverAppId, long serverVersion, long sourceRevision, long toolsAppId, string versionDate, string versionDatetime, string versionTime)
         {
             AppId = appId;
             ClientVersion = clientVersion;
@@ -65,13 +65,13 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AppId
         /// </summary>
         [JsonPropertyName("app_id")]
-        public int AppId { get; set; }
+        public long AppId { get; set; }
 
         /// <summary>
         /// Gets or Sets ClientVersion
         /// </summary>
         [JsonPropertyName("client_version")]
-        public int ClientVersion { get; set; }
+        public long ClientVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets ProductName
@@ -83,13 +83,13 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ServerAppId
         /// </summary>
         [JsonPropertyName("server_app_id")]
-        public int ServerAppId { get; set; }
+        public long ServerAppId { get; set; }
 
         /// <summary>
         /// Gets or Sets ServerVersion
         /// </summary>
         [JsonPropertyName("server_version")]
-        public int ServerVersion { get; set; }
+        public long ServerVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets SourceRevision
@@ -101,7 +101,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ToolsAppId
         /// </summary>
         [JsonPropertyName("tools_app_id")]
-        public int ToolsAppId { get; set; }
+        public long ToolsAppId { get; set; }
 
         /// <summary>
         /// Gets or Sets VersionDate
@@ -151,26 +151,50 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AppId (int) minimum
-            if (this.AppId < (int)0)
+            // AppId (long) maximum
+            if (this.AppId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AppId, must be a value less than or equal to 4294967295.", new [] { "AppId" });
+            }
+
+            // AppId (long) minimum
+            if (this.AppId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AppId, must be a value greater than or equal to 0.", new [] { "AppId" });
             }
 
-            // ClientVersion (int) minimum
-            if (this.ClientVersion < (int)0)
+            // ClientVersion (long) maximum
+            if (this.ClientVersion > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientVersion, must be a value less than or equal to 4294967295.", new [] { "ClientVersion" });
+            }
+
+            // ClientVersion (long) minimum
+            if (this.ClientVersion < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientVersion, must be a value greater than or equal to 0.", new [] { "ClientVersion" });
             }
 
-            // ServerAppId (int) minimum
-            if (this.ServerAppId < (int)0)
+            // ServerAppId (long) maximum
+            if (this.ServerAppId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerAppId, must be a value less than or equal to 4294967295.", new [] { "ServerAppId" });
+            }
+
+            // ServerAppId (long) minimum
+            if (this.ServerAppId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerAppId, must be a value greater than or equal to 0.", new [] { "ServerAppId" });
             }
 
-            // ServerVersion (int) minimum
-            if (this.ServerVersion < (int)0)
+            // ServerVersion (long) maximum
+            if (this.ServerVersion > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerVersion, must be a value less than or equal to 4294967295.", new [] { "ServerVersion" });
+            }
+
+            // ServerVersion (long) minimum
+            if (this.ServerVersion < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerVersion, must be a value greater than or equal to 0.", new [] { "ServerVersion" });
             }
@@ -181,8 +205,14 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceRevision, must be a value greater than or equal to 0.", new [] { "SourceRevision" });
             }
 
-            // ToolsAppId (int) minimum
-            if (this.ToolsAppId < (int)0)
+            // ToolsAppId (long) maximum
+            if (this.ToolsAppId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ToolsAppId, must be a value less than or equal to 4294967295.", new [] { "ToolsAppId" });
+            }
+
+            // ToolsAppId (long) minimum
+            if (this.ToolsAppId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ToolsAppId, must be a value greater than or equal to 0.", new [] { "ToolsAppId" });
             }
@@ -223,13 +253,13 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> appId = default;
-            Option<int?> clientVersion = default;
+            Option<long?> appId = default;
+            Option<long?> clientVersion = default;
             Option<string?> productName = default;
-            Option<int?> serverAppId = default;
-            Option<int?> serverVersion = default;
+            Option<long?> serverAppId = default;
+            Option<long?> serverVersion = default;
             Option<long?> sourceRevision = default;
-            Option<int?> toolsAppId = default;
+            Option<long?> toolsAppId = default;
             Option<string?> versionDate = default;
             Option<string?> versionDatetime = default;
             Option<string?> versionTime = default;
@@ -250,25 +280,25 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "app_id":
-                            appId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            appId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "client_version":
-                            clientVersion = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            clientVersion = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "product_name":
                             productName = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "server_app_id":
-                            serverAppId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            serverAppId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "server_version":
-                            serverVersion = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            serverVersion = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "source_revision":
                             sourceRevision = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "tools_app_id":
-                            toolsAppId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            toolsAppId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "version_date":
                             versionDate = new Option<string?>(utf8JsonReader.GetString()!);

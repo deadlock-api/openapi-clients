@@ -128,7 +128,7 @@ data class NpcUnit (
     val className: kotlin.String,
 
     @Json(name = "id")
-    val id: kotlin.Int,
+    val id: kotlin.Long,
 
     @Json(name = "acceleration")
     val acceleration: kotlin.Double? = null,

@@ -367,7 +367,7 @@ open class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun ingestStatus(accountId: kotlin.Int) : IngestStatusResponse {
+    fun ingestStatus(accountId: kotlin.Long) : IngestStatusResponse {
         val localVarResponse = ingestStatusWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
@@ -396,7 +396,7 @@ open class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun ingestStatusWithHttpInfo(accountId: kotlin.Int) : ApiResponse<IngestStatusResponse?> {
+    fun ingestStatusWithHttpInfo(accountId: kotlin.Long) : ApiResponse<IngestStatusResponse?> {
         val localVariableConfig = ingestStatusRequestConfig(accountId = accountId)
 
         return request<Unit, IngestStatusResponse>(
@@ -410,7 +410,7 @@ open class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return RequestConfig
      */
-    fun ingestStatusRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
+    fun ingestStatusRequestConfig(accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

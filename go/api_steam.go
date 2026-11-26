@@ -184,8 +184,8 @@ type ApiSteamSearchRequest struct {
 	ApiService *SteamAPIService
 	searchQuery *string
 	limit *int32
-	minMatchesPlayedLast30d *int32
-	minLastTeamAvgBadge *int32
+	minMatchesPlayedLast30d *int64
+	minLastTeamAvgBadge *int64
 	matchesPlayedWeight *float64
 }
 
@@ -202,13 +202,13 @@ func (r ApiSteamSearchRequest) Limit(limit int32) ApiSteamSearchRequest {
 }
 
 // Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive.
-func (r ApiSteamSearchRequest) MinMatchesPlayedLast30d(minMatchesPlayedLast30d int32) ApiSteamSearchRequest {
+func (r ApiSteamSearchRequest) MinMatchesPlayedLast30d(minMatchesPlayedLast30d int64) ApiSteamSearchRequest {
 	r.minMatchesPlayedLast30d = &minMatchesPlayedLast30d
 	return r
 }
 
 // Only return profiles whose &#x60;last_team_avg_badge&#x60; is at least this value. Defaults to 0 (no filter). Profiles with no recorded badge are stored as 0 and are excluded when this is set above 0.
-func (r ApiSteamSearchRequest) MinLastTeamAvgBadge(minLastTeamAvgBadge int32) ApiSteamSearchRequest {
+func (r ApiSteamSearchRequest) MinLastTeamAvgBadge(minLastTeamAvgBadge int64) ApiSteamSearchRequest {
 	r.minLastTeamAvgBadge = &minLastTeamAvgBadge
 	return r
 }
@@ -284,14 +284,14 @@ func (a *SteamAPIService) SteamSearchExecute(r ApiSteamSearchRequest) ([]SteamPr
 	if r.minMatchesPlayedLast30d != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches_played_last_30d", r.minMatchesPlayedLast30d, "form", "")
 	} else {
-		var defaultValue int32 = 5
+		var defaultValue int64 = 5
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches_played_last_30d", defaultValue, "form", "")
 		r.minMatchesPlayedLast30d = &defaultValue
 	}
 	if r.minLastTeamAvgBadge != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_team_avg_badge", r.minLastTeamAvgBadge, "form", "")
 	} else {
-		var defaultValue int32 = 0
+		var defaultValue int64 = 0
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_team_avg_badge", defaultValue, "form", "")
 		r.minLastTeamAvgBadge = &defaultValue
 	}

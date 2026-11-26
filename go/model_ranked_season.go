@@ -22,23 +22,23 @@ var _ MappedNullable = &RankedSeason{}
 // RankedSeason struct for RankedSeason
 type RankedSeason struct {
 	// Base rank points granted per win / taken per loss (build 6701+).
-	BaseWinLossPointGrant NullableInt32 `json:"base_win_loss_point_grant,omitempty"`
-	CalibrationMatches int32 `json:"calibration_matches"`
+	BaseWinLossPointGrant NullableInt64 `json:"base_win_loss_point_grant,omitempty"`
+	CalibrationMatches int64 `json:"calibration_matches"`
 	// Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.
-	CalibrationMaxRank NullableInt32 `json:"calibration_max_rank,omitempty"`
+	CalibrationMaxRank NullableInt64 `json:"calibration_max_rank,omitempty"`
 	ClassName string `json:"class_name"`
 	Intervals []SeasonInterval `json:"intervals"`
 	// Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+).
-	MinHeroUnlockPoints NullableInt32 `json:"min_hero_unlock_points,omitempty"`
-	MinHeroUnlocks int32 `json:"min_hero_unlocks"`
+	MinHeroUnlockPoints NullableInt64 `json:"min_hero_unlock_points,omitempty"`
+	MinHeroUnlocks int64 `json:"min_hero_unlocks"`
 	// Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`.
-	MinHeroWins NullableInt32 `json:"min_hero_wins,omitempty"`
-	MinWins int32 `json:"min_wins"`
+	MinHeroWins NullableInt64 `json:"min_hero_wins,omitempty"`
+	MinWins int64 `json:"min_wins"`
 	Name string `json:"name"`
 	// Rank progression settings (build 6857+).
 	RankInfo []RankInfo `json:"rank_info,omitempty"`
 	RankedType string `json:"ranked_type"`
-	ValidPartySizes []int32 `json:"valid_party_sizes"`
+	ValidPartySizes []int64 `json:"valid_party_sizes"`
 }
 
 type _RankedSeason RankedSeason
@@ -47,7 +47,7 @@ type _RankedSeason RankedSeason
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRankedSeason(calibrationMatches int32, className string, intervals []SeasonInterval, minHeroUnlocks int32, minWins int32, name string, rankedType string, validPartySizes []int32) *RankedSeason {
+func NewRankedSeason(calibrationMatches int64, className string, intervals []SeasonInterval, minHeroUnlocks int64, minWins int64, name string, rankedType string, validPartySizes []int64) *RankedSeason {
 	this := RankedSeason{}
 	this.CalibrationMatches = calibrationMatches
 	this.ClassName = className
@@ -69,9 +69,9 @@ func NewRankedSeasonWithDefaults() *RankedSeason {
 }
 
 // GetBaseWinLossPointGrant returns the BaseWinLossPointGrant field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RankedSeason) GetBaseWinLossPointGrant() int32 {
+func (o *RankedSeason) GetBaseWinLossPointGrant() int64 {
 	if o == nil || IsNil(o.BaseWinLossPointGrant.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BaseWinLossPointGrant.Get()
@@ -80,7 +80,7 @@ func (o *RankedSeason) GetBaseWinLossPointGrant() int32 {
 // GetBaseWinLossPointGrantOk returns a tuple with the BaseWinLossPointGrant field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RankedSeason) GetBaseWinLossPointGrantOk() (*int32, bool) {
+func (o *RankedSeason) GetBaseWinLossPointGrantOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,8 +96,8 @@ func (o *RankedSeason) HasBaseWinLossPointGrant() bool {
 	return false
 }
 
-// SetBaseWinLossPointGrant gets a reference to the given NullableInt32 and assigns it to the BaseWinLossPointGrant field.
-func (o *RankedSeason) SetBaseWinLossPointGrant(v int32) {
+// SetBaseWinLossPointGrant gets a reference to the given NullableInt64 and assigns it to the BaseWinLossPointGrant field.
+func (o *RankedSeason) SetBaseWinLossPointGrant(v int64) {
 	o.BaseWinLossPointGrant.Set(&v)
 }
 // SetBaseWinLossPointGrantNil sets the value for BaseWinLossPointGrant to be an explicit nil
@@ -111,9 +111,9 @@ func (o *RankedSeason) UnsetBaseWinLossPointGrant() {
 }
 
 // GetCalibrationMatches returns the CalibrationMatches field value
-func (o *RankedSeason) GetCalibrationMatches() int32 {
+func (o *RankedSeason) GetCalibrationMatches() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -122,7 +122,7 @@ func (o *RankedSeason) GetCalibrationMatches() int32 {
 
 // GetCalibrationMatchesOk returns a tuple with the CalibrationMatches field value
 // and a boolean to check if the value has been set.
-func (o *RankedSeason) GetCalibrationMatchesOk() (*int32, bool) {
+func (o *RankedSeason) GetCalibrationMatchesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -130,14 +130,14 @@ func (o *RankedSeason) GetCalibrationMatchesOk() (*int32, bool) {
 }
 
 // SetCalibrationMatches sets field value
-func (o *RankedSeason) SetCalibrationMatches(v int32) {
+func (o *RankedSeason) SetCalibrationMatches(v int64) {
 	o.CalibrationMatches = v
 }
 
 // GetCalibrationMaxRank returns the CalibrationMaxRank field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RankedSeason) GetCalibrationMaxRank() int32 {
+func (o *RankedSeason) GetCalibrationMaxRank() int64 {
 	if o == nil || IsNil(o.CalibrationMaxRank.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CalibrationMaxRank.Get()
@@ -146,7 +146,7 @@ func (o *RankedSeason) GetCalibrationMaxRank() int32 {
 // GetCalibrationMaxRankOk returns a tuple with the CalibrationMaxRank field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RankedSeason) GetCalibrationMaxRankOk() (*int32, bool) {
+func (o *RankedSeason) GetCalibrationMaxRankOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -162,8 +162,8 @@ func (o *RankedSeason) HasCalibrationMaxRank() bool {
 	return false
 }
 
-// SetCalibrationMaxRank gets a reference to the given NullableInt32 and assigns it to the CalibrationMaxRank field.
-func (o *RankedSeason) SetCalibrationMaxRank(v int32) {
+// SetCalibrationMaxRank gets a reference to the given NullableInt64 and assigns it to the CalibrationMaxRank field.
+func (o *RankedSeason) SetCalibrationMaxRank(v int64) {
 	o.CalibrationMaxRank.Set(&v)
 }
 // SetCalibrationMaxRankNil sets the value for CalibrationMaxRank to be an explicit nil
@@ -225,9 +225,9 @@ func (o *RankedSeason) SetIntervals(v []SeasonInterval) {
 }
 
 // GetMinHeroUnlockPoints returns the MinHeroUnlockPoints field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RankedSeason) GetMinHeroUnlockPoints() int32 {
+func (o *RankedSeason) GetMinHeroUnlockPoints() int64 {
 	if o == nil || IsNil(o.MinHeroUnlockPoints.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.MinHeroUnlockPoints.Get()
@@ -236,7 +236,7 @@ func (o *RankedSeason) GetMinHeroUnlockPoints() int32 {
 // GetMinHeroUnlockPointsOk returns a tuple with the MinHeroUnlockPoints field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RankedSeason) GetMinHeroUnlockPointsOk() (*int32, bool) {
+func (o *RankedSeason) GetMinHeroUnlockPointsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -252,8 +252,8 @@ func (o *RankedSeason) HasMinHeroUnlockPoints() bool {
 	return false
 }
 
-// SetMinHeroUnlockPoints gets a reference to the given NullableInt32 and assigns it to the MinHeroUnlockPoints field.
-func (o *RankedSeason) SetMinHeroUnlockPoints(v int32) {
+// SetMinHeroUnlockPoints gets a reference to the given NullableInt64 and assigns it to the MinHeroUnlockPoints field.
+func (o *RankedSeason) SetMinHeroUnlockPoints(v int64) {
 	o.MinHeroUnlockPoints.Set(&v)
 }
 // SetMinHeroUnlockPointsNil sets the value for MinHeroUnlockPoints to be an explicit nil
@@ -267,9 +267,9 @@ func (o *RankedSeason) UnsetMinHeroUnlockPoints() {
 }
 
 // GetMinHeroUnlocks returns the MinHeroUnlocks field value
-func (o *RankedSeason) GetMinHeroUnlocks() int32 {
+func (o *RankedSeason) GetMinHeroUnlocks() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -278,7 +278,7 @@ func (o *RankedSeason) GetMinHeroUnlocks() int32 {
 
 // GetMinHeroUnlocksOk returns a tuple with the MinHeroUnlocks field value
 // and a boolean to check if the value has been set.
-func (o *RankedSeason) GetMinHeroUnlocksOk() (*int32, bool) {
+func (o *RankedSeason) GetMinHeroUnlocksOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -286,14 +286,14 @@ func (o *RankedSeason) GetMinHeroUnlocksOk() (*int32, bool) {
 }
 
 // SetMinHeroUnlocks sets field value
-func (o *RankedSeason) SetMinHeroUnlocks(v int32) {
+func (o *RankedSeason) SetMinHeroUnlocks(v int64) {
 	o.MinHeroUnlocks = v
 }
 
 // GetMinHeroWins returns the MinHeroWins field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RankedSeason) GetMinHeroWins() int32 {
+func (o *RankedSeason) GetMinHeroWins() int64 {
 	if o == nil || IsNil(o.MinHeroWins.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.MinHeroWins.Get()
@@ -302,7 +302,7 @@ func (o *RankedSeason) GetMinHeroWins() int32 {
 // GetMinHeroWinsOk returns a tuple with the MinHeroWins field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RankedSeason) GetMinHeroWinsOk() (*int32, bool) {
+func (o *RankedSeason) GetMinHeroWinsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -318,8 +318,8 @@ func (o *RankedSeason) HasMinHeroWins() bool {
 	return false
 }
 
-// SetMinHeroWins gets a reference to the given NullableInt32 and assigns it to the MinHeroWins field.
-func (o *RankedSeason) SetMinHeroWins(v int32) {
+// SetMinHeroWins gets a reference to the given NullableInt64 and assigns it to the MinHeroWins field.
+func (o *RankedSeason) SetMinHeroWins(v int64) {
 	o.MinHeroWins.Set(&v)
 }
 // SetMinHeroWinsNil sets the value for MinHeroWins to be an explicit nil
@@ -333,9 +333,9 @@ func (o *RankedSeason) UnsetMinHeroWins() {
 }
 
 // GetMinWins returns the MinWins field value
-func (o *RankedSeason) GetMinWins() int32 {
+func (o *RankedSeason) GetMinWins() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -344,7 +344,7 @@ func (o *RankedSeason) GetMinWins() int32 {
 
 // GetMinWinsOk returns a tuple with the MinWins field value
 // and a boolean to check if the value has been set.
-func (o *RankedSeason) GetMinWinsOk() (*int32, bool) {
+func (o *RankedSeason) GetMinWinsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -352,7 +352,7 @@ func (o *RankedSeason) GetMinWinsOk() (*int32, bool) {
 }
 
 // SetMinWins sets field value
-func (o *RankedSeason) SetMinWins(v int32) {
+func (o *RankedSeason) SetMinWins(v int64) {
 	o.MinWins = v
 }
 
@@ -437,9 +437,9 @@ func (o *RankedSeason) SetRankedType(v string) {
 }
 
 // GetValidPartySizes returns the ValidPartySizes field value
-func (o *RankedSeason) GetValidPartySizes() []int32 {
+func (o *RankedSeason) GetValidPartySizes() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -448,7 +448,7 @@ func (o *RankedSeason) GetValidPartySizes() []int32 {
 
 // GetValidPartySizesOk returns a tuple with the ValidPartySizes field value
 // and a boolean to check if the value has been set.
-func (o *RankedSeason) GetValidPartySizesOk() ([]int32, bool) {
+func (o *RankedSeason) GetValidPartySizesOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -456,7 +456,7 @@ func (o *RankedSeason) GetValidPartySizesOk() ([]int32, bool) {
 }
 
 // SetValidPartySizes sets field value
-func (o *RankedSeason) SetValidPartySizes(v []int32) {
+func (o *RankedSeason) SetValidPartySizes(v []int64) {
 	o.ValidPartySizes = v
 }
 

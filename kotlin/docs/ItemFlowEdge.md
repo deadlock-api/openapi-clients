@@ -5,10 +5,10 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **fromColumn** | **kotlin.Int** | The column of the source item. |  |
-| **fromItemId** | **kotlin.Int** |  |  |
+| **fromItemId** | **kotlin.Long** |  |  |
 | **losses** | **kotlin.Long** |  |  |
 | **matches** | **kotlin.Long** |  |  |
-| **toItemId** | **kotlin.Int** |  |  |
+| **toItemId** | **kotlin.Long** |  |  |
 | **wins** | **kotlin.Long** |  |  |
 
 

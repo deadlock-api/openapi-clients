@@ -72,9 +72,9 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'account_name' => null,
-        'possible_account_ids' => 'int32',
-        'rank' => 'int32',
-        'top_hero_ids' => 'int32'
+        'possible_account_ids' => 'int64',
+        'rank' => 'int64',
+        'top_hero_ids' => 'int64'
     ];
 
     /**
@@ -298,6 +298,10 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['possible_account_ids'] === null) {
             $invalidProperties[] = "'possible_account_ids' can't be null";
         }
+        if (!is_null($this->container['rank']) && ($this->container['rank'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'rank', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['rank']) && ($this->container['rank'] < 0)) {
             $invalidProperties[] = "invalid value for 'rank', must be bigger than or equal to 0.";
         }
@@ -409,6 +413,9 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($rank) && ($rank > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $rank when calling LeaderboardEntry., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($rank) && ($rank < 0)) {
             throw new \InvalidArgumentException('invalid value for $rank when calling LeaderboardEntry., must be bigger than or equal to 0.');

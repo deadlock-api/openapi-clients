@@ -21,41 +21,41 @@ var _ MappedNullable = &PlayerMatchHistoryEntry{}
 
 // PlayerMatchHistoryEntry struct for PlayerMatchHistoryEntry
 type PlayerMatchHistoryEntry struct {
-	AbandonedTimeS NullableInt32 `json:"abandoned_time_s,omitempty"`
-	AccountId int32 `json:"account_id"`
-	BrawlAvgRoundTimeS NullableInt32 `json:"brawl_avg_round_time_s,omitempty"`
-	BrawlScoreTeam0 NullableInt32 `json:"brawl_score_team0,omitempty"`
-	BrawlScoreTeam1 NullableInt32 `json:"brawl_score_team1,omitempty"`
-	Denies int32 `json:"denies"`
+	AbandonedTimeS NullableInt64 `json:"abandoned_time_s,omitempty"`
+	AccountId int64 `json:"account_id"`
+	BrawlAvgRoundTimeS NullableInt64 `json:"brawl_avg_round_time_s,omitempty"`
+	BrawlScoreTeam0 NullableInt64 `json:"brawl_score_team0,omitempty"`
+	BrawlScoreTeam1 NullableInt64 `json:"brawl_score_team1,omitempty"`
+	Denies int64 `json:"denies"`
 	GameMode int32 `json:"game_mode"`
 	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
-	HeroLevel int32 `json:"hero_level"`
-	LastHits int32 `json:"last_hits"`
+	HeroLevel int64 `json:"hero_level"`
+	LastHits int64 `json:"last_hits"`
 	// Whether the match was played in the low priority pool. `None` for entries stored before this was recorded.
 	LowPriPool NullableBool `json:"low_pri_pool,omitempty"`
-	MatchDurationS int32 `json:"match_duration_s"`
+	MatchDurationS int64 `json:"match_duration_s"`
 	MatchId int64 `json:"match_id"`
 	MatchMode int32 `json:"match_mode"`
-	MatchResult int32 `json:"match_result"`
-	NetWorth int32 `json:"net_worth"`
-	ObjectivesMaskTeam0 int32 `json:"objectives_mask_team0"`
-	ObjectivesMaskTeam1 int32 `json:"objectives_mask_team1"`
-	PlayerAssists int32 `json:"player_assists"`
-	PlayerDeaths int32 `json:"player_deaths"`
-	PlayerKills int32 `json:"player_kills"`
+	MatchResult int64 `json:"match_result"`
+	NetWorth int64 `json:"net_worth"`
+	ObjectivesMaskTeam0 int64 `json:"objectives_mask_team0"`
+	ObjectivesMaskTeam1 int64 `json:"objectives_mask_team1"`
+	PlayerAssists int64 `json:"player_assists"`
+	PlayerDeaths int64 `json:"player_deaths"`
+	PlayerKills int64 `json:"player_kills"`
 	// How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored.
 	PlayerMatchOutcome int32 `json:"player_match_outcome"`
 	PlayerTeam int32 `json:"player_team"`
 	// Non-zero if this match counted towards the player's ranked calibration.
-	RankedCalibrationMatch NullableInt32 `json:"ranked_calibration_match,omitempty"`
+	RankedCalibrationMatch NullableInt64 `json:"ranked_calibration_match,omitempty"`
 	// The ranked progress change the player got from this match.
 	RankedDelta NullableInt32 `json:"ranked_delta,omitempty"`
 	// The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	RankedDisplayBadge NullableInt32 `json:"ranked_display_badge,omitempty"`
+	RankedDisplayBadge NullableInt64 `json:"ranked_display_badge,omitempty"`
 	// Whether the player's demotion protection absorbed a loss in this match.
 	RankedUsedDemotionProtection NullableBool `json:"ranked_used_demotion_protection,omitempty"`
-	StartTime int32 `json:"start_time"`
+	StartTime int64 `json:"start_time"`
 }
 
 type _PlayerMatchHistoryEntry PlayerMatchHistoryEntry
@@ -64,7 +64,7 @@ type _PlayerMatchHistoryEntry PlayerMatchHistoryEntry
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlayerMatchHistoryEntry(accountId int32, denies int32, gameMode int32, heroId int32, heroLevel int32, lastHits int32, matchDurationS int32, matchId int64, matchMode int32, matchResult int32, netWorth int32, objectivesMaskTeam0 int32, objectivesMaskTeam1 int32, playerAssists int32, playerDeaths int32, playerKills int32, playerMatchOutcome int32, playerTeam int32, startTime int32) *PlayerMatchHistoryEntry {
+func NewPlayerMatchHistoryEntry(accountId int64, denies int64, gameMode int32, heroId int32, heroLevel int64, lastHits int64, matchDurationS int64, matchId int64, matchMode int32, matchResult int64, netWorth int64, objectivesMaskTeam0 int64, objectivesMaskTeam1 int64, playerAssists int64, playerDeaths int64, playerKills int64, playerMatchOutcome int32, playerTeam int32, startTime int64) *PlayerMatchHistoryEntry {
 	this := PlayerMatchHistoryEntry{}
 	this.AccountId = accountId
 	this.Denies = denies
@@ -97,9 +97,9 @@ func NewPlayerMatchHistoryEntryWithDefaults() *PlayerMatchHistoryEntry {
 }
 
 // GetAbandonedTimeS returns the AbandonedTimeS field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerMatchHistoryEntry) GetAbandonedTimeS() int32 {
+func (o *PlayerMatchHistoryEntry) GetAbandonedTimeS() int64 {
 	if o == nil || IsNil(o.AbandonedTimeS.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AbandonedTimeS.Get()
@@ -108,7 +108,7 @@ func (o *PlayerMatchHistoryEntry) GetAbandonedTimeS() int32 {
 // GetAbandonedTimeSOk returns a tuple with the AbandonedTimeS field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerMatchHistoryEntry) GetAbandonedTimeSOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetAbandonedTimeSOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -124,8 +124,8 @@ func (o *PlayerMatchHistoryEntry) HasAbandonedTimeS() bool {
 	return false
 }
 
-// SetAbandonedTimeS gets a reference to the given NullableInt32 and assigns it to the AbandonedTimeS field.
-func (o *PlayerMatchHistoryEntry) SetAbandonedTimeS(v int32) {
+// SetAbandonedTimeS gets a reference to the given NullableInt64 and assigns it to the AbandonedTimeS field.
+func (o *PlayerMatchHistoryEntry) SetAbandonedTimeS(v int64) {
 	o.AbandonedTimeS.Set(&v)
 }
 // SetAbandonedTimeSNil sets the value for AbandonedTimeS to be an explicit nil
@@ -139,9 +139,9 @@ func (o *PlayerMatchHistoryEntry) UnsetAbandonedTimeS() {
 }
 
 // GetAccountId returns the AccountId field value
-func (o *PlayerMatchHistoryEntry) GetAccountId() int32 {
+func (o *PlayerMatchHistoryEntry) GetAccountId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -150,7 +150,7 @@ func (o *PlayerMatchHistoryEntry) GetAccountId() int32 {
 
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetAccountIdOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetAccountIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -158,14 +158,14 @@ func (o *PlayerMatchHistoryEntry) GetAccountIdOk() (*int32, bool) {
 }
 
 // SetAccountId sets field value
-func (o *PlayerMatchHistoryEntry) SetAccountId(v int32) {
+func (o *PlayerMatchHistoryEntry) SetAccountId(v int64) {
 	o.AccountId = v
 }
 
 // GetBrawlAvgRoundTimeS returns the BrawlAvgRoundTimeS field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerMatchHistoryEntry) GetBrawlAvgRoundTimeS() int32 {
+func (o *PlayerMatchHistoryEntry) GetBrawlAvgRoundTimeS() int64 {
 	if o == nil || IsNil(o.BrawlAvgRoundTimeS.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BrawlAvgRoundTimeS.Get()
@@ -174,7 +174,7 @@ func (o *PlayerMatchHistoryEntry) GetBrawlAvgRoundTimeS() int32 {
 // GetBrawlAvgRoundTimeSOk returns a tuple with the BrawlAvgRoundTimeS field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerMatchHistoryEntry) GetBrawlAvgRoundTimeSOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetBrawlAvgRoundTimeSOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -190,8 +190,8 @@ func (o *PlayerMatchHistoryEntry) HasBrawlAvgRoundTimeS() bool {
 	return false
 }
 
-// SetBrawlAvgRoundTimeS gets a reference to the given NullableInt32 and assigns it to the BrawlAvgRoundTimeS field.
-func (o *PlayerMatchHistoryEntry) SetBrawlAvgRoundTimeS(v int32) {
+// SetBrawlAvgRoundTimeS gets a reference to the given NullableInt64 and assigns it to the BrawlAvgRoundTimeS field.
+func (o *PlayerMatchHistoryEntry) SetBrawlAvgRoundTimeS(v int64) {
 	o.BrawlAvgRoundTimeS.Set(&v)
 }
 // SetBrawlAvgRoundTimeSNil sets the value for BrawlAvgRoundTimeS to be an explicit nil
@@ -205,9 +205,9 @@ func (o *PlayerMatchHistoryEntry) UnsetBrawlAvgRoundTimeS() {
 }
 
 // GetBrawlScoreTeam0 returns the BrawlScoreTeam0 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam0() int32 {
+func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam0() int64 {
 	if o == nil || IsNil(o.BrawlScoreTeam0.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BrawlScoreTeam0.Get()
@@ -216,7 +216,7 @@ func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam0() int32 {
 // GetBrawlScoreTeam0Ok returns a tuple with the BrawlScoreTeam0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam0Ok() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam0Ok() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -232,8 +232,8 @@ func (o *PlayerMatchHistoryEntry) HasBrawlScoreTeam0() bool {
 	return false
 }
 
-// SetBrawlScoreTeam0 gets a reference to the given NullableInt32 and assigns it to the BrawlScoreTeam0 field.
-func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam0(v int32) {
+// SetBrawlScoreTeam0 gets a reference to the given NullableInt64 and assigns it to the BrawlScoreTeam0 field.
+func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam0(v int64) {
 	o.BrawlScoreTeam0.Set(&v)
 }
 // SetBrawlScoreTeam0Nil sets the value for BrawlScoreTeam0 to be an explicit nil
@@ -247,9 +247,9 @@ func (o *PlayerMatchHistoryEntry) UnsetBrawlScoreTeam0() {
 }
 
 // GetBrawlScoreTeam1 returns the BrawlScoreTeam1 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam1() int32 {
+func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam1() int64 {
 	if o == nil || IsNil(o.BrawlScoreTeam1.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.BrawlScoreTeam1.Get()
@@ -258,7 +258,7 @@ func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam1() int32 {
 // GetBrawlScoreTeam1Ok returns a tuple with the BrawlScoreTeam1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam1Ok() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetBrawlScoreTeam1Ok() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -274,8 +274,8 @@ func (o *PlayerMatchHistoryEntry) HasBrawlScoreTeam1() bool {
 	return false
 }
 
-// SetBrawlScoreTeam1 gets a reference to the given NullableInt32 and assigns it to the BrawlScoreTeam1 field.
-func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam1(v int32) {
+// SetBrawlScoreTeam1 gets a reference to the given NullableInt64 and assigns it to the BrawlScoreTeam1 field.
+func (o *PlayerMatchHistoryEntry) SetBrawlScoreTeam1(v int64) {
 	o.BrawlScoreTeam1.Set(&v)
 }
 // SetBrawlScoreTeam1Nil sets the value for BrawlScoreTeam1 to be an explicit nil
@@ -289,9 +289,9 @@ func (o *PlayerMatchHistoryEntry) UnsetBrawlScoreTeam1() {
 }
 
 // GetDenies returns the Denies field value
-func (o *PlayerMatchHistoryEntry) GetDenies() int32 {
+func (o *PlayerMatchHistoryEntry) GetDenies() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -300,7 +300,7 @@ func (o *PlayerMatchHistoryEntry) GetDenies() int32 {
 
 // GetDeniesOk returns a tuple with the Denies field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetDeniesOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetDeniesOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -308,7 +308,7 @@ func (o *PlayerMatchHistoryEntry) GetDeniesOk() (*int32, bool) {
 }
 
 // SetDenies sets field value
-func (o *PlayerMatchHistoryEntry) SetDenies(v int32) {
+func (o *PlayerMatchHistoryEntry) SetDenies(v int64) {
 	o.Denies = v
 }
 
@@ -361,9 +361,9 @@ func (o *PlayerMatchHistoryEntry) SetHeroId(v int32) {
 }
 
 // GetHeroLevel returns the HeroLevel field value
-func (o *PlayerMatchHistoryEntry) GetHeroLevel() int32 {
+func (o *PlayerMatchHistoryEntry) GetHeroLevel() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -372,7 +372,7 @@ func (o *PlayerMatchHistoryEntry) GetHeroLevel() int32 {
 
 // GetHeroLevelOk returns a tuple with the HeroLevel field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetHeroLevelOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetHeroLevelOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -380,14 +380,14 @@ func (o *PlayerMatchHistoryEntry) GetHeroLevelOk() (*int32, bool) {
 }
 
 // SetHeroLevel sets field value
-func (o *PlayerMatchHistoryEntry) SetHeroLevel(v int32) {
+func (o *PlayerMatchHistoryEntry) SetHeroLevel(v int64) {
 	o.HeroLevel = v
 }
 
 // GetLastHits returns the LastHits field value
-func (o *PlayerMatchHistoryEntry) GetLastHits() int32 {
+func (o *PlayerMatchHistoryEntry) GetLastHits() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -396,7 +396,7 @@ func (o *PlayerMatchHistoryEntry) GetLastHits() int32 {
 
 // GetLastHitsOk returns a tuple with the LastHits field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetLastHitsOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetLastHitsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -404,7 +404,7 @@ func (o *PlayerMatchHistoryEntry) GetLastHitsOk() (*int32, bool) {
 }
 
 // SetLastHits sets field value
-func (o *PlayerMatchHistoryEntry) SetLastHits(v int32) {
+func (o *PlayerMatchHistoryEntry) SetLastHits(v int64) {
 	o.LastHits = v
 }
 
@@ -451,9 +451,9 @@ func (o *PlayerMatchHistoryEntry) UnsetLowPriPool() {
 }
 
 // GetMatchDurationS returns the MatchDurationS field value
-func (o *PlayerMatchHistoryEntry) GetMatchDurationS() int32 {
+func (o *PlayerMatchHistoryEntry) GetMatchDurationS() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -462,7 +462,7 @@ func (o *PlayerMatchHistoryEntry) GetMatchDurationS() int32 {
 
 // GetMatchDurationSOk returns a tuple with the MatchDurationS field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetMatchDurationSOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetMatchDurationSOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -470,7 +470,7 @@ func (o *PlayerMatchHistoryEntry) GetMatchDurationSOk() (*int32, bool) {
 }
 
 // SetMatchDurationS sets field value
-func (o *PlayerMatchHistoryEntry) SetMatchDurationS(v int32) {
+func (o *PlayerMatchHistoryEntry) SetMatchDurationS(v int64) {
 	o.MatchDurationS = v
 }
 
@@ -523,9 +523,9 @@ func (o *PlayerMatchHistoryEntry) SetMatchMode(v int32) {
 }
 
 // GetMatchResult returns the MatchResult field value
-func (o *PlayerMatchHistoryEntry) GetMatchResult() int32 {
+func (o *PlayerMatchHistoryEntry) GetMatchResult() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -534,7 +534,7 @@ func (o *PlayerMatchHistoryEntry) GetMatchResult() int32 {
 
 // GetMatchResultOk returns a tuple with the MatchResult field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetMatchResultOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetMatchResultOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -542,14 +542,14 @@ func (o *PlayerMatchHistoryEntry) GetMatchResultOk() (*int32, bool) {
 }
 
 // SetMatchResult sets field value
-func (o *PlayerMatchHistoryEntry) SetMatchResult(v int32) {
+func (o *PlayerMatchHistoryEntry) SetMatchResult(v int64) {
 	o.MatchResult = v
 }
 
 // GetNetWorth returns the NetWorth field value
-func (o *PlayerMatchHistoryEntry) GetNetWorth() int32 {
+func (o *PlayerMatchHistoryEntry) GetNetWorth() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -558,7 +558,7 @@ func (o *PlayerMatchHistoryEntry) GetNetWorth() int32 {
 
 // GetNetWorthOk returns a tuple with the NetWorth field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetNetWorthOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetNetWorthOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -566,14 +566,14 @@ func (o *PlayerMatchHistoryEntry) GetNetWorthOk() (*int32, bool) {
 }
 
 // SetNetWorth sets field value
-func (o *PlayerMatchHistoryEntry) SetNetWorth(v int32) {
+func (o *PlayerMatchHistoryEntry) SetNetWorth(v int64) {
 	o.NetWorth = v
 }
 
 // GetObjectivesMaskTeam0 returns the ObjectivesMaskTeam0 field value
-func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam0() int32 {
+func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam0() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -582,7 +582,7 @@ func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam0() int32 {
 
 // GetObjectivesMaskTeam0Ok returns a tuple with the ObjectivesMaskTeam0 field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam0Ok() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam0Ok() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -590,14 +590,14 @@ func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam0Ok() (*int32, bool) {
 }
 
 // SetObjectivesMaskTeam0 sets field value
-func (o *PlayerMatchHistoryEntry) SetObjectivesMaskTeam0(v int32) {
+func (o *PlayerMatchHistoryEntry) SetObjectivesMaskTeam0(v int64) {
 	o.ObjectivesMaskTeam0 = v
 }
 
 // GetObjectivesMaskTeam1 returns the ObjectivesMaskTeam1 field value
-func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam1() int32 {
+func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam1() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -606,7 +606,7 @@ func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam1() int32 {
 
 // GetObjectivesMaskTeam1Ok returns a tuple with the ObjectivesMaskTeam1 field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam1Ok() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam1Ok() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -614,14 +614,14 @@ func (o *PlayerMatchHistoryEntry) GetObjectivesMaskTeam1Ok() (*int32, bool) {
 }
 
 // SetObjectivesMaskTeam1 sets field value
-func (o *PlayerMatchHistoryEntry) SetObjectivesMaskTeam1(v int32) {
+func (o *PlayerMatchHistoryEntry) SetObjectivesMaskTeam1(v int64) {
 	o.ObjectivesMaskTeam1 = v
 }
 
 // GetPlayerAssists returns the PlayerAssists field value
-func (o *PlayerMatchHistoryEntry) GetPlayerAssists() int32 {
+func (o *PlayerMatchHistoryEntry) GetPlayerAssists() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -630,7 +630,7 @@ func (o *PlayerMatchHistoryEntry) GetPlayerAssists() int32 {
 
 // GetPlayerAssistsOk returns a tuple with the PlayerAssists field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetPlayerAssistsOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetPlayerAssistsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -638,14 +638,14 @@ func (o *PlayerMatchHistoryEntry) GetPlayerAssistsOk() (*int32, bool) {
 }
 
 // SetPlayerAssists sets field value
-func (o *PlayerMatchHistoryEntry) SetPlayerAssists(v int32) {
+func (o *PlayerMatchHistoryEntry) SetPlayerAssists(v int64) {
 	o.PlayerAssists = v
 }
 
 // GetPlayerDeaths returns the PlayerDeaths field value
-func (o *PlayerMatchHistoryEntry) GetPlayerDeaths() int32 {
+func (o *PlayerMatchHistoryEntry) GetPlayerDeaths() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -654,7 +654,7 @@ func (o *PlayerMatchHistoryEntry) GetPlayerDeaths() int32 {
 
 // GetPlayerDeathsOk returns a tuple with the PlayerDeaths field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetPlayerDeathsOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetPlayerDeathsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -662,14 +662,14 @@ func (o *PlayerMatchHistoryEntry) GetPlayerDeathsOk() (*int32, bool) {
 }
 
 // SetPlayerDeaths sets field value
-func (o *PlayerMatchHistoryEntry) SetPlayerDeaths(v int32) {
+func (o *PlayerMatchHistoryEntry) SetPlayerDeaths(v int64) {
 	o.PlayerDeaths = v
 }
 
 // GetPlayerKills returns the PlayerKills field value
-func (o *PlayerMatchHistoryEntry) GetPlayerKills() int32 {
+func (o *PlayerMatchHistoryEntry) GetPlayerKills() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -678,7 +678,7 @@ func (o *PlayerMatchHistoryEntry) GetPlayerKills() int32 {
 
 // GetPlayerKillsOk returns a tuple with the PlayerKills field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetPlayerKillsOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetPlayerKillsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -686,7 +686,7 @@ func (o *PlayerMatchHistoryEntry) GetPlayerKillsOk() (*int32, bool) {
 }
 
 // SetPlayerKills sets field value
-func (o *PlayerMatchHistoryEntry) SetPlayerKills(v int32) {
+func (o *PlayerMatchHistoryEntry) SetPlayerKills(v int64) {
 	o.PlayerKills = v
 }
 
@@ -739,9 +739,9 @@ func (o *PlayerMatchHistoryEntry) SetPlayerTeam(v int32) {
 }
 
 // GetRankedCalibrationMatch returns the RankedCalibrationMatch field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerMatchHistoryEntry) GetRankedCalibrationMatch() int32 {
+func (o *PlayerMatchHistoryEntry) GetRankedCalibrationMatch() int64 {
 	if o == nil || IsNil(o.RankedCalibrationMatch.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RankedCalibrationMatch.Get()
@@ -750,7 +750,7 @@ func (o *PlayerMatchHistoryEntry) GetRankedCalibrationMatch() int32 {
 // GetRankedCalibrationMatchOk returns a tuple with the RankedCalibrationMatch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerMatchHistoryEntry) GetRankedCalibrationMatchOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetRankedCalibrationMatchOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -766,8 +766,8 @@ func (o *PlayerMatchHistoryEntry) HasRankedCalibrationMatch() bool {
 	return false
 }
 
-// SetRankedCalibrationMatch gets a reference to the given NullableInt32 and assigns it to the RankedCalibrationMatch field.
-func (o *PlayerMatchHistoryEntry) SetRankedCalibrationMatch(v int32) {
+// SetRankedCalibrationMatch gets a reference to the given NullableInt64 and assigns it to the RankedCalibrationMatch field.
+func (o *PlayerMatchHistoryEntry) SetRankedCalibrationMatch(v int64) {
 	o.RankedCalibrationMatch.Set(&v)
 }
 // SetRankedCalibrationMatchNil sets the value for RankedCalibrationMatch to be an explicit nil
@@ -823,9 +823,9 @@ func (o *PlayerMatchHistoryEntry) UnsetRankedDelta() {
 }
 
 // GetRankedDisplayBadge returns the RankedDisplayBadge field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerMatchHistoryEntry) GetRankedDisplayBadge() int32 {
+func (o *PlayerMatchHistoryEntry) GetRankedDisplayBadge() int64 {
 	if o == nil || IsNil(o.RankedDisplayBadge.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RankedDisplayBadge.Get()
@@ -834,7 +834,7 @@ func (o *PlayerMatchHistoryEntry) GetRankedDisplayBadge() int32 {
 // GetRankedDisplayBadgeOk returns a tuple with the RankedDisplayBadge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerMatchHistoryEntry) GetRankedDisplayBadgeOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetRankedDisplayBadgeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -850,8 +850,8 @@ func (o *PlayerMatchHistoryEntry) HasRankedDisplayBadge() bool {
 	return false
 }
 
-// SetRankedDisplayBadge gets a reference to the given NullableInt32 and assigns it to the RankedDisplayBadge field.
-func (o *PlayerMatchHistoryEntry) SetRankedDisplayBadge(v int32) {
+// SetRankedDisplayBadge gets a reference to the given NullableInt64 and assigns it to the RankedDisplayBadge field.
+func (o *PlayerMatchHistoryEntry) SetRankedDisplayBadge(v int64) {
 	o.RankedDisplayBadge.Set(&v)
 }
 // SetRankedDisplayBadgeNil sets the value for RankedDisplayBadge to be an explicit nil
@@ -907,9 +907,9 @@ func (o *PlayerMatchHistoryEntry) UnsetRankedUsedDemotionProtection() {
 }
 
 // GetStartTime returns the StartTime field value
-func (o *PlayerMatchHistoryEntry) GetStartTime() int32 {
+func (o *PlayerMatchHistoryEntry) GetStartTime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -918,7 +918,7 @@ func (o *PlayerMatchHistoryEntry) GetStartTime() int32 {
 
 // GetStartTimeOk returns a tuple with the StartTime field value
 // and a boolean to check if the value has been set.
-func (o *PlayerMatchHistoryEntry) GetStartTimeOk() (*int32, bool) {
+func (o *PlayerMatchHistoryEntry) GetStartTimeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -926,7 +926,7 @@ func (o *PlayerMatchHistoryEntry) GetStartTimeOk() (*int32, bool) {
 }
 
 // SetStartTime sets field value
-func (o *PlayerMatchHistoryEntry) SetStartTime(v int32) {
+func (o *PlayerMatchHistoryEntry) SetStartTime(v int64) {
 	o.StartTime = v
 }
 

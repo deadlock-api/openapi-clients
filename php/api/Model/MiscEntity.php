@@ -146,7 +146,7 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'heavy_melee_hit_count' => 'int64',
         'heavy_melee_only' => null,
         'hits_required' => 'int64',
-        'id' => 'int32',
+        'id' => 'int64',
         'in_shop_modifier' => null,
         'initial_spawn_delay_in_seconds' => 'int64',
         'initial_spawn_delay_seconds' => 'int64',
@@ -686,6 +686,10 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if (($this->container['id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['id'] < 0)) {
             $invalidProperties[] = "invalid value for 'id', must be bigger than or equal to 0.";
         }
@@ -1399,6 +1403,9 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($id)) {
             throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        if (($id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $id when calling MiscEntity., must be smaller than or equal to 4294967295.');
         }
         if (($id < 0)) {
             throw new \InvalidArgumentException('invalid value for $id when calling MiscEntity., must be bigger than or equal to 0.');

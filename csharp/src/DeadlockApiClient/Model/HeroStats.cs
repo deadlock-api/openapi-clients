@@ -73,7 +73,7 @@ namespace DeadlockApiClient.Model
         /// <param name="avgFirstPermanentBuffTimeS">Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), &#x60;null&#x60; without any.</param>
         /// <param name="permanentBuffsPerMin">Permanent buff pickups per minute over the &#x60;permanent_buff_matches&#x60; matches, &#x60;null&#x60; without any.</param>
         [JsonConstructor]
-        public HeroStats(int accountId, double accuracy, long assists, double assistsPerMin, double creepsPerMin, double critShotRate, double damageMitigatedPerMin, double damagePerMin, double damagePerSoul, double damageTakenPerMin, double damageTakenPerSoul, long deaths, double deathsPerMin, double deniesPerMatch, double deniesPerMin, double endingLevel, int heroId, long kills, double killsPerMin, double lastHitsPerMin, int lastPlayed, List<long> matches, long matchesPlayed, List<long> mvpRankCounts, long mvpRatedMatches, double networthPerMin, double objDamagePerMin, double objDamagePerSoul, long permanentBuffMatches, long permanentBuffs, long timePlayed, long totalBossDamage, long totalCreepDamage, long totalNeutralDamage, long totalPlayerDamage, long totalPlayerDamageTaken, long wins, Option<double?> avgFirstPermanentBuffTimeS = default, Option<double?> permanentBuffsPerMin = default)
+        public HeroStats(long accountId, double accuracy, long assists, double assistsPerMin, double creepsPerMin, double critShotRate, double damageMitigatedPerMin, double damagePerMin, double damagePerSoul, double damageTakenPerMin, double damageTakenPerSoul, long deaths, double deathsPerMin, double deniesPerMatch, double deniesPerMin, double endingLevel, int heroId, long kills, double killsPerMin, double lastHitsPerMin, long lastPlayed, List<long> matches, long matchesPlayed, List<long> mvpRankCounts, long mvpRatedMatches, double networthPerMin, double objDamagePerMin, double objDamagePerSoul, long permanentBuffMatches, long permanentBuffs, long timePlayed, long totalBossDamage, long totalCreepDamage, long totalNeutralDamage, long totalPlayerDamage, long totalPlayerDamageTaken, long wins, Option<double?> avgFirstPermanentBuffTimeS = default, Option<double?> permanentBuffsPerMin = default)
         {
             AccountId = accountId;
             Accuracy = accuracy;
@@ -123,7 +123,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AccountId
         /// </summary>
         [JsonPropertyName("account_id")]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets Accuracy
@@ -244,7 +244,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets LastPlayed
         /// </summary>
         [JsonPropertyName("last_played")]
-        public int LastPlayed { get; set; }
+        public long LastPlayed { get; set; }
 
         /// <summary>
         /// Gets or Sets Matches
@@ -432,8 +432,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AccountId (int) minimum
-            if (this.AccountId < (int)0)
+            // AccountId (long) maximum
+            if (this.AccountId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value less than or equal to 4294967295.", new [] { "AccountId" });
+            }
+
+            // AccountId (long) minimum
+            if (this.AccountId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
@@ -450,6 +456,12 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Deaths, must be a value greater than or equal to 0.", new [] { "Deaths" });
             }
 
+            // HeroId (int) maximum
+            if (this.HeroId > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value less than or equal to 255.", new [] { "HeroId" });
+            }
+
             // HeroId (int) minimum
             if (this.HeroId < (int)0)
             {
@@ -462,8 +474,14 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Kills, must be a value greater than or equal to 0.", new [] { "Kills" });
             }
 
-            // LastPlayed (int) minimum
-            if (this.LastPlayed < (int)0)
+            // LastPlayed (long) maximum
+            if (this.LastPlayed > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastPlayed, must be a value less than or equal to 4294967295.", new [] { "LastPlayed" });
+            }
+
+            // LastPlayed (long) minimum
+            if (this.LastPlayed < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastPlayed, must be a value greater than or equal to 0.", new [] { "LastPlayed" });
             }
@@ -570,7 +588,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> accountId = default;
+            Option<long?> accountId = default;
             Option<double?> accuracy = default;
             Option<long?> assists = default;
             Option<double?> assistsPerMin = default;
@@ -590,7 +608,7 @@ namespace DeadlockApiClient.Model
             Option<long?> kills = default;
             Option<double?> killsPerMin = default;
             Option<double?> lastHitsPerMin = default;
-            Option<int?> lastPlayed = default;
+            Option<long?> lastPlayed = default;
             Option<List<long>?> matches = default;
             Option<long?> matchesPlayed = default;
             Option<List<long>?> mvpRankCounts = default;
@@ -626,7 +644,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "account_id":
-                            accountId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            accountId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "accuracy":
                             accuracy = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -686,7 +704,7 @@ namespace DeadlockApiClient.Model
                             lastHitsPerMin = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "last_played":
-                            lastPlayed = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            lastPlayed = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "matches":
                             matches = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);

@@ -21,11 +21,11 @@ var _ MappedNullable = &BuildHeroDetailsCategoryAbility{}
 
 // BuildHeroDetailsCategoryAbility struct for BuildHeroDetailsCategoryAbility
 type BuildHeroDetailsCategoryAbility struct {
-	AbilityId int32 `json:"ability_id"`
+	AbilityId int64 `json:"ability_id"`
 	Annotation NullableString `json:"annotation,omitempty"`
-	ImbueTargetAbilityId NullableInt32 `json:"imbue_target_ability_id,omitempty"`
-	RequiredFlexSlots NullableInt32 `json:"required_flex_slots,omitempty"`
-	SellPriority NullableInt32 `json:"sell_priority,omitempty"`
+	ImbueTargetAbilityId NullableInt64 `json:"imbue_target_ability_id,omitempty"`
+	RequiredFlexSlots NullableInt64 `json:"required_flex_slots,omitempty"`
+	SellPriority NullableInt64 `json:"sell_priority,omitempty"`
 }
 
 type _BuildHeroDetailsCategoryAbility BuildHeroDetailsCategoryAbility
@@ -34,7 +34,7 @@ type _BuildHeroDetailsCategoryAbility BuildHeroDetailsCategoryAbility
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBuildHeroDetailsCategoryAbility(abilityId int32) *BuildHeroDetailsCategoryAbility {
+func NewBuildHeroDetailsCategoryAbility(abilityId int64) *BuildHeroDetailsCategoryAbility {
 	this := BuildHeroDetailsCategoryAbility{}
 	this.AbilityId = abilityId
 	return &this
@@ -49,9 +49,9 @@ func NewBuildHeroDetailsCategoryAbilityWithDefaults() *BuildHeroDetailsCategoryA
 }
 
 // GetAbilityId returns the AbilityId field value
-func (o *BuildHeroDetailsCategoryAbility) GetAbilityId() int32 {
+func (o *BuildHeroDetailsCategoryAbility) GetAbilityId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *BuildHeroDetailsCategoryAbility) GetAbilityId() int32 {
 
 // GetAbilityIdOk returns a tuple with the AbilityId field value
 // and a boolean to check if the value has been set.
-func (o *BuildHeroDetailsCategoryAbility) GetAbilityIdOk() (*int32, bool) {
+func (o *BuildHeroDetailsCategoryAbility) GetAbilityIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *BuildHeroDetailsCategoryAbility) GetAbilityIdOk() (*int32, bool) {
 }
 
 // SetAbilityId sets field value
-func (o *BuildHeroDetailsCategoryAbility) SetAbilityId(v int32) {
+func (o *BuildHeroDetailsCategoryAbility) SetAbilityId(v int64) {
 	o.AbilityId = v
 }
 
@@ -115,9 +115,9 @@ func (o *BuildHeroDetailsCategoryAbility) UnsetAnnotation() {
 }
 
 // GetImbueTargetAbilityId returns the ImbueTargetAbilityId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BuildHeroDetailsCategoryAbility) GetImbueTargetAbilityId() int32 {
+func (o *BuildHeroDetailsCategoryAbility) GetImbueTargetAbilityId() int64 {
 	if o == nil || IsNil(o.ImbueTargetAbilityId.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ImbueTargetAbilityId.Get()
@@ -126,7 +126,7 @@ func (o *BuildHeroDetailsCategoryAbility) GetImbueTargetAbilityId() int32 {
 // GetImbueTargetAbilityIdOk returns a tuple with the ImbueTargetAbilityId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BuildHeroDetailsCategoryAbility) GetImbueTargetAbilityIdOk() (*int32, bool) {
+func (o *BuildHeroDetailsCategoryAbility) GetImbueTargetAbilityIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -142,8 +142,8 @@ func (o *BuildHeroDetailsCategoryAbility) HasImbueTargetAbilityId() bool {
 	return false
 }
 
-// SetImbueTargetAbilityId gets a reference to the given NullableInt32 and assigns it to the ImbueTargetAbilityId field.
-func (o *BuildHeroDetailsCategoryAbility) SetImbueTargetAbilityId(v int32) {
+// SetImbueTargetAbilityId gets a reference to the given NullableInt64 and assigns it to the ImbueTargetAbilityId field.
+func (o *BuildHeroDetailsCategoryAbility) SetImbueTargetAbilityId(v int64) {
 	o.ImbueTargetAbilityId.Set(&v)
 }
 // SetImbueTargetAbilityIdNil sets the value for ImbueTargetAbilityId to be an explicit nil
@@ -157,9 +157,9 @@ func (o *BuildHeroDetailsCategoryAbility) UnsetImbueTargetAbilityId() {
 }
 
 // GetRequiredFlexSlots returns the RequiredFlexSlots field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BuildHeroDetailsCategoryAbility) GetRequiredFlexSlots() int32 {
+func (o *BuildHeroDetailsCategoryAbility) GetRequiredFlexSlots() int64 {
 	if o == nil || IsNil(o.RequiredFlexSlots.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RequiredFlexSlots.Get()
@@ -168,7 +168,7 @@ func (o *BuildHeroDetailsCategoryAbility) GetRequiredFlexSlots() int32 {
 // GetRequiredFlexSlotsOk returns a tuple with the RequiredFlexSlots field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BuildHeroDetailsCategoryAbility) GetRequiredFlexSlotsOk() (*int32, bool) {
+func (o *BuildHeroDetailsCategoryAbility) GetRequiredFlexSlotsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -184,8 +184,8 @@ func (o *BuildHeroDetailsCategoryAbility) HasRequiredFlexSlots() bool {
 	return false
 }
 
-// SetRequiredFlexSlots gets a reference to the given NullableInt32 and assigns it to the RequiredFlexSlots field.
-func (o *BuildHeroDetailsCategoryAbility) SetRequiredFlexSlots(v int32) {
+// SetRequiredFlexSlots gets a reference to the given NullableInt64 and assigns it to the RequiredFlexSlots field.
+func (o *BuildHeroDetailsCategoryAbility) SetRequiredFlexSlots(v int64) {
 	o.RequiredFlexSlots.Set(&v)
 }
 // SetRequiredFlexSlotsNil sets the value for RequiredFlexSlots to be an explicit nil
@@ -199,9 +199,9 @@ func (o *BuildHeroDetailsCategoryAbility) UnsetRequiredFlexSlots() {
 }
 
 // GetSellPriority returns the SellPriority field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BuildHeroDetailsCategoryAbility) GetSellPriority() int32 {
+func (o *BuildHeroDetailsCategoryAbility) GetSellPriority() int64 {
 	if o == nil || IsNil(o.SellPriority.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SellPriority.Get()
@@ -210,7 +210,7 @@ func (o *BuildHeroDetailsCategoryAbility) GetSellPriority() int32 {
 // GetSellPriorityOk returns a tuple with the SellPriority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BuildHeroDetailsCategoryAbility) GetSellPriorityOk() (*int32, bool) {
+func (o *BuildHeroDetailsCategoryAbility) GetSellPriorityOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -226,8 +226,8 @@ func (o *BuildHeroDetailsCategoryAbility) HasSellPriority() bool {
 	return false
 }
 
-// SetSellPriority gets a reference to the given NullableInt32 and assigns it to the SellPriority field.
-func (o *BuildHeroDetailsCategoryAbility) SetSellPriority(v int32) {
+// SetSellPriority gets a reference to the given NullableInt64 and assigns it to the SellPriority field.
+func (o *BuildHeroDetailsCategoryAbility) SetSellPriority(v int64) {
 	o.SellPriority.Set(&v)
 }
 // SetSellPriorityNil sets the value for SellPriority to be an explicit nil

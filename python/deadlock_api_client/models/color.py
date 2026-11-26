@@ -28,10 +28,10 @@ class Color(BaseModel):
     """
     RGBA color emitted by KV3 as a 3- or 4-element integer array. Alpha defaults to 255 when omitted.
     """ # noqa: E501
-    alpha: Annotated[int, Field(strict=True, ge=0)]
-    blue: Annotated[int, Field(strict=True, ge=0)]
-    green: Annotated[int, Field(strict=True, ge=0)]
-    red: Annotated[int, Field(strict=True, ge=0)]
+    alpha: Annotated[int, Field(le=255, strict=True, ge=0)]
+    blue: Annotated[int, Field(le=255, strict=True, ge=0)]
+    green: Annotated[int, Field(le=255, strict=True, ge=0)]
+    red: Annotated[int, Field(le=255, strict=True, ge=0)]
     __properties: ClassVar[List[str]] = ["alpha", "blue", "green", "red"]
 
     model_config = ConfigDict(

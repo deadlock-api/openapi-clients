@@ -111,6 +111,12 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Deaths, must be a value greater than or equal to 0.", new [] { "Deaths" });
             }
 
+            // KillerTeam (int) maximum
+            if (this.KillerTeam > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for KillerTeam, must be a value less than or equal to 255.", new [] { "KillerTeam" });
+            }
+
             // KillerTeam (int) minimum
             if (this.KillerTeam < (int)0)
             {

@@ -308,6 +308,12 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EnemyDenies, must be a value greater than or equal to 0.", new [] { "EnemyDenies" });
             }
 
+            // EnemyHeroId (int) maximum
+            if (this.EnemyHeroId > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EnemyHeroId, must be a value less than or equal to 255.", new [] { "EnemyHeroId" });
+            }
+
             // EnemyHeroId (int) minimum
             if (this.EnemyHeroId < (int)0)
             {
@@ -336,6 +342,12 @@ namespace DeadlockApiClient.Model
             if (this.EnemyObjDamage < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EnemyObjDamage, must be a value greater than or equal to 0.", new [] { "EnemyObjDamage" });
+            }
+
+            // HeroId (int) maximum
+            if (this.HeroId > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value less than or equal to 255.", new [] { "HeroId" });
             }
 
             // HeroId (int) minimum

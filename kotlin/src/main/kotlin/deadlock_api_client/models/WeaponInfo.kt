@@ -153,7 +153,7 @@ data class WeaponInfo (
     val bulletWhizDistance: kotlin.Double? = null,
 
     @Json(name = "bullets")
-    val bullets: kotlin.Int? = null,
+    val bullets: kotlin.Long? = null,
 
     @Json(name = "bullets_per_second")
     val bulletsPerSecond: kotlin.Double? = null,
@@ -165,13 +165,13 @@ data class WeaponInfo (
     val burstShotCooldown: kotlin.Double? = null,
 
     @Json(name = "burst_shot_count")
-    val burstShotCount: kotlin.Int? = null,
+    val burstShotCount: kotlin.Long? = null,
 
     @Json(name = "can_zoom")
     val canZoom: kotlin.Boolean? = null,
 
     @Json(name = "clip_size")
-    val clipSize: kotlin.Int? = null,
+    val clipSize: kotlin.Long? = null,
 
     @Json(name = "crit_bonus_against_npcs")
     val critBonusAgainstNpcs: kotlin.Double? = null,

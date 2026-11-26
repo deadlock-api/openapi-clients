@@ -28,7 +28,7 @@ class AnalyticsAbilityMaxFirstStats(BaseModel):
     """
     The players who maxed one ability first, or (`ability_id` null) none.
     """ # noqa: E501
-    ability_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The ability these players maxed first (unlocked and upgraded three times before any other), null for the players who maxed none. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    ability_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="The ability these players maxed first (unlocked and upgraded three times before any other), null for the players who maxed none. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
     players: Annotated[int, Field(strict=True, ge=0)] = Field(description="Distinct players, counted exactly.")

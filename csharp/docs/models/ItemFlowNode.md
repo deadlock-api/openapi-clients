@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **AdjustedWinRate** | **double** | Win rate standardized to the stage&#39;s net-worth-at-buy distribution, removing the \&quot;richer buyers win more\&quot; confound. See the endpoint description. | 
 **AvgNetWorthAtBuy** | **double** | Average net worth of buyers at the moment they bought this item (confound visibility). | 
 **Column** | **int** | The phase column (0-based) the item was bought in. | 
-**ItemId** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+**ItemId** | **long** | See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 **Losses** | **long** |  | 
 **Matches** | **long** |  | 
 **Players** | **long** |  | 

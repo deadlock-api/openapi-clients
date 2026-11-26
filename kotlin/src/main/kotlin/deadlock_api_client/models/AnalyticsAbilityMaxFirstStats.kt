@@ -56,7 +56,7 @@ data class AnalyticsAbilityMaxFirstStats (
 
     /* The ability these players maxed first (unlocked and upgraded three times before any other), null for the players who maxed none. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "ability_id")
-    val abilityId: kotlin.Int? = null
+    val abilityId: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

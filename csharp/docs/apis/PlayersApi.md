@@ -18,7 +18,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="enemystats"></a>
 # **EnemyStats**
-> List&lt;EnemyStats&gt; EnemyStats (int accountId, string gameMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minMatchId = null, long maxMatchId = null, long minMatchesPlayed = null, long maxMatchesPlayed = null)
+> List&lt;EnemyStats&gt; EnemyStats (long accountId, string gameMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, int minDurationS = null, int maxDurationS = null, long minMatchId = null, long maxMatchId = null, long minMatchesPlayed = null, long maxMatchesPlayed = null)
 
 Enemy Stats
 
@@ -29,12 +29,12 @@ Enemy Stats
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+| **accountId** | **long** | The players &#x60;SteamID3&#x60; |  |
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
-| **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
-| **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **minDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **maxDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **minMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 | **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 | **minMatchesPlayed** | **long** | Filter based on the number of matches played. | [optional]  |
@@ -65,7 +65,7 @@ No authorization required
 
 <a id="matchhistory"></a>
 # **MatchHistory**
-> List&lt;PlayerMatchHistoryEntry&gt; MatchHistory (int accountId, bool forceRefetch = null)
+> List&lt;PlayerMatchHistoryEntry&gt; MatchHistory (long accountId, bool forceRefetch = null)
 
 Match History
 
@@ -76,7 +76,7 @@ Match History
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+| **accountId** | **long** | The players &#x60;SteamID3&#x60; |  |
 | **forceRefetch** | **bool** | Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. | [optional]  |
 
 ### Return type
@@ -105,7 +105,7 @@ No authorization required
 
 <a id="matestats"></a>
 # **MateStats**
-> List&lt;MateStats&gt; MateStats (int accountId, string gameMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minMatchId = null, long maxMatchId = null, long minMatchesPlayed = null, long maxMatchesPlayed = null, bool sameParty = null)
+> List&lt;MateStats&gt; MateStats (long accountId, string gameMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, int minDurationS = null, int maxDurationS = null, long minMatchId = null, long maxMatchId = null, long minMatchesPlayed = null, long maxMatchesPlayed = null, bool sameParty = null)
 
 Mate Stats
 
@@ -116,12 +116,12 @@ Mate Stats
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+| **accountId** | **long** | The players &#x60;SteamID3&#x60; |  |
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
-| **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
-| **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **minDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **maxDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **minMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 | **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 | **minMatchesPlayed** | **long** | Filter based on the number of matches played. | [optional]  |
@@ -153,7 +153,7 @@ No authorization required
 
 <a id="playerherostats"></a>
 # **PlayerHeroStats**
-> List&lt;HeroStats&gt; PlayerHeroStats (List<int> accountIds, string gameMode = null, string matchMode = null, string heroIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null)
+> List&lt;HeroStats&gt; PlayerHeroStats (List<long> accountIds, string gameMode = null, string matchMode = null, string heroIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, int minDurationS = null, int maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null)
 
 Hero Stats
 
@@ -164,14 +164,14 @@ Hero Stats
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. |  |
+| **accountIds** | [**List&lt;long&gt;**](long.md) | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. |  |
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
 | **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
-| **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
-| **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **minDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **maxDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **minNetworth** | **long** | Filter players based on their final net worth. | [optional]  |
 | **maxNetworth** | **long** | Filter players based on their final net worth. | [optional]  |
 | **minAverageBadge** | **int** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional]  |
@@ -204,7 +204,7 @@ No authorization required
 
 <a id="rank"></a>
 # **Rank**
-> RankResponse Rank (int accountId)
+> RankResponse Rank (long accountId)
 
 Rank
 
@@ -215,7 +215,7 @@ Rank
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+| **accountId** | **long** | The players &#x60;SteamID3&#x60; |  |
 
 ### Return type
 
@@ -243,7 +243,7 @@ No authorization required
 
 <a id="rankavgimage"></a>
 # **RankAvgImage**
-> List&lt;int&gt; RankAvgImage (List<int> accountIds, string format = null)
+> List&lt;int&gt; RankAvgImage (List<long> accountIds, string format = null)
 
 Rank Avg Image
 
@@ -254,7 +254,7 @@ Returns the average rank badge image (binary) for a comma-separated list of acco
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma-separated list of account IDs (max 12). |  |
+| **accountIds** | [**List&lt;long&gt;**](long.md) | Comma-separated list of account IDs (max 12). |  |
 | **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional]  |
 
 ### Return type
@@ -284,7 +284,7 @@ No authorization required
 
 <a id="rankbatch"></a>
 # **RankBatch**
-> List&lt;AccountRank&gt; RankBatch (List<int> accountIds)
+> List&lt;AccountRank&gt; RankBatch (List<long> accountIds)
 
 Batch Rank
 
@@ -295,7 +295,7 @@ Batch Rank
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. |  |
+| **accountIds** | [**List&lt;long&gt;**](long.md) | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. |  |
 
 ### Return type
 
@@ -322,7 +322,7 @@ No authorization required
 
 <a id="rankdistribution"></a>
 # **RankDistribution**
-> List&lt;RankDistributionEntry&gt; RankDistribution (long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, long minMatchId = null, long maxMatchId = null)
+> List&lt;RankDistributionEntry&gt; RankDistribution (long minUnixTimestamp = null, long maxUnixTimestamp = null, int minDurationS = null, int maxDurationS = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, long minMatchId = null, long maxMatchId = null)
 
 Rank Distribution
 
@@ -333,10 +333,10 @@ Rank Distribution
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1792972800] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1793059200] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
-| **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
-| **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **minDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **maxDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **isHighSkillRangeParties** | **bool** | Filter matches based on whether they are in the high skill range. | [optional]  |
 | **isLowPriPool** | **bool** | Filter matches based on whether they are in the low priority pool. | [optional]  |
 | **isNewPlayerPool** | **bool** | Filter matches based on whether they are in the new player pool. | [optional]  |
@@ -368,7 +368,7 @@ No authorization required
 
 <a id="rankimage"></a>
 # **RankImage**
-> List&lt;int&gt; RankImage (int accountId, string format = null)
+> List&lt;int&gt; RankImage (long accountId, string format = null)
 
 Rank Image
 
@@ -379,7 +379,7 @@ Returns the rank badge image directly (binary), not a URL, with the player's I-V
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+| **accountId** | **long** | The players &#x60;SteamID3&#x60; |  |
 | **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional]  |
 
 ### Return type
@@ -409,7 +409,7 @@ No authorization required
 
 <a id="region"></a>
 # **Region**
-> PlayerRegionResponse Region (int accountId)
+> PlayerRegionResponse Region (long accountId)
 
 Region
 
@@ -420,7 +420,7 @@ Region
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+| **accountId** | **long** | The players &#x60;SteamID3&#x60; |  |
 
 ### Return type
 
@@ -448,7 +448,7 @@ No authorization required
 
 <a id="regionbatch"></a>
 # **RegionBatch**
-> List&lt;PlayerRegionResponse&gt; RegionBatch (List<int> accountIds)
+> List&lt;PlayerRegionResponse&gt; RegionBatch (List<long> accountIds)
 
 Batch Region
 
@@ -459,7 +459,7 @@ Batch Region
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. |  |
+| **accountIds** | [**List&lt;long&gt;**](long.md) | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. |  |
 
 ### Return type
 

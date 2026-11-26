@@ -61,7 +61,7 @@ data class ItemFlowNode (
 
     /* See more: <https://api.deadlock-api.com/v1/assets/items> */
     @Json(name = "item_id")
-    val itemId: kotlin.Int,
+    val itemId: kotlin.Long,
 
     @Json(name = "losses")
     val losses: kotlin.Long,

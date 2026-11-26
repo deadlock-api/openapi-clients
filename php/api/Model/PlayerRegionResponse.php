@@ -71,10 +71,10 @@ class PlayerRegionResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'account_id' => 'int32',
+        'account_id' => 'int64',
         'history' => null,
         'region' => null,
-        'region_month' => 'int32'
+        'region_month' => 'int64'
     ];
 
     /**
@@ -298,6 +298,10 @@ class PlayerRegionResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
         }
+        if (($this->container['account_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'account_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['account_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'account_id', must be bigger than or equal to 0.";
         }
@@ -305,6 +309,10 @@ class PlayerRegionResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['history'] === null) {
             $invalidProperties[] = "'history' can't be null";
         }
+        if (!is_null($this->container['region_month']) && ($this->container['region_month'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'region_month', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['region_month']) && ($this->container['region_month'] < 0)) {
             $invalidProperties[] = "invalid value for 'region_month', must be bigger than or equal to 0.";
         }
@@ -345,6 +353,9 @@ class PlayerRegionResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($account_id)) {
             throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+        }
+        if (($account_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $account_id when calling PlayerRegionResponse., must be smaller than or equal to 4294967295.');
         }
         if (($account_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $account_id when calling PlayerRegionResponse., must be bigger than or equal to 0.');
@@ -444,6 +455,9 @@ class PlayerRegionResponse implements ModelInterface, ArrayAccess, \JsonSerializ
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($region_month) && ($region_month > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $region_month when calling PlayerRegionResponse., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($region_month) && ($region_month < 0)) {
             throw new \InvalidArgumentException('invalid value for $region_month when calling PlayerRegionResponse., must be bigger than or equal to 0.');

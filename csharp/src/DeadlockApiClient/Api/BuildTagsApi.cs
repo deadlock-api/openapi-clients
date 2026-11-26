@@ -50,7 +50,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBuildTagApiResponse"/>&gt;</returns>
-        Task<IGetBuildTagApiResponse> GetBuildTagAsync(int buildTagId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBuildTagApiResponse> GetBuildTagAsync(long buildTagId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Build Tag
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBuildTagApiResponse"/>?&gt;</returns>
-        Task<IGetBuildTagApiResponse?> GetBuildTagOrDefaultAsync(int buildTagId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBuildTagApiResponse?> GetBuildTagOrDefaultAsync(long buildTagId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Build Tag By Name
@@ -77,7 +77,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBuildTagByNameApiResponse"/>&gt;</returns>
-        Task<IGetBuildTagByNameApiResponse> GetBuildTagByNameAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBuildTagByNameApiResponse> GetBuildTagByNameAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Build Tag By Name
@@ -90,7 +90,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBuildTagByNameApiResponse"/>?&gt;</returns>
-        Task<IGetBuildTagByNameApiResponse?> GetBuildTagByNameOrDefaultAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBuildTagByNameApiResponse?> GetBuildTagByNameOrDefaultAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Build Tags
@@ -103,7 +103,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListBuildTagsApiResponse"/>&gt;</returns>
-        Task<IListBuildTagsApiResponse> ListBuildTagsAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListBuildTagsApiResponse> ListBuildTagsAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Build Tags
@@ -115,7 +115,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListBuildTagsApiResponse"/>?&gt;</returns>
-        Task<IListBuildTagsApiResponse?> ListBuildTagsOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListBuildTagsApiResponse?> ListBuildTagsOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -297,7 +297,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetBuildTag(ref int buildTagId, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetBuildTag(ref long buildTagId, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -306,7 +306,7 @@ namespace DeadlockApiClient.Api
         /// <param name="buildTagId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetBuildTagDefaultImplementation(IGetBuildTagApiResponse apiResponseLocalVar, int buildTagId, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetBuildTagDefaultImplementation(IGetBuildTagApiResponse apiResponseLocalVar, long buildTagId, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetBuildTag(ref suppressDefaultLog, apiResponseLocalVar, buildTagId, language, clientVersion);
@@ -322,7 +322,7 @@ namespace DeadlockApiClient.Api
         /// <param name="buildTagId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetBuildTag(ref bool suppressDefaultLog, IGetBuildTagApiResponse apiResponseLocalVar, int buildTagId, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetBuildTag(ref bool suppressDefaultLog, IGetBuildTagApiResponse apiResponseLocalVar, long buildTagId, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -333,7 +333,7 @@ namespace DeadlockApiClient.Api
         /// <param name="buildTagId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetBuildTagDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int buildTagId, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetBuildTagDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long buildTagId, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetBuildTag(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, buildTagId, language, clientVersion);
@@ -351,7 +351,7 @@ namespace DeadlockApiClient.Api
         /// <param name="buildTagId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetBuildTag(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int buildTagId, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetBuildTag(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long buildTagId, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Build Tag Returns a single build tag by id.
@@ -361,7 +361,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBuildTagApiResponse"/>&gt;</returns>
-        public async Task<IGetBuildTagApiResponse?> GetBuildTagOrDefaultAsync(int buildTagId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBuildTagApiResponse?> GetBuildTagOrDefaultAsync(long buildTagId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -382,7 +382,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBuildTagApiResponse"/>&gt;</returns>
-        public async Task<IGetBuildTagApiResponse> GetBuildTagAsync(int buildTagId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBuildTagApiResponse> GetBuildTagAsync(long buildTagId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -571,7 +571,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetBuildTagByName(ref string name, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetBuildTagByName(ref string name, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -591,7 +591,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetBuildTagByNameDefaultImplementation(IGetBuildTagByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetBuildTagByNameDefaultImplementation(IGetBuildTagByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetBuildTagByName(ref suppressDefaultLog, apiResponseLocalVar, name, language, clientVersion);
@@ -607,7 +607,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetBuildTagByName(ref bool suppressDefaultLog, IGetBuildTagByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetBuildTagByName(ref bool suppressDefaultLog, IGetBuildTagByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -618,7 +618,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetBuildTagByNameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetBuildTagByNameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetBuildTagByName(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, name, language, clientVersion);
@@ -636,7 +636,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetBuildTagByName(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetBuildTagByName(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Build Tag By Name Returns a single build tag by &#x60;class_name&#x60; (case-insensitive).
@@ -646,7 +646,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBuildTagByNameApiResponse"/>&gt;</returns>
-        public async Task<IGetBuildTagByNameApiResponse?> GetBuildTagByNameOrDefaultAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBuildTagByNameApiResponse?> GetBuildTagByNameOrDefaultAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -667,7 +667,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBuildTagByNameApiResponse"/>&gt;</returns>
-        public async Task<IGetBuildTagByNameApiResponse> GetBuildTagByNameAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBuildTagByNameApiResponse> GetBuildTagByNameAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -858,7 +858,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListBuildTags(ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatListBuildTags(ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -866,7 +866,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterListBuildTagsDefaultImplementation(IListBuildTagsApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void AfterListBuildTagsDefaultImplementation(IListBuildTagsApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterListBuildTags(ref suppressDefaultLog, apiResponseLocalVar, language, clientVersion);
@@ -881,7 +881,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterListBuildTags(ref bool suppressDefaultLog, IListBuildTagsApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterListBuildTags(ref bool suppressDefaultLog, IListBuildTagsApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -891,7 +891,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorListBuildTagsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorListBuildTagsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorListBuildTags(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, language, clientVersion);
@@ -908,7 +908,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorListBuildTags(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorListBuildTags(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// List Build Tags Returns the build tag taxonomy used by the game client, derived from per-version localization keys.
@@ -917,7 +917,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListBuildTagsApiResponse"/>&gt;</returns>
-        public async Task<IListBuildTagsApiResponse?> ListBuildTagsOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListBuildTagsApiResponse?> ListBuildTagsOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -937,7 +937,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListBuildTagsApiResponse"/>&gt;</returns>
-        public async Task<IListBuildTagsApiResponse> ListBuildTagsAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListBuildTagsApiResponse> ListBuildTagsAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

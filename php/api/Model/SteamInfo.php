@@ -78,13 +78,13 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'app_id' => 'int32',
-        'client_version' => 'int32',
+        'app_id' => 'int64',
+        'client_version' => 'int64',
         'product_name' => null,
-        'server_app_id' => 'int32',
-        'server_version' => 'int32',
+        'server_app_id' => 'int64',
+        'server_version' => 'int64',
         'source_revision' => 'int64',
-        'tools_app_id' => 'int32',
+        'tools_app_id' => 'int64',
         'version_date' => null,
         'version_datetime' => null,
         'version_time' => null
@@ -341,6 +341,10 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['app_id'] === null) {
             $invalidProperties[] = "'app_id' can't be null";
         }
+        if (($this->container['app_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'app_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['app_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'app_id', must be bigger than or equal to 0.";
         }
@@ -348,6 +352,10 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['client_version'] === null) {
             $invalidProperties[] = "'client_version' can't be null";
         }
+        if (($this->container['client_version'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'client_version', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['client_version'] < 0)) {
             $invalidProperties[] = "invalid value for 'client_version', must be bigger than or equal to 0.";
         }
@@ -358,6 +366,10 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['server_app_id'] === null) {
             $invalidProperties[] = "'server_app_id' can't be null";
         }
+        if (($this->container['server_app_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'server_app_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['server_app_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'server_app_id', must be bigger than or equal to 0.";
         }
@@ -365,6 +377,10 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['server_version'] === null) {
             $invalidProperties[] = "'server_version' can't be null";
         }
+        if (($this->container['server_version'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'server_version', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['server_version'] < 0)) {
             $invalidProperties[] = "invalid value for 'server_version', must be bigger than or equal to 0.";
         }
@@ -379,6 +395,10 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['tools_app_id'] === null) {
             $invalidProperties[] = "'tools_app_id' can't be null";
         }
+        if (($this->container['tools_app_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'tools_app_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['tools_app_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'tools_app_id', must be bigger than or equal to 0.";
         }
@@ -429,6 +449,9 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($app_id)) {
             throw new \InvalidArgumentException('non-nullable app_id cannot be null');
         }
+        if (($app_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $app_id when calling SteamInfo., must be smaller than or equal to 4294967295.');
+        }
         if (($app_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $app_id when calling SteamInfo., must be bigger than or equal to 0.');
         }
@@ -459,6 +482,9 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($client_version)) {
             throw new \InvalidArgumentException('non-nullable client_version cannot be null');
+        }
+        if (($client_version > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $client_version when calling SteamInfo., must be smaller than or equal to 4294967295.');
         }
         if (($client_version < 0)) {
             throw new \InvalidArgumentException('invalid value for $client_version when calling SteamInfo., must be bigger than or equal to 0.');
@@ -518,6 +544,9 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($server_app_id)) {
             throw new \InvalidArgumentException('non-nullable server_app_id cannot be null');
         }
+        if (($server_app_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $server_app_id when calling SteamInfo., must be smaller than or equal to 4294967295.');
+        }
         if (($server_app_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $server_app_id when calling SteamInfo., must be bigger than or equal to 0.');
         }
@@ -548,6 +577,9 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($server_version)) {
             throw new \InvalidArgumentException('non-nullable server_version cannot be null');
+        }
+        if (($server_version > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $server_version when calling SteamInfo., must be smaller than or equal to 4294967295.');
         }
         if (($server_version < 0)) {
             throw new \InvalidArgumentException('invalid value for $server_version when calling SteamInfo., must be bigger than or equal to 0.');
@@ -610,6 +642,9 @@ class SteamInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($tools_app_id)) {
             throw new \InvalidArgumentException('non-nullable tools_app_id cannot be null');
+        }
+        if (($tools_app_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $tools_app_id when calling SteamInfo., must be smaller than or equal to 4294967295.');
         }
         if (($tools_app_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $tools_app_id when calling SteamInfo., must be bigger than or equal to 0.');

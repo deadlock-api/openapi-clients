@@ -39,7 +39,7 @@ namespace DeadlockApiClient.Model
         /// <param name="wins">wins</param>
         /// <param name="abilityId">The ability these players maxed first (unlocked and upgraded three times before any other), null for the players who maxed none. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         [JsonConstructor]
-        public AnalyticsAbilityMaxFirstStats(long losses, long matches, long players, long wins, Option<int?> abilityId = default)
+        public AnalyticsAbilityMaxFirstStats(long losses, long matches, long players, long wins, Option<long?> abilityId = default)
         {
             Losses = losses;
             Matches = matches;
@@ -81,14 +81,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> AbilityIdOption { get; private set; }
+        public Option<long?> AbilityIdOption { get; private set; }
 
         /// <summary>
         /// The ability these players maxed first (unlocked and upgraded three times before any other), null for the players who maxed none. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
         /// <value>The ability these players maxed first (unlocked and upgraded three times before any other), null for the players who maxed none. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("ability_id")]
-        public int? AbilityId { get { return this.AbilityIdOption.Value; } set { this.AbilityIdOption = new(value); } }
+        public long? AbilityId { get { return this.AbilityIdOption.Value; } set { this.AbilityIdOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -138,8 +138,14 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Wins, must be a value greater than or equal to 0.", new [] { "Wins" });
             }
 
-            // AbilityId (int) minimum
-            if (this.AbilityIdOption.IsSet && this.AbilityIdOption.Value < (int)0)
+            // AbilityId (long) maximum
+            if (this.AbilityIdOption.IsSet && this.AbilityIdOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AbilityId, must be a value less than or equal to 4294967295.", new [] { "AbilityId" });
+            }
+
+            // AbilityId (long) minimum
+            if (this.AbilityIdOption.IsSet && this.AbilityIdOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AbilityId, must be a value greater than or equal to 0.", new [] { "AbilityId" });
             }
@@ -184,7 +190,7 @@ namespace DeadlockApiClient.Model
             Option<long?> matches = default;
             Option<long?> players = default;
             Option<long?> wins = default;
-            Option<int?> abilityId = default;
+            Option<long?> abilityId = default;
 
             while (utf8JsonReader.Read())
             {
@@ -214,7 +220,7 @@ namespace DeadlockApiClient.Model
                             wins = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "ability_id":
-                            abilityId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            abilityId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

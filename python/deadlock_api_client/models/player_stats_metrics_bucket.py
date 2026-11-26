@@ -28,7 +28,7 @@ class PlayerStatsMetricsBucket(BaseModel):
     """
     One bucket's metrics: `bucket`, and per metric the same values as an unbucketed response.
     """ # noqa: E501
-    bucket: Annotated[int, Field(strict=True, ge=0)] = Field(description="The bucket's value: the hero id for `bucket=hero`.")
+    bucket: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The bucket's value: the hero id for `bucket=hero`.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["bucket"]
 

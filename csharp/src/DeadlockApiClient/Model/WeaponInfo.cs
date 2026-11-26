@@ -107,7 +107,7 @@ namespace DeadlockApiClient.Model
         /// <param name="zoomFov">zoomFov</param>
         /// <param name="zoomMoveSpeedPercent">zoomMoveSpeedPercent</param>
         [JsonConstructor]
-        public WeaponInfo(Option<Object?> aimingShotSpreadPenalty = default, Option<double?> buildUpRate = default, Option<double?> bulletDamage = default, Option<double?> bulletGravityScale = default, Option<string?> bulletHandlerType = default, Option<double?> bulletInheritShooterVelocityScale = default, Option<double?> bulletLifetime = default, Option<double?> bulletRadius = default, Option<double?> bulletRadiusVsWorld = default, Option<double?> bulletReflectAmount = default, Option<double?> bulletReflectScale = default, Option<double?> bulletSpeed = default, Option<RawItemWeaponInfoBulletSpeedCurve?> bulletSpeedCurve = default, Option<double?> bulletWhizDistance = default, Option<int?> bullets = default, Option<double?> bulletsPerSecond = default, Option<double?> bulletsPerSecondWithReload = default, Option<double?> burstShotCooldown = default, Option<int?> burstShotCount = default, Option<bool?> canZoom = default, Option<int?> clipSize = default, Option<double?> critBonusAgainstNpcs = default, Option<double?> critBonusEnd = default, Option<double?> critBonusEndRange = default, Option<double?> critBonusStart = default, Option<double?> critBonusStartRange = default, Option<double?> cycleTime = default, Option<double?> damageFalloffBias = default, Option<double?> damageFalloffEndRange = default, Option<double?> damageFalloffEndScale = default, Option<double?> damageFalloffStartRange = default, Option<double?> damageFalloffStartScale = default, Option<double?> damagePerMagazine = default, Option<double?> damagePerSecond = default, Option<double?> damagePerSecondWithReload = default, Option<double?> damagePerShot = default, Option<double?> horizontalPunch = default, Option<RawWeaponInfoHorizontalRecoil?> horizontalRecoil = default, Option<double?> intraBurstCycleTime = default, Option<bool?> isSemiAuto = default, Option<double?> lowAmmoIndicatorThreshold = default, Option<double?> maxSpinCycleTime = default, Option<double?> range = default, Option<double?> recoilRecoveryDelayFactor = default, Option<double?> recoilRecoverySpeed = default, Option<double?> recoilSeed = default, Option<double?> recoilShotIndexRecoveryTimeFactor = default, Option<double?> recoilSpeed = default, Option<double?> recycleTime = default, Option<double?> reloadDuration = default, Option<double?> reloadMoveSpeed = default, Option<bool?> reloadSingleBullets = default, Option<bool?> reloadSingleBulletsAllowCancel = default, Option<double?> reloadSingleBulletsInitialDelay = default, Option<double?> scatterYawScale = default, Option<double?> semiAutoCycleRate = default, Option<double?> shootMoveSpeedPercent = default, Option<double?> shootSpreadPenaltyDecay = default, Option<double?> shootSpreadPenaltyDecayDelay = default, Option<double?> shootSpreadPenaltyPerShot = default, Option<double?> shootingUpSpreadPenalty = default, Option<double?> shotsPerSecond = default, Option<double?> shotsPerSecondWithReload = default, Option<double?> spinDecayRate = default, Option<double?> spinIncreaseRate = default, Option<bool?> spinsUp = default, Option<double?> spread = default, Option<Object?> standingShotSpreadPenalty = default, Option<double?> standingSpread = default, Option<double?> verticalPunch = default, Option<RawWeaponInfoVerticalRecoil?> verticalRecoil = default, Option<double?> zoomFov = default, Option<double?> zoomMoveSpeedPercent = default)
+        public WeaponInfo(Option<Object?> aimingShotSpreadPenalty = default, Option<double?> buildUpRate = default, Option<double?> bulletDamage = default, Option<double?> bulletGravityScale = default, Option<string?> bulletHandlerType = default, Option<double?> bulletInheritShooterVelocityScale = default, Option<double?> bulletLifetime = default, Option<double?> bulletRadius = default, Option<double?> bulletRadiusVsWorld = default, Option<double?> bulletReflectAmount = default, Option<double?> bulletReflectScale = default, Option<double?> bulletSpeed = default, Option<RawItemWeaponInfoBulletSpeedCurve?> bulletSpeedCurve = default, Option<double?> bulletWhizDistance = default, Option<long?> bullets = default, Option<double?> bulletsPerSecond = default, Option<double?> bulletsPerSecondWithReload = default, Option<double?> burstShotCooldown = default, Option<long?> burstShotCount = default, Option<bool?> canZoom = default, Option<long?> clipSize = default, Option<double?> critBonusAgainstNpcs = default, Option<double?> critBonusEnd = default, Option<double?> critBonusEndRange = default, Option<double?> critBonusStart = default, Option<double?> critBonusStartRange = default, Option<double?> cycleTime = default, Option<double?> damageFalloffBias = default, Option<double?> damageFalloffEndRange = default, Option<double?> damageFalloffEndScale = default, Option<double?> damageFalloffStartRange = default, Option<double?> damageFalloffStartScale = default, Option<double?> damagePerMagazine = default, Option<double?> damagePerSecond = default, Option<double?> damagePerSecondWithReload = default, Option<double?> damagePerShot = default, Option<double?> horizontalPunch = default, Option<RawWeaponInfoHorizontalRecoil?> horizontalRecoil = default, Option<double?> intraBurstCycleTime = default, Option<bool?> isSemiAuto = default, Option<double?> lowAmmoIndicatorThreshold = default, Option<double?> maxSpinCycleTime = default, Option<double?> range = default, Option<double?> recoilRecoveryDelayFactor = default, Option<double?> recoilRecoverySpeed = default, Option<double?> recoilSeed = default, Option<double?> recoilShotIndexRecoveryTimeFactor = default, Option<double?> recoilSpeed = default, Option<double?> recycleTime = default, Option<double?> reloadDuration = default, Option<double?> reloadMoveSpeed = default, Option<bool?> reloadSingleBullets = default, Option<bool?> reloadSingleBulletsAllowCancel = default, Option<double?> reloadSingleBulletsInitialDelay = default, Option<double?> scatterYawScale = default, Option<double?> semiAutoCycleRate = default, Option<double?> shootMoveSpeedPercent = default, Option<double?> shootSpreadPenaltyDecay = default, Option<double?> shootSpreadPenaltyDecayDelay = default, Option<double?> shootSpreadPenaltyPerShot = default, Option<double?> shootingUpSpreadPenalty = default, Option<double?> shotsPerSecond = default, Option<double?> shotsPerSecondWithReload = default, Option<double?> spinDecayRate = default, Option<double?> spinIncreaseRate = default, Option<bool?> spinsUp = default, Option<double?> spread = default, Option<Object?> standingShotSpreadPenalty = default, Option<double?> standingSpread = default, Option<double?> verticalPunch = default, Option<RawWeaponInfoVerticalRecoil?> verticalRecoil = default, Option<double?> zoomFov = default, Option<double?> zoomMoveSpeedPercent = default)
         {
             AimingShotSpreadPenaltyOption = aimingShotSpreadPenalty;
             BuildUpRateOption = buildUpRate;
@@ -374,13 +374,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BulletsOption { get; private set; }
+        public Option<long?> BulletsOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Bullets
         /// </summary>
         [JsonPropertyName("bullets")]
-        public int? Bullets { get { return this.BulletsOption.Value; } set { this.BulletsOption = new(value); } }
+        public long? Bullets { get { return this.BulletsOption.Value; } set { this.BulletsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletsPerSecond
@@ -426,13 +426,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BurstShotCountOption { get; private set; }
+        public Option<long?> BurstShotCountOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets BurstShotCount
         /// </summary>
         [JsonPropertyName("burst_shot_count")]
-        public int? BurstShotCount { get { return this.BurstShotCountOption.Value; } set { this.BurstShotCountOption = new(value); } }
+        public long? BurstShotCount { get { return this.BurstShotCountOption.Value; } set { this.BurstShotCountOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CanZoom
@@ -452,13 +452,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> ClipSizeOption { get; private set; }
+        public Option<long?> ClipSizeOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets ClipSize
         /// </summary>
         [JsonPropertyName("clip_size")]
-        public int? ClipSize { get { return this.ClipSizeOption.Value; } set { this.ClipSizeOption = new(value); } }
+        public long? ClipSize { get { return this.ClipSizeOption.Value; } set { this.ClipSizeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CritBonusAgainstNpcs
@@ -1228,20 +1228,38 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Bullets (int) minimum
-            if (this.BulletsOption.IsSet && this.BulletsOption.Value < (int)0)
+            // Bullets (long) maximum
+            if (this.BulletsOption.IsSet && this.BulletsOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bullets, must be a value less than or equal to 4294967295.", new [] { "Bullets" });
+            }
+
+            // Bullets (long) minimum
+            if (this.BulletsOption.IsSet && this.BulletsOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bullets, must be a value greater than or equal to 0.", new [] { "Bullets" });
             }
 
-            // BurstShotCount (int) minimum
-            if (this.BurstShotCountOption.IsSet && this.BurstShotCountOption.Value < (int)0)
+            // BurstShotCount (long) maximum
+            if (this.BurstShotCountOption.IsSet && this.BurstShotCountOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BurstShotCount, must be a value less than or equal to 4294967295.", new [] { "BurstShotCount" });
+            }
+
+            // BurstShotCount (long) minimum
+            if (this.BurstShotCountOption.IsSet && this.BurstShotCountOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BurstShotCount, must be a value greater than or equal to 0.", new [] { "BurstShotCount" });
             }
 
-            // ClipSize (int) minimum
-            if (this.ClipSizeOption.IsSet && this.ClipSizeOption.Value < (int)0)
+            // ClipSize (long) maximum
+            if (this.ClipSizeOption.IsSet && this.ClipSizeOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClipSize, must be a value less than or equal to 4294967295.", new [] { "ClipSize" });
+            }
+
+            // ClipSize (long) minimum
+            if (this.ClipSizeOption.IsSet && this.ClipSizeOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClipSize, must be a value greater than or equal to 0.", new [] { "ClipSize" });
             }
@@ -1296,13 +1314,13 @@ namespace DeadlockApiClient.Model
             Option<double?> bulletSpeed = default;
             Option<RawItemWeaponInfoBulletSpeedCurve?> bulletSpeedCurve = default;
             Option<double?> bulletWhizDistance = default;
-            Option<int?> bullets = default;
+            Option<long?> bullets = default;
             Option<double?> bulletsPerSecond = default;
             Option<double?> bulletsPerSecondWithReload = default;
             Option<double?> burstShotCooldown = default;
-            Option<int?> burstShotCount = default;
+            Option<long?> burstShotCount = default;
             Option<bool?> canZoom = default;
-            Option<int?> clipSize = default;
+            Option<long?> clipSize = default;
             Option<double?> critBonusAgainstNpcs = default;
             Option<double?> critBonusEnd = default;
             Option<double?> critBonusEndRange = default;
@@ -1414,7 +1432,7 @@ namespace DeadlockApiClient.Model
                             bulletWhizDistance = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "bullets":
-                            bullets = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            bullets = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "bullets_per_second":
                             bulletsPerSecond = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -1426,13 +1444,13 @@ namespace DeadlockApiClient.Model
                             burstShotCooldown = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "burst_shot_count":
-                            burstShotCount = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            burstShotCount = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "can_zoom":
                             canZoom = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "clip_size":
-                            clipSize = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            clipSize = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "crit_bonus_against_npcs":
                             critBonusAgainstNpcs = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());

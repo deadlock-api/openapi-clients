@@ -113,7 +113,7 @@ namespace DeadlockApiClient.Model
         /// <param name="walkSpeed">walkSpeed</param>
         /// <param name="weaponInfo">weaponInfo</param>
         [JsonConstructor]
-        public NpcUnit(string className, int id, Option<double?> acceleration = default, Option<double?> attackT1BossMaxRange = default, Option<double?> attackT3BossMaxRange = default, Option<double?> attackT3BossPhase2MaxRange = default, Option<double?> attackTrooperMaxRange = default, Option<SubclassBulletResistModifier?> backdoorBulletResistModifier = default, Option<double?> barrackBossDps = default, Option<double?> barrackGuardianDamageResistPct = default, Option<NpcWeaponInfo?> bossWeaponInfo = default, Option<Dictionary<string, string>?> boundAbilities = default, Option<TeamModels?> coreModels = default, Option<TeamModels?> effigyModels = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel1 = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel2 = default, Option<SubclassTrooperDamageReduction?> enemyTrooperDamageReduction = default, Option<double?> enemyTrooperProtectionRange = default, Option<double?> generatorBossDps = default, Option<double?> goldReward = default, Option<double?> goldRewardBonusPercentPerMinute = default, Option<Color?> healthBarColorEnemy = default, Option<Color?> healthBarColorFriend = default, Option<Color?> healthBarColorTeam1 = default, Option<Color?> healthBarColorTeam2 = default, Option<Color?> healthBarColorTeamNeutral = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<List<SubclassIntrinsicModifiers>?> intrinsicModifiers = default, Option<double?> laserDpsMaxHealth = default, Option<double?> laserDpsToPlayers = default, Option<long?> maxHealth = default, Option<long?> maxHealthFinal = default, Option<long?> maxHealthGenerator = default, Option<double?> meleeAttemptRange = default, Option<double?> meleeDamage = default, Option<double?> meleeDuration = default, Option<double?> meleeHitRange = default, Option<Dictionary<string, string>?> models = default, Option<string?> name = default, Option<double?> nearDeathDuration = default, Option<List<string>?> neutralAbilities = default, Option<SubclassNeutralDamageGrowth?> neutralDamageGrowth = default, Option<string?> neutralMelee = default, Option<string?> neutralType = default, Option<double?> noShieldLaserDpsToPlayers = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase1 = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase2 = default, Option<SubclassObjectiveRegen?> objectiveRegen = default, Option<long?> phase2Health = default, Option<double?> playerDamageResistPct = default, Option<double?> playerDps = default, Option<SubclassRangedArmorModifier?> rangedArmorModifier = default, Option<double?> runSpeed = default, Option<double?> sightRangeNpcs = default, Option<double?> sightRangePlayers = default, Option<bool?> spawnBreakablesOnDeath = default, Option<double?> stompDamage = default, Option<double?> stompDamageMaxHealthPercent = default, Option<double?> stompImpactRadius = default, Option<double?> stunDuration = default, Option<double?> t1BossDamageResistPct = default, Option<double?> t1BossDps = default, Option<double?> t1BossDpsbaseResist = default, Option<double?> t1BossDpsmaxResist = default, Option<double?> t1BossDpsmaxResistTimeInSeconds = default, Option<double?> t2BossDamageResistPct = default, Option<double?> t2BossDps = default, Option<double?> t2BossDpsbaseResist = default, Option<double?> t2BossDpsmaxResist = default, Option<double?> t2BossDpsmaxResistTimeInSeconds = default, Option<double?> t3BossDamageResistPct = default, Option<double?> t3BossDps = default, Option<TeamModels?> teamModels = default, Option<double?> trooperDamageResistPct = default, Option<double?> trooperDps = default, Option<Dictionary<string, string>?> viewerSoulsClass = default, Option<double?> walkSpeed = default, Option<NpcWeaponInfo?> weaponInfo = default)
+        public NpcUnit(string className, long id, Option<double?> acceleration = default, Option<double?> attackT1BossMaxRange = default, Option<double?> attackT3BossMaxRange = default, Option<double?> attackT3BossPhase2MaxRange = default, Option<double?> attackTrooperMaxRange = default, Option<SubclassBulletResistModifier?> backdoorBulletResistModifier = default, Option<double?> barrackBossDps = default, Option<double?> barrackGuardianDamageResistPct = default, Option<NpcWeaponInfo?> bossWeaponInfo = default, Option<Dictionary<string, string>?> boundAbilities = default, Option<TeamModels?> coreModels = default, Option<TeamModels?> effigyModels = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel1 = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel2 = default, Option<SubclassTrooperDamageReduction?> enemyTrooperDamageReduction = default, Option<double?> enemyTrooperProtectionRange = default, Option<double?> generatorBossDps = default, Option<double?> goldReward = default, Option<double?> goldRewardBonusPercentPerMinute = default, Option<Color?> healthBarColorEnemy = default, Option<Color?> healthBarColorFriend = default, Option<Color?> healthBarColorTeam1 = default, Option<Color?> healthBarColorTeam2 = default, Option<Color?> healthBarColorTeamNeutral = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<List<SubclassIntrinsicModifiers>?> intrinsicModifiers = default, Option<double?> laserDpsMaxHealth = default, Option<double?> laserDpsToPlayers = default, Option<long?> maxHealth = default, Option<long?> maxHealthFinal = default, Option<long?> maxHealthGenerator = default, Option<double?> meleeAttemptRange = default, Option<double?> meleeDamage = default, Option<double?> meleeDuration = default, Option<double?> meleeHitRange = default, Option<Dictionary<string, string>?> models = default, Option<string?> name = default, Option<double?> nearDeathDuration = default, Option<List<string>?> neutralAbilities = default, Option<SubclassNeutralDamageGrowth?> neutralDamageGrowth = default, Option<string?> neutralMelee = default, Option<string?> neutralType = default, Option<double?> noShieldLaserDpsToPlayers = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase1 = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase2 = default, Option<SubclassObjectiveRegen?> objectiveRegen = default, Option<long?> phase2Health = default, Option<double?> playerDamageResistPct = default, Option<double?> playerDps = default, Option<SubclassRangedArmorModifier?> rangedArmorModifier = default, Option<double?> runSpeed = default, Option<double?> sightRangeNpcs = default, Option<double?> sightRangePlayers = default, Option<bool?> spawnBreakablesOnDeath = default, Option<double?> stompDamage = default, Option<double?> stompDamageMaxHealthPercent = default, Option<double?> stompImpactRadius = default, Option<double?> stunDuration = default, Option<double?> t1BossDamageResistPct = default, Option<double?> t1BossDps = default, Option<double?> t1BossDpsbaseResist = default, Option<double?> t1BossDpsmaxResist = default, Option<double?> t1BossDpsmaxResistTimeInSeconds = default, Option<double?> t2BossDamageResistPct = default, Option<double?> t2BossDps = default, Option<double?> t2BossDpsbaseResist = default, Option<double?> t2BossDpsmaxResist = default, Option<double?> t2BossDpsmaxResistTimeInSeconds = default, Option<double?> t3BossDamageResistPct = default, Option<double?> t3BossDps = default, Option<TeamModels?> teamModels = default, Option<double?> trooperDamageResistPct = default, Option<double?> trooperDps = default, Option<Dictionary<string, string>?> viewerSoulsClass = default, Option<double?> walkSpeed = default, Option<NpcWeaponInfo?> weaponInfo = default)
         {
             ClassName = className;
             Id = id;
@@ -209,7 +209,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Id
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Used to track the state of Acceleration
@@ -1322,8 +1322,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (int) minimum
-            if (this.Id < (int)0)
+            // Id (long) maximum
+            if (this.Id > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value less than or equal to 4294967295.", new [] { "Id" });
+            }
+
+            // Id (long) minimum
+            if (this.Id < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 0.", new [] { "Id" });
             }
@@ -1365,7 +1371,7 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<string?> className = default;
-            Option<int?> id = default;
+            Option<long?> id = default;
             Option<double?> acceleration = default;
             Option<double?> attackT1BossMaxRange = default;
             Option<double?> attackT3BossMaxRange = default;
@@ -1463,7 +1469,7 @@ namespace DeadlockApiClient.Model
                             className = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "id":
-                            id = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            id = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "acceleration":
                             acceleration = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());

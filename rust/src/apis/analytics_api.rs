@@ -28,13 +28,13 @@ pub struct AbilityMaxFirstStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their minimum number of ability upgrades over the whole match.
-    pub min_ability_upgrades: Option<u64>,
+    pub min_ability_upgrades: Option<u32>,
     /// Filter players based on their maximum number of ability upgrades over the whole match.
-    pub max_ability_upgrades: Option<u64>,
+    pub max_ability_upgrades: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -79,13 +79,13 @@ pub struct AbilityOrderStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their minimum number of ability upgrades over the whole match.
-    pub min_ability_upgrades: Option<u64>,
+    pub min_ability_upgrades: Option<u32>,
     /// Filter players based on their maximum number of ability upgrades over the whole match.
-    pub max_ability_upgrades: Option<u64>,
+    pub max_ability_upgrades: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -130,13 +130,13 @@ pub struct AbilityOrderTreeParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their minimum number of ability upgrades over the whole match.
-    pub min_ability_upgrades: Option<u64>,
+    pub min_ability_upgrades: Option<u32>,
     /// Filter players based on their maximum number of ability upgrades over the whole match.
-    pub max_ability_upgrades: Option<u64>,
+    pub max_ability_upgrades: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -179,9 +179,9 @@ pub struct BadgeDistributionParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on whether they are in the high skill range.
     pub is_high_skill_range_parties: Option<bool>,
     /// Filter matches based on whether they are in the low priority pool.
@@ -206,9 +206,9 @@ pub struct BuffStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -252,9 +252,9 @@ pub struct GameStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
     pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> Only works for `game_modes` with badge data (e.g. `normal`, not `street_brawl`).
@@ -293,9 +293,9 @@ pub struct HeroBanStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -320,9 +320,9 @@ pub struct HeroBuildStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -361,9 +361,9 @@ pub struct HeroBuildStatsByHeroesParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -400,9 +400,9 @@ pub struct HeroCombStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -447,9 +447,9 @@ pub struct HeroCountersStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -498,9 +498,9 @@ pub struct HeroScoreboardParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -533,9 +533,9 @@ pub struct HeroStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute.
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s). With a single `include_item_ids` or `exclude_item_ids` item, rounded to the nearest minute (a value ending in 59 seconds, e.g. `1799`, is kept).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -584,9 +584,9 @@ pub struct HeroSwapStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -609,9 +609,9 @@ pub struct HeroSynergiesStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -654,9 +654,9 @@ pub struct ItemFlowStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -711,9 +711,9 @@ pub struct ItemPermutationStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -766,9 +766,9 @@ pub struct ItemStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -827,9 +827,9 @@ pub struct KillDeathStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches by account IDs of players that participated in the match.
     pub account_ids: Option<Vec<u32>>,
     /// Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -878,9 +878,9 @@ pub struct LaneMatchupStatsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -921,9 +921,9 @@ pub struct LaneSoulCurveParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     pub min_average_badge: Option<u32>,
     /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -968,9 +968,9 @@ pub struct PlayerPerformanceCurveParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -1023,9 +1023,9 @@ pub struct PlayerScoreboardParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.
@@ -1062,9 +1062,9 @@ pub struct PlayerStatsMetricsParams {
     /// Filter matches based on their start time (Unix timestamp).
     pub max_unix_timestamp: Option<i64>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub min_duration_s: Option<u64>,
+    pub min_duration_s: Option<u32>,
     /// Filter matches based on their duration in seconds (up to 7000s).
-    pub max_duration_s: Option<u64>,
+    pub max_duration_s: Option<u32>,
     /// Filter players based on their final net worth.
     pub min_networth: Option<u64>,
     /// Filter players based on their final net worth.

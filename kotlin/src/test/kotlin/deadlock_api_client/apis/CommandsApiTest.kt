@@ -44,7 +44,7 @@ class CommandsApiTest : ShouldSpec() {
         // to test commandResolve
         should("test commandResolve") {
             // uncomment below to test commandResolve
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
             //val region : kotlin.String = region_example // kotlin.String | The players region
             //val template : kotlin.String = template_example // kotlin.String | The command template to resolve
             //val heroName : kotlin.String = heroName_example // kotlin.String | Hero name to check for hero specific stats
@@ -55,7 +55,7 @@ class CommandsApiTest : ShouldSpec() {
         // to test variablesResolve
         should("test variablesResolve") {
             // uncomment below to test variablesResolve
-            //val accountId : kotlin.Int = 56 // kotlin.Int | 
+            //val accountId : kotlin.Long = 789 // kotlin.Long | 
             //val region : kotlin.String = region_example // kotlin.String | 
             //val variables : kotlin.String = variables_example // kotlin.String | Variables to resolve, separated by commas.
             //val heroName : kotlin.String = heroName_example // kotlin.String | Hero name to check for hero specific stats

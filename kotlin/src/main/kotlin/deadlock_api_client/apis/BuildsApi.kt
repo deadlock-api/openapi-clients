@@ -69,7 +69,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun fetchBuildLive(heroId: kotlin.Int, buildId: kotlin.Int, forceRefetch: kotlin.Boolean? = null) : Build {
+    fun fetchBuildLive(heroId: kotlin.Long, buildId: kotlin.Long, forceRefetch: kotlin.Boolean? = null) : Build {
         val localVarResponse = fetchBuildLiveWithHttpInfo(heroId = heroId, buildId = buildId, forceRefetch = forceRefetch)
 
         return when (localVarResponse.responseType) {
@@ -100,7 +100,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun fetchBuildLiveWithHttpInfo(heroId: kotlin.Int, buildId: kotlin.Int, forceRefetch: kotlin.Boolean?) : ApiResponse<Build?> {
+    fun fetchBuildLiveWithHttpInfo(heroId: kotlin.Long, buildId: kotlin.Long, forceRefetch: kotlin.Boolean?) : ApiResponse<Build?> {
         val localVariableConfig = fetchBuildLiveRequestConfig(heroId = heroId, buildId = buildId, forceRefetch = forceRefetch)
 
         return request<Unit, Build>(
@@ -116,7 +116,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param forceRefetch Fetch the build from the Game Coordinator even if it is already in the database. (optional)
      * @return RequestConfig
      */
-    fun fetchBuildLiveRequestConfig(heroId: kotlin.Int, buildId: kotlin.Int, forceRefetch: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun fetchBuildLiveRequestConfig(heroId: kotlin.Long, buildId: kotlin.Long, forceRefetch: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -151,7 +151,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun fetchBuildsByAuthorLive(accountId: kotlin.Int) : kotlin.collections.List<Build> {
+    fun fetchBuildsByAuthorLive(accountId: kotlin.Long) : kotlin.collections.List<Build> {
         val localVarResponse = fetchBuildsByAuthorLiveWithHttpInfo(accountId = accountId)
 
         return when (localVarResponse.responseType) {
@@ -180,7 +180,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun fetchBuildsByAuthorLiveWithHttpInfo(accountId: kotlin.Int) : ApiResponse<kotlin.collections.List<Build>?> {
+    fun fetchBuildsByAuthorLiveWithHttpInfo(accountId: kotlin.Long) : ApiResponse<kotlin.collections.List<Build>?> {
         val localVariableConfig = fetchBuildsByAuthorLiveRequestConfig(accountId = accountId)
 
         return request<Unit, kotlin.collections.List<Build>>(
@@ -194,7 +194,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return RequestConfig
      */
-    fun fetchBuildsByAuthorLiveRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
+    fun fetchBuildsByAuthorLiveRequestConfig(accountId: kotlin.Long) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -292,7 +292,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param maxPublishedUnixTimestamp Filter builds based on their published time (Unix timestamp). (optional)
      * @param sortBy The field to sort the builds by. (optional)
      * @param start The index of the first build to return. (optional)
-     * @param limit The maximum number of builds to return. (optional, default to 100)
+     * @param limit The maximum number of builds to return. (optional, default to 100L)
      * @param sortDirection The direction to sort the builds in. (optional)
      * @param searchName Search for builds with a name containing this string. (optional)
      * @param searchDescription Search for builds with a description containing this string. (optional)
@@ -314,7 +314,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchBuilds(minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minPublishedUnixTimestamp: kotlin.Long? = null, maxPublishedUnixTimestamp: kotlin.Long? = null, sortBy: SortBySearchBuilds? = null, start: kotlin.Int? = null, limit: kotlin.Int? = 100, sortDirection: SortDirectionSearchBuilds? = null, searchName: kotlin.String? = null, searchDescription: kotlin.String? = null, onlyLatest: kotlin.Boolean? = null, language: kotlin.Int? = null, buildLanguage: BuildLanguageSearchBuilds? = null, buildId: kotlin.Int? = null, version: kotlin.Int? = null, heroId: kotlin.Int? = null, tag: kotlin.Int? = null, rollupCategory: kotlin.Int? = null, authorId: kotlin.Int? = null) : kotlin.collections.List<Build> {
+    fun searchBuilds(minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minPublishedUnixTimestamp: kotlin.Long? = null, maxPublishedUnixTimestamp: kotlin.Long? = null, sortBy: SortBySearchBuilds? = null, start: kotlin.Long? = null, limit: kotlin.Long? = 100L, sortDirection: SortDirectionSearchBuilds? = null, searchName: kotlin.String? = null, searchDescription: kotlin.String? = null, onlyLatest: kotlin.Boolean? = null, language: kotlin.Long? = null, buildLanguage: BuildLanguageSearchBuilds? = null, buildId: kotlin.Long? = null, version: kotlin.Long? = null, heroId: kotlin.Long? = null, tag: kotlin.Long? = null, rollupCategory: kotlin.Long? = null, authorId: kotlin.Long? = null) : kotlin.collections.List<Build> {
         val localVarResponse = searchBuildsWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minPublishedUnixTimestamp = minPublishedUnixTimestamp, maxPublishedUnixTimestamp = maxPublishedUnixTimestamp, sortBy = sortBy, start = start, limit = limit, sortDirection = sortDirection, searchName = searchName, searchDescription = searchDescription, onlyLatest = onlyLatest, language = language, buildLanguage = buildLanguage, buildId = buildId, version = version, heroId = heroId, tag = tag, rollupCategory = rollupCategory, authorId = authorId)
 
         return when (localVarResponse.responseType) {
@@ -342,7 +342,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param maxPublishedUnixTimestamp Filter builds based on their published time (Unix timestamp). (optional)
      * @param sortBy The field to sort the builds by. (optional)
      * @param start The index of the first build to return. (optional)
-     * @param limit The maximum number of builds to return. (optional, default to 100)
+     * @param limit The maximum number of builds to return. (optional, default to 100L)
      * @param sortDirection The direction to sort the builds in. (optional)
      * @param searchName Search for builds with a name containing this string. (optional)
      * @param searchDescription Search for builds with a description containing this string. (optional)
@@ -361,7 +361,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchBuildsWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minPublishedUnixTimestamp: kotlin.Long?, maxPublishedUnixTimestamp: kotlin.Long?, sortBy: SortBySearchBuilds?, start: kotlin.Int?, limit: kotlin.Int?, sortDirection: SortDirectionSearchBuilds?, searchName: kotlin.String?, searchDescription: kotlin.String?, onlyLatest: kotlin.Boolean?, language: kotlin.Int?, buildLanguage: BuildLanguageSearchBuilds?, buildId: kotlin.Int?, version: kotlin.Int?, heroId: kotlin.Int?, tag: kotlin.Int?, rollupCategory: kotlin.Int?, authorId: kotlin.Int?) : ApiResponse<kotlin.collections.List<Build>?> {
+    fun searchBuildsWithHttpInfo(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minPublishedUnixTimestamp: kotlin.Long?, maxPublishedUnixTimestamp: kotlin.Long?, sortBy: SortBySearchBuilds?, start: kotlin.Long?, limit: kotlin.Long?, sortDirection: SortDirectionSearchBuilds?, searchName: kotlin.String?, searchDescription: kotlin.String?, onlyLatest: kotlin.Boolean?, language: kotlin.Long?, buildLanguage: BuildLanguageSearchBuilds?, buildId: kotlin.Long?, version: kotlin.Long?, heroId: kotlin.Long?, tag: kotlin.Long?, rollupCategory: kotlin.Long?, authorId: kotlin.Long?) : ApiResponse<kotlin.collections.List<Build>?> {
         val localVariableConfig = searchBuildsRequestConfig(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minPublishedUnixTimestamp = minPublishedUnixTimestamp, maxPublishedUnixTimestamp = maxPublishedUnixTimestamp, sortBy = sortBy, start = start, limit = limit, sortDirection = sortDirection, searchName = searchName, searchDescription = searchDescription, onlyLatest = onlyLatest, language = language, buildLanguage = buildLanguage, buildId = buildId, version = version, heroId = heroId, tag = tag, rollupCategory = rollupCategory, authorId = authorId)
 
         return request<Unit, kotlin.collections.List<Build>>(
@@ -378,7 +378,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param maxPublishedUnixTimestamp Filter builds based on their published time (Unix timestamp). (optional)
      * @param sortBy The field to sort the builds by. (optional)
      * @param start The index of the first build to return. (optional)
-     * @param limit The maximum number of builds to return. (optional, default to 100)
+     * @param limit The maximum number of builds to return. (optional, default to 100L)
      * @param sortDirection The direction to sort the builds in. (optional)
      * @param searchName Search for builds with a name containing this string. (optional)
      * @param searchDescription Search for builds with a description containing this string. (optional)
@@ -393,7 +393,7 @@ open class BuildsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
      * @param authorId The author&#39;s &#x60;SteamID3&#x60; (optional)
      * @return RequestConfig
      */
-    fun searchBuildsRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minPublishedUnixTimestamp: kotlin.Long?, maxPublishedUnixTimestamp: kotlin.Long?, sortBy: SortBySearchBuilds?, start: kotlin.Int?, limit: kotlin.Int?, sortDirection: SortDirectionSearchBuilds?, searchName: kotlin.String?, searchDescription: kotlin.String?, onlyLatest: kotlin.Boolean?, language: kotlin.Int?, buildLanguage: BuildLanguageSearchBuilds?, buildId: kotlin.Int?, version: kotlin.Int?, heroId: kotlin.Int?, tag: kotlin.Int?, rollupCategory: kotlin.Int?, authorId: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchBuildsRequestConfig(minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minPublishedUnixTimestamp: kotlin.Long?, maxPublishedUnixTimestamp: kotlin.Long?, sortBy: SortBySearchBuilds?, start: kotlin.Long?, limit: kotlin.Long?, sortDirection: SortDirectionSearchBuilds?, searchName: kotlin.String?, searchDescription: kotlin.String?, onlyLatest: kotlin.Boolean?, language: kotlin.Long?, buildLanguage: BuildLanguageSearchBuilds?, buildId: kotlin.Long?, version: kotlin.Long?, heroId: kotlin.Long?, tag: kotlin.Long?, rollupCategory: kotlin.Long?, authorId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

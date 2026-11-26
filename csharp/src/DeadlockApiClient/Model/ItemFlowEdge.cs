@@ -40,7 +40,7 @@ namespace DeadlockApiClient.Model
         /// <param name="toItemId">toItemId</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public ItemFlowEdge(int fromColumn, int fromItemId, long losses, long matches, int toItemId, long wins)
+        public ItemFlowEdge(int fromColumn, long fromItemId, long losses, long matches, long toItemId, long wins)
         {
             FromColumn = fromColumn;
             FromItemId = fromItemId;
@@ -64,7 +64,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets FromItemId
         /// </summary>
         [JsonPropertyName("from_item_id")]
-        public int FromItemId { get; set; }
+        public long FromItemId { get; set; }
 
         /// <summary>
         /// Gets or Sets Losses
@@ -82,7 +82,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets ToItemId
         /// </summary>
         [JsonPropertyName("to_item_id")]
-        public int ToItemId { get; set; }
+        public long ToItemId { get; set; }
 
         /// <summary>
         /// Gets or Sets Wins
@@ -115,14 +115,26 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // FromColumn (int) maximum
+            if (this.FromColumn > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FromColumn, must be a value less than or equal to 255.", new [] { "FromColumn" });
+            }
+
             // FromColumn (int) minimum
             if (this.FromColumn < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FromColumn, must be a value greater than or equal to 0.", new [] { "FromColumn" });
             }
 
-            // FromItemId (int) minimum
-            if (this.FromItemId < (int)0)
+            // FromItemId (long) maximum
+            if (this.FromItemId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FromItemId, must be a value less than or equal to 4294967295.", new [] { "FromItemId" });
+            }
+
+            // FromItemId (long) minimum
+            if (this.FromItemId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FromItemId, must be a value greater than or equal to 0.", new [] { "FromItemId" });
             }
@@ -139,8 +151,14 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
             }
 
-            // ToItemId (int) minimum
-            if (this.ToItemId < (int)0)
+            // ToItemId (long) maximum
+            if (this.ToItemId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ToItemId, must be a value less than or equal to 4294967295.", new [] { "ToItemId" });
+            }
+
+            // ToItemId (long) minimum
+            if (this.ToItemId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ToItemId, must be a value greater than or equal to 0.", new [] { "ToItemId" });
             }
@@ -188,10 +206,10 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<int?> fromColumn = default;
-            Option<int?> fromItemId = default;
+            Option<long?> fromItemId = default;
             Option<long?> losses = default;
             Option<long?> matches = default;
-            Option<int?> toItemId = default;
+            Option<long?> toItemId = default;
             Option<long?> wins = default;
 
             while (utf8JsonReader.Read())
@@ -213,7 +231,7 @@ namespace DeadlockApiClient.Model
                             fromColumn = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "from_item_id":
-                            fromItemId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            fromItemId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "losses":
                             losses = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -222,7 +240,7 @@ namespace DeadlockApiClient.Model
                             matches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "to_item_id":
-                            toItemId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            toItemId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "wins":
                             wins = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AbilityId** | Pointer to **NullableInt32** | The ability these players maxed first (unlocked and upgraded three times before any other), null for the players who maxed none. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
+**AbilityId** | Pointer to **NullableInt64** | The ability these players maxed first (unlocked and upgraded three times before any other), null for the players who maxed none. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **Players** | **int64** | Distinct players, counted exactly. | 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAbilityId
 
-`func (o *AnalyticsAbilityMaxFirstStats) GetAbilityId() int32`
+`func (o *AnalyticsAbilityMaxFirstStats) GetAbilityId() int64`
 
 GetAbilityId returns the AbilityId field if non-nil, zero value otherwise.
 
 ### GetAbilityIdOk
 
-`func (o *AnalyticsAbilityMaxFirstStats) GetAbilityIdOk() (*int32, bool)`
+`func (o *AnalyticsAbilityMaxFirstStats) GetAbilityIdOk() (*int64, bool)`
 
 GetAbilityIdOk returns a tuple with the AbilityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAbilityId
 
-`func (o *AnalyticsAbilityMaxFirstStats) SetAbilityId(v int32)`
+`func (o *AnalyticsAbilityMaxFirstStats) SetAbilityId(v int64)`
 
 SetAbilityId sets AbilityId field to given value.
 

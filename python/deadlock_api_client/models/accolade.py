@@ -32,7 +32,7 @@ class Accolade(BaseModel):
     description: StrictStr
     enabled_game_modes: Optional[List[StrictStr]] = None
     flavor_name: StrictStr
-    id: Annotated[int, Field(strict=True, ge=0)]
+    id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     threshold_type: StrictStr
     tracked_stat_name: StrictStr
     __properties: ClassVar[List[str]] = ["class_name", "description", "enabled_game_modes", "flavor_name", "id", "threshold_type", "tracked_stat_name"]

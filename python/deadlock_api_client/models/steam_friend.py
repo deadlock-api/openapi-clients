@@ -29,7 +29,7 @@ class SteamFriend(BaseModel):
     """
     SteamFriend
     """ # noqa: E501
-    account_id: Annotated[int, Field(strict=True, ge=0)]
+    account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     friend_since: datetime
     __properties: ClassVar[List[str]] = ["account_id", "friend_since"]
 

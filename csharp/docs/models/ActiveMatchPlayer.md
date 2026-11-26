@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Abandoned** | **bool** |  | [optional] 
-**AccountId** | **int** |  | [optional] 
-**HeroId** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
+**AccountId** | **long** |  | [optional] 
+**HeroId** | **long** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
 **Team** | **int** |  | [optional] 
 **TeamParsed** | **ActiveMatchTeam** |  | [optional] 
 

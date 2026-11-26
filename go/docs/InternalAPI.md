@@ -307,7 +307,7 @@ import (
 )
 
 func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
+	accountId := int64(789) // int64 | The players `SteamID3`
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -327,7 +327,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+**accountId** | **int64** | The players &#x60;SteamID3&#x60; | 
 
 ### Other Parameters
 

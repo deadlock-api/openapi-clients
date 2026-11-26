@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **className** | **kotlin.String** |  |  |
 | **description** | [**AbilityDescription**](AbilityDescription.md) |  |  |
-| **id** | **kotlin.Int** |  |  |
+| **id** | **kotlin.Long** |  |  |
 | **name** | **kotlin.String** |  |  |
 | **type** | [**inline**](#Type) |  |  |
 | **abilityType** | [**AbilityType**](AbilityType.md) |  |  [optional] |
@@ -15,8 +15,8 @@
 | **dependantAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, DependantAbilities&gt;**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. |  [optional] |
 | **grantAmmoOnCast** | **kotlin.Boolean** |  |  [optional] |
-| **hero** | **kotlin.Int** |  |  [optional] |
-| **heroes** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  [optional] |
+| **hero** | **kotlin.Long** |  |  [optional] |
+| **heroes** | **kotlin.collections.List&lt;kotlin.Long&gt;** |  |  [optional] |
 | **image** | **kotlin.String** |  |  [optional] |
 | **imageWebp** | **kotlin.String** |  |  [optional] |
 | **properties** | [**kotlin.collections.Map&lt;kotlin.String, ItemProperty&gt;**](ItemProperty.md) |  |  [optional] |

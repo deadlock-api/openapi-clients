@@ -44,7 +44,7 @@ data class Modifier (
     val className: kotlin.String,
 
     @Json(name = "id")
-    val id: kotlin.Int,
+    val id: kotlin.Long,
 
     /* Numeric properties keyed by their source name. Nested properties use a dotted path (`m_GroundAuraModifier.m_modifierProvidedByAura.m_flDPS`, `subclass:` wrappers are skipped); `m_vecScriptValues` entries are keyed by their `m_eModifierValue` (`MODIFIER_VALUE_GRAVITY_SCALE`). */
     @Json(name = "properties")

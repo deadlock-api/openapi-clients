@@ -22,13 +22,13 @@ var _ MappedNullable = &RankDistributionEntry{}
 // RankDistributionEntry struct for RankDistributionEntry
 type RankDistributionEntry struct {
 	// Rank badge, `tier * 10 + subrank`. See more: <https://api.deadlock-api.com/v1/assets/ranks>
-	Badge int32 `json:"badge"`
+	Badge int64 `json:"badge"`
 	// Number of players whose rank at the end of their latest ranked match in the filtered range is this badge.
 	Players int64 `json:"players"`
 	// Rank tier.
-	Rank int32 `json:"rank"`
+	Rank int64 `json:"rank"`
 	// Sub-rank within the tier.
-	Subrank int32 `json:"subrank"`
+	Subrank int64 `json:"subrank"`
 }
 
 type _RankDistributionEntry RankDistributionEntry
@@ -37,7 +37,7 @@ type _RankDistributionEntry RankDistributionEntry
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRankDistributionEntry(badge int32, players int64, rank int32, subrank int32) *RankDistributionEntry {
+func NewRankDistributionEntry(badge int64, players int64, rank int64, subrank int64) *RankDistributionEntry {
 	this := RankDistributionEntry{}
 	this.Badge = badge
 	this.Players = players
@@ -55,9 +55,9 @@ func NewRankDistributionEntryWithDefaults() *RankDistributionEntry {
 }
 
 // GetBadge returns the Badge field value
-func (o *RankDistributionEntry) GetBadge() int32 {
+func (o *RankDistributionEntry) GetBadge() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -66,7 +66,7 @@ func (o *RankDistributionEntry) GetBadge() int32 {
 
 // GetBadgeOk returns a tuple with the Badge field value
 // and a boolean to check if the value has been set.
-func (o *RankDistributionEntry) GetBadgeOk() (*int32, bool) {
+func (o *RankDistributionEntry) GetBadgeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -74,7 +74,7 @@ func (o *RankDistributionEntry) GetBadgeOk() (*int32, bool) {
 }
 
 // SetBadge sets field value
-func (o *RankDistributionEntry) SetBadge(v int32) {
+func (o *RankDistributionEntry) SetBadge(v int64) {
 	o.Badge = v
 }
 
@@ -103,9 +103,9 @@ func (o *RankDistributionEntry) SetPlayers(v int64) {
 }
 
 // GetRank returns the Rank field value
-func (o *RankDistributionEntry) GetRank() int32 {
+func (o *RankDistributionEntry) GetRank() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -114,7 +114,7 @@ func (o *RankDistributionEntry) GetRank() int32 {
 
 // GetRankOk returns a tuple with the Rank field value
 // and a boolean to check if the value has been set.
-func (o *RankDistributionEntry) GetRankOk() (*int32, bool) {
+func (o *RankDistributionEntry) GetRankOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -122,14 +122,14 @@ func (o *RankDistributionEntry) GetRankOk() (*int32, bool) {
 }
 
 // SetRank sets field value
-func (o *RankDistributionEntry) SetRank(v int32) {
+func (o *RankDistributionEntry) SetRank(v int64) {
 	o.Rank = v
 }
 
 // GetSubrank returns the Subrank field value
-func (o *RankDistributionEntry) GetSubrank() int32 {
+func (o *RankDistributionEntry) GetSubrank() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -138,7 +138,7 @@ func (o *RankDistributionEntry) GetSubrank() int32 {
 
 // GetSubrankOk returns a tuple with the Subrank field value
 // and a boolean to check if the value has been set.
-func (o *RankDistributionEntry) GetSubrankOk() (*int32, bool) {
+func (o *RankDistributionEntry) GetSubrankOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -146,7 +146,7 @@ func (o *RankDistributionEntry) GetSubrankOk() (*int32, bool) {
 }
 
 // SetSubrank sets field value
-func (o *RankDistributionEntry) SetSubrank(v int32) {
+func (o *RankDistributionEntry) SetSubrank(v int64) {
 	o.Subrank = v
 }
 

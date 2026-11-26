@@ -31,9 +31,9 @@ import (
 )
 
 func main() {
-	tier := int32(56) // int32 | Rank tier (0-11)
+	tier := int64(789) // int64 | Rank tier (0-11)
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -53,7 +53,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**tier** | **int32** | Rank tier (0-11) | 
+**tier** | **int64** | Rank tier (0-11) | 
 
 ### Other Parameters
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 
@@ -106,7 +106,7 @@ import (
 
 func main() {
 	language := "language_example" // string | Language code. Defaults to `english`. (optional)
-	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
+	clientVersion := int64(789) // int64 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -132,7 +132,7 @@ Other parameters are passed through a pointer to a apiListRanksRequest struct vi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
- **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
+ **clientVersion** | **int64** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
 
@@ -173,8 +173,8 @@ import (
 )
 
 func main() {
-	tier := int32(56) // int32 | Rank tier (1-11)
-	subrank := int32(56) // int32 | Division within the tier (1-6)
+	tier := int64(789) // int64 | Rank tier (1-11)
+	subrank := int64(789) // int64 | Division within the tier (1-6)
 	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -195,8 +195,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**tier** | **int32** | Rank tier (1-11) | 
-**subrank** | **int32** | Division within the tier (1-6) | 
+**tier** | **int64** | Rank tier (1-11) | 
+**subrank** | **int64** | Division within the tier (1-6) | 
 
 ### Other Parameters
 

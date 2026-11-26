@@ -343,6 +343,9 @@ class MiscEntitiesApi
         }
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling MiscEntitiesApi.getMiscEntity, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling MiscEntitiesApi.getMiscEntity, must be bigger than or equal to 0.');
         }
@@ -645,6 +648,9 @@ class MiscEntitiesApi
     {
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling MiscEntitiesApi.listMiscEntities, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling MiscEntitiesApi.listMiscEntities, must be bigger than or equal to 0.');
         }

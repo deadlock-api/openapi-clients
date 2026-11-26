@@ -57,7 +57,7 @@ namespace DeadlockApiClient.Test.Api
         public async Task GetConvarAsyncTest()
         {
             string name = default!;
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetConvarAsync(name, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Convar>(model);
@@ -69,7 +69,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task ListConvarsAsyncTest()
         {
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.ListConvarsAsync(clientVersion);
             var model = response.Ok();
             Assert.IsType<Dictionary<string, Convar>>(model);

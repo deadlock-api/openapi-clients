@@ -41,7 +41,7 @@ data class PlayerClusterMonth (
 
     /* The server cluster the matches were played on. */
     @Json(name = "cluster_id")
-    val clusterId: kotlin.Int,
+    val clusterId: kotlin.Long,
 
     /* Number of the player's matches on this cluster in this month. */
     @Json(name = "matches")
@@ -49,7 +49,7 @@ data class PlayerClusterMonth (
 
     /* Unix timestamp of the first day of the month (UTC). */
     @Json(name = "month")
-    val month: kotlin.Int,
+    val month: kotlin.Long,
 
     /* Datacenter(s) of the cluster's servers, e.g. `fra2`; comma-separated if the cluster spans several. `null` if the cluster has not been seen in a replay yet. */
     @Json(name = "datacenter")

@@ -21,13 +21,13 @@ var _ MappedNullable = &IngestStatusResponse{}
 
 // IngestStatusResponse struct for IngestStatusResponse
 type IngestStatusResponse struct {
-	AccountId int32 `json:"account_id"`
+	AccountId int64 `json:"account_id"`
 	// Whether the ingest tool uploaded a salt for this account within the window that was then verified.
 	Active bool `json:"active"`
 	// Unix timestamp of the most recent verified upload within the window.
-	LastUploadAt NullableInt32 `json:"last_upload_at,omitempty"`
+	LastUploadAt NullableInt64 `json:"last_upload_at,omitempty"`
 	// The window, in days, an upload must fall in to count.
-	WindowDays int32 `json:"window_days"`
+	WindowDays int64 `json:"window_days"`
 }
 
 type _IngestStatusResponse IngestStatusResponse
@@ -36,7 +36,7 @@ type _IngestStatusResponse IngestStatusResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIngestStatusResponse(accountId int32, active bool, windowDays int32) *IngestStatusResponse {
+func NewIngestStatusResponse(accountId int64, active bool, windowDays int64) *IngestStatusResponse {
 	this := IngestStatusResponse{}
 	this.AccountId = accountId
 	this.Active = active
@@ -53,9 +53,9 @@ func NewIngestStatusResponseWithDefaults() *IngestStatusResponse {
 }
 
 // GetAccountId returns the AccountId field value
-func (o *IngestStatusResponse) GetAccountId() int32 {
+func (o *IngestStatusResponse) GetAccountId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -64,7 +64,7 @@ func (o *IngestStatusResponse) GetAccountId() int32 {
 
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
-func (o *IngestStatusResponse) GetAccountIdOk() (*int32, bool) {
+func (o *IngestStatusResponse) GetAccountIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -72,7 +72,7 @@ func (o *IngestStatusResponse) GetAccountIdOk() (*int32, bool) {
 }
 
 // SetAccountId sets field value
-func (o *IngestStatusResponse) SetAccountId(v int32) {
+func (o *IngestStatusResponse) SetAccountId(v int64) {
 	o.AccountId = v
 }
 
@@ -101,9 +101,9 @@ func (o *IngestStatusResponse) SetActive(v bool) {
 }
 
 // GetLastUploadAt returns the LastUploadAt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *IngestStatusResponse) GetLastUploadAt() int32 {
+func (o *IngestStatusResponse) GetLastUploadAt() int64 {
 	if o == nil || IsNil(o.LastUploadAt.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.LastUploadAt.Get()
@@ -112,7 +112,7 @@ func (o *IngestStatusResponse) GetLastUploadAt() int32 {
 // GetLastUploadAtOk returns a tuple with the LastUploadAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *IngestStatusResponse) GetLastUploadAtOk() (*int32, bool) {
+func (o *IngestStatusResponse) GetLastUploadAtOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -128,8 +128,8 @@ func (o *IngestStatusResponse) HasLastUploadAt() bool {
 	return false
 }
 
-// SetLastUploadAt gets a reference to the given NullableInt32 and assigns it to the LastUploadAt field.
-func (o *IngestStatusResponse) SetLastUploadAt(v int32) {
+// SetLastUploadAt gets a reference to the given NullableInt64 and assigns it to the LastUploadAt field.
+func (o *IngestStatusResponse) SetLastUploadAt(v int64) {
 	o.LastUploadAt.Set(&v)
 }
 // SetLastUploadAtNil sets the value for LastUploadAt to be an explicit nil
@@ -143,9 +143,9 @@ func (o *IngestStatusResponse) UnsetLastUploadAt() {
 }
 
 // GetWindowDays returns the WindowDays field value
-func (o *IngestStatusResponse) GetWindowDays() int32 {
+func (o *IngestStatusResponse) GetWindowDays() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -154,7 +154,7 @@ func (o *IngestStatusResponse) GetWindowDays() int32 {
 
 // GetWindowDaysOk returns a tuple with the WindowDays field value
 // and a boolean to check if the value has been set.
-func (o *IngestStatusResponse) GetWindowDaysOk() (*int32, bool) {
+func (o *IngestStatusResponse) GetWindowDaysOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -162,7 +162,7 @@ func (o *IngestStatusResponse) GetWindowDaysOk() (*int32, bool) {
 }
 
 // SetWindowDays sets field value
-func (o *IngestStatusResponse) SetWindowDays(v int32) {
+func (o *IngestStatusResponse) SetWindowDays(v int64) {
 	o.WindowDays = v
 }
 

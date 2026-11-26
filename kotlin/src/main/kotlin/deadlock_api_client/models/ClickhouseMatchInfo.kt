@@ -45,7 +45,7 @@ import java.io.Serializable
 data class ClickhouseMatchInfo (
 
     @Json(name = "duration_s")
-    val durationS: kotlin.Int,
+    val durationS: kotlin.Long,
 
     @Json(name = "game_mode")
     val gameMode: kotlin.Int,
@@ -60,19 +60,19 @@ data class ClickhouseMatchInfo (
     val players: kotlin.collections.List<MatchPlayer>,
 
     @Json(name = "start_time")
-    val startTime: kotlin.Int,
+    val startTime: kotlin.Long,
 
     /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "average_badge")
-    val averageBadge: kotlin.Int? = null,
+    val averageBadge: kotlin.Long? = null,
 
     /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "average_badge_team0")
-    val averageBadgeTeam0: kotlin.Int? = null,
+    val averageBadgeTeam0: kotlin.Long? = null,
 
     /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "average_badge_team1")
-    val averageBadgeTeam1: kotlin.Int? = null
+    val averageBadgeTeam1: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

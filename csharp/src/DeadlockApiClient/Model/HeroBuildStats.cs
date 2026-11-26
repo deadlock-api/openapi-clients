@@ -66,7 +66,7 @@ namespace DeadlockApiClient.Model
         /// <param name="totalShotsMissed">totalShotsMissed</param>
         /// <param name="totalTeammateHealing">totalTeammateHealing</param>
         [JsonConstructor]
-        public HeroBuildStats(int bucket, long heroBuildId, int heroId, long losses, long matches, long players, long wins, Option<double?> avgAverageBadge = default, Option<long?> totalAssists = default, Option<long?> totalBossDamage = default, Option<long?> totalCreepDamage = default, Option<long?> totalCreepKills = default, Option<long?> totalDamageMitigated = default, Option<long?> totalDeaths = default, Option<long?> totalDenies = default, Option<long?> totalDurationS = default, Option<long?> totalHeroBulletsHit = default, Option<long?> totalHeroBulletsHitCrit = default, Option<long?> totalKills = default, Option<long?> totalLastHits = default, Option<long?> totalLevel = default, Option<long?> totalMaxHealth = default, Option<long?> totalNetWorth = default, Option<long?> totalNeutralDamage = default, Option<long?> totalNeutralKills = default, Option<long?> totalPlayerDamage = default, Option<long?> totalPlayerDamageTaken = default, Option<long?> totalPlayerHealing = default, Option<long?> totalSelfHealing = default, Option<long?> totalShotsHit = default, Option<long?> totalShotsMissed = default, Option<long?> totalTeammateHealing = default)
+        public HeroBuildStats(long bucket, long heroBuildId, int heroId, long losses, long matches, long players, long wins, Option<double?> avgAverageBadge = default, Option<long?> totalAssists = default, Option<long?> totalBossDamage = default, Option<long?> totalCreepDamage = default, Option<long?> totalCreepKills = default, Option<long?> totalDamageMitigated = default, Option<long?> totalDeaths = default, Option<long?> totalDenies = default, Option<long?> totalDurationS = default, Option<long?> totalHeroBulletsHit = default, Option<long?> totalHeroBulletsHitCrit = default, Option<long?> totalKills = default, Option<long?> totalLastHits = default, Option<long?> totalLevel = default, Option<long?> totalMaxHealth = default, Option<long?> totalNetWorth = default, Option<long?> totalNeutralDamage = default, Option<long?> totalNeutralKills = default, Option<long?> totalPlayerDamage = default, Option<long?> totalPlayerDamageTaken = default, Option<long?> totalPlayerHealing = default, Option<long?> totalSelfHealing = default, Option<long?> totalShotsHit = default, Option<long?> totalShotsMissed = default, Option<long?> totalTeammateHealing = default)
         {
             Bucket = bucket;
             HeroBuildId = heroBuildId;
@@ -110,7 +110,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The bucket value (depends on the bucket query parameter, 0 without one).</value>
         [JsonPropertyName("bucket")]
-        public int Bucket { get; set; }
+        public long Bucket { get; set; }
 
         /// <summary>
         /// The ID of the hero build. The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started.
@@ -537,8 +537,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Bucket (int) minimum
-            if (this.Bucket < (int)0)
+            // Bucket (long) maximum
+            if (this.Bucket > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value less than or equal to 4294967295.", new [] { "Bucket" });
+            }
+
+            // Bucket (long) minimum
+            if (this.Bucket < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
             }
@@ -547,6 +553,12 @@ namespace DeadlockApiClient.Model
             if (this.HeroBuildId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroBuildId, must be a value greater than or equal to 0.", new [] { "HeroBuildId" });
+            }
+
+            // HeroId (int) maximum
+            if (this.HeroId > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value less than or equal to 255.", new [] { "HeroId" });
             }
 
             // HeroId (int) minimum
@@ -759,7 +771,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> bucket = default;
+            Option<long?> bucket = default;
             Option<long?> heroBuildId = default;
             Option<int?> heroId = default;
             Option<long?> losses = default;
@@ -808,7 +820,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "bucket":
-                            bucket = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            bucket = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "hero_build_id":
                             heroBuildId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());

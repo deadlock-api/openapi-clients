@@ -71,7 +71,7 @@ class HeroCombStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'hero_ids' => 'int32',
+        'hero_ids' => 'int64',
         'losses' => 'int64',
         'matches' => 'int64',
         'wins' => 'int64'

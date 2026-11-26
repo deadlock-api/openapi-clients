@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **DependentAbilities** | Pointer to [**map[string]DependantAbilities**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. | [optional] 
 **Description** | [**AbilityDescription**](AbilityDescription.md) |  | 
 **GrantAmmoOnCast** | Pointer to **NullableBool** |  | [optional] 
-**Hero** | Pointer to **NullableInt32** |  | [optional] 
-**Heroes** | Pointer to **[]int32** |  | [optional] 
-**Id** | **int32** |  | 
+**Hero** | Pointer to **NullableInt64** |  | [optional] 
+**Heroes** | Pointer to **[]int64** |  | [optional] 
+**Id** | **int64** |  | 
 **Image** | Pointer to **NullableString** |  | [optional] 
 **ImageWebp** | Pointer to **NullableString** |  | [optional] 
 **Name** | **string** |  | 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewAbility
 
-`func NewAbility(className string, description AbilityDescription, id int32, name string, ) *Ability`
+`func NewAbility(className string, description AbilityDescription, id int64, name string, ) *Ability`
 
 NewAbility instantiates a new Ability object
 This constructor will assign default values to properties that have it defined,
@@ -297,20 +297,20 @@ HasGrantAmmoOnCast returns a boolean if a field has been set.
 UnsetGrantAmmoOnCast ensures that no value is present for GrantAmmoOnCast, not even an explicit nil
 ### GetHero
 
-`func (o *Ability) GetHero() int32`
+`func (o *Ability) GetHero() int64`
 
 GetHero returns the Hero field if non-nil, zero value otherwise.
 
 ### GetHeroOk
 
-`func (o *Ability) GetHeroOk() (*int32, bool)`
+`func (o *Ability) GetHeroOk() (*int64, bool)`
 
 GetHeroOk returns a tuple with the Hero field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHero
 
-`func (o *Ability) SetHero(v int32)`
+`func (o *Ability) SetHero(v int64)`
 
 SetHero sets Hero field to given value.
 
@@ -332,20 +332,20 @@ HasHero returns a boolean if a field has been set.
 UnsetHero ensures that no value is present for Hero, not even an explicit nil
 ### GetHeroes
 
-`func (o *Ability) GetHeroes() []int32`
+`func (o *Ability) GetHeroes() []int64`
 
 GetHeroes returns the Heroes field if non-nil, zero value otherwise.
 
 ### GetHeroesOk
 
-`func (o *Ability) GetHeroesOk() (*[]int32, bool)`
+`func (o *Ability) GetHeroesOk() (*[]int64, bool)`
 
 GetHeroesOk returns a tuple with the Heroes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroes
 
-`func (o *Ability) SetHeroes(v []int32)`
+`func (o *Ability) SetHeroes(v []int64)`
 
 SetHeroes sets Heroes field to given value.
 
@@ -367,20 +367,20 @@ HasHeroes returns a boolean if a field has been set.
 UnsetHeroes ensures that no value is present for Heroes, not even an explicit nil
 ### GetId
 
-`func (o *Ability) GetId() int32`
+`func (o *Ability) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *Ability) GetIdOk() (*int32, bool)`
+`func (o *Ability) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *Ability) SetId(v int32)`
+`func (o *Ability) SetId(v int64)`
 
 SetId sets Id field to given value.
 

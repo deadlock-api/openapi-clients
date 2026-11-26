@@ -22,13 +22,13 @@ var _ MappedNullable = &SteamProfile{}
 
 // SteamProfile struct for SteamProfile
 type SteamProfile struct {
-	AccountId int32 `json:"account_id"`
+	AccountId int64 `json:"account_id"`
 	Avatar string `json:"avatar"`
 	Avatarfull string `json:"avatarfull"`
 	Avatarmedium string `json:"avatarmedium"`
 	Countrycode NullableString `json:"countrycode,omitempty"`
 	Friends []SteamFriend `json:"friends"`
-	LastTeamAvgBadge NullableInt32 `json:"last_team_avg_badge,omitempty"`
+	LastTeamAvgBadge NullableInt64 `json:"last_team_avg_badge,omitempty"`
 	LastUpdated time.Time `json:"last_updated"`
 	MatchesPlayedLast30d int64 `json:"matches_played_last_30d"`
 	Personaname string `json:"personaname"`
@@ -42,7 +42,7 @@ type _SteamProfile SteamProfile
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSteamProfile(accountId int32, avatar string, avatarfull string, avatarmedium string, friends []SteamFriend, lastUpdated time.Time, matchesPlayedLast30d int64, personaname string, profileurl string) *SteamProfile {
+func NewSteamProfile(accountId int64, avatar string, avatarfull string, avatarmedium string, friends []SteamFriend, lastUpdated time.Time, matchesPlayedLast30d int64, personaname string, profileurl string) *SteamProfile {
 	this := SteamProfile{}
 	this.AccountId = accountId
 	this.Avatar = avatar
@@ -65,9 +65,9 @@ func NewSteamProfileWithDefaults() *SteamProfile {
 }
 
 // GetAccountId returns the AccountId field value
-func (o *SteamProfile) GetAccountId() int32 {
+func (o *SteamProfile) GetAccountId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -76,7 +76,7 @@ func (o *SteamProfile) GetAccountId() int32 {
 
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
-func (o *SteamProfile) GetAccountIdOk() (*int32, bool) {
+func (o *SteamProfile) GetAccountIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -84,7 +84,7 @@ func (o *SteamProfile) GetAccountIdOk() (*int32, bool) {
 }
 
 // SetAccountId sets field value
-func (o *SteamProfile) SetAccountId(v int32) {
+func (o *SteamProfile) SetAccountId(v int64) {
 	o.AccountId = v
 }
 
@@ -227,9 +227,9 @@ func (o *SteamProfile) SetFriends(v []SteamFriend) {
 }
 
 // GetLastTeamAvgBadge returns the LastTeamAvgBadge field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SteamProfile) GetLastTeamAvgBadge() int32 {
+func (o *SteamProfile) GetLastTeamAvgBadge() int64 {
 	if o == nil || IsNil(o.LastTeamAvgBadge.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.LastTeamAvgBadge.Get()
@@ -238,7 +238,7 @@ func (o *SteamProfile) GetLastTeamAvgBadge() int32 {
 // GetLastTeamAvgBadgeOk returns a tuple with the LastTeamAvgBadge field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SteamProfile) GetLastTeamAvgBadgeOk() (*int32, bool) {
+func (o *SteamProfile) GetLastTeamAvgBadgeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -254,8 +254,8 @@ func (o *SteamProfile) HasLastTeamAvgBadge() bool {
 	return false
 }
 
-// SetLastTeamAvgBadge gets a reference to the given NullableInt32 and assigns it to the LastTeamAvgBadge field.
-func (o *SteamProfile) SetLastTeamAvgBadge(v int32) {
+// SetLastTeamAvgBadge gets a reference to the given NullableInt64 and assigns it to the LastTeamAvgBadge field.
+func (o *SteamProfile) SetLastTeamAvgBadge(v int64) {
 	o.LastTeamAvgBadge.Set(&v)
 }
 // SetLastTeamAvgBadgeNil sets the value for LastTeamAvgBadge to be an explicit nil

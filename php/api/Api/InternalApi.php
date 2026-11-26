@@ -1462,6 +1462,9 @@ class InternalApi
                 'Missing the required parameter $account_id when calling ingestStatus'
             );
         }
+        if ($account_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling InternalApi.ingestStatus, must be smaller than or equal to 4294967295.');
+        }
         if ($account_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$account_id" when calling InternalApi.ingestStatus, must be bigger than or equal to 0.');
         }

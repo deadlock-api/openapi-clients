@@ -26,9 +26,9 @@ type RanksAPIService service
 type ApiGetRankRequest struct {
 	ctx context.Context
 	ApiService *RanksAPIService
-	tier int32
+	tier int64
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -38,7 +38,7 @@ func (r ApiGetRankRequest) Language(language string) ApiGetRankRequest {
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetRankRequest) ClientVersion(clientVersion int32) ApiGetRankRequest {
+func (r ApiGetRankRequest) ClientVersion(clientVersion int64) ApiGetRankRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -56,7 +56,7 @@ Returns a single rank by tier index.
  @param tier Rank tier (0-11)
  @return ApiGetRankRequest
 */
-func (a *RanksAPIService) GetRank(ctx context.Context, tier int32) ApiGetRankRequest {
+func (a *RanksAPIService) GetRank(ctx context.Context, tier int64) ApiGetRankRequest {
 	return ApiGetRankRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -87,6 +87,9 @@ func (a *RanksAPIService) GetRankExecute(r ApiGetRankRequest) (*Rank, *http.Resp
 	localVarFormParams := url.Values{}
 	if r.tier < 0 {
 		return localVarReturnValue, nil, reportError("tier must be greater than 0")
+	}
+	if r.tier > 4294967295 {
+		return localVarReturnValue, nil, reportError("tier must be less than 4294967295")
 	}
 
 	if r.language != nil {
@@ -153,7 +156,7 @@ type ApiListRanksRequest struct {
 	ctx context.Context
 	ApiService *RanksAPIService
 	language *string
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Language code. Defaults to &#x60;english&#x60;.
@@ -163,7 +166,7 @@ func (r ApiListRanksRequest) Language(language string) ApiListRanksRequest {
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiListRanksRequest) ClientVersion(clientVersion int32) ApiListRanksRequest {
+func (r ApiListRanksRequest) ClientVersion(clientVersion int64) ApiListRanksRequest {
 	r.clientVersion = &clientVersion
 	return r
 }
@@ -271,8 +274,8 @@ func (a *RanksAPIService) ListRanksExecute(r ApiListRanksRequest) ([]Rank, *http
 type ApiSubrankImageRequest struct {
 	ctx context.Context
 	ApiService *RanksAPIService
-	tier int32
-	subrank int32
+	tier int64
+	subrank int64
 	format *string
 }
 
@@ -296,7 +299,7 @@ Returns the tier badge with its I-VI division numeral drawn on it (binary, not a
  @param subrank Division within the tier (1-6)
  @return ApiSubrankImageRequest
 */
-func (a *RanksAPIService) SubrankImage(ctx context.Context, tier int32, subrank int32) ApiSubrankImageRequest {
+func (a *RanksAPIService) SubrankImage(ctx context.Context, tier int64, subrank int64) ApiSubrankImageRequest {
 	return ApiSubrankImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -330,8 +333,14 @@ func (a *RanksAPIService) SubrankImageExecute(r ApiSubrankImageRequest) ([]int32
 	if r.tier < 0 {
 		return localVarReturnValue, nil, reportError("tier must be greater than 0")
 	}
+	if r.tier > 4294967295 {
+		return localVarReturnValue, nil, reportError("tier must be less than 4294967295")
+	}
 	if r.subrank < 0 {
 		return localVarReturnValue, nil, reportError("subrank must be greater than 0")
+	}
+	if r.subrank > 4294967295 {
+		return localVarReturnValue, nil, reportError("subrank must be less than 4294967295")
 	}
 
 	if r.format != nil {

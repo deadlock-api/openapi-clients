@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **HeavyMeleeHitCount** | Pointer to **NullableInt64** |  | [optional] 
 **HeavyMeleeOnly** | Pointer to **NullableBool** |  | [optional] 
 **HitsRequired** | Pointer to **NullableInt64** | Punchable pickups: hits needed to collect. | [optional] 
-**Id** | **int32** |  | 
+**Id** | **int64** |  | 
 **InShopModifier** | Pointer to [**NullableSubclassModifierDefinition**](SubclassModifierDefinition.md) | Corrupted item shop (Broker) trigger: modifier applied while inside. | [optional] 
 **InitialSpawnDelayInSeconds** | Pointer to **NullableInt64** |  | [optional] 
 **InitialSpawnDelaySeconds** | Pointer to **NullableInt64** | Duplicate of &#x60;initial_spawn_delay_in_seconds&#x60; for shape parity. | [optional] 
@@ -68,7 +68,7 @@ Name | Type | Description | Notes
 
 ### NewMiscEntity
 
-`func NewMiscEntity(className string, id int32, ) *MiscEntity`
+`func NewMiscEntity(className string, id int64, ) *MiscEntity`
 
 NewMiscEntity instantiates a new MiscEntity object
 This constructor will assign default values to properties that have it defined,
@@ -770,20 +770,20 @@ HasHitsRequired returns a boolean if a field has been set.
 UnsetHitsRequired ensures that no value is present for HitsRequired, not even an explicit nil
 ### GetId
 
-`func (o *MiscEntity) GetId() int32`
+`func (o *MiscEntity) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *MiscEntity) GetIdOk() (*int32, bool)`
+`func (o *MiscEntity) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *MiscEntity) SetId(v int32)`
+`func (o *MiscEntity) SetId(v int64)`
 
 SetId sets Id field to given value.
 

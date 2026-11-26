@@ -29,9 +29,9 @@ type ItemStats struct {
 	AvgSellTimeRelative float64 `json:"avg_sell_time_relative"`
 	// Average sell time in seconds (absolute, for items that were sold)
 	AvgSellTimeS float64 `json:"avg_sell_time_s"`
-	Bucket int32 `json:"bucket"`
+	Bucket int64 `json:"bucket"`
 	// See more: <https://api.deadlock-api.com/v1/assets/items>
-	ItemId int32 `json:"item_id"`
+	ItemId int64 `json:"item_id"`
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`
 	Players int64 `json:"players"`
@@ -46,7 +46,7 @@ type _ItemStats ItemStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemStats(avgBuyTimeRelative float64, avgBuyTimeS float64, avgSellTimeRelative float64, avgSellTimeS float64, bucket int32, itemId int32, losses int64, matches int64, players int64, wins int64) *ItemStats {
+func NewItemStats(avgBuyTimeRelative float64, avgBuyTimeS float64, avgSellTimeRelative float64, avgSellTimeS float64, bucket int64, itemId int64, losses int64, matches int64, players int64, wins int64) *ItemStats {
 	this := ItemStats{}
 	this.AvgBuyTimeRelative = avgBuyTimeRelative
 	this.AvgBuyTimeS = avgBuyTimeS
@@ -166,9 +166,9 @@ func (o *ItemStats) SetAvgSellTimeS(v float64) {
 }
 
 // GetBucket returns the Bucket field value
-func (o *ItemStats) GetBucket() int32 {
+func (o *ItemStats) GetBucket() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -177,7 +177,7 @@ func (o *ItemStats) GetBucket() int32 {
 
 // GetBucketOk returns a tuple with the Bucket field value
 // and a boolean to check if the value has been set.
-func (o *ItemStats) GetBucketOk() (*int32, bool) {
+func (o *ItemStats) GetBucketOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -185,14 +185,14 @@ func (o *ItemStats) GetBucketOk() (*int32, bool) {
 }
 
 // SetBucket sets field value
-func (o *ItemStats) SetBucket(v int32) {
+func (o *ItemStats) SetBucket(v int64) {
 	o.Bucket = v
 }
 
 // GetItemId returns the ItemId field value
-func (o *ItemStats) GetItemId() int32 {
+func (o *ItemStats) GetItemId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -201,7 +201,7 @@ func (o *ItemStats) GetItemId() int32 {
 
 // GetItemIdOk returns a tuple with the ItemId field value
 // and a boolean to check if the value has been set.
-func (o *ItemStats) GetItemIdOk() (*int32, bool) {
+func (o *ItemStats) GetItemIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -209,7 +209,7 @@ func (o *ItemStats) GetItemIdOk() (*int32, bool) {
 }
 
 // SetItemId sets field value
-func (o *ItemStats) SetItemId(v int32) {
+func (o *ItemStats) SetItemId(v int64) {
 	o.ItemId = v
 }
 

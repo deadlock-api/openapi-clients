@@ -22,7 +22,7 @@ var _ MappedNullable = &HeroCombStats{}
 // HeroCombStats struct for HeroCombStats
 type HeroCombStats struct {
 	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	HeroIds []int32 `json:"hero_ids"`
+	HeroIds []int64 `json:"hero_ids"`
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`
 	Wins int64 `json:"wins"`
@@ -34,7 +34,7 @@ type _HeroCombStats HeroCombStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroCombStats(heroIds []int32, losses int64, matches int64, wins int64) *HeroCombStats {
+func NewHeroCombStats(heroIds []int64, losses int64, matches int64, wins int64) *HeroCombStats {
 	this := HeroCombStats{}
 	this.HeroIds = heroIds
 	this.Losses = losses
@@ -52,9 +52,9 @@ func NewHeroCombStatsWithDefaults() *HeroCombStats {
 }
 
 // GetHeroIds returns the HeroIds field value
-func (o *HeroCombStats) GetHeroIds() []int32 {
+func (o *HeroCombStats) GetHeroIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *HeroCombStats) GetHeroIds() []int32 {
 
 // GetHeroIdsOk returns a tuple with the HeroIds field value
 // and a boolean to check if the value has been set.
-func (o *HeroCombStats) GetHeroIdsOk() ([]int32, bool) {
+func (o *HeroCombStats) GetHeroIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *HeroCombStats) GetHeroIdsOk() ([]int32, bool) {
 }
 
 // SetHeroIds sets field value
-func (o *HeroCombStats) SetHeroIds(v []int32) {
+func (o *HeroCombStats) SetHeroIds(v []int64) {
 	o.HeroIds = v
 }
 

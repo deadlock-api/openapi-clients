@@ -102,7 +102,7 @@ data class Item (
     val description: UpgradeDescription?,
 
     @Json(name = "id")
-    val id: kotlin.Int,
+    val id: kotlin.Long,
 
     @Json(name = "name")
     val name: kotlin.String,
@@ -145,10 +145,10 @@ data class Item (
     val grantAmmoOnCast: kotlin.Boolean? = null,
 
     @Json(name = "hero")
-    val hero: kotlin.Int? = null,
+    val hero: kotlin.Long? = null,
 
     @Json(name = "heroes")
-    val heroes: kotlin.collections.List<kotlin.Int>? = null,
+    val heroes: kotlin.collections.List<kotlin.Long>? = null,
 
     @Json(name = "image")
     val image: kotlin.String? = null,
@@ -194,7 +194,7 @@ data class Item (
     val corruptedInfo: CorruptedItemInfo? = null,
 
     @Json(name = "cost")
-    val cost: kotlin.Int? = null,
+    val cost: kotlin.Long? = null,
 
     @Json(name = "disable_item_target")
     val disableItemTarget: kotlin.String? = null,

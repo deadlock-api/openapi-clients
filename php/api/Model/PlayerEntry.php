@@ -74,10 +74,10 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'account_id' => 'int32',
-        'badge' => 'int32',
-        'badge_progress' => 'int32',
-        'badge_progress_max' => 'int32',
+        'account_id' => 'int64',
+        'badge' => 'int64',
+        'badge_progress' => 'int64',
+        'badge_progress_max' => 'int64',
         'matches' => 'int64',
         'rank' => 'int64',
         'value' => 'double'
@@ -319,16 +319,32 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['account_id'] === null) {
             $invalidProperties[] = "'account_id' can't be null";
         }
+        if (($this->container['account_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'account_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['account_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'account_id', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['badge']) && ($this->container['badge'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'badge', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['badge']) && ($this->container['badge'] < 0)) {
             $invalidProperties[] = "invalid value for 'badge', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['badge_progress']) && ($this->container['badge_progress'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'badge_progress', must be smaller than or equal to 4294967295.";
+        }
+
         if (!is_null($this->container['badge_progress']) && ($this->container['badge_progress'] < 0)) {
             $invalidProperties[] = "invalid value for 'badge_progress', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['badge_progress_max']) && ($this->container['badge_progress_max'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'badge_progress_max', must be smaller than or equal to 4294967295.";
         }
 
         if (!is_null($this->container['badge_progress_max']) && ($this->container['badge_progress_max'] < 0)) {
@@ -389,6 +405,9 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($account_id)) {
             throw new \InvalidArgumentException('non-nullable account_id cannot be null');
         }
+        if (($account_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $account_id when calling PlayerEntry., must be smaller than or equal to 4294967295.');
+        }
         if (($account_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $account_id when calling PlayerEntry., must be bigger than or equal to 0.');
         }
@@ -426,6 +445,9 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($badge) && ($badge > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $badge when calling PlayerEntry., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($badge) && ($badge < 0)) {
             throw new \InvalidArgumentException('invalid value for $badge when calling PlayerEntry., must be bigger than or equal to 0.');
@@ -465,6 +487,9 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
+        if (!is_null($badge_progress) && ($badge_progress > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $badge_progress when calling PlayerEntry., must be smaller than or equal to 4294967295.');
+        }
         if (!is_null($badge_progress) && ($badge_progress < 0)) {
             throw new \InvalidArgumentException('invalid value for $badge_progress when calling PlayerEntry., must be bigger than or equal to 0.');
         }
@@ -502,6 +527,9 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        if (!is_null($badge_progress_max) && ($badge_progress_max > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $badge_progress_max when calling PlayerEntry., must be smaller than or equal to 4294967295.');
         }
         if (!is_null($badge_progress_max) && ($badge_progress_max < 0)) {
             throw new \InvalidArgumentException('invalid value for $badge_progress_max when calling PlayerEntry., must be bigger than or equal to 0.');

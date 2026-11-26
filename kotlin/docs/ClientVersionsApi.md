@@ -9,7 +9,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="listClientVersions"></a>
 # **listClientVersions**
-> kotlin.collections.List&lt;kotlin.Int&gt; listClientVersions()
+> kotlin.collections.List&lt;kotlin.Long&gt; listClientVersions()
 
 List Client Versions
 
@@ -23,7 +23,7 @@ Returns all known Deadlock client/game versions for which versioned assets are a
 
 val apiInstance = ClientVersionsApi()
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.listClientVersions()
+    val result : kotlin.collections.List<kotlin.Long> = apiInstance.listClientVersions()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ClientVersionsApi#listClientVersions")
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**kotlin.collections.List&lt;kotlin.Int&gt;**
+**kotlin.collections.List&lt;kotlin.Long&gt;**
 
 ### Authorization
 

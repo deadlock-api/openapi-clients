@@ -56,7 +56,7 @@ open class ClientVersionsApi(basePath: kotlin.String = defaultBasePath, client: 
      * GET /v1/assets/client-versions
      * List Client Versions
      * Returns all known Deadlock client/game versions for which versioned assets are available, sorted ascending (oldest first).
-     * @return kotlin.collections.List<kotlin.Int>
+     * @return kotlin.collections.List<kotlin.Long>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -65,11 +65,11 @@ open class ClientVersionsApi(basePath: kotlin.String = defaultBasePath, client: 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listClientVersions() : kotlin.collections.List<kotlin.Int> {
+    fun listClientVersions() : kotlin.collections.List<kotlin.Long> {
         val localVarResponse = listClientVersionsWithHttpInfo()
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Long>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -87,16 +87,16 @@ open class ClientVersionsApi(basePath: kotlin.String = defaultBasePath, client: 
      * GET /v1/assets/client-versions
      * List Client Versions
      * Returns all known Deadlock client/game versions for which versioned assets are available, sorted ascending (oldest first).
-     * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
+     * @return ApiResponse<kotlin.collections.List<kotlin.Long>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listClientVersionsWithHttpInfo() : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+    fun listClientVersionsWithHttpInfo() : ApiResponse<kotlin.collections.List<kotlin.Long>?> {
         val localVariableConfig = listClientVersionsRequestConfig()
 
-        return request<Unit, kotlin.collections.List<kotlin.Int>>(
+        return request<Unit, kotlin.collections.List<kotlin.Long>>(
             localVariableConfig
         )
     }

@@ -74,7 +74,7 @@ class Rank implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => null,
         'images' => null,
         'name' => null,
-        'tier' => 'int32'
+        'tier' => 'int64'
     ];
 
     /**
@@ -307,6 +307,10 @@ class Rank implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['tier'] === null) {
             $invalidProperties[] = "'tier' can't be null";
         }
+        if (($this->container['tier'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'tier', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['tier'] < 0)) {
             $invalidProperties[] = "invalid value for 'tier', must be bigger than or equal to 0.";
         }
@@ -428,6 +432,9 @@ class Rank implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($tier)) {
             throw new \InvalidArgumentException('non-nullable tier cannot be null');
+        }
+        if (($tier > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $tier when calling Rank., must be smaller than or equal to 4294967295.');
         }
         if (($tier < 0)) {
             throw new \InvalidArgumentException('invalid value for $tier when calling Rank., must be bigger than or equal to 0.');

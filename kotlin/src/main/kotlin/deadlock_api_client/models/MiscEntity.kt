@@ -101,7 +101,7 @@ data class MiscEntity (
     val className: kotlin.String,
 
     @Json(name = "id")
-    val id: kotlin.Int,
+    val id: kotlin.Long,
 
     @Json(name = "break_on_dodge_touch")
     val breakOnDodgeTouch: kotlin.Boolean? = null,

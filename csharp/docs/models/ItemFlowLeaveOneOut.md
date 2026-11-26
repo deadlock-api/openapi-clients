@@ -5,8 +5,8 @@ The locked build path without one of its locked items: how the population change
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Column** | **int** | Its locked stage column. | 
-**ItemId** | **int** | The locked item left out. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+**Column** | **long** | Its locked stage column. | 
+**ItemId** | **long** | The locked item left out. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
 **Matches** | **long** |  | 
 **Wins** | **long** |  | 
 

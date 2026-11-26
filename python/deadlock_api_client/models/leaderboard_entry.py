@@ -29,9 +29,9 @@ class LeaderboardEntry(BaseModel):
     LeaderboardEntry
     """ # noqa: E501
     account_name: Optional[StrictStr] = Field(default=None, description="The account name of the player.")
-    possible_account_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**")
-    rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The player's place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.")
-    top_hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    possible_account_ids: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(description="The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**")
+    rank: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="The player's place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.")
+    top_hero_ids: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(description="The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     __properties: ClassVar[List[str]] = ["account_name", "possible_account_ids", "rank", "top_hero_ids"]
 
     model_config = ConfigDict(

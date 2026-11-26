@@ -68,7 +68,7 @@ open class ModifiersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getModifier(idOrClassname: kotlin.String, clientVersion: kotlin.Int? = null) : Modifier {
+    fun getModifier(idOrClassname: kotlin.String, clientVersion: kotlin.Long? = null) : Modifier {
         val localVarResponse = getModifierWithHttpInfo(idOrClassname = idOrClassname, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -98,7 +98,7 @@ open class ModifiersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getModifierWithHttpInfo(idOrClassname: kotlin.String, clientVersion: kotlin.Int?) : ApiResponse<Modifier?> {
+    fun getModifierWithHttpInfo(idOrClassname: kotlin.String, clientVersion: kotlin.Long?) : ApiResponse<Modifier?> {
         val localVariableConfig = getModifierRequestConfig(idOrClassname = idOrClassname, clientVersion = clientVersion)
 
         return request<Unit, Modifier>(
@@ -113,7 +113,7 @@ open class ModifiersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getModifierRequestConfig(idOrClassname: kotlin.String, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getModifierRequestConfig(idOrClassname: kotlin.String, clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -148,7 +148,7 @@ open class ModifiersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listModifiers(clientVersion: kotlin.Int? = null) : kotlin.collections.List<Modifier> {
+    fun listModifiers(clientVersion: kotlin.Long? = null) : kotlin.collections.List<Modifier> {
         val localVarResponse = listModifiersWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -177,7 +177,7 @@ open class ModifiersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listModifiersWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<Modifier>?> {
+    fun listModifiersWithHttpInfo(clientVersion: kotlin.Long?) : ApiResponse<kotlin.collections.List<Modifier>?> {
         val localVariableConfig = listModifiersRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<Modifier>>(
@@ -191,7 +191,7 @@ open class ModifiersApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listModifiersRequestConfig(clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listModifiersRequestConfig(clientVersion: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

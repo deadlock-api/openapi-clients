@@ -100,7 +100,7 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'avg_average_badge' => 'double',
-        'bucket' => 'int32',
+        'bucket' => 'int64',
         'hero_build_id' => 'int64',
         'hero_id' => 'int32',
         'losses' => 'int64',
@@ -494,6 +494,10 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['bucket'] === null) {
             $invalidProperties[] = "'bucket' can't be null";
         }
+        if (($this->container['bucket'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'bucket', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['bucket'] < 0)) {
             $invalidProperties[] = "invalid value for 'bucket', must be bigger than or equal to 0.";
         }
@@ -508,6 +512,10 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['hero_id'] === null) {
             $invalidProperties[] = "'hero_id' can't be null";
         }
+        if (($this->container['hero_id'] > 255)) {
+            $invalidProperties[] = "invalid value for 'hero_id', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['hero_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero_id', must be bigger than or equal to 0.";
         }
@@ -707,6 +715,9 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($bucket)) {
             throw new \InvalidArgumentException('non-nullable bucket cannot be null');
         }
+        if (($bucket > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $bucket when calling HeroBuildStats., must be smaller than or equal to 4294967295.');
+        }
         if (($bucket < 0)) {
             throw new \InvalidArgumentException('invalid value for $bucket when calling HeroBuildStats., must be bigger than or equal to 0.');
         }
@@ -768,6 +779,9 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($hero_id)) {
             throw new \InvalidArgumentException('non-nullable hero_id cannot be null');
+        }
+        if (($hero_id > 255)) {
+            throw new \InvalidArgumentException('invalid value for $hero_id when calling HeroBuildStats., must be smaller than or equal to 255.');
         }
         if (($hero_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $hero_id when calling HeroBuildStats., must be bigger than or equal to 0.');

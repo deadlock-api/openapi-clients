@@ -39,9 +39,9 @@ class TestClickhouseMatchInfo(unittest.TestCase):
                 average_badge_team0 = 0,
                 average_badge_team1 = 0,
                 duration_s = 0,
-                game_mode = 56,
+                game_mode = -128,
                 match_id = 0,
-                match_mode = 56,
+                match_mode = -128,
                 players = [
                     deadlock_api_client.models.match_player.MatchPlayer(
                         account_id = 0, )
@@ -51,9 +51,9 @@ class TestClickhouseMatchInfo(unittest.TestCase):
         else:
             return ClickhouseMatchInfo(
                 duration_s = 0,
-                game_mode = 56,
+                game_mode = -128,
                 match_id = 0,
-                match_mode = 56,
+                match_mode = -128,
                 players = [
                     deadlock_api_client.models.match_player.MatchPlayer(
                         account_id = 0, )

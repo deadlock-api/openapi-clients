@@ -28,7 +28,7 @@ class EnemyStats(BaseModel):
     """
     EnemyStats
     """ # noqa: E501
-    enemy_id: Annotated[int, Field(strict=True, ge=0)]
+    enemy_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     matches: List[Annotated[int, Field(strict=True, ge=0)]]
     matches_played: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)] = Field(description="The amount of matches won against the enemy.")

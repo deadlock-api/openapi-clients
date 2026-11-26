@@ -25,11 +25,11 @@ type MapAPIService service
 type ApiGetMapRequest struct {
 	ctx context.Context
 	ApiService *MapAPIService
-	clientVersion *int32
+	clientVersion *int64
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
-func (r ApiGetMapRequest) ClientVersion(clientVersion int32) ApiGetMapRequest {
+func (r ApiGetMapRequest) ClientVersion(clientVersion int64) ApiGetMapRequest {
 	r.clientVersion = &clientVersion
 	return r
 }

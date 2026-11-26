@@ -42,7 +42,7 @@ import java.io.Serializable
 data class PlayerEntry (
 
     @Json(name = "account_id")
-    val accountId: kotlin.Int,
+    val accountId: kotlin.Long,
 
     @Json(name = "matches")
     val matches: kotlin.Long,
@@ -55,15 +55,15 @@ data class PlayerEntry (
 
     /* `rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0` when the player has no ranked match in range. Omitted for every other sort. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "badge")
-    val badge: kotlin.Int? = null,
+    val badge: kotlin.Long? = null,
 
     /* `rank` and `peak_rank` sorts only: progress points into `badge`, out of `badge_progress_max`. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. `null` when the player has no ranked match in range. */
     @Json(name = "badge_progress")
-    val badgeProgress: kotlin.Int? = null,
+    val badgeProgress: kotlin.Long? = null,
 
     /* `rank` and `peak_rank` sorts only: the points the subrank of `badge` spans in that match's season (`sub_rank_xp` in <https://api.deadlock-api.com/v1/assets/ranked-seasons>). `null` in Eternus and when the player has no ranked match in range. */
     @Json(name = "badge_progress_max")
-    val badgeProgressMax: kotlin.Int? = null
+    val badgeProgressMax: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

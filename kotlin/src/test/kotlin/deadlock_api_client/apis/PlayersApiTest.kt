@@ -44,12 +44,12 @@ class PlayersApiTest : ShouldSpec() {
         // to test enemyStats
         should("test enemyStats") {
             // uncomment below to test enemyStats
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
             //val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
             //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
             //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val minDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
             //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val minMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
@@ -61,7 +61,7 @@ class PlayersApiTest : ShouldSpec() {
         // to test matchHistory
         should("test matchHistory") {
             // uncomment below to test matchHistory
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
             //val forceRefetch : kotlin.Boolean = true // kotlin.Boolean | Refetch the match history from Steam, even if it is already cached in `ClickHouse`. Only use this if you are sure that the data in `ClickHouse` is outdated. Enabling this flag results in a strict rate limit.
             //val result : kotlin.collections.List<PlayerMatchHistoryEntry> = apiInstance.matchHistory(accountId, forceRefetch)
             //result shouldBe ("TODO")
@@ -70,12 +70,12 @@ class PlayersApiTest : ShouldSpec() {
         // to test mateStats
         should("test mateStats") {
             // uncomment below to test mateStats
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
             //val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
             //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
             //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val minDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
             //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val minMatchesPlayed : kotlin.Long = 789 // kotlin.Long | Filter based on the number of matches played.
@@ -88,14 +88,14 @@ class PlayersApiTest : ShouldSpec() {
         // to test playerHeroStats
         should("test playerHeroStats") {
             // uncomment below to test playerHeroStats
-            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+            //val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
             //val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
             //val matchMode : kotlin.String = matchMode_example // kotlin.String | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
             //val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
             //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val minDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
             //val minNetworth : kotlin.Long = 789 // kotlin.Long | Filter players based on their final net worth.
             //val maxNetworth : kotlin.Long = 789 // kotlin.Long | Filter players based on their final net worth.
             //val minAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -109,7 +109,7 @@ class PlayersApiTest : ShouldSpec() {
         // to test rank
         should("test rank") {
             // uncomment below to test rank
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
             //val result : RankResponse = apiInstance.rank(accountId)
             //result shouldBe ("TODO")
         }
@@ -117,7 +117,7 @@ class PlayersApiTest : ShouldSpec() {
         // to test rankAvgImage
         should("test rankAvgImage") {
             // uncomment below to test rankAvgImage
-            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
+            //val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma-separated list of account IDs (max 12).
             //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
             //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankAvgImage(accountIds, format)
             //result shouldBe ("TODO")
@@ -126,7 +126,7 @@ class PlayersApiTest : ShouldSpec() {
         // to test rankBatch
         should("test rankBatch") {
             // uncomment below to test rankBatch
-            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+            //val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
             //val result : kotlin.collections.List<AccountRank> = apiInstance.rankBatch(accountIds)
             //result shouldBe ("TODO")
         }
@@ -136,8 +136,8 @@ class PlayersApiTest : ShouldSpec() {
             // uncomment below to test rankDistribution
             //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
             //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val minDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
             //val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the high skill range.
             //val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
             //val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
@@ -150,7 +150,7 @@ class PlayersApiTest : ShouldSpec() {
         // to test rankImage
         should("test rankImage") {
             // uncomment below to test rankImage
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
             //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
             //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankImage(accountId, format)
             //result shouldBe ("TODO")
@@ -159,7 +159,7 @@ class PlayersApiTest : ShouldSpec() {
         // to test region
         should("test region") {
             // uncomment below to test region
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
             //val result : PlayerRegionResponse = apiInstance.region(accountId)
             //result shouldBe ("TODO")
         }
@@ -167,7 +167,7 @@ class PlayersApiTest : ShouldSpec() {
         // to test regionBatch
         should("test regionBatch") {
             // uncomment below to test regionBatch
-            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+            //val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
             //val result : kotlin.collections.List<PlayerRegionResponse> = apiInstance.regionBatch(accountIds)
             //result shouldBe ("TODO")
         }

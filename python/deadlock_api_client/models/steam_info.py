@@ -28,13 +28,13 @@ class SteamInfo(BaseModel):
     """
     Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order.
     """ # noqa: E501
-    app_id: Annotated[int, Field(strict=True, ge=0)]
-    client_version: Annotated[int, Field(strict=True, ge=0)]
+    app_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
+    client_version: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     product_name: StrictStr
-    server_app_id: Annotated[int, Field(strict=True, ge=0)]
-    server_version: Annotated[int, Field(strict=True, ge=0)]
+    server_app_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
+    server_version: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     source_revision: Annotated[int, Field(strict=True, ge=0)]
-    tools_app_id: Annotated[int, Field(strict=True, ge=0)]
+    tools_app_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     version_date: StrictStr
     version_datetime: StrictStr = Field(description="`version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone).")
     version_time: StrictStr

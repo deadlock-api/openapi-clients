@@ -47,7 +47,7 @@ namespace DeadlockApiClient.Model
         /// <param name="publishTimestamp">publishTimestamp</param>
         /// <param name="tags">tags</param>
         [JsonConstructor]
-        public BuildHero(int authorAccountId, BuildHeroDetails details, int heroBuildId, int heroId, int language, string name, int originBuildId, int varVersion, Option<string?> description = default, Option<bool?> developmentBuild = default, Option<long?> lastUpdatedTimestamp = default, Option<long?> publishTimestamp = default, Option<List<int>?> tags = default)
+        public BuildHero(long authorAccountId, BuildHeroDetails details, long heroBuildId, long heroId, long language, string name, long originBuildId, long varVersion, Option<string?> description = default, Option<bool?> developmentBuild = default, Option<long?> lastUpdatedTimestamp = default, Option<long?> publishTimestamp = default, Option<List<long>?> tags = default)
         {
             AuthorAccountId = authorAccountId;
             Details = details;
@@ -71,7 +71,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AuthorAccountId
         /// </summary>
         [JsonPropertyName("author_account_id")]
-        public int AuthorAccountId { get; set; }
+        public long AuthorAccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets Details
@@ -83,20 +83,20 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets HeroBuildId
         /// </summary>
         [JsonPropertyName("hero_build_id")]
-        public int HeroBuildId { get; set; }
+        public long HeroBuildId { get; set; }
 
         /// <summary>
         /// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
         /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("hero_id")]
-        public int HeroId { get; set; }
+        public long HeroId { get; set; }
 
         /// <summary>
         /// Gets or Sets Language
         /// </summary>
         [JsonPropertyName("language")]
-        public int Language { get; set; }
+        public long Language { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -108,13 +108,13 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets OriginBuildId
         /// </summary>
         [JsonPropertyName("origin_build_id")]
-        public int OriginBuildId { get; set; }
+        public long OriginBuildId { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
         [JsonPropertyName("version")]
-        public int VarVersion { get; set; }
+        public long VarVersion { get; set; }
 
         /// <summary>
         /// Used to track the state of Description
@@ -173,13 +173,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<List<int>?> TagsOption { get; private set; }
+        public Option<List<long>?> TagsOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
         [JsonPropertyName("tags")]
-        public List<int>? Tags { get { return this.TagsOption.Value; } set { this.TagsOption = new(value); } }
+        public List<long>? Tags { get { return this.TagsOption.Value; } set { this.TagsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -213,38 +213,74 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AuthorAccountId (int) minimum
-            if (this.AuthorAccountId < (int)0)
+            // AuthorAccountId (long) maximum
+            if (this.AuthorAccountId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorAccountId, must be a value less than or equal to 4294967295.", new [] { "AuthorAccountId" });
+            }
+
+            // AuthorAccountId (long) minimum
+            if (this.AuthorAccountId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorAccountId, must be a value greater than or equal to 0.", new [] { "AuthorAccountId" });
             }
 
-            // HeroBuildId (int) minimum
-            if (this.HeroBuildId < (int)0)
+            // HeroBuildId (long) maximum
+            if (this.HeroBuildId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroBuildId, must be a value less than or equal to 4294967295.", new [] { "HeroBuildId" });
+            }
+
+            // HeroBuildId (long) minimum
+            if (this.HeroBuildId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroBuildId, must be a value greater than or equal to 0.", new [] { "HeroBuildId" });
             }
 
-            // HeroId (int) minimum
-            if (this.HeroId < (int)0)
+            // HeroId (long) maximum
+            if (this.HeroId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value less than or equal to 4294967295.", new [] { "HeroId" });
+            }
+
+            // HeroId (long) minimum
+            if (this.HeroId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
             }
 
-            // Language (int) minimum
-            if (this.Language < (int)0)
+            // Language (long) maximum
+            if (this.Language > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Language, must be a value less than or equal to 4294967295.", new [] { "Language" });
+            }
+
+            // Language (long) minimum
+            if (this.Language < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Language, must be a value greater than or equal to 0.", new [] { "Language" });
             }
 
-            // OriginBuildId (int) minimum
-            if (this.OriginBuildId < (int)0)
+            // OriginBuildId (long) maximum
+            if (this.OriginBuildId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginBuildId, must be a value less than or equal to 4294967295.", new [] { "OriginBuildId" });
+            }
+
+            // OriginBuildId (long) minimum
+            if (this.OriginBuildId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginBuildId, must be a value greater than or equal to 0.", new [] { "OriginBuildId" });
             }
 
-            // VarVersion (int) minimum
-            if (this.VarVersion < (int)0)
+            // VarVersion (long) maximum
+            if (this.VarVersion > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, must be a value less than or equal to 4294967295.", new [] { "VarVersion" });
+            }
+
+            // VarVersion (long) minimum
+            if (this.VarVersion < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, must be a value greater than or equal to 0.", new [] { "VarVersion" });
             }
@@ -285,19 +321,19 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> authorAccountId = default;
+            Option<long?> authorAccountId = default;
             Option<BuildHeroDetails?> details = default;
-            Option<int?> heroBuildId = default;
-            Option<int?> heroId = default;
-            Option<int?> language = default;
+            Option<long?> heroBuildId = default;
+            Option<long?> heroId = default;
+            Option<long?> language = default;
             Option<string?> name = default;
-            Option<int?> originBuildId = default;
-            Option<int?> varVersion = default;
+            Option<long?> originBuildId = default;
+            Option<long?> varVersion = default;
             Option<string?> description = default;
             Option<bool?> developmentBuild = default;
             Option<long?> lastUpdatedTimestamp = default;
             Option<long?> publishTimestamp = default;
-            Option<List<int>?> tags = default;
+            Option<List<long>?> tags = default;
 
             while (utf8JsonReader.Read())
             {
@@ -315,28 +351,28 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "author_account_id":
-                            authorAccountId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            authorAccountId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "details":
                             details = new Option<BuildHeroDetails?>(JsonSerializer.Deserialize<BuildHeroDetails>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "hero_build_id":
-                            heroBuildId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            heroBuildId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "hero_id":
-                            heroId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            heroId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "language":
-                            language = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            language = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "origin_build_id":
-                            originBuildId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            originBuildId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "version":
-                            varVersion = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            varVersion = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "description":
                             description = new Option<string?>(utf8JsonReader.GetString());
@@ -351,7 +387,7 @@ namespace DeadlockApiClient.Model
                             publishTimestamp = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "tags":
-                            tags = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            tags = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

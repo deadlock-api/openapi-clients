@@ -43,7 +43,7 @@ class NPCUnitsApi:
         self,
         id_or_classname: Annotated[StrictStr, Field(description="NPC unit id (`murmurhash2(class_name)`) or `class_name`")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -120,7 +120,7 @@ class NPCUnitsApi:
         self,
         id_or_classname: Annotated[StrictStr, Field(description="NPC unit id (`murmurhash2(class_name)`) or `class_name`")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -197,7 +197,7 @@ class NPCUnitsApi:
         self,
         id_or_classname: Annotated[StrictStr, Field(description="NPC unit id (`murmurhash2(class_name)`) or `class_name`")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -342,7 +342,7 @@ class NPCUnitsApi:
     def list_npc_units(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -415,7 +415,7 @@ class NPCUnitsApi:
     def list_npc_units_with_http_info(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -488,7 +488,7 @@ class NPCUnitsApi:
     def list_npc_units_without_preload_content(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

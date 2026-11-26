@@ -21,27 +21,27 @@ var _ MappedNullable = &ActiveMatch{}
 
 // ActiveMatch struct for ActiveMatch
 type ActiveMatch struct {
-	CompatVersion NullableInt32 `json:"compat_version,omitempty"`
-	DurationS NullableInt32 `json:"duration_s,omitempty"`
+	CompatVersion NullableInt64 `json:"compat_version,omitempty"`
+	DurationS NullableInt64 `json:"duration_s,omitempty"`
 	GameMode NullableInt32 `json:"game_mode,omitempty"`
 	GameModeParsed NullableActiveMatchGameMode `json:"game_mode_parsed,omitempty"`
-	GameModeVersion NullableInt32 `json:"game_mode_version,omitempty"`
+	GameModeVersion NullableInt64 `json:"game_mode_version,omitempty"`
 	LobbyId NullableInt64 `json:"lobby_id,omitempty"`
 	LowPriPool NullableBool `json:"low_pri_pool,omitempty"`
 	MatchId NullableInt64 `json:"match_id,omitempty"`
 	MatchMode NullableInt32 `json:"match_mode,omitempty"`
 	MatchModeParsed NullableActiveMatchMode `json:"match_mode_parsed,omitempty"`
-	MatchScore NullableInt32 `json:"match_score,omitempty"`
-	NetWorthTeam0 NullableInt32 `json:"net_worth_team_0,omitempty"`
-	NetWorthTeam1 NullableInt32 `json:"net_worth_team_1,omitempty"`
+	MatchScore NullableInt64 `json:"match_score,omitempty"`
+	NetWorthTeam0 NullableInt64 `json:"net_worth_team_0,omitempty"`
+	NetWorthTeam1 NullableInt64 `json:"net_worth_team_1,omitempty"`
 	ObjectivesMaskTeam0 NullableInt64 `json:"objectives_mask_team0,omitempty"`
 	ObjectivesMaskTeam1 NullableInt64 `json:"objectives_mask_team1,omitempty"`
-	OpenSpectatorSlots NullableInt32 `json:"open_spectator_slots,omitempty"`
+	OpenSpectatorSlots NullableInt64 `json:"open_spectator_slots,omitempty"`
 	Players []ActiveMatchPlayer `json:"players"`
 	RegionMode NullableInt32 `json:"region_mode,omitempty"`
 	RegionModeParsed NullableRegionMode `json:"region_mode_parsed,omitempty"`
-	Spectators NullableInt32 `json:"spectators,omitempty"`
-	StartTime NullableInt32 `json:"start_time,omitempty"`
+	Spectators NullableInt64 `json:"spectators,omitempty"`
+	StartTime NullableInt64 `json:"start_time,omitempty"`
 	TeamStats []ActiveMatchTeamStats `json:"team_stats"`
 	WinningTeam NullableInt32 `json:"winning_team,omitempty"`
 	WinningTeamParsed NullableActiveMatchTeam `json:"winning_team_parsed,omitempty"`
@@ -69,9 +69,9 @@ func NewActiveMatchWithDefaults() *ActiveMatch {
 }
 
 // GetCompatVersion returns the CompatVersion field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatch) GetCompatVersion() int32 {
+func (o *ActiveMatch) GetCompatVersion() int64 {
 	if o == nil || IsNil(o.CompatVersion.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CompatVersion.Get()
@@ -80,7 +80,7 @@ func (o *ActiveMatch) GetCompatVersion() int32 {
 // GetCompatVersionOk returns a tuple with the CompatVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatch) GetCompatVersionOk() (*int32, bool) {
+func (o *ActiveMatch) GetCompatVersionOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,8 +96,8 @@ func (o *ActiveMatch) HasCompatVersion() bool {
 	return false
 }
 
-// SetCompatVersion gets a reference to the given NullableInt32 and assigns it to the CompatVersion field.
-func (o *ActiveMatch) SetCompatVersion(v int32) {
+// SetCompatVersion gets a reference to the given NullableInt64 and assigns it to the CompatVersion field.
+func (o *ActiveMatch) SetCompatVersion(v int64) {
 	o.CompatVersion.Set(&v)
 }
 // SetCompatVersionNil sets the value for CompatVersion to be an explicit nil
@@ -111,9 +111,9 @@ func (o *ActiveMatch) UnsetCompatVersion() {
 }
 
 // GetDurationS returns the DurationS field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatch) GetDurationS() int32 {
+func (o *ActiveMatch) GetDurationS() int64 {
 	if o == nil || IsNil(o.DurationS.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DurationS.Get()
@@ -122,7 +122,7 @@ func (o *ActiveMatch) GetDurationS() int32 {
 // GetDurationSOk returns a tuple with the DurationS field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatch) GetDurationSOk() (*int32, bool) {
+func (o *ActiveMatch) GetDurationSOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -138,8 +138,8 @@ func (o *ActiveMatch) HasDurationS() bool {
 	return false
 }
 
-// SetDurationS gets a reference to the given NullableInt32 and assigns it to the DurationS field.
-func (o *ActiveMatch) SetDurationS(v int32) {
+// SetDurationS gets a reference to the given NullableInt64 and assigns it to the DurationS field.
+func (o *ActiveMatch) SetDurationS(v int64) {
 	o.DurationS.Set(&v)
 }
 // SetDurationSNil sets the value for DurationS to be an explicit nil
@@ -237,9 +237,9 @@ func (o *ActiveMatch) UnsetGameModeParsed() {
 }
 
 // GetGameModeVersion returns the GameModeVersion field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatch) GetGameModeVersion() int32 {
+func (o *ActiveMatch) GetGameModeVersion() int64 {
 	if o == nil || IsNil(o.GameModeVersion.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.GameModeVersion.Get()
@@ -248,7 +248,7 @@ func (o *ActiveMatch) GetGameModeVersion() int32 {
 // GetGameModeVersionOk returns a tuple with the GameModeVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatch) GetGameModeVersionOk() (*int32, bool) {
+func (o *ActiveMatch) GetGameModeVersionOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -264,8 +264,8 @@ func (o *ActiveMatch) HasGameModeVersion() bool {
 	return false
 }
 
-// SetGameModeVersion gets a reference to the given NullableInt32 and assigns it to the GameModeVersion field.
-func (o *ActiveMatch) SetGameModeVersion(v int32) {
+// SetGameModeVersion gets a reference to the given NullableInt64 and assigns it to the GameModeVersion field.
+func (o *ActiveMatch) SetGameModeVersion(v int64) {
 	o.GameModeVersion.Set(&v)
 }
 // SetGameModeVersionNil sets the value for GameModeVersion to be an explicit nil
@@ -489,9 +489,9 @@ func (o *ActiveMatch) UnsetMatchModeParsed() {
 }
 
 // GetMatchScore returns the MatchScore field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatch) GetMatchScore() int32 {
+func (o *ActiveMatch) GetMatchScore() int64 {
 	if o == nil || IsNil(o.MatchScore.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.MatchScore.Get()
@@ -500,7 +500,7 @@ func (o *ActiveMatch) GetMatchScore() int32 {
 // GetMatchScoreOk returns a tuple with the MatchScore field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatch) GetMatchScoreOk() (*int32, bool) {
+func (o *ActiveMatch) GetMatchScoreOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -516,8 +516,8 @@ func (o *ActiveMatch) HasMatchScore() bool {
 	return false
 }
 
-// SetMatchScore gets a reference to the given NullableInt32 and assigns it to the MatchScore field.
-func (o *ActiveMatch) SetMatchScore(v int32) {
+// SetMatchScore gets a reference to the given NullableInt64 and assigns it to the MatchScore field.
+func (o *ActiveMatch) SetMatchScore(v int64) {
 	o.MatchScore.Set(&v)
 }
 // SetMatchScoreNil sets the value for MatchScore to be an explicit nil
@@ -531,9 +531,9 @@ func (o *ActiveMatch) UnsetMatchScore() {
 }
 
 // GetNetWorthTeam0 returns the NetWorthTeam0 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatch) GetNetWorthTeam0() int32 {
+func (o *ActiveMatch) GetNetWorthTeam0() int64 {
 	if o == nil || IsNil(o.NetWorthTeam0.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NetWorthTeam0.Get()
@@ -542,7 +542,7 @@ func (o *ActiveMatch) GetNetWorthTeam0() int32 {
 // GetNetWorthTeam0Ok returns a tuple with the NetWorthTeam0 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatch) GetNetWorthTeam0Ok() (*int32, bool) {
+func (o *ActiveMatch) GetNetWorthTeam0Ok() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -558,8 +558,8 @@ func (o *ActiveMatch) HasNetWorthTeam0() bool {
 	return false
 }
 
-// SetNetWorthTeam0 gets a reference to the given NullableInt32 and assigns it to the NetWorthTeam0 field.
-func (o *ActiveMatch) SetNetWorthTeam0(v int32) {
+// SetNetWorthTeam0 gets a reference to the given NullableInt64 and assigns it to the NetWorthTeam0 field.
+func (o *ActiveMatch) SetNetWorthTeam0(v int64) {
 	o.NetWorthTeam0.Set(&v)
 }
 // SetNetWorthTeam0Nil sets the value for NetWorthTeam0 to be an explicit nil
@@ -573,9 +573,9 @@ func (o *ActiveMatch) UnsetNetWorthTeam0() {
 }
 
 // GetNetWorthTeam1 returns the NetWorthTeam1 field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatch) GetNetWorthTeam1() int32 {
+func (o *ActiveMatch) GetNetWorthTeam1() int64 {
 	if o == nil || IsNil(o.NetWorthTeam1.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.NetWorthTeam1.Get()
@@ -584,7 +584,7 @@ func (o *ActiveMatch) GetNetWorthTeam1() int32 {
 // GetNetWorthTeam1Ok returns a tuple with the NetWorthTeam1 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatch) GetNetWorthTeam1Ok() (*int32, bool) {
+func (o *ActiveMatch) GetNetWorthTeam1Ok() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -600,8 +600,8 @@ func (o *ActiveMatch) HasNetWorthTeam1() bool {
 	return false
 }
 
-// SetNetWorthTeam1 gets a reference to the given NullableInt32 and assigns it to the NetWorthTeam1 field.
-func (o *ActiveMatch) SetNetWorthTeam1(v int32) {
+// SetNetWorthTeam1 gets a reference to the given NullableInt64 and assigns it to the NetWorthTeam1 field.
+func (o *ActiveMatch) SetNetWorthTeam1(v int64) {
 	o.NetWorthTeam1.Set(&v)
 }
 // SetNetWorthTeam1Nil sets the value for NetWorthTeam1 to be an explicit nil
@@ -699,9 +699,9 @@ func (o *ActiveMatch) UnsetObjectivesMaskTeam1() {
 }
 
 // GetOpenSpectatorSlots returns the OpenSpectatorSlots field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatch) GetOpenSpectatorSlots() int32 {
+func (o *ActiveMatch) GetOpenSpectatorSlots() int64 {
 	if o == nil || IsNil(o.OpenSpectatorSlots.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.OpenSpectatorSlots.Get()
@@ -710,7 +710,7 @@ func (o *ActiveMatch) GetOpenSpectatorSlots() int32 {
 // GetOpenSpectatorSlotsOk returns a tuple with the OpenSpectatorSlots field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatch) GetOpenSpectatorSlotsOk() (*int32, bool) {
+func (o *ActiveMatch) GetOpenSpectatorSlotsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -726,8 +726,8 @@ func (o *ActiveMatch) HasOpenSpectatorSlots() bool {
 	return false
 }
 
-// SetOpenSpectatorSlots gets a reference to the given NullableInt32 and assigns it to the OpenSpectatorSlots field.
-func (o *ActiveMatch) SetOpenSpectatorSlots(v int32) {
+// SetOpenSpectatorSlots gets a reference to the given NullableInt64 and assigns it to the OpenSpectatorSlots field.
+func (o *ActiveMatch) SetOpenSpectatorSlots(v int64) {
 	o.OpenSpectatorSlots.Set(&v)
 }
 // SetOpenSpectatorSlotsNil sets the value for OpenSpectatorSlots to be an explicit nil
@@ -849,9 +849,9 @@ func (o *ActiveMatch) UnsetRegionModeParsed() {
 }
 
 // GetSpectators returns the Spectators field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatch) GetSpectators() int32 {
+func (o *ActiveMatch) GetSpectators() int64 {
 	if o == nil || IsNil(o.Spectators.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Spectators.Get()
@@ -860,7 +860,7 @@ func (o *ActiveMatch) GetSpectators() int32 {
 // GetSpectatorsOk returns a tuple with the Spectators field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatch) GetSpectatorsOk() (*int32, bool) {
+func (o *ActiveMatch) GetSpectatorsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -876,8 +876,8 @@ func (o *ActiveMatch) HasSpectators() bool {
 	return false
 }
 
-// SetSpectators gets a reference to the given NullableInt32 and assigns it to the Spectators field.
-func (o *ActiveMatch) SetSpectators(v int32) {
+// SetSpectators gets a reference to the given NullableInt64 and assigns it to the Spectators field.
+func (o *ActiveMatch) SetSpectators(v int64) {
 	o.Spectators.Set(&v)
 }
 // SetSpectatorsNil sets the value for Spectators to be an explicit nil
@@ -891,9 +891,9 @@ func (o *ActiveMatch) UnsetSpectators() {
 }
 
 // GetStartTime returns the StartTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ActiveMatch) GetStartTime() int32 {
+func (o *ActiveMatch) GetStartTime() int64 {
 	if o == nil || IsNil(o.StartTime.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StartTime.Get()
@@ -902,7 +902,7 @@ func (o *ActiveMatch) GetStartTime() int32 {
 // GetStartTimeOk returns a tuple with the StartTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ActiveMatch) GetStartTimeOk() (*int32, bool) {
+func (o *ActiveMatch) GetStartTimeOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -918,8 +918,8 @@ func (o *ActiveMatch) HasStartTime() bool {
 	return false
 }
 
-// SetStartTime gets a reference to the given NullableInt32 and assigns it to the StartTime field.
-func (o *ActiveMatch) SetStartTime(v int32) {
+// SetStartTime gets a reference to the given NullableInt64 and assigns it to the StartTime field.
+func (o *ActiveMatch) SetStartTime(v int64) {
 	o.StartTime.Set(&v)
 }
 // SetStartTimeNil sets the value for StartTime to be an explicit nil

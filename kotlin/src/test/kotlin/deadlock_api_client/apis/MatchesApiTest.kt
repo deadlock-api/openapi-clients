@@ -42,8 +42,8 @@ class MatchesApiTest : ShouldSpec() {
         // to test activeMatches
         should("test activeMatches") {
             // uncomment below to test activeMatches
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The account ID to filter active matches by (`SteamID3`)
-            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
+            //val accountId : kotlin.Long = 789 // kotlin.Long | The account ID to filter active matches by (`SteamID3`)
+            //val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids to include
             //val result : kotlin.collections.List<ActiveMatch> = apiInstance.activeMatches(accountId, accountIds)
             //result shouldBe ("TODO")
         }
@@ -73,8 +73,8 @@ class MatchesApiTest : ShouldSpec() {
             //val matchIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of match ids, limited by `limit`
             //val minUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
             //val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter matches based on their start time (Unix timestamp).
-            //val minDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
-            //val maxDurationS : kotlin.Long = 789 // kotlin.Long | Filter matches based on their duration in seconds (up to 7000s).
+            //val minDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
+            //val maxDurationS : kotlin.Int = 56 // kotlin.Int | Filter matches based on their duration in seconds (up to 7000s).
             //val minAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
             //val maxAverageBadge : kotlin.Int = 56 // kotlin.Int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
             //val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
@@ -82,10 +82,10 @@ class MatchesApiTest : ShouldSpec() {
             //val isHighSkillRangeParties : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the high skill range.
             //val isLowPriPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the low priority pool.
             //val isNewPlayerPool : kotlin.Boolean = true // kotlin.Boolean | Filter matches based on whether they are in the new player pool.
-            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Filter matches by account IDs of players that participated in the match.
+            //val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Filter matches by account IDs of players that participated in the match.
             //val onlyFilteredPlayers : kotlin.Boolean = true // kotlin.Boolean | Only include the players matching `account_ids` in the `players` array instead of all players of the match. Requires `account_ids`.
             //val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-            //val itemFilterHeroId : kotlin.Int = 56 // kotlin.Int | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
+            //val itemFilterHeroId : kotlin.Long = 789 // kotlin.Long | Hero ID to scope item filters to. Required when using `include_item_ids` or `exclude_item_ids`.
             //val includeItemIds : kotlin.String = includeItemIds_example // kotlin.String | Comma separated list of item ids to include. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has ALL of these items.
             //val excludeItemIds : kotlin.String = excludeItemIds_example // kotlin.String | Comma separated list of item ids to exclude. Requires `item_filter_hero_id`. Returns matches where a player on the specified hero has NONE of these items.
             //val extraMatchColumns : kotlin.String = extraMatchColumns_example // kotlin.String | Comma separated list of extra match-level columns to include in the response. Each column is aggregated with `any(...)`. Only alphanumeric characters, underscores, and dots (for nested field access) are allowed. Example: `objectives_mask_team0,team_score`.

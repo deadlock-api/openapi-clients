@@ -24,11 +24,11 @@ type LeaderboardEntry struct {
 	// The account name of the player.
 	AccountName NullableString `json:"account_name,omitempty"`
 	// The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
-	PossibleAccountIds []int32 `json:"possible_account_ids"`
+	PossibleAccountIds []int64 `json:"possible_account_ids"`
 	// The player's place on the leaderboard, starting at 1. Players can share a place, and the following places are then skipped (1, 2, 2, 4). Not a rank badge.
-	Rank NullableInt32 `json:"rank,omitempty"`
+	Rank NullableInt64 `json:"rank,omitempty"`
 	// The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	TopHeroIds []int32 `json:"top_hero_ids"`
+	TopHeroIds []int64 `json:"top_hero_ids"`
 }
 
 type _LeaderboardEntry LeaderboardEntry
@@ -37,7 +37,7 @@ type _LeaderboardEntry LeaderboardEntry
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLeaderboardEntry(possibleAccountIds []int32, topHeroIds []int32) *LeaderboardEntry {
+func NewLeaderboardEntry(possibleAccountIds []int64, topHeroIds []int64) *LeaderboardEntry {
 	this := LeaderboardEntry{}
 	this.PossibleAccountIds = possibleAccountIds
 	this.TopHeroIds = topHeroIds
@@ -95,9 +95,9 @@ func (o *LeaderboardEntry) UnsetAccountName() {
 }
 
 // GetPossibleAccountIds returns the PossibleAccountIds field value
-func (o *LeaderboardEntry) GetPossibleAccountIds() []int32 {
+func (o *LeaderboardEntry) GetPossibleAccountIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -106,7 +106,7 @@ func (o *LeaderboardEntry) GetPossibleAccountIds() []int32 {
 
 // GetPossibleAccountIdsOk returns a tuple with the PossibleAccountIds field value
 // and a boolean to check if the value has been set.
-func (o *LeaderboardEntry) GetPossibleAccountIdsOk() ([]int32, bool) {
+func (o *LeaderboardEntry) GetPossibleAccountIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -114,14 +114,14 @@ func (o *LeaderboardEntry) GetPossibleAccountIdsOk() ([]int32, bool) {
 }
 
 // SetPossibleAccountIds sets field value
-func (o *LeaderboardEntry) SetPossibleAccountIds(v []int32) {
+func (o *LeaderboardEntry) SetPossibleAccountIds(v []int64) {
 	o.PossibleAccountIds = v
 }
 
 // GetRank returns the Rank field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LeaderboardEntry) GetRank() int32 {
+func (o *LeaderboardEntry) GetRank() int64 {
 	if o == nil || IsNil(o.Rank.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Rank.Get()
@@ -130,7 +130,7 @@ func (o *LeaderboardEntry) GetRank() int32 {
 // GetRankOk returns a tuple with the Rank field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LeaderboardEntry) GetRankOk() (*int32, bool) {
+func (o *LeaderboardEntry) GetRankOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -146,8 +146,8 @@ func (o *LeaderboardEntry) HasRank() bool {
 	return false
 }
 
-// SetRank gets a reference to the given NullableInt32 and assigns it to the Rank field.
-func (o *LeaderboardEntry) SetRank(v int32) {
+// SetRank gets a reference to the given NullableInt64 and assigns it to the Rank field.
+func (o *LeaderboardEntry) SetRank(v int64) {
 	o.Rank.Set(&v)
 }
 // SetRankNil sets the value for Rank to be an explicit nil
@@ -161,9 +161,9 @@ func (o *LeaderboardEntry) UnsetRank() {
 }
 
 // GetTopHeroIds returns the TopHeroIds field value
-func (o *LeaderboardEntry) GetTopHeroIds() []int32 {
+func (o *LeaderboardEntry) GetTopHeroIds() []int64 {
 	if o == nil {
-		var ret []int32
+		var ret []int64
 		return ret
 	}
 
@@ -172,7 +172,7 @@ func (o *LeaderboardEntry) GetTopHeroIds() []int32 {
 
 // GetTopHeroIdsOk returns a tuple with the TopHeroIds field value
 // and a boolean to check if the value has been set.
-func (o *LeaderboardEntry) GetTopHeroIdsOk() ([]int32, bool) {
+func (o *LeaderboardEntry) GetTopHeroIdsOk() ([]int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -180,7 +180,7 @@ func (o *LeaderboardEntry) GetTopHeroIdsOk() ([]int32, bool) {
 }
 
 // SetTopHeroIds sets field value
-func (o *LeaderboardEntry) SetTopHeroIds(v []int32) {
+func (o *LeaderboardEntry) SetTopHeroIds(v []int64) {
 	o.TopHeroIds = v
 }
 

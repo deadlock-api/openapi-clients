@@ -35,7 +35,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="bucket">The bucket&#39;s value: the hero id for &#x60;bucket&#x3D;hero&#x60;.</param>
         [JsonConstructor]
-        public PlayerStatsMetricsBucket(int bucket)
+        public PlayerStatsMetricsBucket(long bucket)
         {
             Bucket = bucket;
             OnCreated();
@@ -48,7 +48,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>The bucket&#39;s value: the hero id for &#x60;bucket&#x3D;hero&#x60;.</value>
         [JsonPropertyName("bucket")]
-        public int Bucket { get; set; }
+        public long Bucket { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -77,8 +77,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Bucket (int) minimum
-            if (this.Bucket < (int)0)
+            // Bucket (long) maximum
+            if (this.Bucket > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value less than or equal to 4294967295.", new [] { "Bucket" });
+            }
+
+            // Bucket (long) minimum
+            if (this.Bucket < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
             }
@@ -119,7 +125,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> bucket = default;
+            Option<long?> bucket = default;
 
             while (utf8JsonReader.Read())
             {
@@ -137,7 +143,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "bucket":
-                            bucket = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            bucket = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

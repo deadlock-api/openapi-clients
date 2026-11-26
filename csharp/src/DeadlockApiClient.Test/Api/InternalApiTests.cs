@@ -102,7 +102,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task IngestStatusAsyncTest()
         {
-            int accountId = default!;
+            long accountId = default!;
             var response = await _instance.IngestStatusAsync(accountId);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.IngestStatusResponse>(model);

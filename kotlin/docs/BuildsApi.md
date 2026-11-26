@@ -24,8 +24,8 @@ Fetch Live
 //import deadlock_api_client.models.*
 
 val apiInstance = BuildsApi()
-val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-val buildId : kotlin.Int = 56 // kotlin.Int | The build ID to fetch.
+val heroId : kotlin.Long = 789 // kotlin.Long | The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+val buildId : kotlin.Long = 789 // kotlin.Long | The build ID to fetch.
 val forceRefetch : kotlin.Boolean = true // kotlin.Boolean | Fetch the build from the Game Coordinator even if it is already in the database.
 try {
     val result : Build = apiInstance.fetchBuildLive(heroId, buildId, forceRefetch)
@@ -42,8 +42,8 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **heroId** | **kotlin.Int**| The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
-| **buildId** | **kotlin.Int**| The build ID to fetch. | |
+| **heroId** | **kotlin.Long**| The hero ID of the build. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
+| **buildId** | **kotlin.Long**| The build ID to fetch. | |
 | **forceRefetch** | **kotlin.Boolean**| Fetch the build from the Game Coordinator even if it is already in the database. | [optional] |
 
 ### Return type
@@ -74,7 +74,7 @@ Fetch Live by Author
 //import deadlock_api_client.models.*
 
 val apiInstance = BuildsApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+val accountId : kotlin.Long = 789 // kotlin.Long | The players `SteamID3`
 try {
     val result : kotlin.collections.List<Build> = apiInstance.fetchBuildsByAuthorLive(accountId)
     println(result)
@@ -90,7 +90,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+| **accountId** | **kotlin.Long**| The players &#x60;SteamID3&#x60; | |
 
 ### Return type
 
@@ -125,20 +125,20 @@ val maxUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter builds based on
 val minPublishedUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter builds based on their published time (Unix timestamp).
 val maxPublishedUnixTimestamp : kotlin.Long = 789 // kotlin.Long | Filter builds based on their published time (Unix timestamp).
 val sortBy : kotlin.String = sortBy_example // kotlin.String | The field to sort the builds by.
-val start : kotlin.Int = 56 // kotlin.Int | The index of the first build to return.
-val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of builds to return.
+val start : kotlin.Long = 789 // kotlin.Long | The index of the first build to return.
+val limit : kotlin.Long = 789 // kotlin.Long | The maximum number of builds to return.
 val sortDirection : kotlin.String = sortDirection_example // kotlin.String | The direction to sort the builds in.
 val searchName : kotlin.String = searchName_example // kotlin.String | Search for builds with a name containing this string.
 val searchDescription : kotlin.String = searchDescription_example // kotlin.String | Search for builds with a description containing this string.
 val onlyLatest : kotlin.Boolean = true // kotlin.Boolean | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
-val language : kotlin.Int = 56 // kotlin.Int | Filter builds by language.
+val language : kotlin.Long = 789 // kotlin.Long | Filter builds by language.
 val buildLanguage : kotlin.String = buildLanguage_example // kotlin.String | Filter builds by language.
-val buildId : kotlin.Int = 56 // kotlin.Int | Filter builds by ID.
-val version : kotlin.Int = 56 // kotlin.Int | Filter builds by version.
-val heroId : kotlin.Int = 56 // kotlin.Int | Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-val tag : kotlin.Int = 56 // kotlin.Int | Filter builds by tag.
-val rollupCategory : kotlin.Int = 56 // kotlin.Int | Filter builds by rollup category.
-val authorId : kotlin.Int = 56 // kotlin.Int | The author's `SteamID3`
+val buildId : kotlin.Long = 789 // kotlin.Long | Filter builds by ID.
+val version : kotlin.Long = 789 // kotlin.Long | Filter builds by version.
+val heroId : kotlin.Long = 789 // kotlin.Long | Filter builds by hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+val tag : kotlin.Long = 789 // kotlin.Long | Filter builds by tag.
+val rollupCategory : kotlin.Long = 789 // kotlin.Long | Filter builds by rollup category.
+val authorId : kotlin.Long = 789 // kotlin.Long | The author's `SteamID3`
 try {
     val result : kotlin.collections.List<Build> = apiInstance.searchBuilds(minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildLanguage, buildId, version, heroId, tag, rollupCategory, authorId)
     println(result)
@@ -159,20 +159,20 @@ try {
 | **minPublishedUnixTimestamp** | **kotlin.Long**| Filter builds based on their published time (Unix timestamp). | [optional] |
 | **maxPublishedUnixTimestamp** | **kotlin.Long**| Filter builds based on their published time (Unix timestamp). | [optional] |
 | **sortBy** | **kotlin.String**| The field to sort the builds by. | [optional] [enum: weekly_favorites, favorites, ignores, reports, updated_at, published_at, version] |
-| **start** | **kotlin.Int**| The index of the first build to return. | [optional] |
-| **limit** | **kotlin.Int**| The maximum number of builds to return. | [optional] [default to 100] |
+| **start** | **kotlin.Long**| The index of the first build to return. | [optional] |
+| **limit** | **kotlin.Long**| The maximum number of builds to return. | [optional] [default to 100L] |
 | **sortDirection** | **kotlin.String**| The direction to sort the builds in. | [optional] [enum: desc, asc] |
 | **searchName** | **kotlin.String**| Search for builds with a name containing this string. | [optional] |
 | **searchDescription** | **kotlin.String**| Search for builds with a description containing this string. | [optional] |
 | **onlyLatest** | **kotlin.Boolean**| Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. | [optional] |
-| **language** | **kotlin.Int**| Filter builds by language. | [optional] |
+| **language** | **kotlin.Long**| Filter builds by language. | [optional] |
 | **buildLanguage** | **kotlin.String**| Filter builds by language. | [optional] [enum: English, German, French, Italian, Korean, SpanishSpain, ChineseSimplified, Russian, Thai, Japanese, PortuguesePortugal, Polish, Czech, Turkish, PortugueseBrazil, Ukrainian, SpanishLatinAmerica, Vietnamese] |
-| **buildId** | **kotlin.Int**| Filter builds by ID. | [optional] |
-| **version** | **kotlin.Int**| Filter builds by version. | [optional] |
-| **heroId** | **kotlin.Int**| Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **tag** | **kotlin.Int**| Filter builds by tag. | [optional] |
-| **rollupCategory** | **kotlin.Int**| Filter builds by rollup category. | [optional] |
-| **authorId** | **kotlin.Int**| The author&#39;s &#x60;SteamID3&#x60; | [optional] |
+| **buildId** | **kotlin.Long**| Filter builds by ID. | [optional] |
+| **version** | **kotlin.Long**| Filter builds by version. | [optional] |
+| **heroId** | **kotlin.Long**| Filter builds by hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
+| **tag** | **kotlin.Long**| Filter builds by tag. | [optional] |
+| **rollupCategory** | **kotlin.Long**| Filter builds by rollup category. | [optional] |
+| **authorId** | **kotlin.Long**| The author&#39;s &#x60;SteamID3&#x60; | [optional] |
 
 ### Return type
 

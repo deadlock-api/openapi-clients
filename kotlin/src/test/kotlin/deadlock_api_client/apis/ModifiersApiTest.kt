@@ -38,7 +38,7 @@ class ModifiersApiTest : ShouldSpec() {
         should("test getModifier") {
             // uncomment below to test getModifier
             //val idOrClassname : kotlin.String = idOrClassname_example // kotlin.String | Modifier id (`murmurhash2(class_name)`) or `class_name`
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : Modifier = apiInstance.getModifier(idOrClassname, clientVersion)
             //result shouldBe ("TODO")
         }
@@ -46,7 +46,7 @@ class ModifiersApiTest : ShouldSpec() {
         // to test listModifiers
         should("test listModifiers") {
             // uncomment below to test listModifiers
-            //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
+            //val clientVersion : kotlin.Long = 789 // kotlin.Long | Client/game version (e.g. `6518`). Defaults to the latest known version.
             //val result : kotlin.collections.List<Modifier> = apiInstance.listModifiers(clientVersion)
             //result shouldBe ("TODO")
         }

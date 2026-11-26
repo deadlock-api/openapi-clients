@@ -289,7 +289,7 @@ class CommandsApi:
     @validate_call
     def command_resolve(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         region: Annotated[Optional[StrictStr], Field(description="The players region")] = None,
         template: Annotated[Optional[StrictStr], Field(description="The command template to resolve")] = None,
         hero_name: Annotated[Optional[StrictStr], Field(description="Hero name to check for hero specific stats")] = None,
@@ -369,7 +369,7 @@ class CommandsApi:
     @validate_call
     def command_resolve_with_http_info(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         region: Annotated[Optional[StrictStr], Field(description="The players region")] = None,
         template: Annotated[Optional[StrictStr], Field(description="The command template to resolve")] = None,
         hero_name: Annotated[Optional[StrictStr], Field(description="Hero name to check for hero specific stats")] = None,
@@ -449,7 +449,7 @@ class CommandsApi:
     @validate_call
     def command_resolve_without_preload_content(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="The players `SteamID3`")],
         region: Annotated[Optional[StrictStr], Field(description="The players region")] = None,
         template: Annotated[Optional[StrictStr], Field(description="The command template to resolve")] = None,
         hero_name: Annotated[Optional[StrictStr], Field(description="Hero name to check for hero specific stats")] = None,
@@ -605,7 +605,7 @@ class CommandsApi:
     @validate_call
     def variables_resolve(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0)],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)],
         region: Optional[StrictStr] = None,
         variables: Annotated[Optional[StrictStr], Field(description="Variables to resolve, separated by commas.")] = None,
         hero_name: Annotated[Optional[StrictStr], Field(description="Hero name to check for hero specific stats")] = None,
@@ -685,7 +685,7 @@ class CommandsApi:
     @validate_call
     def variables_resolve_with_http_info(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0)],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)],
         region: Optional[StrictStr] = None,
         variables: Annotated[Optional[StrictStr], Field(description="Variables to resolve, separated by commas.")] = None,
         hero_name: Annotated[Optional[StrictStr], Field(description="Hero name to check for hero specific stats")] = None,
@@ -765,7 +765,7 @@ class CommandsApi:
     @validate_call
     def variables_resolve_without_preload_content(
         self,
-        account_id: Annotated[int, Field(strict=True, ge=0)],
+        account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)],
         region: Optional[StrictStr] = None,
         variables: Annotated[Optional[StrictStr], Field(description="Variables to resolve, separated by commas.")] = None,
         hero_name: Annotated[Optional[StrictStr], Field(description="Hero name to check for hero specific stats")] = None,

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Abilities** | **List&lt;int&gt;** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**Abilities** | **List&lt;long&gt;** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **AvgUpgradeTimesS** | **List&lt;double&gt;** | Average game time (in seconds) at which each upgrade in &#x60;abilities&#x60; was bought, index-aligned with &#x60;abilities&#x60;. | 
 **Losses** | **long** |  | 
 **Matches** | **long** |  | 

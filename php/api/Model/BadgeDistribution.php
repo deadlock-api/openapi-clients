@@ -70,7 +70,7 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'badge_level' => 'int32',
+        'badge_level' => 'int64',
         'total_matches' => 'int64',
         'unique_players' => 'int64'
     ];
@@ -291,6 +291,10 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['badge_level'] === null) {
             $invalidProperties[] = "'badge_level' can't be null";
         }
+        if (($this->container['badge_level'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'badge_level', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['badge_level'] < 0)) {
             $invalidProperties[] = "invalid value for 'badge_level', must be bigger than or equal to 0.";
         }
@@ -345,6 +349,9 @@ class BadgeDistribution implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         if (is_null($badge_level)) {
             throw new \InvalidArgumentException('non-nullable badge_level cannot be null');
+        }
+        if (($badge_level > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $badge_level when calling BadgeDistribution., must be smaller than or equal to 4294967295.');
         }
         if (($badge_level < 0)) {
             throw new \InvalidArgumentException('invalid value for $badge_level when calling BadgeDistribution., must be bigger than or equal to 0.');

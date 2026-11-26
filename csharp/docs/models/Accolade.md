@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ClassName** | **string** |  | 
 **Description** | **string** |  | 
 **FlavorName** | **string** |  | 
-**Id** | **int** |  | 
+**Id** | **long** |  | 
 **ThresholdType** | **string** |  | 
 **TrackedStatName** | **string** |  | 
 **EnabledGameModes** | **List&lt;string&gt;** |  | [optional] 

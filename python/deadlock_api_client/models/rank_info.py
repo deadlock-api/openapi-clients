@@ -29,9 +29,9 @@ class RankInfo(BaseModel):
     One `m_vecRankInfo` entry of the game file (build 6857+), as listed there.
     """ # noqa: E501
     badge_shields: Optional[StrictInt] = Field(default=None, description="Losses a player at a badge's first subrank with 0 rank points can take before dropping a badge (rank loss protection shields).")
-    rank_end: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Rank badge (tier * 10 + subrank) the entry stops at: it covers the ranks below it. In Beta Season 2, 91 (Phantom I) gives every rank below Phantom shields and Phantom and up none.")
+    rank_end: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Rank badge (tier * 10 + subrank) the entry stops at: it covers the ranks below it. In Beta Season 2, 91 (Phantom I) gives every rank below Phantom shields and Phantom and up none.")
     sub_rank_shields: Optional[StrictInt] = Field(default=None, description="Losses a player can take before dropping a subrank (rank loss protection shields).")
-    sub_rank_xp: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Rank points needed per subrank step, the last one being the step to the next badge (Beta Season 2: 1000 between subranks, 1500 from the final subrank).")
+    sub_rank_xp: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, description="Rank points needed per subrank step, the last one being the step to the next badge (Beta Season 2: 1000 between subranks, 1500 from the final subrank).")
     __properties: ClassVar[List[str]] = ["badge_shields", "rank_end", "sub_rank_shields", "sub_rank_xp"]
 
     model_config = ConfigDict(

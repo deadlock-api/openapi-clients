@@ -21,13 +21,11 @@ export default {
         49,
         50,
         51,
-        61
+        61,
+        65
     ],
     "types": {
         "Ability": {
-            "id": [
-                33
-            ],
             "class_name": [
                 61
             ],
@@ -72,6 +70,9 @@ export default {
             ],
             "videos": [
                 5
+            ],
+            "id": [
+                65
             ],
             "type": [
                 36
@@ -140,10 +141,10 @@ export default {
                 0
             ],
             "on_Weapon": [
-                68
+                69
             ],
             "on_Upgrade": [
-                65
+                66
             ],
             "__typename": [
                 61
@@ -254,9 +255,6 @@ export default {
             ]
         },
         "BuildHeroDetailsAbilityOrderCurrencyChange": {
-            "ability_id": [
-                33
-            ],
             "currency_type": [
                 33
             ],
@@ -265,6 +263,9 @@ export default {
             ],
             "annotation": [
                 61
+            ],
+            "ability_id": [
+                65
             ],
             "asset": [
                 6
@@ -297,9 +298,6 @@ export default {
             ]
         },
         "BuildHeroDetailsCategoryAbility": {
-            "ability_id": [
-                33
-            ],
             "annotation": [
                 61
             ],
@@ -309,8 +307,11 @@ export default {
             "sell_priority": [
                 33
             ],
+            "ability_id": [
+                65
+            ],
             "imbue_target_ability_id": [
-                33
+                65
             ],
             "asset": [
                 6
@@ -592,9 +593,6 @@ export default {
             ]
         },
         "HeroPopularItem": {
-            "item_id": [
-                33
-            ],
             "class_name": [
                 61
             ],
@@ -603,6 +601,9 @@ export default {
             ],
             "winrate_pct": [
                 18
+            ],
+            "item_id": [
+                65
             ],
             "__typename": [
                 61
@@ -706,19 +707,10 @@ export default {
             "game_time_s": [
                 33
             ],
-            "item_id": [
-                33
-            ],
-            "upgrade_id": [
-                33
-            ],
             "sold_time_s": [
                 33
             ],
             "flags": [
-                33
-            ],
-            "imbued_ability_id": [
                 33
             ],
             "upgrade_info": [
@@ -726,6 +718,15 @@ export default {
             ],
             "net_worth_at_buy": [
                 33
+            ],
+            "item_id": [
+                65
+            ],
+            "upgrade_id": [
+                65
+            ],
+            "imbued_ability_id": [
+                65
             ],
             "asset": [
                 6
@@ -1106,9 +1107,6 @@ export default {
             "hero_equips": [
                 33
             ],
-            "abilities": [
-                33
-            ],
             "created_at": [
                 33
             ],
@@ -1281,7 +1279,7 @@ export default {
                 34
             ],
             "upgrades": [
-                67
+                68
             ],
             "stats": [
                 58
@@ -1312,6 +1310,9 @@ export default {
             ],
             "hero_release_votes": [
                 38
+            ],
+            "abilities": [
+                65
             ],
             "hero": [
                 19
@@ -2118,10 +2119,8 @@ export default {
                 61
             ]
         },
+        "UInt32": {},
         "Upgrade": {
-            "id": [
-                33
-            ],
             "class_name": [
                 61
             ],
@@ -2168,7 +2167,7 @@ export default {
                 8
             ],
             "description": [
-                66
+                67
             ],
             "activation": [
                 1
@@ -2199,6 +2198,9 @@ export default {
             ],
             "disable_item_target": [
                 61
+            ],
+            "id": [
+                65
             ],
             "type": [
                 36
@@ -2240,9 +2242,6 @@ export default {
             ]
         },
         "UpgradePurchase": {
-            "item_id": [
-                33
-            ],
             "game_time_s": [
                 33
             ],
@@ -2252,14 +2251,14 @@ export default {
             "net_worth_at_buy": [
                 33
             ],
+            "item_id": [
+                65
+            ],
             "__typename": [
                 61
             ]
         },
         "Weapon": {
-            "id": [
-                33
-            ],
             "class_name": [
                 61
             ],
@@ -2289,6 +2288,9 @@ export default {
             ],
             "use_custom_crosshair_settings": [
                 8
+            ],
+            "id": [
+                65
             ],
             "type": [
                 36

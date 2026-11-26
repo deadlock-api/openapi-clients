@@ -43,7 +43,7 @@ namespace DeadlockApiClient.Model
         /// <param name="averageBadgeTeam0">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="averageBadgeTeam1">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         [JsonConstructor]
-        public ClickhouseMatchInfo(int durationS, int gameMode, long matchId, int matchMode, List<MatchPlayer> players, int startTime, Option<int?> averageBadge = default, Option<int?> averageBadgeTeam0 = default, Option<int?> averageBadgeTeam1 = default)
+        public ClickhouseMatchInfo(long durationS, int gameMode, long matchId, int matchMode, List<MatchPlayer> players, long startTime, Option<long?> averageBadge = default, Option<long?> averageBadgeTeam0 = default, Option<long?> averageBadgeTeam1 = default)
         {
             DurationS = durationS;
             GameMode = gameMode;
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets DurationS
         /// </summary>
         [JsonPropertyName("duration_s")]
-        public int DurationS { get; set; }
+        public long DurationS { get; set; }
 
         /// <summary>
         /// Gets or Sets GameMode
@@ -93,49 +93,49 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets StartTime
         /// </summary>
         [JsonPropertyName("start_time")]
-        public int StartTime { get; set; }
+        public long StartTime { get; set; }
 
         /// <summary>
         /// Used to track the state of AverageBadge
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> AverageBadgeOption { get; private set; }
+        public Option<long?> AverageBadgeOption { get; private set; }
 
         /// <summary>
         /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
         /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("average_badge")]
-        public int? AverageBadge { get { return this.AverageBadgeOption.Value; } set { this.AverageBadgeOption = new(value); } }
+        public long? AverageBadge { get { return this.AverageBadgeOption.Value; } set { this.AverageBadgeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of AverageBadgeTeam0
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> AverageBadgeTeam0Option { get; private set; }
+        public Option<long?> AverageBadgeTeam0Option { get; private set; }
 
         /// <summary>
         /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
         /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("average_badge_team0")]
-        public int? AverageBadgeTeam0 { get { return this.AverageBadgeTeam0Option.Value; } set { this.AverageBadgeTeam0Option = new(value); } }
+        public long? AverageBadgeTeam0 { get { return this.AverageBadgeTeam0Option.Value; } set { this.AverageBadgeTeam0Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of AverageBadgeTeam1
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> AverageBadgeTeam1Option { get; private set; }
+        public Option<long?> AverageBadgeTeam1Option { get; private set; }
 
         /// <summary>
         /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
         /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("average_badge_team1")]
-        public int? AverageBadgeTeam1 { get { return this.AverageBadgeTeam1Option.Value; } set { this.AverageBadgeTeam1Option = new(value); } }
+        public long? AverageBadgeTeam1 { get { return this.AverageBadgeTeam1Option.Value; } set { this.AverageBadgeTeam1Option = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -165,10 +165,28 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // DurationS (int) minimum
-            if (this.DurationS < (int)0)
+            // DurationS (long) maximum
+            if (this.DurationS > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DurationS, must be a value less than or equal to 4294967295.", new [] { "DurationS" });
+            }
+
+            // DurationS (long) minimum
+            if (this.DurationS < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DurationS, must be a value greater than or equal to 0.", new [] { "DurationS" });
+            }
+
+            // GameMode (int) maximum
+            if (this.GameMode > (int)127)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GameMode, must be a value less than or equal to 127.", new [] { "GameMode" });
+            }
+
+            // GameMode (int) minimum
+            if (this.GameMode < (int)-128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GameMode, must be a value greater than or equal to -128.", new [] { "GameMode" });
             }
 
             // MatchId (long) minimum
@@ -177,26 +195,62 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
-            // StartTime (int) minimum
-            if (this.StartTime < (int)0)
+            // MatchMode (int) maximum
+            if (this.MatchMode > (int)127)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchMode, must be a value less than or equal to 127.", new [] { "MatchMode" });
+            }
+
+            // MatchMode (int) minimum
+            if (this.MatchMode < (int)-128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchMode, must be a value greater than or equal to -128.", new [] { "MatchMode" });
+            }
+
+            // StartTime (long) maximum
+            if (this.StartTime > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value less than or equal to 4294967295.", new [] { "StartTime" });
+            }
+
+            // StartTime (long) minimum
+            if (this.StartTime < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
             }
 
-            // AverageBadge (int) minimum
-            if (this.AverageBadgeOption.IsSet && this.AverageBadgeOption.Value < (int)0)
+            // AverageBadge (long) maximum
+            if (this.AverageBadgeOption.IsSet && this.AverageBadgeOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageBadge, must be a value less than or equal to 4294967295.", new [] { "AverageBadge" });
+            }
+
+            // AverageBadge (long) minimum
+            if (this.AverageBadgeOption.IsSet && this.AverageBadgeOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageBadge, must be a value greater than or equal to 0.", new [] { "AverageBadge" });
             }
 
-            // AverageBadgeTeam0 (int) minimum
-            if (this.AverageBadgeTeam0Option.IsSet && this.AverageBadgeTeam0Option.Value < (int)0)
+            // AverageBadgeTeam0 (long) maximum
+            if (this.AverageBadgeTeam0Option.IsSet && this.AverageBadgeTeam0Option.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageBadgeTeam0, must be a value less than or equal to 4294967295.", new [] { "AverageBadgeTeam0" });
+            }
+
+            // AverageBadgeTeam0 (long) minimum
+            if (this.AverageBadgeTeam0Option.IsSet && this.AverageBadgeTeam0Option.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageBadgeTeam0, must be a value greater than or equal to 0.", new [] { "AverageBadgeTeam0" });
             }
 
-            // AverageBadgeTeam1 (int) minimum
-            if (this.AverageBadgeTeam1Option.IsSet && this.AverageBadgeTeam1Option.Value < (int)0)
+            // AverageBadgeTeam1 (long) maximum
+            if (this.AverageBadgeTeam1Option.IsSet && this.AverageBadgeTeam1Option.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageBadgeTeam1, must be a value less than or equal to 4294967295.", new [] { "AverageBadgeTeam1" });
+            }
+
+            // AverageBadgeTeam1 (long) minimum
+            if (this.AverageBadgeTeam1Option.IsSet && this.AverageBadgeTeam1Option.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageBadgeTeam1, must be a value greater than or equal to 0.", new [] { "AverageBadgeTeam1" });
             }
@@ -237,15 +291,15 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> durationS = default;
+            Option<long?> durationS = default;
             Option<int?> gameMode = default;
             Option<long?> matchId = default;
             Option<int?> matchMode = default;
             Option<List<MatchPlayer>?> players = default;
-            Option<int?> startTime = default;
-            Option<int?> averageBadge = default;
-            Option<int?> averageBadgeTeam0 = default;
-            Option<int?> averageBadgeTeam1 = default;
+            Option<long?> startTime = default;
+            Option<long?> averageBadge = default;
+            Option<long?> averageBadgeTeam0 = default;
+            Option<long?> averageBadgeTeam1 = default;
 
             while (utf8JsonReader.Read())
             {
@@ -263,7 +317,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "duration_s":
-                            durationS = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            durationS = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "game_mode":
                             gameMode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -278,16 +332,16 @@ namespace DeadlockApiClient.Model
                             players = new Option<List<MatchPlayer>?>(JsonSerializer.Deserialize<List<MatchPlayer>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "start_time":
-                            startTime = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            startTime = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "average_badge":
-                            averageBadge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            averageBadge = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "average_badge_team0":
-                            averageBadgeTeam0 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            averageBadgeTeam0 = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "average_badge_team1":
-                            averageBadgeTeam1 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            averageBadgeTeam1 = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

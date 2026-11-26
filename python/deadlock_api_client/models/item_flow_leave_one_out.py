@@ -28,8 +28,8 @@ class ItemFlowLeaveOneOut(BaseModel):
     """
     The locked build path without one of its locked items: how the population changes when that item's constraint is dropped and every other one kept.
     """ # noqa: E501
-    column: Annotated[int, Field(strict=True, ge=0)] = Field(description="Its locked stage column.")
-    item_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The locked item left out. See more: <https://api.deadlock-api.com/v1/assets/items>")
+    column: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="Its locked stage column.")
+    item_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The locked item left out. See more: <https://api.deadlock-api.com/v1/assets/items>")
     matches: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]
     __properties: ClassVar[List[str]] = ["column", "item_id", "matches", "wins"]

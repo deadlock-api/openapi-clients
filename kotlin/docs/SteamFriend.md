@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int** |  |  |
+| **accountId** | **kotlin.Long** |  |  |
 | **friendSince** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  |  |
 
 

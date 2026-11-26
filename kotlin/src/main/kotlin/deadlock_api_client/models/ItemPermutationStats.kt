@@ -40,7 +40,7 @@ data class ItemPermutationStats (
 
     /* See more: <https://api.deadlock-api.com/v1/assets/items> */
     @Json(name = "item_ids")
-    val itemIds: kotlin.collections.List<kotlin.Int>,
+    val itemIds: kotlin.collections.List<kotlin.Long>,
 
     @Json(name = "losses")
     val losses: kotlin.Long,

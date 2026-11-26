@@ -344,11 +344,17 @@ class HeroesApi
                 'Missing the required parameter $hero_id when calling getHero'
             );
         }
+        if ($hero_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling HeroesApi.getHero, must be smaller than or equal to 4294967295.');
+        }
         if ($hero_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$hero_id" when calling HeroesApi.getHero, must be bigger than or equal to 0.');
         }
         
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling HeroesApi.getHero, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling HeroesApi.getHero, must be bigger than or equal to 0.');
         }
@@ -663,6 +669,9 @@ class HeroesApi
         }
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling HeroesApi.getHeroByName, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling HeroesApi.getHeroByName, must be bigger than or equal to 0.');
         }
@@ -970,6 +979,9 @@ class HeroesApi
     {
 
 
+        if ($client_version !== null && $client_version > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$client_version" when calling HeroesApi.listHeroes, must be smaller than or equal to 4294967295.');
+        }
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling HeroesApi.listHeroes, must be bigger than or equal to 0.');
         }

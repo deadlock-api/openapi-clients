@@ -10,7 +10,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getbuildtag"></a>
 # **GetBuildTag**
-> BuildTag GetBuildTag (int buildTagId, string language = null, int clientVersion = null)
+> BuildTag GetBuildTag (long buildTagId, string language = null, long clientVersion = null)
 
 Get Build Tag
 
@@ -21,9 +21,9 @@ Returns a single build tag by id.
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **buildTagId** | **int** | Build tag id (murmurhash2 of &#x60;class_name&#x60;) |  |
+| **buildTagId** | **long** | Build tag id (murmurhash2 of &#x60;class_name&#x60;) |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -50,7 +50,7 @@ No authorization required
 
 <a id="getbuildtagbyname"></a>
 # **GetBuildTagByName**
-> BuildTag GetBuildTagByName (string name, string language = null, int clientVersion = null)
+> BuildTag GetBuildTagByName (string name, string language = null, long clientVersion = null)
 
 Get Build Tag By Name
 
@@ -63,7 +63,7 @@ Returns a single build tag by `class_name` (case-insensitive).
 |------|------|-------------|-------|
 | **name** | **string** | Build tag &#x60;class_name&#x60; (e.g. &#x60;citadel_build_tag_weapon&#x60;) |  |
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 
@@ -90,7 +90,7 @@ No authorization required
 
 <a id="listbuildtags"></a>
 # **ListBuildTags**
-> List&lt;BuildTag&gt; ListBuildTags (string language = null, int clientVersion = null)
+> List&lt;BuildTag&gt; ListBuildTags (string language = null, long clientVersion = null)
 
 List Build Tags
 
@@ -102,7 +102,7 @@ Returns the build tag taxonomy used by the game client, derived from per-version
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

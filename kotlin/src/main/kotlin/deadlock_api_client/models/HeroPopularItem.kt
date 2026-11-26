@@ -43,7 +43,7 @@ data class HeroPopularItem (
 
     /* Item id, derived from `class_name` like `/v2/items` ids. */
     @Json(name = "item_id")
-    val itemId: kotlin.Int,
+    val itemId: kotlin.Long,
 
     /* Pick rate in percent (0-100). */
     @Json(name = "pick_pct")

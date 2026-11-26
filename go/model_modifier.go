@@ -28,7 +28,7 @@ type Modifier struct {
 	ClassName string `json:"class_name"`
 	// Editor folder (`_editor.folder_name`), e.g. `Neutral Ability`.
 	Folder NullableString `json:"folder,omitempty"`
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 	// Numeric properties keyed by their source name. Nested properties use a dotted path (`m_GroundAuraModifier.m_modifierProvidedByAura.m_flDPS`, `subclass:` wrappers are skipped); `m_vecScriptValues` entries are keyed by their `m_eModifierValue` (`MODIFIER_VALUE_GRAVITY_SCALE`).
 	Properties map[string]float64 `json:"properties"`
 }
@@ -39,7 +39,7 @@ type _Modifier Modifier
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModifier(className string, id int32, properties map[string]float64) *Modifier {
+func NewModifier(className string, id int64, properties map[string]float64) *Modifier {
 	this := Modifier{}
 	this.ClassName = className
 	this.Id = id
@@ -206,9 +206,9 @@ func (o *Modifier) UnsetFolder() {
 }
 
 // GetId returns the Id field value
-func (o *Modifier) GetId() int32 {
+func (o *Modifier) GetId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -217,7 +217,7 @@ func (o *Modifier) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *Modifier) GetIdOk() (*int32, bool) {
+func (o *Modifier) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -225,7 +225,7 @@ func (o *Modifier) GetIdOk() (*int32, bool) {
 }
 
 // SetId sets field value
-func (o *Modifier) SetId(v int32) {
+func (o *Modifier) SetId(v int64) {
 	o.Id = v
 }
 

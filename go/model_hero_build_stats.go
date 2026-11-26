@@ -24,7 +24,7 @@ type HeroBuildStats struct {
 	// Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	AvgAverageBadge NullableFloat64 `json:"avg_average_badge,omitempty"`
 	// The bucket value (depends on the bucket query parameter, 0 without one).
-	Bucket int32 `json:"bucket"`
+	Bucket int64 `json:"bucket"`
 	// The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
 	HeroBuildId int64 `json:"hero_build_id"`
 	// The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -75,7 +75,7 @@ type _HeroBuildStats HeroBuildStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroBuildStats(bucket int32, heroBuildId int64, heroId int32, losses int64, matches int64, players int64, wins int64) *HeroBuildStats {
+func NewHeroBuildStats(bucket int64, heroBuildId int64, heroId int32, losses int64, matches int64, players int64, wins int64) *HeroBuildStats {
 	this := HeroBuildStats{}
 	this.Bucket = bucket
 	this.HeroBuildId = heroBuildId
@@ -138,9 +138,9 @@ func (o *HeroBuildStats) UnsetAvgAverageBadge() {
 }
 
 // GetBucket returns the Bucket field value
-func (o *HeroBuildStats) GetBucket() int32 {
+func (o *HeroBuildStats) GetBucket() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -149,7 +149,7 @@ func (o *HeroBuildStats) GetBucket() int32 {
 
 // GetBucketOk returns a tuple with the Bucket field value
 // and a boolean to check if the value has been set.
-func (o *HeroBuildStats) GetBucketOk() (*int32, bool) {
+func (o *HeroBuildStats) GetBucketOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -157,7 +157,7 @@ func (o *HeroBuildStats) GetBucketOk() (*int32, bool) {
 }
 
 // SetBucket sets field value
-func (o *HeroBuildStats) SetBucket(v int32) {
+func (o *HeroBuildStats) SetBucket(v int64) {
 	o.Bucket = v
 }
 

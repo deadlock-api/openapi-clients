@@ -49,29 +49,29 @@ import java.io.Serializable
 data class BuildHero (
 
     @Json(name = "author_account_id")
-    val authorAccountId: kotlin.Int,
+    val authorAccountId: kotlin.Long,
 
     @Json(name = "details")
     val details: BuildHeroDetails,
 
     @Json(name = "hero_build_id")
-    val heroBuildId: kotlin.Int,
+    val heroBuildId: kotlin.Long,
 
     /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_id")
-    val heroId: kotlin.Int,
+    val heroId: kotlin.Long,
 
     @Json(name = "language")
-    val language: kotlin.Int,
+    val language: kotlin.Long,
 
     @Json(name = "name")
     val name: kotlin.String,
 
     @Json(name = "origin_build_id")
-    val originBuildId: kotlin.Int,
+    val originBuildId: kotlin.Long,
 
     @Json(name = "version")
-    val version: kotlin.Int,
+    val version: kotlin.Long,
 
     @Json(name = "description")
     val description: kotlin.String? = null,
@@ -86,7 +86,7 @@ data class BuildHero (
     val publishTimestamp: kotlin.Long? = null,
 
     @Json(name = "tags")
-    val tags: kotlin.collections.List<kotlin.Int>? = null
+    val tags: kotlin.collections.List<kotlin.Long>? = null
 
 ) : Serializable {
     companion object {

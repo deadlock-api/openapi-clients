@@ -39,7 +39,7 @@ namespace DeadlockApiClient.Model
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="lastMatch">Rank metadata of the ranked match the badge was read from. &#x60;null&#x60; when none of the player&#39;s recent ranked matches reports a rank.</param>
         [JsonConstructor]
-        public AccountRank(int badge, int rank, int subrank, int accountId, Option<LastRankedMatch?> lastMatch = default)
+        public AccountRank(long badge, long rank, long subrank, long accountId, Option<LastRankedMatch?> lastMatch = default)
         {
             Badge = badge;
             Rank = rank;
@@ -56,28 +56,28 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Rank badge, &#x60;tier * 10 + subrank&#x60;, including the progress the last ranked match awarded. Eternus subranks are percentile-based and refreshed daily by Valve, so within Eternus this is the badge the player entered their latest ranked match with. &#x60;0&#x60; when no recent ranked match reports a rank. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("badge")]
-        public int Badge { get; set; }
+        public long Badge { get; set; }
 
         /// <summary>
         /// Rank tier, &#x60;0&#x60; when unknown.
         /// </summary>
         /// <value>Rank tier, &#x60;0&#x60; when unknown.</value>
         [JsonPropertyName("rank")]
-        public int Rank { get; set; }
+        public long Rank { get; set; }
 
         /// <summary>
         /// Sub-rank within the tier, &#x60;0&#x60; when unknown.
         /// </summary>
         /// <value>Sub-rank within the tier, &#x60;0&#x60; when unknown.</value>
         [JsonPropertyName("subrank")]
-        public int Subrank { get; set; }
+        public long Subrank { get; set; }
 
         /// <summary>
         /// The players &#x60;SteamID3&#x60;
         /// </summary>
         /// <value>The players &#x60;SteamID3&#x60;</value>
         [JsonPropertyName("account_id")]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Used to track the state of LastMatch
@@ -117,26 +117,50 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Badge (int) minimum
-            if (this.Badge < (int)0)
+            // Badge (long) maximum
+            if (this.Badge > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Badge, must be a value less than or equal to 4294967295.", new [] { "Badge" });
+            }
+
+            // Badge (long) minimum
+            if (this.Badge < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Badge, must be a value greater than or equal to 0.", new [] { "Badge" });
             }
 
-            // Rank (int) minimum
-            if (this.Rank < (int)0)
+            // Rank (long) maximum
+            if (this.Rank > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rank, must be a value less than or equal to 4294967295.", new [] { "Rank" });
+            }
+
+            // Rank (long) minimum
+            if (this.Rank < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
             }
 
-            // Subrank (int) minimum
-            if (this.Subrank < (int)0)
+            // Subrank (long) maximum
+            if (this.Subrank > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subrank, must be a value less than or equal to 4294967295.", new [] { "Subrank" });
+            }
+
+            // Subrank (long) minimum
+            if (this.Subrank < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subrank, must be a value greater than or equal to 0.", new [] { "Subrank" });
             }
 
-            // AccountId (int) minimum
-            if (this.AccountId < (int)0)
+            // AccountId (long) maximum
+            if (this.AccountId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value less than or equal to 4294967295.", new [] { "AccountId" });
+            }
+
+            // AccountId (long) minimum
+            if (this.AccountId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
@@ -177,10 +201,10 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> badge = default;
-            Option<int?> rank = default;
-            Option<int?> subrank = default;
-            Option<int?> accountId = default;
+            Option<long?> badge = default;
+            Option<long?> rank = default;
+            Option<long?> subrank = default;
+            Option<long?> accountId = default;
             Option<LastRankedMatch?> lastMatch = default;
 
             while (utf8JsonReader.Read())
@@ -199,16 +223,16 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "badge":
-                            badge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            badge = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "rank":
-                            rank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            rank = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "subrank":
-                            subrank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            subrank = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "account_id":
-                            accountId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            accountId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "last_match":
                             lastMatch = new Option<LastRankedMatch?>(JsonSerializer.Deserialize<LastRankedMatch>(ref utf8JsonReader, jsonSerializerOptions));

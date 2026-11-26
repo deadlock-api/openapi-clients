@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BrawlScore** | **int** |  | [optional] 
-**NetWorth** | **int** |  | [optional] 
+**BrawlScore** | **long** |  | [optional] 
+**NetWorth** | **long** |  | [optional] 
 **ObjectivesMask** | **long** |  | [optional] 
 **Team** | **int** |  | [optional] 
 **TeamParsed** | **ActiveMatchTeam** |  | [optional] 

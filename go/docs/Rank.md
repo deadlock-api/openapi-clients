@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Color** | **string** |  | 
 **Images** | [**RankImages**](RankImages.md) |  | 
 **Name** | **string** |  | 
-**Tier** | **int32** |  | 
+**Tier** | **int64** |  | 
 
 ## Methods
 
 ### NewRank
 
-`func NewRank(color string, images RankImages, name string, tier int32, ) *Rank`
+`func NewRank(color string, images RankImages, name string, tier int64, ) *Rank`
 
 NewRank instantiates a new Rank object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetName sets Name field to given value.
 
 ### GetTier
 
-`func (o *Rank) GetTier() int32`
+`func (o *Rank) GetTier() int64`
 
 GetTier returns the Tier field if non-nil, zero value otherwise.
 
 ### GetTierOk
 
-`func (o *Rank) GetTierOk() (*int32, bool)`
+`func (o *Rank) GetTierOk() (*int64, bool)`
 
 GetTierOk returns a tuple with the Tier field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTier
 
-`func (o *Rank) SetTier(v int32)`
+`func (o *Rank) SetTier(v int64)`
 
 SetTier sets Tier field to given value.
 

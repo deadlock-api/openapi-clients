@@ -62,7 +62,7 @@ namespace DeadlockApiClient.Model
         /// <param name="rankedDisplayBadge">The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="rankedUsedDemotionProtection">Whether the player&#39;s demotion protection absorbed a loss in this match.</param>
         [JsonConstructor]
-        public PlayerMatchHistoryEntry(int accountId, int denies, int gameMode, int heroId, int heroLevel, int lastHits, int matchDurationS, long matchId, int matchMode, int matchResult, int netWorth, int objectivesMaskTeam0, int objectivesMaskTeam1, int playerAssists, int playerDeaths, int playerKills, int playerMatchOutcome, int playerTeam, int startTime, Option<int?> abandonedTimeS = default, Option<int?> brawlAvgRoundTimeS = default, Option<int?> brawlScoreTeam0 = default, Option<int?> brawlScoreTeam1 = default, Option<bool?> lowPriPool = default, Option<int?> rankedCalibrationMatch = default, Option<int?> rankedDelta = default, Option<int?> rankedDisplayBadge = default, Option<bool?> rankedUsedDemotionProtection = default)
+        public PlayerMatchHistoryEntry(long accountId, long denies, int gameMode, int heroId, long heroLevel, long lastHits, long matchDurationS, long matchId, int matchMode, long matchResult, long netWorth, long objectivesMaskTeam0, long objectivesMaskTeam1, long playerAssists, long playerDeaths, long playerKills, int playerMatchOutcome, int playerTeam, long startTime, Option<long?> abandonedTimeS = default, Option<long?> brawlAvgRoundTimeS = default, Option<long?> brawlScoreTeam0 = default, Option<long?> brawlScoreTeam1 = default, Option<bool?> lowPriPool = default, Option<long?> rankedCalibrationMatch = default, Option<int?> rankedDelta = default, Option<long?> rankedDisplayBadge = default, Option<bool?> rankedUsedDemotionProtection = default)
         {
             AccountId = accountId;
             Denies = denies;
@@ -101,13 +101,13 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AccountId
         /// </summary>
         [JsonPropertyName("account_id")]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets Denies
         /// </summary>
         [JsonPropertyName("denies")]
-        public int Denies { get; set; }
+        public long Denies { get; set; }
 
         /// <summary>
         /// Gets or Sets GameMode
@@ -126,19 +126,19 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets HeroLevel
         /// </summary>
         [JsonPropertyName("hero_level")]
-        public int HeroLevel { get; set; }
+        public long HeroLevel { get; set; }
 
         /// <summary>
         /// Gets or Sets LastHits
         /// </summary>
         [JsonPropertyName("last_hits")]
-        public int LastHits { get; set; }
+        public long LastHits { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchDurationS
         /// </summary>
         [JsonPropertyName("match_duration_s")]
-        public int MatchDurationS { get; set; }
+        public long MatchDurationS { get; set; }
 
         /// <summary>
         /// Gets or Sets MatchId
@@ -156,43 +156,43 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets MatchResult
         /// </summary>
         [JsonPropertyName("match_result")]
-        public int MatchResult { get; set; }
+        public long MatchResult { get; set; }
 
         /// <summary>
         /// Gets or Sets NetWorth
         /// </summary>
         [JsonPropertyName("net_worth")]
-        public int NetWorth { get; set; }
+        public long NetWorth { get; set; }
 
         /// <summary>
         /// Gets or Sets ObjectivesMaskTeam0
         /// </summary>
         [JsonPropertyName("objectives_mask_team0")]
-        public int ObjectivesMaskTeam0 { get; set; }
+        public long ObjectivesMaskTeam0 { get; set; }
 
         /// <summary>
         /// Gets or Sets ObjectivesMaskTeam1
         /// </summary>
         [JsonPropertyName("objectives_mask_team1")]
-        public int ObjectivesMaskTeam1 { get; set; }
+        public long ObjectivesMaskTeam1 { get; set; }
 
         /// <summary>
         /// Gets or Sets PlayerAssists
         /// </summary>
         [JsonPropertyName("player_assists")]
-        public int PlayerAssists { get; set; }
+        public long PlayerAssists { get; set; }
 
         /// <summary>
         /// Gets or Sets PlayerDeaths
         /// </summary>
         [JsonPropertyName("player_deaths")]
-        public int PlayerDeaths { get; set; }
+        public long PlayerDeaths { get; set; }
 
         /// <summary>
         /// Gets or Sets PlayerKills
         /// </summary>
         [JsonPropertyName("player_kills")]
-        public int PlayerKills { get; set; }
+        public long PlayerKills { get; set; }
 
         /// <summary>
         /// How the match was scored for the player: 0 &#x3D; invalid, 1 &#x3D; win, 2 &#x3D; loss, 3 &#x3D; penalized, 4 &#x3D; penalized party, 5 &#x3D; not scored.
@@ -211,59 +211,59 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets StartTime
         /// </summary>
         [JsonPropertyName("start_time")]
-        public int StartTime { get; set; }
+        public long StartTime { get; set; }
 
         /// <summary>
         /// Used to track the state of AbandonedTimeS
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> AbandonedTimeSOption { get; private set; }
+        public Option<long?> AbandonedTimeSOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets AbandonedTimeS
         /// </summary>
         [JsonPropertyName("abandoned_time_s")]
-        public int? AbandonedTimeS { get { return this.AbandonedTimeSOption.Value; } set { this.AbandonedTimeSOption = new(value); } }
+        public long? AbandonedTimeS { get { return this.AbandonedTimeSOption.Value; } set { this.AbandonedTimeSOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BrawlAvgRoundTimeS
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BrawlAvgRoundTimeSOption { get; private set; }
+        public Option<long?> BrawlAvgRoundTimeSOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets BrawlAvgRoundTimeS
         /// </summary>
         [JsonPropertyName("brawl_avg_round_time_s")]
-        public int? BrawlAvgRoundTimeS { get { return this.BrawlAvgRoundTimeSOption.Value; } set { this.BrawlAvgRoundTimeSOption = new(value); } }
+        public long? BrawlAvgRoundTimeS { get { return this.BrawlAvgRoundTimeSOption.Value; } set { this.BrawlAvgRoundTimeSOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BrawlScoreTeam0
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BrawlScoreTeam0Option { get; private set; }
+        public Option<long?> BrawlScoreTeam0Option { get; private set; }
 
         /// <summary>
         /// Gets or Sets BrawlScoreTeam0
         /// </summary>
         [JsonPropertyName("brawl_score_team0")]
-        public int? BrawlScoreTeam0 { get { return this.BrawlScoreTeam0Option.Value; } set { this.BrawlScoreTeam0Option = new(value); } }
+        public long? BrawlScoreTeam0 { get { return this.BrawlScoreTeam0Option.Value; } set { this.BrawlScoreTeam0Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of BrawlScoreTeam1
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> BrawlScoreTeam1Option { get; private set; }
+        public Option<long?> BrawlScoreTeam1Option { get; private set; }
 
         /// <summary>
         /// Gets or Sets BrawlScoreTeam1
         /// </summary>
         [JsonPropertyName("brawl_score_team1")]
-        public int? BrawlScoreTeam1 { get { return this.BrawlScoreTeam1Option.Value; } set { this.BrawlScoreTeam1Option = new(value); } }
+        public long? BrawlScoreTeam1 { get { return this.BrawlScoreTeam1Option.Value; } set { this.BrawlScoreTeam1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of LowPriPool
@@ -284,14 +284,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> RankedCalibrationMatchOption { get; private set; }
+        public Option<long?> RankedCalibrationMatchOption { get; private set; }
 
         /// <summary>
         /// Non-zero if this match counted towards the player&#39;s ranked calibration.
         /// </summary>
         /// <value>Non-zero if this match counted towards the player&#39;s ranked calibration.</value>
         [JsonPropertyName("ranked_calibration_match")]
-        public int? RankedCalibrationMatch { get { return this.RankedCalibrationMatchOption.Value; } set { this.RankedCalibrationMatchOption = new(value); } }
+        public long? RankedCalibrationMatch { get { return this.RankedCalibrationMatchOption.Value; } set { this.RankedCalibrationMatchOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RankedDelta
@@ -312,14 +312,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> RankedDisplayBadgeOption { get; private set; }
+        public Option<long?> RankedDisplayBadgeOption { get; private set; }
 
         /// <summary>
         /// The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
         /// <value>The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("ranked_display_badge")]
-        public int? RankedDisplayBadge { get { return this.RankedDisplayBadgeOption.Value; } set { this.RankedDisplayBadgeOption = new(value); } }
+        public long? RankedDisplayBadge { get { return this.RankedDisplayBadgeOption.Value; } set { this.RankedDisplayBadgeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RankedUsedDemotionProtection
@@ -382,16 +382,46 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AccountId (int) minimum
-            if (this.AccountId < (int)0)
+            // AccountId (long) maximum
+            if (this.AccountId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value less than or equal to 4294967295.", new [] { "AccountId" });
+            }
+
+            // AccountId (long) minimum
+            if (this.AccountId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
 
-            // Denies (int) minimum
-            if (this.Denies < (int)0)
+            // Denies (long) maximum
+            if (this.Denies > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Denies, must be a value less than or equal to 4294967295.", new [] { "Denies" });
+            }
+
+            // Denies (long) minimum
+            if (this.Denies < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Denies, must be a value greater than or equal to 0.", new [] { "Denies" });
+            }
+
+            // GameMode (int) maximum
+            if (this.GameMode > (int)127)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GameMode, must be a value less than or equal to 127.", new [] { "GameMode" });
+            }
+
+            // GameMode (int) minimum
+            if (this.GameMode < (int)-128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GameMode, must be a value greater than or equal to -128.", new [] { "GameMode" });
+            }
+
+            // HeroId (int) maximum
+            if (this.HeroId > (int)255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value less than or equal to 255.", new [] { "HeroId" });
             }
 
             // HeroId (int) minimum
@@ -400,20 +430,38 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
             }
 
-            // HeroLevel (int) minimum
-            if (this.HeroLevel < (int)0)
+            // HeroLevel (long) maximum
+            if (this.HeroLevel > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroLevel, must be a value less than or equal to 4294967295.", new [] { "HeroLevel" });
+            }
+
+            // HeroLevel (long) minimum
+            if (this.HeroLevel < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroLevel, must be a value greater than or equal to 0.", new [] { "HeroLevel" });
             }
 
-            // LastHits (int) minimum
-            if (this.LastHits < (int)0)
+            // LastHits (long) maximum
+            if (this.LastHits > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastHits, must be a value less than or equal to 4294967295.", new [] { "LastHits" });
+            }
+
+            // LastHits (long) minimum
+            if (this.LastHits < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastHits, must be a value greater than or equal to 0.", new [] { "LastHits" });
             }
 
-            // MatchDurationS (int) minimum
-            if (this.MatchDurationS < (int)0)
+            // MatchDurationS (long) maximum
+            if (this.MatchDurationS > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchDurationS, must be a value less than or equal to 4294967295.", new [] { "MatchDurationS" });
+            }
+
+            // MatchDurationS (long) minimum
+            if (this.MatchDurationS < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchDurationS, must be a value greater than or equal to 0.", new [] { "MatchDurationS" });
             }
@@ -424,86 +472,206 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
-            // MatchResult (int) minimum
-            if (this.MatchResult < (int)0)
+            // MatchMode (int) maximum
+            if (this.MatchMode > (int)127)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchMode, must be a value less than or equal to 127.", new [] { "MatchMode" });
+            }
+
+            // MatchMode (int) minimum
+            if (this.MatchMode < (int)-128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchMode, must be a value greater than or equal to -128.", new [] { "MatchMode" });
+            }
+
+            // MatchResult (long) maximum
+            if (this.MatchResult > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchResult, must be a value less than or equal to 4294967295.", new [] { "MatchResult" });
+            }
+
+            // MatchResult (long) minimum
+            if (this.MatchResult < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchResult, must be a value greater than or equal to 0.", new [] { "MatchResult" });
             }
 
-            // NetWorth (int) minimum
-            if (this.NetWorth < (int)0)
+            // NetWorth (long) maximum
+            if (this.NetWorth > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorth, must be a value less than or equal to 4294967295.", new [] { "NetWorth" });
+            }
+
+            // NetWorth (long) minimum
+            if (this.NetWorth < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorth, must be a value greater than or equal to 0.", new [] { "NetWorth" });
             }
 
-            // ObjectivesMaskTeam0 (int) minimum
-            if (this.ObjectivesMaskTeam0 < (int)0)
+            // ObjectivesMaskTeam0 (long) maximum
+            if (this.ObjectivesMaskTeam0 > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObjectivesMaskTeam0, must be a value less than or equal to 4294967295.", new [] { "ObjectivesMaskTeam0" });
+            }
+
+            // ObjectivesMaskTeam0 (long) minimum
+            if (this.ObjectivesMaskTeam0 < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObjectivesMaskTeam0, must be a value greater than or equal to 0.", new [] { "ObjectivesMaskTeam0" });
             }
 
-            // ObjectivesMaskTeam1 (int) minimum
-            if (this.ObjectivesMaskTeam1 < (int)0)
+            // ObjectivesMaskTeam1 (long) maximum
+            if (this.ObjectivesMaskTeam1 > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObjectivesMaskTeam1, must be a value less than or equal to 4294967295.", new [] { "ObjectivesMaskTeam1" });
+            }
+
+            // ObjectivesMaskTeam1 (long) minimum
+            if (this.ObjectivesMaskTeam1 < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObjectivesMaskTeam1, must be a value greater than or equal to 0.", new [] { "ObjectivesMaskTeam1" });
             }
 
-            // PlayerAssists (int) minimum
-            if (this.PlayerAssists < (int)0)
+            // PlayerAssists (long) maximum
+            if (this.PlayerAssists > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerAssists, must be a value less than or equal to 4294967295.", new [] { "PlayerAssists" });
+            }
+
+            // PlayerAssists (long) minimum
+            if (this.PlayerAssists < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerAssists, must be a value greater than or equal to 0.", new [] { "PlayerAssists" });
             }
 
-            // PlayerDeaths (int) minimum
-            if (this.PlayerDeaths < (int)0)
+            // PlayerDeaths (long) maximum
+            if (this.PlayerDeaths > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerDeaths, must be a value less than or equal to 4294967295.", new [] { "PlayerDeaths" });
+            }
+
+            // PlayerDeaths (long) minimum
+            if (this.PlayerDeaths < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerDeaths, must be a value greater than or equal to 0.", new [] { "PlayerDeaths" });
             }
 
-            // PlayerKills (int) minimum
-            if (this.PlayerKills < (int)0)
+            // PlayerKills (long) maximum
+            if (this.PlayerKills > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerKills, must be a value less than or equal to 4294967295.", new [] { "PlayerKills" });
+            }
+
+            // PlayerKills (long) minimum
+            if (this.PlayerKills < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerKills, must be a value greater than or equal to 0.", new [] { "PlayerKills" });
             }
 
-            // StartTime (int) minimum
-            if (this.StartTime < (int)0)
+            // PlayerMatchOutcome (int) maximum
+            if (this.PlayerMatchOutcome > (int)127)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerMatchOutcome, must be a value less than or equal to 127.", new [] { "PlayerMatchOutcome" });
+            }
+
+            // PlayerMatchOutcome (int) minimum
+            if (this.PlayerMatchOutcome < (int)-128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerMatchOutcome, must be a value greater than or equal to -128.", new [] { "PlayerMatchOutcome" });
+            }
+
+            // PlayerTeam (int) maximum
+            if (this.PlayerTeam > (int)127)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerTeam, must be a value less than or equal to 127.", new [] { "PlayerTeam" });
+            }
+
+            // PlayerTeam (int) minimum
+            if (this.PlayerTeam < (int)-128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerTeam, must be a value greater than or equal to -128.", new [] { "PlayerTeam" });
+            }
+
+            // StartTime (long) maximum
+            if (this.StartTime > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value less than or equal to 4294967295.", new [] { "StartTime" });
+            }
+
+            // StartTime (long) minimum
+            if (this.StartTime < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
             }
 
-            // AbandonedTimeS (int) minimum
-            if (this.AbandonedTimeSOption.IsSet && this.AbandonedTimeSOption.Value < (int)0)
+            // AbandonedTimeS (long) maximum
+            if (this.AbandonedTimeSOption.IsSet && this.AbandonedTimeSOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AbandonedTimeS, must be a value less than or equal to 4294967295.", new [] { "AbandonedTimeS" });
+            }
+
+            // AbandonedTimeS (long) minimum
+            if (this.AbandonedTimeSOption.IsSet && this.AbandonedTimeSOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AbandonedTimeS, must be a value greater than or equal to 0.", new [] { "AbandonedTimeS" });
             }
 
-            // BrawlAvgRoundTimeS (int) minimum
-            if (this.BrawlAvgRoundTimeSOption.IsSet && this.BrawlAvgRoundTimeSOption.Value < (int)0)
+            // BrawlAvgRoundTimeS (long) maximum
+            if (this.BrawlAvgRoundTimeSOption.IsSet && this.BrawlAvgRoundTimeSOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BrawlAvgRoundTimeS, must be a value less than or equal to 4294967295.", new [] { "BrawlAvgRoundTimeS" });
+            }
+
+            // BrawlAvgRoundTimeS (long) minimum
+            if (this.BrawlAvgRoundTimeSOption.IsSet && this.BrawlAvgRoundTimeSOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BrawlAvgRoundTimeS, must be a value greater than or equal to 0.", new [] { "BrawlAvgRoundTimeS" });
             }
 
-            // BrawlScoreTeam0 (int) minimum
-            if (this.BrawlScoreTeam0Option.IsSet && this.BrawlScoreTeam0Option.Value < (int)0)
+            // BrawlScoreTeam0 (long) maximum
+            if (this.BrawlScoreTeam0Option.IsSet && this.BrawlScoreTeam0Option.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BrawlScoreTeam0, must be a value less than or equal to 4294967295.", new [] { "BrawlScoreTeam0" });
+            }
+
+            // BrawlScoreTeam0 (long) minimum
+            if (this.BrawlScoreTeam0Option.IsSet && this.BrawlScoreTeam0Option.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BrawlScoreTeam0, must be a value greater than or equal to 0.", new [] { "BrawlScoreTeam0" });
             }
 
-            // BrawlScoreTeam1 (int) minimum
-            if (this.BrawlScoreTeam1Option.IsSet && this.BrawlScoreTeam1Option.Value < (int)0)
+            // BrawlScoreTeam1 (long) maximum
+            if (this.BrawlScoreTeam1Option.IsSet && this.BrawlScoreTeam1Option.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BrawlScoreTeam1, must be a value less than or equal to 4294967295.", new [] { "BrawlScoreTeam1" });
+            }
+
+            // BrawlScoreTeam1 (long) minimum
+            if (this.BrawlScoreTeam1Option.IsSet && this.BrawlScoreTeam1Option.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BrawlScoreTeam1, must be a value greater than or equal to 0.", new [] { "BrawlScoreTeam1" });
             }
 
-            // RankedCalibrationMatch (int) minimum
-            if (this.RankedCalibrationMatchOption.IsSet && this.RankedCalibrationMatchOption.Value < (int)0)
+            // RankedCalibrationMatch (long) maximum
+            if (this.RankedCalibrationMatchOption.IsSet && this.RankedCalibrationMatchOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RankedCalibrationMatch, must be a value less than or equal to 4294967295.", new [] { "RankedCalibrationMatch" });
+            }
+
+            // RankedCalibrationMatch (long) minimum
+            if (this.RankedCalibrationMatchOption.IsSet && this.RankedCalibrationMatchOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RankedCalibrationMatch, must be a value greater than or equal to 0.", new [] { "RankedCalibrationMatch" });
             }
 
-            // RankedDisplayBadge (int) minimum
-            if (this.RankedDisplayBadgeOption.IsSet && this.RankedDisplayBadgeOption.Value < (int)0)
+            // RankedDisplayBadge (long) maximum
+            if (this.RankedDisplayBadgeOption.IsSet && this.RankedDisplayBadgeOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RankedDisplayBadge, must be a value less than or equal to 4294967295.", new [] { "RankedDisplayBadge" });
+            }
+
+            // RankedDisplayBadge (long) minimum
+            if (this.RankedDisplayBadgeOption.IsSet && this.RankedDisplayBadgeOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RankedDisplayBadge, must be a value greater than or equal to 0.", new [] { "RankedDisplayBadge" });
             }
@@ -544,33 +712,33 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> accountId = default;
-            Option<int?> denies = default;
+            Option<long?> accountId = default;
+            Option<long?> denies = default;
             Option<int?> gameMode = default;
             Option<int?> heroId = default;
-            Option<int?> heroLevel = default;
-            Option<int?> lastHits = default;
-            Option<int?> matchDurationS = default;
+            Option<long?> heroLevel = default;
+            Option<long?> lastHits = default;
+            Option<long?> matchDurationS = default;
             Option<long?> matchId = default;
             Option<int?> matchMode = default;
-            Option<int?> matchResult = default;
-            Option<int?> netWorth = default;
-            Option<int?> objectivesMaskTeam0 = default;
-            Option<int?> objectivesMaskTeam1 = default;
-            Option<int?> playerAssists = default;
-            Option<int?> playerDeaths = default;
-            Option<int?> playerKills = default;
+            Option<long?> matchResult = default;
+            Option<long?> netWorth = default;
+            Option<long?> objectivesMaskTeam0 = default;
+            Option<long?> objectivesMaskTeam1 = default;
+            Option<long?> playerAssists = default;
+            Option<long?> playerDeaths = default;
+            Option<long?> playerKills = default;
             Option<int?> playerMatchOutcome = default;
             Option<int?> playerTeam = default;
-            Option<int?> startTime = default;
-            Option<int?> abandonedTimeS = default;
-            Option<int?> brawlAvgRoundTimeS = default;
-            Option<int?> brawlScoreTeam0 = default;
-            Option<int?> brawlScoreTeam1 = default;
+            Option<long?> startTime = default;
+            Option<long?> abandonedTimeS = default;
+            Option<long?> brawlAvgRoundTimeS = default;
+            Option<long?> brawlScoreTeam0 = default;
+            Option<long?> brawlScoreTeam1 = default;
             Option<bool?> lowPriPool = default;
-            Option<int?> rankedCalibrationMatch = default;
+            Option<long?> rankedCalibrationMatch = default;
             Option<int?> rankedDelta = default;
-            Option<int?> rankedDisplayBadge = default;
+            Option<long?> rankedDisplayBadge = default;
             Option<bool?> rankedUsedDemotionProtection = default;
 
             while (utf8JsonReader.Read())
@@ -589,10 +757,10 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "account_id":
-                            accountId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            accountId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "denies":
-                            denies = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            denies = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "game_mode":
                             gameMode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -601,13 +769,13 @@ namespace DeadlockApiClient.Model
                             heroId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "hero_level":
-                            heroLevel = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            heroLevel = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "last_hits":
-                            lastHits = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            lastHits = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "match_duration_s":
-                            matchDurationS = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            matchDurationS = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "match_id":
                             matchId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -616,25 +784,25 @@ namespace DeadlockApiClient.Model
                             matchMode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "match_result":
-                            matchResult = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            matchResult = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "net_worth":
-                            netWorth = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            netWorth = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "objectives_mask_team0":
-                            objectivesMaskTeam0 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            objectivesMaskTeam0 = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "objectives_mask_team1":
-                            objectivesMaskTeam1 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            objectivesMaskTeam1 = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "player_assists":
-                            playerAssists = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            playerAssists = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "player_deaths":
-                            playerDeaths = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            playerDeaths = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "player_kills":
-                            playerKills = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            playerKills = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "player_match_outcome":
                             playerMatchOutcome = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -643,31 +811,31 @@ namespace DeadlockApiClient.Model
                             playerTeam = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "start_time":
-                            startTime = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            startTime = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "abandoned_time_s":
-                            abandonedTimeS = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            abandonedTimeS = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "brawl_avg_round_time_s":
-                            brawlAvgRoundTimeS = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            brawlAvgRoundTimeS = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "brawl_score_team0":
-                            brawlScoreTeam0 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            brawlScoreTeam0 = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "brawl_score_team1":
-                            brawlScoreTeam1 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            brawlScoreTeam1 = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "low_pri_pool":
                             lowPriPool = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "ranked_calibration_match":
-                            rankedCalibrationMatch = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            rankedCalibrationMatch = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "ranked_delta":
                             rankedDelta = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "ranked_display_badge":
-                            rankedDisplayBadge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            rankedDisplayBadge = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "ranked_used_demotion_protection":
                             rankedUsedDemotionProtection = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());

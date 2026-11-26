@@ -27,12 +27,12 @@ type PlayersAPIService service
 type ApiEnemyStatsRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
-	accountId int32
+	accountId int64
 	gameMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minMatchId *int64
 	maxMatchId *int64
 	minMatchesPlayed *int64
@@ -58,13 +58,13 @@ func (r ApiEnemyStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiEnemyS
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiEnemyStatsRequest) MinDurationS(minDurationS int64) ApiEnemyStatsRequest {
+func (r ApiEnemyStatsRequest) MinDurationS(minDurationS int32) ApiEnemyStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiEnemyStatsRequest) MaxDurationS(maxDurationS int64) ApiEnemyStatsRequest {
+func (r ApiEnemyStatsRequest) MaxDurationS(maxDurationS int32) ApiEnemyStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -115,7 +115,7 @@ This endpoint returns the enemy stats.
  @param accountId The players `SteamID3`
  @return ApiEnemyStatsRequest
 */
-func (a *PlayersAPIService) EnemyStats(ctx context.Context, accountId int32) ApiEnemyStatsRequest {
+func (a *PlayersAPIService) EnemyStats(ctx context.Context, accountId int64) ApiEnemyStatsRequest {
 	return ApiEnemyStatsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -146,6 +146,9 @@ func (a *PlayersAPIService) EnemyStatsExecute(r ApiEnemyStatsRequest) ([]EnemySt
 	localVarFormParams := url.Values{}
 	if r.accountId < 0 {
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+	if r.accountId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accountId must be less than 4294967295")
 	}
 
 	if r.gameMode != nil {
@@ -232,7 +235,7 @@ func (a *PlayersAPIService) EnemyStatsExecute(r ApiEnemyStatsRequest) ([]EnemySt
 type ApiMatchHistoryRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
-	accountId int32
+	accountId int64
 	forceRefetch *bool
 }
 
@@ -273,7 +276,7 @@ Relevant Protobuf Messages:
  @param accountId The players `SteamID3`
  @return ApiMatchHistoryRequest
 */
-func (a *PlayersAPIService) MatchHistory(ctx context.Context, accountId int32) ApiMatchHistoryRequest {
+func (a *PlayersAPIService) MatchHistory(ctx context.Context, accountId int64) ApiMatchHistoryRequest {
 	return ApiMatchHistoryRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -304,6 +307,9 @@ func (a *PlayersAPIService) MatchHistoryExecute(r ApiMatchHistoryRequest) ([]Pla
 	localVarFormParams := url.Values{}
 	if r.accountId < 0 {
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+	if r.accountId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accountId must be less than 4294967295")
 	}
 
 	if r.forceRefetch != nil {
@@ -377,12 +383,12 @@ func (a *PlayersAPIService) MatchHistoryExecute(r ApiMatchHistoryRequest) ([]Pla
 type ApiMateStatsRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
-	accountId int32
+	accountId int64
 	gameMode *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minMatchId *int64
 	maxMatchId *int64
 	minMatchesPlayed *int64
@@ -409,13 +415,13 @@ func (r ApiMateStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiMateSta
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiMateStatsRequest) MinDurationS(minDurationS int64) ApiMateStatsRequest {
+func (r ApiMateStatsRequest) MinDurationS(minDurationS int32) ApiMateStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiMateStatsRequest) MaxDurationS(maxDurationS int64) ApiMateStatsRequest {
+func (r ApiMateStatsRequest) MaxDurationS(maxDurationS int32) ApiMateStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -472,7 +478,7 @@ This endpoint returns the mate stats.
  @param accountId The players `SteamID3`
  @return ApiMateStatsRequest
 */
-func (a *PlayersAPIService) MateStats(ctx context.Context, accountId int32) ApiMateStatsRequest {
+func (a *PlayersAPIService) MateStats(ctx context.Context, accountId int64) ApiMateStatsRequest {
 	return ApiMateStatsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -503,6 +509,9 @@ func (a *PlayersAPIService) MateStatsExecute(r ApiMateStatsRequest) ([]MateStats
 	localVarFormParams := url.Values{}
 	if r.accountId < 0 {
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+	if r.accountId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accountId must be less than 4294967295")
 	}
 
 	if r.gameMode != nil {
@@ -596,14 +605,14 @@ func (a *PlayersAPIService) MateStatsExecute(r ApiMateStatsRequest) ([]MateStats
 type ApiPlayerHeroStatsRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
-	accountIds *[]int32
+	accountIds *[]int64
 	gameMode *string
 	matchMode *string
 	heroIds *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	minNetworth *int64
 	maxNetworth *int64
 	minAverageBadge *int32
@@ -613,7 +622,7 @@ type ApiPlayerHeroStatsRequest struct {
 }
 
 // Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
-func (r ApiPlayerHeroStatsRequest) AccountIds(accountIds []int32) ApiPlayerHeroStatsRequest {
+func (r ApiPlayerHeroStatsRequest) AccountIds(accountIds []int64) ApiPlayerHeroStatsRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -649,13 +658,13 @@ func (r ApiPlayerHeroStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiP
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiPlayerHeroStatsRequest) MinDurationS(minDurationS int64) ApiPlayerHeroStatsRequest {
+func (r ApiPlayerHeroStatsRequest) MinDurationS(minDurationS int32) ApiPlayerHeroStatsRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiPlayerHeroStatsRequest) MaxDurationS(maxDurationS int64) ApiPlayerHeroStatsRequest {
+func (r ApiPlayerHeroStatsRequest) MaxDurationS(maxDurationS int32) ApiPlayerHeroStatsRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -861,7 +870,7 @@ func (a *PlayersAPIService) PlayerHeroStatsExecute(r ApiPlayerHeroStatsRequest) 
 type ApiRankRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
-	accountId int32
+	accountId int64
 }
 
 func (r ApiRankRequest) Execute() (*RankResponse, *http.Response, error) {
@@ -899,7 +908,7 @@ placement games and demotion protection.
  @param accountId The players `SteamID3`
  @return ApiRankRequest
 */
-func (a *PlayersAPIService) Rank(ctx context.Context, accountId int32) ApiRankRequest {
+func (a *PlayersAPIService) Rank(ctx context.Context, accountId int64) ApiRankRequest {
 	return ApiRankRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -930,6 +939,9 @@ func (a *PlayersAPIService) RankExecute(r ApiRankRequest) (*RankResponse, *http.
 	localVarFormParams := url.Values{}
 	if r.accountId < 0 {
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+	if r.accountId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accountId must be less than 4294967295")
 	}
 
 	// to determine the Content-Type header
@@ -989,12 +1001,12 @@ func (a *PlayersAPIService) RankExecute(r ApiRankRequest) (*RankResponse, *http.
 type ApiRankAvgImageRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
-	accountIds *[]int32
+	accountIds *[]int64
 	format *string
 }
 
 // Comma-separated list of account IDs (max 12).
-func (r ApiRankAvgImageRequest) AccountIds(accountIds []int32) ApiRankAvgImageRequest {
+func (r ApiRankAvgImageRequest) AccountIds(accountIds []int64) ApiRankAvgImageRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -1129,11 +1141,11 @@ func (a *PlayersAPIService) RankAvgImageExecute(r ApiRankAvgImageRequest) ([]int
 type ApiRankBatchRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
-	accountIds *[]int32
+	accountIds *[]int64
 }
 
 // Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
-func (r ApiRankBatchRequest) AccountIds(accountIds []int32) ApiRankBatchRequest {
+func (r ApiRankBatchRequest) AccountIds(accountIds []int64) ApiRankBatchRequest {
 	r.accountIds = &accountIds
 	return r
 }
@@ -1273,8 +1285,8 @@ type ApiRankDistributionRequest struct {
 	ApiService *PlayersAPIService
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
-	minDurationS *int64
-	maxDurationS *int64
+	minDurationS *int32
+	maxDurationS *int32
 	isHighSkillRangeParties *bool
 	isLowPriPool *bool
 	isNewPlayerPool *bool
@@ -1295,13 +1307,13 @@ func (r ApiRankDistributionRequest) MaxUnixTimestamp(maxUnixTimestamp int64) Api
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiRankDistributionRequest) MinDurationS(minDurationS int64) ApiRankDistributionRequest {
+func (r ApiRankDistributionRequest) MinDurationS(minDurationS int32) ApiRankDistributionRequest {
 	r.minDurationS = &minDurationS
 	return r
 }
 
 // Filter matches based on their duration in seconds (up to 7000s).
-func (r ApiRankDistributionRequest) MaxDurationS(maxDurationS int64) ApiRankDistributionRequest {
+func (r ApiRankDistributionRequest) MaxDurationS(maxDurationS int32) ApiRankDistributionRequest {
 	r.maxDurationS = &maxDurationS
 	return r
 }
@@ -1394,7 +1406,7 @@ func (a *PlayersAPIService) RankDistributionExecute(r ApiRankDistributionRequest
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1792972800
+		var defaultValue int64 = 1793059200
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1479,7 +1491,7 @@ func (a *PlayersAPIService) RankDistributionExecute(r ApiRankDistributionRequest
 type ApiRankImageRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
-	accountId int32
+	accountId int64
 	format *string
 }
 
@@ -1512,7 +1524,7 @@ Returns the rank badge image directly (binary), not a URL, with the player's I-V
  @param accountId The players `SteamID3`
  @return ApiRankImageRequest
 */
-func (a *PlayersAPIService) RankImage(ctx context.Context, accountId int32) ApiRankImageRequest {
+func (a *PlayersAPIService) RankImage(ctx context.Context, accountId int64) ApiRankImageRequest {
 	return ApiRankImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1543,6 +1555,9 @@ func (a *PlayersAPIService) RankImageExecute(r ApiRankImageRequest) ([]int32, *h
 	localVarFormParams := url.Values{}
 	if r.accountId < 0 {
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+	if r.accountId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accountId must be less than 4294967295")
 	}
 
 	if r.format != nil {
@@ -1605,7 +1620,7 @@ func (a *PlayersAPIService) RankImageExecute(r ApiRankImageRequest) ([]int32, *h
 type ApiRegionRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
-	accountId int32
+	accountId int64
 }
 
 func (r ApiRegionRequest) Execute() (*PlayerRegionResponse, *http.Response, error) {
@@ -1640,7 +1655,7 @@ some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next
  @param accountId The players `SteamID3`
  @return ApiRegionRequest
 */
-func (a *PlayersAPIService) Region(ctx context.Context, accountId int32) ApiRegionRequest {
+func (a *PlayersAPIService) Region(ctx context.Context, accountId int64) ApiRegionRequest {
 	return ApiRegionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1671,6 +1686,9 @@ func (a *PlayersAPIService) RegionExecute(r ApiRegionRequest) (*PlayerRegionResp
 	localVarFormParams := url.Values{}
 	if r.accountId < 0 {
 		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+	if r.accountId > 4294967295 {
+		return localVarReturnValue, nil, reportError("accountId must be less than 4294967295")
 	}
 
 	// to determine the Content-Type header
@@ -1730,11 +1748,11 @@ func (a *PlayersAPIService) RegionExecute(r ApiRegionRequest) (*PlayerRegionResp
 type ApiRegionBatchRequest struct {
 	ctx context.Context
 	ApiService *PlayersAPIService
-	accountIds *[]int32
+	accountIds *[]int64
 }
 
 // Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
-func (r ApiRegionBatchRequest) AccountIds(accountIds []int32) ApiRegionBatchRequest {
+func (r ApiRegionBatchRequest) AccountIds(accountIds []int64) ApiRegionBatchRequest {
 	r.accountIds = &accountIds
 	return r
 }

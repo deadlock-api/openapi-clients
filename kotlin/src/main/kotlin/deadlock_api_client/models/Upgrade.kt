@@ -82,7 +82,7 @@ data class Upgrade (
     val className: kotlin.String,
 
     @Json(name = "id")
-    val id: kotlin.Int,
+    val id: kotlin.Long,
 
     @Json(name = "is_active_item")
     val isActiveItem: kotlin.Boolean,
@@ -107,7 +107,7 @@ data class Upgrade (
     val corruptedInfo: CorruptedItemInfo? = null,
 
     @Json(name = "cost")
-    val cost: kotlin.Int? = null,
+    val cost: kotlin.Long? = null,
 
     @Json(name = "description")
     val description: UpgradeDescription? = null,
@@ -123,10 +123,10 @@ data class Upgrade (
     val disabledShopFilters: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "hero")
-    val hero: kotlin.Int? = null,
+    val hero: kotlin.Long? = null,
 
     @Json(name = "heroes")
-    val heroes: kotlin.collections.List<kotlin.Int>? = null,
+    val heroes: kotlin.collections.List<kotlin.Long>? = null,
 
     @Json(name = "image")
     val image: kotlin.String? = null,

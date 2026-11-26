@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **Images** | [**MapImages**](MapImages.md) |  | 
 **NeutralCamps** | Pointer to [**[]NeutralCamp**](NeutralCamp.md) | Neutral camps (build 6711+). | [optional] 
 **ObjectivePositions** | [**map[string]ObjectivePosition**](ObjectivePosition.md) |  | 
-**Radius** | **int32** |  | 
+**Radius** | **int64** |  | 
 **ZiplinePaths** | [**[]ZiplanePath**](ZiplanePath.md) |  | 
 
 ## Methods
 
 ### NewMapData
 
-`func NewMapData(images MapImages, objectivePositions map[string]ObjectivePosition, radius int32, ziplinePaths []ZiplanePath, ) *MapData`
+`func NewMapData(images MapImages, objectivePositions map[string]ObjectivePosition, radius int64, ziplinePaths []ZiplanePath, ) *MapData`
 
 NewMapData instantiates a new MapData object
 This constructor will assign default values to properties that have it defined,
@@ -142,20 +142,20 @@ SetObjectivePositions sets ObjectivePositions field to given value.
 
 ### GetRadius
 
-`func (o *MapData) GetRadius() int32`
+`func (o *MapData) GetRadius() int64`
 
 GetRadius returns the Radius field if non-nil, zero value otherwise.
 
 ### GetRadiusOk
 
-`func (o *MapData) GetRadiusOk() (*int32, bool)`
+`func (o *MapData) GetRadiusOk() (*int64, bool)`
 
 GetRadiusOk returns a tuple with the Radius field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRadius
 
-`func (o *MapData) SetRadius(v int32)`
+`func (o *MapData) SetRadius(v int64)`
 
 SetRadius sets Radius field to given value.
 

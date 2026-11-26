@@ -44,7 +44,7 @@ namespace DeadlockApiClient.Model
         /// <param name="randomizeLanes">randomizeLanes</param>
         /// <param name="serverRegion">serverRegion</param>
         [JsonConstructor]
-        public CreateCustomRequest(Option<string?> callbackUrl = default, Option<bool?> cheatsEnabled = default, Option<int?> corruptedItemShopSpawnMinutes = default, Option<bool?> disableAutoReady = default, Option<bool?> duplicateHeroesEnabled = default, Option<GameMode?> gameMode = default, Option<bool?> isPubliclyVisible = default, Option<int?> minRosterSize = default, Option<bool?> randomizeLanes = default, Option<ServerRegion?> serverRegion = default)
+        public CreateCustomRequest(Option<string?> callbackUrl = default, Option<bool?> cheatsEnabled = default, Option<long?> corruptedItemShopSpawnMinutes = default, Option<bool?> disableAutoReady = default, Option<bool?> duplicateHeroesEnabled = default, Option<GameMode?> gameMode = default, Option<bool?> isPubliclyVisible = default, Option<int?> minRosterSize = default, Option<bool?> randomizeLanes = default, Option<ServerRegion?> serverRegion = default)
         {
             CallbackUrlOption = callbackUrl;
             CheatsEnabledOption = cheatsEnabled;
@@ -119,14 +119,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> CorruptedItemShopSpawnMinutesOption { get; private set; }
+        public Option<long?> CorruptedItemShopSpawnMinutesOption { get; private set; }
 
         /// <summary>
         /// Minute of the match at which the Broker&#39;s corrupted item shop first spawns.
         /// </summary>
         /// <value>Minute of the match at which the Broker&#39;s corrupted item shop first spawns.</value>
         [JsonPropertyName("corrupted_item_shop_spawn_minutes")]
-        public int? CorruptedItemShopSpawnMinutes { get { return this.CorruptedItemShopSpawnMinutesOption.Value; } set { this.CorruptedItemShopSpawnMinutesOption = new(value); } }
+        public long? CorruptedItemShopSpawnMinutes { get { return this.CorruptedItemShopSpawnMinutesOption.Value; } set { this.CorruptedItemShopSpawnMinutesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DisableAutoReady
@@ -223,8 +223,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CorruptedItemShopSpawnMinutes (int) minimum
-            if (this.CorruptedItemShopSpawnMinutesOption.IsSet && this.CorruptedItemShopSpawnMinutesOption.Value < (int)0)
+            // CorruptedItemShopSpawnMinutes (long) maximum
+            if (this.CorruptedItemShopSpawnMinutesOption.IsSet && this.CorruptedItemShopSpawnMinutesOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CorruptedItemShopSpawnMinutes, must be a value less than or equal to 4294967295.", new [] { "CorruptedItemShopSpawnMinutes" });
+            }
+
+            // CorruptedItemShopSpawnMinutes (long) minimum
+            if (this.CorruptedItemShopSpawnMinutesOption.IsSet && this.CorruptedItemShopSpawnMinutesOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CorruptedItemShopSpawnMinutes, must be a value greater than or equal to 0.", new [] { "CorruptedItemShopSpawnMinutes" });
             }
@@ -279,7 +285,7 @@ namespace DeadlockApiClient.Model
 
             Option<string?> callbackUrl = default;
             Option<bool?> cheatsEnabled = default;
-            Option<int?> corruptedItemShopSpawnMinutes = default;
+            Option<long?> corruptedItemShopSpawnMinutes = default;
             Option<bool?> disableAutoReady = default;
             Option<bool?> duplicateHeroesEnabled = default;
             Option<GameMode?> gameMode = default;
@@ -310,7 +316,7 @@ namespace DeadlockApiClient.Model
                             cheatsEnabled = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "corrupted_item_shop_spawn_minutes":
-                            corruptedItemShopSpawnMinutes = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            corruptedItemShopSpawnMinutes = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "disable_auto_ready":
                             disableAutoReady = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());

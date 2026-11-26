@@ -32,8 +32,8 @@ class ItemStats(BaseModel):
     avg_buy_time_s: Union[StrictFloat, StrictInt] = Field(description="Average buy time in seconds (absolute)")
     avg_sell_time_relative: Union[StrictFloat, StrictInt] = Field(description="Average sell time as percentage of match duration (for items that were sold)")
     avg_sell_time_s: Union[StrictFloat, StrictInt] = Field(description="Average sell time in seconds (absolute, for items that were sold)")
-    bucket: Annotated[int, Field(strict=True, ge=0)]
-    item_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/items>")
+    bucket: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
+    item_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/items>")
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
     players: Annotated[int, Field(strict=True, ge=0)]

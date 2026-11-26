@@ -56,7 +56,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task GetMapAsyncTest()
         {
-            Client.Option<int?> clientVersion = default!;
+            Client.Option<long?> clientVersion = default!;
             var response = await _instance.GetMapAsync(clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.MapData>(model);

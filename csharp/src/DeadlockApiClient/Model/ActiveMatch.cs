@@ -58,7 +58,7 @@ namespace DeadlockApiClient.Model
         /// <param name="winningTeam">winningTeam</param>
         /// <param name="winningTeamParsed">winningTeamParsed</param>
         [JsonConstructor]
-        public ActiveMatch(List<ActiveMatchPlayer> players, List<ActiveMatchTeamStats> teamStats, Option<int?> compatVersion = default, Option<int?> durationS = default, Option<int?> gameMode = default, Option<ActiveMatchGameMode?> gameModeParsed = default, Option<int?> gameModeVersion = default, Option<long?> lobbyId = default, Option<bool?> lowPriPool = default, Option<long?> matchId = default, Option<int?> matchMode = default, Option<ActiveMatchMode?> matchModeParsed = default, Option<int?> matchScore = default, Option<int?> netWorthTeam0 = default, Option<int?> netWorthTeam1 = default, Option<long?> objectivesMaskTeam0 = default, Option<long?> objectivesMaskTeam1 = default, Option<int?> openSpectatorSlots = default, Option<int?> regionMode = default, Option<RegionMode?> regionModeParsed = default, Option<int?> spectators = default, Option<int?> startTime = default, Option<int?> winningTeam = default, Option<ActiveMatchTeam?> winningTeamParsed = default)
+        public ActiveMatch(List<ActiveMatchPlayer> players, List<ActiveMatchTeamStats> teamStats, Option<long?> compatVersion = default, Option<long?> durationS = default, Option<int?> gameMode = default, Option<ActiveMatchGameMode?> gameModeParsed = default, Option<long?> gameModeVersion = default, Option<long?> lobbyId = default, Option<bool?> lowPriPool = default, Option<long?> matchId = default, Option<int?> matchMode = default, Option<ActiveMatchMode?> matchModeParsed = default, Option<long?> matchScore = default, Option<long?> netWorthTeam0 = default, Option<long?> netWorthTeam1 = default, Option<long?> objectivesMaskTeam0 = default, Option<long?> objectivesMaskTeam1 = default, Option<long?> openSpectatorSlots = default, Option<int?> regionMode = default, Option<RegionMode?> regionModeParsed = default, Option<long?> spectators = default, Option<long?> startTime = default, Option<int?> winningTeam = default, Option<ActiveMatchTeam?> winningTeamParsed = default)
         {
             Players = players;
             TeamStats = teamStats;
@@ -158,26 +158,26 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> CompatVersionOption { get; private set; }
+        public Option<long?> CompatVersionOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets CompatVersion
         /// </summary>
         [JsonPropertyName("compat_version")]
-        public int? CompatVersion { get { return this.CompatVersionOption.Value; } set { this.CompatVersionOption = new(value); } }
+        public long? CompatVersion { get { return this.CompatVersionOption.Value; } set { this.CompatVersionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DurationS
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> DurationSOption { get; private set; }
+        public Option<long?> DurationSOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets DurationS
         /// </summary>
         [JsonPropertyName("duration_s")]
-        public int? DurationS { get { return this.DurationSOption.Value; } set { this.DurationSOption = new(value); } }
+        public long? DurationS { get { return this.DurationSOption.Value; } set { this.DurationSOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of GameMode
@@ -197,13 +197,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> GameModeVersionOption { get; private set; }
+        public Option<long?> GameModeVersionOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets GameModeVersion
         /// </summary>
         [JsonPropertyName("game_mode_version")]
-        public int? GameModeVersion { get { return this.GameModeVersionOption.Value; } set { this.GameModeVersionOption = new(value); } }
+        public long? GameModeVersion { get { return this.GameModeVersionOption.Value; } set { this.GameModeVersionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LobbyId
@@ -262,39 +262,39 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> MatchScoreOption { get; private set; }
+        public Option<long?> MatchScoreOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets MatchScore
         /// </summary>
         [JsonPropertyName("match_score")]
-        public int? MatchScore { get { return this.MatchScoreOption.Value; } set { this.MatchScoreOption = new(value); } }
+        public long? MatchScore { get { return this.MatchScoreOption.Value; } set { this.MatchScoreOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NetWorthTeam0
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> NetWorthTeam0Option { get; private set; }
+        public Option<long?> NetWorthTeam0Option { get; private set; }
 
         /// <summary>
         /// Gets or Sets NetWorthTeam0
         /// </summary>
         [JsonPropertyName("net_worth_team_0")]
-        public int? NetWorthTeam0 { get { return this.NetWorthTeam0Option.Value; } set { this.NetWorthTeam0Option = new(value); } }
+        public long? NetWorthTeam0 { get { return this.NetWorthTeam0Option.Value; } set { this.NetWorthTeam0Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of NetWorthTeam1
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> NetWorthTeam1Option { get; private set; }
+        public Option<long?> NetWorthTeam1Option { get; private set; }
 
         /// <summary>
         /// Gets or Sets NetWorthTeam1
         /// </summary>
         [JsonPropertyName("net_worth_team_1")]
-        public int? NetWorthTeam1 { get { return this.NetWorthTeam1Option.Value; } set { this.NetWorthTeam1Option = new(value); } }
+        public long? NetWorthTeam1 { get { return this.NetWorthTeam1Option.Value; } set { this.NetWorthTeam1Option = new(value); } }
 
         /// <summary>
         /// Used to track the state of ObjectivesMaskTeam0
@@ -327,13 +327,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> OpenSpectatorSlotsOption { get; private set; }
+        public Option<long?> OpenSpectatorSlotsOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets OpenSpectatorSlots
         /// </summary>
         [JsonPropertyName("open_spectator_slots")]
-        public int? OpenSpectatorSlots { get { return this.OpenSpectatorSlotsOption.Value; } set { this.OpenSpectatorSlotsOption = new(value); } }
+        public long? OpenSpectatorSlots { get { return this.OpenSpectatorSlotsOption.Value; } set { this.OpenSpectatorSlotsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of RegionMode
@@ -353,26 +353,26 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> SpectatorsOption { get; private set; }
+        public Option<long?> SpectatorsOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Spectators
         /// </summary>
         [JsonPropertyName("spectators")]
-        public int? Spectators { get { return this.SpectatorsOption.Value; } set { this.SpectatorsOption = new(value); } }
+        public long? Spectators { get { return this.SpectatorsOption.Value; } set { this.SpectatorsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StartTime
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> StartTimeOption { get; private set; }
+        public Option<long?> StartTimeOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets StartTime
         /// </summary>
         [JsonPropertyName("start_time")]
-        public int? StartTime { get { return this.StartTimeOption.Value; } set { this.StartTimeOption = new(value); } }
+        public long? StartTime { get { return this.StartTimeOption.Value; } set { this.StartTimeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of WinningTeam
@@ -430,20 +430,38 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CompatVersion (int) minimum
-            if (this.CompatVersionOption.IsSet && this.CompatVersionOption.Value < (int)0)
+            // CompatVersion (long) maximum
+            if (this.CompatVersionOption.IsSet && this.CompatVersionOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompatVersion, must be a value less than or equal to 4294967295.", new [] { "CompatVersion" });
+            }
+
+            // CompatVersion (long) minimum
+            if (this.CompatVersionOption.IsSet && this.CompatVersionOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompatVersion, must be a value greater than or equal to 0.", new [] { "CompatVersion" });
             }
 
-            // DurationS (int) minimum
-            if (this.DurationSOption.IsSet && this.DurationSOption.Value < (int)0)
+            // DurationS (long) maximum
+            if (this.DurationSOption.IsSet && this.DurationSOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DurationS, must be a value less than or equal to 4294967295.", new [] { "DurationS" });
+            }
+
+            // DurationS (long) minimum
+            if (this.DurationSOption.IsSet && this.DurationSOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DurationS, must be a value greater than or equal to 0.", new [] { "DurationS" });
             }
 
-            // GameModeVersion (int) minimum
-            if (this.GameModeVersionOption.IsSet && this.GameModeVersionOption.Value < (int)0)
+            // GameModeVersion (long) maximum
+            if (this.GameModeVersionOption.IsSet && this.GameModeVersionOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GameModeVersion, must be a value less than or equal to 4294967295.", new [] { "GameModeVersion" });
+            }
+
+            // GameModeVersion (long) minimum
+            if (this.GameModeVersionOption.IsSet && this.GameModeVersionOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GameModeVersion, must be a value greater than or equal to 0.", new [] { "GameModeVersion" });
             }
@@ -460,20 +478,38 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
-            // MatchScore (int) minimum
-            if (this.MatchScoreOption.IsSet && this.MatchScoreOption.Value < (int)0)
+            // MatchScore (long) maximum
+            if (this.MatchScoreOption.IsSet && this.MatchScoreOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchScore, must be a value less than or equal to 4294967295.", new [] { "MatchScore" });
+            }
+
+            // MatchScore (long) minimum
+            if (this.MatchScoreOption.IsSet && this.MatchScoreOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchScore, must be a value greater than or equal to 0.", new [] { "MatchScore" });
             }
 
-            // NetWorthTeam0 (int) minimum
-            if (this.NetWorthTeam0Option.IsSet && this.NetWorthTeam0Option.Value < (int)0)
+            // NetWorthTeam0 (long) maximum
+            if (this.NetWorthTeam0Option.IsSet && this.NetWorthTeam0Option.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorthTeam0, must be a value less than or equal to 4294967295.", new [] { "NetWorthTeam0" });
+            }
+
+            // NetWorthTeam0 (long) minimum
+            if (this.NetWorthTeam0Option.IsSet && this.NetWorthTeam0Option.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorthTeam0, must be a value greater than or equal to 0.", new [] { "NetWorthTeam0" });
             }
 
-            // NetWorthTeam1 (int) minimum
-            if (this.NetWorthTeam1Option.IsSet && this.NetWorthTeam1Option.Value < (int)0)
+            // NetWorthTeam1 (long) maximum
+            if (this.NetWorthTeam1Option.IsSet && this.NetWorthTeam1Option.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorthTeam1, must be a value less than or equal to 4294967295.", new [] { "NetWorthTeam1" });
+            }
+
+            // NetWorthTeam1 (long) minimum
+            if (this.NetWorthTeam1Option.IsSet && this.NetWorthTeam1Option.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorthTeam1, must be a value greater than or equal to 0.", new [] { "NetWorthTeam1" });
             }
@@ -490,20 +526,38 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObjectivesMaskTeam1, must be a value greater than or equal to 0.", new [] { "ObjectivesMaskTeam1" });
             }
 
-            // OpenSpectatorSlots (int) minimum
-            if (this.OpenSpectatorSlotsOption.IsSet && this.OpenSpectatorSlotsOption.Value < (int)0)
+            // OpenSpectatorSlots (long) maximum
+            if (this.OpenSpectatorSlotsOption.IsSet && this.OpenSpectatorSlotsOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OpenSpectatorSlots, must be a value less than or equal to 4294967295.", new [] { "OpenSpectatorSlots" });
+            }
+
+            // OpenSpectatorSlots (long) minimum
+            if (this.OpenSpectatorSlotsOption.IsSet && this.OpenSpectatorSlotsOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OpenSpectatorSlots, must be a value greater than or equal to 0.", new [] { "OpenSpectatorSlots" });
             }
 
-            // Spectators (int) minimum
-            if (this.SpectatorsOption.IsSet && this.SpectatorsOption.Value < (int)0)
+            // Spectators (long) maximum
+            if (this.SpectatorsOption.IsSet && this.SpectatorsOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Spectators, must be a value less than or equal to 4294967295.", new [] { "Spectators" });
+            }
+
+            // Spectators (long) minimum
+            if (this.SpectatorsOption.IsSet && this.SpectatorsOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Spectators, must be a value greater than or equal to 0.", new [] { "Spectators" });
             }
 
-            // StartTime (int) minimum
-            if (this.StartTimeOption.IsSet && this.StartTimeOption.Value < (int)0)
+            // StartTime (long) maximum
+            if (this.StartTimeOption.IsSet && this.StartTimeOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value less than or equal to 4294967295.", new [] { "StartTime" });
+            }
+
+            // StartTime (long) minimum
+            if (this.StartTimeOption.IsSet && this.StartTimeOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
             }
@@ -546,26 +600,26 @@ namespace DeadlockApiClient.Model
 
             Option<List<ActiveMatchPlayer>?> players = default;
             Option<List<ActiveMatchTeamStats>?> teamStats = default;
-            Option<int?> compatVersion = default;
-            Option<int?> durationS = default;
+            Option<long?> compatVersion = default;
+            Option<long?> durationS = default;
             Option<int?> gameMode = default;
             Option<ActiveMatchGameMode?> gameModeParsed = default;
-            Option<int?> gameModeVersion = default;
+            Option<long?> gameModeVersion = default;
             Option<long?> lobbyId = default;
             Option<bool?> lowPriPool = default;
             Option<long?> matchId = default;
             Option<int?> matchMode = default;
             Option<ActiveMatchMode?> matchModeParsed = default;
-            Option<int?> matchScore = default;
-            Option<int?> netWorthTeam0 = default;
-            Option<int?> netWorthTeam1 = default;
+            Option<long?> matchScore = default;
+            Option<long?> netWorthTeam0 = default;
+            Option<long?> netWorthTeam1 = default;
             Option<long?> objectivesMaskTeam0 = default;
             Option<long?> objectivesMaskTeam1 = default;
-            Option<int?> openSpectatorSlots = default;
+            Option<long?> openSpectatorSlots = default;
             Option<int?> regionMode = default;
             Option<RegionMode?> regionModeParsed = default;
-            Option<int?> spectators = default;
-            Option<int?> startTime = default;
+            Option<long?> spectators = default;
+            Option<long?> startTime = default;
             Option<int?> winningTeam = default;
             Option<ActiveMatchTeam?> winningTeamParsed = default;
 
@@ -591,10 +645,10 @@ namespace DeadlockApiClient.Model
                             teamStats = new Option<List<ActiveMatchTeamStats>?>(JsonSerializer.Deserialize<List<ActiveMatchTeamStats>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "compat_version":
-                            compatVersion = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            compatVersion = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "duration_s":
-                            durationS = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            durationS = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "game_mode":
                             gameMode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -603,7 +657,7 @@ namespace DeadlockApiClient.Model
                             gameModeParsed = new Option<ActiveMatchGameMode?>(JsonSerializer.Deserialize<ActiveMatchGameMode?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "game_mode_version":
-                            gameModeVersion = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            gameModeVersion = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "lobby_id":
                             lobbyId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -621,13 +675,13 @@ namespace DeadlockApiClient.Model
                             matchModeParsed = new Option<ActiveMatchMode?>(JsonSerializer.Deserialize<ActiveMatchMode?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "match_score":
-                            matchScore = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            matchScore = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "net_worth_team_0":
-                            netWorthTeam0 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            netWorthTeam0 = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "net_worth_team_1":
-                            netWorthTeam1 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            netWorthTeam1 = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "objectives_mask_team0":
                             objectivesMaskTeam0 = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -636,7 +690,7 @@ namespace DeadlockApiClient.Model
                             objectivesMaskTeam1 = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "open_spectator_slots":
-                            openSpectatorSlots = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            openSpectatorSlots = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "region_mode":
                             regionMode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -645,10 +699,10 @@ namespace DeadlockApiClient.Model
                             regionModeParsed = new Option<RegionMode?>(JsonSerializer.Deserialize<RegionMode?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "spectators":
-                            spectators = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            spectators = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "start_time":
-                            startTime = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            startTime = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "winning_team":
                             winningTeam = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());

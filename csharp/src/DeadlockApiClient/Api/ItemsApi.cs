@@ -50,7 +50,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemApiResponse"/>&gt;</returns>
-        Task<IGetItemApiResponse> GetItemAsync(string idOrClassName, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetItemApiResponse> GetItemAsync(string idOrClassName, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Item
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemApiResponse"/>?&gt;</returns>
-        Task<IGetItemApiResponse?> GetItemOrDefaultAsync(string idOrClassName, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetItemApiResponse?> GetItemOrDefaultAsync(string idOrClassName, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Items By Hero
@@ -77,7 +77,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsByHeroIdApiResponse"/>&gt;</returns>
-        Task<IGetItemsByHeroIdApiResponse> GetItemsByHeroIdAsync(int id, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetItemsByHeroIdApiResponse> GetItemsByHeroIdAsync(long id, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Items By Hero
@@ -90,7 +90,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsByHeroIdApiResponse"/>?&gt;</returns>
-        Task<IGetItemsByHeroIdApiResponse?> GetItemsByHeroIdOrDefaultAsync(int id, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetItemsByHeroIdApiResponse?> GetItemsByHeroIdOrDefaultAsync(long id, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Items By Slot Type
@@ -104,7 +104,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsBySlotTypeApiResponse"/>&gt;</returns>
-        Task<IGetItemsBySlotTypeApiResponse> GetItemsBySlotTypeAsync(ItemSlotType slotType, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetItemsBySlotTypeApiResponse> GetItemsBySlotTypeAsync(ItemSlotType slotType, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Items By Slot Type
@@ -117,7 +117,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsBySlotTypeApiResponse"/>?&gt;</returns>
-        Task<IGetItemsBySlotTypeApiResponse?> GetItemsBySlotTypeOrDefaultAsync(ItemSlotType slotType, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetItemsBySlotTypeApiResponse?> GetItemsBySlotTypeOrDefaultAsync(ItemSlotType slotType, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Items By Type
@@ -131,7 +131,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsByTypeApiResponse"/>&gt;</returns>
-        Task<IGetItemsByTypeApiResponse> GetItemsByTypeAsync(ItemType type, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetItemsByTypeApiResponse> GetItemsByTypeAsync(ItemType type, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Items By Type
@@ -144,7 +144,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsByTypeApiResponse"/>?&gt;</returns>
-        Task<IGetItemsByTypeApiResponse?> GetItemsByTypeOrDefaultAsync(ItemType type, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetItemsByTypeApiResponse?> GetItemsByTypeOrDefaultAsync(ItemType type, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Items
@@ -157,7 +157,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListItemsApiResponse"/>&gt;</returns>
-        Task<IListItemsApiResponse> ListItemsAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListItemsApiResponse> ListItemsAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Items
@@ -169,7 +169,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListItemsApiResponse"/>?&gt;</returns>
-        Task<IListItemsApiResponse?> ListItemsOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListItemsApiResponse?> ListItemsOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -397,7 +397,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetItem(ref string idOrClassName, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetItem(ref string idOrClassName, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -417,7 +417,7 @@ namespace DeadlockApiClient.Api
         /// <param name="idOrClassName"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetItemDefaultImplementation(IGetItemApiResponse apiResponseLocalVar, string idOrClassName, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetItemDefaultImplementation(IGetItemApiResponse apiResponseLocalVar, string idOrClassName, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetItem(ref suppressDefaultLog, apiResponseLocalVar, idOrClassName, language, clientVersion);
@@ -433,7 +433,7 @@ namespace DeadlockApiClient.Api
         /// <param name="idOrClassName"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetItem(ref bool suppressDefaultLog, IGetItemApiResponse apiResponseLocalVar, string idOrClassName, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetItem(ref bool suppressDefaultLog, IGetItemApiResponse apiResponseLocalVar, string idOrClassName, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -444,7 +444,7 @@ namespace DeadlockApiClient.Api
         /// <param name="idOrClassName"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetItemDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassName, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetItemDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassName, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetItem(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, idOrClassName, language, clientVersion);
@@ -462,7 +462,7 @@ namespace DeadlockApiClient.Api
         /// <param name="idOrClassName"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetItem(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassName, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetItem(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassName, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Item 
@@ -472,7 +472,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemApiResponse"/>&gt;</returns>
-        public async Task<IGetItemApiResponse?> GetItemOrDefaultAsync(string idOrClassName, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetItemApiResponse?> GetItemOrDefaultAsync(string idOrClassName, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -493,7 +493,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemApiResponse"/>&gt;</returns>
-        public async Task<IGetItemApiResponse> GetItemAsync(string idOrClassName, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetItemApiResponse> GetItemAsync(string idOrClassName, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -678,7 +678,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetItemsByHeroId(ref int id, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetItemsByHeroId(ref long id, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -687,7 +687,7 @@ namespace DeadlockApiClient.Api
         /// <param name="id"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetItemsByHeroIdDefaultImplementation(IGetItemsByHeroIdApiResponse apiResponseLocalVar, int id, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetItemsByHeroIdDefaultImplementation(IGetItemsByHeroIdApiResponse apiResponseLocalVar, long id, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetItemsByHeroId(ref suppressDefaultLog, apiResponseLocalVar, id, language, clientVersion);
@@ -703,7 +703,7 @@ namespace DeadlockApiClient.Api
         /// <param name="id"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetItemsByHeroId(ref bool suppressDefaultLog, IGetItemsByHeroIdApiResponse apiResponseLocalVar, int id, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetItemsByHeroId(ref bool suppressDefaultLog, IGetItemsByHeroIdApiResponse apiResponseLocalVar, long id, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -714,7 +714,7 @@ namespace DeadlockApiClient.Api
         /// <param name="id"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetItemsByHeroIdDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int id, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetItemsByHeroIdDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetItemsByHeroId(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, language, clientVersion);
@@ -732,7 +732,7 @@ namespace DeadlockApiClient.Api
         /// <param name="id"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetItemsByHeroId(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int id, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetItemsByHeroId(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// List Items By Hero Hero-bound abilities, excluding the generic movement abilities.
@@ -742,7 +742,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsByHeroIdApiResponse"/>&gt;</returns>
-        public async Task<IGetItemsByHeroIdApiResponse?> GetItemsByHeroIdOrDefaultAsync(int id, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetItemsByHeroIdApiResponse?> GetItemsByHeroIdOrDefaultAsync(long id, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -763,7 +763,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsByHeroIdApiResponse"/>&gt;</returns>
-        public async Task<IGetItemsByHeroIdApiResponse> GetItemsByHeroIdAsync(int id, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetItemsByHeroIdApiResponse> GetItemsByHeroIdAsync(long id, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -940,7 +940,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetItemsBySlotType(ref ItemSlotType slotType, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetItemsBySlotType(ref ItemSlotType slotType, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -949,7 +949,7 @@ namespace DeadlockApiClient.Api
         /// <param name="slotType"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetItemsBySlotTypeDefaultImplementation(IGetItemsBySlotTypeApiResponse apiResponseLocalVar, ItemSlotType slotType, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetItemsBySlotTypeDefaultImplementation(IGetItemsBySlotTypeApiResponse apiResponseLocalVar, ItemSlotType slotType, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetItemsBySlotType(ref suppressDefaultLog, apiResponseLocalVar, slotType, language, clientVersion);
@@ -965,7 +965,7 @@ namespace DeadlockApiClient.Api
         /// <param name="slotType"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetItemsBySlotType(ref bool suppressDefaultLog, IGetItemsBySlotTypeApiResponse apiResponseLocalVar, ItemSlotType slotType, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetItemsBySlotType(ref bool suppressDefaultLog, IGetItemsBySlotTypeApiResponse apiResponseLocalVar, ItemSlotType slotType, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -976,7 +976,7 @@ namespace DeadlockApiClient.Api
         /// <param name="slotType"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetItemsBySlotTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, ItemSlotType slotType, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetItemsBySlotTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, ItemSlotType slotType, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetItemsBySlotType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, slotType, language, clientVersion);
@@ -994,7 +994,7 @@ namespace DeadlockApiClient.Api
         /// <param name="slotType"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetItemsBySlotType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, ItemSlotType slotType, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetItemsBySlotType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, ItemSlotType slotType, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// List Items By Slot Type 
@@ -1004,7 +1004,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsBySlotTypeApiResponse"/>&gt;</returns>
-        public async Task<IGetItemsBySlotTypeApiResponse?> GetItemsBySlotTypeOrDefaultAsync(ItemSlotType slotType, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetItemsBySlotTypeApiResponse?> GetItemsBySlotTypeOrDefaultAsync(ItemSlotType slotType, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -1025,7 +1025,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsBySlotTypeApiResponse"/>&gt;</returns>
-        public async Task<IGetItemsBySlotTypeApiResponse> GetItemsBySlotTypeAsync(ItemSlotType slotType, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetItemsBySlotTypeApiResponse> GetItemsBySlotTypeAsync(ItemSlotType slotType, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1202,7 +1202,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetItemsByType(ref ItemType type, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetItemsByType(ref ItemType type, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -1211,7 +1211,7 @@ namespace DeadlockApiClient.Api
         /// <param name="type"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetItemsByTypeDefaultImplementation(IGetItemsByTypeApiResponse apiResponseLocalVar, ItemType type, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetItemsByTypeDefaultImplementation(IGetItemsByTypeApiResponse apiResponseLocalVar, ItemType type, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetItemsByType(ref suppressDefaultLog, apiResponseLocalVar, type, language, clientVersion);
@@ -1227,7 +1227,7 @@ namespace DeadlockApiClient.Api
         /// <param name="type"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetItemsByType(ref bool suppressDefaultLog, IGetItemsByTypeApiResponse apiResponseLocalVar, ItemType type, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetItemsByType(ref bool suppressDefaultLog, IGetItemsByTypeApiResponse apiResponseLocalVar, ItemType type, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1238,7 +1238,7 @@ namespace DeadlockApiClient.Api
         /// <param name="type"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetItemsByTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, ItemType type, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetItemsByTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, ItemType type, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetItemsByType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, type, language, clientVersion);
@@ -1256,7 +1256,7 @@ namespace DeadlockApiClient.Api
         /// <param name="type"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetItemsByType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, ItemType type, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetItemsByType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, ItemType type, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// List Items By Type 
@@ -1266,7 +1266,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsByTypeApiResponse"/>&gt;</returns>
-        public async Task<IGetItemsByTypeApiResponse?> GetItemsByTypeOrDefaultAsync(ItemType type, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetItemsByTypeApiResponse?> GetItemsByTypeOrDefaultAsync(ItemType type, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -1287,7 +1287,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetItemsByTypeApiResponse"/>&gt;</returns>
-        public async Task<IGetItemsByTypeApiResponse> GetItemsByTypeAsync(ItemType type, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetItemsByTypeApiResponse> GetItemsByTypeAsync(ItemType type, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1464,7 +1464,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListItems(ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatListItems(ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -1472,7 +1472,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterListItemsDefaultImplementation(IListItemsApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void AfterListItemsDefaultImplementation(IListItemsApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterListItems(ref suppressDefaultLog, apiResponseLocalVar, language, clientVersion);
@@ -1487,7 +1487,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterListItems(ref bool suppressDefaultLog, IListItemsApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterListItems(ref bool suppressDefaultLog, IListItemsApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1497,7 +1497,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorListItemsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorListItemsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorListItems(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, language, clientVersion);
@@ -1514,7 +1514,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorListItems(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorListItems(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// List Items Returns the full per-patch item list — abilities, weapons, and upgrades.
@@ -1523,7 +1523,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListItemsApiResponse"/>&gt;</returns>
-        public async Task<IListItemsApiResponse?> ListItemsOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListItemsApiResponse?> ListItemsOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -1543,7 +1543,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListItemsApiResponse"/>&gt;</returns>
-        public async Task<IListItemsApiResponse> ListItemsAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListItemsApiResponse> ListItemsAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

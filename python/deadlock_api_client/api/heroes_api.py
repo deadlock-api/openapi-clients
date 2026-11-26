@@ -41,9 +41,9 @@ class HeroesApi:
     @validate_call
     def get_hero(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="Hero id (`m_HeroID`)")],
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Hero id (`m_HeroID`)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -118,9 +118,9 @@ class HeroesApi:
     @validate_call
     def get_hero_with_http_info(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="Hero id (`m_HeroID`)")],
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Hero id (`m_HeroID`)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -195,9 +195,9 @@ class HeroesApi:
     @validate_call
     def get_hero_without_preload_content(
         self,
-        hero_id: Annotated[int, Field(strict=True, ge=0, description="Hero id (`m_HeroID`)")],
+        hero_id: Annotated[int, Field(le=4294967295, strict=True, ge=0, description="Hero id (`m_HeroID`)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -343,7 +343,7 @@ class HeroesApi:
         self,
         name: Annotated[StrictStr, Field(description="Hero class name (e.g. `hero_atlas`) or short name (e.g. `atlas`)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -420,7 +420,7 @@ class HeroesApi:
         self,
         name: Annotated[StrictStr, Field(description="Hero class name (e.g. `hero_atlas`) or short name (e.g. `atlas`)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -497,7 +497,7 @@ class HeroesApi:
         self,
         name: Annotated[StrictStr, Field(description="Hero class name (e.g. `hero_atlas`) or short name (e.g. `atlas`)")],
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -642,7 +642,7 @@ class HeroesApi:
     def list_heroes(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         only_active: Annotated[Optional[StrictBool], Field(description="When true, hides heroes that aren't player-selectable or are disabled / in-development.")] = None,
         _request_timeout: Union[
             None,
@@ -719,7 +719,7 @@ class HeroesApi:
     def list_heroes_with_http_info(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         only_active: Annotated[Optional[StrictBool], Field(description="When true, hides heroes that aren't player-selectable or are disabled / in-development.")] = None,
         _request_timeout: Union[
             None,
@@ -796,7 +796,7 @@ class HeroesApi:
     def list_heroes_without_preload_content(
         self,
         language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
-        client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
+        client_version: Annotated[Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         only_active: Annotated[Optional[StrictBool], Field(description="When true, hides heroes that aren't player-selectable or are disabled / in-development.")] = None,
         _request_timeout: Union[
             None,

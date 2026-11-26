@@ -21,10 +21,10 @@ var _ MappedNullable = &ClickhouseSalts{}
 
 // ClickhouseSalts struct for ClickhouseSalts
 type ClickhouseSalts struct {
-	ClusterId NullableInt32 `json:"cluster_id,omitempty"`
+	ClusterId NullableInt64 `json:"cluster_id,omitempty"`
 	MatchId int64 `json:"match_id"`
-	MetadataSalt NullableInt32 `json:"metadata_salt,omitempty"`
-	ReplaySalt NullableInt32 `json:"replay_salt,omitempty"`
+	MetadataSalt NullableInt64 `json:"metadata_salt,omitempty"`
+	ReplaySalt NullableInt64 `json:"replay_salt,omitempty"`
 	Username NullableString `json:"username,omitempty"`
 }
 
@@ -49,9 +49,9 @@ func NewClickhouseSaltsWithDefaults() *ClickhouseSalts {
 }
 
 // GetClusterId returns the ClusterId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ClickhouseSalts) GetClusterId() int32 {
+func (o *ClickhouseSalts) GetClusterId() int64 {
 	if o == nil || IsNil(o.ClusterId.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ClusterId.Get()
@@ -60,7 +60,7 @@ func (o *ClickhouseSalts) GetClusterId() int32 {
 // GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ClickhouseSalts) GetClusterIdOk() (*int32, bool) {
+func (o *ClickhouseSalts) GetClusterIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -76,8 +76,8 @@ func (o *ClickhouseSalts) HasClusterId() bool {
 	return false
 }
 
-// SetClusterId gets a reference to the given NullableInt32 and assigns it to the ClusterId field.
-func (o *ClickhouseSalts) SetClusterId(v int32) {
+// SetClusterId gets a reference to the given NullableInt64 and assigns it to the ClusterId field.
+func (o *ClickhouseSalts) SetClusterId(v int64) {
 	o.ClusterId.Set(&v)
 }
 // SetClusterIdNil sets the value for ClusterId to be an explicit nil
@@ -115,9 +115,9 @@ func (o *ClickhouseSalts) SetMatchId(v int64) {
 }
 
 // GetMetadataSalt returns the MetadataSalt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ClickhouseSalts) GetMetadataSalt() int32 {
+func (o *ClickhouseSalts) GetMetadataSalt() int64 {
 	if o == nil || IsNil(o.MetadataSalt.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.MetadataSalt.Get()
@@ -126,7 +126,7 @@ func (o *ClickhouseSalts) GetMetadataSalt() int32 {
 // GetMetadataSaltOk returns a tuple with the MetadataSalt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ClickhouseSalts) GetMetadataSaltOk() (*int32, bool) {
+func (o *ClickhouseSalts) GetMetadataSaltOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -142,8 +142,8 @@ func (o *ClickhouseSalts) HasMetadataSalt() bool {
 	return false
 }
 
-// SetMetadataSalt gets a reference to the given NullableInt32 and assigns it to the MetadataSalt field.
-func (o *ClickhouseSalts) SetMetadataSalt(v int32) {
+// SetMetadataSalt gets a reference to the given NullableInt64 and assigns it to the MetadataSalt field.
+func (o *ClickhouseSalts) SetMetadataSalt(v int64) {
 	o.MetadataSalt.Set(&v)
 }
 // SetMetadataSaltNil sets the value for MetadataSalt to be an explicit nil
@@ -157,9 +157,9 @@ func (o *ClickhouseSalts) UnsetMetadataSalt() {
 }
 
 // GetReplaySalt returns the ReplaySalt field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ClickhouseSalts) GetReplaySalt() int32 {
+func (o *ClickhouseSalts) GetReplaySalt() int64 {
 	if o == nil || IsNil(o.ReplaySalt.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ReplaySalt.Get()
@@ -168,7 +168,7 @@ func (o *ClickhouseSalts) GetReplaySalt() int32 {
 // GetReplaySaltOk returns a tuple with the ReplaySalt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ClickhouseSalts) GetReplaySaltOk() (*int32, bool) {
+func (o *ClickhouseSalts) GetReplaySaltOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -184,8 +184,8 @@ func (o *ClickhouseSalts) HasReplaySalt() bool {
 	return false
 }
 
-// SetReplaySalt gets a reference to the given NullableInt32 and assigns it to the ReplaySalt field.
-func (o *ClickhouseSalts) SetReplaySalt(v int32) {
+// SetReplaySalt gets a reference to the given NullableInt64 and assigns it to the ReplaySalt field.
+func (o *ClickhouseSalts) SetReplaySalt(v int64) {
 	o.ReplaySalt.Set(&v)
 }
 // SetReplaySaltNil sets the value for ReplaySalt to be an explicit nil

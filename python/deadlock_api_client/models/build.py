@@ -30,11 +30,11 @@ class Build(BaseModel):
     Build
     """ # noqa: E501
     hero_build: BuildHero
-    num_favorites: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    num_ignores: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    num_reports: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    num_weekly_favorites: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    rollup_category: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    num_favorites: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    num_ignores: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    num_reports: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    num_weekly_favorites: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
+    rollup_category: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = None
     __properties: ClassVar[List[str]] = ["hero_build", "num_favorites", "num_ignores", "num_reports", "num_weekly_favorites", "rollup_category"]
 
     model_config = ConfigDict(

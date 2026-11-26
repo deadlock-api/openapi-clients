@@ -72,8 +72,8 @@ class ItemFlowLeaveOneOut implements ModelInterface, ArrayAccess, \JsonSerializa
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'column' => 'int32',
-        'item_id' => 'int32',
+        'column' => 'int64',
+        'item_id' => 'int64',
         'matches' => 'int64',
         'wins' => 'int64'
     ];
@@ -299,6 +299,10 @@ class ItemFlowLeaveOneOut implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['column'] === null) {
             $invalidProperties[] = "'column' can't be null";
         }
+        if (($this->container['column'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'column', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['column'] < 0)) {
             $invalidProperties[] = "invalid value for 'column', must be bigger than or equal to 0.";
         }
@@ -306,6 +310,10 @@ class ItemFlowLeaveOneOut implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['item_id'] === null) {
             $invalidProperties[] = "'item_id' can't be null";
         }
+        if (($this->container['item_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'item_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['item_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'item_id', must be bigger than or equal to 0.";
         }
@@ -361,6 +369,9 @@ class ItemFlowLeaveOneOut implements ModelInterface, ArrayAccess, \JsonSerializa
         if (is_null($column)) {
             throw new \InvalidArgumentException('non-nullable column cannot be null');
         }
+        if (($column > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $column when calling ItemFlowLeaveOneOut., must be smaller than or equal to 4294967295.');
+        }
         if (($column < 0)) {
             throw new \InvalidArgumentException('invalid value for $column when calling ItemFlowLeaveOneOut., must be bigger than or equal to 0.');
         }
@@ -391,6 +402,9 @@ class ItemFlowLeaveOneOut implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         if (is_null($item_id)) {
             throw new \InvalidArgumentException('non-nullable item_id cannot be null');
+        }
+        if (($item_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $item_id when calling ItemFlowLeaveOneOut., must be smaller than or equal to 4294967295.');
         }
         if (($item_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $item_id when calling ItemFlowLeaveOneOut., must be bigger than or equal to 0.');

@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="pickPct">Pick rate in percent (0-100).</param>
         /// <param name="winratePct">Win rate in percent (0-100).</param>
         [JsonConstructor]
-        public HeroPopularItem(string className, int itemId, double pickPct, double winratePct)
+        public HeroPopularItem(string className, long itemId, double pickPct, double winratePct)
         {
             ClassName = className;
             ItemId = itemId;
@@ -60,7 +60,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Item id, derived from &#x60;class_name&#x60; like &#x60;/v2/items&#x60; ids.</value>
         [JsonPropertyName("item_id")]
-        public int ItemId { get; set; }
+        public long ItemId { get; set; }
 
         /// <summary>
         /// Pick rate in percent (0-100).
@@ -99,8 +99,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ItemId (int) minimum
-            if (this.ItemId < (int)0)
+            // ItemId (long) maximum
+            if (this.ItemId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ItemId, must be a value less than or equal to 4294967295.", new [] { "ItemId" });
+            }
+
+            // ItemId (long) minimum
+            if (this.ItemId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ItemId, must be a value greater than or equal to 0.", new [] { "ItemId" });
             }
@@ -142,7 +148,7 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<string?> className = default;
-            Option<int?> itemId = default;
+            Option<long?> itemId = default;
             Option<double?> pickPct = default;
             Option<double?> winratePct = default;
 
@@ -165,7 +171,7 @@ namespace DeadlockApiClient.Model
                             className = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "item_id":
-                            itemId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            itemId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "pick_pct":
                             pickPct = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());

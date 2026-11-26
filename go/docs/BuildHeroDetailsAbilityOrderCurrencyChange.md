@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AbilityId** | **int32** |  | 
+**AbilityId** | **int64** |  | 
 **Annotation** | Pointer to **NullableString** |  | [optional] 
 **CurrencyType** | **int32** |  | 
 **Delta** | **int32** |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewBuildHeroDetailsAbilityOrderCurrencyChange
 
-`func NewBuildHeroDetailsAbilityOrderCurrencyChange(abilityId int32, currencyType int32, delta int32, ) *BuildHeroDetailsAbilityOrderCurrencyChange`
+`func NewBuildHeroDetailsAbilityOrderCurrencyChange(abilityId int64, currencyType int32, delta int32, ) *BuildHeroDetailsAbilityOrderCurrencyChange`
 
 NewBuildHeroDetailsAbilityOrderCurrencyChange instantiates a new BuildHeroDetailsAbilityOrderCurrencyChange object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAbilityId
 
-`func (o *BuildHeroDetailsAbilityOrderCurrencyChange) GetAbilityId() int32`
+`func (o *BuildHeroDetailsAbilityOrderCurrencyChange) GetAbilityId() int64`
 
 GetAbilityId returns the AbilityId field if non-nil, zero value otherwise.
 
 ### GetAbilityIdOk
 
-`func (o *BuildHeroDetailsAbilityOrderCurrencyChange) GetAbilityIdOk() (*int32, bool)`
+`func (o *BuildHeroDetailsAbilityOrderCurrencyChange) GetAbilityIdOk() (*int64, bool)`
 
 GetAbilityIdOk returns a tuple with the AbilityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAbilityId
 
-`func (o *BuildHeroDetailsAbilityOrderCurrencyChange) SetAbilityId(v int32)`
+`func (o *BuildHeroDetailsAbilityOrderCurrencyChange) SetAbilityId(v int64)`
 
 SetAbilityId sets AbilityId field to given value.
 

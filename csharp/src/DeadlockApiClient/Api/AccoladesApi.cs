@@ -50,7 +50,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccoladeApiResponse"/>&gt;</returns>
-        Task<IGetAccoladeApiResponse> GetAccoladeAsync(int accoladeId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAccoladeApiResponse> GetAccoladeAsync(long accoladeId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Accolade
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccoladeApiResponse"/>?&gt;</returns>
-        Task<IGetAccoladeApiResponse?> GetAccoladeOrDefaultAsync(int accoladeId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAccoladeApiResponse?> GetAccoladeOrDefaultAsync(long accoladeId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Accolade By Name
@@ -77,7 +77,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccoladeByNameApiResponse"/>&gt;</returns>
-        Task<IGetAccoladeByNameApiResponse> GetAccoladeByNameAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAccoladeByNameApiResponse> GetAccoladeByNameAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Accolade By Name
@@ -90,7 +90,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccoladeByNameApiResponse"/>?&gt;</returns>
-        Task<IGetAccoladeByNameApiResponse?> GetAccoladeByNameOrDefaultAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAccoladeByNameApiResponse?> GetAccoladeByNameOrDefaultAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Accolades
@@ -103,7 +103,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAccoladesApiResponse"/>&gt;</returns>
-        Task<IListAccoladesApiResponse> ListAccoladesAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListAccoladesApiResponse> ListAccoladesAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Accolades
@@ -115,7 +115,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAccoladesApiResponse"/>?&gt;</returns>
-        Task<IListAccoladesApiResponse?> ListAccoladesOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListAccoladesApiResponse?> ListAccoladesOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -297,7 +297,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetAccolade(ref int accoladeId, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetAccolade(ref long accoladeId, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -306,7 +306,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accoladeId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetAccoladeDefaultImplementation(IGetAccoladeApiResponse apiResponseLocalVar, int accoladeId, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetAccoladeDefaultImplementation(IGetAccoladeApiResponse apiResponseLocalVar, long accoladeId, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetAccolade(ref suppressDefaultLog, apiResponseLocalVar, accoladeId, language, clientVersion);
@@ -322,7 +322,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accoladeId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetAccolade(ref bool suppressDefaultLog, IGetAccoladeApiResponse apiResponseLocalVar, int accoladeId, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetAccolade(ref bool suppressDefaultLog, IGetAccoladeApiResponse apiResponseLocalVar, long accoladeId, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -333,7 +333,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accoladeId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetAccoladeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accoladeId, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetAccoladeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accoladeId, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetAccolade(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accoladeId, language, clientVersion);
@@ -351,7 +351,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accoladeId"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetAccolade(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accoladeId, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetAccolade(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accoladeId, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Accolade Returns a single accolade by id.
@@ -361,7 +361,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccoladeApiResponse"/>&gt;</returns>
-        public async Task<IGetAccoladeApiResponse?> GetAccoladeOrDefaultAsync(int accoladeId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAccoladeApiResponse?> GetAccoladeOrDefaultAsync(long accoladeId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -382,7 +382,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccoladeApiResponse"/>&gt;</returns>
-        public async Task<IGetAccoladeApiResponse> GetAccoladeAsync(int accoladeId, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAccoladeApiResponse> GetAccoladeAsync(long accoladeId, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -571,7 +571,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAccoladeByName(ref string name, ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatGetAccoladeByName(ref string name, ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -591,7 +591,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetAccoladeByNameDefaultImplementation(IGetAccoladeByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<int?> clientVersion)
+        private void AfterGetAccoladeByNameDefaultImplementation(IGetAccoladeByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterGetAccoladeByName(ref suppressDefaultLog, apiResponseLocalVar, name, language, clientVersion);
@@ -607,7 +607,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetAccoladeByName(ref bool suppressDefaultLog, IGetAccoladeByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterGetAccoladeByName(ref bool suppressDefaultLog, IGetAccoladeByNameApiResponse apiResponseLocalVar, string name, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -618,7 +618,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetAccoladeByNameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorGetAccoladeByNameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorGetAccoladeByName(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, name, language, clientVersion);
@@ -636,7 +636,7 @@ namespace DeadlockApiClient.Api
         /// <param name="name"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetAccoladeByName(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorGetAccoladeByName(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Get Accolade By Name Returns a single accolade by &#x60;class_name&#x60; or &#x60;tracked_stat_name&#x60; (case-insensitive).
@@ -646,7 +646,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccoladeByNameApiResponse"/>&gt;</returns>
-        public async Task<IGetAccoladeByNameApiResponse?> GetAccoladeByNameOrDefaultAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAccoladeByNameApiResponse?> GetAccoladeByNameOrDefaultAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -667,7 +667,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccoladeByNameApiResponse"/>&gt;</returns>
-        public async Task<IGetAccoladeByNameApiResponse> GetAccoladeByNameAsync(string name, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAccoladeByNameApiResponse> GetAccoladeByNameAsync(string name, Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -858,7 +858,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListAccolades(ref Option<string?> language, ref Option<int?> clientVersion);
+        partial void FormatListAccolades(ref Option<string?> language, ref Option<long?> clientVersion);
 
         /// <summary>
         /// Processes the server response
@@ -866,7 +866,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterListAccoladesDefaultImplementation(IListAccoladesApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void AfterListAccoladesDefaultImplementation(IListAccoladesApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLog = false;
             AfterListAccolades(ref suppressDefaultLog, apiResponseLocalVar, language, clientVersion);
@@ -881,7 +881,7 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterListAccolades(ref bool suppressDefaultLog, IListAccoladesApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void AfterListAccolades(ref bool suppressDefaultLog, IListAccoladesApiResponse apiResponseLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -891,7 +891,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorListAccoladesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion)
+        private void OnErrorListAccoladesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorListAccolades(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, language, clientVersion);
@@ -908,7 +908,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorListAccolades(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion);
+        partial void OnErrorListAccolades(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<long?> clientVersion);
 
         /// <summary>
         /// List Accolades Returns the per-accolade metadata used by the game client, parsed from the patch&#39;s KV3 source files.
@@ -917,7 +917,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAccoladesApiResponse"/>&gt;</returns>
-        public async Task<IListAccoladesApiResponse?> ListAccoladesOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListAccoladesApiResponse?> ListAccoladesOrDefaultAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -937,7 +937,7 @@ namespace DeadlockApiClient.Api
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAccoladesApiResponse"/>&gt;</returns>
-        public async Task<IListAccoladesApiResponse> ListAccoladesAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListAccoladesApiResponse> ListAccoladesAsync(Option<string?> language = default, Option<long?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 

@@ -68,7 +68,7 @@ data class HeroBuildStats (
 
     /* The bucket value (depends on the bucket query parameter, 0 without one). */
     @Json(name = "bucket")
-    val bucket: kotlin.Int,
+    val bucket: kotlin.Long,
 
     /* The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started. */
     @Json(name = "hero_build_id")

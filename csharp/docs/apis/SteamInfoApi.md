@@ -42,7 +42,7 @@ No authorization required
 
 <a id="getsteaminfo"></a>
 # **GetSteamInfo**
-> SteamInfo GetSteamInfo (int clientVersion = null)
+> SteamInfo GetSteamInfo (long clientVersion = null)
 
 Get Steam Info
 
@@ -53,7 +53,7 @@ Returns the `steam.inf` manifest published with the patch (client/server version
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

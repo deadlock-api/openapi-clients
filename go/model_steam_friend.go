@@ -22,7 +22,7 @@ var _ MappedNullable = &SteamFriend{}
 
 // SteamFriend struct for SteamFriend
 type SteamFriend struct {
-	AccountId int32 `json:"account_id"`
+	AccountId int64 `json:"account_id"`
 	FriendSince time.Time `json:"friend_since"`
 }
 
@@ -32,7 +32,7 @@ type _SteamFriend SteamFriend
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSteamFriend(accountId int32, friendSince time.Time) *SteamFriend {
+func NewSteamFriend(accountId int64, friendSince time.Time) *SteamFriend {
 	this := SteamFriend{}
 	this.AccountId = accountId
 	this.FriendSince = friendSince
@@ -48,9 +48,9 @@ func NewSteamFriendWithDefaults() *SteamFriend {
 }
 
 // GetAccountId returns the AccountId field value
-func (o *SteamFriend) GetAccountId() int32 {
+func (o *SteamFriend) GetAccountId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -59,7 +59,7 @@ func (o *SteamFriend) GetAccountId() int32 {
 
 // GetAccountIdOk returns a tuple with the AccountId field value
 // and a boolean to check if the value has been set.
-func (o *SteamFriend) GetAccountIdOk() (*int32, bool) {
+func (o *SteamFriend) GetAccountIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *SteamFriend) GetAccountIdOk() (*int32, bool) {
 }
 
 // SetAccountId sets field value
-func (o *SteamFriend) SetAccountId(v int32) {
+func (o *SteamFriend) SetAccountId(v int64) {
 	o.AccountId = v
 }
 

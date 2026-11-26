@@ -42,7 +42,7 @@ class PlayerPerformanceCurvePoint(BaseModel):
     deaths_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of deaths at this time point")
     denies_avg: Union[StrictFloat, StrictInt] = Field(description="Average lane creeps denied at this time point")
     denies_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `denies_avg` at this time point")
-    game_time: Annotated[int, Field(strict=True, ge=0)] = Field(description="The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.")
+    game_time: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.")
     game_time_avg: Union[StrictFloat, StrictInt] = Field(description="Where in the match the stats snapshots of this point were taken on average, in the unit of `game_time`. Snapshots are taken every few minutes and at the end of the match, so with `resolution` > 0 a point holds the snapshots from `game_time` up to the next point and this is usually about half a bucket later than `game_time`. Percentages are averaged from whole percents, so they can be off by a few tenths.")
     gold_ability_assassinate_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from the Assassinate ability at this time point")
     gold_ability_assassinate_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `gold_ability_assassinate_avg` at this time point")

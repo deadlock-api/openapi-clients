@@ -29,14 +29,14 @@ class LaneSoulCurve(BaseModel):
     """
     **⚠️ Subject to change:** newly added, fields may change or be removed without notice.
     """ # noqa: E501
-    assigned_lane: Annotated[int, Field(strict=True, ge=0)] = Field(description="The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")
-    enemy_hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair they laned against, or empty when grouped away.")
-    hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    assigned_lane: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The lane the matchup was played in, or `0` when `assigned_lane` was grouped away. See the `lane_info` array of <https://api.deadlock-api.com/v1/assets/generic-data>.")
+    enemy_hero_ids: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(description="The ascending hero id pair they laned against, or empty when grouped away.")
+    hero_ids: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(description="The ascending hero id pair that shared the lane, or empty when grouped away. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     matches_played: Annotated[int, Field(strict=True, ge=0)] = Field(description="Lane matchups behind the row, counted at its *first* sample. This is what `min_matches` and `max_matches` filter on, so it does not move when the requested time range changes; read `sample_matches` for what any individual point rests on.")
     net_worth_diff: List[Union[StrictFloat, StrictInt]] = Field(description="Mean souls the duo is ahead by at the matching entry of `sample_times_s`. Negative means behind. Same length as `sample_times_s`.")
     net_worth_diff_std: List[Union[StrictFloat, StrictInt]] = Field(description="Population standard deviation of the lead across the counted matchups, at the matching entry of `sample_times_s`. Same length as `sample_times_s`.  Spread between individual games, not uncertainty about the mean: it stays wide however many matchups are counted, because lane outcomes genuinely differ that much.")
     sample_matches: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="How many lane matchups were still running at the matching entry of `sample_times_s`. Falls off towards the end of the curve as shorter matches drop out.")
-    sample_times_s: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="Seconds into the match each entry of the curves was sampled at, ascending.")
+    sample_times_s: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(description="Seconds into the match each entry of the curves was sampled at, ascending.")
     stats: Dict[str, LaneStatCurve] = Field(description="A curve per stat named in `stats`. Empty unless the parameter was set.")
     __properties: ClassVar[List[str]] = ["assigned_lane", "enemy_hero_ids", "hero_ids", "matches_played", "net_worth_diff", "net_worth_diff_std", "sample_matches", "sample_times_s", "stats"]
 

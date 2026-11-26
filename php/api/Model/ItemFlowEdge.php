@@ -75,10 +75,10 @@ class ItemFlowEdge implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'from_column' => 'int32',
-        'from_item_id' => 'int32',
+        'from_item_id' => 'int64',
         'losses' => 'int64',
         'matches' => 'int64',
-        'to_item_id' => 'int32',
+        'to_item_id' => 'int64',
         'wins' => 'int64'
     ];
 
@@ -313,6 +313,10 @@ class ItemFlowEdge implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['from_column'] === null) {
             $invalidProperties[] = "'from_column' can't be null";
         }
+        if (($this->container['from_column'] > 255)) {
+            $invalidProperties[] = "invalid value for 'from_column', must be smaller than or equal to 255.";
+        }
+
         if (($this->container['from_column'] < 0)) {
             $invalidProperties[] = "invalid value for 'from_column', must be bigger than or equal to 0.";
         }
@@ -320,6 +324,10 @@ class ItemFlowEdge implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['from_item_id'] === null) {
             $invalidProperties[] = "'from_item_id' can't be null";
         }
+        if (($this->container['from_item_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'from_item_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['from_item_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'from_item_id', must be bigger than or equal to 0.";
         }
@@ -341,6 +349,10 @@ class ItemFlowEdge implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['to_item_id'] === null) {
             $invalidProperties[] = "'to_item_id' can't be null";
         }
+        if (($this->container['to_item_id'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'to_item_id', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['to_item_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'to_item_id', must be bigger than or equal to 0.";
         }
@@ -389,6 +401,9 @@ class ItemFlowEdge implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($from_column)) {
             throw new \InvalidArgumentException('non-nullable from_column cannot be null');
         }
+        if (($from_column > 255)) {
+            throw new \InvalidArgumentException('invalid value for $from_column when calling ItemFlowEdge., must be smaller than or equal to 255.');
+        }
         if (($from_column < 0)) {
             throw new \InvalidArgumentException('invalid value for $from_column when calling ItemFlowEdge., must be bigger than or equal to 0.');
         }
@@ -419,6 +434,9 @@ class ItemFlowEdge implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($from_item_id)) {
             throw new \InvalidArgumentException('non-nullable from_item_id cannot be null');
+        }
+        if (($from_item_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $from_item_id when calling ItemFlowEdge., must be smaller than or equal to 4294967295.');
         }
         if (($from_item_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $from_item_id when calling ItemFlowEdge., must be bigger than or equal to 0.');
@@ -512,6 +530,9 @@ class ItemFlowEdge implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($to_item_id)) {
             throw new \InvalidArgumentException('non-nullable to_item_id cannot be null');
+        }
+        if (($to_item_id > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $to_item_id when calling ItemFlowEdge., must be smaller than or equal to 4294967295.');
         }
         if (($to_item_id < 0)) {
             throw new \InvalidArgumentException('invalid value for $to_item_id when calling ItemFlowEdge., must be bigger than or equal to 0.');

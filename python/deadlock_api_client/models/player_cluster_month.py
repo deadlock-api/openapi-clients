@@ -28,10 +28,10 @@ class PlayerClusterMonth(BaseModel):
     """
     PlayerClusterMonth
     """ # noqa: E501
-    cluster_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The server cluster the matches were played on.")
+    cluster_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The server cluster the matches were played on.")
     datacenter: Optional[StrictStr] = Field(default=None, description="Datacenter(s) of the cluster's servers, e.g. `fra2`; comma-separated if the cluster spans several. `null` if the cluster has not been seen in a replay yet.")
     matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="Number of the player's matches on this cluster in this month.")
-    month: Annotated[int, Field(strict=True, ge=0)] = Field(description="Unix timestamp of the first day of the month (UTC).")
+    month: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="Unix timestamp of the first day of the month (UTC).")
     region: Optional[StrictStr] = Field(default=None, description="Region of the cluster's servers, e.g. `eu_west` or `us_north_central`. `null` if the cluster has not been seen in a replay yet.")
     __properties: ClassVar[List[str]] = ["cluster_id", "datacenter", "matches", "month", "region"]
 

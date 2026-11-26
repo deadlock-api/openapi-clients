@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="region">The region the player played most matches in during their latest month with a known region. &#x60;null&#x60; if none of their matches has a known region.</param>
         /// <param name="regionMonth">Unix timestamp of the month &#x60;region&#x60; was taken from.</param>
         [JsonConstructor]
-        public PlayerRegionResponse(int accountId, List<PlayerClusterMonth> history, Option<string?> region = default, Option<int?> regionMonth = default)
+        public PlayerRegionResponse(long accountId, List<PlayerClusterMonth> history, Option<string?> region = default, Option<long?> regionMonth = default)
         {
             AccountId = accountId;
             History = history;
@@ -53,7 +53,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets AccountId
         /// </summary>
         [JsonPropertyName("account_id")]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Matches per month and server cluster, newest month first.
@@ -81,14 +81,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> RegionMonthOption { get; private set; }
+        public Option<long?> RegionMonthOption { get; private set; }
 
         /// <summary>
         /// Unix timestamp of the month &#x60;region&#x60; was taken from.
         /// </summary>
         /// <value>Unix timestamp of the month &#x60;region&#x60; was taken from.</value>
         [JsonPropertyName("region_month")]
-        public int? RegionMonth { get { return this.RegionMonthOption.Value; } set { this.RegionMonthOption = new(value); } }
+        public long? RegionMonth { get { return this.RegionMonthOption.Value; } set { this.RegionMonthOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -113,14 +113,26 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // AccountId (int) minimum
-            if (this.AccountId < (int)0)
+            // AccountId (long) maximum
+            if (this.AccountId > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value less than or equal to 4294967295.", new [] { "AccountId" });
+            }
+
+            // AccountId (long) minimum
+            if (this.AccountId < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
 
-            // RegionMonth (int) minimum
-            if (this.RegionMonthOption.IsSet && this.RegionMonthOption.Value < (int)0)
+            // RegionMonth (long) maximum
+            if (this.RegionMonthOption.IsSet && this.RegionMonthOption.Value > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RegionMonth, must be a value less than or equal to 4294967295.", new [] { "RegionMonth" });
+            }
+
+            // RegionMonth (long) minimum
+            if (this.RegionMonthOption.IsSet && this.RegionMonthOption.Value < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RegionMonth, must be a value greater than or equal to 0.", new [] { "RegionMonth" });
             }
@@ -161,10 +173,10 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> accountId = default;
+            Option<long?> accountId = default;
             Option<List<PlayerClusterMonth>?> history = default;
             Option<string?> region = default;
-            Option<int?> regionMonth = default;
+            Option<long?> regionMonth = default;
 
             while (utf8JsonReader.Read())
             {
@@ -182,7 +194,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "account_id":
-                            accountId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            accountId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "history":
                             history = new Option<List<PlayerClusterMonth>?>(JsonSerializer.Deserialize<List<PlayerClusterMonth>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -191,7 +203,7 @@ namespace DeadlockApiClient.Model
                             region = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "region_month":
-                            regionMonth = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            regionMonth = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

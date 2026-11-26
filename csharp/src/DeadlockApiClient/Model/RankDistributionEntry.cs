@@ -38,7 +38,7 @@ namespace DeadlockApiClient.Model
         /// <param name="rank">Rank tier.</param>
         /// <param name="subrank">Sub-rank within the tier.</param>
         [JsonConstructor]
-        public RankDistributionEntry(int badge, long players, int rank, int subrank)
+        public RankDistributionEntry(long badge, long players, long rank, long subrank)
         {
             Badge = badge;
             Players = players;
@@ -54,7 +54,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Rank badge, &#x60;tier * 10 + subrank&#x60;. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("badge")]
-        public int Badge { get; set; }
+        public long Badge { get; set; }
 
         /// <summary>
         /// Number of players whose rank at the end of their latest ranked match in the filtered range is this badge.
@@ -68,14 +68,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <value>Rank tier.</value>
         [JsonPropertyName("rank")]
-        public int Rank { get; set; }
+        public long Rank { get; set; }
 
         /// <summary>
         /// Sub-rank within the tier.
         /// </summary>
         /// <value>Sub-rank within the tier.</value>
         [JsonPropertyName("subrank")]
-        public int Subrank { get; set; }
+        public long Subrank { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,8 +100,14 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Badge (int) minimum
-            if (this.Badge < (int)0)
+            // Badge (long) maximum
+            if (this.Badge > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Badge, must be a value less than or equal to 4294967295.", new [] { "Badge" });
+            }
+
+            // Badge (long) minimum
+            if (this.Badge < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Badge, must be a value greater than or equal to 0.", new [] { "Badge" });
             }
@@ -112,14 +118,26 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Players, must be a value greater than or equal to 0.", new [] { "Players" });
             }
 
-            // Rank (int) minimum
-            if (this.Rank < (int)0)
+            // Rank (long) maximum
+            if (this.Rank > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rank, must be a value less than or equal to 4294967295.", new [] { "Rank" });
+            }
+
+            // Rank (long) minimum
+            if (this.Rank < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
             }
 
-            // Subrank (int) minimum
-            if (this.Subrank < (int)0)
+            // Subrank (long) maximum
+            if (this.Subrank > (long)4294967295)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subrank, must be a value less than or equal to 4294967295.", new [] { "Subrank" });
+            }
+
+            // Subrank (long) minimum
+            if (this.Subrank < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subrank, must be a value greater than or equal to 0.", new [] { "Subrank" });
             }
@@ -160,10 +178,10 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> badge = default;
+            Option<long?> badge = default;
             Option<long?> players = default;
-            Option<int?> rank = default;
-            Option<int?> subrank = default;
+            Option<long?> rank = default;
+            Option<long?> subrank = default;
 
             while (utf8JsonReader.Read())
             {
@@ -181,16 +199,16 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "badge":
-                            badge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            badge = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "players":
                             players = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "rank":
-                            rank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            rank = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "subrank":
-                            subrank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            subrank = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;

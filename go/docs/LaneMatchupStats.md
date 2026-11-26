@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssignedLane** | **int32** | The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;. | 
-**EnemyHeroIds** | **[]int32** | The ascending hero id pair they laned against, or empty when grouped away. | 
-**HeroIds** | **[]int32** | The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**AssignedLane** | **int64** | The lane the matchup was played in, or &#x60;0&#x60; when &#x60;assigned_lane&#x60; was grouped away. See the &#x60;lane_info&#x60; array of &lt;https://api.deadlock-api.com/v1/assets/generic-data&gt;. | 
+**EnemyHeroIds** | **[]int64** | The ascending hero id pair they laned against, or empty when grouped away. | 
+**HeroIds** | **[]int64** | The ascending hero id pair that shared the lane, or empty when grouped away. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **MatchesPlayed** | **int64** | The total number of lane matchups between &#x60;hero_ids&#x60; and &#x60;enemy_hero_ids&#x60; in this lane. | 
 **NetWorthDiff** | **float64** | Mean souls the duo is ahead by at &#x60;sample_time_s&#x60;, against that duo. Negative means behind. &#x60;0&#x60; when no counted matchup lasted that long. | 
 **SampleMatches** | **int64** | How many of &#x60;matches_played&#x60; lasted to &#x60;sample_time_s&#x60; with all four players still in. Every reading on this row rests on those matchups only. | 
-**SampleTimeS** | **int32** | Seconds into the match the stat readings were taken at. Echoes the &#x60;sample_time_s&#x60; parameter. | 
+**SampleTimeS** | **int64** | Seconds into the match the stat readings were taken at. Echoes the &#x60;sample_time_s&#x60; parameter. | 
 **Stats** | [**map[string]LaneMatchupStat**](LaneMatchupStat.md) | A reading per stat named in &#x60;stats&#x60;. Empty unless the parameter was set. | 
 **Wins** | **int64** | The number of matches &#x60;hero_ids&#x60; won against &#x60;enemy_hero_ids&#x60; in this lane. | 
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewLaneMatchupStats
 
-`func NewLaneMatchupStats(assignedLane int32, enemyHeroIds []int32, heroIds []int32, matchesPlayed int64, netWorthDiff float64, sampleMatches int64, sampleTimeS int32, stats map[string]LaneMatchupStat, wins int64, ) *LaneMatchupStats`
+`func NewLaneMatchupStats(assignedLane int64, enemyHeroIds []int64, heroIds []int64, matchesPlayed int64, netWorthDiff float64, sampleMatches int64, sampleTimeS int64, stats map[string]LaneMatchupStat, wins int64, ) *LaneMatchupStats`
 
 NewLaneMatchupStats instantiates a new LaneMatchupStats object
 This constructor will assign default values to properties that have it defined,
@@ -35,60 +35,60 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAssignedLane
 
-`func (o *LaneMatchupStats) GetAssignedLane() int32`
+`func (o *LaneMatchupStats) GetAssignedLane() int64`
 
 GetAssignedLane returns the AssignedLane field if non-nil, zero value otherwise.
 
 ### GetAssignedLaneOk
 
-`func (o *LaneMatchupStats) GetAssignedLaneOk() (*int32, bool)`
+`func (o *LaneMatchupStats) GetAssignedLaneOk() (*int64, bool)`
 
 GetAssignedLaneOk returns a tuple with the AssignedLane field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAssignedLane
 
-`func (o *LaneMatchupStats) SetAssignedLane(v int32)`
+`func (o *LaneMatchupStats) SetAssignedLane(v int64)`
 
 SetAssignedLane sets AssignedLane field to given value.
 
 
 ### GetEnemyHeroIds
 
-`func (o *LaneMatchupStats) GetEnemyHeroIds() []int32`
+`func (o *LaneMatchupStats) GetEnemyHeroIds() []int64`
 
 GetEnemyHeroIds returns the EnemyHeroIds field if non-nil, zero value otherwise.
 
 ### GetEnemyHeroIdsOk
 
-`func (o *LaneMatchupStats) GetEnemyHeroIdsOk() (*[]int32, bool)`
+`func (o *LaneMatchupStats) GetEnemyHeroIdsOk() (*[]int64, bool)`
 
 GetEnemyHeroIdsOk returns a tuple with the EnemyHeroIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnemyHeroIds
 
-`func (o *LaneMatchupStats) SetEnemyHeroIds(v []int32)`
+`func (o *LaneMatchupStats) SetEnemyHeroIds(v []int64)`
 
 SetEnemyHeroIds sets EnemyHeroIds field to given value.
 
 
 ### GetHeroIds
 
-`func (o *LaneMatchupStats) GetHeroIds() []int32`
+`func (o *LaneMatchupStats) GetHeroIds() []int64`
 
 GetHeroIds returns the HeroIds field if non-nil, zero value otherwise.
 
 ### GetHeroIdsOk
 
-`func (o *LaneMatchupStats) GetHeroIdsOk() (*[]int32, bool)`
+`func (o *LaneMatchupStats) GetHeroIdsOk() (*[]int64, bool)`
 
 GetHeroIdsOk returns a tuple with the HeroIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeroIds
 
-`func (o *LaneMatchupStats) SetHeroIds(v []int32)`
+`func (o *LaneMatchupStats) SetHeroIds(v []int64)`
 
 SetHeroIds sets HeroIds field to given value.
 
@@ -155,20 +155,20 @@ SetSampleMatches sets SampleMatches field to given value.
 
 ### GetSampleTimeS
 
-`func (o *LaneMatchupStats) GetSampleTimeS() int32`
+`func (o *LaneMatchupStats) GetSampleTimeS() int64`
 
 GetSampleTimeS returns the SampleTimeS field if non-nil, zero value otherwise.
 
 ### GetSampleTimeSOk
 
-`func (o *LaneMatchupStats) GetSampleTimeSOk() (*int32, bool)`
+`func (o *LaneMatchupStats) GetSampleTimeSOk() (*int64, bool)`
 
 GetSampleTimeSOk returns a tuple with the SampleTimeS field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSampleTimeS
 
-`func (o *LaneMatchupStats) SetSampleTimeS(v int32)`
+`func (o *LaneMatchupStats) SetSampleTimeS(v int64)`
 
 SetSampleTimeS sets SampleTimeS field to given value.
 

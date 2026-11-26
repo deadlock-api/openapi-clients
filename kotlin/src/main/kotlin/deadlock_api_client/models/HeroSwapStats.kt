@@ -43,11 +43,11 @@ data class HeroSwapStats (
 
     /* The bucket value (depends on the bucket query parameter). */
     @Json(name = "bucket")
-    val bucket: kotlin.Int,
+    val bucket: kotlin.Long,
 
     /* The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "hero_id")
-    val heroId: kotlin.Int,
+    val heroId: kotlin.Long,
 
     /* The number of players who played this hero, counting only players whose pre-game hero is known. */
     @Json(name = "matches")

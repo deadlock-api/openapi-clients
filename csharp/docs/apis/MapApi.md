@@ -8,7 +8,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getmap"></a>
 # **GetMap**
-> MapData GetMap (int clientVersion = null)
+> MapData GetMap (long clientVersion = null)
 
 Map
 
@@ -19,7 +19,7 @@ Map metadata for a client version: the minimap radius, image-layer CDN URLs, the
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
+| **clientVersion** | **long** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
 

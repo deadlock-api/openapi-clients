@@ -5,12 +5,12 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **className** | **kotlin.String** |  |  |
-| **id** | **kotlin.Int** |  |  |
+| **id** | **kotlin.Long** |  |  |
 | **name** | **kotlin.String** |  |  |
 | **crosshairCssClass** | **kotlin.String** |  |  [optional] |
 | **customCrosshairSettings** | [**RawCustomCrosshairSettings**](RawCustomCrosshairSettings.md) |  |  [optional] |
-| **hero** | **kotlin.Int** |  |  [optional] |
-| **heroes** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  [optional] |
+| **hero** | **kotlin.Long** |  |  [optional] |
+| **heroes** | **kotlin.collections.List&lt;kotlin.Long&gt;** |  |  [optional] |
 | **image** | **kotlin.String** |  |  [optional] |
 | **imageWebp** | **kotlin.String** |  |  [optional] |
 | **properties** | [**kotlin.collections.Map&lt;kotlin.String, ItemProperty&gt;**](ItemProperty.md) |  |  [optional] |

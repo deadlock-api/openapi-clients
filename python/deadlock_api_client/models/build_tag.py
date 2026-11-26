@@ -30,7 +30,7 @@ class BuildTag(BaseModel):
     """ # noqa: E501
     class_name: StrictStr
     icon: StrictStr
-    id: Annotated[int, Field(strict=True, ge=0)]
+    id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
     label: StrictStr
     __properties: ClassVar[List[str]] = ["class_name", "icon", "id", "label"]
 

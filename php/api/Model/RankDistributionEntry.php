@@ -71,10 +71,10 @@ class RankDistributionEntry implements ModelInterface, ArrayAccess, \JsonSeriali
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'badge' => 'int32',
+        'badge' => 'int64',
         'players' => 'int64',
-        'rank' => 'int32',
-        'subrank' => 'int32'
+        'rank' => 'int64',
+        'subrank' => 'int64'
     ];
 
     /**
@@ -298,6 +298,10 @@ class RankDistributionEntry implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['badge'] === null) {
             $invalidProperties[] = "'badge' can't be null";
         }
+        if (($this->container['badge'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'badge', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['badge'] < 0)) {
             $invalidProperties[] = "invalid value for 'badge', must be bigger than or equal to 0.";
         }
@@ -312,6 +316,10 @@ class RankDistributionEntry implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['rank'] === null) {
             $invalidProperties[] = "'rank' can't be null";
         }
+        if (($this->container['rank'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'rank', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['rank'] < 0)) {
             $invalidProperties[] = "invalid value for 'rank', must be bigger than or equal to 0.";
         }
@@ -319,6 +327,10 @@ class RankDistributionEntry implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['subrank'] === null) {
             $invalidProperties[] = "'subrank' can't be null";
         }
+        if (($this->container['subrank'] > 4294967295)) {
+            $invalidProperties[] = "invalid value for 'subrank', must be smaller than or equal to 4294967295.";
+        }
+
         if (($this->container['subrank'] < 0)) {
             $invalidProperties[] = "invalid value for 'subrank', must be bigger than or equal to 0.";
         }
@@ -359,6 +371,9 @@ class RankDistributionEntry implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         if (is_null($badge)) {
             throw new \InvalidArgumentException('non-nullable badge cannot be null');
+        }
+        if (($badge > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $badge when calling RankDistributionEntry., must be smaller than or equal to 4294967295.');
         }
         if (($badge < 0)) {
             throw new \InvalidArgumentException('invalid value for $badge when calling RankDistributionEntry., must be bigger than or equal to 0.');
@@ -422,6 +437,9 @@ class RankDistributionEntry implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($rank)) {
             throw new \InvalidArgumentException('non-nullable rank cannot be null');
         }
+        if (($rank > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $rank when calling RankDistributionEntry., must be smaller than or equal to 4294967295.');
+        }
         if (($rank < 0)) {
             throw new \InvalidArgumentException('invalid value for $rank when calling RankDistributionEntry., must be bigger than or equal to 0.');
         }
@@ -452,6 +470,9 @@ class RankDistributionEntry implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         if (is_null($subrank)) {
             throw new \InvalidArgumentException('non-nullable subrank cannot be null');
+        }
+        if (($subrank > 4294967295)) {
+            throw new \InvalidArgumentException('invalid value for $subrank when calling RankDistributionEntry., must be smaller than or equal to 4294967295.');
         }
         if (($subrank < 0)) {
             throw new \InvalidArgumentException('invalid value for $subrank when calling RankDistributionEntry., must be bigger than or equal to 0.');

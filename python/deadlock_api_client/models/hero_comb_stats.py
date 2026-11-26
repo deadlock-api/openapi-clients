@@ -28,7 +28,7 @@ class HeroCombStats(BaseModel):
     """
     HeroCombStats
     """ # noqa: E501
-    hero_ids: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    hero_ids: List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]

@@ -22,13 +22,13 @@ var _ MappedNullable = &PlayerClusterMonth{}
 // PlayerClusterMonth struct for PlayerClusterMonth
 type PlayerClusterMonth struct {
 	// The server cluster the matches were played on.
-	ClusterId int32 `json:"cluster_id"`
+	ClusterId int64 `json:"cluster_id"`
 	// Datacenter(s) of the cluster's servers, e.g. `fra2`; comma-separated if the cluster spans several. `null` if the cluster has not been seen in a replay yet.
 	Datacenter NullableString `json:"datacenter,omitempty"`
 	// Number of the player's matches on this cluster in this month.
 	Matches int64 `json:"matches"`
 	// Unix timestamp of the first day of the month (UTC).
-	Month int32 `json:"month"`
+	Month int64 `json:"month"`
 	// Region of the cluster's servers, e.g. `eu_west` or `us_north_central`. `null` if the cluster has not been seen in a replay yet.
 	Region NullableString `json:"region,omitempty"`
 }
@@ -39,7 +39,7 @@ type _PlayerClusterMonth PlayerClusterMonth
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlayerClusterMonth(clusterId int32, matches int64, month int32) *PlayerClusterMonth {
+func NewPlayerClusterMonth(clusterId int64, matches int64, month int64) *PlayerClusterMonth {
 	this := PlayerClusterMonth{}
 	this.ClusterId = clusterId
 	this.Matches = matches
@@ -56,9 +56,9 @@ func NewPlayerClusterMonthWithDefaults() *PlayerClusterMonth {
 }
 
 // GetClusterId returns the ClusterId field value
-func (o *PlayerClusterMonth) GetClusterId() int32 {
+func (o *PlayerClusterMonth) GetClusterId() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -67,7 +67,7 @@ func (o *PlayerClusterMonth) GetClusterId() int32 {
 
 // GetClusterIdOk returns a tuple with the ClusterId field value
 // and a boolean to check if the value has been set.
-func (o *PlayerClusterMonth) GetClusterIdOk() (*int32, bool) {
+func (o *PlayerClusterMonth) GetClusterIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -75,7 +75,7 @@ func (o *PlayerClusterMonth) GetClusterIdOk() (*int32, bool) {
 }
 
 // SetClusterId sets field value
-func (o *PlayerClusterMonth) SetClusterId(v int32) {
+func (o *PlayerClusterMonth) SetClusterId(v int64) {
 	o.ClusterId = v
 }
 
@@ -146,9 +146,9 @@ func (o *PlayerClusterMonth) SetMatches(v int64) {
 }
 
 // GetMonth returns the Month field value
-func (o *PlayerClusterMonth) GetMonth() int32 {
+func (o *PlayerClusterMonth) GetMonth() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -157,7 +157,7 @@ func (o *PlayerClusterMonth) GetMonth() int32 {
 
 // GetMonthOk returns a tuple with the Month field value
 // and a boolean to check if the value has been set.
-func (o *PlayerClusterMonth) GetMonthOk() (*int32, bool) {
+func (o *PlayerClusterMonth) GetMonthOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -165,7 +165,7 @@ func (o *PlayerClusterMonth) GetMonthOk() (*int32, bool) {
 }
 
 // SetMonth sets field value
-func (o *PlayerClusterMonth) SetMonth(v int32) {
+func (o *PlayerClusterMonth) SetMonth(v int64) {
 	o.Month = v
 }
 

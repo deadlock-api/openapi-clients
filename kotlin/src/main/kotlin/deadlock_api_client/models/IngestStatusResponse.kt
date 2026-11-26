@@ -39,7 +39,7 @@ import java.io.Serializable
 data class IngestStatusResponse (
 
     @Json(name = "account_id")
-    val accountId: kotlin.Int,
+    val accountId: kotlin.Long,
 
     /* Whether the ingest tool uploaded a salt for this account within the window that was then verified. */
     @Json(name = "active")
@@ -47,11 +47,11 @@ data class IngestStatusResponse (
 
     /* The window, in days, an upload must fall in to count. */
     @Json(name = "window_days")
-    val windowDays: kotlin.Int,
+    val windowDays: kotlin.Long,
 
     /* Unix timestamp of the most recent verified upload within the window. */
     @Json(name = "last_upload_at")
-    val lastUploadAt: kotlin.Int? = null
+    val lastUploadAt: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

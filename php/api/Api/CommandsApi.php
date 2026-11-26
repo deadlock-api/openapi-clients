@@ -613,6 +613,9 @@ class CommandsApi
                 'Missing the required parameter $account_id when calling commandResolve'
             );
         }
+        if ($account_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling CommandsApi.commandResolve, must be smaller than or equal to 4294967295.');
+        }
         if ($account_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$account_id" when calling CommandsApi.commandResolve, must be bigger than or equal to 0.');
         }
@@ -942,6 +945,9 @@ class CommandsApi
             throw new \InvalidArgumentException(
                 'Missing the required parameter $account_id when calling variablesResolve'
             );
+        }
+        if ($account_id > 4294967295) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling CommandsApi.variablesResolve, must be smaller than or equal to 4294967295.');
         }
         if ($account_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$account_id" when calling CommandsApi.variablesResolve, must be bigger than or equal to 0.');

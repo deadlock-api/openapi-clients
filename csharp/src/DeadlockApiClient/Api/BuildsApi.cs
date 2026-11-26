@@ -50,7 +50,7 @@ namespace DeadlockApiClient.Api
         /// <param name="forceRefetch">Fetch the build from the Game Coordinator even if it is already in the database. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFetchBuildLiveApiResponse"/>&gt;</returns>
-        Task<IFetchBuildLiveApiResponse> FetchBuildLiveAsync(int heroId, int buildId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFetchBuildLiveApiResponse> FetchBuildLiveAsync(long heroId, long buildId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Fetch Live
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// <param name="forceRefetch">Fetch the build from the Game Coordinator even if it is already in the database. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFetchBuildLiveApiResponse"/>?&gt;</returns>
-        Task<IFetchBuildLiveApiResponse?> FetchBuildLiveOrDefaultAsync(int heroId, int buildId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFetchBuildLiveApiResponse?> FetchBuildLiveOrDefaultAsync(long heroId, long buildId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Fetch Live by Author
@@ -75,7 +75,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFetchBuildsByAuthorLiveApiResponse"/>&gt;</returns>
-        Task<IFetchBuildsByAuthorLiveApiResponse> FetchBuildsByAuthorLiveAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFetchBuildsByAuthorLiveApiResponse> FetchBuildsByAuthorLiveAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Fetch Live by Author
@@ -86,7 +86,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFetchBuildsByAuthorLiveApiResponse"/>?&gt;</returns>
-        Task<IFetchBuildsByAuthorLiveApiResponse?> FetchBuildsByAuthorLiveOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFetchBuildsByAuthorLiveApiResponse?> FetchBuildsByAuthorLiveOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search
@@ -116,7 +116,7 @@ namespace DeadlockApiClient.Api
         /// <param name="authorId">The author&#39;s &#x60;SteamID3&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBuildsApiResponse"/>&gt;</returns>
-        Task<ISearchBuildsApiResponse> SearchBuildsAsync(Option<long> minUnixTimestamp = default, Option<long> maxUnixTimestamp = default, Option<long> minPublishedUnixTimestamp = default, Option<long> maxPublishedUnixTimestamp = default, Option<string> sortBy = default, Option<int> start = default, Option<int> limit = default, Option<string> sortDirection = default, Option<string> searchName = default, Option<string> searchDescription = default, Option<bool> onlyLatest = default, Option<int> language = default, Option<string> buildLanguage = default, Option<int> buildId = default, Option<int> version = default, Option<int> heroId = default, Option<int> tag = default, Option<int> rollupCategory = default, Option<int> authorId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchBuildsApiResponse> SearchBuildsAsync(Option<long> minUnixTimestamp = default, Option<long> maxUnixTimestamp = default, Option<long> minPublishedUnixTimestamp = default, Option<long> maxPublishedUnixTimestamp = default, Option<string> sortBy = default, Option<long> start = default, Option<long> limit = default, Option<string> sortDirection = default, Option<string> searchName = default, Option<string> searchDescription = default, Option<bool> onlyLatest = default, Option<long> language = default, Option<string> buildLanguage = default, Option<long> buildId = default, Option<long> version = default, Option<long> heroId = default, Option<long> tag = default, Option<long> rollupCategory = default, Option<long> authorId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search
@@ -145,7 +145,7 @@ namespace DeadlockApiClient.Api
         /// <param name="authorId">The author&#39;s &#x60;SteamID3&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBuildsApiResponse"/>?&gt;</returns>
-        Task<ISearchBuildsApiResponse?> SearchBuildsOrDefaultAsync(Option<long> minUnixTimestamp = default, Option<long> maxUnixTimestamp = default, Option<long> minPublishedUnixTimestamp = default, Option<long> maxPublishedUnixTimestamp = default, Option<string> sortBy = default, Option<int> start = default, Option<int> limit = default, Option<string> sortDirection = default, Option<string> searchName = default, Option<string> searchDescription = default, Option<bool> onlyLatest = default, Option<int> language = default, Option<string> buildLanguage = default, Option<int> buildId = default, Option<int> version = default, Option<int> heroId = default, Option<int> tag = default, Option<int> rollupCategory = default, Option<int> authorId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchBuildsApiResponse?> SearchBuildsOrDefaultAsync(Option<long> minUnixTimestamp = default, Option<long> maxUnixTimestamp = default, Option<long> minPublishedUnixTimestamp = default, Option<long> maxPublishedUnixTimestamp = default, Option<string> sortBy = default, Option<long> start = default, Option<long> limit = default, Option<string> sortDirection = default, Option<string> searchName = default, Option<string> searchDescription = default, Option<bool> onlyLatest = default, Option<long> language = default, Option<string> buildLanguage = default, Option<long> buildId = default, Option<long> version = default, Option<long> heroId = default, Option<long> tag = default, Option<long> rollupCategory = default, Option<long> authorId = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -363,7 +363,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatFetchBuildLive(ref int heroId, ref int buildId, ref Option<bool> forceRefetch);
+        partial void FormatFetchBuildLive(ref long heroId, ref long buildId, ref Option<bool> forceRefetch);
 
         /// <summary>
         /// Processes the server response
@@ -372,7 +372,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId"></param>
         /// <param name="buildId"></param>
         /// <param name="forceRefetch"></param>
-        private void AfterFetchBuildLiveDefaultImplementation(IFetchBuildLiveApiResponse apiResponseLocalVar, int heroId, int buildId, Option<bool> forceRefetch)
+        private void AfterFetchBuildLiveDefaultImplementation(IFetchBuildLiveApiResponse apiResponseLocalVar, long heroId, long buildId, Option<bool> forceRefetch)
         {
             bool suppressDefaultLog = false;
             AfterFetchBuildLive(ref suppressDefaultLog, apiResponseLocalVar, heroId, buildId, forceRefetch);
@@ -388,7 +388,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId"></param>
         /// <param name="buildId"></param>
         /// <param name="forceRefetch"></param>
-        partial void AfterFetchBuildLive(ref bool suppressDefaultLog, IFetchBuildLiveApiResponse apiResponseLocalVar, int heroId, int buildId, Option<bool> forceRefetch);
+        partial void AfterFetchBuildLive(ref bool suppressDefaultLog, IFetchBuildLiveApiResponse apiResponseLocalVar, long heroId, long buildId, Option<bool> forceRefetch);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -399,7 +399,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId"></param>
         /// <param name="buildId"></param>
         /// <param name="forceRefetch"></param>
-        private void OnErrorFetchBuildLiveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int heroId, int buildId, Option<bool> forceRefetch)
+        private void OnErrorFetchBuildLiveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long heroId, long buildId, Option<bool> forceRefetch)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorFetchBuildLive(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, heroId, buildId, forceRefetch);
@@ -417,7 +417,7 @@ namespace DeadlockApiClient.Api
         /// <param name="heroId"></param>
         /// <param name="buildId"></param>
         /// <param name="forceRefetch"></param>
-        partial void OnErrorFetchBuildLive(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int heroId, int buildId, Option<bool> forceRefetch);
+        partial void OnErrorFetchBuildLive(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long heroId, long buildId, Option<bool> forceRefetch);
 
         /// <summary>
         /// Fetch Live  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set &#x60;force_refetch&#x3D;true&#x60; to fetch from the Game Coordinator even if the build is in our database, e.g. to pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that fetch instead.  A lookup that finds no build is remembered: for 6 hours if the build is in our database (it was deleted or hidden in the game), otherwise for 10 minutes. Until then the build gets a 404 without asking the Game Coordinator, also with &#x60;force_refetch&#x3D;true&#x60;.  Rate limits only apply when the build is fetched from the Game Coordinator.  Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don&#39;t exist within an hour, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After. Builds already in our database are still served. To find builds, search them with &#x60;/v1/builds&#x60;.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
@@ -427,7 +427,7 @@ namespace DeadlockApiClient.Api
         /// <param name="forceRefetch">Fetch the build from the Game Coordinator even if it is already in the database. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFetchBuildLiveApiResponse"/>&gt;</returns>
-        public async Task<IFetchBuildLiveApiResponse?> FetchBuildLiveOrDefaultAsync(int heroId, int buildId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFetchBuildLiveApiResponse?> FetchBuildLiveOrDefaultAsync(long heroId, long buildId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -448,7 +448,7 @@ namespace DeadlockApiClient.Api
         /// <param name="forceRefetch">Fetch the build from the Game Coordinator even if it is already in the database. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFetchBuildLiveApiResponse"/>&gt;</returns>
-        public async Task<IFetchBuildLiveApiResponse> FetchBuildLiveAsync(int heroId, int buildId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFetchBuildLiveApiResponse> FetchBuildLiveAsync(long heroId, long buildId, Option<bool> forceRefetch = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -653,14 +653,14 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFetchBuildsByAuthorLive(ref int accountId);
+        partial void FormatFetchBuildsByAuthorLive(ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
-        private void AfterFetchBuildsByAuthorLiveDefaultImplementation(IFetchBuildsByAuthorLiveApiResponse apiResponseLocalVar, int accountId)
+        private void AfterFetchBuildsByAuthorLiveDefaultImplementation(IFetchBuildsByAuthorLiveApiResponse apiResponseLocalVar, long accountId)
         {
             bool suppressDefaultLog = false;
             AfterFetchBuildsByAuthorLive(ref suppressDefaultLog, apiResponseLocalVar, accountId);
@@ -674,7 +674,7 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="accountId"></param>
-        partial void AfterFetchBuildsByAuthorLive(ref bool suppressDefaultLog, IFetchBuildsByAuthorLiveApiResponse apiResponseLocalVar, int accountId);
+        partial void AfterFetchBuildsByAuthorLive(ref bool suppressDefaultLog, IFetchBuildsByAuthorLiveApiResponse apiResponseLocalVar, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -683,7 +683,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
-        private void OnErrorFetchBuildsByAuthorLiveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId)
+        private void OnErrorFetchBuildsByAuthorLiveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorFetchBuildsByAuthorLive(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
@@ -699,7 +699,7 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorFetchBuildsByAuthorLive(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
+        partial void OnErrorFetchBuildsByAuthorLive(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId);
 
         /// <summary>
         /// Fetch Live by Author  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Clients that look like they crawl the Game Coordinator, with 10 or more lookups of builds that don&#39;t exist within an hour on the single-build endpoint, are banned from Game Coordinator lookups for 24 hours: those get a 403 with Retry-After.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
@@ -707,7 +707,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFetchBuildsByAuthorLiveApiResponse"/>&gt;</returns>
-        public async Task<IFetchBuildsByAuthorLiveApiResponse?> FetchBuildsByAuthorLiveOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFetchBuildsByAuthorLiveApiResponse?> FetchBuildsByAuthorLiveOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -726,7 +726,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFetchBuildsByAuthorLiveApiResponse"/>&gt;</returns>
-        public async Task<IFetchBuildsByAuthorLiveApiResponse> FetchBuildsByAuthorLiveAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFetchBuildsByAuthorLiveApiResponse> FetchBuildsByAuthorLiveAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -917,7 +917,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchBuilds(ref Option<long> minUnixTimestamp, ref Option<long> maxUnixTimestamp, ref Option<long> minPublishedUnixTimestamp, ref Option<long> maxPublishedUnixTimestamp, ref Option<string> sortBy, ref Option<int> start, ref Option<int> limit, ref Option<string> sortDirection, ref Option<string> searchName, ref Option<string> searchDescription, ref Option<bool> onlyLatest, ref Option<int> language, ref Option<string> buildLanguage, ref Option<int> buildId, ref Option<int> version, ref Option<int> heroId, ref Option<int> tag, ref Option<int> rollupCategory, ref Option<int> authorId);
+        partial void FormatSearchBuilds(ref Option<long> minUnixTimestamp, ref Option<long> maxUnixTimestamp, ref Option<long> minPublishedUnixTimestamp, ref Option<long> maxPublishedUnixTimestamp, ref Option<string> sortBy, ref Option<long> start, ref Option<long> limit, ref Option<string> sortDirection, ref Option<string> searchName, ref Option<string> searchDescription, ref Option<bool> onlyLatest, ref Option<long> language, ref Option<string> buildLanguage, ref Option<long> buildId, ref Option<long> version, ref Option<long> heroId, ref Option<long> tag, ref Option<long> rollupCategory, ref Option<long> authorId);
 
         /// <summary>
         /// Validates the request parameters
@@ -969,7 +969,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tag"></param>
         /// <param name="rollupCategory"></param>
         /// <param name="authorId"></param>
-        private void AfterSearchBuildsDefaultImplementation(ISearchBuildsApiResponse apiResponseLocalVar, Option<long> minUnixTimestamp, Option<long> maxUnixTimestamp, Option<long> minPublishedUnixTimestamp, Option<long> maxPublishedUnixTimestamp, Option<string> sortBy, Option<int> start, Option<int> limit, Option<string> sortDirection, Option<string> searchName, Option<string> searchDescription, Option<bool> onlyLatest, Option<int> language, Option<string> buildLanguage, Option<int> buildId, Option<int> version, Option<int> heroId, Option<int> tag, Option<int> rollupCategory, Option<int> authorId)
+        private void AfterSearchBuildsDefaultImplementation(ISearchBuildsApiResponse apiResponseLocalVar, Option<long> minUnixTimestamp, Option<long> maxUnixTimestamp, Option<long> minPublishedUnixTimestamp, Option<long> maxPublishedUnixTimestamp, Option<string> sortBy, Option<long> start, Option<long> limit, Option<string> sortDirection, Option<string> searchName, Option<string> searchDescription, Option<bool> onlyLatest, Option<long> language, Option<string> buildLanguage, Option<long> buildId, Option<long> version, Option<long> heroId, Option<long> tag, Option<long> rollupCategory, Option<long> authorId)
         {
             bool suppressDefaultLog = false;
             AfterSearchBuilds(ref suppressDefaultLog, apiResponseLocalVar, minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildLanguage, buildId, version, heroId, tag, rollupCategory, authorId);
@@ -1001,7 +1001,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tag"></param>
         /// <param name="rollupCategory"></param>
         /// <param name="authorId"></param>
-        partial void AfterSearchBuilds(ref bool suppressDefaultLog, ISearchBuildsApiResponse apiResponseLocalVar, Option<long> minUnixTimestamp, Option<long> maxUnixTimestamp, Option<long> minPublishedUnixTimestamp, Option<long> maxPublishedUnixTimestamp, Option<string> sortBy, Option<int> start, Option<int> limit, Option<string> sortDirection, Option<string> searchName, Option<string> searchDescription, Option<bool> onlyLatest, Option<int> language, Option<string> buildLanguage, Option<int> buildId, Option<int> version, Option<int> heroId, Option<int> tag, Option<int> rollupCategory, Option<int> authorId);
+        partial void AfterSearchBuilds(ref bool suppressDefaultLog, ISearchBuildsApiResponse apiResponseLocalVar, Option<long> minUnixTimestamp, Option<long> maxUnixTimestamp, Option<long> minPublishedUnixTimestamp, Option<long> maxPublishedUnixTimestamp, Option<string> sortBy, Option<long> start, Option<long> limit, Option<string> sortDirection, Option<string> searchName, Option<string> searchDescription, Option<bool> onlyLatest, Option<long> language, Option<string> buildLanguage, Option<long> buildId, Option<long> version, Option<long> heroId, Option<long> tag, Option<long> rollupCategory, Option<long> authorId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1028,7 +1028,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tag"></param>
         /// <param name="rollupCategory"></param>
         /// <param name="authorId"></param>
-        private void OnErrorSearchBuildsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> minUnixTimestamp, Option<long> maxUnixTimestamp, Option<long> minPublishedUnixTimestamp, Option<long> maxPublishedUnixTimestamp, Option<string> sortBy, Option<int> start, Option<int> limit, Option<string> sortDirection, Option<string> searchName, Option<string> searchDescription, Option<bool> onlyLatest, Option<int> language, Option<string> buildLanguage, Option<int> buildId, Option<int> version, Option<int> heroId, Option<int> tag, Option<int> rollupCategory, Option<int> authorId)
+        private void OnErrorSearchBuildsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> minUnixTimestamp, Option<long> maxUnixTimestamp, Option<long> minPublishedUnixTimestamp, Option<long> maxPublishedUnixTimestamp, Option<string> sortBy, Option<long> start, Option<long> limit, Option<string> sortDirection, Option<string> searchName, Option<string> searchDescription, Option<bool> onlyLatest, Option<long> language, Option<string> buildLanguage, Option<long> buildId, Option<long> version, Option<long> heroId, Option<long> tag, Option<long> rollupCategory, Option<long> authorId)
         {
             bool suppressDefaultLogLocalVar = false;
             OnErrorSearchBuilds(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, minUnixTimestamp, maxUnixTimestamp, minPublishedUnixTimestamp, maxPublishedUnixTimestamp, sortBy, start, limit, sortDirection, searchName, searchDescription, onlyLatest, language, buildLanguage, buildId, version, heroId, tag, rollupCategory, authorId);
@@ -1062,7 +1062,7 @@ namespace DeadlockApiClient.Api
         /// <param name="tag"></param>
         /// <param name="rollupCategory"></param>
         /// <param name="authorId"></param>
-        partial void OnErrorSearchBuilds(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> minUnixTimestamp, Option<long> maxUnixTimestamp, Option<long> minPublishedUnixTimestamp, Option<long> maxPublishedUnixTimestamp, Option<string> sortBy, Option<int> start, Option<int> limit, Option<string> sortDirection, Option<string> searchName, Option<string> searchDescription, Option<bool> onlyLatest, Option<int> language, Option<string> buildLanguage, Option<int> buildId, Option<int> version, Option<int> heroId, Option<int> tag, Option<int> rollupCategory, Option<int> authorId);
+        partial void OnErrorSearchBuilds(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> minUnixTimestamp, Option<long> maxUnixTimestamp, Option<long> minPublishedUnixTimestamp, Option<long> maxPublishedUnixTimestamp, Option<string> sortBy, Option<long> start, Option<long> limit, Option<string> sortDirection, Option<string> searchName, Option<string> searchDescription, Option<bool> onlyLatest, Option<long> language, Option<string> buildLanguage, Option<long> buildId, Option<long> version, Option<long> heroId, Option<long> tag, Option<long> rollupCategory, Option<long> authorId);
 
         /// <summary>
         /// Search  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
@@ -1088,7 +1088,7 @@ namespace DeadlockApiClient.Api
         /// <param name="authorId">The author&#39;s &#x60;SteamID3&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBuildsApiResponse"/>&gt;</returns>
-        public async Task<ISearchBuildsApiResponse?> SearchBuildsOrDefaultAsync(Option<long> minUnixTimestamp = default, Option<long> maxUnixTimestamp = default, Option<long> minPublishedUnixTimestamp = default, Option<long> maxPublishedUnixTimestamp = default, Option<string> sortBy = default, Option<int> start = default, Option<int> limit = default, Option<string> sortDirection = default, Option<string> searchName = default, Option<string> searchDescription = default, Option<bool> onlyLatest = default, Option<int> language = default, Option<string> buildLanguage = default, Option<int> buildId = default, Option<int> version = default, Option<int> heroId = default, Option<int> tag = default, Option<int> rollupCategory = default, Option<int> authorId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchBuildsApiResponse?> SearchBuildsOrDefaultAsync(Option<long> minUnixTimestamp = default, Option<long> maxUnixTimestamp = default, Option<long> minPublishedUnixTimestamp = default, Option<long> maxPublishedUnixTimestamp = default, Option<string> sortBy = default, Option<long> start = default, Option<long> limit = default, Option<string> sortDirection = default, Option<string> searchName = default, Option<string> searchDescription = default, Option<bool> onlyLatest = default, Option<long> language = default, Option<string> buildLanguage = default, Option<long> buildId = default, Option<long> version = default, Option<long> heroId = default, Option<long> tag = default, Option<long> rollupCategory = default, Option<long> authorId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -1125,7 +1125,7 @@ namespace DeadlockApiClient.Api
         /// <param name="authorId">The author&#39;s &#x60;SteamID3&#x60; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBuildsApiResponse"/>&gt;</returns>
-        public async Task<ISearchBuildsApiResponse> SearchBuildsAsync(Option<long> minUnixTimestamp = default, Option<long> maxUnixTimestamp = default, Option<long> minPublishedUnixTimestamp = default, Option<long> maxPublishedUnixTimestamp = default, Option<string> sortBy = default, Option<int> start = default, Option<int> limit = default, Option<string> sortDirection = default, Option<string> searchName = default, Option<string> searchDescription = default, Option<bool> onlyLatest = default, Option<int> language = default, Option<string> buildLanguage = default, Option<int> buildId = default, Option<int> version = default, Option<int> heroId = default, Option<int> tag = default, Option<int> rollupCategory = default, Option<int> authorId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchBuildsApiResponse> SearchBuildsAsync(Option<long> minUnixTimestamp = default, Option<long> maxUnixTimestamp = default, Option<long> minPublishedUnixTimestamp = default, Option<long> maxPublishedUnixTimestamp = default, Option<string> sortBy = default, Option<long> start = default, Option<long> limit = default, Option<string> sortDirection = default, Option<string> searchName = default, Option<string> searchDescription = default, Option<bool> onlyLatest = default, Option<long> language = default, Option<string> buildLanguage = default, Option<long> buildId = default, Option<long> version = default, Option<long> heroId = default, Option<long> tag = default, Option<long> rollupCategory = default, Option<long> authorId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
