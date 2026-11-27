@@ -1158,7 +1158,7 @@ class InternalApi:
     ) -> IngestStatusResponse:
         """Ingest Status
 
-         Internal endpoint used by the website's player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+         Internal endpoint used by the website's player tracker gate.  Returns whether the account's player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player's account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count. 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -1197,6 +1197,7 @@ class InternalApi:
             '400': None,
             '403': None,
             '500': None,
+            '503': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1228,7 +1229,7 @@ class InternalApi:
     ) -> ApiResponse[IngestStatusResponse]:
         """Ingest Status
 
-         Internal endpoint used by the website's player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+         Internal endpoint used by the website's player tracker gate.  Returns whether the account's player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player's account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count. 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -1267,6 +1268,7 @@ class InternalApi:
             '400': None,
             '403': None,
             '500': None,
+            '503': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1298,7 +1300,7 @@ class InternalApi:
     ) -> RESTResponseType:
         """Ingest Status
 
-         Internal endpoint used by the website's player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+         Internal endpoint used by the website's player tracker gate.  Returns whether the account's player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player's account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count. 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -1337,6 +1339,7 @@ class InternalApi:
             '400': None,
             '403': None,
             '500': None,
+            '503': None,
         }
         response_data = self.api_client.call_api(
             *_param,

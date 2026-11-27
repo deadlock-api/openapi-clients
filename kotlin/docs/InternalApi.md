@@ -222,7 +222,7 @@ No authorization required
 
 Ingest Status
 
- Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+ Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the account&#39;s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player&#39;s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count. 
 
 ### Example
 ```kotlin

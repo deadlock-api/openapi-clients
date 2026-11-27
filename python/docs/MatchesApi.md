@@ -530,7 +530,8 @@ Metadata as Protobuf
 
 This endpoints returns the raw .meta.bz2 file for the given `match_id`.
 
-You have to decompress it and decode the protobuf message.
+You have to decompress it and decode the protobuf message. Despite the name, newer files are
+zstd-compressed: tell them apart by their magic bytes (`BZh` for bzip2, `28 b5 2f fd` for zstd).
 
 Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
 

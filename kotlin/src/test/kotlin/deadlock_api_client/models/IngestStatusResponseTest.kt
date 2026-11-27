@@ -39,10 +39,22 @@ class IngestStatusResponseTest : ShouldSpec() {
             //modelInstance.accountId shouldBe ("TODO")
         }
 
-        // to test the property `active` - Whether the ingest tool uploaded a salt for this account within the window that was then verified.
+        // to test the property `active` - Whether the account's player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it.
         should("test active") {
             // uncomment below to test the property
             //modelInstance.active shouldBe ("TODO")
+        }
+
+        // to test the property `friendActive` - Whether a Steam friend of the account uploaded with an ingest client within the window.
+        should("test friendActive") {
+            // uncomment below to test the property
+            //modelInstance.friendActive shouldBe ("TODO")
+        }
+
+        // to test the property `prioritized` - Whether the account is one of a patron's active prioritized accounts.
+        should("test prioritized") {
+            // uncomment below to test the property
+            //modelInstance.prioritized shouldBe ("TODO")
         }
 
         // to test the property `windowDays` - The window, in days, an upload must fall in to count.
@@ -51,7 +63,7 @@ class IngestStatusResponseTest : ShouldSpec() {
             //modelInstance.windowDays shouldBe ("TODO")
         }
 
-        // to test the property `lastUploadAt` - Unix timestamp of the most recent verified upload within the window.
+        // to test the property `lastUploadAt` - Unix timestamp of the account's own most recent verified upload within the window.
         should("test lastUploadAt") {
             // uncomment below to test the property
             //modelInstance.lastUploadAt shouldBe ("TODO")

@@ -196,9 +196,9 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("account_id", steamFriend.AccountId);
 
             {
-                        writer.WritePropertyName("friend_since");
-                            JsonSerializer.Serialize(writer, steamFriend.FriendSince, jsonSerializerOptions);
-                        }
+                writer.WritePropertyName("friend_since");
+                JsonSerializer.Serialize(writer, steamFriend.FriendSince, jsonSerializerOptions);
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ import (
 	"encoding/json"
 	"bytes"
 	"fmt"
+	"strings"
 )
 
 // checks if the ItemOneOf2 type satisfies the MappedNullable interface at compile time
@@ -60,6 +61,64 @@ type ItemOneOf2 struct {
 }
 
 type _ItemOneOf2 ItemOneOf2
+
+func (o *ItemOneOf2) validateStringEnumValues(data []byte) error {
+	var fields struct {
+		Activation json.RawMessage `json:"activation"`
+		Imbue json.RawMessage `json:"imbue,omitempty"`
+		ItemSlotType json.RawMessage `json:"item_slot_type"`
+		Type json.RawMessage `json:"type"`
+	}
+	if err := json.Unmarshal(data, &fields); err != nil {
+		return err
+	}
+	if raw := fields.Activation; raw != nil {
+		if string(raw) == "null" {
+			return fmt.Errorf("invalid null value for property %s", "activation")
+		}
+		var value string
+		if err := json.Unmarshal(raw, &value); err != nil {
+			return err
+		}
+		if value != "hold_toggle" && value != "instant_cast" && value != "on_button_is_down" && value != "passive" && value != "press" && value != "press_toggle" && value != "instant_cast_toggle" {
+			return fmt.Errorf("invalid value %q for property %s", value, "activation")
+		}
+	}
+	if raw := fields.Imbue; raw != nil {
+		var value string
+		if err := json.Unmarshal(raw, &value); err != nil {
+			return err
+		}
+		if string(raw) != "null" && (value != "imbue_active" && value != "imbue_active_non_ult" && value != "imbue_modifier_value") {
+			return fmt.Errorf("invalid value %q for property %s", value, "imbue")
+		}
+	}
+	if raw := fields.ItemSlotType; raw != nil {
+		if string(raw) == "null" {
+			return fmt.Errorf("invalid null value for property %s", "item_slot_type")
+		}
+		var value string
+		if err := json.Unmarshal(raw, &value); err != nil {
+			return err
+		}
+		if value != "weapon" && value != "spirit" && value != "vitality" {
+			return fmt.Errorf("invalid value %q for property %s", value, "item_slot_type")
+		}
+	}
+	if raw := fields.Type; raw != nil {
+		if string(raw) == "null" {
+			return fmt.Errorf("invalid null value for property %s", "type")
+		}
+		var value string
+		if err := json.Unmarshal(raw, &value); err != nil {
+			return err
+		}
+		if value != "upgrade" {
+			return fmt.Errorf("invalid value %q for property %s", value, "type")
+		}
+	}
+	return nil
+}
 
 // NewItemOneOf2 instantiates a new ItemOneOf2 object
 // This constructor will assign default values to properties that have it defined,
@@ -1343,6 +1402,9 @@ func (o ItemOneOf2) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *ItemOneOf2) UnmarshalJSON(data []byte) (err error) {
+	if err := o.validateStringEnumValues(data); err != nil {
+		return err
+	}
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -1366,8 +1428,19 @@ func (o *ItemOneOf2) UnmarshalJSON(data []byte) (err error) {
 		return err;
 	}
 
+	lookupRequiredProperty := func(requiredProperty string) (interface{}, string, bool) {
+		if value, exists := allProperties[requiredProperty]; exists {
+			return value, requiredProperty, true
+		}
+		for name, value := range allProperties {
+			if strings.EqualFold(name, requiredProperty) {
+				return value, name, true
+			}
+		}
+		return nil, "", false
+	}
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if _, _, exists := lookupRequiredProperty(requiredProperty); !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}

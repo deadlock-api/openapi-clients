@@ -327,9 +327,9 @@ namespace DeadlockApiClient.Model
             writer.WriteString("link", patch.Link);
 
             {
-                        writer.WritePropertyName("pub_date");
-                            JsonSerializer.Serialize(writer, patch.PubDate, jsonSerializerOptions);
-                        }
+                writer.WritePropertyName("pub_date");
+                JsonSerializer.Serialize(writer, patch.PubDate, jsonSerializerOptions);
+            }
 
             writer.WriteString("slash_comments", patch.SlashComments);
 

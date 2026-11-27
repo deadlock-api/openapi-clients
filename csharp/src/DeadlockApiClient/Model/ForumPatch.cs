@@ -266,9 +266,9 @@ namespace DeadlockApiClient.Model
             writer.WriteString("link", forumPatch.Link);
 
             {
-                        writer.WritePropertyName("pub_date");
-                            JsonSerializer.Serialize(writer, forumPatch.PubDate, jsonSerializerOptions);
-                        }
+                writer.WritePropertyName("pub_date");
+                JsonSerializer.Serialize(writer, forumPatch.PubDate, jsonSerializerOptions);
+            }
 
             writer.WriteString("title", forumPatch.Title);
         }

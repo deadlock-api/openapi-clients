@@ -127,38 +127,32 @@ namespace DeadlockApiClient.Model
         {
             int currentDepth = utf8JsonReader.CurrentDepth;
 
-            if (utf8JsonReader.TokenType != JsonTokenType.StartObject && utf8JsonReader.TokenType != JsonTokenType.StartArray)
-                throw new JsonException();
-
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
+            bool isScalarToken = startingTokenType != JsonTokenType.StartObject && startingTokenType != JsonTokenType.StartArray;
 
             ItemOneOf? itemOneOf = default;
             ItemOneOf1? itemOneOf1 = default;
             ItemOneOf2? itemOneOf2 = default;
 
-            Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
-            while (utf8JsonReaderOneOf.Read())
+            if (startingTokenType == JsonTokenType.StartObject)
             {
-                if (startingTokenType == JsonTokenType.StartObject && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
-                    break;
-
-                if (startingTokenType == JsonTokenType.StartArray && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndArray && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
-                    break;
-
-                if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
-                {
-                    Utf8JsonReader utf8JsonReaderItemOneOf = utf8JsonReader;
-                    ClientUtils.TryDeserialize<ItemOneOf?>(ref utf8JsonReaderItemOneOf, jsonSerializerOptions, out itemOneOf);
-
-                    Utf8JsonReader utf8JsonReaderItemOneOf1 = utf8JsonReader;
-                    ClientUtils.TryDeserialize<ItemOneOf1?>(ref utf8JsonReaderItemOneOf1, jsonSerializerOptions, out itemOneOf1);
-
-                    Utf8JsonReader utf8JsonReaderItemOneOf2 = utf8JsonReader;
-                    ClientUtils.TryDeserialize<ItemOneOf2?>(ref utf8JsonReaderItemOneOf2, jsonSerializerOptions, out itemOneOf2);
-                }
+                Utf8JsonReader utf8JsonReaderItemOneOf = utf8JsonReader;
+                ClientUtils.TryDeserialize<ItemOneOf?>(ref utf8JsonReaderItemOneOf, jsonSerializerOptions, out itemOneOf);
             }
 
-            while (utf8JsonReader.Read())
+            if (startingTokenType == JsonTokenType.StartObject)
+            {
+                Utf8JsonReader utf8JsonReaderItemOneOf1 = utf8JsonReader;
+                ClientUtils.TryDeserialize<ItemOneOf1?>(ref utf8JsonReaderItemOneOf1, jsonSerializerOptions, out itemOneOf1);
+            }
+
+            if (startingTokenType == JsonTokenType.StartObject)
+            {
+                Utf8JsonReader utf8JsonReaderItemOneOf2 = utf8JsonReader;
+                ClientUtils.TryDeserialize<ItemOneOf2?>(ref utf8JsonReaderItemOneOf2, jsonSerializerOptions, out itemOneOf2);
+            }
+
+            while (!isScalarToken && utf8JsonReader.Read())
             {
                 if (startingTokenType == JsonTokenType.StartObject && utf8JsonReader.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReader.CurrentDepth)
                     break;
@@ -200,6 +194,24 @@ namespace DeadlockApiClient.Model
         public override void Write(Utf8JsonWriter writer, Item item, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
+
+            if (item.ItemOneOf != null)
+            {
+                ItemOneOfJsonConverter itemOneOfJsonConverter = (ItemOneOfJsonConverter) jsonSerializerOptions.Converters.First(c => c.CanConvert(item.ItemOneOf.GetType()));
+                itemOneOfJsonConverter.WriteProperties(writer, item.ItemOneOf, jsonSerializerOptions);
+            }
+
+            if (item.ItemOneOf1 != null)
+            {
+                ItemOneOf1JsonConverter itemOneOf1JsonConverter = (ItemOneOf1JsonConverter) jsonSerializerOptions.Converters.First(c => c.CanConvert(item.ItemOneOf1.GetType()));
+                itemOneOf1JsonConverter.WriteProperties(writer, item.ItemOneOf1, jsonSerializerOptions);
+            }
+
+            if (item.ItemOneOf2 != null)
+            {
+                ItemOneOf2JsonConverter itemOneOf2JsonConverter = (ItemOneOf2JsonConverter) jsonSerializerOptions.Converters.First(c => c.CanConvert(item.ItemOneOf2.GetType()));
+                itemOneOf2JsonConverter.WriteProperties(writer, item.ItemOneOf2, jsonSerializerOptions);
+            }
 
             WriteProperties(writer, item, jsonSerializerOptions);
             writer.WriteEndObject();

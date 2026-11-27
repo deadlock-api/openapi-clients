@@ -15,23 +15,31 @@ use serde::{Deserialize, Serialize};
 pub struct IngestStatusResponse {
     #[serde(rename = "account_id")]
     pub account_id: u32,
-    /// Whether the ingest tool uploaded a salt for this account within the window that was then verified.
+    /// Whether the account's player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it.
     #[serde(rename = "active")]
     pub active: bool,
-    /// Unix timestamp of the most recent verified upload within the window.
+    /// Whether a Steam friend of the account uploaded with an ingest client within the window.
+    #[serde(rename = "friend_active")]
+    pub friend_active: bool,
+    /// Unix timestamp of the account's own most recent verified upload within the window.
     #[serde(rename = "last_upload_at", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub last_upload_at: Option<Option<u32>>,
+    /// Whether the account is one of a patron's active prioritized accounts.
+    #[serde(rename = "prioritized")]
+    pub prioritized: bool,
     /// The window, in days, an upload must fall in to count.
     #[serde(rename = "window_days")]
     pub window_days: u32,
 }
 
 impl IngestStatusResponse {
-    pub fn new(account_id: u32, active: bool, window_days: u32) -> IngestStatusResponse {
+    pub fn new(account_id: u32, active: bool, friend_active: bool, prioritized: bool, window_days: u32) -> IngestStatusResponse {
         IngestStatusResponse {
             account_id,
             active,
+            friend_active,
             last_upload_at: None,
+            prioritized,
             window_days,
         }
     }

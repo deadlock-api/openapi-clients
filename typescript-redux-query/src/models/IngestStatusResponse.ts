@@ -25,17 +25,29 @@ export interface IngestStatusResponse  {
      */
     accountId: number;
     /**
-     * Whether the ingest tool uploaded a salt for this account within the window that was then verified.
+     * Whether the account\'s player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it.
      * @type {boolean}
      * @memberof IngestStatusResponse
      */
     active: boolean;
     /**
-     * Unix timestamp of the most recent verified upload within the window.
+     * Whether a Steam friend of the account uploaded with an ingest client within the window.
+     * @type {boolean}
+     * @memberof IngestStatusResponse
+     */
+    friendActive: boolean;
+    /**
+     * Unix timestamp of the account\'s own most recent verified upload within the window.
      * @type {number}
      * @memberof IngestStatusResponse
      */
     lastUploadAt?: number;
+    /**
+     * Whether the account is one of a patron\'s active prioritized accounts.
+     * @type {boolean}
+     * @memberof IngestStatusResponse
+     */
+    prioritized: boolean;
     /**
      * The window, in days, an upload must fall in to count.
      * @type {number}
@@ -48,7 +60,9 @@ export function IngestStatusResponseFromJSON(json: any): IngestStatusResponse {
     return {
         'accountId': json['account_id'],
         'active': json['active'],
+        'friendActive': json['friend_active'],
         'lastUploadAt': !exists(json, 'last_upload_at') ? undefined : json['last_upload_at'],
+        'prioritized': json['prioritized'],
         'windowDays': json['window_days'],
     };
 }
@@ -60,7 +74,9 @@ export function IngestStatusResponseToJSON(value?: IngestStatusResponse): any {
     return {
         'account_id': value.accountId,
         'active': value.active,
+        'friend_active': value.friendActive,
         'last_upload_at': value.lastUploadAt,
+        'prioritized': value.prioritized,
         'window_days': value.windowDays,
     };
 }

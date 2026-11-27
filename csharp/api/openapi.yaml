@@ -12470,7 +12470,8 @@ paths:
 
         This endpoints returns the raw .meta.bz2 file for the given `match_id`.
 
-        You have to decompress it and decode the protobuf message.
+        You have to decompress it and decode the protobuf message. Despite the name, newer files are
+        zstd-compressed: tell them apart by their magic bytes (`BZh` for bzip2, `28 b5 2f fd` for zstd).
 
         Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
 
@@ -13719,8 +13720,11 @@ paths:
 
         Internal endpoint used by the website's player tracker gate.
 
-        Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for
-        this account within the last 14 days. Only uploads whose own salt was verified count.
+        Returns whether the account's player tracker is open to everyone. It is when, within the last 14
+        days, an ingest client that sends the player's account id (the
+        [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion)
+        uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes
+        the account. Only uploads whose own salt was verified count.
       operationId: ingest_status
       parameters:
       - description: The players `SteamID3`
@@ -13747,6 +13751,8 @@ paths:
           description: User is protected
         "500":
           description: Ingest status lookup failed
+        "503":
+          description: The ingest uploaders are still loading
       summary: Ingest Status
       tags:
       - Internal
@@ -19311,7 +19317,9 @@ components:
       example:
         account_id: 343953088
         active: true
+        friend_active: true
         last_upload_at: 2588772717
+        prioritized: true
         window_days: 629561881
       properties:
         account_id:
@@ -19320,17 +19328,26 @@ components:
           minimum: 0
           type: integer
         active:
-          description: Whether the ingest tool uploaded a salt for this account within
-            the window that was then verified.
+          description: |-
+            Whether the account's player tracker is open to everyone: it or one of its Steam friends
+            ran an ingest client within the window, or a patron prioritizes it.
+          type: boolean
+        friend_active:
+          description: Whether a Steam friend of the account uploaded with an ingest
+            client within the window.
           type: boolean
         last_upload_at:
-          description: Unix timestamp of the most recent verified upload within the
-            window.
+          description: Unix timestamp of the account's own most recent verified upload
+            within the window.
           format: int64
           maximum: 4294967295
           minimum: 0
           nullable: true
           type: integer
+        prioritized:
+          description: Whether the account is one of a patron's active prioritized
+            accounts.
+          type: boolean
         window_days:
           description: "The window, in days, an upload must fall in to count."
           format: int64
@@ -19340,6 +19357,8 @@ components:
       required:
       - account_id
       - active
+      - friend_active
+      - prioritized
       - window_days
     Item:
       oneOf:

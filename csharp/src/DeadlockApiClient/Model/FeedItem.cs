@@ -112,34 +112,25 @@ namespace DeadlockApiClient.Model
         {
             int currentDepth = utf8JsonReader.CurrentDepth;
 
-            if (utf8JsonReader.TokenType != JsonTokenType.StartObject && utf8JsonReader.TokenType != JsonTokenType.StartArray)
-                throw new JsonException();
-
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
+            bool isScalarToken = startingTokenType != JsonTokenType.StartObject && startingTokenType != JsonTokenType.StartArray;
 
             FeedItemOneOf? feedItemOneOf = default;
             FeedItemOneOf1? feedItemOneOf1 = default;
 
-            Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
-            while (utf8JsonReaderOneOf.Read())
+            if (startingTokenType == JsonTokenType.StartObject)
             {
-                if (startingTokenType == JsonTokenType.StartObject && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
-                    break;
-
-                if (startingTokenType == JsonTokenType.StartArray && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndArray && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
-                    break;
-
-                if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
-                {
-                    Utf8JsonReader utf8JsonReaderFeedItemOneOf = utf8JsonReader;
-                    ClientUtils.TryDeserialize<FeedItemOneOf?>(ref utf8JsonReaderFeedItemOneOf, jsonSerializerOptions, out feedItemOneOf);
-
-                    Utf8JsonReader utf8JsonReaderFeedItemOneOf1 = utf8JsonReader;
-                    ClientUtils.TryDeserialize<FeedItemOneOf1?>(ref utf8JsonReaderFeedItemOneOf1, jsonSerializerOptions, out feedItemOneOf1);
-                }
+                Utf8JsonReader utf8JsonReaderFeedItemOneOf = utf8JsonReader;
+                ClientUtils.TryDeserialize<FeedItemOneOf?>(ref utf8JsonReaderFeedItemOneOf, jsonSerializerOptions, out feedItemOneOf);
             }
 
-            while (utf8JsonReader.Read())
+            if (startingTokenType == JsonTokenType.StartObject)
+            {
+                Utf8JsonReader utf8JsonReaderFeedItemOneOf1 = utf8JsonReader;
+                ClientUtils.TryDeserialize<FeedItemOneOf1?>(ref utf8JsonReaderFeedItemOneOf1, jsonSerializerOptions, out feedItemOneOf1);
+            }
+
+            while (!isScalarToken && utf8JsonReader.Read())
             {
                 if (startingTokenType == JsonTokenType.StartObject && utf8JsonReader.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReader.CurrentDepth)
                     break;
@@ -178,6 +169,18 @@ namespace DeadlockApiClient.Model
         public override void Write(Utf8JsonWriter writer, FeedItem feedItem, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
+
+            if (feedItem.FeedItemOneOf != null)
+            {
+                FeedItemOneOfJsonConverter feedItemOneOfJsonConverter = (FeedItemOneOfJsonConverter) jsonSerializerOptions.Converters.First(c => c.CanConvert(feedItem.FeedItemOneOf.GetType()));
+                feedItemOneOfJsonConverter.WriteProperties(writer, feedItem.FeedItemOneOf, jsonSerializerOptions);
+            }
+
+            if (feedItem.FeedItemOneOf1 != null)
+            {
+                FeedItemOneOf1JsonConverter feedItemOneOf1JsonConverter = (FeedItemOneOf1JsonConverter) jsonSerializerOptions.Converters.First(c => c.CanConvert(feedItem.FeedItemOneOf1.GetType()));
+                feedItemOneOf1JsonConverter.WriteProperties(writer, feedItem.FeedItemOneOf1, jsonSerializerOptions);
+            }
 
             WriteProperties(writer, feedItem, jsonSerializerOptions);
             writer.WriteEndObject();

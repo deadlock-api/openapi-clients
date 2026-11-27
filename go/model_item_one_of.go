@@ -14,6 +14,7 @@ import (
 	"encoding/json"
 	"bytes"
 	"fmt"
+	"strings"
 )
 
 // checks if the ItemOneOf type satisfies the MappedNullable interface at compile time
@@ -47,6 +48,38 @@ type ItemOneOf struct {
 }
 
 type _ItemOneOf ItemOneOf
+
+func (o *ItemOneOf) validateStringEnumValues(data []byte) error {
+	var fields struct {
+		AbilityType json.RawMessage `json:"ability_type,omitempty"`
+		Type json.RawMessage `json:"type"`
+	}
+	if err := json.Unmarshal(data, &fields); err != nil {
+		return err
+	}
+	if raw := fields.AbilityType; raw != nil {
+		var value string
+		if err := json.Unmarshal(raw, &value); err != nil {
+			return err
+		}
+		if string(raw) != "null" && (value != "innate" && value != "item" && value != "signature" && value != "ultimate" && value != "weapon" && value != "melee" && value != "cosmetic" && value != "held") {
+			return fmt.Errorf("invalid value %q for property %s", value, "ability_type")
+		}
+	}
+	if raw := fields.Type; raw != nil {
+		if string(raw) == "null" {
+			return fmt.Errorf("invalid null value for property %s", "type")
+		}
+		var value string
+		if err := json.Unmarshal(raw, &value); err != nil {
+			return err
+		}
+		if value != "ability" {
+			return fmt.Errorf("invalid value %q for property %s", value, "type")
+		}
+	}
+	return nil
+}
 
 // NewItemOneOf instantiates a new ItemOneOf object
 // This constructor will assign default values to properties that have it defined,
@@ -920,6 +953,9 @@ func (o ItemOneOf) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *ItemOneOf) UnmarshalJSON(data []byte) (err error) {
+	if err := o.validateStringEnumValues(data); err != nil {
+		return err
+	}
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -939,8 +975,19 @@ func (o *ItemOneOf) UnmarshalJSON(data []byte) (err error) {
 		return err;
 	}
 
+	lookupRequiredProperty := func(requiredProperty string) (interface{}, string, bool) {
+		if value, exists := allProperties[requiredProperty]; exists {
+			return value, requiredProperty, true
+		}
+		for name, value := range allProperties {
+			if strings.EqualFold(name, requiredProperty) {
+				return value, name, true
+			}
+		}
+		return nil, "", false
+	}
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if _, _, exists := lookupRequiredProperty(requiredProperty); !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}

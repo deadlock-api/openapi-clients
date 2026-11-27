@@ -34,14 +34,18 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="IngestStatusResponse" /> class.
         /// </summary>
         /// <param name="accountId">accountId</param>
-        /// <param name="active">Whether the ingest tool uploaded a salt for this account within the window that was then verified.</param>
+        /// <param name="active">Whether the account&#39;s player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it.</param>
+        /// <param name="friendActive">Whether a Steam friend of the account uploaded with an ingest client within the window.</param>
+        /// <param name="prioritized">Whether the account is one of a patron&#39;s active prioritized accounts.</param>
         /// <param name="windowDays">The window, in days, an upload must fall in to count.</param>
-        /// <param name="lastUploadAt">Unix timestamp of the most recent verified upload within the window.</param>
+        /// <param name="lastUploadAt">Unix timestamp of the account&#39;s own most recent verified upload within the window.</param>
         [JsonConstructor]
-        public IngestStatusResponse(long accountId, bool active, long windowDays, Option<long?> lastUploadAt = default)
+        public IngestStatusResponse(long accountId, bool active, bool friendActive, bool prioritized, long windowDays, Option<long?> lastUploadAt = default)
         {
             AccountId = accountId;
             Active = active;
+            FriendActive = friendActive;
+            Prioritized = prioritized;
             WindowDays = windowDays;
             LastUploadAtOption = lastUploadAt;
             OnCreated();
@@ -56,11 +60,25 @@ namespace DeadlockApiClient.Model
         public long AccountId { get; set; }
 
         /// <summary>
-        /// Whether the ingest tool uploaded a salt for this account within the window that was then verified.
+        /// Whether the account&#39;s player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it.
         /// </summary>
-        /// <value>Whether the ingest tool uploaded a salt for this account within the window that was then verified.</value>
+        /// <value>Whether the account&#39;s player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it.</value>
         [JsonPropertyName("active")]
         public bool Active { get; set; }
+
+        /// <summary>
+        /// Whether a Steam friend of the account uploaded with an ingest client within the window.
+        /// </summary>
+        /// <value>Whether a Steam friend of the account uploaded with an ingest client within the window.</value>
+        [JsonPropertyName("friend_active")]
+        public bool FriendActive { get; set; }
+
+        /// <summary>
+        /// Whether the account is one of a patron&#39;s active prioritized accounts.
+        /// </summary>
+        /// <value>Whether the account is one of a patron&#39;s active prioritized accounts.</value>
+        [JsonPropertyName("prioritized")]
+        public bool Prioritized { get; set; }
 
         /// <summary>
         /// The window, in days, an upload must fall in to count.
@@ -77,9 +95,9 @@ namespace DeadlockApiClient.Model
         public Option<long?> LastUploadAtOption { get; private set; }
 
         /// <summary>
-        /// Unix timestamp of the most recent verified upload within the window.
+        /// Unix timestamp of the account&#39;s own most recent verified upload within the window.
         /// </summary>
-        /// <value>Unix timestamp of the most recent verified upload within the window.</value>
+        /// <value>Unix timestamp of the account&#39;s own most recent verified upload within the window.</value>
         [JsonPropertyName("last_upload_at")]
         public long? LastUploadAt { get { return this.LastUploadAtOption.Value; } set { this.LastUploadAtOption = new(value); } }
 
@@ -93,6 +111,8 @@ namespace DeadlockApiClient.Model
             sb.Append("class IngestStatusResponse {\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
+            sb.Append("  FriendActive: ").Append(FriendActive).Append("\n");
+            sb.Append("  Prioritized: ").Append(Prioritized).Append("\n");
             sb.Append("  WindowDays: ").Append(WindowDays).Append("\n");
             sb.Append("  LastUploadAt: ").Append(LastUploadAt).Append("\n");
             sb.Append("}\n");
@@ -180,6 +200,8 @@ namespace DeadlockApiClient.Model
 
             Option<long?> accountId = default;
             Option<bool?> active = default;
+            Option<bool?> friendActive = default;
+            Option<bool?> prioritized = default;
             Option<long?> windowDays = default;
             Option<long?> lastUploadAt = default;
 
@@ -204,6 +226,12 @@ namespace DeadlockApiClient.Model
                         case "active":
                             active = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
+                        case "friend_active":
+                            friendActive = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
+                        case "prioritized":
+                            prioritized = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
                         case "window_days":
                             windowDays = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
@@ -222,6 +250,12 @@ namespace DeadlockApiClient.Model
             if (!active.IsSet)
                 throw new JsonException("Property is required for class IngestStatusResponse: active.");
 
+            if (!friendActive.IsSet)
+                throw new JsonException("Property is required for class IngestStatusResponse: friend_active.");
+
+            if (!prioritized.IsSet)
+                throw new JsonException("Property is required for class IngestStatusResponse: prioritized.");
+
             if (!windowDays.IsSet)
                 throw new JsonException("Property is required for class IngestStatusResponse: window_days.");
 
@@ -231,10 +265,16 @@ namespace DeadlockApiClient.Model
             if (active.IsSet && active.Value == null)
                 throw new JsonException("Property is not nullable for class IngestStatusResponse: active.");
 
+            if (friendActive.IsSet && friendActive.Value == null)
+                throw new JsonException("Property is not nullable for class IngestStatusResponse: friend_active.");
+
+            if (prioritized.IsSet && prioritized.Value == null)
+                throw new JsonException("Property is not nullable for class IngestStatusResponse: prioritized.");
+
             if (windowDays.IsSet && windowDays.Value == null)
                 throw new JsonException("Property is not nullable for class IngestStatusResponse: window_days.");
 
-            return new IngestStatusResponse(accountId.Value!.Value!, active.Value!.Value!, windowDays.Value!.Value!, lastUploadAt);
+            return new IngestStatusResponse(accountId.Value!.Value!, active.Value!.Value!, friendActive.Value!.Value!, prioritized.Value!.Value!, windowDays.Value!.Value!, lastUploadAt);
         }
 
         /// <summary>
@@ -262,6 +302,10 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("account_id", ingestStatusResponse.AccountId);
 
             writer.WriteBoolean("active", ingestStatusResponse.Active);
+
+            writer.WriteBoolean("friend_active", ingestStatusResponse.FriendActive);
+
+            writer.WriteBoolean("prioritized", ingestStatusResponse.Prioritized);
 
             writer.WriteNumber("window_days", ingestStatusResponse.WindowDays);
 

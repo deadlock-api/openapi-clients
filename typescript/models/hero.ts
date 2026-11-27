@@ -91,7 +91,7 @@ export interface Hero {
     'id': number;
     'images': HeroImages;
     'in_development': boolean;
-    'item_draft_bucketing'?: { [key: string]: HashMapStringOptionDraftBucketingValue; } | null;
+    'item_draft_bucketing'?: { [key: string]: HashMapStringOptionDraftBucketingValue | null; } | null;
     'item_draft_weights'?: { [key: string]: number; } | null;
     'item_slot_info': { [key: string]: HashMapItemSlotTypeItemSlotInfoValue; };
     'items': { [key: string]: string; };

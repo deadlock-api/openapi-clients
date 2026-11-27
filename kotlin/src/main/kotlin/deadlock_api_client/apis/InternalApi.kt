@@ -356,7 +356,7 @@ open class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * GET /v1/players/{account_id}/ingest-status
      * Ingest Status
-     *  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+     *  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the account&#39;s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player&#39;s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count. 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return IngestStatusResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -388,7 +388,7 @@ open class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * GET /v1/players/{account_id}/ingest-status
      * Ingest Status
-     *  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+     *  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the account&#39;s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player&#39;s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count. 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @return ApiResponse<IngestStatusResponse?>
      * @throws IllegalStateException If the request is not correctly configured

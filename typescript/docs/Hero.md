@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **id** | **number** |  | [default to undefined]
 **images** | [**HeroImages**](HeroImages.md) |  | [default to undefined]
 **in_development** | **boolean** |  | [default to undefined]
-**item_draft_bucketing** | [**{ [key: string]: HashMapStringOptionDraftBucketingValue; }**](HashMapStringOptionDraftBucketingValue.md) |  | [optional] [default to undefined]
+**item_draft_bucketing** | [**{ [key: string]: HashMapStringOptionDraftBucketingValue | null; }**](HashMapStringOptionDraftBucketingValue.md) |  | [optional] [default to undefined]
 **item_draft_weights** | **{ [key: string]: number; }** |  | [optional] [default to undefined]
 **item_slot_info** | [**{ [key: string]: HashMapItemSlotTypeItemSlotInfoValue; }**](HashMapItemSlotTypeItemSlotInfoValue.md) |  | [default to undefined]
 **items** | **{ [key: string]: string; }** |  | [default to undefined]

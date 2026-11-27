@@ -245,9 +245,9 @@ namespace DeadlockApiClient.Model
             writer.WriteString("link", steamNews.Link);
 
             {
-                        writer.WritePropertyName("pub_date");
-                            JsonSerializer.Serialize(writer, steamNews.PubDate, jsonSerializerOptions);
-                        }
+                writer.WritePropertyName("pub_date");
+                JsonSerializer.Serialize(writer, steamNews.PubDate, jsonSerializerOptions);
+            }
 
             writer.WriteString("title", steamNews.Title);
         }

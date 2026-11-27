@@ -72,6 +72,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'FriendActive'
+        /// </summary>
+        [Fact]
+        public void FriendActiveTest()
+        {
+            // TODO unit test for the property 'FriendActive'
+        }
+
+        /// <summary>
+        /// Test the property 'Prioritized'
+        /// </summary>
+        [Fact]
+        public void PrioritizedTest()
+        {
+            // TODO unit test for the property 'Prioritized'
+        }
+
+        /// <summary>
         /// Test the property 'WindowDays'
         /// </summary>
         [Fact]

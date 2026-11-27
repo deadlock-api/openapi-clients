@@ -221,9 +221,9 @@ namespace DeadlockApiClient.Model
         public void WriteProperties(Utf8JsonWriter writer, SteamAccountResponse steamAccountResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             {
-                        writer.WritePropertyName("created_at");
-                            JsonSerializer.Serialize(writer, steamAccountResponse.CreatedAt, jsonSerializerOptions);
-                        }
+                writer.WritePropertyName("created_at");
+                JsonSerializer.Serialize(writer, steamAccountResponse.CreatedAt, jsonSerializerOptions);
+            }
 
             writer.WriteString("id", steamAccountResponse.Id);
 
@@ -231,10 +231,10 @@ namespace DeadlockApiClient.Model
 
             if (steamAccountResponse.DeletedAtOption.IsSet)
                 if (steamAccountResponse.DeletedAtOption.Value != null)
-                    {
-                            writer.WritePropertyName("deleted_at");
-                                JsonSerializer.Serialize(writer, steamAccountResponse.DeletedAtOption.Value!.Value, jsonSerializerOptions);
-                            }
+                {
+                    writer.WritePropertyName("deleted_at");
+                    JsonSerializer.Serialize(writer, steamAccountResponse.DeletedAtOption.Value!.Value, jsonSerializerOptions);
+                }
                 else
                     writer.WriteNull("deleted_at");
         }

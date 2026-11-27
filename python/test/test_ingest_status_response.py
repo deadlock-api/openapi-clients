@@ -37,13 +37,17 @@ class TestIngestStatusResponse(unittest.TestCase):
             return IngestStatusResponse(
                 account_id = 0,
                 active = True,
+                friend_active = True,
                 last_upload_at = 0,
+                prioritized = True,
                 window_days = 0
             )
         else:
             return IngestStatusResponse(
                 account_id = 0,
                 active = True,
+                friend_active = True,
+                prioritized = True,
                 window_days = 0,
         )
         """

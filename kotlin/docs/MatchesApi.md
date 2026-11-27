@@ -324,7 +324,7 @@ No authorization required
 
 Metadata as Protobuf
 
- This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From cache: -&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From cache: -&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h | 
+ This endpoints returns the raw .meta.bz2 file for the given &#x60;match_id&#x60;.  You have to decompress it and decode the protobuf message. Despite the name, newer files are zstd-compressed: tell them apart by their magic bytes (&#x60;BZh&#x60; for bzip2, &#x60;28 b5 2f fd&#x60; for zstd).  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s&lt;br&gt;From S3: 100req/10s&lt;br&gt;From Steam: 3req/h | | Key | From cache: -&lt;br&gt;From S3: 100req/s&lt;br&gt;From Steam: 300req/h | | Global | From cache: -&lt;br&gt;From S3: 700req/s&lt;br&gt;From Steam: 1500req/h | 
 
 ### Example
 ```kotlin

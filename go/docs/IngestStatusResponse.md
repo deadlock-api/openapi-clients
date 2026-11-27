@@ -5,15 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **int64** |  | 
-**Active** | **bool** | Whether the ingest tool uploaded a salt for this account within the window that was then verified. | 
-**LastUploadAt** | Pointer to **NullableInt64** | Unix timestamp of the most recent verified upload within the window. | [optional] 
+**Active** | **bool** | Whether the account&#39;s player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it. | 
+**FriendActive** | **bool** | Whether a Steam friend of the account uploaded with an ingest client within the window. | 
+**LastUploadAt** | Pointer to **NullableInt64** | Unix timestamp of the account&#39;s own most recent verified upload within the window. | [optional] 
+**Prioritized** | **bool** | Whether the account is one of a patron&#39;s active prioritized accounts. | 
 **WindowDays** | **int64** | The window, in days, an upload must fall in to count. | 
 
 ## Methods
 
 ### NewIngestStatusResponse
 
-`func NewIngestStatusResponse(accountId int64, active bool, windowDays int64, ) *IngestStatusResponse`
+`func NewIngestStatusResponse(accountId int64, active bool, friendActive bool, prioritized bool, windowDays int64, ) *IngestStatusResponse`
 
 NewIngestStatusResponse instantiates a new IngestStatusResponse object
 This constructor will assign default values to properties that have it defined,
@@ -68,6 +70,26 @@ and a boolean to check if the value has been set.
 SetActive sets Active field to given value.
 
 
+### GetFriendActive
+
+`func (o *IngestStatusResponse) GetFriendActive() bool`
+
+GetFriendActive returns the FriendActive field if non-nil, zero value otherwise.
+
+### GetFriendActiveOk
+
+`func (o *IngestStatusResponse) GetFriendActiveOk() (*bool, bool)`
+
+GetFriendActiveOk returns a tuple with the FriendActive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFriendActive
+
+`func (o *IngestStatusResponse) SetFriendActive(v bool)`
+
+SetFriendActive sets FriendActive field to given value.
+
+
 ### GetLastUploadAt
 
 `func (o *IngestStatusResponse) GetLastUploadAt() int64`
@@ -103,6 +125,26 @@ HasLastUploadAt returns a boolean if a field has been set.
 `func (o *IngestStatusResponse) UnsetLastUploadAt()`
 
 UnsetLastUploadAt ensures that no value is present for LastUploadAt, not even an explicit nil
+### GetPrioritized
+
+`func (o *IngestStatusResponse) GetPrioritized() bool`
+
+GetPrioritized returns the Prioritized field if non-nil, zero value otherwise.
+
+### GetPrioritizedOk
+
+`func (o *IngestStatusResponse) GetPrioritizedOk() (*bool, bool)`
+
+GetPrioritizedOk returns a tuple with the Prioritized field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrioritized
+
+`func (o *IngestStatusResponse) SetPrioritized(v bool)`
+
+SetPrioritized sets Prioritized field to given value.
+
+
 ### GetWindowDays
 
 `func (o *IngestStatusResponse) GetWindowDays() int64`

@@ -58,7 +58,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     ingestSalts: (clickhouseSalts: Array<ClickhouseSalts>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the account\'s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player\'s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count.
      * @summary Ingest Status
      * @param {number} accountId The players &#x60;SteamID3&#x60;
      * @param {*} [options] Override http request option.
@@ -135,7 +135,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     ingestSalts(clickhouseSalts: Array<ClickhouseSalts>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the account\'s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player\'s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count.
      * @summary Ingest Status
      * @param {number} accountId The players &#x60;SteamID3&#x60;
      * @param {*} [options] Override http request option.
@@ -212,7 +212,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     ingestSalts(requestParameters: InternalApiIngestSaltsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
     /**
-     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the account\'s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player\'s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count.
      * @summary Ingest Status
      * @param {InternalApiIngestStatusRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -352,7 +352,7 @@ export declare class InternalApi extends BaseAPI {
      */
     ingestSalts(requestParameters: InternalApiIngestSaltsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
     /**
-     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the account\'s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player\'s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count.
      * @summary Ingest Status
      * @param {InternalApiIngestStatusRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

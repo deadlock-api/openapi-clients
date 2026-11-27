@@ -12,13 +12,21 @@
 export interface IngestStatusResponse {
     'account_id': number;
     /**
-     * Whether the ingest tool uploaded a salt for this account within the window that was then verified.
+     * Whether the account\'s player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it.
      */
     'active': boolean;
     /**
-     * Unix timestamp of the most recent verified upload within the window.
+     * Whether a Steam friend of the account uploaded with an ingest client within the window.
+     */
+    'friend_active': boolean;
+    /**
+     * Unix timestamp of the account\'s own most recent verified upload within the window.
      */
     'last_upload_at'?: number | null;
+    /**
+     * Whether the account is one of a patron\'s active prioritized accounts.
+     */
+    'prioritized': boolean;
     /**
      * The window, in days, an upload must fall in to count.
      */

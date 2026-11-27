@@ -134,7 +134,7 @@ namespace DeadlockApiClient.Api
         /// Ingest Status
         /// </summary>
         /// <remarks>
-        ///  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+        ///  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the account&#39;s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player&#39;s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -146,7 +146,7 @@ namespace DeadlockApiClient.Api
         /// Ingest Status
         /// </summary>
         /// <remarks>
-        ///  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+        ///  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the account&#39;s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player&#39;s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count. 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -376,6 +376,12 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsInternalServerError { get; }
+
+        /// <summary>
+        /// Returns true if the response is 503 ServiceUnavailable
+        /// </summary>
+        /// <returns></returns>
+        bool IsServiceUnavailable { get; }
     }
 
     /// <summary>
@@ -1850,7 +1856,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorIngestStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId);
 
         /// <summary>
-        /// Ingest Status  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+        /// Ingest Status  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the account&#39;s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player&#39;s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count. 
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1868,7 +1874,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Ingest Status  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+        /// Ingest Status  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the account&#39;s player tracker is open to everyone. It is when, within the last 14 days, an ingest client that sends the player&#39;s account id (the [ingest tool](https://deadlock-api.com/ingest-cache), Deadlock Plus or the DeadChaps companion) uploaded match salts for the account or for one of its Steam friends, or when a patron prioritizes the account. Only uploads whose own salt was verified count. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -2047,6 +2053,12 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 503 ServiceUnavailable
+            /// </summary>
+            /// <returns></returns>
+            public bool IsServiceUnavailable => 503 == (int)StatusCode;
 
             private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
             {

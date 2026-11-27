@@ -170,10 +170,10 @@ export interface Hero  {
     inDevelopment: boolean;
     /**
      * 
-     * @type {{ [key: string]: HashMapStringOptionDraftBucketingValue; }}
+     * @type {{ [key: string]: HashMapStringOptionDraftBucketingValue | null; }}
      * @memberof Hero
      */
-    itemDraftBucketing?: { [key: string]: HashMapStringOptionDraftBucketingValue; };
+    itemDraftBucketing?: { [key: string]: HashMapStringOptionDraftBucketingValue | null; };
     /**
      * 
      * @type {{ [key: string]: number; }}

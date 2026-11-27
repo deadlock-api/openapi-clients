@@ -112,34 +112,25 @@ namespace DeadlockApiClient.Model
         {
             int currentDepth = utf8JsonReader.CurrentDepth;
 
-            if (utf8JsonReader.TokenType != JsonTokenType.StartObject && utf8JsonReader.TokenType != JsonTokenType.StartArray)
-                throw new JsonException();
-
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
+            bool isScalarToken = startingTokenType != JsonTokenType.StartObject && startingTokenType != JsonTokenType.StartArray;
 
             Curve? curve = default;
             double? varDouble = default;
 
-            Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
-            while (utf8JsonReaderOneOf.Read())
+            if (startingTokenType == JsonTokenType.StartObject)
             {
-                if (startingTokenType == JsonTokenType.StartObject && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
-                    break;
-
-                if (startingTokenType == JsonTokenType.StartArray && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndArray && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
-                    break;
-
-                if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
-                {
-                    Utf8JsonReader utf8JsonReaderCurve = utf8JsonReader;
-                    ClientUtils.TryDeserialize<Curve?>(ref utf8JsonReaderCurve, jsonSerializerOptions, out curve);
-
-                    Utf8JsonReader utf8JsonReaderDouble = utf8JsonReader;
-                    ClientUtils.TryDeserialize<double?>(ref utf8JsonReaderDouble, jsonSerializerOptions, out varDouble);
-                }
+                Utf8JsonReader utf8JsonReaderCurve = utf8JsonReader;
+                ClientUtils.TryDeserialize<Curve?>(ref utf8JsonReaderCurve, jsonSerializerOptions, out curve);
             }
 
-            while (utf8JsonReader.Read())
+            if (isScalarToken)
+            {
+                Utf8JsonReader utf8JsonReaderDouble = utf8JsonReader;
+                ClientUtils.TryDeserialize<double?>(ref utf8JsonReaderDouble, jsonSerializerOptions, out varDouble);
+            }
+
+            while (!isScalarToken && utf8JsonReader.Read())
             {
                 if (startingTokenType == JsonTokenType.StartObject && utf8JsonReader.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReader.CurrentDepth)
                     break;
@@ -177,7 +168,19 @@ namespace DeadlockApiClient.Model
         /// <param name="jsonSerializerOptions"></param>
         public override void Write(Utf8JsonWriter writer, CurveOrFloat curveOrFloat, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (curveOrFloat.Double != null)
+            {
+                JsonSerializer.Serialize(writer, curveOrFloat.Double, jsonSerializerOptions);
+                return;
+            }
+
             writer.WriteStartObject();
+
+            if (curveOrFloat.Curve != null)
+            {
+                CurveJsonConverter curveJsonConverter = (CurveJsonConverter) jsonSerializerOptions.Converters.First(c => c.CanConvert(curveOrFloat.Curve.GetType()));
+                curveJsonConverter.WriteProperties(writer, curveOrFloat.Curve, jsonSerializerOptions);
+            }
 
             WriteProperties(writer, curveOrFloat, jsonSerializerOptions);
             writer.WriteEndObject();

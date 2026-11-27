@@ -415,9 +415,9 @@ namespace DeadlockApiClient.Model
             writer.WritePropertyName("friends");
             JsonSerializer.Serialize(writer, steamProfile.Friends, jsonSerializerOptions);
             {
-                        writer.WritePropertyName("last_updated");
-                            JsonSerializer.Serialize(writer, steamProfile.LastUpdated, jsonSerializerOptions);
-                        }
+                writer.WritePropertyName("last_updated");
+                JsonSerializer.Serialize(writer, steamProfile.LastUpdated, jsonSerializerOptions);
+            }
 
             writer.WriteNumber("matches_played_last_30d", steamProfile.MatchesPlayedLast30d);
 

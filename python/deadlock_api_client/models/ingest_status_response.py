@@ -29,10 +29,12 @@ class IngestStatusResponse(BaseModel):
     IngestStatusResponse
     """ # noqa: E501
     account_id: Annotated[int, Field(le=4294967295, strict=True, ge=0)]
-    active: StrictBool = Field(description="Whether the ingest tool uploaded a salt for this account within the window that was then verified.")
-    last_upload_at: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Unix timestamp of the most recent verified upload within the window.")
+    active: StrictBool = Field(description="Whether the account's player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it.")
+    friend_active: StrictBool = Field(description="Whether a Steam friend of the account uploaded with an ingest client within the window.")
+    last_upload_at: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="Unix timestamp of the account's own most recent verified upload within the window.")
+    prioritized: StrictBool = Field(description="Whether the account is one of a patron's active prioritized accounts.")
     window_days: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The window, in days, an upload must fall in to count.")
-    __properties: ClassVar[List[str]] = ["account_id", "active", "last_upload_at", "window_days"]
+    __properties: ClassVar[List[str]] = ["account_id", "active", "friend_active", "last_upload_at", "prioritized", "window_days"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -92,7 +94,9 @@ class IngestStatusResponse(BaseModel):
         _obj = cls.model_validate({
             "account_id": obj.get("account_id"),
             "active": obj.get("active"),
+            "friend_active": obj.get("friend_active"),
             "last_upload_at": obj.get("last_upload_at"),
+            "prioritized": obj.get("prioritized"),
             "window_days": obj.get("window_days")
         })
         return _obj

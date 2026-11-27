@@ -22,10 +22,14 @@ var _ MappedNullable = &IngestStatusResponse{}
 // IngestStatusResponse struct for IngestStatusResponse
 type IngestStatusResponse struct {
 	AccountId int64 `json:"account_id"`
-	// Whether the ingest tool uploaded a salt for this account within the window that was then verified.
+	// Whether the account's player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it.
 	Active bool `json:"active"`
-	// Unix timestamp of the most recent verified upload within the window.
+	// Whether a Steam friend of the account uploaded with an ingest client within the window.
+	FriendActive bool `json:"friend_active"`
+	// Unix timestamp of the account's own most recent verified upload within the window.
 	LastUploadAt NullableInt64 `json:"last_upload_at,omitempty"`
+	// Whether the account is one of a patron's active prioritized accounts.
+	Prioritized bool `json:"prioritized"`
 	// The window, in days, an upload must fall in to count.
 	WindowDays int64 `json:"window_days"`
 }
@@ -36,10 +40,12 @@ type _IngestStatusResponse IngestStatusResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIngestStatusResponse(accountId int64, active bool, windowDays int64) *IngestStatusResponse {
+func NewIngestStatusResponse(accountId int64, active bool, friendActive bool, prioritized bool, windowDays int64) *IngestStatusResponse {
 	this := IngestStatusResponse{}
 	this.AccountId = accountId
 	this.Active = active
+	this.FriendActive = friendActive
+	this.Prioritized = prioritized
 	this.WindowDays = windowDays
 	return &this
 }
@@ -100,6 +106,30 @@ func (o *IngestStatusResponse) SetActive(v bool) {
 	o.Active = v
 }
 
+// GetFriendActive returns the FriendActive field value
+func (o *IngestStatusResponse) GetFriendActive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.FriendActive
+}
+
+// GetFriendActiveOk returns a tuple with the FriendActive field value
+// and a boolean to check if the value has been set.
+func (o *IngestStatusResponse) GetFriendActiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FriendActive, true
+}
+
+// SetFriendActive sets field value
+func (o *IngestStatusResponse) SetFriendActive(v bool) {
+	o.FriendActive = v
+}
+
 // GetLastUploadAt returns the LastUploadAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IngestStatusResponse) GetLastUploadAt() int64 {
 	if o == nil || IsNil(o.LastUploadAt.Get()) {
@@ -142,6 +172,30 @@ func (o *IngestStatusResponse) UnsetLastUploadAt() {
 	o.LastUploadAt.Unset()
 }
 
+// GetPrioritized returns the Prioritized field value
+func (o *IngestStatusResponse) GetPrioritized() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.Prioritized
+}
+
+// GetPrioritizedOk returns a tuple with the Prioritized field value
+// and a boolean to check if the value has been set.
+func (o *IngestStatusResponse) GetPrioritizedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Prioritized, true
+}
+
+// SetPrioritized sets field value
+func (o *IngestStatusResponse) SetPrioritized(v bool) {
+	o.Prioritized = v
+}
+
 // GetWindowDays returns the WindowDays field value
 func (o *IngestStatusResponse) GetWindowDays() int64 {
 	if o == nil {
@@ -178,9 +232,11 @@ func (o IngestStatusResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["account_id"] = o.AccountId
 	toSerialize["active"] = o.Active
+	toSerialize["friend_active"] = o.FriendActive
 	if o.LastUploadAt.IsSet() {
 		toSerialize["last_upload_at"] = o.LastUploadAt.Get()
 	}
+	toSerialize["prioritized"] = o.Prioritized
 	toSerialize["window_days"] = o.WindowDays
 	return toSerialize, nil
 }
@@ -192,6 +248,8 @@ func (o *IngestStatusResponse) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"account_id",
 		"active",
+		"friend_active",
+		"prioritized",
 		"window_days",
 	}
 

@@ -344,9 +344,9 @@ namespace DeadlockApiClient.Model
             writer.WriteString("link", feedItemOneOf.Link);
 
             {
-                        writer.WritePropertyName("pub_date");
-                            JsonSerializer.Serialize(writer, feedItemOneOf.PubDate, jsonSerializerOptions);
-                        }
+                writer.WritePropertyName("pub_date");
+                JsonSerializer.Serialize(writer, feedItemOneOf.PubDate, jsonSerializerOptions);
+            }
 
             writer.WriteString("title", feedItemOneOf.Title);
 

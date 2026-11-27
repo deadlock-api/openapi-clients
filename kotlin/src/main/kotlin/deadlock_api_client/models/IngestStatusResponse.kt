@@ -30,9 +30,11 @@ import java.io.Serializable
 
 /**
  * @param accountId
- * @param active Whether the ingest tool uploaded a salt for this account within the window that was then verified.
+ * @param active Whether the account's player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it.
+ * @param friendActive Whether a Steam friend of the account uploaded with an ingest client within the window.
+ * @param prioritized Whether the account is one of a patron's active prioritized accounts.
  * @param windowDays The window, in days, an upload must fall in to count.
- * @param lastUploadAt Unix timestamp of the most recent verified upload within the window.
+ * @param lastUploadAt Unix timestamp of the account's own most recent verified upload within the window.
  */
 
 
@@ -41,15 +43,23 @@ data class IngestStatusResponse (
     @Json(name = "account_id")
     val accountId: kotlin.Long,
 
-    /* Whether the ingest tool uploaded a salt for this account within the window that was then verified. */
+    /* Whether the account's player tracker is open to everyone: it or one of its Steam friends ran an ingest client within the window, or a patron prioritizes it. */
     @Json(name = "active")
     val active: kotlin.Boolean,
+
+    /* Whether a Steam friend of the account uploaded with an ingest client within the window. */
+    @Json(name = "friend_active")
+    val friendActive: kotlin.Boolean,
+
+    /* Whether the account is one of a patron's active prioritized accounts. */
+    @Json(name = "prioritized")
+    val prioritized: kotlin.Boolean,
 
     /* The window, in days, an upload must fall in to count. */
     @Json(name = "window_days")
     val windowDays: kotlin.Long,
 
-    /* Unix timestamp of the most recent verified upload within the window. */
+    /* Unix timestamp of the account's own most recent verified upload within the window. */
     @Json(name = "last_upload_at")
     val lastUploadAt: kotlin.Long? = null
 
