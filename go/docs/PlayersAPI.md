@@ -585,7 +585,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793059200)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1793145600)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int32(56) // int32 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -618,7 +618,7 @@ Other parameters are passed through a pointer to a apiRankDistributionRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793059200]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1793145600]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int32** | Filter matches based on their duration in seconds (up to 7000s). | 

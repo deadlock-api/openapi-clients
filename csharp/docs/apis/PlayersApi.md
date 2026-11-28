@@ -333,7 +333,7 @@ Rank Distribution
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1793059200] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1793145600] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **int** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
